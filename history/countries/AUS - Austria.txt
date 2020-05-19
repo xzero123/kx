@@ -1,4 +1,4 @@
-capital = 4
+ï»¿capital = 4
 
 oob = "AUS"
 set_naval_oob= "AUS_naval"
@@ -6,11 +6,11 @@ set_naval_oob= "AUS_naval"
 set_research_slots = 4
 
 set_technology = {
-
 	### Tanks ###
 	gwtank = 1
 	basic_light_tank = 1
-	### INF ###
+
+	### Infantry ###
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	motorised_infantry = 1
@@ -18,11 +18,10 @@ set_technology = {
 	tech_recon = 1
 	tech_mountaineers = 1
 	gw_artillery = 1
-	transport = 1
-	### AIR ###
+
+	### Air ###
 	early_fighter = 1
 	naval_bomber1 = 1
-	### Naval ###	
 }
 
 ### Navy - MtG ###
@@ -58,6 +57,9 @@ if = {
 		capital_gunnery_one = 1
 		weltkrieg_naval_gunnery = 1
 		naval_ammo_one = 1
+
+		### Transport ###
+		transport = 1
 	}
 }
 
@@ -65,7 +67,7 @@ if = {
 
 if = {
 	limit = {
-		not = {
+		NOT = {
 			has_dlc = "Man the Guns"
 		}
 	}
@@ -82,6 +84,9 @@ if = {
 		interwar_fast_battleship_nonmtg = 1
 		weltkrieg_dreadnought_nonmtg = 1
 		super_heavy_dreadnought_nonmtg = 1
+
+		### Transport ###
+		transport_n = 1
 	}
 }
 
@@ -99,11 +104,6 @@ country_event = { id = aus.elections.1 days = 41 } #Austrian Elections of 1936
 country_event = { id = ausgleich.new.100 days = 470 } # Ausgleich of 1937
 country_event = { id = literature.1 days = 761 } #Alamut - newest book of Vladimir Bartol
 country_event = { id = austria.3 days = 4108 } #Death of Karl I
-country_event = {
-	id = aus.5
-	days = 11
-}
-
 
 set_war_support = 0.1
 
@@ -111,93 +111,45 @@ set_politics = {
 	ruling_party = social_conservative
 	last_election = "1930.3.9"
 	election_frequency = 72
-	elections_allowed = yes #14
+	elections_allowed = yes
 }
 
 set_popularities = {
 	totalist = 0
 	syndicalist = 0
-	radical_socialist = 0
-	social_democrat = 27
-	social_liberal = 4
+	radical_socialist = 4
+	social_democrat = 37
+	social_liberal = 3
 	market_liberal = 4
-	social_conservative = 30
-	authoritarian_democrat = 0
-	paternal_autocrat = 7
-	national_populist = 28
+	social_conservative = 47
+	authoritarian_democrat = 3
+	paternal_autocrat = 2
+	national_populist = 0
 }
 
 set_convoys = 50
 
-
 set_autonomy = {
-	target = ITA
+	target = HUN
 	autonomy_state = kr_autonomous_puppet
 }
 set_autonomy = {
 	target = CZE
-	autonomy_state = kr_autonomous_puppet
+	autonomy_state = kr_integrated_puppet
+}
+set_autonomy = {
+	target = CRO
+	autonomy_state = kr_integrated_puppet
 }
 set_autonomy = {
 	target = GAL
-	autonomy_state = kr_autonomous_puppet
+	autonomy_state = kr_integrated_puppet
 }
-
-create_faction = "Austro-Hungarian Empire"
-add_to_faction = HUN
-add_to_faction = CZE
-add_to_faction = CRO
-add_to_faction = GAL
-
-HUN = {
-	set_rule = {
-		can_be_called_to_war = no
-		can_decline_call_to_war = yes
-		can_not_declare_war = yes
-	}
-	add_ideas = AUS_part_of_the_Empire
-}
-
-CZE = {
-	set_rule = {
-		can_be_called_to_war = no
-		can_decline_call_to_war = yes
-		can_not_declare_war = yes
-	}
-	add_ideas = AUS_part_of_the_Empire
-}
-
-CRO = {
-	set_rule = {
-		can_be_called_to_war = no
-		can_decline_call_to_war = yes
-		can_not_declare_war = yes
-	}
-	add_ideas = AUS_part_of_the_Empire
-}
-
-GAL = {
-	set_rule = {
-		can_be_called_to_war = no
-		can_decline_call_to_war = yes
-		can_not_declare_war = yes
-	}
-	add_ideas = AUS_part_of_the_Empire
-}
-
-
 
 add_ideas = {
 	AUS_financial_ties_broken
 	AUS_k_u_k_armee_bonus
 	AUS_vienna_circle
-	
-	#AUS_ethnic_warfare
-	#AUS_sick_man
-	#AUS_karl_habsburg
-	#AUS_shellshocked_population
-	#AUS_lingering_german_influence
-	AUS_fatherland_front
 
 	### Minister
 	AUS_Albert_von_Mensdorff_Pouilly_Dietrichstein_hog_ade
@@ -207,7 +159,7 @@ add_ideas = {
 	limited_conscription
 }
 
-set_stability = 0.40
+set_stability = 0.55
 
 create_country_leader = {
 	name = "Karl I"
@@ -257,21 +209,13 @@ create_country_leader = {
 	ideology = paternal_autocrat_subtype
 }
 
-create_country_leader = {
-	name = "Engelbert Dollfuss"
-	desc = "POLITICS_DOLFUSS_DESC"
-	picture = "Portrait_AUS_dolfuss.tga"
-	expire = "1965.1.1"
-	ideology = national_populist_subtype
-}
-
 ###########################
 ### Generals & Admirals ###
 ###########################
 
-### Field Marshal
+### Field Marshals ###
 create_field_marshal = {
-	name = "Eduard von Böhm-Ermolli"
+	name = "Eduard von BÃ¶hm-Ermolli"
 	portrait_path = "gfx/leaders/AUS/Portrait_AUS_Eduard_Bohm_Ermolli.tga"
 	traits = {
 		war_hero
@@ -333,12 +277,11 @@ create_field_marshal = {
 	logistics_skill = 2
 }
 
-### Corps Commander
+### Corps Commanders ###
 create_corps_commander = {
 	name = "Erhard Raus"
 	portrait_path = "gfx/leaders/AUS/Portrait_AUS_Erhard_Raus.tga"
 	traits = {
-		armor_officer
 		panzer_leader
 		trickster
 	}
@@ -353,7 +296,6 @@ create_corps_commander = {
 	name = "Lothar Rendulic"
 	portrait_path = "gfx/leaders/AUS/Portrait_AUS_Lothar_Rendulic.tga"
 	traits = {
-		armor_officer
 		panzer_leader
 		commando
 	}
@@ -393,7 +335,7 @@ create_corps_commander = {
 }
 
 create_corps_commander = {
-	name = "Franz Böhme"
+	name = "Franz BÃ¶hme"
 	portrait_path = "gfx/leaders/AUS/Portrait_AUS_Franz_Bohme.tga"
 	traits = {
 		hill_fighter
@@ -438,7 +380,7 @@ create_corps_commander = {
 	name = "Friedrich Materna"
 	portrait_path = "gfx/leaders/AUS/Portrait_AUS_Friedrich_Materna.tga"
 	traits = {
-		infantry_officer
+		infantry_leader
 	}
 	skill = 2
 	attack_skill = 1
@@ -461,7 +403,7 @@ create_corps_commander = {
 	logistics_skill = 2
 }
 
-### Navy Leader
+### Admirals ###
 create_navy_leader = {
 	name = "Georg von Trapp"
 	portrait_path = "gfx/leaders/AUS/Portrait_AUS_Georg_von_Trapp.tga"
@@ -476,7 +418,7 @@ create_navy_leader = {
 }
 
 create_navy_leader = {
-	name = "Miklós Horthy"
+	name = "MiklÃ³s Horthy"
 	ID = 40000
 	portrait_path = "gfx/leaders/HUN/Portrait_HUN_Miklos_Horthy.tga"
 	traits = {
@@ -503,7 +445,7 @@ create_navy_leader = {
 }
 
 create_navy_leader = {
-	name = "Janko Vukovic"
+	name = "Janko VukoviÄ‡"
 	portrait_path = "gfx/leaders/AUS/Portrait_AUS_Janko_Vukovic.tga"
 	traits = {
 		superior_tactician
@@ -547,14 +489,14 @@ CZE = {
 	set_popularities = {
 		totalist = 0
 		syndicalist = 2
-		radical_socialist = 0
-		social_democrat = 0
-		social_liberal = 28
-		market_liberal = 17
-		social_conservative = 8
+		radical_socialist = 4
+		social_democrat = 12
+		social_liberal = 32
+		market_liberal = 22
+		social_conservative = 9
 		authoritarian_democrat = 6
-		paternal_autocrat = 20
-		national_populist = 19
+		paternal_autocrat = 11
+		national_populist = 2
 	}
 }
 ITA = {

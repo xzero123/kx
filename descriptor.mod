@@ -1,14 +1,9 @@
-name="Kaiserredux"
-version="0.01"
+version="0.1"
 tags={
 	"Alternative History"
-	"Events"
-	"Gameplay"
-	"National Focuses"
 }
+name="old italy made new"
 dependencies={
-	"Kaiserreich Dev Build"
 	"Kaiserreich"
 }
-supported_version="1.9.1"
-path="C:/Users/User/Documents/Paradox Interactive/Hearts of Iron IV/mod/kx"
+supported_version="1.9.2"

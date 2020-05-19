@@ -4300,7 +4300,7 @@ country_event = {
 		name = italy.107.c #Make Tunisia part of Italian North Africa
 		trigger = {
 			owns_state = 665
-			LYB = {
+			LBA = {
 				is_subject_of = ROOT
 				owns_state = 448
 			}
@@ -4313,7 +4313,7 @@ country_event = {
 				is_owned_by = ROOT
 			}
 			ROOT = { remove_state_claim = PREV }
-			LYB = {
+			LBA = {
 				add_state_core = PREV
 				transfer_state = PREV
 			}
@@ -4997,7 +4997,7 @@ country_event = {
 				}
 				ROOT = {
 					every_owned_state = {
-						limit = { is_core_of = LYB }
+						limit = { is_core_of = LBA }
 						FROM = { transfer_state = PREV }
 					}
 				}
@@ -5050,7 +5050,7 @@ country_event = {
 		}
 		FROM = {
 			every_owned_state = {
-				limit = { is_core_of = LYB }
+				limit = { is_core_of = LBA }
 				ROOT = { transfer_state = PREV }
 			}
 		}
@@ -5165,7 +5165,7 @@ country_event = {
 				}
 				ROOT = {
 					every_owned_state = {
-						limit = { is_core_of = LYB }
+						limit = { is_core_of = LBA }
 						event_target:aggressor = { transfer_state = PREV }
 					}
 				}
@@ -5225,7 +5225,7 @@ country_event = {
 		}
 		FROM = {
 			every_owned_state = {
-				limit = { is_core_of = LYB }
+				limit = { is_core_of = LBA }
 				ROOT = { transfer_state = PREV }
 			}
 		}
@@ -5316,7 +5316,7 @@ country_event = {
 		every_state = {
 			limit = {
 				is_claimed_by = ROOT
-				is_core_of = LYB
+				is_core_of = LBA
 			}
 			ROOT = { remove_state_claim = PREV }
 		}
@@ -5381,13 +5381,13 @@ country_event = {
 		}
 		NOT = {
 			any_owned_state = {
-				is_core_of = LYB
+				is_core_of = LBA
 				is_controlled_by = ROOT
 			}
 			any_country = {
 				is_subject_of = ROOT
 				any_owned_state = {
-					is_core_of = LYB
+					is_core_of = LBA
 					is_controlled_by = PREV
 				}
 			}
@@ -5439,7 +5439,7 @@ country_event = {
 			else = {
 				FROM = {
 					every_owned_state = {
-						limit = { is_core_of = LYB }
+						limit = { is_core_of = LBA }
 						ROOT = { transfer_state = PREV }
 					}
 				}
@@ -5469,7 +5469,7 @@ country_event = {
 		}
 		has_war = no
 		any_owned_state = {
-			is_core_of = LYB
+			is_core_of = LBA
 			NOT = { is_core_of = ROOT }
 		}
 	}
@@ -5479,7 +5479,7 @@ country_event = {
 		modifier = {
 			factor = 0.5
 			any_owned_state = {
-				is_core_of = LYB
+				is_core_of = LBA
 				NOT = { is_core_of = ROOT }
 				is_claimed_by = ROOT
 			}
@@ -5493,7 +5493,7 @@ country_event = {
 		ai_chance = { factor = 5 }
 		add_political_power = -50
 		every_owned_state = {
-			limit = { is_core_of = LYB }
+			limit = { is_core_of = LBA }
 			add_core_of = ROOT
 		}
 	}
@@ -5501,36 +5501,36 @@ country_event = {
 		name = italy.138.b #Create Italian North Africa
 		trigger = {
 			owns_state = 448
-			NOT = { country_exists = LYB }
+			NOT = { country_exists = LBA }
 		}
 		ai_chance = { factor = 50 }
 		add_political_power = 100
 		every_state = {
 			limit = {
-				is_core_of = LYB
+				is_core_of = LBA
 				is_owned_by = ROOT
 			}
 			remove_core_of = ROOT
 			remove_claim_by = ROOT
-			LYB = { transfer_state = PREV }
+			LBA = { transfer_state = PREV }
 		}
-		puppet = LYB
+		puppet = LBA
 	}
 	option = {
 		name = italy.107.c #Integrate the lands into Italian North Africa
 		trigger = {
-			LYB = { is_subject_of = ROOT }
+			LBA = { is_subject_of = ROOT }
 		}
 		ai_chance = { factor = 50 }
 		add_political_power = 100
 		every_state = {
 			limit = {
-				is_core_of = LYB
+				is_core_of = LBA
 				is_owned_by = ROOT
 			}
 			remove_core_of = ROOT
 			remove_claim_by = ROOT
-			LYB = { transfer_state = PREV }
+			LBA = { transfer_state = PREV }
 		}
 	}
 }
@@ -5552,10 +5552,10 @@ country_event = {
 		has_country_flag = ITA_libya_war
 		has_war = no
 		NOT = {
-			any_owned_state = { is_core_of = LYB }
+			any_owned_state = { is_core_of = LBA }
 			any_country = {
 				is_subject_of = ROOT
-				any_owned_state = { is_core_of = LYB }
+				any_owned_state = { is_core_of = LBA }
 			}
 		}
 	}
@@ -5611,7 +5611,7 @@ country_event = {
 			factor = 25
 			modifier = {
 				factor = 2
-				tag = LYB
+				tag = LBA
 			}
 			modifier = {
 				factor = 0

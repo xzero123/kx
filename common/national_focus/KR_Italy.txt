@@ -3254,98 +3254,436 @@ focus_tree = {
 			remove_ideas = Decentralised_State
 		}
 	}
-
-	focus = {
-		id = ITA_Return_Kingdom
-		icon = GFX_focus_generic_home_defense
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = ITA_is_kingdom
-				has_cosmetic_tag = ITA_kingdom
-			}
-		}
-		cost = 0
-		x = 39
-		y = 4
-		
-		bypass = {
-			custom_trigger_tooltip = {
-				tooltip = ITA_is_kingdom
-				has_cosmetic_tag = ITA_kingdom
-			}
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-		
-		completion_reward = {
-			custom_effect_tooltip = unlock_focuses
-		}
-	}
 	
 	focus = {
-		id = ITA_Patria_Noblis
-		icon = GFX_focus_generic_strike_at_democracy1
-		cost = 10.00
+		id = ITA_country
+		icon = GFX_goal_SRD_kingdom_of_sardinia
+		cost = 6.00
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = ITA_is_kingdom
 				has_cosmetic_tag = ITA_kingdom
 			}
 		}
-		prerequisite = { focus = ITA_Return_Kingdom }
 		x = 38
-		y = 5
-		
-		available_if_capitulated = no
-		
+		y = 4
 		ai_will_do = {
-			factor = 2
+			factor = 100
 		}
-		
 		completion_reward = {
-			add_national_unity = 0.05
-			add_ideas = Rallied_Population
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_country"
+			add_political_power = 120
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	
+		focus = {# Legitimate Kingdom
+		id = ITA_legitimate_kingdom
+		icon = GFX_focus_rom_royal_dictatorship
+		cost = 6.00
+		prerequisite = {
+			focus = ITA_country
+		}
+		mutually_exclusive = {
+			focus = ITA_new_constitution
+		}
+		available = {
+			has_government = paternal_autocrat
+			is_subject = no
+		}
+		relative_position_id = ITA_country
+		x = -2
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_legitimate_kingdom"
+			country_event = srd.11
 		}
 	}
 	
-	focus = {
-		id = ITA_Ties_With_Austria
-		icon = GFX_goal_austria
-		cost = 5.00
-		prerequisite = { focus = ITA_Return_Kingdom }
+	focus = {# Royal Decrees
+		id = ITA_royal_decrees
+		icon = GFX_goal_POR_royal_edicts
+		cost = 6.00
+		prerequisite = {
+			focus = ITA_legitimate_kingdom
+		}
+		prerequisite = {
+			focus = ITA_governmental_reform
+		}
 		available = {
-			OR = {
-				has_country_leader = { name = "Giuseppe I" }
-				is_subject_of = AUS
-			}
-			custom_trigger_tooltip = {
-				tooltip = ITA_is_kingdom
-				has_cosmetic_tag = ITA_kingdom
-			}
-			country_exists = AUS
-			AUS = {
-				has_war = no
-				OR = {
-					has_country_leader = { name = "Otto I" }
-					has_country_leader = { name = "Karl I" }
+			has_government = paternal_autocrat
+			is_subject = no
+		}
+		relative_position_id = ITA_country
+		x = -3
+		y = 3
+		ai_will_do = {
+			factor = 3
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_royal_decrees"
+			add_stability = 0.05
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+	
+	focus = {# Sack the cabinet
+		id = ITA_sack_the_cabinet
+		icon = GFX_focus_generic_self_management
+		cost = 6.00
+		prerequisite = {
+			focus = ITA_royal_decrees
+		}
+		available = {
+			has_government = paternal_autocrat
+			is_subject = no
+		}
+		relative_position_id = ITA_country
+		x = -3
+		y = 4
+		ai_will_do = {
+			factor = 3
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_sack_the_cabinet"
+			custom_effect_tooltip = SRD_loyal_ministers
+			hidden_effect = {
+				remove_all_ministers = yes
+				add_ideas = {
+					SRD_Amadeo_di_Savoia_Aosta_hog_pau
+					SRD_Vittorio_Ambrosio_for_pau
+					SRD_Giovanni_Sechi_eco_pau
+					SRD_Luigi_Arborio_Mella_di_Sant'Elia_sec_pau
 				}
 			}
 		}
-		x = 40
-		y = 5
-		
+	}
+	
+	focus = {# Enshrine Royal Guards
+		id = ITA_enshrine_royal_guard
+		icon = GFX_focus_generic_military_mission
+		cost = 6.00
+		prerequisite = {
+			focus = ITA_royal_decrees
+		}
+		available = {
+			has_government = paternal_autocrat
+			is_subject = no
+		}
+		relative_position_id = ITA_country
+		x = -5
+		y = 4
 		ai_will_do = {
-			factor = 2
+			factor = 3
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
 		}
-		
-		available_if_capitulated = no
-		
 		completion_reward = {
-			add_political_power = 50
-			AUS = { country_event = italy.26 }
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_enshrine_royal_guard"
+			add_ideas = SRD_royal_guards_idea
 		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_RESISTANCE FOCUS_FILTER_POLITICAL }
+	}
+	
+	focus = {# Crackdown on Dissidents
+		id = ITA_crackdown_on_dissidents
+		icon = GFX_goal_authoritarian
+		cost = 6.00
+		prerequisite = {
+			focus = ITA_royal_decrees
+		}
+		available = {
+			has_government = paternal_autocrat
+			is_subject = no
+		}
+		relative_position_id = ITA_country
+		x = -1
+		y = 4
+		ai_will_do = {
+			factor = 3
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_crackdown_on_dissidents"
+			add_political_power = 80
+			set_country_flag = SRD_dissidents
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.03
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	
+	focus = {# Royalist Fervor
+		id = ITA_royalist_fervor
+		icon = GFX_goal_national_arsenal
+		cost = 6.00
+		prerequisite = {
+			focus = ITA_enshrine_royal_guard
+		}
+		prerequisite = {
+			focus = ITA_sack_the_cabinet
+		}
+		prerequisite = {
+			focus = ITA_crackdown_on_dissidents
+		}
+		relative_position_id = ITA_country
+		x = -3
+		y = 5
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_royalist_fervor"
+			add_ideas = SRD_royalist_fervor_idea
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_MANPOWER }
+	}
+	
+	focus = {# Governmental Reform
+		id = ITA_governmental_reform
+		icon = GFX_goal_government_icon
+		cost = 6.00
+		prerequisite = {
+			focus = ITA_new_constitution
+			focus = ITA_legitimate_kingdom
+		}
+		available = {
+			OR = {
+				has_government = paternal_autocrat
+				has_government = social_conservative
+			}
+			is_subject = no
+		}
+		relative_position_id = ITA_country
+		x = 0
+		y = 2
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_governmental_reform"
+			country_event = srd.1
+		}
+	}
+
+	focus = {# New Constitution
+		id = ITA_new_constitution
+		icon = GFX_goal_new_treaty
+		cost = 6.00
+		prerequisite = {
+			focus = ITA_country
+		}
+		mutually_exclusive = {
+			focus = ITA_legitimate_kingdom
+		}
+		available = {
+			has_government = paternal_autocrat
+			is_subject = no
+		}
+		relative_position_id = ITA_country
+		x = 2
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_new_constitution"
+			country_event = srd.21
+		}
+	}
+	
+	focus = {# Free and Fair elections
+		id = ITA_free_and_fair_elections
+		icon = GFX_goal_liberty
+		cost = 6.00
+		prerequisite = {
+			focus = ITA_new_constitution
+		}
+		prerequisite = {
+			focus = ITA_governmental_reform
+		}
+		available = {
+			has_government = social_conservative
+			is_subject = no
+		}
+		relative_position_id = ITA_country
+		x = 3
+		y = 3
+		ai_will_do = {
+			factor = 3
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_free_and_fair_elections"
+			add_stability = 0.03
+			increase_ruling_party_popularity_by_5 = yes
+			hidden_effect = {
+				set_politics = {
+					ruling_party = social_conservative
+					last_election = "1931.11.16"
+					election_frequency = 60
+					elections_allowed = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	
+	focus = {# Strengthen Democracy
+		id =  ITA_strengthen_democracy
+		icon = GFX_goal_support_democracy
+		cost = 6.00
+		prerequisite = {
+			focus = ITA_free_and_fair_elections
+		}
+		relative_position_id = ITA_country
+		x = 1
+		y = 4
+		available = {
+			has_elected_government = yes
+			is_subject = no
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_strengthen_democracy"
+			add_stability = 0.05
+			increase_ruling_party_popularity_by_5 = yes
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+	
+	focus = {# Freedom of Speech
+		id = ITA_freedom_of_speech
+		icon = GFX_goal_ideology_market_liberal
+		cost = 6.00
+		prerequisite = {
+			focus = ITA_free_and_fair_elections
+		}
+		available = {
+			has_elected_government = yes
+			is_subject = no
+		}
+		relative_position_id = ITA_country
+		x = 3
+		y = 4
+		ai_will_do = {
+			factor = 3
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_freedom_of_speech"
+			add_ideas = SRD_workers_rights_idea
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+	
+	focus = {# Rouse the People
+		id = ITA_rouse_the_people
+		icon = GFX_goal_national_mobilization
+		cost = 6.00
+		prerequisite = {
+			focus = ITA_free_and_fair_elections
+		}
+		available = {
+			has_elected_government = yes
+			is_subject = no
+		}
+		relative_position_id = ITA_country
+		x = 5
+		y = 4
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_rouse_the_people"
+			add_ideas = SRD_rouse_the_people_idea
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_MANPOWER }
+	}
+	
+	focus = {# Constitutional Monarchy
+		id = ITA_constitutional_monarchy
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		cost = 6.00
+		prerequisite = {
+			focus = ITA_freedom_of_speech
+		}
+		prerequisite = {
+			focus = ITA_strengthen_democracy
+		}
+		prerequisite = {
+			focus = ITA_rouse_the_people
+		}
+		available = {
+			has_elected_government = yes
+			is_subject = no
+		}
+		relative_position_id = ITA_country
+		x = 3
+		y = 5
+		ai_will_do = {
+			factor = 3
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_constitutional_monarchy"
+			add_stability = 0.03
+			increase_ruling_party_popularity_by_5 = yes
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+	
+	focus = {# Federal Question
+		id = ITA_homecoming
+		icon = GFX_goal_conscription
+		cost = 6.00
+		prerequisite = {
+			focus = ITA_royalist_fervor
+			focus = ITA_constitutional_monarchy
+		}
+		available = {
+			is_subject = no
+		}
+		relative_position_id = ITA_country
+		x = 0
+		y = 6
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				has_war_support < 0.75
+			}
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_homecoming"
+			add_war_support = 0.10
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 	}
 	
 	focus = {
@@ -3838,7 +4176,7 @@ focus_tree = {
 			}
 		}
 	}
-					
+	
 	focus = {
 		id = ITA_Extra_Tech_Slot_II
 		icon = GFX_focus_research
@@ -4779,6 +5117,705 @@ focus_tree = {
 				category = cv_tech
 			}
 		}
+	}
+	
+	### Republic of Italy ###
+	focus = {# The Republic Survives
+		id = ITA_social_liberal_victory
+		icon = GFX_goal_ideology_market_liberal
+		cost = 7.00
+		available = {
+			has_country_flag = ITA_the_general_election_has_occured
+			OR = {
+				has_elected_government = yes
+				has_government = paternal_autocrat
+			}
+		}
+		cancel_if_invalid = yes
+		bypass = {
+			has_country_flag = ITA_the_general_election_has_occured
+			OR = {
+				has_elected_government = yes
+				has_government = paternal_autocrat
+			}
+		}
+		x = 48
+		y = 5
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_social_liberal_victory"
+			custom_effect_tooltip = ITA_republic_survives_tooltip
+		}
+	}
+	focus = {# Protect Democracy
+		id = ITA_protect_democracy
+		icon = GFX_goal_volunteer_alliance
+		cost = 7.00
+		available = {
+			OR = {
+				has_elected_government = yes
+				has_government = paternal_autocrat
+			}
+		}
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_social_liberal_victory
+		}
+		x = -2
+		y = 1
+		relative_position_id = ITA_social_liberal_victory
+		ai_will_do = { factor = 33 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_protect_democracy"
+			add_war_support = 0.10
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+	}
+	focus = {# Contain Extremism
+		id = ITA_contain_extermism
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		cost = 7.00
+		available = {
+			OR = {
+				has_elected_government = yes
+				has_government = paternal_autocrat
+			}
+		}
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_protect_democracy
+		}
+		x = -2
+		y = 3
+		relative_position_id = ITA_social_liberal_victory
+		ai_will_do = { factor = 33 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_contain_extermism"
+			add_stability = 0.05
+			add_popularity = { ideology = national_populist popularity = -0.1 }
+			add_popularity = { ideology = radical_socialist popularity = -0.1 }
+			add_popularity = { ideology = syndicalist popularity = -0.1 }
+			add_popularity = { ideology = totalist popularity = -0.1 }
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+	focus = {# Banking Reform
+		id = ITA_banking_reform
+		icon = GFX_goal_government_icon
+		cost = 7.00
+		available = {
+			OR = {
+				has_elected_government = yes
+				has_government = paternal_autocrat
+			}
+		}
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_social_liberal_victory
+		}
+		x = 0
+		y = 1
+		relative_position_id = ITA_social_liberal_victory
+		ai_will_do = { factor = 33 }
+		bypass = {
+			OR = {
+				has_elected_government = yes
+				has_government = paternal_autocrat
+			}
+			NOT = { has_idea = ITA_black_monday }
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_banking_reform"
+			set_country_flag = ITA_black_monday_over
+			swap_ideas = {
+				remove_idea = ITA_black_monday
+				add_idea = ITA_recovering_economy
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+	focus = {# Work Programs
+		id = ITA_work_programs
+		icon = GFX_goal_production
+		cost = 7.00
+		available = {
+			OR = {
+				has_elected_government = yes
+				has_government = paternal_autocrat
+			}
+		}
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_banking_reform
+		}
+		x = -1
+		y = 2
+		relative_position_id = ITA_social_liberal_victory
+		ai_will_do = { factor = 33 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_work_programs"
+			add_ideas = ITA_work_programs_idea
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+	focus = {# Workers rights
+		id = ITA_workers_rights
+		icon = GFX_goal_constitutional_guarantees
+		cost = 7.00
+		available = {
+			OR = {
+				has_elected_government = yes
+				has_government = paternal_autocrat
+			}
+		}
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_banking_reform
+		}
+		x = 1
+		y = 2
+		relative_position_id = ITA_social_liberal_victory
+		ai_will_do = { factor = 33 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_workers_rights"
+			add_ideas = ITA_workers_rights_idea
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+	focus = {# Economic Recovery Act
+		id = ITA_economic_recovery_act
+		icon = GFX_goal_gold_up
+		cost = 7.00
+		available = {
+			OR = {
+				has_elected_government = yes
+				has_government = paternal_autocrat
+			}
+		}
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_workers_rights
+		}
+		prerequisite = {
+			focus = ITA_work_programs
+		}
+		x = 0
+		y = 3
+		relative_position_id = ITA_social_liberal_victory
+		ai_will_do = { factor = 33 }
+		bypass = {
+			OR = {
+				has_elected_government = yes
+				has_government = paternal_autocrat
+			}
+			NOT = { has_idea = ITA_recovering_economy }
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_economic_recovery_act"
+			remove_ideas = ITA_recovering_economy
+		}
+	}
+	focus = {# Business Relations
+		id = ITA_bussiness_relations
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 7.00
+		available = {
+			OR = {
+				has_elected_government = yes
+				has_government = paternal_autocrat
+			}
+		}
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_social_liberal_victory
+		}
+		x = 2
+		y = 1
+		relative_position_id = ITA_social_liberal_victory
+		ai_will_do = { factor = 33 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_bussiness_relations"
+			add_ideas = ITA_business_connections_idea
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+	focus = {# Union Ties
+		id = ITA_union_ties
+		icon = GFX_goal_ideology_social_democrat
+		cost = 7.00
+		available = {
+			OR = {
+				has_elected_government = yes
+				has_government = paternal_autocrat
+			}
+		}
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_bussiness_relations
+		}
+		x = 2
+		y = 3
+		relative_position_id = ITA_social_liberal_victory
+		ai_will_do = { factor = 33 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_union_ties"
+			add_stability = 0.05
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+	focus = {# Christian Democracy
+		id = ITA_christian_democracy
+		icon = GFX_BEL_Improve_Catholic_Relations
+		cost = 7.00
+		available = {
+			OR = {
+				has_elected_government = yes
+				has_government = paternal_autocrat
+			}
+		}
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_contain_extermism
+		}
+		prerequisite = {
+			focus = ITA_economic_recovery_act
+		}
+		prerequisite = {
+			focus = ITA_union_ties
+		}
+		x = -1
+		y = 4
+		relative_position_id = ITA_social_liberal_victory
+		ai_will_do = { factor = 33 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_christian_democracy"
+			add_political_power = 100
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {# Urbanization
+		id = ITA_ubranization
+		icon = GFX_goal_nested_fortifications
+		cost = 7.00
+		available = {
+			OR = {
+				has_elected_government = yes
+				has_government = paternal_autocrat
+			}
+			OR = {
+				159 = { is_owned_and_controlled_by = ITA }
+				160 = { is_owned_and_controlled_by = ITA }
+			}
+		}
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_contain_extermism
+		}
+		prerequisite = {
+			focus = ITA_economic_recovery_act
+		}
+		prerequisite = {
+			focus = ITA_union_ties
+		}
+		x = 1
+		y = 4
+		relative_position_id = ITA_social_liberal_victory
+		ai_will_do = { factor = 33 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_ubranization"
+			159 = {
+				if = {
+					limit = {
+						is_owned_and_controlled_by = ITA
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			160 = {
+				if = {
+					limit = {
+						is_owned_and_controlled_by = ITA
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+	focus = {# Stable Democracy
+		id = ITA_stable_democracy
+		icon = GFX_goal_ideology_social_liberal
+		cost = 7.00
+		available = {
+			OR = {
+				has_elected_government = yes
+				has_government = paternal_autocrat
+			}
+		}
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_christian_democracy
+		}
+		prerequisite = {
+			focus = ITA_ubranization
+		}
+		x = 0
+		y = 5
+		relative_position_id = ITA_social_liberal_victory
+		ai_will_do = { factor = 33 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_stable_democracy"
+			add_political_power = 100
+			add_stability = 0.05
+			if = {
+				limit = { has_idea = ITA_republic_federation }
+				remove_ideas = ITA_republic_federation
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	### Legionary Italy ###
+	focus = {# The ANI in Power
+		id = ITA_ani_elected
+		icon = GFX_goal_ideology_national_populist
+		cost = 7.00
+		available = { has_government = national_populist }
+		cancel_if_invalid = yes
+		bypass = { has_government = national_populist }
+		x = 54
+		y = 5
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_ani_elected"
+			custom_effect_tooltip = ITA_the_ani_seized_power
+		}
+	}
+	focus = {# Purge Red Menace
+		id = ITA_purge_red_meance
+		icon = GFX_goal_broken_red_star
+		cost = 7.00
+		available = { has_government = national_populist }
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_ani_elected
+		}
+		x = -2
+		y = 1
+		relative_position_id = ITA_ani_elected
+		ai_will_do = { factor = 33 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_purge_red_meance"
+			add_popularity = { ideology = social_liberal popularity = -0.1 }
+			add_popularity = { ideology = social_democrat popularity = -0.1 }
+			add_popularity = { ideology = market_liberal popularity = -0.1 }
+			add_popularity = { ideology = radical_socialist popularity = -0.1 }
+			add_popularity = { ideology = syndicalist popularity = -0.1 }
+			add_popularity = { ideology = totalist popularity = -0.1 }
+		}
+	}
+	focus = {# Italian Militarism
+		id = ITA_italian_militerism
+		icon = GFX_ITA_green_shirts
+		cost = 7.00
+		available = { has_government = national_populist }
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_ani_elected
+		}
+		x = 0
+		y = 1
+		relative_position_id = ITA_ani_elected
+		ai_will_do = { factor = 33 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_italian_militerism"
+			add_ideas = ITA_italian_militarism_idea
+			add_war_support = 0.10
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_MANPOWER }
+	}
+	focus = {# The Four Economic Battles
+		id = ITA_four_economic_battles
+		icon = GFX_goal_generic_positive_trade_relations
+		cost = 7.00
+		available = { has_government = national_populist }
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_ani_elected
+		}
+		x = 2
+		y = 1
+		relative_position_id = ITA_ani_elected
+		ai_will_do = { factor = 33 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_four_economic_battles"
+			country_event = { id = ita.50 days = 15 }
+		}
+	}
+	focus = {# Destroy Austrian Influence
+		id = ITA_destroy_austrian_influence
+		icon = GFX_focus_generic_self_management
+		cost = 7.00
+		available = {
+			is_subject = no
+			has_government = national_populist
+		}
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_italian_militerism
+		}
+		prerequisite = {
+			focus = ITA_four_economic_battles
+		}
+		prerequisite = {
+			focus = ITA_purge_red_meance
+		}
+		x = 0
+		y = 2
+		relative_position_id = ITA_ani_elected
+		ai_will_do = {
+			factor = 33
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_destroy_austrian_influence"
+			if = {
+				limit = { owns_state = 160 }
+				set_country_flag = ITA_venice_will_rebel
+			}
+			add_political_power = 100
+			if = {
+				limit = {
+					country_exists = AUS
+					has_non_aggression_pact_with = AUS
+				}
+				diplomatic_relation = {
+					country = AUS
+					relation = non_aggression_pact
+					active = no
+				}
+			}
+			if = {
+				limit = { has_idea = ITA_austrian_influence }
+				remove_ideas = ITA_austrian_influence
+				reverse_add_opinion_modifier = { target = AUS modifier = KR_outraged }
+			}
+			if = {
+				limit = { has_idea = ITA_republic_federation }
+				swap_ideas = {
+					remove_idea = ITA_republic_federation
+					add_idea = ITA_republic_unitary
+				}
+			}
+			else = {
+				add_ideas = ITA_republic_unitary
+			}
+			unlock_decision_tooltip = ITA_attack_austria
+			hidden_effect = {
+				country_event = ita.54
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {# Corporate Alliance
+		id = ITA_corporate_alliance
+		icon = GFX_goal_tripartite_pact
+		cost = 7.00
+		available = { has_government = national_populist }
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_destroy_austrian_influence
+		}
+		x = -2
+		y = 3
+		relative_position_id = ITA_ani_elected
+		ai_will_do = { factor = 33 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_corporate_alliance"
+			add_ideas = ITA_corporate_alliance_idea
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+	focus = {# Purge Opposition
+		id = ITA_purge_opposition
+		icon = GFX_goal_revolution
+		cost = 7.00
+		available = { has_government = national_populist }
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_destroy_austrian_influence
+		}
+		x = 0
+		y = 3
+		relative_position_id = ITA_ani_elected
+		ai_will_do = { factor = 33 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_purge_opposition"
+			add_popularity = { ideology = social_liberal popularity = -0.1 }
+			add_popularity = { ideology = social_democrat popularity = -0.1 }
+		}
+	}
+	focus = {# Centralized power
+		id = ITA_centralized_power
+		icon = GFX_goal_Centralised_Government
+		cost = 7.00
+		available = {
+			has_government = national_populist
+			160 = { is_owned_and_controlled_by = ITA }
+		}
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_purge_opposition
+		}
+		x = 0
+		y = 4
+		relative_position_id = ITA_ani_elected
+		ai_will_do = { factor = 33 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_centralized_power"
+			add_stability = 0.05
+			if = {
+				limit = { has_idea = ITA_republic_unitary }
+				remove_ideas = ITA_republic_unitary
+			}
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+	focus = {# Corporate Militarism
+		id = ITA_corporate_militarism
+		icon = GFX_goal_munitions_factories
+		cost = 7.00
+		available = {
+			has_government = national_populist
+			OR = {
+				159 = { is_owned_and_controlled_by = ITA }
+				160 = { is_owned_and_controlled_by = ITA }
+			}
+		}
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_corporate_alliance
+		}
+		x = -2
+		y = 4
+		relative_position_id = ITA_ani_elected
+		ai_will_do = { factor = 33 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_corporate_militarism"
+			159 = {
+				if = {
+					limit = {
+						is_owned_and_controlled_by = ITA
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			160 = {
+				if = {
+					limit = {
+						is_owned_and_controlled_by = ITA
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+	focus = {# Loyal Military
+		id = ITA_military_loyalty
+		icon = GFX_goal_national_mobilization
+		cost = 7.00
+		available = { has_government = national_populist }
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_destroy_austrian_influence
+		}
+		x = 2
+		y = 3
+		relative_position_id = ITA_ani_elected
+		ai_will_do = { factor = 33 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_military_loyalty"
+			add_political_power = 100
+			army_experience = 25
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_POLITICAL }
+	}
+	focus = {# Italian Liberation
+		id = ITA_italian_liberation
+		icon = GFX_focus_generic_italy_first
+		cost = 7.00
+		available = {
+			has_government = national_populist
+			owns_state = 783 #Trentino
+			owns_state = 736 #Littoral
+			controls_all_owned_states = yes
+		}
+		cancel_if_invalid = yes
+		prerequisite = { focus = ITA_military_loyalty }
+		x = 2
+		y = 4
+		relative_position_id = ITA_ani_elected
+		ai_will_do = {
+			factor = 33
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_italian_liberation"
+			add_ideas = ITA_italian_liberation_idea
+			increase_conscription = yes
+			increase_mobilisation = yes
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_MANPOWER }
+	}
+	focus = {# Italy is Reborn
+		id = ITA_italy_is_reborn
+		icon = GFX_goal_support_fascism
+		cost = 7.00
+		available = {
+			has_government = national_populist
+			has_country_flag = ITA_united_italia
+		}
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = ITA_centralized_power
+		}
+		prerequisite = {
+			focus = ITA_italian_liberation
+		}
+		prerequisite = {
+			focus = ITA_corporate_militarism
+		}
+		x = 0
+		y = 5
+		relative_position_id = ITA_ani_elected
+		ai_will_do = { factor = 33 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ITA_italy_is_reborn"
+			country_event = { id = ita.59 days = 2 }
+			add_stability = 0.05
+			add_political_power = 80
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 	}
 
 }

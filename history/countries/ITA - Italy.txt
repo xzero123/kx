@@ -19,8 +19,8 @@ add_opinion_modifier = { target = FRA modifier = embargo }
 add_opinion_modifier = { target = ENG modifier = embargo }
 add_opinion_modifier = { target = SRI modifier = embargo }
 add_opinion_modifier = { target = LEC modifier = LEC_member }
-give_military_access = LEC
-diplomatic_relation = { country = AUS relation = military_access }
+LEC = { give_military_access = ITA }
+give_military_access = AUS
 diplomatic_relation = { country = LEC relation = non_aggression_pact }
 
 # Starting tech
@@ -55,7 +55,10 @@ set_technology = {
 
 
 set_convoys = 60
-set_national_unity = 0.65
+set_stability = 0.65
+set_war_support = 0.30
+
+country_event = { id = ita.1 days = 1 }
 
 set_politics = {
 
@@ -107,49 +110,79 @@ create_country_leader = {
 	picture = "Portrait_PAP_Pius.tga"
 	expire = "1965.1.1"
 	ideology = authoritarian_democrat_subtype
-	traits = {
-		
-	}
 }
 
 create_country_leader = {
-	name = "Alcide De Gasperi"
-	picture = "Portrait_Italy_Alcide_de_Gasperi.tga"
+	name = "Pius XI"
+	picture = "Portrait_PAP_Pius.tga"
 	expire = "1965.1.1"
 	ideology = social_conservative_subtype
-	traits = {
-		
-	}
 }
 
 create_country_leader = {
-	name = "Ivanoe Bonomi"
-	picture = "Portrait_Italy_Ivanoe_Bonomi.tga"
+	name = "Pius XI"
+	picture = "Portrait_PAP_Pius.tga"
 	expire = "1965.1.1"
 	ideology = social_liberal_subtype
-	traits = {
-	}
 }
 
 create_country_leader = {
-	name = "Vittorio Emanuele Orlando"
-	picture = "Portrait_Italy_Vittorio_Emanuele_Orlando.tga"
+	name = "Pius XI"
+	picture = "Portrait_PAP_Pius.tga"
 	expire = "1965.1.1"
 	ideology = social_democrat_subtype
+}
+
+create_country_leader = {# Palmiro Toglitti
+	name = "Palmiro Togliatti"
+	picture = "Portrait_SRI_Palmiro_Togliatti.tga"
+	expire = "1965.1.1"
+	ideology = syndicalist_subtype
+}
+
+create_country_leader = {# Gabriele D'Annunzio
+	name = "Gabriele D'Annunzio"
+	picture = "Portrait_ITA_Gabriele_Anunnzio.tga"
+	expire = "1938.3.1"
+	ideology = national_populist_subtype
 	traits = {
+		warmonger
 	}
 }
 
-create_country_leader = {
-	name = "Pietro Secchia"
-	picture = "Portrait_Italy_Pietro_Secchia.tga"
+create_country_leader = {# Giacomo Matteotti
+	name = "Giacomo Matteotti"
+	picture = "Portrait_SRI_Giacomo_Matteotti.tga"
 	expire = "1965.1.1"
 	ideology = radical_socialist_subtype
-	traits = {	
+}
+
+create_country_leader = {# Benito Mussolini
+	name = "Benito Mussolini"
+	picture = "Portrait_SRI_Benito_Mussolini.tga"
+	expire = "1965.1.1"
+	ideology = totalist_subtype
+	traits = {
+		warmonger
 	}
 }
 
 ### Field Marshals ###
+create_field_marshal = {#Pietro Badoglio
+	name = "Pietro Badoglio"
+	portrait_path = "gfx/leaders/SRD/Portrait_SRD_Pietro_Badoglio.tga"
+	traits = {
+		old_guard
+		thorough_planner
+		organizer
+	}
+	id = 550
+	skill = 3
+	attack_skill = 3
+	defense_skill = 4
+	planning_skill = 3
+	logistics_skill = 2
+}
 create_field_marshal = {# Emilio di Bono
 	name = "Emilio De Bono"
 	picture = "Portrait_ITA_Emilio_De_Bono.tga"
@@ -376,5 +409,15 @@ create_navy_leader = {# Carlo Bergamini
 	coordination_skill = 1
 	id = 568
 }
-
+create_navy_leader = { #Amedeo 1
+	name = "Amadeo di Savoia-Aosta"
+	portrait_path = "gfx/leaders/ITA/Portrait_SRD_King_Amedeo.tga"
+	traits = { superior_tactician }
+	skill = 3
+	attack_skill = 4
+	defense_skill = 3
+	maneuvering_skill = 2
+	coordination_skill = 1
+	id = 569
+}
 ITA_start_naval_variant = yes

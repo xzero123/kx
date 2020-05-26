@@ -14,7 +14,7 @@ focus_tree = {
 	}
 	default = no
 
-	continuous_focus_position = { x = 50 y = 1000 }
+	continuous_focus_position = { x = 4300 y = 950 }
 
 ### Fourth Congress ###
 
@@ -83,13 +83,13 @@ focus_tree = {
 		available = {
 			has_government = radical_socialist
 		}
-		x = -5
+		x = -6
 		y = 3
 		relative_position_id = SRI_4th_congress
 		ai_will_do = { factor = 30 }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus SRI_worker_priests"
-			add_political_power = 100
+			add_ideas = SRI_religious_socialism_idea
 			hidden_effect = {
 				country_event = { id = socitaly.32 days = 3 }
 			}
@@ -110,7 +110,7 @@ focus_tree = {
 		available = {
 			has_government = radical_socialist
 			}
-		x = -6
+		x = -3
 		y = 2
 		relative_position_id = SRI_4th_congress
 		ai_will_do = { factor = 30 }
@@ -134,7 +134,7 @@ focus_tree = {
 		available = {
 			has_government = radical_socialist
 			}
-		x = -4
+		x = -7
 		y = 2
 		relative_position_id = SRI_4th_congress
 		ai_will_do = { factor = 30 }
@@ -150,12 +150,12 @@ focus_tree = {
 		icon = GFX_socialist_constitution
 		cost = 6.00
 		prerequisite = {
-			focus = SRI_worker_priests
+			focus = SRI_strengthen_democracy
 		}
 		available = {
 			has_government = radical_socialist
 		}
-		x = -5
+		x = -4
 		y = 3
 		relative_position_id = SRI_4th_congress
 		ai_will_do = { factor = 30 }
@@ -174,6 +174,9 @@ focus_tree = {
 		prerequisite = {
 			focus = SRI_revolutionary_democracy
 		}
+		prerequisite = {
+			focus = SRI_worker_priests
+		}
 		available = {
 			has_government = radical_socialist
 		}
@@ -183,7 +186,10 @@ focus_tree = {
 		ai_will_do = { factor = 30 }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus SRI_respect_religion"
-			add_ideas = SRI_religious_socialism_idea
+			swap_ideas = {
+				remove_idea = SRI_religious_socialism_idea
+				add_idea = SRI_religious_socialism2_idea
+			}
 		}
 	}
 	
@@ -191,6 +197,9 @@ focus_tree = {
 		id = SRI_communal_autonomy
 		icon = GFX_goal_agrarian_socialism
 		cost = 6.00
+		prerequisite = {
+			focus = SRI_revolutionary_democracy
+		}
 		prerequisite = {
 			focus = SRI_worker_priests
 		}
@@ -211,6 +220,9 @@ focus_tree = {
 		id = SRI_christian_identity
 		icon = GFX_goal_faith_and_state
 		cost = 6.00
+		prerequisite = {
+			focus = SRI_revolutionary_democracy
+		}
 		prerequisite = {
 			focus = SRI_worker_priests
 		}
@@ -319,9 +331,6 @@ focus_tree = {
 		prerequisite = {
 			focus = SRI_stregthen_the_republic
 		}
-		mutually_exclusive = {
-			focus = SRI_rural_communes
-		}
 		available = {
 			has_government = syndicalist
 		}
@@ -341,12 +350,12 @@ focus_tree = {
 		icon = GFX_goal_conspiracy
 		cost = 6.00
 		prerequisite = {
-			focus = SRI_gradual_industrialization
+			focus = SRI_stregthen_the_republic
 		}
 		available = {
 			has_government = syndicalist
 		}
-		x = 0
+		x = 2
 		y = 3
 		relative_position_id = SRI_4th_congress
 		ai_will_do = { factor = 30 }
@@ -363,18 +372,21 @@ focus_tree = {
 		icon = GFX_goal_national_mobilization
 		cost = 6.00
 		prerequisite = {
-			focus = SRI_stregthen_the_republic
+			focus = SRI_gradual_industrialization
 		}
 		available = {
 				has_government = syndicalist
 		}
-		x = 2
+		x = 0
 		y = 3
 		relative_position_id = SRI_4th_congress
 		ai_will_do = { factor = 30 }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus SRI_workers_self_management"
-			add_ideas = SRI_defense_of_state
+			swap_ideas = {
+				remove_idea = SRI_gradual_industrialization_idea
+				add_idea = SRI_gradual_industrialization2_idea
+			}
 		}
 		search_filters = { FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_MANPOWER FOCUS_FILTER_ANNEXATION }
 	}
@@ -551,7 +563,7 @@ focus_tree = {
 		ai_will_do = { factor = 30 }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus SRI_rouse_the_people"
-			add_war_support = 0.2
+			add_ideas = SRI_defense_of_state
 			add_popularity = { ideology = totalist popularity = 0.10 }
 		}
 	}
@@ -591,6 +603,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus SRI_futurist_culture"
 			add_research_slot = 1
+			add_ideas = SRI_futurism_idea
 		}
 	}
 	focus = {# Revolutionary Commissars
@@ -609,7 +622,7 @@ focus_tree = {
 		ai_will_do = { factor = 30 }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus SRI_revolutionary_commisars"
-			add_political_power = 100
+			add_ideas = SRI_commisars_idea
 		}
 	}
 	focus = {# Cement Chairman's power
@@ -644,6 +657,13 @@ focus_tree = {
 		id = SRI_assess_the_economy
 		icon = GFX_goal_production
 		cost = 6.00
+		available = {
+			OR = {
+				has_completed_focus = SRI_streghten_the_chairman
+				has_completed_focus = SRI_stregthen_the_republic
+				has_completed_focus = SRI_strengthen_democracy
+			}
+		}
 		x = 16
 		y = 0
 		ai_will_do = { factor = 30 }
@@ -1164,6 +1184,7 @@ focus_tree = {
 			OR = {
 				has_completed_focus = SRI_cement_congres_authority
 				has_completed_focus = SRI_cement_chairmans_power
+				has_completed_focus = SRI_cement_democratic_reform
 			}
 		}
 		x = 24
@@ -1238,7 +1259,6 @@ focus_tree = {
 				742 = { is_owned_and_controlled_by = SRI }
 			}
 			NOT = {
-				controls_state = 742
 				controls_state = 2
 			}
 		}
@@ -1248,9 +1268,8 @@ focus_tree = {
 		ai_will_do = { factor = 30 }
 		bypass = {
 			OR = {
-				has_war_with = SIC
-				NOT = { country_exists = SIC }
-				controls_state = 742
+				has_war_with = ITA
+				NOT = { country_exists = ITA }
 				controls_state = 2
 			}
 		}
@@ -1295,9 +1314,9 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-		search_filters = { FOCUS_FILTER_INDUSTRY }
 		}
 	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
 }
 	focus = {# Re-Enforce the Coast
 		id = SRI_reenforce_the_coast
@@ -1475,7 +1494,7 @@ focus_tree = {
 			focus = SRI_fifth_congress
 		}
 		available = {
-			NOT = { country_exists = PAP }
+			NOT = { country_exists = ITA }
 			2 = { is_owned_and_controlled_by = SRI }
 			has_country_flag = SRI_fifth_congress_done
 		}

@@ -324,6 +324,25 @@ country = {
 			tag = SRI defense_bonus_against = 0.2 
 			}
 		}
+	ITA_foreign_industry_AUS = {
+	on_add = { log = "[GetDateText]: [Root.GetName]: add idea ITA_foreign_industry_AUS"}
+			available = {
+				country_exists = AUS
+				AUS = { not_has_socialist_government = yes }
+				NOT = { has_war_with = AUS }
+				is_subject = no
+			}
+	picture = GRE_austrian_ownership
+			modifier = {
+				political_power_cost = 0.10
+				consumer_goods_factor = 0.15
+			}
+			targeted_modifier = {
+				tag = AUS
+				trade_cost_for_target_factor = -0.5
+				extra_trade_to_target_factor = 0.25
+			}
+		}
 }
 
 ##################

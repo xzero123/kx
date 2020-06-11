@@ -1,0 +1,1240 @@
+
+### Economics Foci ###
+shared_focus = {# Trading Expertise
+	id = ARA_trading_expertise
+	icon = GFX_goal_generic_positive_trade_relations
+	available = {
+		if = {
+			limit = { tag = JBS }
+			NOT = { country_exists = SAU }
+		}
+		else = {
+			NOT = { country_exists = JBS }
+		}
+	}
+	cost = 6
+	x = 15
+	y = 0
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_trading_expertise"
+		add_ideas = ARA_trading_expertise_idea
+	}
+}
+shared_focus = {# Armament Plans
+	id = ARA_armament_plans
+	icon = GFX_goal_generic_military_sphere
+	cost = 6
+	prerequisite = {
+		focus = ARA_trading_expertise
+	}
+	x = -1
+	y = 1
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_armament_plans"
+		if = {
+			limit = {
+				capital_scope = { ARA_controlled_state_with_free_slots = yes }
+			}
+			capital_scope = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = { ARA_random_state_not_wasteland = yes }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+}
+shared_focus = {# Reverse Engineering
+	id = ARA_reverse_engineering
+	icon = GFX_goal_generic_intelligence_exchange
+	cost = 6
+	prerequisite = {
+		focus = ARA_armament_plans
+	}
+	x = -1
+	y = 2
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_reverse_engineering"
+		add_tech_bonus = {
+			name = ARA_reverse_engineering
+			bonus = 1
+			uses = 1
+			category = infantry_weapons
+		}
+	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
+}
+shared_focus = {# Civilian Factories
+	id = ARA_civilian_trade
+	icon = GFX_goal_generic_intelligence_exchange
+	cost = 6
+	prerequisite = {
+		focus = ARA_trading_expertise
+	}
+	x = 1
+	y = 1
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_civilian_trade"
+		if = {
+			limit = {
+				capital_scope = { ARA_controlled_state_with_free_slots = yes }
+			}
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = { ARA_random_state_not_wasteland = yes }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+}
+shared_focus = {# Military Imports
+	id = ARA_arms_imports
+	icon = GFX_focus_secret_rearmament
+	cost = 6
+	prerequisite = {
+		focus = ARA_civilian_trade
+	}
+	x = 1
+	y = 2
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_arms_imports"
+		if = {
+			limit = { tag = JBS }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2000
+				producer = OTT
+			}
+		}
+		else = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2000
+				producer = DEH
+			}
+		}
+		SAU_anger_ikhwan = yes
+	}
+}
+shared_focus = {# Arsenal of Arabia
+	id = ARA_arsenal_of_arabia
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 6
+	prerequisite = {
+		focus = ARA_reverse_engineering
+	}
+	prerequisite = {
+		focus = ARA_civilian_trade
+	}
+	x = 0
+	y = 3
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_arsenal_of_arabia"
+		random_owned_controlled_state = {
+			prioritize = { 292 }
+			limit = { ARA_random_state_not_wasteland = yes }
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			prioritize = { 915 }
+			limit = { ARA_random_state_not_wasteland = yes }
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+}
+shared_focus = {# caravans of Tomorrow
+	id = ARA_caravans_of_tomorrow
+	icon = GFX_goal_generic_construction
+	available = {
+		if = {
+			limit = { tag = JBS }
+			NOT = { country_exists = SAU }
+		}
+		else = {
+			NOT = { country_exists = JBS }
+		}
+	}
+	cost = 6
+	x = 4
+	y = 0
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_caravans_of_tomorrow"
+		if = {
+			limit = {
+				capital_scope = { ARA_controlled_state_with_free_slots = yes }
+			}
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = { ARA_random_state_not_wasteland = yes }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+}
+shared_focus = {# The Oil Market
+	id = ARA_oil_market
+	icon = GFX_goal_oil
+	cost = 6
+	available = {
+		678 = { is_owned_and_controlled_by = ROOT }
+	}
+	prerequisite = {
+		focus = ARA_caravans_of_tomorrow
+	}
+	x = 3
+	y = 1
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_oil_market"
+		678 = {
+			add_resource = {
+				type = oil
+				amount = 10
+			}
+		}
+		if = {
+			limit = { has_country_flag = jbs_sold_out }
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+}
+shared_focus = {# Industrial Raw Materials
+	id = ARA_industrial_raw_materials
+	icon = GFX_focus_generic_steel
+	cost = 6
+	available = {
+		292 = { is_owned_and_controlled_by = ROOT }
+		754 = { is_owned_and_controlled_by = ROOT }
+		915 = { is_owned_and_controlled_by = ROOT }
+	}
+	prerequisite = {
+		focus = ARA_oil_market
+	}
+	x = 3
+	y = 2
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_industrial_raw_materials"
+		292 = {
+			add_resource = {
+				type = steel
+				amount = 2
+			}
+		}
+		754 = {
+			add_resource = {
+				type = tungsten
+				amount = 3
+			}
+		}
+		915 = {
+			add_resource = {
+				type = steel
+				amount = 5
+			}
+		}
+	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+}
+shared_focus = {# Foreign economic advisors
+	id = ARA_foreign_advisors
+	icon = GFX_goal_generic_production2
+	cost = 6
+	prerequisite = {
+		focus = ARA_oil_market
+	}
+	prerequisite = {
+		focus = ARA_railway_logistics
+	}
+	x = 4
+	y = 3
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_foreign_advisors"
+		add_tech_bonus = {
+			name = SAU_foreign_advisors
+			bonus = 1
+			uses = 1
+			category = industry
+		}
+		add_tech_bonus = {
+			name = ARA_foreign_advisors
+			bonus = 0.5
+			uses = 1
+			category = electronics
+		}
+		SAU_anger_ikhwan = yes
+	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
+}
+shared_focus = {# Food Imports
+	id = ARA_food_imports
+	icon = GFX_goal_agrarian_reform
+	cost = 7
+	prerequisite = {
+		focus = ARA_caravans_of_tomorrow
+	}
+	x = 5
+	y = 1
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_food_imports"
+		add_ideas = ARA_food_imports_idea
+		SAU_anger_ikhwan = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_MANPOWER }
+}
+shared_focus = {# Railway Logistics
+	id = ARA_railway_logistics
+	icon = GFX_goal_generic_construct_infrastructure
+	cost = 8
+	prerequisite = {
+		focus = ARA_food_imports
+	}
+	x = 5
+	y = 2
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_railway_logistics"
+		every_owned_state = {
+			limit = {
+				is_core_of = ROOT
+				is_controlled_by = ROOT
+				free_building_slots = {
+					building = infrastructure
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+}
+shared_focus = {# Literacy Campaigns
+	id = ARA_literacy_campaign
+	icon = GFX_goal_KTG_Bookstack
+	cost = 8
+	prerequisite = {
+		focus = ARA_arsenal_of_arabia
+	}
+	prerequisite = {
+		focus = ARA_foreign_advisors
+	}
+	x = -1
+	y = 4
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_literacy_campaign"
+		remove_ideas = ARA_illiterate_populace
+	}
+}
+shared_focus = {# Education Reform
+	id = ARA_education_reform
+	icon = GFX_goal_generic_scientific_exchange
+	cost = 8
+	prerequisite = {
+		focus = ARA_literacy_campaign
+	}
+	x = -1
+	y = 6
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 20 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_education_reform"
+		add_research_slot = 1
+	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
+}
+shared_focus = {# Dig for More Oil
+	id = ARA_dig_deeper
+	icon = GFX_goal_further_oil
+	cost = 6
+	available = {
+		678 = { is_owned_and_controlled_by = ROOT }
+	}
+	prerequisite = {
+		focus = ARA_foreign_advisors
+	}
+	prerequisite = {
+		focus = ARA_arsenal_of_arabia
+	}
+	x = 5
+	y = 4
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = {
+		factor = 10
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_dig_deeper"
+		678 = {
+			add_resource = {
+				type = oil
+				amount = 10
+			}
+		}
+		if = {
+			limit = { has_country_flag = jbs_sold_out }
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+}
+shared_focus = {# Safety Net
+	id = ARA_safety_net
+	icon = GFX_focus_generic_concessions
+	cost = 6
+	prerequisite = {
+		focus = ARA_dig_deeper
+	}
+	x = 5
+	y = 6
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_safety_net"
+		add_ideas = ARA_islamic_welfare
+	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+}
+shared_focus = {# Industrialization Effort
+	id = ARA_industrialization_effort
+	icon = GFX_goal_production
+	cost = 7
+	prerequisite = {
+		focus = ARA_arsenal_of_arabia
+	}
+	prerequisite = {
+		focus = ARA_foreign_advisors
+	}
+	x = 2
+	y = 4
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_industrialization_effort"
+		add_tech_bonus = {
+			name = ARA_industrialization_effort
+			bonus = 1
+			uses = 2
+			category = industry
+		}
+		random_owned_controlled_state = {
+			limit = { ARA_random_state_not_wasteland = yes }
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			limit = { ARA_random_state_not_wasteland = yes }
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
+}
+shared_focus = {# Arms Industry
+	id = ARA_arms_industry
+	icon = GFX_goal_industry_air
+	cost = 7
+	prerequisite = {
+		focus = ARA_industrialization_effort
+	}
+	x = 0
+	y = 5
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_arms_industry"
+		if = {
+			limit = {
+				capital_scope = { ARA_controlled_state_with_free_slots = yes }
+			}
+			capital_scope = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = { ARA_random_state_not_wasteland = yes }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+}
+shared_focus = {# New Railroads
+	id = ARA_new_railroads
+	icon = GFX_goal_generic_construct_infrastructure
+	cost = 8
+	available = {
+		658 = { is_owned_and_controlled_by = ROOT }
+		679 = { is_owned_and_controlled_by = ROOT }
+		754 = { is_owned_and_controlled_by = ROOT }
+		907 = { is_owned_and_controlled_by = ROOT }
+		993 = { is_owned_and_controlled_by = ROOT }
+	}
+	prerequisite = {
+		focus = ARA_industrialization_effort
+	}
+	x = 2
+	y = 5
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_new_railroads"
+		every_owned_state = {
+			limit = {
+				OR = {
+					is_core_of = ROOT
+					state = 658
+					state = 679
+					state = 754
+					state = 907
+					state = 993
+				}
+				is_controlled_by = ROOT
+				free_building_slots = {
+					building = infrastructure
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+}
+shared_focus = {# Arabian Air Ports
+	id = ARA_arabian_airports
+	icon = GFX_goal_expand_the_luftwaffe
+	cost = 5
+	prerequisite = {
+		focus = ARA_industrialization_effort
+	}
+	x = 4
+	y = 5
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_arabian_airports"
+		random_owned_controlled_state = {
+			prioritize = { 292 }
+			limit = {
+				is_core_of = ROOT
+				NOT = { has_state_category = zero }
+				free_building_slots = {
+					building = air_base
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = air_base
+				level = 2
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			prioritize = { 915 }
+			limit = {
+				is_core_of = ROOT
+				NOT = { has_state_category = zero }
+				free_building_slots = {
+					building = air_base
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = air_base
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+}
+shared_focus = {# Building a better future
+	id = ARA_building_better_future
+	icon = GFX_goal_construction_engineering
+	cost = 8
+	prerequisite = {
+		focus = ARA_arms_industry
+	}
+	prerequisite = {
+		focus = ARA_arabian_airports
+	}
+	prerequisite = {
+		focus = ARA_new_railroads
+	}
+	x = 2
+	y = 6
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_building_better_future"
+		remove_ideas = ARA_backwards_economy
+	}
+}
+shared_focus = {# Found Universities
+	id = ARA_techslot_machine
+	icon = GFX_goal_government_icon
+	cost = 6
+	prerequisite = {
+		focus = ARA_education_reform
+	}
+	prerequisite = {
+		focus = ARA_safety_net
+	}
+	prerequisite = {
+		focus = ARA_building_better_future
+	}
+	x = 2
+	y = 7
+	relative_position_id = ARA_trading_expertise
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_techslot_machine"
+		add_ideas = ARA_muslim_universities
+	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
+}
+
+### Military Foci ###
+shared_focus = {# Recruiting Efforts
+	id = ARA_recruiting_effort
+	icon = GFX_focus_generic_military_mission
+	cost = 5
+	x = 27
+	y = 0
+	ai_will_do = { factor = 100 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_recruiting_effort"
+		add_manpower = 30000
+	}
+	search_filters = { FOCUS_FILTER_MANPOWER }
+}
+shared_focus = {# Contest the Gulf
+	id = ARA_contest_the_gulf
+	icon = GFX_goal_volunteer_alliance
+	cost = 6
+	prerequisite = {
+		focus = ARA_recruiting_effort
+	}
+	x = -3
+	y = 1
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_contest_the_gulf"
+		add_tech_bonus = {
+			name = ARA_contest_the_gulf
+			bonus = 1
+			uses = 2
+			category = cl_tech
+		}
+	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
+}
+shared_focus = {# Protect Oil Shipping
+	id = ARA_protect_oil_shipping
+	icon = GFX_goal_generic_navy_cruiser
+	cost = 6
+	prerequisite = {
+		focus = ARA_contest_the_gulf
+	}
+	x = -4
+	y = 2
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_protect_oil_shipping"
+		add_tech_bonus = {
+			name = ARA_protect_oil_shipping
+			bonus = 1
+			uses = 2
+			category = dd_tech
+		}
+	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
+}
+shared_focus = {# Kuwait naval base
+	id = ARA_kuwait_naval_base
+	icon = GFX_goal_generic_coastal_navy
+	cost = 6
+	available = {
+		656 = { is_owned_and_controlled_by = ROOT }
+	}
+	prerequisite = {
+		focus = ARA_contest_the_gulf
+	}
+	x = -2
+	y = 2
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 40 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_kuwait_naval_base"
+		navy_experience = 10
+		random_owned_controlled_state = {
+			prioritize = { 656 }
+			limit = {
+				is_core_of = ROOT
+				NOT = { has_state_category = zero }
+				free_building_slots = {
+					building = dockyard
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = dockyard
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	search_filters = { FOCUS_FILTER_NAVY_BONUS FOCUS_FILTER_INDUSTRY }
+}
+shared_focus = {# Naval Exercises
+	id = ARA_naval_exercises
+	icon = GFX_goal_generic_navy_doctrines_tactics
+	cost = 6
+	prerequisite = {
+		focus = ARA_protect_oil_shipping
+	}
+	prerequisite = {
+		focus = ARA_kuwait_naval_base
+	}
+	x = -3
+	y = 3
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_naval_exercises"
+		add_tech_bonus = {
+			name = ARA_naval_exercises
+			bonus = 1
+			uses = 2
+			category = naval_doctrine
+		}
+	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
+}
+shared_focus = {# Liberation of the Holy Cities
+	id = ARA_liberation_war_of_holy_cities
+	icon = GFX_goal_liberty
+	cost = 5
+	prerequisite = {
+		focus = ARA_recruiting_effort
+	}
+	x = -1
+	y = 1
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 40 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_liberation_war_of_holy_cities"
+		add_ideas = ARA_religious_fervor_idea
+	}
+	search_filters = { FOCUS_FILTER_ARMY_BONUS }
+}
+shared_focus = {# Mobilize the Tribes
+	id = ARA_mobilize_the_tribes
+	icon = GFX_goal_national_arsenal
+	cost = 6
+	prerequisite = {
+		focus = ARA_recruiting_effort
+	}
+	x = 1
+	y = 1
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_mobilize_the_tribes"
+		custom_effect_tooltip = ARA_arabian_tribes_mobilized_tooltip
+		hidden_effect = {
+			division_template = {
+				name = "Tribal Cavalry"
+				division_names_group = SAU_CAV_01
+				regiments = {
+					cavalry = { x = 0 y = 0 }
+					cavalry = { x = 0 y = 1 }
+					cavalry = { x = 0 y = 2 }
+					cavalry = { x = 1 y = 0 }
+					cavalry = { x = 1 y = 1 }
+					cavalry = { x = 1 y = 2 }
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 292 915 }
+				limit = { is_capital = yes }
+				create_unit = {
+					division = "division_template = \"Tribal Cavalry\" start_experience_factor = 0.05 start_equipment_factor = 0.8"
+					owner = ROOT
+					count = 5
+				}
+			}
+		}
+	}
+	search_filters = { FOCUS_FILTER_MANPOWER }
+}
+shared_focus = {# Army Command Modernization
+	id = ARA_army_command_modernization
+	icon = GFX_goal_doctrine_tank_warfare
+	cost = 8
+	prerequisite = {
+		focus = ARA_liberation_war_of_holy_cities
+	}
+	prerequisite = {
+		focus = ARA_mobilize_the_tribes
+	}
+	x = 0
+	y = 2
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 40 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_army_command_modernization"
+		add_tech_bonus = {
+			name = ARA_army_command_modernization
+			bonus = 1
+			uses = 2
+			category = land_doctrine
+		}
+	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
+}
+shared_focus = {# Establish Arabian Air force
+	id = ARA_establish_arabian_airforce
+	icon = GFX_goal_generic_build_airforce
+	cost = 6
+	prerequisite = {
+		focus = ARA_army_command_modernization
+	}
+	x = -1
+	y = 3
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_establish_arabian_airforce"
+		air_experience = 10
+		add_tech_bonus = {
+			name = ARA_establish_arabian_airforce
+			bonus = 1
+			uses = 2
+			category = air_doctrine
+		}
+	}
+	search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_AIRFORCE_BONUS }
+}
+shared_focus = {# Establish Mechanized brigades
+	id = ARA_establish_arabian_mechanized_brigades
+	icon = GFX_goal_generic_army_motorized
+	cost = 6
+	prerequisite = {
+		focus = ARA_army_command_modernization
+	}
+	x = 1
+	y = 3
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_establish_arabian_mechanized_brigades"
+		add_tech_bonus = {
+			name = ARA_establish_arabian_mechanized_brigades
+			bonus = 1
+			uses = 1
+			category = motorized_equipment
+			category = cat_mechanized_equipment
+		}
+	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
+}
+shared_focus = {# Establish new Arabian Army
+	id = ARA_establish_new_arabian_army
+	icon = GFX_goal_planning_bonus
+	cost = 6
+	prerequisite = {
+		focus = ARA_establish_arabian_airforce
+	}
+	prerequisite = {
+		focus = ARA_establish_arabian_mechanized_brigades
+	}
+	x = 0
+	y = 4
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 40 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_establish_new_arabian_army"
+		add_ideas = ARA_new_arabian_army
+	}
+	search_filters = { FOCUS_FILTER_ARMY_BONUS }
+}
+shared_focus = {# Arabian Horsemanship
+	id = ARA_arabian_horsemanship
+	icon = GFX_goal_generic_cavalry
+	cost = 5
+	prerequisite = {
+		focus = ARA_recruiting_effort
+	}
+	x = 3
+	y = 1
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 40	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_arabian_horsemanship"
+		add_ideas = ARA_arabian_horsemanship_idea
+	}
+	search_filters = { FOCUS_FILTER_ARMY_BONUS }
+}
+shared_focus = {# desert Warfare
+	id = ARA_desert_warfare
+	icon = GFX_goal_EGY_Pyramids
+	cost = 7
+	prerequisite = {
+		focus = ARA_arabian_horsemanship
+	}
+	x = 2
+	y = 2
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 40	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_desert_warfare"
+		custom_effect_tooltip = desert_warfare_effect
+		hidden_effect = {
+			set_technology = { desert_warfare = 1 popup = no }
+		}
+	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
+}
+shared_focus = {# Desert Logistics
+	id = ARA_desert_logstics
+	icon = GFX_goal_rhineland
+	cost = 7
+	prerequisite = {
+		focus = ARA_arabian_horsemanship
+	}
+	x = 4
+	y = 2
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 40	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_desert_logstics"
+		add_ideas = ARA_desert_logstics_idea
+	}
+	search_filters = { FOCUS_FILTER_ARMY_BONUS }
+}
+shared_focus = {# War of Resistance
+	id = ARA_war_of_resistance
+	icon = GFX_goal_offensive_army
+	cost = 5
+	prerequisite = {
+		focus = ARA_desert_warfare
+	}
+	prerequisite = {
+		focus = ARA_desert_logstics
+	}
+	x = 3
+	y = 3
+	relative_position_id = ARA_recruiting_effort
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_war_of_resistance"
+		army_experience = 10
+		add_war_support = 0.05
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ARMY_BONUS }
+}
+
+### Najd focus tree ###
+focus_tree = {
+	id = saudi_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = SAU
+		}
+	}
+
+	default = no
+	continuous_focus_position = { x = 2500 y = 700 }
+	
+	shared_focus = ARA_trading_expertise
+	shared_focus = ARA_caravans_of_tomorrow
+	shared_focus = ARA_recruiting_effort
+
+	### Political Foci ###
+	focus = {# Crown Faisal 1
+		id = SAU_proclaim_kingdom
+		icon = GFX_goal_monarchism_black
+		cost = 6
+		x = 0
+		y = 0
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAU_proclaim_kingdom"
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+	}
+
+	focus = {# Meet with Rashidis
+		id = SAU_a_meeting_with_rashid
+		icon = GFX_focus_generic_home_defense
+		cost = 6
+		x = 0
+		y = 1
+		relative_position_id = SAU_proclaim_kingdom
+		available = {
+			hidden_trigger = { always = no }
+		}
+		prerequisite = {
+			focus = SAU_proclaim_kingdom
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAU_a_meeting_with_rashid"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {# Draft a constitution
+		id = SAU_draft_constitution
+		icon = GFX_goal_constitutional_guarantees
+		cost = 6
+		x = 0
+		y = 2
+		relative_position_id = SAU_proclaim_kingdom
+		prerequisite = {
+			focus = SAU_a_meeting_with_rashid
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAU_draft_constitution"
+		}
+	}
+	
+	focus = {# House of Saud Expands
+		id = SAU_fulfull_destiny
+		icon = GFX_goal_Unite_Arabia
+		cost = 1
+		x = 0
+		y = 6
+		relative_position_id = SAU_the_nemisis
+		available = {
+			NOT = { country_exists = OTT }
+		}
+		prerequisite = {
+			focus = SAU_saudi_hegemony
+			focus = SAU_land_of_faith
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAU_fulfull_destiny"
+			add_war_support = 0.03
+			add_ideas = SAU_uniting_the_peninsula
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ARMY_BONUS }
+	}
+	focus = {# Yemen Wargoals
+		id = SAU_asir
+		icon = GFX_goal_ideology_authoritarian_democrat
+		cost = 5
+		x = -2
+		y = 1
+		relative_position_id = SAU_fulfull_destiny
+		ai_will_do = { factor = 100 }
+		prerequisite = {
+			focus = SAU_fulfull_destiny
+		}
+		available =  {
+			can_declare_war_on = YEM
+		}
+		will_lead_to_war_with = YEM
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAU_asir"
+			create_wargoal = {
+				type = annex_everything
+				target = YEM
+			}
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+	focus = {# Oman Wargoals
+		id = SAU_hit_oman
+		icon = GFX_goal_ideology_authoritarian_democrat
+		cost = 5
+		x = 2
+		y = 1
+		relative_position_id = SAU_fulfull_destiny
+		ai_will_do = { factor = 100 }
+		prerequisite = {
+			focus = SAU_fulfull_destiny
+		}
+		available =  {
+			can_declare_war_on = OMA
+		}
+		will_lead_to_war_with = OMA
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAU_hit_oman"
+			create_wargoal = {
+				type = annex_everything target = OMA
+			}
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+	focus = {# Egypt Wargoals
+		id = SAU_hit_egypt
+		icon = GFX_goal_ideology_authoritarian_democrat
+		cost = 5
+		x = 0
+		y = 1
+		relative_position_id = SAU_fulfull_destiny
+		ai_will_do = { factor = 100 }
+		prerequisite = {
+			focus = SAU_fulfull_destiny
+		}
+		available =  {
+			can_declare_war_on = EGY
+		}
+		will_lead_to_war_with = EGY
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAU_hit_egypt"
+			create_wargoal = {
+				type = annex_everything target = EGY
+			}
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+	focus = {# Libya Wargoals
+		id = SAU_hit_libya
+		icon = GFX_goal_ideology_authoritarian_democrat
+		cost = 5
+		x = 0
+		y = 2
+		relative_position_id = SAU_fulfull_destiny
+		ai_will_do = { factor = 100 }
+		prerequisite = {
+			focus = SAU_hit_egypt
+		}
+		available =  {
+			can_declare_war_on = LBA
+		}
+		will_lead_to_war_with = LBA
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAU_hit_libya"
+			create_wargoal = {
+				type = annex_everything target = LBA
+			}
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+
+
+}

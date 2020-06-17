@@ -103,66 +103,9 @@ focus_tree = {
 		}
 		
 		available_if_capitulated = yes
-		
-		bypass = {
-			custom_trigger_tooltip = {
-				tooltip = construction_effort_tt
-				all_owned_state = {
-					free_building_slots = {
-						building = industrial_complex
-						size < 1
-						include_locked = yes
-					}
-				}
-			}
-		}
-		
-		complete_tooltip = {
-			every_state = {
-				limit = { has_state_flag = ITA_Industrialisation_2IC }
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-
-		}
 
 		completion_reward = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				set_state_flag = ITA_Industrialisation_2IC
-			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				set_state_flag = ITA_Industrialisation_2IC
-			}
+			add_ideas = limited_exports
 		}
 	}
 	
@@ -329,7 +272,7 @@ focus_tree = {
 
 	focus = {
 		id = ITA_Armament_Effort
-		icon = GFX_goal_generic_construct_mil_factory
+		icon = GFX_goal_generic_corporatism
 		prerequisite = { focus = ITA_Industrialisation }
 		x = 3
 		y = 3
@@ -341,71 +284,33 @@ focus_tree = {
 		
 		available_if_capitulated = yes
 
-		bypass = {
-			custom_trigger_tooltip = {
-				tooltip = armament_effort_tt
-				all_owned_state = {
-					free_building_slots = {
-						building = arms_factory
-						size < 1
-						include_locked = yes
-					}
-				}
-			}
-		}
-		
-		complete_tooltip = {
-			every_state = {
-				limit = { has_state_flag = ITA_Industrialisation_2IC }
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-
-		}
-
 		completion_reward = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				set_state_flag = ITA_Industrialisation_2IC
+			add_resource {
+				type = steel
+				amount = 8
+				state = 162
 			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				set_state_flag = ITA_Industrialisation_2IC
+			add_resource {
+				type = tungsten
+				amount = 7
+				state = 162
 			}
+			add_resource {
+				type = chromium
+				amount = 13
+				state = 161
+			}
+			add_resource {
+				type = tungsten
+				amount = 5
+				state = 159
+			}			
 		}
 	}
 
 	focus = {
 		id = ITA_Armament_Effort_II
-		icon = GFX_goal_generic_construct_mil_factory
+		icon = GFX_goal_further_oil
 		prerequisite = { focus = ITA_Armament_Effort }
 		x = 3
 		y = 4
@@ -417,73 +322,24 @@ focus_tree = {
 		
 		available_if_capitulated = yes
 
-		bypass = {
-			custom_trigger_tooltip = {
-				tooltip = armament_effort_tt
-				all_owned_state = {
-					free_building_slots = {
-						building = arms_factory
-						size < 1
-						include_locked = yes
-					}
-				}
-			}
-		}
-		
-		complete_tooltip = {
-			every_state = {
-				limit = { has_state_flag = ITA_Industrialisation_2IC }
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-
 		completion_reward = {
-			if = {
-				limit = {
-					has_idea = ITA_black_monday
-				}
-				swap_ideas = {
-					remove_idea = ITA_black_monday
-					add_idea = ITA_black_monday_1
-				}
+			set_technology = {
+			synth_oil_experiments = 1
 			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
+			1004 = {
 				add_building_construction = {
-					type = arms_factory
+					type = synthetic_refinery
 					level = 2
 					instant_build = yes
 				}
-				set_state_flag = ITA_Industrialisation_2IC
 			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
+			162 = {
 				add_building_construction = {
-					type = arms_factory
+					type = synthetic_refinery
 					level = 2
 					instant_build = yes
 				}
-				set_state_flag = ITA_Industrialisation_2IC
-			}
+			}				
 		}
 	}
 
@@ -855,11 +711,13 @@ focus_tree = {
 		available = {
 			has_war = no
 			is_subject = no
-			owns_state = 160 #Veneto
+			owns_state = 159 #Lombardia
 			OR = {
 				NOT = { owns_state = 736 } #Istria
 				NOT = { owns_state = 39 } #South Tyrol
 				NOT = { owns_state = 783 } #Trentino
+				NOT = { owns_state = 759 }
+				NOT = { owns_state = 160 }
 			}
 		}
 		x = 7
@@ -874,6 +732,14 @@ focus_tree = {
 				is_owned_by = ITA
 				is_core_of = ITA
 			}
+			759 = {
+				is_owned_by = ITA
+				is_core_of = ITA
+			}
+			160 = {
+				is_owned_by = ITA
+				is_core_of = ITA
+			}			
 			39 = {
 				is_owned_by = ITA
 				is_core_of = ITA
@@ -890,6 +756,14 @@ focus_tree = {
 				add_state_core = 736
 			}
 			if = {
+				limit = { 160 = { NOT = { is_core_of = ITA } } }
+				add_state_core = 160
+			}
+			if = {
+				limit = { 759 = { NOT = { is_core_of = ITA } } }
+				add_state_core = 759
+			}			
+			if = {
 				limit = { 39 = { NOT = { is_core_of = ITA } } }
 				add_state_core = 795
 			}
@@ -905,6 +779,8 @@ focus_tree = {
 						owns_state = 736
 						owns_state = 39
 						owns_state = 783
+						owns_state = 160
+						owns_state = 759
 					}
 				}
 				if = { limit = { controls_state = 736 } ITA = { transfer_state = 736 } }
@@ -4472,110 +4348,11 @@ focus_tree = {
 
 		complete_tooltip = {
 			navy_experience = 25
-			add_extra_state_shared_building_slots = 3
-			add_building_construction = {
-				type = dockyard
-				level = 3
-				instant_build = yes
-			}
 		}
 		
 		completion_reward = {
 			navy_experience = 25
-			if = {
-				limit = {
-					NOT = {
-						any_owned_state = {
-							dockyard > 0
-							free_building_slots = {
-								building = dockyard
-								size > 2
-								include_locked = yes
-							}
-						}
-					}
-					any_owned_state = {
-						is_coastal = yes
-					}
-				}
-				random_owned_state = {
-					limit = {
-						is_coastal = yes
-						free_building_slots = {
-							building = dockyard
-							size > 2
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = {
-						type = dockyard
-						level = 3
-						instant_build = yes
-					}
-				}
-				set_country_flag = naval_effort_built
-			}
-			if = {
-				limit = {
-					NOT = { has_country_flag = naval_effort_built }
-					any_owned_state = {
-						dockyard > 0
-						free_building_slots = {
-							building = dockyard
-							size > 2
-							include_locked = yes
-						}
-					}
-				}
-				random_owned_state = {
-					limit = {
-						dockyard > 0
-						free_building_slots = {
-							building = dockyard
-							size > 2
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = {
-						type = dockyard
-						level = 3
-						instant_build = yes
-					}
-				}
-				set_country_flag = naval_effort_built
-			}
-			if = {
-				limit = {
-					NOT = { has_country_flag = naval_effort_built }
-					NOT = {
-						any_owned_state = {
-							free_building_slots = {
-								building = dockyard
-								size > 2
-								include_locked = yes
-							}
-						}
-					}
-				}
-				random_state = {
-					limit = {
-						controller = { tag = ROOT }
-						free_building_slots = {
-							building = dockyard
-							size > 2
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = {
-						type = dockyard
-						level = 3
-						instant_build = yes
-					}
-				}
-			}
+			add_ideas = ITA_genoa_dockyard
 		}
 	}
 
@@ -4999,6 +4776,35 @@ focus_tree = {
 				uses = 1
 				category = cv_tech
 			}
+		}
+	}
+	
+	focus = {
+		id = ITA_mare_nostrum
+		icon = GFX_goal_bluewater_navy
+		x = 59
+		y = 5
+		cost = 10
+
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+		prerequisite = {
+			focus = ITA_Carrier_Focus
+			focus = ITA_Capital_Ships_Effort
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = ITA_mare_nostrum_idea
 		}
 	}
 	

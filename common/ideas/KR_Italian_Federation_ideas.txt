@@ -332,7 +332,7 @@ country = {
 				NOT = { has_war_with = AUS }
 				is_subject = no
 			}
-	picture = GRE_austrian_ownership
+			picture = GRE_austrian_ownership
 			modifier = {
 				political_power_cost = 0.10
 				consumer_goods_factor = 0.15
@@ -343,6 +343,37 @@ country = {
 				extra_trade_to_target_factor = 0.25
 			}
 		}
+	ITA_genoa_dockyard = {
+	on_add = { log = "[GetDateText]: [Root.GetName]: add idea ITA_genoa_dockyard"}
+		modifier = {
+			industrial_capacity_dockyard = 0.25
+		}
+		equipment_bonus = {
+			capital_ship = {
+				build_cost_ic = -0.05 instant = yes
+			}
+			carrier = {
+				build_cost_ic = -0.05 instant = yes
+			}
+			screen_ship = {
+				build_cost_ic = -0.1 instant = yes
+			}
+			submarine = {
+				build_cost_ic = -0.1 instant = yes
+				}
+			}
+		picture = generic_navy_bonus
+		}
+	ITA_mare_nostrum_idea = {
+	on_add = { log = "[GetDateText]: [Root.GetName]: add idea ITA_mare_nostrum_idea"}
+		modifier = {
+			experience_gain_navy_factor = 0.1
+			convoy_escort_efficiency = 0.1
+			navy_capital_ship_defence_factor = 0.15
+			naval_hit_chance = 0.1
+		}
+	picture = generic_coastal_defense_ships2
+	}
 }
 
 ##################

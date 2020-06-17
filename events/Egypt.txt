@@ -1785,6 +1785,12 @@ country_event = { # Join the Cairo Pact?
 	trigger = {
 		OR = {
 			AND = {
+				tag = PER
+				NOT = {
+					PER = { is_subject = yes }
+				}
+			}
+			AND = {
 				tag = SAU
 				NOT = {
 					country_exists = JBS
@@ -3549,7 +3555,6 @@ country_event = { # King Idris is restored to the throne
 		set_country_flag = LBA_idris_bacc
 		OTT = {
 			remove_from_faction = LBA
-			end_puppet = LBA
 		}
 
 		#white peace with any possible Ottoman enemy

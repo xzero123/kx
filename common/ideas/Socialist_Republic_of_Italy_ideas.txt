@@ -4,11 +4,9 @@ ideas = {
 	country = {# Country ideas
 		SRI_divided_nation = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_divided_nation"}
-			allowed = { always = no }
 			available = {
 				NOT = { has_country_flag = SRI_fifth_congress_done }
 			}
-			removal_cost = -1
 			picture = anti_soviet_pact
 			modifier = {
 				political_power_cost = 0.20
@@ -43,7 +41,7 @@ ideas = {
 		}
 		SRI_secret_polices = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_secret_polices"}
-			picture = SRI_Ministry_of_Public_Security_idea
+			picture = NOR_secret_police_idea_1
 			modifier = {
 				resistance_damage_to_garrison = -0.20
 				political_power_gain = 0.20
@@ -198,7 +196,6 @@ ideas = {
 			modifier = {
 				conscription_factor = 0.10
 				army_morale_factor = 0.10
-				army_org_factor = -0.05
 				planning_speed = -0.10
 				attrition = -0.05
 			}
@@ -272,50 +269,41 @@ ideas = {
 		}
 		SRI_neosanfedisti_1 = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_neosanfedisti_1"}
-			allowed = { always = no }
 			available = { has_socialist_government = yes }
 			modifier = {
 				army_morale_factor = -0.10
 				conscription_factor = -0.20
 				stability_factor = -0.20
 			}
-			removal_cost = -1
 			picture = SRI_sanfedisti
 		}
 		SRI_neosanfedisti_2 = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_neosanfedisti_2"}
-			allowed = { always = no }
 			available = { has_socialist_government = yes }
 			modifier = {
 				army_morale_factor = -0.05
 				conscription_factor = -0.15
 				stability_factor = -0.10
 			}
-			removal_cost = -1
 			picture = SRI_sanfedisti
 		}
 		SRI_neosanfedisti_3 = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_neosanfedisti_3"}
-			allowed = { always = no }
 			available = { has_socialist_government = yes }
 			modifier = {
 				conscription_factor = -0.10
 				stability_factor = -0.05
 			}
-			removal_cost = -1
 			picture = SRI_sanfedisti
 		}
 		SRI_rossi_cyclists_idea = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_rossi_cyclists_idea"}
-			allowed = { always = no	}
 			picture = chi_army_corruption
 			equipment_bonus = { infantry_equipment = { build_cost_ic = 0.05 instant = yes }	}
 			modifier = { army_speed_factor = 0.15 }
 		}
 		SRI_small_arms_industry_idea = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_small_arms_industry_idea"}
-			allowed = { always = no }
-			removal_cost = -1
 			picture = HUN_secret_rearmament
 			equipment_bonus = {
 				infantry_equipment = {
@@ -325,8 +313,6 @@ ideas = {
 		}
 		SRI_italian_auto_industry_idea = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_italian_auto_industry_idea"}
-			allowed = { always = no }
-			removal_cost = -1
 			picture = man_five_year_plan_industry
 			equipment_bonus = {
 				motorized_equipment = {
@@ -339,8 +325,6 @@ ideas = {
 		}
 		SRI_motorized_offensive_idea = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_motorized_offensive_idea"}
-			allowed = { always = no }
-			removal_cost = -1
 			picture = FRA_motorized_focus
 			equipment_bonus = {
 				motorized_equipment = {
@@ -393,7 +377,7 @@ ideas = {
 		}
 		SRI_cultural_revolution_idea = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_cultural_revolution_idea"}
-			picture = SRI_Chairman_idea
+			picture = NOR_uob_support_idea
 			modifier = {
 				stability_factor = -0.15
 				political_power_cost = 0.20
@@ -401,8 +385,6 @@ ideas = {
 		}
 		SRI_firearm_improvement_idea = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_firearm_improvement_idea"}
-			allowed = { always = no }
-			removal_cost = -1
 			picture = ast_volunteer_defence_corps
 			equipment_bonus = {
 				infantry_equipment = {
@@ -419,6 +401,7 @@ ideas = {
 			modifier = {
 				consumer_goods_factor = -0.05
 				stability_factor = 0.05
+				conscription_factor = 0.05
 			}
 		}
 		SRI_urban_communes_idea = {
@@ -427,27 +410,143 @@ ideas = {
 			modifier = {
 				production_factory_max_efficiency_factor  = 0.10
 				industrial_capacity_factory = 0.10
+				conscription_factor = 0.05
 			}
 		}
-	}
+		SRI_support_unions_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_support_unions_idea"}
+			picture = TUS_recovering_syndies_economy
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.01
+				consumer_goods_factor = -0.1
+			}
+		}
+		SRI_gradual_industrialization_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_gradual_industrialization_idea"}
+			picture = UK_economy_syn_idea
+			modifier = {
+				production_speed_industrial_complex_factor = 0.05
+				production_speed_buildings_factor = 0.1
+				industrial_capacity_factory = 0.05
+			}
+		}
+		SRI_gradual_industrialization2_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_gradual_industrialization2_idea"}
+			picture = UK_economy_syn_idea
+			modifier = {
+				production_speed_buildings_factor = 0.2
+				industrial_capacity_factory = 0.15
+				production_speed_industrial_complex_factor = 0.1
+			}
+		}
+		SRI_religious_socialism2_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_religious_socialism2_idea"}
+			picture = IRE_catholic
+			modifier = {
+				stability_factor = 0.15
+				production_factory_start_efficiency_factor = 0.1
+				production_factory_efficiency_gain_factor = 0.15
+				conscription_factor = 0.05
+			}
+		}
+		SRI_religious_socialism_idea = {			
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_religious_socialism_idea"}
+			picture = IRE_catholic
+			modifier = {
+				stability_factor = 0.05
+				production_factory_start_efficiency_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.1
+			}
+		}
+		SRI_recover_from_socialism_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_recover_from_socialism_idea"}
+			picture = chi_war_of_resistance3
+			modifier = {
+				production_factory_max_efficiency_factor  = -0.15
+				conscription_factor = -0.1
+				stability_factor = -0.2
+			}
+		}
+		SRI_french_advisors_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_french_advisors_idea"}
+			picture = advisors_france
+			modifier = {
+				ai_call_ally_desire_factor = -1000
+				ai_join_ally_desire_factor = -1000
+				conscription_factor = 0.02
+				stability_factor = -0.05
+			}
+			equipment_bonus = {
+				infantry_equipment = {
+				build_cost_ic = -0.1 instant = yes
+				}
+			}
+		}
+		SRI_crime_problem = {
+			allowed = { always = no }
+			removal_cost = -1
+			picture = generic_spy_coup
+			modifier = {
+				political_power_cost = 0.2
+				consumer_goods_factor = 0.1
+				production_speed_buildings_factor = -0.2
+			}
+		}
+		SRI_crime_problem_peace = {
+			allowed = { always = no }
+			removal_cost = -1
+			picture = generic_spy_coup
+			modifier = {
+				political_power_cost = 0.1
+				consumer_goods_factor = 0.05
+				production_speed_buildings_factor = -0.1
+			}
+		}
+		SRI_crime_problem_war = {
+			allowed = { always = no }
+			removal_cost = -1
+			picture = generic_spy_coup
+			modifier = {
+				political_power_cost = 0.4
+				consumer_goods_factor = 0.2
+				production_speed_buildings_factor = -0.35
+			}
+		}
+		SRI_commisars_idea = {
+			allowed = { always = no }
+			removal_cost = -1
+			picture = generic_syndicalist_militia
+			modifier = {
+				army_org_factor = 0.15
+				army_attack_factor = 0.1
+				army_defence_factor = 0.05
+				}
+			}
+		SRI_futurism_idea = {
+			allowed = { always = no }
+			removal_cost = -1
+			picture = generic_totalist_revolution
+			modifier = {
+				army_speed_factor = 0.2
+				production_speed_arms_factory_factor = 0.15
+				production_speed_infrastructure_factor = 0.1
+				}
+			}
 	hidden_ideas = {# Hidden Ideas
 		SRI_congress_held = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_congress_held"}
-			allowed = {always = no}
 		}
 		SRI_election_held = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_election_held"}
-			allowed = {always = no}
 		}
 		SRI_neosanfedisti_attack = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_neosanfedisti_attack"}
-			allowed = {always = no}
 		}
 		SRI_mafia_event = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SRI_mafia_event"}
-			allowed = {always = no}
 		}
 	}
+}
 	weapons_manufacturer = {# Weapons Manufacturer
 		designer = yes
 		accademia_militare_modena = {
@@ -658,5 +757,7 @@ ideas = {
 			}
 		}
 	}
+
+}
 
 }

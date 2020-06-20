@@ -139,14 +139,14 @@ shared_focus = {# Military Imports
 		if = {
 			limit = { tag = JBS }
 			add_equipment_to_stockpile = {
-				type = infantry_equipment
+				type = infantry_equipment_0
 				amount = 2000
-				producer = OTT
+				producer = DEH
 			}
 		}
 		else = {
 			add_equipment_to_stockpile = {
-				type = infantry_equipment
+				type = infantry_equipment_0
 				amount = 2000
 				producer = DEH
 			}
@@ -277,8 +277,8 @@ shared_focus = {# Industrial Raw Materials
 	cost = 6
 	available = {
 		292 = { is_owned_and_controlled_by = ROOT }
-		754 = { is_owned_and_controlled_by = ROOT }
-		915 = { is_owned_and_controlled_by = ROOT }
+		656 = { is_owned_and_controlled_by = ROOT }
+		679 = { is_owned_and_controlled_by = ROOT }
 	}
 	prerequisite = {
 		focus = ARA_oil_market
@@ -295,13 +295,13 @@ shared_focus = {# Industrial Raw Materials
 				amount = 2
 			}
 		}
-		754 = {
+		656 = {
 			add_resource = {
 				type = tungsten
 				amount = 3
 			}
 		}
-		915 = {
+		679 = {
 			add_resource = {
 				type = steel
 				amount = 5
@@ -718,9 +718,12 @@ shared_focus = {# Recruiting Efforts
 	x = 27
 	y = 0
 	ai_will_do = { factor = 100 }
+	available = {	
+		hidden_trigger = { always = no }
+	}	
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus ARA_recruiting_effort"
-		add_manpower = 30000
+		custom_effect_tooltip = unlock_focuses
 	}
 	search_filters = { FOCUS_FILTER_MANPOWER }
 }
@@ -731,7 +734,7 @@ shared_focus = {# Contest the Gulf
 	prerequisite = {
 		focus = ARA_recruiting_effort
 	}
-	x = -3
+	x = -5
 	y = 1
 	relative_position_id = ARA_recruiting_effort
 	ai_will_do = { factor = 10 }
@@ -746,28 +749,6 @@ shared_focus = {# Contest the Gulf
 	}
 	search_filters = { FOCUS_FILTER_RESEARCH }
 }
-shared_focus = {# Protect Oil Shipping
-	id = ARA_protect_oil_shipping
-	icon = GFX_goal_generic_navy_cruiser
-	cost = 6
-	prerequisite = {
-		focus = ARA_contest_the_gulf
-	}
-	x = -4
-	y = 2
-	relative_position_id = ARA_recruiting_effort
-	ai_will_do = { factor = 10 }
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: Focus ARA_protect_oil_shipping"
-		add_tech_bonus = {
-			name = ARA_protect_oil_shipping
-			bonus = 1
-			uses = 2
-			category = dd_tech
-		}
-	}
-	search_filters = { FOCUS_FILTER_RESEARCH }
-}
 shared_focus = {# Kuwait naval base
 	id = ARA_kuwait_naval_base
 	icon = GFX_goal_generic_coastal_navy
@@ -778,7 +759,7 @@ shared_focus = {# Kuwait naval base
 	prerequisite = {
 		focus = ARA_contest_the_gulf
 	}
-	x = -2
+	x = -5
 	y = 2
 	relative_position_id = ARA_recruiting_effort
 	ai_will_do = { factor = 40 }
@@ -811,12 +792,9 @@ shared_focus = {# Naval Exercises
 	icon = GFX_goal_generic_navy_doctrines_tactics
 	cost = 6
 	prerequisite = {
-		focus = ARA_protect_oil_shipping
-	}
-	prerequisite = {
 		focus = ARA_kuwait_naval_base
 	}
-	x = -3
+	x = -5
 	y = 3
 	relative_position_id = ARA_recruiting_effort
 	ai_will_do = { factor = 10 }
@@ -838,7 +816,10 @@ shared_focus = {# Liberation of the Holy Cities
 	prerequisite = {
 		focus = ARA_recruiting_effort
 	}
-	x = -1
+	available = {
+		has_country_flag = SAU_faisal_professional
+	}
+	x = -3
 	y = 1
 	relative_position_id = ARA_recruiting_effort
 	ai_will_do = { factor = 40 }
@@ -855,7 +836,10 @@ shared_focus = {# Mobilize the Tribes
 	prerequisite = {
 		focus = ARA_recruiting_effort
 	}
-	x = 1
+	available = {
+		has_country_flag = SAU_faisal_mobilize
+	}
+	x = 3
 	y = 1
 	relative_position_id = ARA_recruiting_effort
 	ai_will_do = {
@@ -863,8 +847,193 @@ shared_focus = {# Mobilize the Tribes
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus ARA_mobilize_the_tribes"
-		custom_effect_tooltip = ARA_arabian_tribes_mobilized_tooltip
+		add_manpower = 30000
+	}
+	search_filters = { FOCUS_FILTER_MANPOWER }
+}
+shared_focus = {# MORE GUNS
+	id = ARA_more_guns
+	icon = GFX_goal_military_academy
+	cost = 6
+	prerequisite = {
+		focus = ARA_mobilize_the_tribes
+	}
+	x = 2
+	y = 2
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = {
+		factor = 40
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_mobilize_the_tribes"
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_0
+			amount = 2000
+			producer = DEH
+			}
+		}
+	}
+shared_focus = {# Establish Arabian Air force
+	id = ARA_establish_arabian_airforce
+	icon = GFX_goal_generic_build_airforce
+	cost = 6
+	prerequisite = {
+		focus = ARA_recruiting_effort
+	}
+	x = 0
+	y = 1
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_establish_arabian_airforce"
+			292 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = air_base
+				level = 2
+				instant_build = yes
+			}
+		}
+		air_experience = 10
+		add_tech_bonus = {
+			name = ARA_establish_arabian_airforce
+			bonus = 1
+			uses = 2
+			category = air_doctrine
+		}
+	}
+	search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_AIRFORCE_BONUS }
+}
+shared_focus = {# Purchase Fighters
+	id = ARA_import_fighters
+	icon = GFX_goal_generic_air_fighter
+	cost = 6
+	prerequisite = {
+		focus = ARA_establish_arabian_airforce
+	}
+	x = 0
+	y = 2
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_establish_arabian_airforce"
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_0
+				amount = 75
+				producer = DEH
+			}
+		}
+	}
+shared_focus = {# Army Command Modernization
+	id = ARA_army_command_modernization
+	icon = GFX_goal_doctrine_tank_warfare
+	cost = 8
+	prerequisite = {
+		focus = ARA_liberation_war_of_holy_cities
+	}
+	x = -2
+	y = 2
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 40 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_army_command_modernization"
+		add_tech_bonus = {
+			name = ARA_army_command_modernization
+			bonus = 1
+			uses = 2
+			category = land_doctrine
+		}
+	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
+}
+shared_focus = {# Build Artillery
+	id = ARA_artillery
+	icon = GFX_goal_generic_army_artillery2
+	cost = 6
+	prerequisite = {
+		focus = ARA_army_command_modernization
+	}
+	prerequisite = {
+		focus = ARA_import_fighters
+	}	
+	x = -1
+	y = 3
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 40 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus GUA_artillery_bonus"
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 50
+				producer = DEH
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+shared_focus = {# Establish Mechanized brigades
+	id = ARA_establish_arabian_mechanized_brigades
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 6
+	prerequisite = {
+		focus = ARA_more_guns
+	}
+	prerequisite = {
+		focus = ARA_import_fighters
+	}
+	x = 1
+	y = 3
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_establish_arabian_mechanized_brigades"
+			679 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+shared_focus = {# Establish new Arabian Army
+	id = ARA_establish_new_arabian_army
+	icon = GFX_goal_planning_bonus
+	cost = 6
+	prerequisite = {
+		focus = ARA_establish_arabian_mechanized_brigades
+		focus = ARA_artillery
+	}
+	x = 0
+	y = 4
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 40 }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_establish_new_arabian_army"
+		custom_effect_tooltip = SAU_different_bonus_tooltip
 		hidden_effect = {
+			add_ideas = ARA_new_arabian_army
+		}
+	}
+	search_filters = { FOCUS_FILTER_ARMY_BONUS }
+}
+shared_focus = {# Arabian Horsemanship
+	id = ARA_arabian_horsemanship
+	icon = GFX_goal_generic_cavalry
+	cost = 5
+	prerequisite = {
+		focus = ARA_recruiting_effort
+	}
+	x = 5
+	y = 1
+	relative_position_id = ARA_recruiting_effort
+	ai_will_do = { factor = 40	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ARA_arabian_horsemanship"
+		add_ideas = ARA_arabian_horsemanship_idea
+		custom_effect_tooltip = ARA_arabian_tribes_mobilized_tooltip
+			hidden_effect = {
 			division_template = {
 				name = "Tribal Cavalry"
 				division_names_group = SAU_CAV_01
@@ -888,114 +1057,6 @@ shared_focus = {# Mobilize the Tribes
 			}
 		}
 	}
-	search_filters = { FOCUS_FILTER_MANPOWER }
-}
-shared_focus = {# Army Command Modernization
-	id = ARA_army_command_modernization
-	icon = GFX_goal_doctrine_tank_warfare
-	cost = 8
-	prerequisite = {
-		focus = ARA_liberation_war_of_holy_cities
-	}
-	prerequisite = {
-		focus = ARA_mobilize_the_tribes
-	}
-	x = 0
-	y = 2
-	relative_position_id = ARA_recruiting_effort
-	ai_will_do = { factor = 40 }
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: Focus ARA_army_command_modernization"
-		add_tech_bonus = {
-			name = ARA_army_command_modernization
-			bonus = 1
-			uses = 2
-			category = land_doctrine
-		}
-	}
-	search_filters = { FOCUS_FILTER_RESEARCH }
-}
-shared_focus = {# Establish Arabian Air force
-	id = ARA_establish_arabian_airforce
-	icon = GFX_goal_generic_build_airforce
-	cost = 6
-	prerequisite = {
-		focus = ARA_army_command_modernization
-	}
-	x = -1
-	y = 3
-	relative_position_id = ARA_recruiting_effort
-	ai_will_do = { factor = 10 }
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: Focus ARA_establish_arabian_airforce"
-		air_experience = 10
-		add_tech_bonus = {
-			name = ARA_establish_arabian_airforce
-			bonus = 1
-			uses = 2
-			category = air_doctrine
-		}
-	}
-	search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_AIRFORCE_BONUS }
-}
-shared_focus = {# Establish Mechanized brigades
-	id = ARA_establish_arabian_mechanized_brigades
-	icon = GFX_goal_generic_army_motorized
-	cost = 6
-	prerequisite = {
-		focus = ARA_army_command_modernization
-	}
-	x = 1
-	y = 3
-	relative_position_id = ARA_recruiting_effort
-	ai_will_do = { factor = 10 }
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: Focus ARA_establish_arabian_mechanized_brigades"
-		add_tech_bonus = {
-			name = ARA_establish_arabian_mechanized_brigades
-			bonus = 1
-			uses = 1
-			category = motorized_equipment
-			category = cat_mechanized_equipment
-		}
-	}
-	search_filters = { FOCUS_FILTER_RESEARCH }
-}
-shared_focus = {# Establish new Arabian Army
-	id = ARA_establish_new_arabian_army
-	icon = GFX_goal_planning_bonus
-	cost = 6
-	prerequisite = {
-		focus = ARA_establish_arabian_airforce
-	}
-	prerequisite = {
-		focus = ARA_establish_arabian_mechanized_brigades
-	}
-	x = 0
-	y = 4
-	relative_position_id = ARA_recruiting_effort
-	ai_will_do = { factor = 40 }
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: Focus ARA_establish_new_arabian_army"
-		add_ideas = ARA_new_arabian_army
-	}
-	search_filters = { FOCUS_FILTER_ARMY_BONUS }
-}
-shared_focus = {# Arabian Horsemanship
-	id = ARA_arabian_horsemanship
-	icon = GFX_goal_generic_cavalry
-	cost = 5
-	prerequisite = {
-		focus = ARA_recruiting_effort
-	}
-	x = 3
-	y = 1
-	relative_position_id = ARA_recruiting_effort
-	ai_will_do = { factor = 40	}
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: Focus ARA_arabian_horsemanship"
-		add_ideas = ARA_arabian_horsemanship_idea
-	}
 	search_filters = { FOCUS_FILTER_ARMY_BONUS }
 }
 shared_focus = {# desert Warfare
@@ -1005,7 +1066,7 @@ shared_focus = {# desert Warfare
 	prerequisite = {
 		focus = ARA_arabian_horsemanship
 	}
-	x = 2
+	x = 6
 	y = 2
 	relative_position_id = ARA_recruiting_effort
 	ai_will_do = { factor = 40	}
@@ -1045,7 +1106,7 @@ shared_focus = {# War of Resistance
 	prerequisite = {
 		focus = ARA_desert_logstics
 	}
-	x = 3
+	x = 5
 	y = 3
 	relative_position_id = ARA_recruiting_effort
 	completion_reward = {
@@ -1068,16 +1129,17 @@ focus_tree = {
 	}
 
 	default = no
-	continuous_focus_position = { x = 2500 y = 700 }
+	continuous_focus_position = { x = 3000 y = 700 }
 	
 	shared_focus = ARA_trading_expertise
 	shared_focus = ARA_caravans_of_tomorrow
 	shared_focus = ARA_recruiting_effort
 
 	### Political Foci ###
-	focus = {# Crown Faisal 1
+	focus = {# Crown Abd Al-Ilah
 		id = SAU_proclaim_kingdom
 		icon = GFX_goal_monarchism_black
+		ai_will_do = { factor = 100 }
 		cost = 6
 		x = 0
 		y = 0
@@ -1090,6 +1152,7 @@ focus_tree = {
 	focus = {# Meet with Rashidis
 		id = SAU_a_meeting_with_rashid
 		icon = GFX_focus_generic_home_defense
+		ai_will_do = { factor = 100 }
 		cost = 6
 		x = 0
 		y = 1
@@ -1102,13 +1165,14 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus SAU_a_meeting_with_rashid"
-			custom_effect_tooltip = unlock_focuses
+			country_event = { id = saud.159 }
 		}
 	}
 	
 	focus = {# Draft a constitution
 		id = SAU_draft_constitution
 		icon = GFX_goal_constitutional_guarantees
+		ai_will_do = { factor = 30 }
 		cost = 6
 		x = 0
 		y = 2
@@ -1117,16 +1181,233 @@ focus_tree = {
 			focus = SAU_a_meeting_with_rashid
 		}
 		completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: Focus SAU_draft_constitution"
+			log = "[GetDateText]: [Root.GetName]: Focus SAU_draft_constitution"
 		}
 	}
+	
+	focus = {# Mass Education
+		id = SAU_educate_the_people
+		icon = GFX_goal_generic_mechanisation
+		ai_will_do = { factor = 5 }
+		cost = 6
+		x = -4
+		y = 3
+		relative_position_id = SAU_proclaim_kingdom
+		prerequisite = {
+			focus = SAU_draft_constitution
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAU_educate_the_people"
+			679 = {	
+				add_extra_state_shared_building_slots = 2
+			}
+			675 = {
+				add_extra_state_shared_building_slots = 2
+			}
+			292 = {
+				add_extra_state_shared_building_slots = 2
+			}
+			991 = {
+				add_extra_state_shared_building_slots = 2
+			}
+			656 = {
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	
+	focus = {# Fund National Research
+		id = SAU_research_reform
+		icon = GFX_focus_generic_agriculture
+		ai_will_do = { factor = 5 }
+		cost = 6
+		x = -4
+		y = 4
+		relative_position_id = SAU_proclaim_kingdom
+		prerequisite = {
+			focus = SAU_educate_the_people
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAU_research_reform"
+		}
+	}
+	
+	focus = {# Establish Local Borders
+		id = SAU_local_governments
+		icon = GFX_goal_generic_major_alliance
+		ai_will_do = { factor = 5 }
+		cost = 6
+		x = -2
+		y = 3
+		relative_position_id = SAU_proclaim_kingdom
+		prerequisite = {
+			focus = SAU_draft_constitution
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAU_local_governments"
+			add_stability = 0.15
+		}
+	}
+	
+	focus = {# Electoral Reform
+		id = SAU_federalize_government
+		icon = GFX_goal_COS_Ferrer_Coup
+		ai_will_do = { factor = 5 }
+		cost = 6
+		x = -2
+		y = 4
+		relative_position_id = SAU_proclaim_kingdom
+		prerequisite = {
+			focus = SAU_local_governments
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAU_federalize_government"
+		}
+	}
+	
+	focus = {# A Meritocratic Army
+		id = SAU_meritocracy
+		icon = GFX_goal_conscription
+		ai_will_do = { factor = 20 }
+		cost = 6
+		x = 0
+		y = 3
+		relative_position_id = SAU_proclaim_kingdom
+		prerequisite = {
+			focus = SAU_draft_constitution
+		}	
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAU_meritocracy"
+			add_ideas = SAU_meritocratic_army
+		}
+	}
+	
+	focus = {# Military Reform
+		id = SAU_military_reform
+		icon = GFX_goal_mass_concentration_of_army
+		ai_will_do = { factor = 20 }
+		cost = 6
+		x = 0
+		y = 4
+		relative_position_id = SAU_proclaim_kingdom
+		prerequisite = {
+			focus = SAU_meritocracy
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAU_military_reform"
+			custom_effect_tooltip = SAU_military_reform_tooltip
+			country_event = {
+				id = saud.157
+			}
+		}
+	}
+	
+	focus = {
+		id = SAU_rule_of_law
+		icon = GFX_goal_new_treaty
+		ai_will_do = { factor = 5 }
+		cost = 6
+		x = 2
+		y = 3
+		relative_position_id = SAU_proclaim_kingdom
+		prerequisite = {
+			focus = SAU_draft_constitution
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAU_rule_of_law"
+			add_ideas = { SAU_rule_of_law_idea }
+		}
+	}
+	
+	focus = {
+		id = SAU_judicial_reform
+		icon = GFX_goal_generic_neutrality_focus
+		ai_will_do = { factor = 5 }
+		cost = 6
+		x = 2
+		y = 4
+		relative_position_id = SAU_proclaim_kingdom
+		prerequisite = {
+			focus = SAU_rule_of_law
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAU_judicial_reform"
+		}
+	}
+	
+	focus = {# Deal with the Nobles
+		id = SAU_deal_with_nobles
+		icon = GFX_goal_generic_imprison_people
+		ai_will_do = { factor = 5 }
+		cost = 6
+		x = 4
+		y = 3
+		relative_position_id = SAU_proclaim_kingdom
+		prerequisite = {
+			focus = SAU_draft_constitution
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAU_deal_with_nobles"
+			add_timed_idea = {
+				idea = SAU_purge_sauds
+				days = 120
+			}
+		}
+	}
+	
+	focus = {# Reform the Bureaucracy
+	id = SAU_bureaucracy_reform
+	icon = GFX_goal_conspiracy
+	ai_will_do = { factor = 5 }
+	cost = 6
+	x = 4
+	y = 4
+	relative_position_id = SAU_proclaim_kingdom
+	prerequisite = {
+		focus = SAU_deal_with_nobles
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAU_bureaucracy_reform"
+		country_event = { id = saud.158 }
+		}
+	}
+	
+	focus = {# A New Constitution
+	id = SAU_new_constitution
+	icon = GFX_goal_POR_royal_edicts
+	ai_will_do = { factor = 25 }
+	cost = 6
+	x = 0
+	y = 5
+	relative_position_id = SAU_proclaim_kingdom
+	prerequisite = {
+		focus = SAU_bureaucracy_reform
+	}
+	prerequisite = {
+		focus = SAU_judicial_reform
+	}
+	prerequisite = {
+		focus = SAU_federalize_government
+	}
+	prerequisite = {
+		focus = SAU_military_reform
+	}
+	prerequisite = {	
+		focus = SAU_research_reform
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAU_new_constitution"
+		}
+	}
+	
+	### Expansion ###
 	
 	focus = {# House of Saud Expands
 		id = SAU_fulfull_destiny
 		icon = GFX_goal_Unite_Arabia
 		cost = 1
-		x = 0
-		y = 6
+		x = 8
+		y = 0
 		relative_position_id = SAU_the_nemisis
 		available = {
 			NOT = { country_exists = OTT }

@@ -4208,6 +4208,25 @@ country_event = {
 	}
 }
 
+country_event = { # Remove French reliance spirit during the Weltkrieg
+	id = socitaly.201
+	immediate = { log = "[GetDateText]: [Root.GetName]: event socitaly.201" }
+	title = socitaly.201.t
+	desc = socitaly.201.d
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		GER = { has_war_with = FRA }
+		has_idea = SRI_french_advisors_idea
+	}
+	
+	option = {
+		name = socitaly.201.a
+		remove_ideas = SRI_french_advisors_idea
+	}
+}
+
 # Messe takes over
 country_event = {
 	id = socitaly.205
@@ -4230,11 +4249,7 @@ country_event = {
 		}
 		set_cosmetic_tag = SRI_confederation
 		hidden_effect = {
-		remove_state_core = 837
-		remove_state_core = 742
-		remove_state_core = 1006
-		remove_state_core = 156
-		remove_state_core = 115
+		remove_ideas = SRI_french_advisors_idea
 		}
 	}
 	option = {
@@ -4311,4 +4326,5 @@ country_event = {
 		add_political_power = -200
 	}
 }
+
 

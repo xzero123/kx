@@ -28,14 +28,14 @@ country_event = {
 		name = italy.1.a #Ask the President of the United States to shut down this 'Radio Priest'
 		ai_chance = { factor = 75 }
 		add_political_power = -40
-		reverse_add_opinion_modifier = { target = USA modifier = ITA_denounced_coughlin }
-		USA = {	country_event = { id = ustates.172 } }
+		reverse_add_opinion_modifier = { target = USA modifier = PAP_denounced_coughlin }
+		USA = {	country_event = { id = ustates.18 } }
 	}
 	option = {
 		name = italy.1.b #It would be best if we did not interfere
 		ai_chance = { factor = 25 }
 		add_political_power = 20
-		reverse_add_opinion_modifier = { target = USA modifier = ITA_did_not_denounce_coughlin }
+		reverse_add_opinion_modifier = { target = USA modifier = PAP_did_not_denounce_coughlin }
 	}
 }
 
@@ -239,8 +239,8 @@ country_event = {
 	option = {
 		name = italy.10.a
 		if = {
-			limit = { 160 = { is_demilitarized_zone = yes } }
-			160 = { set_demilitarized_zone = no }
+			limit = { 159 = { is_demilitarized_zone = yes } }
+			159 = { set_demilitarized_zone = no }
 		}
 		if = {
 			limit = { 759 = { is_demilitarized_zone = yes } }
@@ -1444,19 +1444,23 @@ country_event = {
 		set_country_flag = ITA_Dead_Pius_XI
 		create_country_leader = {
 			name = "College of Cardinals"
-			picture = "Portrait_Italy_College_of_Cardinals.tga"
+			picture = "Portrait_Papal_State_College_of_Cardinals.tga"
+			desc = "POLITICS_COLLEGE_CARDINALS_DESC"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+		}
+		create_country_leader = {
+			name = "College of Cardinals"
+			picture = "Portrait_Papal_State_College_of_Cardinals.tga"
+			desc = "POLITICS_COLLEGE_CARDINALS_DESC"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
-			traits = {}
-		}
-		if = {
-			limit = { has_idea = ITA_Conte_Stefano_Jacini_hog_sco }
-			hidden_effect = { remove_ideas = ITA_Conte_Stefano_Jacini_hog_sco }
-			add_ideas = ITA_Don_Luigi_Sturzo_hog_sco
 		}
 		hidden_effect = {
+			random_other_country = {
+				news_event = { id = worldnews.67 hours = 5 }
+			}
 			AUS = { country_event = { id = italy.41 days = 10 } }
-			random_other_country = { news_event = { id = worldnews.67 hours = 5 } }
 		}
 	}
 }
@@ -1536,19 +1540,13 @@ country_event = {
 		}
 		create_country_leader = {
 			name = "Julius IV"
-			picture = "Portrait_Italy_Julius.tga"
+			picture = "Portrait_Papal_State_Julius.tga"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 			traits = {}
 		}
 		set_politics = { ruling_party = national_populist }
 		add_popularity = { ideology = national_populist popularity = 0.1 }
-		remove_all_ministers = yes
-		add_ideas = ITA_Julius_IV_hog_npo
-		add_ideas = ITA_Pedro_Cardinal_Segura_y_Saenz_for_npo
-		add_ideas = ITA_Mother_Pasqualina_Lehnert_eco_ade
-		add_ideas = ITA_Elias_I_di_Borbone_Parma_sec_npo
-		set_country_flag = Josef_von_Oesterreich_Toskana_dead
 		FROM = {
 			country_event = { id = ita.43 }
 			news_event = { id = worldnews.69 days = 1 }
@@ -1602,10 +1600,6 @@ country_event = {
 			set_politics = { ruling_party = authoritarian_democrat }
 		}
 		remove_all_ministers = yes
-		add_ideas = ITA_Julius_IV_hog_npo
-		add_ideas = ITA_Pietro_Duca_d'Acquarone_for_ade
-		add_ideas = ITA_Giovanni_Cardinal_Montini_eco_ade
-		add_ideas = ITA_Elia_Cardinal_dalla_Costa_sec_pau
 		FROM = { country_event = { id = ita.47 } }
 	}
 }
@@ -1827,18 +1821,13 @@ country_event = {
 		add_political_power = 100
 		create_country_leader = {
 			name = "Julius IV "
-			picture = "Portrait_Italy_Julius.tga"
+			picture = "Portrait_Papal_State_Julius.tga"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 			traits = {}
 		}
 		set_politics = { ruling_party = national_populist }
 		add_popularity = { ideology = national_populist popularity = 0.1 }
-		remove_all_ministers = yes
-		add_ideas = ITA_Julius_IV_hog_npo
-		add_ideas = ITA_Pedro_Cardinal_Segura_y_Saenz_for_npo
-		add_ideas = ITA_Mother_Pasqualina_Lehnert_eco_ade
-		add_ideas = ITA_Elias_I_di_Borbone_Parma_sec_npo
 		set_country_flag = Josef_von_Oesterreich_Toskana_dead
 		FROM = { country_event = { id = ita.43 } }
 		hidden_effect = {
@@ -1907,18 +1896,13 @@ country_event = {
 		}
 		create_country_leader = {
 			name = "Pius XII"
-			picture = "Portrait_Italy_PiusXII.tga"
+			picture = "Portrait_Papal_State_PiusXII.tga"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 			traits = {}
 		}
 		set_politics = { ruling_party = paternal_autocrat }
 		add_popularity = { ideology = paternal_autocrat popularity = 0.3 }
-		remove_all_ministers = yes
-		add_ideas = ITA_Luigi_Cardinal_Maglione_hog_ade
-		add_ideas = ITA_Luigi_Cardinal_Maglione_for_ade
-		add_ideas = ITA_Lorenzo_Cardinal_Lauri_eco_ade
-		add_ideas = ITA_Francesco_Cardinal_Marchetti_Selvaggiani_sec_ade
 		hidden_effect = {
 			SRI = { country_event = { id = ita.56 days = 20 } }
 		}
@@ -1931,7 +1915,7 @@ country_event = {
 		add_political_power = -100
 		create_country_leader = {
 			name = "Stephen X"
-			picture = "Portrait_Italy_Stephen.tga"
+			picture = "Portrait_Papal_State_Stephen.tga"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 			traits = {}
@@ -1941,11 +1925,6 @@ country_event = {
 			set_politics = { ruling_party = authoritarian_democrat }
 		}
 		add_popularity = { ideology = authoritarian_democrat popularity = 0.2 }
-		remove_all_ministers = yes
-		add_ideas = ITA_Stephen_X_hog_ade
-		add_ideas = ITA_Eugene_Cardinal_Tisserant_for_ade
-		add_ideas = ITA_Eugenio_Cardinal_Pacelli_eco_pau
-		add_ideas = ITA_Elia_Cardinal_dalla_Costa_sec_pau
 		hidden_effect = {
 			SRI = { country_event = { id = ita.56 days = 20 } }
 		}
@@ -1957,21 +1936,16 @@ country_event = {
 		}
 		create_country_leader = {
 			name = "John XXIII"
-			picture = "Portrait_Italy_John.tga"
+			picture = "Portrait_Papal_State_John.tga"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 			traits = {}
 		}
 		set_politics = { ruling_party = social_democrat }
 		add_popularity = { ideology = social_democrat popularity = 0.3 }
-		remove_all_ministers = yes
-		add_ideas = ITA_Eugene_Cardinal_Tisserant_hog_sde
-		add_ideas = ITA_Ivanoe_Bonomi_for_sli
-		add_ideas = ITA_Luigi_Einaudi_eco_sli
-		add_ideas = ITA_Ferruccio_Parri_sec_sde
-		AUS = { add_opinion_modifier = { target = ITA modifier = ITA_hates_govt } }
-		HUN = { add_opinion_modifier = { target = ITA modifier = ITA_hates_govt } }
-		GER = { add_opinion_modifier = { target = ITA modifier = ITA_dislikes_govt } }
+		AUS = { add_opinion_modifier = { target = ITA modifier = KR_hates_govt } }
+		HUN = { add_opinion_modifier = { target = ITA modifier = KR_hates_govt } }
+		GER = { add_opinion_modifier = { target = ITA modifier = KR_disapproves_of_govt } }
 		hidden_effect = {
 			SRI = { country_event = { id = ita.56 days = 20 } }
 		}
@@ -1983,22 +1957,17 @@ country_event = {
 		}
 		create_country_leader = {
 			name = "Julius IV"
-			picture = "Portrait_Italy_Julius.tga"
+			picture = "Portrait_Papal_State_Julius.tga"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 			traits = {}
 		}
 		set_politics = { ruling_party = national_populist }
 		add_popularity = { ideology = national_populist popularity = 0.3 }
-		remove_all_ministers = yes
-		add_ideas = ITA_Julius_IV_hog_npo
-		add_ideas = ITA_Pedro_Cardinal_Segura_y_Saenz_for_npo
-		add_ideas = ITA_Mother_Pasqualina_Lehnert_eco_ade
-		add_ideas = ITA_Elias_I_di_Borbone_Parma_sec_npo
-		GER = { add_opinion_modifier = { target = ITA modifier = ITA_dislikes_govt } }
-		CRO = { add_opinion_modifier = { target = ITA modifier = ITA_likes_govt } }
-		HUN = { add_opinion_modifier = { target = ITA modifier = ITA_likes_govt } }
-		BAS = { add_opinion_modifier = { target = ITA modifier = ITA_likes_govt } }
+		GER = { add_opinion_modifier = { target = ITA modifier = KR_disapproves_of_govt } }
+		CRO = { add_opinion_modifier = { target = ITA modifier = KR_approves_of_govt } }
+		HUN = { add_opinion_modifier = { target = ITA modifier = KR_approves_of_govt } }
+		BAS = { add_opinion_modifier = { target = ITA modifier = KR_approves_of_govt } }
 		hidden_effect = {
 			SRI = { country_event = { id = ita.56 days = 20 } }
 		}
@@ -2058,9 +2027,9 @@ country_event = {
 		if = {
 			limit = { FROM = { has_government = authoritarian_democrat } }
 			add_political_power = -100
-			add_opinion_modifier = { target = AUS modifier = ITA_hates_govt }
+			add_opinion_modifier = { target = AUS modifier = KR_hates_govt }
 		}
-		add_opinion_modifier = { target = ITA modifier = ITA_hates_govt }
+		add_opinion_modifier = { target = ITA modifier = KR_hates_govt }
 		ITA = { country_event = { id = ita.57 days = 10 } }
 	}
 	option = {
@@ -2069,7 +2038,7 @@ country_event = {
 		ai_chance = {
 			factor = 80
 		}
-		add_opinion_modifier = { target = ITA modifier = ITA_likes_govt }
+		add_opinion_modifier = { target = ITA modifier = KR_hates_govt }
 	}
 	option = {
 		name = italy.56.c #Maybe we can come to terms with this new Pope?
@@ -3461,7 +3430,7 @@ country_event = {
 		}
 		add_political_power = 20
 		FROM = {
-			add_opinion_modifier = { target = ROOT modifier = ITA_hates_govt }
+			add_opinion_modifier = { target = ROOT modifier = KR_hates_govt }
 			diplomatic_relation = { country = ROOT relation = non_aggression_pact active = no }
 			if = {
 				limit = { gives_military_access_to = ROOT }
@@ -5771,7 +5740,7 @@ country_event = {
 		}
 		create_country_leader = {
 			name = "Pius XII"
-			picture = "Portrait_Italy_PiusXII.tga"
+			picture = "Portrait_Papal_State_PiusXII.tga"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 			traits = {}
@@ -5779,10 +5748,6 @@ country_event = {
 		set_politics = { ruling_party = paternal_autocrat }
 		add_popularity = { ideology = paternal_autocrat popularity = 0.3 }
 		remove_all_ministers = yes
-		add_ideas = ITA_Pius_XII_hog_ade
-		add_ideas = ITA_Augusta_Cardinal_da_Silva_for_ade
-		add_ideas = ITA_Adeodato_Cardinal_Piazza_eco_ade
-		add_ideas = ITA_Benedetto_Cardinal_Masella_sec_ade
 	}
 	option = {
 		name = italy.151.a #Elect Alfredo Ottaviani as Gregorius XVII
@@ -5799,10 +5764,6 @@ country_event = {
 		set_politics = { ruling_party = paternal_autocrat }
 		add_popularity = { ideology = paternal_autocrat popularity = 0.3 }
 		remove_all_ministers = yes
-		add_ideas = ITA_Giuseppe_Cardinal_Siri_hog_pau
-		add_ideas = ITA_Marcel_Cardinal_Lefebvre_for_npo
-		add_ideas = ITA_Antonio_Cardinal_Bacci_eco_pau
-		add_ideas = ITA_Josef_Cardinal_Frings_sec_pau
 	}
 	option = {
 		name = italy.151.b #Elect Angelo Giuseppe Roncalli as John XXIV
@@ -5823,10 +5784,6 @@ country_event = {
 		set_politics = { ruling_party = social_democrat }
 		add_popularity = { ideology = social_democrat popularity = 0.3 }
 		remove_all_ministers = yes
-		add_ideas = ITA_John_XXIV_hog_sde
-		add_ideas = ITA_Monsignor_Angelo_dell'Acqua_for_sde
-		add_ideas = ITA_Giacomo_Cardinal_Lercaro_eco_sli
-		add_ideas = ITA_Alberto_Cardinal_di_Jorio_sec_sde
 	}
 	option = {
 		name = italy.151.c #Elect Giovanni Battista Montini as Paulus VI
@@ -5842,10 +5799,6 @@ country_event = {
 		}
 		add_popularity = { ideology = authoritarian_democrat popularity = 0.3 }
 		remove_all_ministers = yes
-		add_ideas = ITA_Paulus_VI_hog_ade
-		add_ideas = ITA_Alfredo_Ildefonso_Cardinal_Schuster_for_ade
-		add_ideas = ITA_Giacomo_Cardinal_Lercaro_eco_sli
-		add_ideas = ITA_Giuseppe_Cardinal_Pizzardo_sec_ade
 	}
 }
 

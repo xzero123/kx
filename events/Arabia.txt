@@ -1171,6 +1171,9 @@ country_event = { #Army Reform
 	
 	option = {
 		name = saud.157.a
+		ai_chance = {
+			factor = 55
+		}		
 		set_country_flag = SAU_faisal_mobilize
 		unlock_national_focus = ARA_recruiting_effort
 		hidden_effect = {
@@ -1183,6 +1186,9 @@ country_event = { #Army Reform
 	
 	option = {
 		name = saud.157.b
+		ai_chance = {
+			factor = 45
+		}
 		set_country_flag = SAU_faisal_professional
 		unlock_national_focus = ARA_recruiting_effort
 		hidden_effect = {
@@ -1204,6 +1210,9 @@ country_event = { #Bureaucratic Reform
 	
 	option = {
 		name = saud.158.a
+		ai_chance = {
+			factor = 40
+		}		
 		hidden_effect = {
 			modify_country_flag = {
 				flag = SAU_liberal_reforms
@@ -1218,6 +1227,9 @@ country_event = { #Bureaucratic Reform
 	
 	option = {
 		name = saud.158.b
+		ai_chance = {
+			factor = 60
+		}		
 		hidden_effect = {
 			modify_country_flag = {
 				flag = SAU_conservative_reforms
@@ -1228,4 +1240,33 @@ country_event = { #Bureaucratic Reform
 			ideology = paternal_autocrat
 			popularity = 0.03
 		}
+	}
+}
+
+country_event = { # Meet with Rashidis
+	id = saud.159
+	immediate = { log = "[GetDateText]: [Root.GetName]: event saud.159" }
+	title = saud.159.t
+	desc = saud.159.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = saud.159.a
+		custom_effect_tooltip = SAU_jabal_shammar_troop_tooltip
+		ai_chance = {
+			factor = 95
+		}			
+		hidden_effect = {
+		load_oob = SAU_jabal_shammar
+		}
+		add_stability = -0.1
+	}
+	
+	option = {
+		name = saud.159.b
+		ai_chance = {
+			factor = 5
+		}			
+		add_stability = 0.05
 	}

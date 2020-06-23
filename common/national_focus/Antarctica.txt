@@ -1,0 +1,279 @@
+# Made with love by Waghlon and O-K-I
+
+
+focus_tree = {
+	id = AAR
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = AAR
+		}
+	}
+	#Focus for Trotsky flavour 3
+	focus = {
+		id = AAR_trotsky_flavour_3
+		icon = GFX_goal_unknown
+		x = 1
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AAR_trotsky_flavour_2 }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Penguin flavour 3
+	focus = {
+		id = AAR_penguin_flavour_3
+		icon = GFX_goal_unknown
+		x = 3
+		y = 4
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = AAR_penguin_flavour_2 }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Rotha Flavour 1
+	focus = {
+		id = AAR_rotha_flavour_1
+		icon = GFX_goal_unknown
+		x = 5
+		y = 2
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = AAR_rothas_antarctica }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Antarctica For Antarcticans
+	focus = {
+		id = AAR_antarctica_for_antarcticans
+		icon = GFX_goal_unknown
+		x = 3
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AAR_antarctica_forever }
+		mutually_exclusive = { focus = AAR_rothas_antarctica }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Trotsky's Antarctica
+	focus = {
+		id = AAR_trotskys_antarctica
+		icon = GFX_goal_unknown
+		x = 1
+		y = 1
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = AAR_antarctica_forever }
+		mutually_exclusive = { focus = AAR_rothas_antarctica }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Antarctica Forever
+	focus = {
+		id = AAR_antarctica_forever
+		icon = GFX_goal_unknown
+		x = 3
+		y = 0
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Rotha's Antarctica
+	focus = {
+		id = AAR_rothas_antarctica
+		icon = GFX_goal_unknown
+		x = 5
+		y = 1
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = AAR_antarctica_forever }
+		mutually_exclusive = { focus = AAR_trotskys_antarctica }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Claim The World
+	focus = {
+		id = AAR_claim_the_world
+		icon = GFX_goal_unknown
+		x = 3
+		y = 6
+		cost = 12
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = AAR_all_hail_queen_rotha_i 
+			focus = AAR_global_state_of_antarctica 
+			focus = AAR_permanent_revolution 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Penguin flavour 2
+	focus = {
+		id = AAR_penguin_flavour_2
+		icon = GFX_goal_unknown
+		x = 3
+		y = 3
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = AAR_penguin_flavour_1 }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Global State of Antarctica
+	focus = {
+		id = AAR_global_state_of_antarctica
+		icon = GFX_goal_unknown
+		x = 3
+		y = 5
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = AAR_penguin_flavour_1 }
+		mutually_exclusive = { 
+			focus = AAR_permanent_revolution 
+		}
+		mutually_exclusive = { 
+			focus = AAR_all_hail_queen_rotha_i 
+		}
+		mutually_exclusive = { 
+			focus = AAR_ 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Rotha Flavour 2
+	focus = {
+		id = AAR_rotha_flavour_2
+		icon = GFX_goal_unknown
+		x = 5
+		y = 3
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = AAR_rotha_flavour_1 }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for All Hail Queen Rotha I
+	focus = {
+		id = AAR_all_hail_queen_rotha_i
+		icon = GFX_goal_unknown
+		x = 5
+		y = 5
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = AAR_rotha_flavour_3 }
+		mutually_exclusive = { 
+			focus = AAR_global_state_of_antarctica 
+		}
+		mutually_exclusive = { 
+			focus = AAR_permanent_revolution 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Penguin flavour 1
+	focus = {
+		id = AAR_penguin_flavour_1
+		icon = GFX_goal_unknown
+		x = 3
+		y = 2
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = AAR_antarctica_for_antarcticans }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Trotsky flavour
+	focus = {
+		id = AAR_trotsky_flavour
+		icon = GFX_goal_unknown
+		x = 1
+		y = 2
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = AAR_trotskys_antarctica }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Trotsky flavour 2
+	focus = {
+		id = AAR_trotsky_flavour_2
+		icon = GFX_goal_unknown
+		x = 1
+		y = 3
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = AAR_trotsky_flavour }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Permanent Revolution
+	focus = {
+		id = AAR_permanent_revolution
+		icon = GFX_goal_unknown
+		x = 1
+		y = 5
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = AAR_trotsky_flavour_3 }
+		mutually_exclusive = { 
+			focus = AAR_global_state_of_antarctica 
+		}
+		mutually_exclusive = { 
+			focus = AAR_all_hail_queen_rotha_i 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Rotha flavour 3
+	focus = {
+		id = AAR_rotha_flavour_3
+		icon = GFX_goal_unknown
+		x = 5
+		y = 4
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = AAR_rotha_flavour_2 }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+#End of focuses 
+ }

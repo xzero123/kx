@@ -1,6 +1,3 @@
-# Made with love by Waghlon and O-K-I
-
-
 focus_tree = {
 	id = AAR
 	country = {
@@ -60,8 +57,18 @@ focus_tree = {
 		y = 1
 		cost = 10
 		available_if_capitulated = yes
+
+		available = {
+			has_government = social_democrat
+		}
+
 		prerequisite = { focus = AAR_antarctica_forever }
-		mutually_exclusive = { focus = AAR_rothas_antarctica }
+		mutually_exclusive = { 
+			focus = AAR_trotskys_antarctica 
+		}
+		mutually_exclusive = { 
+			focus = AAR_rothas_antarctica 
+		}
 		ai_will_do = {
 			factor = 1
 		}
@@ -75,8 +82,21 @@ focus_tree = {
 		y = 1
 		cost = 7
 		available_if_capitulated = yes
+		
+		available = {
+			has_government = totalist
+		}
+		
 		prerequisite = { focus = AAR_antarctica_forever }
-		mutually_exclusive = { focus = AAR_rothas_antarctica }
+		mutually_exclusive = { 
+			focus = AAR_antarctica_for_antarcticans 
+		}
+		mutually_exclusive = { 
+			focus = AAR_rothas_antarctica 
+		}
+		mutually_exclusive = { 
+			focus = AAR_ 
+		}
 		ai_will_do = {
 			factor = 1
 		}
@@ -89,7 +109,9 @@ focus_tree = {
 		x = 3
 		y = 0
 		cost = 4
-		available_if_capitulated = yes
+		available = {
+			date > 1936.3.1
+		}
 		ai_will_do = {
 			factor = 1
 		}
@@ -103,8 +125,18 @@ focus_tree = {
 		y = 1
 		cost = 7
 		available_if_capitulated = yes
+		
+		available = {
+			has_government = national_populist
+		}
+		
 		prerequisite = { focus = AAR_antarctica_forever }
-		mutually_exclusive = { focus = AAR_trotskys_antarctica }
+		mutually_exclusive = { 
+			focus = AAR_trotskys_antarctica 
+		}
+		mutually_exclusive = { 
+			focus = AAR_antarctica_for_antarcticans 
+		}
 		ai_will_do = {
 			factor = 1
 		}

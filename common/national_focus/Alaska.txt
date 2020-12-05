@@ -479,6 +479,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 
 		completion_reward = {
+			country_event = Alaska.56 #Rand yeah or nay
 			swap_ideas = {
 				remove_idea = ALA_resource_barons
 				add_idea = ALA_baron_consession
@@ -3701,7 +3702,7 @@ focus_tree = {
 			}
 			add_ideas = ALA_Japan_Concessions_JAP
 			hidden_effect = {
-				if = { limit = { NOT = { has_government = national_populist } }
+				if = { limit = NOT = { has_government = national_populist }
 					set_politics = {
 						ruling_party = national_populist
 						elections_allowed = no
@@ -3791,7 +3792,7 @@ focus_tree = {
 				add_ideas = ALA_Canada_Concessions_ALA
 			}
 			add_ideas = ALA_Canada_Concessions_CAN
-			if = { limit = { NOT = { has_government = authoritarian_democrat } }
+			if = { limit = NOT = { has_government = authoritarian_democrat }
 				set_politics = {
 					ruling_party = authoritarian_democrat
 					elections_allowed = no
@@ -3879,12 +3880,24 @@ focus_tree = {
 		cancel_if_invalid = yes
 
 		completion_reward = {
-			if = {
-				limit = { is_subject = yes }
-				overlord = {
-					add_ideas = ALA_Russia_Concessions_ALA
+				if = {
+					is_subject_of = RUS
+						RUS = {
+						add_ideas = ALA_Russia_Concessions_ALA
+					}
 				}
-			}
+				else_if = {
+					is_subject_of = TRM
+						TRM = {
+						add_ideas = ALA_Russia_Concessions_ALA
+					}
+				}
+				else_if = {
+					is_subject_of = SOV
+					SOV = {
+						add_ideas = ALA_Russia_Concessions_ALA
+					}
+				}
 			add_ideas = ALA_Russia_Concessions_RUS
 		}
 	}
@@ -3952,4 +3965,347 @@ focus_tree = {
 			add_ideas = ALA_russian_language_effort
 		}
 	}
+	#Focus for Under Canada's Nose
+	focus = {
+		id = ALA_under_canadas_nose
+		icon = GFX_ALA_canada_war
+		x = 54
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ALA_grey_wolf_training 
+		}
+		prerequisite = { 
+			focus = ALA_ties_to_enver_pasha 
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			country_event= {
+days = 1 
+id = Alaska.48
 }
+		}
+	}
+	#Focus for Hawaiian Friendship
+	focus = {
+		id = ALA_hawaiian_friendship
+		icon = GFX_ALA_hawaiian_friendship
+		x = 54
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = ALA_under_canadas_nose }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power= 200
+		}
+	}
+	#Focus for Red Man's Company
+	focus = {
+		id = ALA_red_mans_company
+		icon = GFX_ALA_red_man_company
+		x = 58
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = ALA_indigenous_economics }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			country_event= {
+days = 1 
+id = Alaska.49
+}
+		}
+	}
+	#Focus for Promote Cultural Revivalism
+	focus = {
+		id = ALA_promote_cultural_revivalism
+		icon = GFX_ALA_indian_culture
+		x = 56
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ALA_hawaiian_friendship 
+		}
+		prerequisite = { 
+			focus = ALA_red_mans_company 
+		}
+		prerequisite = { 
+			focus = ALA_ties_to_enver_pasha 
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power= 50
+		}
+	}
+	#Focus for Into the Sphere?
+	focus = {
+		id = ALA_into_the_sphere
+		icon = GFX_ALA_into_sphere
+		x = 56
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = ALA_promote_cultural_revivalism }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			JAP = {
+			country_event = Alaska.50
+			}
+		}
+	}
+	#Focus for Red Man's Burden
+	focus = {
+		id = ALA_red_mans_burden
+		icon = GFX_ALA_red_man_burden
+		x = 56
+		y = 9
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = ALA_into_the_sphere }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			country_event= {
+days = 1 
+id = Alaska.51
+}
+		}
+	}
+	#Focus for Ties to Enver Pasha
+	focus = {
+		id = ALA_ties_to_enver_pasha
+		icon = GFX_ALA_pasha
+		x = 56
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ALA_aif_spies 
+		}
+		prerequisite = { 
+			focus = ALA_reservation_tensions 
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power= 50
+		}
+	}
+	#Focus for Reservation Tensions
+	focus = {
+		id = ALA_reservation_tensions
+		icon = GFX_ALA_reservation_tensions
+		x = 58
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = ALA_red_clouds_grand_scheme }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power= 50
+		}
+	}
+	#Focus for AIF Spies
+	focus = {
+		id = ALA_aif_spies
+		icon = GFX_ALA_indian_spies
+		x = 54
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = ALA_red_clouds_grand_scheme }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power= 50  add_ideas= ALA_native_spies
+		}
+	}
+	#Focus for Rand's Folly
+	focus = {
+		id = ALA_rands_folly
+		icon = GFX_ALA_rand_folly
+		x = 56
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 5
+		}
+		available = {
+			has_country_flag= ALA_rand_folly_mess_up
+		}
+		completion_reward = {
+			set_party_name = {
+				ideology = national_populist
+				long_name = ALA_REDMAN_national_populist_party_long
+				name = ALA_REDMAN_national_populist_party
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.1
+			}
+		}
+	}
+	#Focus for Red Clouds Grand Scheme
+	focus = {
+		id = ALA_red_clouds_grand_scheme
+		icon = GFX_ALA_towner_plan
+		x = 56
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = ALA_beringia_roses }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			country_event= {
+days = 1 
+id = Alaska.44 
+}
+  add_manpower= 8000
+		}
+	}
+	#Focus for Grey Wolf Training
+	focus = {
+		id = ALA_grey_wolf_training
+		icon = GFX_ALA_grey_wolf
+		x = 54
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ALA_aif_spies 
+		}
+		prerequisite = { 
+			focus = ALA_bolster_our_population 
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_ideas= ALA_better_troops
+		}
+	}
+	#Focus for Beringia Roses
+	focus = {
+		id = ALA_beringia_roses
+		icon = GFX_ALA_beringia_rises
+		x = 56
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = ALA_rands_folly }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			country_event= {
+days = 1 
+id = Alaska.43
+}
+		}
+	}
+	#Focus for Bolster our Population
+	focus = {
+		id = ALA_bolster_our_population
+		icon = GFX_ALA_pop
+		x = 52
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ALA_red_clouds_grand_scheme }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_manpower= 25000  country_event= {
+days = 1 
+id = Alaska.55
+}
+		}
+	}
+	#Focus for Useful Idiots
+	focus = {
+		id = ALA_useful_idiots
+		icon = GFX_ALA_useful_idiots
+		x = 60
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ALA_red_clouds_grand_scheme }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			country_event= {
+days = 1 
+id = Alaska.46
+}
+		}
+	}
+	#Focus for Question of Religion
+	focus = {
+		id = ALA_question_of_religion
+		icon = GFX_ALA_question_religion
+		x = 58
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ALA_reservation_tensions 
+		}
+		prerequisite = { 
+			focus = ALA_useful_idiots 
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			country_event= {
+days = 1 
+id = Alaska.47
+}
+		}
+	}
+	#Focus for Indigenous Economics
+	focus = {
+		id = ALA_indigenous_economics
+		icon = GFX_ALA_native_econ
+		x = 58
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ALA_ties_to_enver_pasha 
+		}
+		prerequisite = { 
+			focus = ALA_question_of_religion 
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_ideas= ALA_native_econ
+		}
+	}
+#End of focuses 
+ }

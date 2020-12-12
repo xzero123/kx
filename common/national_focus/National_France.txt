@@ -496,7 +496,7 @@ focus_tree = {
 		id = NFA_demand_the_assemblys_loyalty
 		#icon = 
 		prerequisite = { focus = NFA_troops_on_the_streets }
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = NFA_troops_on_the_streets
 		cost = 1
@@ -517,9 +517,9 @@ focus_tree = {
 	focus = {
 		id = NFA_condemn_civilian_politics
 		#icon = 
-		prerequisite = { focus = NFA_demand_the_assemblys_loyalty }
-		x = -1
-		y = 2
+		prerequisite = { focus = NFA_troops_on_the_streets }
+		x = -2
+		y = 1
 		relative_position_id = NFA_troops_on_the_streets
 		cost = 1
 		ai_will_do = {
@@ -540,30 +540,8 @@ focus_tree = {
 		id = NFA_a_new_premier
 		#icon = 
 		prerequisite = { focus = NFA_troops_on_the_streets }
-		x = 1
+		x = 2
 		y = 1
-		relative_position_id = NFA_troops_on_the_streets
-		cost = 1
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_junta_stays
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
-	focus = {
-		id = NFA_entrench_the_junta
-		#icon = 
-		prerequisite = { focus = NFA_a_new_premier }
-		x = 1
-		y = 2
 		relative_position_id = NFA_troops_on_the_streets
 		cost = 1
 		ai_will_do = {
@@ -584,8 +562,31 @@ focus_tree = {
 		id = NFA_a_new_constitution
 		#icon = 
 		prerequisite = { focus = NFA_condemn_civilian_politics }
-		prerequisite = { focus = NFA_entrench_the_junta }
+		prerequisite = { focus = NFA_demand_the_assemblys_loyalty }
+		prerequisite = { focus = NFA_a_new_premier }
 		x = 0
+		y = 2
+		relative_position_id = NFA_troops_on_the_streets
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_junta_stays
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_memories_of_verdun
+		#icon = 
+		prerequisite = { focus = NFA_a_new_constitution }
+		x = -2
 		y = 3
 		relative_position_id = NFA_troops_on_the_streets
 		cost = 1
@@ -604,33 +605,11 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = NFA_one_purpose
+		id = NFA_our_sole_purpose
 		#icon = 
 		prerequisite = { focus = NFA_a_new_constitution }
-		x = 0
-		y = 4
-		relative_position_id = NFA_troops_on_the_streets
-		cost = 1
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_junta_stays
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
-	focus = {
-		id = NFA_la_france_enivree
-		#icon = 
-		prerequisite = { focus = NFA_one_purpose }
-		x = 1
-		y = 5
+		x = 2
+		y = 3
 		relative_position_id = NFA_troops_on_the_streets
 		cost = 1
 		ai_will_do = {
@@ -650,10 +629,31 @@ focus_tree = {
 	focus = {
 		id = NFA_militarise_society
 		#icon = 
-		prerequisite = { focus = NFA_one_purpose }
-		prerequisite = { focus = NFA_chantiers_de_jeunesse }
-		x = -1
-		y = 5
+		prerequisite = { focus = NFA_our_sole_purpose }
+		x = 1
+		y = 4
+		relative_position_id = NFA_troops_on_the_streets
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_junta_stays
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_work_with_loyal_businesses
+		#icon = 
+		prerequisite = { focus = NFA_our_sole_purpose }
+		x = 3
+		y = 4
 		relative_position_id = NFA_troops_on_the_streets
 		cost = 1
 		ai_will_do = {
@@ -674,52 +674,7 @@ focus_tree = {
 		id = NFA_everything_for_the_liberation
 		#icon = 
 		prerequisite = { focus = NFA_militarise_society }
-		prerequisite = { focus = NFA_la_france_enivree }
-		x = 0
-		y = 6
-		relative_position_id = NFA_troops_on_the_streets
-		cost = 1
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_junta_stays
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
-	focus = {
-		id = NFA_chantiers_de_jeunesse
-		#icon = 
-		prerequisite = { focus = NFA_a_new_constitution }
-		x = -2
-		y = 4
-		relative_position_id = NFA_troops_on_the_streets
-		cost = 1
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_junta_stays
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
-	focus = {
-		id = NFA_befriend_the_clergy
-		#icon = 
-		prerequisite = { focus = NFA_chantiers_de_jeunesse }
-		x = -3
+		x = 1
 		y = 5
 		relative_position_id = NFA_troops_on_the_streets
 		cost = 1
@@ -738,77 +693,9 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = NFA_the_cult_of_the_lion
+		id = NFA_arms_subsidies
 		#icon = 
-		prerequisite = { focus = NFA_befriend_the_clergy }
-		prerequisite = { focus = NFA_militarise_society }
-		x = -2
-		y = 6
-		relative_position_id = NFA_troops_on_the_streets
-		cost = 1
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_junta_stays
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
-	focus = {
-		id = NFA_la_revolution_nationale
-		#icon = 
-		prerequisite = { focus = NFA_the_cult_of_the_lion }
-		prerequisite = { focus = NFA_everything_for_the_liberation }
-		x = -1
-		y = 7
-		relative_position_id = NFA_troops_on_the_streets
-		cost = 1
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_junta_stays
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
-	focus = {
-		id = NFA_use_our_connections
-		#icon = 
-		prerequisite = { focus = NFA_a_new_constitution }
-		x = 2
-		y = 4
-		relative_position_id = NFA_troops_on_the_streets
-		cost = 1
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_junta_stays
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
-	focus = {
-		id = NFA_coordinate_loyal_businesses
-		#icon = 
-		prerequisite = { focus = NFA_use_our_connections }
+		prerequisite = { focus = NFA_work_with_loyal_businesses }
 		x = 3
 		y = 5
 		relative_position_id = NFA_troops_on_the_streets
@@ -828,10 +715,99 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = NFA_subsidise_the_arms_industry
+		id = NFA_chantiers_de_jeunesse
 		#icon = 
-		prerequisite = { focus = NFA_coordinate_loyal_businesses }
-		x = 2
+		prerequisite = { focus = NFA_memories_of_verdun }
+		x = -1
+		y = 4
+		relative_position_id = NFA_troops_on_the_streets
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_junta_stays
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_cult_of_the_marechal
+		#icon = 
+		prerequisite = { focus = NFA_chantiers_de_jeunesse }
+		x = -1
+		y = 5
+		relative_position_id = NFA_troops_on_the_streets
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_junta_stays
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_seek_clergy_support
+		#icon = 
+		prerequisite = { focus = NFA_memories_of_verdun }
+		x = -3
+		y = 4
+		relative_position_id = NFA_troops_on_the_streets
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_junta_stays
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_morality_and_service
+		#icon = 
+		prerequisite = { focus = NFA_seek_clergy_support }
+		x = -3
+		y = 5
+		relative_position_id = NFA_troops_on_the_streets
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_junta_stays
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_la_revolution_nationale
+		#icon = 
+		prerequisite = { focus = NFA_morality_and_service }
+		prerequisite = { focus = NFA_cult_of_the_marechal }
+		x = -1
 		y = 6
 		relative_position_id = NFA_troops_on_the_streets
 		cost = 1
@@ -850,12 +826,34 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = NFA_backroom_deals
+		id = NFA_la_france_enivree
 		#icon = 
-		prerequisite = { focus = NFA_subsidise_the_arms_industry }
+		prerequisite = { focus = NFA_arms_subsidies }
 		prerequisite = { focus = NFA_everything_for_the_liberation }
 		x = 1
-		y = 7
+		y = 6
+		relative_position_id = NFA_troops_on_the_streets
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_junta_stays
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_expand_the_deuxieme_beureau
+		#icon = 
+		prerequisite = { focus = NFA_a_new_constitution }
+		x = 0
+		y = 3
 		relative_position_id = NFA_troops_on_the_streets
 		cost = 1
 		ai_will_do = {
@@ -875,10 +873,11 @@ focus_tree = {
 	focus = {
 		id = NFA_the_lion_roars
 		#icon = 
+		prerequisite = { focus = NFA_unity_through_service }
 		prerequisite = { focus = NFA_la_revolution_nationale }
-		prerequisite = { focus = NFA_backroom_deals }
+		prerequisite = { focus = NFA_la_france_enivree }
 		x = 0
-		y = 8
+		y = 7
 		relative_position_id = NFA_troops_on_the_streets
 		cost = 1
 		ai_will_do = {
@@ -1310,6 +1309,437 @@ focus_tree = {
 		x = 0
 		y = 8
 		relative_position_id = NFA_the_colonel_at_the_helm
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_la_rocque_in_charge
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	
+##Maurras gamer time
+
+	focus = {
+		id = NFA_la_restauration
+		#icon = 
+		x = 30
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_jean_will_be_restored
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}     
+	
+	focus = {
+		id = NFA_emphasise_maurrasisme
+		#icon = 
+		prerequisite = { focus = NFA_la_restauration }
+		x = 0
+		y = 1
+		relative_position_id = NFA_la_restauration
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_la_rocque_in_charge
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_empower_the_camelots
+		#icon = 
+		prerequisite = { focus = NFA_la_restauration }
+		x = 2
+		y = 1
+		relative_position_id = NFA_la_restauration
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_la_rocque_in_charge
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_anti_parliamentarisme
+		#icon = 
+		prerequisite = { focus = NFA_la_restauration }
+		x = -2
+		y = 1
+		relative_position_id = NFA_la_restauration
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_la_rocque_in_charge
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_classical_inspiration
+		#icon = 
+		prerequisite = { focus = NFA_anti_parliamentarisme }
+		prerequisite = { focus = NFA_emphasise_maurrasisme }
+		x = -1
+		y = 2
+		relative_position_id = NFA_la_restauration
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_la_rocque_in_charge
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_break_the_four_estates
+		#icon = 
+		prerequisite = { focus = NFA_empower_the_camelots }
+		prerequisite = { focus = NFA_emphasise_maurrasisme }
+		x = 1
+		y = 2
+		relative_position_id = NFA_la_restauration
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_la_rocque_in_charge
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_localist_ideals
+		#icon = 
+		prerequisite = { focus = NFA_classical_inspiration }
+		x = -2
+		y = 3
+		relative_position_id = NFA_la_restauration
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_la_rocque_in_charge
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_smash_global_finance
+		#icon = 
+		prerequisite = { focus = NFA_break_the_four_estates }
+		x = 2
+		y = 3
+		relative_position_id = NFA_la_restauration
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_la_rocque_in_charge
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_sacred_traditions
+		#icon = 
+		prerequisite = { focus = NFA_break_the_four_estates }
+		prerequisite = { focus = NFA_classical_inspiration }
+		x = 0
+		y = 3
+		relative_position_id = NFA_la_restauration
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_la_rocque_in_charge
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_work_with_abbas
+		#icon = 
+		prerequisite = { focus = NFA_localist_ideals }
+		x = -3
+		y = 4
+		relative_position_id = NFA_la_restauration
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_la_rocque_in_charge
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_cultural_revivals_among_exiles
+		#icon = 
+		prerequisite = { focus = NFA_localist_ideals }
+		prerequisite = { focus = NFA_sacred_traditions }
+		x = -1
+		y = 4
+		relative_position_id = NFA_la_restauration
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_la_rocque_in_charge
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_royal_corporatism
+		#icon = 
+		prerequisite = { focus = NFA_smash_global_finance }
+		prerequisite = { focus = NFA_sacred_traditions }
+		x = 3
+		y = 4
+		relative_position_id = NFA_la_restauration
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_la_rocque_in_charge
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_rew3ard = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_end_romanticism
+		#icon = 
+		prerequisite = { focus = NFA_smash_global_finance }
+		prerequisite = { focus = NFA_sacred_traditions }
+		x = 1
+		y = 4
+		relative_position_id = NFA_la_restauration
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_la_rocque_in_charge
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_support_native_elites
+		#icon = 
+		prerequisite = { focus = NFA_work_with_abbas }
+		prerequisite = { focus = NFA_cultural_revivals_among_exiles }
+		x = -2
+		y = 5
+		relative_position_id = NFA_la_restauration
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_la_rocque_in_charge
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_order_and_reason
+		#icon = 
+		prerequisite = { focus = NFA_end_romanticism }
+		prerequisite = { focus = NFA_cultural_revivals_among_exiles }
+		x = 0
+		y = 5
+		relative_position_id = NFA_la_restauration
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_la_rocque_in_charge
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_mend_relations_with_the_holy_see
+		#icon = 
+		prerequisite = { focus = NFA_end_romanticism }
+		prerequisite = { focus = NFA_royal_corporatism }
+		x = 2
+		y = 5
+		relative_position_id = NFA_la_restauration
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_la_rocque_in_charge
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_ancient_liberties
+		#icon = 
+		prerequisite = { focus = NFA_support_native_elites }
+		prerequisite = { focus = NFA_order_and_reason }
+		x = -1
+		y = 6
+		relative_position_id = NFA_la_restauration
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_la_rocque_in_charge
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_celebrate_joan_of_arc
+		#icon = 
+		prerequisite = { focus = NFA_mend_relations_with_the_holy_see }
+		prerequisite = { focus = NFA_order_and_reason }
+		x = 1
+		y = 6
+		relative_position_id = NFA_la_restauration
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_la_rocque_in_charge
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = NFA_the_kingdom_from_the_ashes
+		#icon = 
+		prerequisite = { focus = NFA_celebrate_joan_of_arc }
+		prerequisite = { focus = NFA_ancient_liberties }
+		x = 0
+		y = 7
+		relative_position_id = NFA_la_restauration
 		cost = 1
 		ai_will_do = {
 			factor = 80

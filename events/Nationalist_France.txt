@@ -137,6 +137,9 @@ country_event = { #The Lion in Canada
 				country_event = {
 					id = nfa.6 days = 14
 				}
+				country_event = {
+					id = nfa.10 days = 28
+				}
 			}
 		}
 	}
@@ -181,7 +184,7 @@ country_event = { #ENA Cell Rounded Up
 	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.7"}
 	title = nfa.7.t
 	desc = nfa.7.d
-	picture = GFX_report_event_NFA_event_ArmyReview
+	picture = GFX_report_event_NFA_event_NFA_riots
 
 	fire_only_once = yes
 
@@ -205,7 +208,7 @@ country_event = { #white murderers arrested
 	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.8"}
 	title = nfa.8.t
 	desc = nfa.8.d
-	picture = GFX_report_event_NFA_event_ArmyReview
+	picture = GFX_report_event_NFA_event_NFA_riots
 
 	fire_only_once = yes
 
@@ -228,7 +231,7 @@ country_event = { #la cagoule exposed
 	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.9"}
 	title = nfa.9.t
 	desc = nfa.9.d
-	picture = GFX_report_event_NFA_event_ArmyReview
+	picture = GFX_report_event_NFA_event_Deloncle
 
 	fire_only_once = yes
 
@@ -251,7 +254,7 @@ country_event = { #janin wants to bribe deputies
 	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.10"}
 	title = nfa.10.t
 	desc = nfa.10.d
-	picture = GFX_report_event_NFA_event_ArmyReview
+	picture = GFX_report_event_NFA_event_NFA_Assembly
 
 	fire_only_once = yes
 
@@ -262,7 +265,7 @@ country_event = { #janin wants to bribe deputies
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.11 days = 5
+					id = nfa.11 days = 7
 				}
 			}
 		}
@@ -274,20 +277,196 @@ country_event = { #janin gets exposed
 	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.11"}
 	title = nfa.11.t
 	desc = nfa.11.d
-	picture = GFX_report_event_NFA_event_ArmyReview
+	picture = GFX_report_event_NFA_event_NFA_riots
 
 	fire_only_once = yes
 
 	is_triggered_only = yes
 
 	option = {
-		name = nfa.11.a #go on then what could go wrong
+		name = nfa.11.a #feck
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.11 days = 5
+					id = nfa.12 days = 2
 				}
 			}
+		}
+		add_stability = -0.04
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.07
+		}	
+		add_political_power = -60
+		add_ideas = NFA_protests_1
+	}
+}
+
+country_event = { #janin resigns
+	id = nfa.12
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.12"}
+	title = nfa.12.t
+	desc = nfa.12.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = nfa.12.a 
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa.13 days = 4
+				}
+			}
+		}
+		remove_ideas = NFA_Maurice_Janin_hog_pau
+		add_political_power = 5
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.02
+		}
+	}
+}
+
+country_event = { #tf you gonna do now phil?
+	id = nfa.13
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.13"}
+	title = nfa.13.t
+	desc = nfa.13.d
+	picture = GFX_report_event_NFA_event_Petain1
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #de la rocque
+		name = nfa.13.a 
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa.14 days = 4
+				}
+			}
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.04
+		}
+	}
+	
+	option = { #libs
+		name = nfa.13.b
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa. days = 4
+				}
+			}
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.02
+		}
+	}
+	
+	option = { #martial law
+		name = nfa.13.c
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa. days = 4
+				}
+			}
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.04
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.04
+		}
+	}
+}
+
+country_event = { #meeting de la rocque
+	id = nfa.14
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.14"}
+	title = nfa.14.t
+	desc = nfa.14.d
+	picture = GFX_report_event_NFA_event_ArmyReview
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #accept
+		name = nfa.14.a 
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa.15 days = 7
+				}
+			}
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		}
+	}
+	
+	option = { #nah mate
+		name = nfa.14.b
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa. days = 4
+				}
+			}
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.03
+		}
+	}
+}
+
+country_event = { #the de la rocque cabinet
+	id = nfa.15
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.15"}
+	title = nfa.15.t
+	desc = nfa.15.d
+	picture = GFX_report_event_NFA_event_ArmyReview
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { 
+		name = nfa.15.a 
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		} 
+		set_country_flag = NFA_de_la_rocque_in_charge
+		complete_national_focus = NFA_the_colonel_at_the_helm
+		remove_all_ministers = yes
+		add_ideas = {
+			NFA_Francois_de_la_Rocque_hog_pau
+			NFA_Jean_Mermoz_for_pau
+			NFA_Francois_Coty_eco_pau
+			NFA_Charles_Vallin_sec_pau
 		}
 	}
 }

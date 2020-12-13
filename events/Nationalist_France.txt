@@ -362,7 +362,7 @@ country_event = { #tf you gonna do now phil?
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa. days = 4
+					id = nfa.17 days = 4
 				}
 			}
 		}
@@ -385,7 +385,7 @@ country_event = { #tf you gonna do now phil?
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa. days = 4
+					id = nfa.16 days = 4
 				}
 			}
 		}
@@ -405,7 +405,7 @@ country_event = { #meeting de la rocque
 	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.14"}
 	title = nfa.14.t
 	desc = nfa.14.d
-	picture = GFX_report_event_NFA_event_ArmyReview
+	picture = GFX_report_event_NFA_event_NFA_Assembly
 
 	fire_only_once = yes
 
@@ -431,7 +431,7 @@ country_event = { #meeting de la rocque
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa. days = 4
+					id = nfa.16 days = 4
 				}
 			}
 		}
@@ -447,7 +447,7 @@ country_event = { #the de la rocque cabinet
 	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.15"}
 	title = nfa.15.t
 	desc = nfa.15.d
-	picture = GFX_report_event_NFA_event_ArmyReview
+	picture = GFX_report_event_NFA_event_NFA_Assembly
 
 	fire_only_once = yes
 
@@ -461,6 +461,112 @@ country_event = { #the de la rocque cabinet
 		} 
 		set_country_flag = NFA_de_la_rocque_in_charge
 		complete_national_focus = NFA_the_colonel_at_the_helm
+		remove_all_ministers = yes
+		add_ideas = {
+			NFA_Francois_de_la_Rocque_hog_pau
+			NFA_Jean_Mermoz_for_pau
+			NFA_Francois_Coty_eco_pau
+			NFA_Charles_Vallin_sec_pau
+		}
+	}
+}
+
+country_event = { #martial law
+	id = nfa.16
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.16"}
+	title = nfa.16.t
+	desc = nfa.16.d
+	picture = GFX_report_event_NFA_event_NFA_riots
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { 
+		name = nfa.16.a 
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.04
+		} 
+		set_country_flag = NFA_junta_stays
+		complete_national_focus = NFA_troops_on_the_streets
+		remove_all_ministers = yes
+		add_ideas = {
+			NFA_Phillipe_Petain_hog_pau
+		}
+		add_stability = -0.03
+	}
+}
+
+country_event = { #meeting marin
+	id = nfa.17
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.17"}
+	title = nfa.17.t
+	desc = nfa.17.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #accept
+		name = nfa.17.a 
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa.18 days = 7
+				}
+			}
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.02
+		}
+	}
+	
+	option = { #nah mate
+		name = nfa.17.b
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa.16 days = 4
+				}
+			}
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.02
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.02
+		}
+	}
+}
+
+country_event = { #the marin cabinet
+	id = nfa.18
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.18"}
+	title = nfa.18.t
+	desc = nfa.18.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { 
+		name = nfa.18.a 
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		} 
+		set_country_flag = NFA_compromised_with_liberals
+		complete_national_focus = NFA_compromise_with_the_liberals
 		remove_all_ministers = yes
 		add_ideas = {
 			NFA_Francois_de_la_Rocque_hog_pau

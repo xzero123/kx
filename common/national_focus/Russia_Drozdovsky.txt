@@ -1,0 +1,547 @@
+focus_tree = {
+	id = RUS_DROZDOVSKY_FOCUS
+	country = {
+		factor = 0
+		modifier = {
+			add = 100
+			tag = RUS
+		}
+	}
+	
+	
+	default = no
+	continuous_focus_position = { x = 4200 y = 3200 }
+	
+
+focus = {
+	id = RUS_Droz
+	icon = GFX_goal_RUS_black_tsar
+	cost = 0
+	x = 6
+	y = 0
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Droz"
+	}
+}
+
+focus = {
+	id = RUS_To_Save_The_Holy_Rus
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 6
+	y = 1
+	prerequisite = {
+		focus = RUS_Droz
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_To_Save_The_Holy_Rus"
+			country_event = {
+			id = rusdroz.2
+			days = 4
+			}
+	}
+}
+
+focus = {
+	id = RUS_Rally_The_Monarchists
+	icon = GFX_goal_rus_russian_nationalism
+	cost = 10
+	x = 5
+	y = 2
+	available = {
+	has_country_flag = Droz_Monarchist_Path
+	}
+	prerequisite = {
+		focus = RUS_To_Save_The_Holy_Rus
+	}
+	mutually_exclusive = {
+		focus = RUS_Drozdovtsy_Rule_Alone
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Rally_The_Monarchists"
+	}
+}
+
+focus = {
+	id = RUS_Bloody_Mess_Is_Honey_Sweet
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 4
+	y = 3
+	available = {
+	has_country_flag = MonarchistsUnited
+	}
+	prerequisite = {
+		focus = RUS_Rally_The_Monarchists
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Bloody_Mess_Is_Honey_Sweet"
+	}
+}
+
+focus = {
+	id = RUS_Muslim_Peoples_Organization
+	icon = GFX_goal_islamic_government
+	cost = 10
+	x = 3
+	y = 4
+	prerequisite = {
+		focus = RUS_Bloody_Mess_Is_Honey_Sweet
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Muslim_Peoples_Organization"
+	}
+}
+
+focus = {
+	id = RUS_All_Russian_Popular_Union
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 3
+	y = 5
+	prerequisite = {
+		focus = RUS_Muslim_Peoples_Organization
+	}
+	prerequisite = {
+		focus = RUS_Raise_the_Black_Hundreds
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_All_Russian_Popular_Union"
+	}
+}
+
+focus = {
+	id = RUS_Cultural_Awakening
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 4
+	y = 6
+	prerequisite = {
+		focus = RUS_All_Russian_Popular_Union
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Cultural_Awakening"
+	}
+}
+
+focus = {
+	id = RUS_National_Unity
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 2
+	y = 6
+	prerequisite = {
+		focus = RUS_All_Russian_Popular_Union
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_National_Unity"
+	}
+}
+
+focus = {
+	id = RUS_That_Which_Was_Lost
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 2
+	y = 7
+	prerequisite = {
+		focus = RUS_National_Unity
+	}
+	prerequisite = {
+		focus = RUS_Legacy_of_Minin
+	}
+	prerequisite = {
+		focus = RUS_Cultural_Awakening
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_That_Which_Was_Lost"
+	}
+}
+
+focus = {
+	id = RUS_By_Cross_And_Sword
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 2
+	y = 3
+	available = {
+	has_country_flag = MonarchistsUnited
+	}
+	prerequisite = {
+		focus = RUS_Rally_The_Monarchists
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_By_Cross_And_Sword"
+	}
+}
+
+focus = {
+	id = RUS_Raise_the_Black_Hundreds
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 1
+	y = 4
+	prerequisite = {
+		focus = RUS_By_Cross_And_Sword
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Raise_the_Black_Hundreds"
+	}
+}
+
+focus = {
+	id = RUS_Patriotic_Business
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 1
+	y = 5
+	prerequisite = {
+		focus = RUS_Raise_the_Black_Hundreds
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Patriotic_Business"
+	}
+}
+
+focus = {
+	id = RUS_Legacy_of_Minin
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 0
+	y = 6
+	prerequisite = {
+		focus = RUS_Patriotic_Business
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Legacy_of_Minin"
+	}
+}
+
+focus = {
+	id = RUS_Drozdovtsy_Rule_Alone
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 7
+	y = 2
+	available = {
+	has_country_flag = Droz_Regiment_Path
+	}
+	prerequisite = {
+		focus = RUS_To_Save_The_Holy_Rus
+	}
+	mutually_exclusive = {
+		focus = RUS_Rally_The_Monarchists
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Drozdovtsy_Rule_Alone"
+			country_event = {
+			id = rusdroz.7
+			days = 4
+			}
+	}
+}
+
+focus = {
+	id = RUS_Slayer_of_Comissars
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 8
+	y = 3
+	available = {
+	has_country_flag = Droz_PurgesComplete
+	}
+	prerequisite = {
+		focus = RUS_Drozdovtsy_Rule_Alone
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Slayer_of_Comissars"
+	}
+}
+
+focus = {
+	id = RUS_Implacable
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 10
+	y = 3
+	available = {
+	has_country_flag = Droz_PurgesComplete
+	}
+	prerequisite = {
+		focus = RUS_Drozdovtsy_Rule_Alone
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Implacable"
+	}
+}
+
+focus = {
+	id = RUS_Turkul_Bureau
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 11
+	y = 4
+	prerequisite = {
+		focus = RUS_Implacable
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Turkul_Bureau"
+	}
+}
+
+focus = {
+	id = RUS_Iron_Will
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 9
+	y = 4
+	prerequisite = {
+		focus = RUS_Slayer_of_Comissars
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Iron_Will"
+	}
+}
+
+focus = {
+	id = RUS_Total_Economic_Nationalization
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 11
+	y = 5
+	prerequisite = {
+		focus = RUS_Iron_Will
+	}
+	prerequisite = {
+		focus = RUS_Turkul_Bureau
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Total_Economic_Nationalization"
+	}
+}
+
+focus = {
+	id = RUS_Establish_Planning_Boards
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 12
+	y = 6
+	prerequisite = {
+		focus = RUS_Total_Economic_Nationalization
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Establish_Planning_Boards"
+	}
+}
+
+focus = {
+	id = RUS_National_Restoration_Regime
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 9
+	y = 5
+	prerequisite = {
+		focus = RUS_Iron_Will
+	}
+	prerequisite = {
+		focus = RUS_Turkul_Bureau
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_National_Restoration_Regime"
+	}
+}
+
+focus = {
+	id = RUS_Young_Drozdovites
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 8
+	y = 6
+	prerequisite = {
+		focus = RUS_National_Restoration_Regime
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Young_Drozdovites"
+	}
+}
+
+focus = {
+	id = RUS_Appeal_to_the_Russian_People
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 10
+	y = 6
+	prerequisite = {
+		focus = RUS_National_Restoration_Regime
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Appeal_to_the_Russian_People"
+	}
+}
+
+focus = {
+	id = RUS_Until_Our_Final_Victory
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 10
+	y = 7
+	prerequisite = {
+		focus = RUS_Appeal_to_the_Russian_People
+	}
+	prerequisite = {
+		focus = RUS_Young_Drozdovites
+	}
+	prerequisite = {
+		focus = RUS_Establish_Planning_Boards
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Until_Our_Final_Victory"
+	}
+}
+
+focus = {
+	id = RUS_Settle_Our_Scores_With_Socialists
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 6
+	y = 3
+	prerequisite = {
+		focus = RUS_Drozdovtsy_Rule_Alone
+		focus = RUS_Rally_The_Monarchists
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Settle_Our_Scores_With_Socialists"
+	}
+}
+
+focus = {
+	id = RUS_Close_Dissent_Newspapers
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 7
+	y = 4
+	prerequisite = {
+		focus = RUS_Settle_Our_Scores_With_Socialists
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Close_Dissent_Newspapers"
+	}
+}
+
+focus = {
+	id = RUS_Smash_Liberalism
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 5
+	y = 4
+	prerequisite = {
+		focus = RUS_Settle_Our_Scores_With_Socialists
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Smash_Liberalism"
+	}
+}
+
+focus = {
+	id = RUS_Regency
+	icon = GFX_goal_RUS_black_tsar
+	cost = 10
+	x = 6
+	y = 5
+	prerequisite = {
+		focus = RUS_Smash_Liberalism
+	}
+	prerequisite = {
+		focus = RUS_Close_Dissent_Newspapers
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus RUS_Regency"
+	}
+}
+
+
+}

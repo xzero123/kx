@@ -7,6 +7,287 @@ add_namespace = orth
 add_namespace = rusdem
 add_namespace = russoc
 add_namespace = russianews
+add_namespace = rusdroz
+
+country_event = { #DEBUG DROZ TREE
+	id = rusdroz.1
+	title = rusdroz.1.t 
+	desc = rusdroz.1.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	option = {
+		name = rusdroz.1.a
+		set_country_flag = RUS_DROZ
+		load_focus_tree = RUS_DROZDOVSKY_FOCUS
+		}
+	}
+	
+country_event = { #to save the holy rus focus
+	id = rusdroz.2
+	title = rusdroz.2.t 
+	desc = rusdroz.2.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	option = { #we need to unite all monarchist forces
+		name = rusdroz.2.a
+		set_country_flag = Droz_Monarchist_Path
+		}
+	option = { #who need em amirite
+		name = rusdroz.2.b
+		set_country_flag = Droz_Regiment_Path
+		}
+	}
+	
+country_event = { #rally the monarchists focus
+	id = rusdroz.3
+	title = rusdroz.3.t 
+	desc = rusdroz.3.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	option = { #we need to unite all monarchist forces
+		name = rusdroz.3.a
+		country_event = {
+			id = rusdroz.4
+			days = 4
+			}
+		}
+	}
+	
+country_event = { #meeting with Markov II
+	id = rusdroz.4
+	title = rusdroz.4.t 
+	desc = rusdroz.4.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	option = { #agree on his terms
+		name = rusdroz.4.a
+		set_variable = { BlackHundredsStrenght = 1 }
+		add_political_power = -10
+		country_event = {
+			id = rusdroz.5
+			days = 4
+			}
+		}
+	option = { #we dont need him
+		name = rusdroz.4.b
+		set_variable = { InitiativeFailed = 1 }
+		country_event = {
+			id = rusdroz.5
+			days = 4
+			}
+		}
+	}
+	
+country_event = { #meeting with Purishkevich
+	id = rusdroz.5
+	title = rusdroz.5.t 
+	desc = rusdroz.5.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	option = { #agree on his terms
+		name = rusdroz.5.a
+		add_to_variable = { BlackHundredsStrenght = 2 }
+		add_political_power = -10
+		country_event = {
+			id = rusdroz.4
+			days = 4
+			}
+		}
+	option = { #we dont need him
+		name = rusdroz.5.b
+		add_to_variable = { InitiativeFailed = 1 }
+		country_event = {
+			id = rusdroz.4
+			days = 4
+			}
+		}
+	}
+	
+country_event = { #meeting with Engelgardt
+	id = rusdroz.5
+	title = rusdroz.5.t 
+	desc = rusdroz.5.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	option = { #agree on his terms
+		name = rusdroz.5.a
+		add_to_variable = { BlackHundredsStrenght = 1 }
+		add_political_power = -10
+		country_event = {
+			id = rusdroz.6
+			days = 4
+			}
+		}
+	option = { #we dont need him
+		name = rusdroz.5.b
+		add_to_variable = { InitiativeFailed = 1 }
+		country_event = {
+			id = rusdroz.6
+			days = 4
+			}
+		}
+	}
+	
+country_event = { #results of our initiative
+	id = rusdroz.6
+	title = rusdroz.6.t 
+	desc = rusdroz.6.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	option = { #agree on his terms
+		name = rusdroz.6.a
+		if = {
+			limit = {
+				check_variable = {
+					InitiativeFailed = 3
+				}
+			}
+			set_country_flag = Droz_Regiment_Path
+		}
+		else = {
+		set_country_flag = MonarchistsUnited
+		add_political_power = 50
+		}
+		}
+	}
+	
+country_event = { #drozdovites rule alone focus
+	id = rusdroz.7
+	title = rusdroz.7.t 
+	desc = rusdroz.7.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	option = { #proceeding to purge
+		name = rusdroz.7.a
+		country_event = {
+			id = rusdroz.8
+			days = 4
+			}
+		}
+	}
+	
+country_event = { #denikin purge event
+	id = rusdroz.8
+	title = rusdroz.8.t 
+	desc = rusdroz.8.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #purge denikin and kill him
+		name = rusdroz.8.a
+		remove_unit_leader = 401
+		country_event = {
+			id = rusdroz.9
+			days = 4
+			}
+		}
+	option = { #purge denikin and leave him
+		name = rusdroz.8.b
+		remove_unit_leader = 401
+		set_variable = { AntiDrozdovitesPlot = 1 }
+		country_event = {
+			id = rusdroz.9
+			days = 4
+			}
+		}
+	}
+	
+country_event = { #markov purge event
+	id = rusdroz.9
+	title = rusdroz.9.t 
+	desc = rusdroz.9.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #purge markov and kill him
+		name = rusdroz.9.a
+		remove_unit_leader = 416
+		country_event = {
+			id = rusdroz.10
+			days = 4
+			}
+		}
+	option = { #purge markov and leave him
+		name = rusdroz.9.b
+		remove_unit_leader = 416
+		add_to_variable = { AntiDrozdovitesPlot = 1 }
+		country_event = {
+			id = rusdroz.10
+			days = 4
+			}
+		}
+	}
+	
+country_event = { #republicans and kornilovites purge event
+	id = rusdroz.10
+	title = rusdroz.10.t 
+	desc = rusdroz.10.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #purge them and kill them
+		name = rusdroz.10.a
+		remove_unit_leader = 412
+		country_event = {
+			id = rusdroz.11
+			days = 4
+			}
+		}
+	option = { #purge them and leave them
+		name = rusdroz.10.b
+		add_to_variable = { AntiDrozdovitesPlot = 1 }
+		remove_unit_leader = 412
+		country_event = {
+			id = rusdroz.11
+			days = 4
+			}
+		}
+	}
+	
+country_event = { #purges check
+	id = rusdroz.11
+	title = rusdroz.11.t 
+	desc = rusdroz.11.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #purge them and kill them
+		name = rusdroz.11.a
+		if = {
+			limit = {
+				check_variable = {
+					AntiDrozdovitesPlot = 3
+				}
+			}
+			country_event = {
+			id = rusdroz.12
+			days = 4
+			}
+		}
+		else = {
+		add_political_power = 50
+		set_country_flag = Droz_PurgesComplete
+		}
+		}
+	}
+	
+country_event = { #Denikin-Markov Mutiny
+	id = rusdroz.12
+	title = rusdroz.12.t 
+	desc = rusdroz.12.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #FUCK
+		name = rusdroz.12.a
+		set_country_flag = RUS_DEN
+		set_country_flag = Lavr_G_Kornilov_dead
+		country_event = {
+			id = rusd.66
+			days = 12
+			}
+		}
+	}
 
 #Intro events
 

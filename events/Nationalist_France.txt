@@ -347,7 +347,7 @@ country_event = { #tf you gonna do now phil?
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.14 days = 4
+					id = nfa.14 days = 7
 				}
 			}
 		}
@@ -355,6 +355,7 @@ country_event = { #tf you gonna do now phil?
 			ideology = paternal_autocrat
 			popularity = 0.04
 		}
+		add_stability = 0.03
 	}
 	
 	option = { #libs
@@ -362,7 +363,7 @@ country_event = { #tf you gonna do now phil?
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.17 days = 4
+					id = nfa.17 days = 7
 				}
 			}
 		}
@@ -378,6 +379,7 @@ country_event = { #tf you gonna do now phil?
 			ideology = authoritarian_democrat
 			popularity = 0.02
 		}
+		add_stability = 0.03
 	}
 	
 	option = { #martial law
@@ -385,7 +387,7 @@ country_event = { #tf you gonna do now phil?
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.16 days = 4
+					id = nfa.16 days = 3
 				}
 			}
 		}
@@ -413,6 +415,8 @@ country_event = { #meeting de la rocque
 
 	option = { #accept
 		name = nfa.14.a 
+		add_political_power = 20
+		add_stability = 0.02
 		hidden_effect = {
 			NFA = {
 				country_event = {
@@ -428,10 +432,11 @@ country_event = { #meeting de la rocque
 	
 	option = { #nah mate
 		name = nfa.14.b
+		add_stability = -0.03
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.16 days = 4
+					id = nfa.19 days = 7
 				}
 			}
 		}
@@ -455,6 +460,7 @@ country_event = { #the de la rocque cabinet
 
 	option = { 
 		name = nfa.15.a 
+		add_stability = 1.2
 		add_popularity = {
 			ideology = paternal_autocrat
 			popularity = 0.03
@@ -492,7 +498,7 @@ country_event = { #martial law
 		complete_national_focus = NFA_troops_on_the_streets
 		remove_all_ministers = yes
 		add_ideas = {
-			NFA_Phillipe_Petain_hog_pau
+			NFA_Philippe_Petain_hog_pau
 		}
 		add_stability = -0.03
 	}
@@ -511,6 +517,8 @@ country_event = { #meeting marin
 
 	option = { #accept
 		name = nfa.17.a 
+		add_political_power = 20
+		add_stability = 0.02
 		hidden_effect = {
 			NFA = {
 				country_event = {
@@ -530,10 +538,11 @@ country_event = { #meeting marin
 	
 	option = { #nah mate
 		name = nfa.17.b
+		add_stability = -0.03
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.16 days = 4
+					id = nfa.19 days = 7
 				}
 			}
 		}
@@ -562,20 +571,293 @@ country_event = { #the marin cabinet
 	option = { 
 		name = nfa.18.a 
 		add_popularity = {
-			ideology = paternal_autocrat
-			popularity = 0.03
+			ideology = social_conservative
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.02
+		}  
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.06
 		} 
+		add_stability = 1.2
 		set_country_flag = NFA_compromised_with_liberals
 		complete_national_focus = NFA_compromise_with_the_liberals
 		remove_all_ministers = yes
 		add_ideas = {
-			NFA_Francois_de_la_Rocque_hog_pau
-			NFA_Jean_Mermoz_for_pau
-			NFA_Francois_Coty_eco_pau
-			NFA_Charles_Vallin_sec_pau
+			NFA_Louis_Marin_hog_soc
+			NFA_Jean_Ybernégaray_for_soc
+			NFA_Paul_Reynaud_eco_mli
+			NFA_Albert_Saurrat_sec_sli
 		}
 	}
 }
+
+country_event = { #time running out 
+	id = nfa.19
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.19"}
+	title = nfa.19.t
+	desc = nfa.19.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #fuck it martial law gamer time
+		name = nfa.19.a 
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		} 
+		add_stability = -0.02
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa.16 days = 3
+				}
+			}
+		}
+	}
+
+	option = { #look for new fwends
+		name = nfa.19.b
+		add_political_power = -15
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa.20 days = 7
+				}
+			}
+		}
+	}
+}
+
+country_event = { #AF tries to repeal law of exile
+	id = nfa.20
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.20"}
+	title = nfa.20.t
+	desc = nfa.20.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #sure, we need to be fwends with maurras
+		name = nfa.20.a 
+		add_popularity = {
+			ideology = national_poopulist
+			popularity = 0.07
+		} 
+		add_stability = 0.06
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa.21 days = 14
+				}
+			}
+		}
+	}
+
+	option = { #nah lad
+		name = nfa.20.b
+		add_political_power = -10
+		add_popularity = {
+			ideology = national_poopulist
+			popularity = -0.04
+		} 
+		hidden_effect = {
+			####DARNAND GAMER TIME#####
+		}
+	}
+}
+
+country_event = { #Jean arrives in Algiers while Maurras uses media power and popular support to back up the junta
+	id = nfa.21
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.21"}
+	title = nfa.21.t
+	desc = nfa.21.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #yay
+		name = nfa.21.a 
+		add_popularity = {
+			ideology = national_poopulist
+			popularity = 0.04
+		} 
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.06
+		} 
+		add_stability = 0.04
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa.22 days = 5
+				}
+			}
+		}
+	}
+}
+
+country_event = { #louis bonaparte also shows up, now the law of exile is gone
+	id = nfa.22
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.22"}
+	title = nfa.22.t
+	desc = nfa.22.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #ignore him, we owe the orleanists our loyalty
+		name = nfa.22.a 
+		add_popularity = {
+			ideology = national_poopulist
+			popularity = 0.03
+		} 
+		add_political_power = 10
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa.23 days = 5
+				}
+			}
+		}
+	}
+
+	option = { #we should be weary of maurras, tacitly endorse louis
+		name = nfa.22.a 
+		add_popularity = {
+			ideology = national_poopulist
+			popularity = 0.03
+		} 
+		add_political_power = 10
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa.24 days = 5
+				}
+			}
+		}
+	}
+}
+
+country_event = { #pétain commits to a restoration, AF secures influence
+	id = nfa.23
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.23"}
+	title = nfa.23.t
+	desc = nfa.23.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #yay stable
+		name = nfa.23.a 
+		add_popularity = {
+			ideology = national_poopulist
+			popularity = 0.6
+		} 
+		add_political_power = 20
+		add_stability = 1.2
+		set_country_flag = NFA_jean_will_be_restored
+		remove_all_ministers = yes
+		add_ideas = {
+			NFA_Philippe_Petain_hog_pau
+			NFA_Maurice_Pujo_for_npo
+			NFA_Marie_Eugene_Debeney_eco_ade
+			NFA_Charles_Maurras_naph_npo
+		}
+	}
+}
+
+country_event = { #AF gets angry because you stabbed them in the back for nappy
+	id = nfa.24
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.24"}
+	title = nfa.24.t
+	desc = nfa.24.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #dig in, support nappy
+		name = nfa.24.a 
+		add_popularity = {
+			ideology = national_poopulist
+			popularity = -0.08
+		} 
+		add_political_power = 10
+		add_stability = -0.03
+		add_ideas = {
+			NFA_Philippe_Petain_hog_pau
+		}
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa.25 days = 28
+				}
+			}
+		}
+	}
+
+	option = { #back down and try to appease maurras
+		name = nfa.24.b 
+		add_popularity = {
+			ideology = national_poopulist
+			popularity = 0.03
+		} 
+		add_political_power = -20
+		add_stability = 0.04
+		hidden_effect = {
+			##darnand gamer time, otherwise if the cagoulards were busted it's nfa.23
+		}
+	}
+}
+
+country_event = { #napoleonic restoration
+	id = nfa.25
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.25"}
+	title = nfa.25.t
+	desc = nfa.25.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #yay stable
+		name = nfa.23.a 
+		add_stability = 0.09
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.08
+		} 
+		add_political_power = 20
+		set_country_flag = NFA_napoleonic_restoration
+		remove_all_ministers = yes
+		add_ideas = {
+			NFA_Philippe_Petain_hog_pau
+		}
+		hidden_effect = {
+            retire_country_leader = yes
+			NFA_setup_napoleon = yes
+		}
+	}
+}
+
+
 
 #########
 #   Colonial resistance events 443 - 499 and revolts at 600 - 699

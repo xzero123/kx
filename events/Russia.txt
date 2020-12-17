@@ -21917,7 +21917,12 @@ country_event = { #Free Illyria
 					limit = {
 						OR = {
 							state = 102
+							state = 1101
+							state = 1103
+							state = 1104
 							state = 736
+							state = 1100
+							state = 1144
 						}
 					}
 					SLO = {
@@ -21960,7 +21965,12 @@ country_event = { #Free Illyria
 					limit = {
 						OR = {
 							state = 102
+							state = 1101
+							state = 1103
+							state = 1104
 							state = 736
+							state = 1100
+							state = 1144
 						}
 					}
 					SLO = {
@@ -22208,7 +22218,12 @@ country_event = { #Russia denies
 					limit = {
 						OR = {
 							state = 102
+							state = 1101
+							state = 1103
+							state = 1104
 							state = 736
+							state = 1100
+							state = 1144
 						}
 					}
 					CRO = {
@@ -22251,7 +22266,12 @@ country_event = { #Russia denies
 					limit = {
 						OR = {
 							state = 102
+							state = 1101
+							state = 1103
+							state = 1104
 							state = 736
+							state = 1100
+							state = 1144
 						}
 					}
 					SLO = {
@@ -22294,7 +22314,12 @@ country_event = { #Russia denies
 					limit = {
 						OR = {
 							state = 102
+							state = 1101
+							state = 1103
+							state = 1104
 							state = 736
+							state = 1100
+							state = 1144
 						}
 					}
 					SLO = {
@@ -22894,14 +22919,17 @@ country_event = { #Russia denies
 					limit = {
 						OR = {
 							state = 102
+							state = 1101
+							state = 1103
+							state = 1104
 							state = 736
+							state = 1100
+							state = 1144
 						}
 					}
 					SER = {
-						transfer_state = 102
-						transfer_state = 736
-						add_state_core = 102
-						add_state_core = 736
+						transfer_state = PREV
+						add_state_core = PREV
 					}
 				}
 			}
@@ -25844,10 +25872,6 @@ country_event = { #TRM - Rejects referendum
 		add_ideas = RUS_Siberian_War_Buff
 		TRM = { add_ideas = TRM_Siberian_War_Debuff }
 		hidden_effect = {
-			news_event = {
-				id = russianews.7
-				days = 1
-			}
 			random_other_country = {
 				limit = {
 					NOT = { tag = TRM }
@@ -25936,10 +25960,6 @@ country_event = { #Crush Transamur
 			add_ideas = RUS_Siberian_War_Buff
 			TRM = { add_ideas = TRM_Siberian_War_Debuff }
 			hidden_effect = {
-			news_event = {
-				id = russianews.7
-				days = 1
-			}
 			random_other_country = {
 				limit = {
 					NOT = { tag = TRM }
@@ -30388,6 +30408,95 @@ country_event = { #Alaska Integration
 		hidden_effect = {
 			set_province_name = { id = 13091 name = "Ankoridzh" }
 			463 = { set_state_name = "Alyaska" }
+			set_party_name = {
+				ideology = authoritarian_democrat
+				long_name = "Rossiyskaya Administratsiya"
+				name = "Rossiyskaya Administratsiya"
+			}
+			set_politics = {
+				ruling_party = authoritarian_democrat
+				elections_allowed = no
+			}
+			create_country_leader = {
+				name = "Russian Administration"
+				desc = "POLITICS_RUSSIAN_ADMIN_DESC"
+				picture = "Portrait_Alaska_Russian_Administration.tga"
+				expire = "1965.1.1"
+				ideology = national_populist_subtype
+				traits = {  }
+			}
+			create_country_leader = {
+				name = "Russian Administration"
+				desc = "POLITICS_RUSSIAN_ADMIN_DESC"
+				picture = "Portrait_Alaska_Russian_Administration.tga"
+				expire = "1965.1.1"
+				ideology = paternal_autocrat_subtype
+				traits = {  }
+			}
+			create_country_leader = {
+				name = "Russian Administration"
+				desc = "POLITICS_RUSSIAN_ADMIN_DESC"
+				picture = "Portrait_Alaska_Russian_Administration.tga"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+				traits = {  }
+			}
+			create_country_leader = {
+				name = "Russian Administration"
+				desc = "POLITICS_RUSSIAN_ADMIN_DESC"
+				picture = "Portrait_Alaska_Russian_Administration.tga"
+				expire = "1965.1.1"
+				ideology = social_conservative_subtype
+				traits = {  }
+			}
+			create_country_leader = {
+				name = "Russian Administration"
+				desc = "POLITICS_RUSSIAN_ADMIN_DESC"
+				picture = "Portrait_Alaska_Russian_Administration.tga"
+				expire = "1965.1.1"
+				ideology = market_liberal_subtype
+				traits = {  }
+			}
+			create_country_leader = {
+				name = "Russian Administration"
+				desc = "POLITICS_RUSSIAN_ADMIN_DESC"
+				picture = "Portrait_Alaska_Russian_Administration.tga"
+				expire = "1965.1.1"
+				ideology = social_liberal_subtype
+				traits = {  }
+			}
+			create_country_leader = {
+				name = "Russian Administration"
+				desc = "POLITICS_RUSSIAN_ADMIN_DESC"
+				picture = "Portrait_Alaska_Russian_Administration.tga"
+				expire = "1965.1.1"
+				ideology = social_democrat_subtype
+				traits = {  }
+			}
+			create_country_leader = {
+				name = "Russian Administration"
+				desc = "POLITICS_RUSSIAN_ADMIN_DESC"
+				picture = "Portrait_Alaska_Russian_Administration.tga"
+				expire = "1965.1.1"
+				ideology = radical_socialist_subtype
+				traits = {  }
+			}
+			create_country_leader = {
+				name = "Russian Administration"
+				desc = "POLITICS_RUSSIAN_ADMIN_DESC"
+				picture = "Portrait_Alaska_Russian_Administration.tga"
+				expire = "1965.1.1"
+				ideology = syndicalist_subtype
+				traits = {  }
+			}
+			create_country_leader = {
+				name = "Russian Administration"
+				desc = "POLITICS_RUSSIAN_ADMIN_DESC"
+				picture = "Portrait_Alaska_Russian_Administration.tga"
+				expire = "1965.1.1"
+				ideology = totalist_subtype
+				traits = {  }
+			}
 			if = {
 				limit = { has_idea = ALA_Canada_Concessions_CAN}
 				remove_ideas = ALA_Canada_Concessions_CAN
@@ -30965,7 +31074,7 @@ news_event = { #Civil War
 	immediate = { log = "[GetDateText]: [Root.GetName]: event russianews.7" }
 	title = russianews.7.t
 	desc = russianews.7.d
-	picture = GFX_news_event_second_russian_civil_war
+	picture = GFX_news_event_RUS_second_russian_civil_war
 
 	major = yes
 

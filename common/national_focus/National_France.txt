@@ -458,7 +458,7 @@ focus_tree = {
 	
 	focus = {
 		id = NFA_troops_on_the_streets
-		#icon = 
+		icon = GFX_goal_NFA_troops_on_the_streets
 		x = 12
 		y = 0
 		cost = 1
@@ -496,29 +496,7 @@ focus_tree = {
 		id = NFA_demand_the_assemblys_loyalty
 		#icon = 
 		prerequisite = { focus = NFA_troops_on_the_streets }
-		x = 0
-		y = 1
-		relative_position_id = NFA_troops_on_the_streets
-		cost = 1
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_junta_stays
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
-	focus = {
-		id = NFA_condemn_civilian_politics
-		#icon = 
-		prerequisite = { focus = NFA_troops_on_the_streets }
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = NFA_troops_on_the_streets
 		cost = 1
@@ -538,9 +516,9 @@ focus_tree = {
 	
 	focus = {
 		id = NFA_a_new_premier
-		#icon = 
+		icon = GFX_goal_NFA_new_premier
 		prerequisite = { focus = NFA_troops_on_the_streets }
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = NFA_troops_on_the_streets
 		cost = 1
@@ -560,8 +538,7 @@ focus_tree = {
 	
 	focus = {
 		id = NFA_a_new_constitution
-		#icon = 
-		prerequisite = { focus = NFA_condemn_civilian_politics }
+		icon = GFX_goal_A_New_Constitution
 		prerequisite = { focus = NFA_demand_the_assemblys_loyalty }
 		prerequisite = { focus = NFA_a_new_premier }
 		x = 0
@@ -584,7 +561,7 @@ focus_tree = {
 	
 	focus = {
 		id = NFA_memories_of_verdun
-		#icon = 
+		icon = GFX_goal_Verdun_memories
 		prerequisite = { focus = NFA_a_new_constitution }
 		x = -2
 		y = 3
@@ -606,7 +583,7 @@ focus_tree = {
 	
 	focus = {
 		id = NFA_our_sole_purpose
-		#icon = 
+		icon = GFX_goal_Fight_the_gay
 		prerequisite = { focus = NFA_a_new_constitution }
 		x = 2
 		y = 3
@@ -628,7 +605,7 @@ focus_tree = {
 	
 	focus = {
 		id = NFA_militarise_society
-		#icon = 
+		icon = GFX_goal_Militarize_Society
 		prerequisite = { focus = NFA_our_sole_purpose }
 		x = 1
 		y = 4
@@ -650,7 +627,7 @@ focus_tree = {
 	
 	focus = {
 		id = NFA_work_with_loyal_businesses
-		#icon = 
+		icon = GFX_goal_NFA_Work_With_Local_Businesses
 		prerequisite = { focus = NFA_our_sole_purpose }
 		x = 3
 		y = 4
@@ -672,7 +649,7 @@ focus_tree = {
 	
 	focus = {
 		id = NFA_everything_for_the_liberation
-		#icon = 
+		icon = GFX_goal_All_For_the_Liberation
 		prerequisite = { focus = NFA_militarise_society }
 		x = 1
 		y = 5
@@ -694,7 +671,7 @@ focus_tree = {
 	
 	focus = {
 		id = NFA_arms_subsidies
-		#icon = 
+		icon = GFX_goal_subsidize_guns
 		prerequisite = { focus = NFA_work_with_loyal_businesses }
 		x = 3
 		y = 5
@@ -716,7 +693,7 @@ focus_tree = {
 	
 	focus = {
 		id = NFA_chantiers_de_jeunesse
-		#icon = 
+		icon = GFX_goal_NFA_Chantiers_de_la_jeunesse
 		prerequisite = { focus = NFA_memories_of_verdun }
 		x = -1
 		y = 4
@@ -738,7 +715,7 @@ focus_tree = {
 	
 	focus = {
 		id = NFA_cult_of_the_marechal
-		#icon = 
+		icon = GFX_goal_NFA_Culty_cult_cult
 		prerequisite = { focus = NFA_chantiers_de_jeunesse }
 		x = -1
 		y = 5
@@ -760,7 +737,7 @@ focus_tree = {
 	
 	focus = {
 		id = NFA_seek_clergy_support
-		#icon = 
+		icon = GFX_goal_clergy_support
 		prerequisite = { focus = NFA_memories_of_verdun }
 		x = -3
 		y = 4
@@ -804,10 +781,10 @@ focus_tree = {
 	
 	focus = {
 		id = NFA_la_revolution_nationale
-		#icon = 
+		icon = GFX_goal_revolution_nationale
 		prerequisite = { focus = NFA_morality_and_service }
 		prerequisite = { focus = NFA_cult_of_the_marechal }
-		x = -1
+		x = -2
 		y = 6
 		relative_position_id = NFA_troops_on_the_streets
 		cost = 1
@@ -830,7 +807,30 @@ focus_tree = {
 		#icon = 
 		prerequisite = { focus = NFA_arms_subsidies }
 		prerequisite = { focus = NFA_everything_for_the_liberation }
-		x = 1
+		x = 2
+		y = 6
+		relative_position_id = NFA_troops_on_the_streets
+		cost = 1
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_junta_stays
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_unity_in_struggle
+		icon = GFX_goal_Unity_through_struggle
+		prerequisite = { focus = NFA_cult_of_the_marechal }
+		prerequisite = { focus = NFA_everything_for_the_liberation }
+		x = 0
 		y = 6
 		relative_position_id = NFA_troops_on_the_streets
 		cost = 1
@@ -872,8 +872,8 @@ focus_tree = {
 	
 	focus = {
 		id = NFA_the_lion_roars
-		#icon = 
-		prerequisite = { focus = NFA_unity_through_service }
+		icon = GFX_goal_lion_roars_natfrance
+		prerequisite = { focus = NFA_unity_in_struggle }
 		prerequisite = { focus = NFA_la_revolution_nationale }
 		prerequisite = { focus = NFA_la_france_enivree }
 		x = 0

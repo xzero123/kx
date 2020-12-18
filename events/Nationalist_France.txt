@@ -460,7 +460,7 @@ country_event = { #the de la rocque cabinet
 
 	option = { 
 		name = nfa.15.a 
-		add_stability = 1.2
+		add_stability = 0.12
 		add_popularity = {
 			ideology = paternal_autocrat
 			popularity = 0.03
@@ -473,6 +473,19 @@ country_event = { #the de la rocque cabinet
 			NFA_Jean_Mermoz_for_pau
 			NFA_Francois_Coty_eco_pau
 			NFA_Charles_Vallin_sec_pau
+		}
+		hidden_effect = {
+			retire_ideology_leader = paternal_autocrat
+			create_country_leader = {
+	            name = "Philippe Pétain"
+	            desc = "POLITICS_PHILIPPE_PETAIN_DESC"
+               	picture = "Portrait_NFA_Philippe_Petain.tga"
+             	expire = "1965.1.1"
+             	ideology = paternal_autocrat_subtype
+            	traits = {
+		            NFA_Lion_of_Verdun
+				}
+            }       
 		}
 	}
 }
@@ -496,11 +509,23 @@ country_event = { #martial law
 		} 
 		set_country_flag = NFA_junta_stays
 		complete_national_focus = NFA_troops_on_the_streets
-		remove_all_ministers = yes
 		add_ideas = {
 			NFA_Philippe_Petain_hog_pau
 		}
-		add_stability = -0.03
+		add_stability = 0.08
+		hidden_effect = {
+			retire_ideology_leader = paternal_autocrat
+			create_country_leader = {
+	            name = "Philippe Pétain"
+	            desc = "POLITICS_PHILIPPE_PETAIN_DESC"
+               	picture = "Portrait_NFA_Philippe_Petain.tga"
+             	expire = "1965.1.1"
+             	ideology = paternal_autocrat_subtype
+            	traits = {
+		            NFA_Lion_of_Verdun
+				}
+            }       
+		}
 	}
 }
 
@@ -582,7 +607,7 @@ country_event = { #the marin cabinet
 			ideology = authoritarian_democrat
 			popularity = 0.06
 		} 
-		add_stability = 1.2
+		add_stability = 0.12
 		set_country_flag = NFA_compromised_with_liberals
 		complete_national_focus = NFA_compromise_with_the_liberals
 		remove_all_ministers = yes
@@ -670,7 +695,22 @@ country_event = { #AF tries to repeal law of exile
 			popularity = -0.04
 		} 
 		hidden_effect = {
-			####DARNAND GAMER TIME#####
+			if = {
+				limit = { has_country_flag = NFA_la_cagoule_got_away }
+				NFA = {
+					country_event = {
+						id = nfa.26 days = 7
+					}
+				}
+			}
+			else_if = {
+				limit = { has_country_flag = NFA_la_cagoule_exposed }
+				NFA = {
+					country_event = {
+						id = nfa.16 days = 7
+					}
+				}
+			}
 		}
 	}
 }
@@ -769,7 +809,7 @@ country_event = { #pétain commits to a restoration, AF secures influence
 			popularity = 0.6
 		} 
 		add_political_power = 20
-		add_stability = 1.2
+		add_stability = 0.12
 		set_country_flag = NFA_jean_will_be_restored
 		remove_all_ministers = yes
 		add_ideas = {
@@ -821,7 +861,22 @@ country_event = { #AF gets angry because you stabbed them in the back for nappy
 		add_political_power = -20
 		add_stability = 0.04
 		hidden_effect = {
-			##darnand gamer time, otherwise if the cagoulards were busted it's nfa.23
+			if = {
+				limit = { has_country_flag = NFA_la_cagoule_got_away }
+				NFA = {
+					country_event = {
+						id = nfa.26 days = 7
+					}
+				}
+			}
+			else_if = {
+				limit = { has_country_flag = NFA_la_cagoule_exposed }
+				NFA = {
+					country_event = {
+						id = nfa.23 days = 7
+					}
+				}
+			}
 		}
 	}
 }
@@ -857,7 +912,126 @@ country_event = { #napoleonic restoration
 	}
 }			
 
+country_event = { #Darnand wants to meet
+	id = nfa.26
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.26"}
+	title = nfa.26.t
+	desc = nfa.26.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
 
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #sure, we need unity
+		name = nfa.26.a 
+		add_popularity = {
+			ideology = national_poopulist
+			popularity = 0.04
+		} 
+		add_political_power = 10
+		add_stability = 0.04
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa.27 days = 7
+				}
+			}
+		}
+	}
+
+	option = { #nope
+		name = nfa.26.b 
+		add_popularity = {
+			ideology = national_poopulist
+			popularity = -0.03
+		} 
+		add_political_power = -5
+		add_stability = -0.02
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa.16 days = 7
+				}
+			}
+		}
+	}
+}
+
+country_event = { #meeting gets bombed
+	id = nfa.27
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.27"}
+	title = nfa.27.t
+	desc = nfa.27.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { 
+		name = nfa.27.a 
+		add_stability = -0.04
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa.28 days = 1
+				}
+			}
+		}
+	}
+}
+
+country_event = { #darnand seizes power
+	id = nfa.28
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.28"}
+	title = nfa.28.t
+	desc = nfa.28.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { 
+		name = nfa.28.a 
+		add_popularity = {
+			ideology = national_poopulist
+			popularity = 0.08
+		} 
+		add_stability = 0.09
+		set_country_flag = NFA_darnand_in_charge
+		remove_all_ministers = yes
+		add_ideas = {
+			#darnand hog
+			#pierre gallet for
+			#eugene schueller eco
+			#eugene deloncle sec
+		}
+		hidden_effect = {
+			retire_ideology_leader = national_poopulist
+			create_country_leader = {
+	            name = "Philippe Pétain"
+	            desc = "POLITICS_PHILIPPE_PETAIN_DESC"
+               	picture = "Portrait_NFA_Philippe_Petain.tga"
+             	expire = "1965.1.1"
+             	ideology = national_populist_subtype
+            	traits = {
+		            NFA_Lion_of_Verdun
+				}
+            }       
+		}
+        set_politics = {
+			ruling_party = national_poopulist
+			elections_allowed = no
+		}
+		set_party_name = {
+			ideology = national_poopulist
+			long_name = NFA_national_populist_party_darnand_long
+			name = NFA_national_populist_party_darnand
+		}
+	}
+}
 
 #########
 #   Colonial resistance events 443 - 499 and revolts at 600 - 699

@@ -1,4 +1,5 @@
 # Russia events by indvst
+# Drozdovsky path by HAKOPMNTE_DEDA
 
 add_namespace = russia
 add_namespace = rusd
@@ -21,6 +22,66 @@ country_event = { #DEBUG DROZ TREE
 		load_focus_tree = RUS_DROZDOVSKY_FOCUS
 		}
 	}
+	
+country_event = { #Rumors of a monarchist plot in the Military
+	id = rusdroz.56
+	title = rusdroz.56.t 
+	desc = rusdroz.56.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #those are just rumors
+		name = rusdroz.56.a
+		country_event = {
+			id = rusdroz.57
+			days = 8
+			}
+
+		}
+	option = { #purge them
+		name = rusdroz.56.b
+
+		}
+	
+}
+
+country_event = { #Drozdovsky Takes Over!
+	id = rusdroz.57
+	title = rusdroz.57.t 
+	desc = rusdroz.57.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #omg!
+		name = rusdroz.57.a
+		remove_idea = RUS_rovs_wrangel
+		clr_country_flag = RUS_selectdenikin
+		clr_country_flag = RUS_selectwrangel
+		clr_country_flag = RUS_selectsavinkov
+		clr_country_flag = RUS_dictatorship
+		set_country_flag = RUS_DROZ
+		load_focus_tree = RUS_DROZDOVSKY_FOCUS
+		kill_country_leader = yes
+			create_country_leader = {
+				name = "Mikhail Drozdovsky"
+				desc = "POLITICS_ANTON_DENIKIN_DESC"
+				picture = "Portrait_RUS_Mikhail_Drozdovsky_REGENT"
+				expire = "1965.1.1"
+				ideology = paternal_autocrat_subtype
+			}
+			set_party_name = {
+			ideology = paternal_autocrat
+			long_name = "National Stabilization Regime"
+			name = "Drozdovsky's Clique"
+		}
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no    }
+			set_cosmetic_tag = RUS_DROZD
+
+		}
+	
+}
 	
 country_event = { #to save the holy rus focus
 	id = rusdroz.2
@@ -89,7 +150,7 @@ country_event = { #meeting with Purishkevich
 		add_to_variable = { BlackHundredsStrenght = 2 }
 		add_political_power = -10
 		country_event = {
-			id = rusdroz.4
+			id = rusdroz.6
 			days = 4
 			}
 		}
@@ -97,38 +158,13 @@ country_event = { #meeting with Purishkevich
 		name = rusdroz.5.b
 		add_to_variable = { InitiativeFailed = 1 }
 		country_event = {
-			id = rusdroz.4
+			id = rusdroz.6
 			days = 4
 			}
 		}
 	}
 	
 country_event = { #meeting with Engelgardt
-	id = rusdroz.5
-	title = rusdroz.5.t 
-	desc = rusdroz.5.d 
-	picture = GFX_rus_russia_flag_event
-	is_triggered_only = yes
-	option = { #agree on his terms
-		name = rusdroz.5.a
-		add_to_variable = { BlackHundredsStrenght = 1 }
-		add_political_power = -10
-		country_event = {
-			id = rusdroz.6
-			days = 4
-			}
-		}
-	option = { #we dont need him
-		name = rusdroz.5.b
-		add_to_variable = { InitiativeFailed = 1 }
-		country_event = {
-			id = rusdroz.6
-			days = 4
-			}
-		}
-	}
-	
-country_event = { #results of our initiative
 	id = rusdroz.6
 	title = rusdroz.6.t 
 	desc = rusdroz.6.d 
@@ -136,6 +172,31 @@ country_event = { #results of our initiative
 	is_triggered_only = yes
 	option = { #agree on his terms
 		name = rusdroz.6.a
+		add_to_variable = { BlackHundredsStrenght = 1 }
+		add_political_power = -10
+		country_event = {
+			id = rusdroz.7
+			days = 4
+			}
+		}
+	option = { #we dont need him
+		name = rusdroz.6.b
+		add_to_variable = { InitiativeFailed = 1 }
+		country_event = {
+			id = rusdroz.7
+			days = 4
+			}
+		}
+	}
+	
+country_event = { #results of our initiative
+	id = rusdroz.7
+	title = rusdroz.7.t 
+	desc = rusdroz.7.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	option = { #agree on his terms
+		name = rusdroz.7.a
 		if = {
 			limit = {
 				check_variable = {
@@ -152,65 +213,39 @@ country_event = { #results of our initiative
 	}
 	
 country_event = { #drozdovites rule alone focus
-	id = rusdroz.7
-	title = rusdroz.7.t 
-	desc = rusdroz.7.d 
+	id = rusdroz.8
+	title = rusdroz.8.t 
+	desc = rusdroz.8.d 
 	picture = GFX_rus_russia_flag_event
 	is_triggered_only = yes
 	option = { #proceeding to purge
-		name = rusdroz.7.a
+		name = rusdroz.8.a
 		country_event = {
-			id = rusdroz.8
+			id = rusdroz.9
 			days = 4
 			}
 		}
 	}
 	
 country_event = { #denikin purge event
-	id = rusdroz.8
-	title = rusdroz.8.t 
-	desc = rusdroz.8.d 
-	picture = GFX_rus_russia_flag_event
-	is_triggered_only = yes
-	
-	option = { #purge denikin and kill him
-		name = rusdroz.8.a
-		remove_unit_leader = 401
-		country_event = {
-			id = rusdroz.9
-			days = 4
-			}
-		}
-	option = { #purge denikin and leave him
-		name = rusdroz.8.b
-		remove_unit_leader = 401
-		set_variable = { AntiDrozdovitesPlot = 1 }
-		country_event = {
-			id = rusdroz.9
-			days = 4
-			}
-		}
-	}
-	
-country_event = { #markov purge event
 	id = rusdroz.9
 	title = rusdroz.9.t 
 	desc = rusdroz.9.d 
 	picture = GFX_rus_russia_flag_event
 	is_triggered_only = yes
 	
-	option = { #purge markov and kill him
+	option = { #purge denikin and kill him
 		name = rusdroz.9.a
-		remove_unit_leader = 416
+		remove_unit_leader = 401
 		country_event = {
 			id = rusdroz.10
 			days = 4
 			}
 		}
-	option = { #purge markov and leave him
+	option = { #purge denikin and leave him
 		name = rusdroz.9.b
-		remove_unit_leader = 416
-		add_to_variable = { AntiDrozdovitesPlot = 1 }
+		remove_unit_leader = 401
+		set_variable = { AntiDrozdovitesPlot = 1 }
 		country_event = {
 			id = rusdroz.10
 			days = 4
@@ -218,25 +253,25 @@ country_event = { #markov purge event
 		}
 	}
 	
-country_event = { #republicans and kornilovites purge event
+country_event = { #markov purge event
 	id = rusdroz.10
 	title = rusdroz.10.t 
 	desc = rusdroz.10.d 
 	picture = GFX_rus_russia_flag_event
 	is_triggered_only = yes
 	
-	option = { #purge them and kill them
+	option = { #purge markov and kill him
 		name = rusdroz.10.a
-		remove_unit_leader = 412
+		remove_unit_leader = 416
 		country_event = {
 			id = rusdroz.11
 			days = 4
 			}
 		}
-	option = { #purge them and leave them
+	option = { #purge markov and leave him
 		name = rusdroz.10.b
+		remove_unit_leader = 416
 		add_to_variable = { AntiDrozdovitesPlot = 1 }
-		remove_unit_leader = 412
 		country_event = {
 			id = rusdroz.11
 			days = 4
@@ -244,7 +279,7 @@ country_event = { #republicans and kornilovites purge event
 		}
 	}
 	
-country_event = { #purges check
+country_event = { #republicans and kornilovites purge event
 	id = rusdroz.11
 	title = rusdroz.11.t 
 	desc = rusdroz.11.d 
@@ -253,6 +288,32 @@ country_event = { #purges check
 	
 	option = { #purge them and kill them
 		name = rusdroz.11.a
+		remove_unit_leader = 412
+		country_event = {
+			id = rusdroz.12
+			days = 4
+			}
+		}
+	option = { #purge them and leave them
+		name = rusdroz.11.b
+		add_to_variable = { AntiDrozdovitesPlot = 1 }
+		remove_unit_leader = 412
+		country_event = {
+			id = rusdroz.12
+			days = 4
+			}
+		}
+	}
+	
+country_event = { #purges check
+	id = rusdroz.12
+	title = rusdroz.12.t 
+	desc = rusdroz.12.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #bruuh
+		name = rusdroz.12.a
 		if = {
 			limit = {
 				check_variable = {
@@ -260,34 +321,733 @@ country_event = { #purges check
 				}
 			}
 			country_event = {
-			id = rusdroz.12
+			id = rusdroz.13
 			days = 4
 			}
 		}
 		else = {
 		add_political_power = 50
 		set_country_flag = Droz_PurgesComplete
+		set_party_name = {
+			ideology = national_populist
+			long_name = "National Stabilization Regime"
+			name = "Drozdovsky's Clique"
+		}
+		set_politics = {
+			ruling_party = national_populist
+			elections_allowed = no    }
+		
 		}
 		}
 	}
 	
 country_event = { #Denikin-Markov Mutiny
-	id = rusdroz.12
-	title = rusdroz.12.t 
-	desc = rusdroz.12.d 
+	id = rusdroz.13
+	title = rusdroz.13.t 
+	desc = rusdroz.13.d 
 	picture = GFX_rus_russia_flag_event
 	is_triggered_only = yes
 	
 	option = { #FUCK
-		name = rusdroz.12.a
+		name = rusdroz.13.a
 		set_country_flag = RUS_DEN
 		set_country_flag = Lavr_G_Kornilov_dead
 		country_event = {
-			id = rusd.66
+			id = rusdroz.66
 			days = 12
 			}
 		}
 	}
+	
+country_event = { #Arrest of Viktor Chernov
+	id = rusdroz.14
+	title = rusdroz.14.t 
+	desc = rusdroz.14.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.14.a
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.05
+		}
+		country_event = {
+			id = rusdroz.15
+			days = 6
+			}
+		}
+}
+
+country_event = { #Arrest of Boris Savinkov
+	id = rusdroz.15
+	title = rusdroz.15.t 
+	desc = rusdroz.15.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.15.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.1
+		}
+		country_event = {
+			id = rusd.16
+			days = 6
+			}
+		}
+}
+
+country_event = { #Arrest of Mensheviks
+	id = rusdroz.16
+	title = rusdroz.16.t 
+	desc = rusdroz.16.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.16.a
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.03
+		}
+		country_event = {
+			id = rusdroz.17
+			days = 6
+			}
+		}
+}
+
+country_event = { #Arrest of Maria Spiridonova
+	id = rusdroz.17
+	title = rusdroz.17.t 
+	desc = rusdroz.17.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.17.a
+		add_popularity = {
+			ideology = syndicalist
+			popularity = -0.03
+		}
+		country_event = {
+			id = rusdroz.18
+			days = 6
+			}
+		}
+}
+
+country_event = { #Nikolay Bukharin Escaped
+	id = rusdroz.18
+	title = rusdroz.18.t 
+	desc = rusdroz.18.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.18.a
+		add_popularity = {
+			ideology = syndicalist
+			popularity = -0.03
+		}
+		country_event = {
+			id = rusdroz.19
+			days = 6
+			}
+		}
+}
+
+country_event = { #Total Ban on Syndicalist Parties
+	id = rusdroz.19
+	title = rusdroz.19.t 
+	desc = rusdroz.19.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.19.a
+		if = {
+		limit = { ruling_party = national_populist }
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.1
+		}
+		}
+		else = {
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.1
+		}
+		}
+		}
+}
+
+country_event = { #Разгон говорильни
+	id = rusdroz.20
+	title = rusdroz.20.t 
+	desc = rusdroz.20.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #Караул устал!
+		name = rusdroz.20.a
+		add_political_power = 50
+		add_stability = 0.1
+		}
+}
+
+country_event = { #Штурм издательства газеты пролетарий
+	id = rusdroz.21
+	title = rusdroz.21.t 
+	desc = rusdroz.21.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #пушки
+		name = rusdroz.21.a
+		add_political_power = -50
+		add_stability = 0.05
+		}
+	option = { #идите на штурм
+		name = rusdroz.21.b
+		add_political_power = 50
+		add_manpower = -55
+		}
+}
+
+country_event = { #regency
+	id = rusdroz.22
+	title = rusdroz.22.t 
+	desc = rusdroz.22.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.22.a
+		add_political_power = 50
+		add_idea = rus_droz_regency
+		}
+}
+
+country_event = { #Manshtein - the Slayer of Comissars
+	id = rusdroz.23
+	title = rusdroz.23.t 
+	desc = rusdroz.23.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.23.a
+		remove_idea = rus_silent_darkness
+		}
+}
+
+country_event = { #Iron Will
+	id = rusdroz.24
+	title = rusdroz.24.t 
+	desc = rusdroz.24.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.24.a
+		add_idea = rus_iron_will
+		}
+}
+
+country_event = { #Turkul - the Implacable
+	id = rusdroz.25
+	title = rusdroz.25.t 
+	desc = rusdroz.25.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.25.a
+		add_timed_idea =  { idea = rus_main_difference days = 365 }
+		}
+}
+
+country_event = { #Turkul Bureau
+	id = rusdroz.26
+	title = rusdroz.26.t 
+	desc = rusdroz.26.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.26.a
+		add_idea = rus_turkul_bureau
+		}
+}
+
+country_event = { #Foundations of Our Regime
+	id = rusdroz.27
+	title = rusdroz.27.t 
+	desc = rusdroz.27.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.27.a
+		add_war_support = 0.2
+		add_political_power = 100
+		country_event = {
+			id = russia.28
+			days = 62
+			}
+		}
+}
+
+country_event = { #Russia Is Ruled By God
+	id = rusdroz.28
+	title = rusdroz.28.t 
+	desc = rusdroz.28.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.28.a
+		add_stability = 0.1
+		}
+}
+
+country_event = { #Total Nationalization
+	id = rusdroz.29
+	title = rusdroz.29.t 
+	desc = rusdroz.29.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.29.a
+		add_idea = rus_total_nationalization
+		country_event = {
+			id = russia.30
+			days = 14
+			}
+		}
+}
+
+country_event = { #Capitalists Protest
+	id = rusdroz.30
+	title = rusdroz.30.t 
+	desc = rusdroz.30.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #Dogs Bark, Caravan Goes Further
+		name = rusdroz.30.a
+		add_political_power = -75
+		}
+}
+
+country_event = { #Setting up Planning Boards
+	id = rusdroz.31
+	title = rusdroz.31.t 
+	desc = rusdroz.31.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #Future War Will be a Total War
+		name = rusdroz.31.a
+		add_idea = rus_planning_boards
+		}
+}
+
+country_event = { #Appeal to the Russian People
+	id = rusdroz.32
+	title = rusdroz.32.t 
+	desc = rusdroz.32.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #Every Man That Can Hold A Rifle
+		name = rusdroz.32.a
+		country_event = {
+			id = russia.33
+			days = 31
+			}
+		}
+}
+
+country_event = { #Opolchenie
+	id = rusdroz.33
+	title = rusdroz.33.t 
+	desc = rusdroz.33.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #Every Man That Can Hold A Rifle
+		name = rusdroz.33.a
+		load_oob = RUS_OPOLCHENIE
+		}
+}
+
+country_event = { #Young Drozdovites
+	id = rusdroz.34
+	title = rusdroz.34.t 
+	desc = rusdroz.34.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.34.a
+		add_idea = rus_drozdovite_junior_corps
+		}
+}
+
+country_event = { #Japanese Connections
+	id = rusdroz.35
+	title = rusdroz.35.t 
+	desc = rusdroz.35.d 
+	picture = GFX_rus_russia_flag_event
+	trigger = { 
+	tag = RUS
+	has_completed_focus = RUS_Establish_Planning_Boards
+	NOT = { has_completed_focus = RUS_Enemy_In_The_East }
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 62 }
+	
+	option = { #
+		name = rusdroz.35.a
+		
+		}
+}
+
+country_event = { #Bloody Mess
+	id = rusdroz.36
+	title = rusdroz.36.t 
+	desc = rusdroz.36.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.36.a
+		add_timed_idea = { idea = rus_anarchy_on_the_street days = 160 }
+		}
+}
+
+country_event = { #By Cross
+	id = rusdroz.37
+	title = rusdroz.37.t 
+	desc = rusdroz.37.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.37.a
+		add_political_power = -100
+		add_popularity = { syndicalist = -0.2 }
+		country_event = {
+			id = russia.38
+			days = 7
+			}
+		}
+}
+
+country_event = { #By Sword
+	id = rusdroz.38
+	title = rusdroz.38.t 
+	desc = rusdroz.38.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.38.a
+		add_political_power = -50
+		add_popularity = { totalist = -0.1 }
+		}
+}
+
+country_event = { #MPO
+	id = rusdroz.39
+	title = rusdroz.39.t 
+	desc = rusdroz.39.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.39.a
+		add_idea = rus_muslim_organization
+		}
+}
+
+country_event = { #Crackdowns on Leftists in Moscow
+	id = rusdroz.40
+	title = rusdroz.40.t 
+	desc = rusdroz.40.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.40.a
+		add_popularity = { radical_socialist = -0.1 }
+		country_event = {
+			id = russia.41
+			days = 7
+			}
+		}
+}
+
+country_event = { #Ufa Pogrom
+	id = rusdroz.41
+	title = rusdroz.41.t 
+	desc = rusdroz.41.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.41.a
+		add_manpower = -3320
+		country_event = {
+			id = russia.42
+			days = 14
+			}
+		}
+}
+
+country_event = { #Murder of Sergey Kirov
+	id = rusdroz.42
+	title = rusdroz.42.t 
+	desc = rusdroz.42.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.42.a
+		add_manpower = -1
+		country_event = {
+			id = russia.43
+			days = 7
+			}
+		}
+}
+
+country_event = { #Leftist Mutinies in Petrograd and Moscow
+	id = rusdroz.43
+	title = rusdroz.43.t 
+	desc = rusdroz.43.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.43.a
+		add_manpower = -4200
+		country_event = {
+			id = russia.44
+			days = 14
+			}
+		}
+}
+
+country_event = { #At the Ruins
+	id = rusdroz.44
+	title = rusdroz.44.t 
+	desc = rusdroz.44.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.44.a
+		add_stability = 0.1
+		remove_idea = rus_silent_darkness
+
+		}
+}
+
+country_event = { #Felix Yusupov Connections
+	id = rusdroz.45
+	title = rusdroz.45.t 
+	desc = rusdroz.45.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.45.a
+		add_ideas = rus_patriotic_economy
+
+		}
+}
+
+country_event = { #Legacy of Minin
+	id = rusdroz.46
+	title = rusdroz.46.t 
+	desc = rusdroz.46.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.46.a
+		add_ideas = rus_minin
+
+		}
+}
+
+country_event = { #All Russian Popular Union
+	id = rusdroz.47
+	title = rusdroz.47.t 
+	desc = rusdroz.47.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.47.a
+		add_ideas = rus_arpu
+		add_political_power = 150
+		set_party_name = {
+			ideology = paternal_autocrat
+			long_name = "All-Russian Popular Union"
+			name = "Popular Union"
+		}
+
+		}
+}
+
+country_event = { #national unity
+	id = rusdroz.48
+	title = rusdroz.48.t 
+	desc = rusdroz.48.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.48.a
+		add_popularity = { paternal_autocrat = 0.2 }
+
+		}
+}
+
+country_event = { #cultural awakening
+	id = rusdroz.49
+	title = rusdroz.49.t 
+	desc = rusdroz.49.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.49.a
+		add_political_power = 100
+		hidden_effect = {
+		country_event = {
+			id = rusdroz.50
+			days = 31
+			}
+			}
+		}
+}
+
+country_event = { #russian religious art expo in Tretyakovskaya gallery
+	id = rusdroz.50
+	title = rusdroz.50.t 
+	desc = rusdroz.50.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.49.a
+		hidden_effect = {
+		country_event = {
+			id = rusdroz.51
+			days = 54
+			}
+			}
+		}
+}
+
+country_event = { #Countess Nina Podgorichani-Petrovich Becomes National Chess Champion
+	id = rusdroz.51
+	title = rusdroz.51.t 
+	desc = rusdroz.51.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.51.a
+		hidden_effect = {
+		country_event = {
+			id = rusdroz.52
+			days = 54
+			}
+		country_event = {
+			id = rusdroz.54
+			days = 160
+			}
+}
+		}
+}
+
+country_event = { #Tsar Nicholas II canonization
+	id = rusdroz.52
+	title = rusdroz.52.t 
+	desc = rusdroz.52.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.52.a
+		hidden_effect = {
+		country_event = {
+			id = rusdroz.53
+			days = 365
+			}
+}
+		}
+}
+
+country_event = { #Tsar Nicholas II and his family are canonized
+	id = rusdroz.53
+	title = rusdroz.53.t 
+	desc = rusdroz.53.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.53.a
+		hidden_effect = {
+		country_event = {
+			id = rusdroz.53
+			days = 365
+			}
+			}
+
+		}
+}
+
+country_event = { #Yuriy Galich's New Novel
+	id = rusdroz.54
+	title = rusdroz.54.t 
+	desc = rusdroz.54.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.54.a
+		hidden_effect = {
+		country_event = {
+			id = rusdroz.55
+			days = 160
+			}
+			}
+
+		}
+}
+
+country_event = { #Prince Fyodor Kasatkin-Rostovsky has passed away
+	id = rusdroz.55
+	title = rusdroz.55.t 
+	desc = rusdroz.55.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #
+		name = rusdroz.55.a
+
+		}
+}
 
 #Intro events
 
@@ -13255,6 +14015,10 @@ country_event = { #Denikin-Wrangel Conflict
 		add_ideas = RUS_rovs_wrangel
 		set_variable = { var = RUS.denikin_influence value = 5 }
 		set_variable = { var = RUS.wrangel_influence value = 10 }
+		country_event = {
+							id = rusdroz.56
+							days = 2
+						}
 	}
 	option = {
 		name = rusd.209.b
@@ -13266,6 +14030,10 @@ country_event = { #Denikin-Wrangel Conflict
 		add_ideas = RUS_rovs_wrangel
 		set_variable = { var = RUS.denikin_influence value = 5 }
 		set_variable = { var = RUS.wrangel_influence value = 10 }
+		country_event = {
+							id = rusdroz.56
+							days = 2
+						}
 	}
 	option = {
 		name = rusd.209.c
@@ -13274,6 +14042,10 @@ country_event = { #Denikin-Wrangel Conflict
 		}
 		set_country_flag = RUS_selectsavinkov
 		custom_effect_tooltip = RUS_select_savinkov
+		country_event = {
+							id = rusdroz.56
+							days = 2
+						}
 	}
 }
 country_event = { #Talk to royal

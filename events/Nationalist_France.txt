@@ -1033,6 +1033,301 @@ country_event = { #darnand seizes power
 	}
 }
 
+country_event = { #de gaulle pm
+	id = nfa.29
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.29"}
+	title = nfa.29.t
+	desc = nfa.29.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { 
+		name = nfa.29.a 
+		add_stability = 0.03
+		add_political_power = 15
+		remove_ideas = NFA_Philippe_Petain_hog_pau
+		add_ideas = NFA_Charles_de_Gaulle_hog_pau
+	}
+}
+
+country_event = { #darlan pm
+	id = nfa.30
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.30"}
+	title = nfa.30.t
+	desc = nfa.30.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { 
+		name = nfa.30.a 
+		add_stability = 0.03
+		add_political_power = 15
+		remove_ideas = NFA_Philippe_Petain_hog_pau
+		add_ideas = NFA_Francois_Darlan_hog_pau
+	}
+}
+
+country_event = { #fate of PRD
+	id = nfa.31
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.31"}
+	title = nfa.31.t
+	desc = nfa.31.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #dissolve them
+		name = nfa.31.a 
+		add_stability = -0.04
+		add_political_power = 20
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		} 
+	}
+
+	option = { #favourable treatment in exchange for loyalty
+		name = nfa.31.b
+		add_stability = 0.03
+		add_political_power = -15
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.02
+		}  
+	}
+}
+
+country_event = { #fate of croix de feu
+	id = nfa.32
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.32"}
+	title = nfa.32.t
+	desc = nfa.32.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #restrain de la rocque's personality cult
+		name = nfa.32.a 
+		add_stability = -0.03
+		add_political_power = 30
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.02
+		} 
+	}
+
+	option = { #consolidate alliance with de la rocqe
+		name = nfa.32.b
+		add_stability = 0.04
+		add_political_power = -20
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.04
+		} 
+	}
+}
+
+country_event = { #constitution drafting starts
+	id = nfa.33
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.33"}
+	title = nfa.33.t
+	desc = nfa.33.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = nfa.33.a 
+		add_political_power = 10
+		set_country_flag = {
+			flag = NFA_constitution_flag
+			value = 2
+		}
+	}
+}
+
+country_event = { #fate of assembly
+	id = nfa.34
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.34"}
+	title = nfa.34.t
+	desc = nfa.34.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #formalise their advisory role
+		name = nfa.34.a 
+		add_stability = -0.03
+		add_political_power = 10
+		add_command_power = 10
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		} 
+		modify_country_flag = {
+			flag = NFA_constitution_flag
+			value = 1
+		}
+	}
+
+	option = { #control it informally
+		name = nfa.34.b
+		add_stability = 0.04
+		add_political_power = -20
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		} 
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.02
+		}
+		modify_country_flag = {
+			flag = NFA_constitution_flag
+			value = -1
+		}
+	}
+}
+
+country_event = { #role of presidency
+	id = nfa.35
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.35"}
+	title = nfa.35.t
+	desc = nfa.35.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #formalise sweeping powers
+		name = nfa.35.a 
+		add_stability = -0.04
+		add_political_power = 20
+		add_command_power = 20
+		add_war_support = 0.03
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.02
+		}
+		modify_country_flag = {
+			flag = NFA_constitution_flag
+			value = 1
+		} 
+	}
+
+	option = { #rely on soft power
+		name = nfa.35.b
+		add_stability = 0.03
+		add_political_power = -10
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		} 
+	}
+	modify_country_flag = {
+		flag = NFA_constitution_flag
+		value = -1
+	}
+}
+
+country_event = { #role of army
+	id = nfa.36
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.36"}
+	title = nfa.36.t
+	desc = nfa.36.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #give the army governmental powers
+		name = nfa.36.a 
+		add_stability = -0.05
+		add_command_power = 30
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.06
+		} 
+		add_war_support = 0.04
+		modify_country_flag = {
+			flag = NFA_constitution_flag
+			value = 1
+		}
+	}
+
+	option = { #we're in charge anyway, there's no need
+		name = nfa.36.b
+		add_stability = 0.04
+		add_political_power = 20
+		modify_country_flag = {
+			flag = NFA_constitution_flag
+			value = -1
+		}
+	}
+}
+
+country_event = { #""""moderate"""" constitution approved
+	id = nfa.37
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.37"}
+	title = nfa.37.t
+	desc = nfa.37.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #yay
+		name = nfa.37.a 
+		add_stability = 0.07
+		clr_country_flag = NFA_constitution_flag
+		set_country_flag = NFA_soft_petain_constitution
+	}
+}
+
+country_event = { #strong constitution approved
+	id = nfa.38
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.38"}
+	title = nfa.38.t
+	desc = nfa.38.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #yay
+		name = nfa.38.a 
+		add_stability = 0.07
+		clr_country_flag = NFA_constitution_flag
+		set_country_flag = NFA_strong_petain_constitution
+	}
+}
+
 #########
 #   Colonial resistance events 443 - 499 and revolts at 600 - 699
 #########   

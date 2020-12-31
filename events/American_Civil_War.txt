@@ -835,7 +835,11 @@ country_event = { # Demand BBR stand down
 	option = { ###Strike them now
 	name = amcivwar.3003.b
 	ai_chance = {
-			factor = 10
+		factor = 10
+		modifier = {
+			factor = 0
+			is_ai = no
+		}
 	}
 	declare_war_on = {
 	    target = BBR
@@ -900,6 +904,13 @@ country_event = { # Reintegration demand
 
 	option = {  #Accept
 		name = amcivwar.3004.a
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 0.5
+				has_authoritarian_government = yes
+			}
+		}
 		if = {
 		limit = { 	    
         TEX = {
@@ -970,6 +981,21 @@ country_event = { # Reintegration demand
 		}
 	}
 	option = {
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 0
+				COR = { exists = no }
+				OR = {
+					has_democratic_government = yes
+					has_government = authoritarian_democrat
+					AND = {
+						country_exists = CSA
+						has_socialist_government = yes
+					}
+				}
+			}
+		}
 		name = amcivwar.3004.b
 		if = {
 		limit = { 	    
@@ -3119,7 +3145,12 @@ country_event = { # Last Men Standing - CSA and AUS
 		name = amcivwar.5007.b
 		ai_chance = {
 			factor = 10
+			modifier = {
+				factor = 0
+				is_ai = yes
+			}
 		}
+		clr_global_flag = AUS_CSA_TREATY
 		declare_war_on = {
 		target = CSA
 		type = annex_everything
@@ -3158,8 +3189,9 @@ country_event = { # Last Men Standing - CSA and AUS
 	option = { ##War
 		name = amcivwar.5008.b
 		ai_chance = {
-			factor = 90
+			factor = 10
 		}
+		clr_global_flag = AUS_CSA_TREATY
 		declare_war_on = {
 		target = TEX
 		type = annex_everything
@@ -5202,6 +5234,8 @@ news_event = {
 	major = yes
 	is_triggered_only = yes
 
+	fire_only_once = yes
+
 	trigger = {
 		wants_world_news = yes
 	}
@@ -5797,7 +5831,7 @@ country_event = { # WCC wins the civil war
 					}
 					else = {
 						news_event = {
-							id = worldnews.391
+							id = worldnews.39
 							days = 1
 						}
 					}
@@ -5890,7 +5924,7 @@ country_event = { # COR wins the civil war
 					}
 				}
 				news_event = {
-					id = worldnews.400
+					id = worldnews.4000
 					days = 1
 				}
 			}
@@ -9500,7 +9534,7 @@ country_event = { # Alaska is Occupied
 		}
 	}
 	option = { # keep it
-		name = amcivwar.153.a
+		name = amcivwar.153.b
 		add_political_power = -50
 	}
 }
@@ -10640,7 +10674,6 @@ country_event = {
 					state = 463 #Alaska
 					state = 380 #Utah
 					state = 377 #Arizona
-					state = 834 #Tucson
 					has_state_flag = ACW_ceasefire_state
 				}
 			}
@@ -11015,7 +11048,6 @@ country_event = {
 					state = 463 #Alaska
 					state = 380 #Utah
 					state = 377 #Arizona
-					state = 834 #Tucson
 				}
 			}
 			FROM = {
@@ -12093,7 +12125,6 @@ country_event = {
 					has_state_flag = ACW_recruited_@ROOT
 					state = 379 #Nevada
 					state = 832 #Trans-Pecos
-					state = 834 #Tucson
 					AND = {
 						ROOT = {
 							NOT = {
@@ -12177,7 +12208,6 @@ country_event = {
 						has_state_flag = ACW_recruited_@ROOT
 						state = 379 #Nevada
 						state = 832 #Trans-Pecos
-						state = 834 #Tucson
 						AND = {
 							ROOT = {
 								NOT = {
@@ -12251,6 +12281,16 @@ country_event = { ### Support the Black Belt ###
 
 	option = {
 		name = amcivwar.503.a
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = BBR_spawn
+					option = BBR_SPAWN_NO
+				}
+			}
+		}
 		add_political_power = -30
 		add_manpower = -1000
 		add_equipment_to_stockpile = {
@@ -12267,6 +12307,16 @@ country_event = { ### Support the Black Belt ###
 	}
 	option = {
 		name = amcivwar.503.b
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = BBR_spawn
+					option = BBR_SPAWN_YES
+				}
+			}
+		}
 	}
 }
 
@@ -12290,6 +12340,16 @@ country_event = { ### Support the Black Belt ###
 
 	option = {
 		name = amcivwar.504.a
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = BBR_spawn
+					option = BBR_SPAWN_NO
+				}
+			}
+		}
 		add_political_power = -30
 		add_manpower = -1000
 		add_equipment_to_stockpile = {
@@ -12306,6 +12366,16 @@ country_event = { ### Support the Black Belt ###
 	}
 	option = {
 		name = amcivwar.504.b
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = BBR_spawn
+					option = BBR_SPAWN_YES
+				}
+			}
+		}
 	}
 }
 

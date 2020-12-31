@@ -14,8 +14,8 @@
 	}
 }
 division_template = {
-	name = "Infanterie-Division"
-	division_names_group = GERM_INF_01
+	name = "Infantry-Division"
+	division_names_group = KEN_INF_01
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
@@ -29,8 +29,51 @@ division_template = {
 	}
 }
 division_template = {
-	name = "Kavallerie Division"
-	division_names_group = GERM_CAV_01
+	name = "Cavalry Division"
+	division_names_group = KEN_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Militia Division"
+	division_names_group = ENGL_MIL_02
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 1 y = 2 }
+		militia = { x = 2 y = 0 }
+		militia = { x = 2 y = 1 }
+		militia = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Infantry Division"
+	division_names_group = ENGL_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Cavalry Division"
+	division_names_group = ENGL_CAV_01
 	regiments = {
 		cavalry = { x = 0 y = 0 }
 		cavalry = { x = 0 y = 1 }
@@ -44,13 +87,13 @@ division_template = {
 units = {
 
 	division = {
-		#name = "1. Infanterie-Division"
+		#name = "1. Infantry-Division"
 		division_name = {
 			is_name_ordered = yes
 			name_order = 1
 		}
 		location = 5210
-		division_template = "Infanterie-Division"
+		division_template = "Infantry-Division"
 		start_experience_factor = 0.7
 		start_equipment_factor = 1.0
 	}
@@ -66,13 +109,13 @@ units = {
 		start_equipment_factor = 1.0
 	}
 	division = {
-		#name = "2. Infanterie-Division"
+		#name = "2. Infantry-Division"
 		division_name = {
 			is_name_ordered = yes
 			name_order = 2
 		}
 		location = 1939
-		division_template = "Infanterie-Division"
+		division_template = "Infantry-Division"
 		start_experience_factor = 0.7
 		start_equipment_factor = 1.0
 	}
@@ -88,13 +131,13 @@ units = {
 		start_equipment_factor = 1.0
 	}
 	division = {
-		#name = "3. Infanterie-Division"
+		#name = "3. Infantry-Division"
 		division_name = {
 			is_name_ordered = yes
 			name_order = 3
 		}
 		location = 5160
-		division_template = "Infanterie-Division"
+		division_template = "Infantry-Division"
 		start_experience_factor = 0.7
 		start_equipment_factor = 1.0
 	}
@@ -107,6 +150,36 @@ units = {
 		location = 5160
 		division_template = "Militia Division"
 		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 12989
+		division_template = "Infantry Division"
+		start_experience_factor = 0.7
+		start_equipment_factor = 1.0
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 12989
+		division_template = "Cavalry Division"
+		start_experience_factor = 0.7
+		start_equipment_factor = 1.0
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 12929
+		division_template = "Cavalry Division"
+		start_experience_factor = 0.7
 		start_equipment_factor = 1.0
 	}
 }

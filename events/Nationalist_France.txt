@@ -487,6 +487,11 @@ country_event = { #the de la rocque cabinet
 				}
             }       
 		}
+		swap_ideas = {
+			remove_idea = NFA_protests_1
+			add_idea = NFA_protests_2
+		}
+		remove_ideas = NFA_internal_unrest
 	}
 }
 
@@ -526,6 +531,11 @@ country_event = { #martial law
 				}
             }       
 		}
+		swap_ideas = {
+			remove_idea = NFA_protests_1
+			add_idea = NFA_protests_2
+		}
+		remove_ideas = NFA_internal_unrest
 	}
 }
 
@@ -617,6 +627,11 @@ country_event = { #the marin cabinet
 			NFA_Paul_Reynaud_eco_mli
 			NFA_Albert_Saurrat_sec_sli
 		}
+		swap_ideas = {
+			remove_idea = NFA_protests_1
+			add_idea = NFA_protests_2
+		}
+		remove_ideas = NFA_internal_unrest
 	}
 }
 
@@ -736,6 +751,10 @@ country_event = { #Jean arrives in Algiers while Maurras uses media power and po
 			ideology = authoritarian_democrat
 			popularity = 0.06
 		} 
+		swap_ideas = {
+			remove_idea = NFA_protests_1
+			add_idea = NFA_protests_2
+		}
 		add_stability = 0.04
 		hidden_effect = {
 			NFA = {
@@ -818,6 +837,7 @@ country_event = { #pétain commits to a restoration, AF secures influence
 			NFA_Marie_Eugene_Debeney_eco_ade
 			NFA_Charles_Maurras_naph_npo
 		}
+		remove_ideas = NFA_internal_unrest
 	}
 }
 
@@ -909,6 +929,7 @@ country_event = { #napoleonic restoration
             retire_country_leader = yes
 			NFA_setup_napoleon = yes
 		}
+		remove_ideas = NFA_internal_unrest
 	}
 }			
 
@@ -1030,6 +1051,7 @@ country_event = { #darnand seizes power
 			long_name = NFA_national_populist_party_darnand_long
 			name = NFA_national_populist_party_darnand
 		}
+		rem
 	}
 }
 
@@ -1327,6 +1349,375 @@ country_event = { #strong constitution approved
 		set_country_flag = NFA_strong_petain_constitution
 	}
 }
+
+country_event = { #focus of chantiers de la jeunesse
+	id = nfa.39
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.39"}
+	title = nfa.39.t
+	desc = nfa.39.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #traditional values
+		name = nfa.39.a 
+		add_stability = 0.04
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		} 
+        add_political_power = 10
+	}
+
+	option = { #support for the government, pétain personality cult
+		name = nfa.39.b
+		add_war_support = 0.03
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.04
+		} 
+		add_command_power = 5
+	}
+
+	option = { #physical fitness, pseudo-military training
+		name = nfa.39.c
+		add_war_support = 0.02
+		army_experience = 15
+		add_command_power = 15
+		add_manpower = 1000
+	}
+}
+
+country_event = { #replacing marianne busts with pétain
+	id = nfa.40
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.40"}
+	title = nfa.40.t
+	desc = nfa.40.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #fuck it why not
+		name = nfa.40.a 
+		add_stability = -0.06
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.05
+		} 
+        add_command_power = 20
+	}
+
+	option = { #too far
+		name = nfa.40.b
+		add_stability = 0.03
+		add_political_power = 25
+	}
+}
+
+country_event = { #criteria for govt contracts
+	id = nfa.41
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.41"}
+	title = nfa.41.t
+	desc = nfa.41.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #loyalty
+		name = nfa.41.a 
+		add_stability = -0.02
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.04
+		} 
+        add_political_power = 45
+		hidden_effect = {
+			country_event = { id = nfa.42 days = 70 }
+		}
+	}
+
+	option = { #competence
+		name = nfa.41.b
+		add_stability = 0.03
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		}
+		hidden_effect = {
+			country_event = { id = nfa.43 days = 70 }
+		} 
+	}
+}
+
+country_event = { #corruption allegations
+	id = nfa.42
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.42"}
+	title = nfa.42.t
+	desc = nfa.42.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #crush the rumours
+		name = nfa.42.a 
+		add_stability = -0.06
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		} 
+        add_command_power = 15
+		add_political_power = 20
+	}
+
+	option = { #introduce an anti corruption campaign
+		name = nfa.42.b
+		add_political_power = -65
+		add_stability = 0.03
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.04
+		}
+	}
+}
+
+country_event = { #opponents of junta getting contracts
+	id = nfa.43
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.43"}
+	title = nfa.43.t
+	desc = nfa.43.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #ignore it
+		name = nfa.43.a 
+		add_stability = 0.04
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.06
+		} 
+		add_political_power = -40
+	}
+
+	option = { #increase vetting for loyalty
+		name = nfa.43.b
+		add_political_power = 30
+		add_stability = -0.03
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		}
+	}
+}
+
+country_event = { #historical revival of the great war
+	id = nfa.44
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.44"}
+	title = nfa.44.t
+	desc = nfa.44.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #based and redpilled
+		name = nfa.44.a 
+		add_stability = 0.02
+		add_war_support = 0.04
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		} 
+	}
+}
+
+country_event = { #emphasis of propaganda about petain
+	id = nfa.45
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.45"}
+	title = nfa.45.t
+	desc = nfa.45.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #his military successes
+		name = nfa.45.a 
+		add_war_support = 0.06
+		add_command_power = 30
+	}
+
+	option = { #his faith and patriotism
+		name = nfa.45.b
+		add_stability = 0.05
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.04
+		} 
+	}
+}
+
+country_event = { #extent of desecularisation
+	id = nfa.46
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.46"}
+	title = nfa.46.t
+	desc = nfa.46.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #restore catholicism as state religion
+		name = nfa.46.a 
+		add_stability = -0.04
+		add_political_power = 30
+        add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		} 
+		hidden_effect = {
+			country_event = { id = nfa.47 days = 250 }
+		}
+	}
+
+	option = { #simply repeal anti-catholic laws
+		name = nfa.46.b
+		add_stability = 0.03
+		add_political_power = 10
+		hidden_effect = {
+			country_event = { id = nfa.49 days = 250 }
+		}
+	}
+}
+
+country_event = { #petain visits the pope
+	id = nfa.47
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.47"}
+	title = nfa.47.t
+	desc = nfa.47.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = nfa.47.a 
+		add_stability = 0.03
+		add_political_power = 20
+	}
+}
+
+country_event = { #defining the revolution nationale ideology
+	id = nfa.48
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.48"}
+	title = nfa.48.t
+	desc = nfa.48.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #militarism and nationalism
+		name = nfa.48.a 
+		army_experience = 15
+		add_command_power = 20
+		add_war_support = 0.04
+	}
+
+	option = { #french traditionalism
+		name = nfa.48.b
+		add_stability = 0.03
+		add_political_power = 30
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		} 
+	}
+
+	option = { #devotion to the state and to pétain
+		name = nfa.48.c
+		add_stability = -0.02
+		add_political_power = 40
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.04
+		} 
+	}
+}
+
+country_event = { #archbishop of algiers endorses pétain
+	id = nfa.49
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.49"}
+	title = nfa.49.t
+	desc = nfa.49.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = nfa.49.a 
+		add_political_power = 35
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #########
 #   Colonial resistance events 443 - 499 and revolts at 600 - 699

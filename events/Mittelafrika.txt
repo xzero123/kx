@@ -6062,9 +6062,103 @@ id = mittel.187
 		add_ideas = MAF_Franz_Ritter_von_Epp_hog_pau
 		}
 		}
-	}
+	}	
 	option = {
 		name = mittel.187.b
+		custom_effect_tooltip = MAF_revolt_warning
+		hidden_effect = {
+	every_owned_state = {
+		limit = {
+			OR = {
+				state = 546
+				state = 918
+				state = 965
+			}
+		}
+		TZN = {
+		transfer_state = PREV
+		#load_focus_tree = TZN_Goeringia
+		}
+	}
+	set_global_flag = MAF_is_already_collapsing
+	}
+	if = {
+		limit = {
+			country_exists = TZN
+			TZN = { NOT = { has_country_flag = MAF_already_exists } }
+		}
+		MAF = { TZN = { transfer_technology = yes } }
+		TZN = {
+		    set_cosmetic_tag = TZN_GER
+			add_state_core = 546
+			add_state_core = 918
+			add_state_core = 965
+			load_oob = TZN
+			load_oob = TZN_naval
+		}
+	}
+	if = {
+		limit = {
+			country_exists = TZN
+			country_exists = MAF
+		}
+		MAF = { declare_war_on = { target = TZN type = annex_everything } }
+	}
+	if = {
+		limit = {
+			country_exists = TZN
+			country_exists = RWA
+		}
+		TZN = { declare_war_on = { target = RWA type = annex_everything } }
+	}
+	if = {
+		limit = {
+			country_exists = TZN
+			country_exists = BRD
+		}
+		TZN = { declare_war_on = { target = BRD type = annex_everything } }
+	}
+	effect_tooltip = {
+			TZN = {
+				change_tag_from = MAF
+			}
+		}
+	hidden_effect = {
+	TZN = {
+			change_tag_from = MAF
+		}
+	MAF = {
+			country_event = {
+				id = mittel.188
+				days = 20
+			}
+		}
+	MAF = {
+			set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+		create_country_leader = {
+			name = "DOAG Board of Directors"
+			picture = "MAF_DOAG.tga"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+			traits = {}
+		}
+		remove_ideas_with_trait = head_of_government
+		set_country_flag = Hermann_von_Goering_dead
+		if = {
+			limit = {
+				has_unit_leader = 198
+			}
+			remove_unit_leader = 198
+		}
+		add_ideas = MAF_Franz_Ritter_von_Epp_hog_pau
+		}
+		}
+	}
+	option = {
+		name = mittel.187.c
 		
 		add_political_power = -100
 	}
@@ -6944,129 +7038,14 @@ country_event = { #Germany Helps us  - CIV
 				autonomy_state = autonomy_free
 			}
 		}
+		get_current_government_type = yes
 		GER = {
-			puppet = ROOT
-		}
-		CIV = {
-			if = {
-				limit = { has_completed_focus = CIV_workingwithbrvi }
-				set_politics = {
-					ruling_party = social_democrat
-					last_election = "1888.6.15"
-					election_frequency = 48
-					elections_allowed = no
-				}
-				set_popularities = {
-					totalist = 0
-					radical_socialist = 0
-					syndicalist = 0
-					social_democrat = 24 
-					social_liberal = 12
-					market_liberal = 12
-					social_conservative = 4
-					authoritarian_democrat = 30
-					paternal_autocrat = 13
-					national_populist = 3
-				}
-			}
-		
-			else_if = {
-				limit = { has_completed_focus = CIV_cooperatingwithhodson }
-				set_politics = {
-					ruling_party = social_liberal
-					last_election = "1888.6.15"
-					election_frequency = 48
-					elections_allowed = no
-				}
-				set_popularities = {
-					totalist = 0
-					radical_socialist = 0
-					syndicalist = 0
-					social_democrat = 4 
-					social_liberal = 25
-					market_liberal = 13
-					social_conservative = 4
-					authoritarian_democrat = 33
-					paternal_autocrat = 4
-					national_populist = 4
-				}
-			}
-		
-		
-			else_if = {
-				limit = { has_completed_focus = CIV_thenativesaregone }
-				set_politics = {
-					ruling_party = authoritarian_democrat
-					last_election = "1888.6.15"
-					election_frequency = 48
-					elections_allowed = no
-				}
-				set_popularities = {
-					totalist = 0
-					radical_socialist = 0
-					syndicalist = 0
-					social_democrat = 3
-					social_liberal = 9
-					market_liberal = 49
-					social_conservative = 3
-					authoritarian_democrat = 30
-					paternal_autocrat = 3
-					national_populist = 2
-				}
-			}
-		
-		
-			else_if = {
-				limit = { has_completed_focus = CIV_thegermansaresecure }
-				set_politics = {
-					ruling_party = paternal_autocrat
-					last_election = "1888.6.15"
-					election_frequency = 48
-					elections_allowed = no
-				}
-				set_popularities = {
-					totalist = 0
-					radical_socialist = 0
-					syndicalist = 0
-					social_democrat = 3
-					social_liberal = 11
-					market_liberal = 11
-					social_conservative = 3
-					authoritarian_democrat = 38
-					paternal_autocrat = 27
-					national_populist = 2
-				}
-			}
-			
-			else_if = {
-				limit = {
-					NOT = {
-						has_completed_focus = CIV_thegermansaresecure 
-						has_completed_focus = CIV_thenativesaregone 
-						has_completed_focus = CIV_cooperatingwithhodson 
-						has_completed_focus = CIV_workingwithbrvi 
-					}
-				}
-				set_politics = {
-					ruling_party = authoritarian_democrat
-					last_election = "1888.6.15"
-					election_frequency = 48
-					elections_allowed = no
-				}
-				set_popularities = {
-					totalist = 0
-					radical_socialist = 0
-					syndicalist = 0
-					social_democrat = 5 
-					social_liberal = 15
-					market_liberal = 15
-					social_conservative = 5
-					authoritarian_democrat = 50
-					paternal_autocrat = 5
-					national_populist = 5
-				}
+			set_autonomy = {
+				target = CIV
+				autonomy_state = kr_default_puppet
 			}
 		}
+		restore_previous_government_type = yes
 	}
 }
 
@@ -7088,58 +7067,14 @@ country_event = { #Germany Helps us  - ZAM
 				autonomy_state = autonomy_free
 			}
 		}
+		get_current_government_type = yes
 		GER = {
-			puppet = ROOT
-		}
-		ZAM = {
-			if = {
-				limit = {
-					has_completed_focus = ZAM_junger_gang 
-				}
-				set_politics = {
-					ruling_party = authoritarian_democrat
-					last_election = "1932.6.15"
-					election_frequency = 4
-					elections_allowed = no
-				}
-				set_popularities = {
-					totalist = 0
-					radical_socialist = 0
-					syndicalist = 0
-					social_democrat = 0
-					social_liberal = 15
-					market_liberal = 15
-					social_conservative = 20
-					authoritarian_democrat = 30
-					paternal_autocrat = 10
-					national_populist = 10
-				}
-			}
-			
-			else_if = {
-				limit = {
-					has_completed_focus = ZAM_huttig_here_to_stay
-				}
-				set_politics = {
-					ruling_party = paternal_autocrat
-					last_election = "1932.6.15"
-					election_frequency = 4
-					elections_allowed = no
-				}
-				set_popularities = {
-					totalist = 0
-					radical_socialist = 0
-					syndicalist = 0
-					social_democrat = 0
-					social_liberal = 8
-					market_liberal = 8
-					social_conservative = 11
-					authoritarian_democrat = 36
-					paternal_autocrat = 27
-					national_populist = 5
-				}
+			set_autonomy = {
+				target = ZAM
+				autonomy_state = kr_default_puppet
 			}
 		}
+		restore_previous_government_type = yes
 	}
 }
 
@@ -7161,30 +7096,14 @@ country_event = { #Germany Helps us  - MAG
 				autonomy_state = autonomy_free
 			}
 		}
+		get_current_government_type = yes
 		GER = {
-			puppet = ROOT
-		}
-		MAG = {
-			set_politics = {
-				ruling_party = authoritarian_democrat
-				last_election = "1888.6.15"
-				election_frequency = 48
-				elections_allowed = no
-			}
-
-			set_popularities = {
-				totalist = 0
-				radical_socialist = 0
-				syndicalist = 0
-				social_democrat = 10
-				social_liberal = 0
-				market_liberal = 10
-				social_conservative = 20
-				authoritarian_democrat = 40
-				paternal_autocrat = 10
-				national_populist = 10
+			set_autonomy = {
+				target = MAG
+				autonomy_state = kr_default_puppet
 			}
 		}
+		restore_previous_government_type = yes
 	}
 }
 

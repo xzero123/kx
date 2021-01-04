@@ -81,6 +81,13 @@ country_event = { #The Situation of the French Republic - Growing Concerns
 
 	option = {
 		name = nfa.3.a #Growing Concerns
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa.50 days = 10
+				}
+			}
+		}
 	}
 }
 
@@ -942,7 +949,7 @@ country_event = { #Darnand wants to meet
 	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.26"}
 	title = nfa.26.t
 	desc = nfa.26.d
-	picture = GFX_report_event_NFA_event_NFA_Assembly
+	picture = GFX_report_event_NFA_darnand_speech
 
 	fire_only_once = yes
 
@@ -1012,7 +1019,7 @@ country_event = { #darnand seizes power
 	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.28"}
 	title = nfa.28.t
 	desc = nfa.28.d
-	picture = GFX_report_event_NFA_event_NFA_Assembly
+	picture = GFX_report_event_NFA_darnand_parade
 
 	fire_only_once = yes
 
@@ -1352,7 +1359,7 @@ country_event = { #focus of chantiers de la jeunesse
 	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.39"}
 	title = nfa.39.t
 	desc = nfa.39.d
-	picture = GFX_report_event_NFA_event_NFA_Assembly
+	picture = GFX_report_event_NFA_petain_and_youth
 
 	fire_only_once = yes
 
@@ -1671,6 +1678,30 @@ country_event = { #archbishop of algiers endorses pétain
 	option = { #cool
 		name = nfa.49.a 
 		add_political_power = 35
+	}
+}
+
+country_event = { #darnand breaks with croix-de-feu
+	id = nfa.50
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.50"}
+	title = nfa.50.t
+	desc = nfa.50.d
+	picture = GFX_report_event_NFA_darnand_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #what a larping fag
+		name = nfa.50.a 
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.02
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.01
+		}
 	}
 }
 

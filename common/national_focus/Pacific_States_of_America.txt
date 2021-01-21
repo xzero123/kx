@@ -1144,7 +1144,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_90_division_Army"
 			if = {
-				limit = { has_idea = CAL_Marshall_plan_idea_1 }
+				limit = { has_idea = CAL_Marshall_plan_idea_4 }
 				swap_ideas = {
 					remove_idea = CAL_Marshall_plan_idea_4
 					add_idea = CAL_Marshall_plan_idea_4_left
@@ -1184,7 +1184,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_morale_emphasis"
 			if = {
-				limit = { has_idea = CAL_Marshall_plan_idea_1 }
+				limit = { has_idea = CAL_Marshall_plan_idea_4 }
 				swap_ideas = {
 					remove_idea = CAL_Marshall_plan_idea_4
 					add_idea = CAL_Marshall_plan_idea_4_left
@@ -1229,9 +1229,33 @@ focus_tree = {
 		relative_position_id = CAL_Marshall_in_command
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_unified_front"
-			swap_ideas = {
-				remove_idea = CAL_Marshall_plan_idea_4_both
-				add_idea = CAL_Marshall_plan_idea_5
+			if = {
+				limit = { has_idea = CAL_Marshall_plan_idea_4_both }
+				swap_ideas = {
+					remove_idea = CAL_Marshall_plan_idea_4_both
+					add_idea = CAL_Marshall_plan_idea_5
+				}
+			}
+			if = {
+				limit = { has_idea = CAL_Marshall_plan_idea_4_left }
+				swap_ideas = {
+					remove_idea = CAL_Marshall_plan_idea_4_left
+					add_idea = CAL_Marshall_plan_idea_5
+				}
+			}
+			if = {
+				limit = { has_idea = CAL_Marshall_plan_idea_4_right }
+				swap_ideas = {
+					remove_idea = CAL_Marshall_plan_idea_4_right
+					add_idea = CAL_Marshall_plan_idea_5
+				}
+			}
+			if = {
+				limit = { has_idea = CAL_Marshall_plan_idea_4 }
+				swap_ideas = {
+					remove_idea = CAL_Marshall_plan_idea_4
+					add_idea = CAL_Marshall_plan_idea_5
+				}
 			}
 			add_timed_idea = {
 				idea = CAL_the_big_push_westwards
@@ -2670,7 +2694,10 @@ focus_tree = {
 			has_government = authoritarian_democrat
 			has_country_flag = PSA_1937_election_hearst
 		}
-		bypass = { has_government = authoritarian_democrat }
+		bypass = { 
+			has_government = authoritarian_democrat 
+			has_country_flag = PSA_1937_election_hearst
+		}
 		ai_will_do = {
 			factor = 5
 		}
@@ -3746,6 +3773,12 @@ focus_tree = {
 		available = {
 			NOT = {
 			has_country_leader = { ruling_only = yes name = "William Randolph Hearst" } 
+			}
+			NOT = {
+			has_country_leader = { ruling_only = yes name = "Walt Disney" }
+			}
+			NOT = {
+			has_country_leader = { ruling_only = yes name = "Howard Hughes" }
 			}
 		}
 		ai_will_do = {
@@ -6552,10 +6585,17 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_entente_support"
 			add_war_support = 0.03
 			hidden_effect = {
+			if = {
+			limit = {
+				NEE = {
+				is_ai = yes
+				}
+			}
 			country_event = {
 			id = ustates.271
 			days = 2
 				}
+			}
 			}
 		}
 	}
@@ -8213,8 +8253,22 @@ focus_tree = {
 		}
 		available = {
 			has_government = social_liberal
+			NOT = {
+			has_country_leader = {
+				name = "John F. Aiso"
+				ruling_only = yes
+			}
+			}
 		}
-		bypass = { has_government = social_liberal }
+		bypass = { 
+			has_government = social_liberal
+			NOT = {
+			has_country_leader = {
+				name = "John F. Aiso"
+				ruling_only = yes
+			}
+			}
+		}
 		ai_will_do = {
 			factor = 5
 		}
@@ -9598,6 +9652,7 @@ focus_tree = {
 					}
 				}
 			}
+			NOT = { has_country_flag = CAL_Norton_PSA }
 		}
 		ai_will_do = {
 			factor = 5
@@ -9719,6 +9774,12 @@ focus_tree = {
 		available = {
 			has_government = social_liberal
 			has_country_flag = CAL_liberals_won_twice_flag
+			NOT = {
+			has_country_leader = {
+				name = "John F. Aiso"
+				ruling_only = yes
+			}
+			}
 		}
 		ai_will_do = {
 			factor = 5
@@ -12645,6 +12706,7 @@ focus_tree = {
 					country_exists = COR
 					country_exists = CSA
 					country_exists = TEX
+					country_exists = USA
 				}
 			}
 			is_subject = no
@@ -13857,8 +13919,11 @@ focus_tree = {
 		available = {
 			is_subject = no
 			has_war = yes
-			any_enemy_country = {
-				is_in_north_america = no
+			custom_trigger_tooltip = {
+				tooltip = is_not_in_north_america_tt
+				any_enemy_country = {
+					is_in_north_america = no
+				}
 			}
 		}
 		relative_position_id = CAL_new_interventionism
@@ -13951,6 +14016,7 @@ focus_tree = {
 			army_experience = 10
 			navy_experience = 10
 			air_experience = 10
+			unlock_decision_category_tooltip = USA_rainbow_war_plans_decisions
 		}
 	}
 
@@ -14001,8 +14067,11 @@ focus_tree = {
 		available = {
 			is_subject = no
 			has_war = yes
-			any_enemy_country = {
-				is_in_north_america = no
+			custom_trigger_tooltip = {
+				tooltip = is_not_in_north_america_tt
+				any_enemy_country = {
+					is_in_north_america = no
+				}
 			}
 		}
 		relative_position_id = CAL_enter_the_fray
@@ -14427,7 +14496,6 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_enter_the_fray"
 			add_political_power = 100
-			unlock_decision_category_tooltip = CAL_rainbow_war_plans_decisions
 		}
 	}
 	
@@ -17138,6 +17206,7 @@ focus_tree = {
 					long_name = "Royalist Party"
 					name = "Royalist Party"
 				}
+				set_country_flag = CAL_Norton_PSA
 			}
 		}
 	}
@@ -17317,6 +17386,7 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = CAL_Absolutism
+			focus = CAL_Constitutional_Monarchy
 		}
 		mutually_exclusive = {
 			focus = CAL_Retake_America
@@ -17369,8 +17439,21 @@ focus_tree = {
 				CAL = { declare_war_on = { target = CSA type = annex_everything	} }
 				CAL = { declare_war_on = { target = TEX type = annex_everything	} }
 				CAL = { declare_war_on = { target = USA type = annex_everything	} }
-				CAL = { declare_war_on = { target = WCC type = annex_everything	} }
 				CAL = { declare_war_on = { target = COR type = annex_everything	} }
+			}
+			if = {
+				limit = { 
+					WCC = { is_subject = no }
+				}
+				CAL = { declare_war_on = { target = WCC type = annex_everything	} }
+			}
+			every_state = {
+				limit = {
+					is_core_of = USA
+					NOT = { is_core_of = CAL }
+					NOT = { is_claimed_by = CAL }
+				}
+				add_claim_by = CAL
 			}
 		}
 	}

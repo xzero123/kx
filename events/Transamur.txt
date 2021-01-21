@@ -654,6 +654,13 @@ country_event = { #Replace HOS - TRM event
 	option = {
 		ai_chance = { #Submit
 			factor = 15
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_YUI
+				}
+			}
 		}
 		name = tram.48.a
 		JAP = {
@@ -746,6 +753,13 @@ country_event = { #Replace HOS - JAP event
 	option = {
 		ai_chance = { #Mitsue
 			factor = 35
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_YUI
+				}
+			}
 		}
 		trigger = {
 			NOT = {
@@ -1332,6 +1346,13 @@ country_event = {
 	option = { #Republic
 		ai_chance = {
 			factor = 70
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_OBLASTNIKI
+				}
+			}
 		}
 		name = tram.81.b
 		add_stability = 0.1
@@ -1389,6 +1410,13 @@ country_event = {
 	option = { #Kolchak survived
 		ai_chance = {
 			factor = 20
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_KOLCHAK_SECURES_POWER
+				}
+			}
 		}
 		name = tram.80.a
 		add_stability = -0.1
@@ -1485,6 +1513,8 @@ country_event = {
 	mean_time_to_happen = {
 		months = 2
 	}
+	
+	fire_only_once = yes
 
 	option = { #Kolchak survived
 		ai_chance = {
@@ -1595,6 +1625,20 @@ country_event = {
 			factor = 10000
 				has_game_rule = {
 					rule = TRM_path 
+					option = RULE_OPTION_TRM_SEMYONOV
+				}
+			}
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_YUI
+				}
+			}
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRM_path 
 					option = RULE_OPTION_TRM_MLADOROSSI
 				}
 			}
@@ -1681,6 +1725,13 @@ country_event = {
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NEW_MILITARY_CABINET
+				}
+			}
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_YUI
 				}
 			}
 		}
@@ -1823,7 +1874,7 @@ country_event = {
 			factor = 10000
 				has_game_rule = {
 					rule = TRM_path 
-					option = RULE_OPTION_TRM_OBLASTNIKI
+					option = RULE_OPTION_TRM_SEMYONOV
 				}
 			}
 		}
@@ -1888,7 +1939,7 @@ country_event = {
 			}
 		}
 		name = tram.81.f
-		remove_ideas = TRM_kolchak
+		remove_ideas = TRM_anti_kolchak		
 		kill_country_leader = yes
 		set_politics = {
 			ruling_party = totalist
@@ -1984,6 +2035,13 @@ country_event = {
 	option = { #Do Nothing
 		ai_chance = {
 			factor = 55
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_OBLASTNIKI
+				}
+			}
 		}
 		name = tram.84.b
 	}
@@ -1996,14 +2054,28 @@ country_event = {
 	title = tram.86.t
 	desc = tram.86.d
 
+	trigger = {
+		has_country_flag = TRM_Dem_coup
+		NOT = {
+		has_country_flag = TRM_NRA_coup
+		}
+	}
 	is_triggered_only = yes
 
 	option = { # VKKE
 		name = tram.86.a
 		add_political_power = -40
 		clr_country_flag = TRM_oblastniki_operate
-		set_politics = {
-			ruling_party = social_democrat
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_democrat
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
 		}
 		add_popularity = {
 			ideology = social_democrat
@@ -2016,14 +2088,22 @@ country_event = {
 		add_ideas = TRM_Gennadiy_Bukaev_sec_syn 
 		country_event = {
 			id = tram.87
-			days = 1460
+			months = 48
 			} #Will fire another election 4 years later
 	}
 
 	option = { # KDV
 		name = tram.86.b
-		set_politics = {
-			ruling_party = market_liberal
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = market_liberal
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
 		}
 		clr_country_flag = TRM_oblastniki_operate
 		add_political_power = -20
@@ -2038,14 +2118,22 @@ country_event = {
 		add_ideas = TRM_Victor_Krhistenko_sec_mli
 		country_event = {
 			id = tram.87
-			days = 1460
+			months = 48
 			} #Will fire another election 4 years later
 	}
 
 	option = { # NDS
 		name = tram.86.c
-		set_politics = {
-			ruling_party = social_conservative
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_conservative
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
 		}
 		add_political_power = -40
 		add_popularity = {
@@ -2059,7 +2147,7 @@ country_event = {
 		add_ideas = TRM_Vladimir_Kevorkov_sec_mli
 		country_event = {
 			id = tram.87
-			days = 1460
+			months = 48
 			} #Will fire another election 4 years later
 	}
 
@@ -2068,6 +2156,10 @@ country_event = {
 		trigger = {
 			NOT = {
 				is_subject_of = JAP
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_OBLASTNIKI
+				}
 			}
 		}
 		set_politics = {
@@ -2102,6 +2194,9 @@ country_event = {
 	desc = tram.87.d
 	trigger = {
 		has_country_flag = TRM_Dem_coup
+		NOT = {
+		has_country_flag = TRM_NRA_coup
+		}
 	}
 	is_triggered_only = yes
 
@@ -2175,6 +2270,10 @@ country_event = {
 		trigger = {
 			NOT = {
 				is_subject_of = JAP
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_OBLASTNIKI
+				}
 			}
 		}
 		set_politics = {
@@ -2657,6 +2756,13 @@ country_event = {
 	option = { #Replace
 		ai_chance = {
 			factor = 30
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_YUI
+				}
+			}
 		}
 		name = tram.98.a
 		TRM = {
@@ -2670,6 +2776,20 @@ country_event = {
 	option = { #Do Nothing
 		ai_chance = {
 			factor = 70
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_MONARCHY
+				}
+			}
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_NEW_MILITARY_CABINET
+				}
+			}
 		}
 		name = tram.100.a
 	}
@@ -3377,6 +3497,8 @@ country_event = {
 			country_exists = SOV
 		}
 	}
+	
+	fire_only_once = yes
 
 	mean_time_to_happen = {
 		days = 14
@@ -5787,6 +5909,20 @@ country_event = { #Unrest in Chita
 			factor = 10000
 				has_game_rule = {
 					rule = TRM_path 
+					option = RULE_OPTION_TRM_SEMYONOV
+				}
+			}
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_YUI
+				}
+			}
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRM_path 
 					option = RULE_OPTION_TRM_MLADOROSSI
 				}
 			}
@@ -6067,6 +6203,12 @@ country_event = { #NRA wins
 	title = trmnra.5.t
 	desc = trmnra.5.d
 
+	trigger = {
+	NOT = {
+	has_country_flag = TRM_Mil_coup
+	}
+	}
+
 	is_triggered_only = yes
 	
 	option = {
@@ -6113,7 +6255,7 @@ country_event = { #NRA wins
 			remove_ideas = TRM_Aleksandr_Kolchak_cnav_pau
 			create_country_leader = {
 				name = "Mikhail Diterikhs"
-				picture = "Portrait_TRM_Diterikhs.tga"
+				picture = "gfx/leaders/RUS/Portrait_TRM_Diterikhs.tga"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 				traits = {}
@@ -6256,7 +6398,7 @@ country_event = { #NRA wins
 			remove_ideas = TRM_Aleksandr_Kolchak_cnav_pau
 			create_country_leader = {
 				name = "Mikhail Diterikhs"
-				picture = "Portrait_TRM_Diterikhs.tga"
+				picture = "gfx/leaders/RUS/Portrait_TRM_Diterikhs.tga"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 				traits = {}
@@ -6830,7 +6972,7 @@ country_event = { #NRA wins
 			remove_ideas = TRM_Aleksandr_Kolchak_cnav_pau
 			create_country_leader = {
 				name = "Mikhail Diterikhs"
-				picture = "Portrait_TRM_Diterikhs.tga"
+				picture = "gfx/leaders/RUS/Portrait_TRM_Diterikhs.tga"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 				traits = {}
@@ -6950,7 +7092,7 @@ country_event = { #NRA wins
 			remove_ideas = TRM_Aleksandr_Kolchak_cnav_pau
 			create_country_leader = {
 				name = "Mikhail Diterikhs"
-				picture = "Portrait_TRM_Diterikhs.tga"
+				picture = "gfx/leaders/RUS/Portrait_TRM_Diterikhs.tga"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 				traits = {}
@@ -7082,6 +7224,13 @@ country_event = { #Semyenov
 		name = tramsem.1.a
 		ai_chance = {
 			factor = 60
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_SEMYONOV
+				}
+			}
 		}
 		hidden_effect = {
 			country_event = {
@@ -7139,6 +7288,13 @@ country_event = { #Semyenov demands
 		name = tramsem.3.a
 		ai_chance = {
 			factor = 40
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_SEMYONOV
+				}
+			}
 		}
 		remove_ideas_with_trait = head_of_government
 		add_ideas = TRM_Grigoriy_M_Semyenov_hog_pau
@@ -7147,6 +7303,13 @@ country_event = { #Semyenov demands
 		name = tramsem.3.b
 		ai_chance = {
 			factor = 60
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_MORYAKI_IN_POWER
+				}
+			}
 		}
 		add_stability = 0.05
 	}
@@ -7723,6 +7886,7 @@ country_event = {
 			ideology = totalist_subtype
 			traits = {peoples_tsar}
 		}
+		set_country_flag = LEADER_GUI_VISIBLE
 		set_country_flag = TRM_Monarchy
 		set_country_flag = TRM_KYRIL_TSAR
 		custom_effect_tooltip = TRM_legitimacy_will_increase
@@ -7770,6 +7934,7 @@ country_event = {
 			ideology = totalist_subtype
 			traits = {peoples_tsar}
 		}
+		set_country_flag = LEADER_GUI_VISIBLE
 		set_country_flag = TRM_Monarchy
 		set_country_flag = TRM_TSAR_VLAD
 		custom_effect_tooltip = TRM_legitimacy_will_increase
@@ -7853,6 +8018,7 @@ country_event = {
 
             }
 		}
+		set_country_flag = LEADER_GUI_VISIBLE
 	}
 }
 country_event = {
@@ -7966,6 +8132,7 @@ country_event = {
 			ideology = totalist_subtype
 			traits = {peoples_tsar}
 		}
+		set_country_flag = LEADER_GUI_VISIBLE
 		set_country_flag = TRM_TSAR_ALEX
 		set_country_flag = TRM_Monarchy
 		custom_effect_tooltip = TRM_legitimacy_will_increase
@@ -7984,6 +8151,7 @@ country_event = {
 			ideology = totalist_subtype
 			traits = {peoples_tsar}
 		}
+		set_country_flag = LEADER_GUI_VISIBLE
 		set_country_flag = TRM_Monarchy
 		custom_effect_tooltip = TRM_legitimacy_will_increase
 		hidden_effect = {
@@ -8016,6 +8184,7 @@ country_event = {
 			ideology = totalist_subtype
 			traits = {peoples_tsar}
 		}
+		set_country_flag = LEADER_GUI_VISIBLE
 		set_country_flag = TRM_TSAR_VLAD
 	}
 }
@@ -8043,6 +8212,7 @@ country_event = {
 			ideology = totalist_subtype
 			traits = {peoples_tsar}
 		}
+		set_country_flag = LEADER_GUI_VISIBLE
 	}
 }
 country_event = {

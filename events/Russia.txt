@@ -69,6 +69,13 @@ country_event = { #Drozdovsky Takes Over!
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 			}
+			create_country_leader = {
+				name = "Mikhail Drozdovsky"
+				desc = "POLITICS_ANTON_DENIKIN_DESC"
+				picture = "Portrait_RUS_Mikhail_Drozdovsky_REGENT.tga"
+				expire = "1965.1.1"
+				ideology = national_populist_subtype
+			}
 			set_party_name = {
 			ideology = paternal_autocrat
 			long_name = "National Stabilization Regime"
@@ -77,7 +84,7 @@ country_event = { #Drozdovsky Takes Over!
 		set_politics = {
 			ruling_party = paternal_autocrat
 			elections_allowed = no    }
-			set_cosmetic_tag = RUS_DROZD
+			
 
 		}
 	
@@ -87,7 +94,7 @@ country_event = { #to save the holy rus focus
 	id = rusdroz.2
 	title = rusdroz.2.t 
 	desc = rusdroz.2.d 
-	picture = GFX_rus_russia_flag_event
+	picture = "GFX_report_event_rus_mansions_of_aristocrats"
 	is_triggered_only = yes
 	option = { #we need to unite all monarchist forces
 		name = rusdroz.2.a
@@ -192,7 +199,8 @@ country_event = { #meeting with Engelgardt
 country_event = { #results of our initiative
 	id = rusdroz.7
 	title = rusdroz.7.t 
-	desc = rusdroz.7.d 
+	desc = { text = rusdroz.7.d_success trigger = { check_variable = { InitiativeFailed = 2 } } }
+	desc = { text = rusdroz.7.d_fail trigger = { check_variable = { InitiativeFailed < 2 } } }
 	picture = GFX_rus_russia_flag_event
 	is_triggered_only = yes
 	option = { #agree on his terms
@@ -200,7 +208,7 @@ country_event = { #results of our initiative
 		if = {
 			limit = {
 				check_variable = {
-					InitiativeFailed = 3
+					InitiativeFailed = 2
 				}
 			}
 			set_country_flag = Droz_Regiment_Path
@@ -510,11 +518,6 @@ country_event = { #Штурм издательства газеты пролет
 		add_political_power = -50
 		add_stability = 0.05
 		}
-	option = { #идите на штурм
-		name = rusdroz.21.b
-		add_political_power = 50
-		add_manpower = -55
-		}
 }
 
 country_event = { #regency
@@ -527,7 +530,7 @@ country_event = { #regency
 	option = { #
 		name = rusdroz.22.a
 		add_political_power = 50
-		add_idea = rus_droz_regency
+		set_cosmetic_tag = RUS_DROZD
 		}
 }
 
@@ -682,7 +685,7 @@ country_event = { #Opolchenie
 	
 	option = { #Every Man That Can Hold A Rifle
 		name = rusdroz.33.a
-		load_oob = RUS_OPOLCHENIE
+		load_oob = RUS_Blackhundreds
 		}
 }
 
@@ -710,7 +713,7 @@ country_event = { #Japanese Connections
 	NOT = { has_completed_focus = RUS_Enemy_In_The_East }
 	}
 	fire_only_once = yes
-	mean_time_to_happen = { days = 62 }
+	mean_time_to_happen = { days = 162 }
 	
 	option = { #
 		name = rusdroz.35.a
@@ -1030,7 +1033,7 @@ country_event = { #Yuriy Galich's New Novel
 		}
 }
 
-country_event = { #Prince Fyodor Kasatkin-Rostovsky has passed away
+country_event = { #FLAVOUR UNFINISHED
 	id = rusdroz.55
 	title = rusdroz.55.t 
 	desc = rusdroz.55.d 
@@ -1040,6 +1043,114 @@ country_event = { #Prince Fyodor Kasatkin-Rostovsky has passed away
 	option = { #
 		name = rusdroz.55.a
 
+		}
+}
+
+country_event = { #Zemsky Sobor opens
+	id = rusdroz.60
+	title = rusdroz.60.t 
+	desc = rusdroz.60.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #good
+		name = rusdroz.60.a
+		country_event = {
+			id = rusdroz.61
+			days = 4
+			}
+		}
+}
+
+country_event = { #Roman biography
+	id = rusdroz.61
+	title = rusdroz.61.t 
+	desc = rusdroz.61.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #k
+		name = rusdroz.61.a
+		country_event = {
+			id = rusdroz.62
+			days = 4
+			}
+		}
+}
+
+country_event = { #Boris biography
+	id = rusdroz.62
+	title = rusdroz.62.t 
+	desc = rusdroz.62.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #k
+		name = rusdroz.62.a
+		country_event = {
+			id = rusdroz.62
+			days = 4
+			}
+		}
+}
+
+country_event = { #choose
+	id = rusdroz.63
+	title = rusdroz.63.t 
+	desc = rusdroz.63.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #Boris
+		name = rusdroz.63.a
+		create_country_leader = {
+			name = "Boris I"
+			desc = "POLITICS_BORIS_ROMANOV_DESC"
+			picture = "Portrait_Russia_Boris_I.tga"
+			expire = "1965.1.1"
+			ideology = national_populist_subtype
+			traits = {}
+		}
+		}
+		
+	option = {
+		name = rusdroz.63.b
+		create_country_leader = {
+			name = "Roman I"
+			desc = "POLITICS_ROMAN_ROMANOV_DESC"
+			picture = "Portrait_Russia_Roman_I.tga"
+			expire = "1965.1.1"
+			ideology = national_populist_subtype
+			traits = {}
+		}
+		}
+}
+
+country_event = { #Grindlock focus - grindlock result #todo boring stuff
+	id = rusdroz.64
+	title = rusdroz.64.t 
+	desc = rusdroz.64.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #k
+		name = rusdroz.64.a
+		}
+}
+
+country_event = { #Grindlock focus - coup
+	id = rusdroz.65
+	title = rusdroz.65.t 
+	desc = rusdroz.65.d 
+	picture = GFX_rus_russia_flag_event
+	is_triggered_only = yes
+	
+	option = { #k
+		name = rusdroz.65.a
+		country_event = {
+			id = rusd.19
+			days = 2
+			}
 		}
 }
 

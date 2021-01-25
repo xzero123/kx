@@ -701,6 +701,9 @@ country_event = { # Unione Socialista Cristiana majority
 
 	option = { # Giacomo Matteotti
 		name = socitaly.6.a
+		ai_chance = {
+			factor = 5
+		}
 		add_stability = 0.05
 		create_country_leader = {
 			name = "Giacomo Matteotti"
@@ -729,6 +732,9 @@ country_event = { # Unione Socialista Cristiana majority
 	}
 	option = { # Giuseppe Romita
 		name = socitaly.6.b
+		ai_chance = {
+			factor = 95
+		}
 		add_stability = 0.05
 		create_country_leader = {
 			name = "Giuseppe Romita"
@@ -6354,23 +6360,25 @@ country_event = { # The King Arrives
 				traits = {}
 		}
 		set_country_flag = SIC_Kings_return
+		set_country_flag = LEADER_GUI_VISIBLE
 	}
-	option = { # Long Live Emmanuel and evola
-		name = srievola.1240.b
-		add_stability = 0.03
-		add_political_power = 30
-		remove_ideas = SRI_revolt_against_modern_world
-		set_cosmetic_tag = SRI_ksicily
-		create_country_leader = {
-				name = "Julius Evola"
-				desc = "POLITICS_JULIUS_EVOLA_DESC"
-				picture = "gfx/leaders/SRI/Julius_Evola_Baron.tga"
-				expire = "1970.1.1"
-				ideology = national_populist_subtype
-				traits = {}
-		}
-		set_country_flag = SIC_Kings_return
-	}
+	#Probably don't need this option anymore because of the Leader GUI thing
+	# option = { # Long Live Emmanuel and evola
+		# name = srievola.1240.b
+		# add_stability = 0.03
+		# add_political_power = 30
+		# remove_ideas = SRI_revolt_against_modern_world
+		# set_cosmetic_tag = SRI_ksicily
+		# create_country_leader = {
+				# name = "Julius Evola"
+				# desc = "POLITICS_JULIUS_EVOLA_DESC"
+				# picture = "gfx/leaders/SRI/Julius_Evola_Baron.tga"
+				# expire = "1970.1.1"
+				# ideology = national_populist_subtype
+				# traits = {}
+		# }
+		# set_country_flag = SIC_Kings_return
+	# }
 }	
 
 country_event = { # The question of Churches
@@ -8719,32 +8727,25 @@ country_event = { #new government
 
 	option = { #monarchist gang
 		name = cathitaly.22.a
-		if = {
-				limit = {
-					has_government = paternal_autocrat
-				}
-				remove_ideas = Decentralised_State
+		set_party_name = { 
+		ideology = national_populist 
+		long_name = ITA_republic_national_populist_party 
+		name = ITA_republic_national_populist_party
+		}
+		set_party_name = { 
+		ideology = paternal_autocrat 
+		long_name = ITA_monarchist_paternal_autocrat_party_long 
+		name = ITA_monarchist_paternal_autocrat_party
+		}
+		set_cosmetic_tag = ITA_kingdom
+		country_event = italy.12
+		remove_ideas = Decentralised_State
+		hidden_effect = {
+		ITA = {
+			ITA_reset_democratic_party_names_and_leaders = yes
 			}
-			else = {
-				set_party_name = { 
-					ideology = national_populist 
-					long_name = ITA_republic_national_populist_party 
-					name = ITA_republic_national_populist_party
-				}
-				set_party_name = { 
-					ideology = paternal_autocrat 
-					long_name = ITA_monarchist_paternal_autocrat_party_long 
-					name = ITA_monarchist_paternal_autocrat_party
-				}
-				set_cosmetic_tag = ITA_kingdom
-				country_event = italy.12
-				remove_ideas = Decentralised_State
-				hidden_effect = {
-					ITA = {
-						ITA_reset_democratic_party_names_and_leaders = yes
-					}
-				}
-			}
+		}
+			
 		
 
 	}

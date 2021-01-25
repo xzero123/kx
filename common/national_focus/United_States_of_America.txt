@@ -3734,7 +3734,10 @@ focus_tree = {
 				has_government = market_liberal
 				has_government = social_liberal
 			}
+			OR = {
+			has_global_flag = USA_civil_war_avoided_flag
 			has_idea = USA_economic_recovery_idea
+			}
 		}
 		ai_will_do = {
 			factor = 5
@@ -3761,7 +3764,10 @@ focus_tree = {
 			focus = USA_securities_act
 		}
 		available = {
-			has_government = social_liberal
+			OR = {
+				has_government = market_liberal
+				has_government = social_liberal
+			}
 		}
 		ai_will_do = {
 			factor = 5
@@ -10849,6 +10855,9 @@ focus_tree = {
 			NOT = {
 				has_idea = USA_George_Catlett_Marshall_Jr_cos
 			}
+			NOT = {
+			has_country_flag = USA_no_BigMac_Soc_Con
+			}
 		}
 		mutually_exclusive = {
 			focus = USA_McNair_Plan
@@ -14205,7 +14214,7 @@ focus_tree = {
 			custom_trigger_tooltip = {
 				tooltip = is_not_in_north_america_tt
 				any_enemy_country = {
-					is_in_north_america = no
+					is_in_home_area = no
 				}
 			}
 		}

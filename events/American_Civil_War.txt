@@ -340,6 +340,8 @@ country_event = { # WCC released
 	desc = amcivwar.3000.d
 	picture = GFX_event_WCC_Denver
 
+	fire_only_once = yes
+
 	is_triggered_only = yes
 
 	immediate = {
@@ -416,6 +418,10 @@ country_event = { # WCC released
 			news_event = { id = amcivwar.1300 hours = 8 }
 				}
 			country_event = { id = amcivwar.5 days = 30 }
+			every_country = {
+				limit = { is_american_tag = yes }
+				country_event = { id = amcivwar.1313 days = 14 }
+			}
 			}
 	}
 	option = {
@@ -473,6 +479,10 @@ country_event = { # WCC released
 			news_event = { id = amcivwar.1300 hours = 8 }
 				}
 			country_event = { id = amcivwar.5 days = 30 }
+			every_country = {
+				limit = { is_american_tag = yes }
+				country_event = { id = amcivwar.1313 days = 14 }
+			}
 			}
 		WCC = {
 			change_tag_from = USA
@@ -874,6 +884,12 @@ country_event = { # Reintegration demand
 	    COR = {
 	        exists = no
 		}
+		CAL = {
+			OR = {
+	        		exists = no
+			has_global_flag = PSA_rockies_ceasefire
+			}
+		}
 	}
     }
 	desc = { ###PSA demands###
@@ -905,6 +921,12 @@ country_event = { # Reintegration demand
 	    COR = {
 	        exists = no
 		}
+		CAL = {
+			OR = {
+	        		exists = no
+			has_global_flag = PSA_rockies_ceasefire
+			}
+		}
 	}
     }	
 
@@ -919,15 +941,21 @@ country_event = { # Reintegration demand
 		}
 		if = {
 		limit = { 	    
-        TEX = {
-	        exists = no
-		}
-	    CSA = {
-	        exists = no
-		}
-	    COR = {
-	        exists = no
-		} 
+      	  		TEX = {
+	        		exists = no
+			}
+	   		CSA = {
+	        		exists = no
+			}
+	    		COR = {
+	       		exists = no
+			}
+				CAL = {
+				OR = {
+	        	exists = no
+				has_global_flag = PSA_rockies_ceasefire
+				}
+			}
         }
 		hidden_effect = {
 		USA = {
@@ -941,16 +969,22 @@ country_event = { # Reintegration demand
 
 		if = {
 		limit = { 	    
-        USA = {
-	        exists = no
-		}
-	    CSA = {
-	        exists = no
-		}
-	    COR = {
-	        exists = no
-		} 
-        }
+        			USA = {
+	        		exists = no
+			}
+	    		CSA = {
+	        		exists = no
+			}
+	    		COR = {
+	        		exists = no
+			}
+				CAL = {
+				OR = {
+	        	exists = no
+				has_global_flag = PSA_rockies_ceasefire
+				}
+			}
+       	}
 		hidden_effect = {
 		TEX = {
 		country_event = {
@@ -963,19 +997,19 @@ country_event = { # Reintegration demand
 
 		if = {
 		limit = { 	    
-        USA = {
-	        exists = no
-		}
-        TEX = {
-	        exists = no
-		}
-	    CSA = {
-	        exists = no
-		}
-	    COR = {
-	        exists = no
-		} 
-        }
+        			USA = {
+	        		exists = no
+			}
+        			TEX = {
+	        		exists = no
+			}
+	    		CSA = {
+	        		exists = no
+			}
+	   		COR = {
+	        		exists = no
+			} 
+        		}
 		hidden_effect = {
 		CAL = {
 		country_event = {
@@ -1105,72 +1139,14 @@ country_event = { # Reintegration accepted
 		
 	desc = { 
 	text = amcivwar.3006.d
-    }
+    	}
 
 	option = {  #Godammit
 		name = amcivwar.3006.a
-		if = {
-		limit = { 	    
-        TEX = {
-	        exists = no
-		}
-	    CSA = {
-	        exists = no
-		}
-	    COR = {
-	        exists = no
-		} 
-        }
-	    USA = {
-	    annex_country = {
-	    target = BBR
-	    transfer_troops = no
+	   	annex_country = {
+	    	target = BBR
+	    	transfer_troops = no
 	    }
-		}
-		}
-
-		if = {
-		limit = { 	    
-        USA = {
-	        exists = no
-		}
-	    CSA = {
-	        exists = no
-		}
-	    COR = {
-	        exists = no
-		} 
-        }
-	    TEX = {
-	    annex_country = {
-	    target = BBR
-	    transfer_troops = no
-	    }
-		}
-		}
-
-		if = {
-		limit = { 	    
-        USA = {
-	        exists = no
-		}
-        TEX = {
-	        exists = no
-		}
-	    CSA = {
-	        exists = no
-		}
-	    COR = {
-	        exists = no
-		} 
-        }
-	    CAL = {
-	    annex_country = {
-	    target = BBR
-	    transfer_troops = no
-	    }
-		}
-		}
 	}
 }
 
@@ -1504,6 +1480,7 @@ news_event = { #Standoff in America
 
 	major = yes
 	is_triggered_only = yes
+	fire_only_once = yes
 
 	trigger = {
 		wants_world_news = yes
@@ -1665,21 +1642,20 @@ country_event = { ### HUEY LONG PEACE OUT###
 	picture = GFX_report_event_USA_soldiers_running
 
 	trigger = {
-	NOT = {
-	has_global_flag = USA_long_is_president
-		}
-	TEX = {
-	exists = yes
-	}
-	CAL = {
-	exists = yes
-	}
-	NOT = {
-	CAL = {
-	has_war_with = TEX
-		}
-	}
-	}
+		tag = CAL
+        NOT = {
+            has_global_flag = USA_long_is_president
+            CAL = {
+                has_war_with = TEX
+            }
+        }
+        TEX = {
+            exists = yes
+        }
+        CAL = {
+            exists = yes
+        }
+    }
 
 	fire_only_once = yes 
 	
@@ -2702,48 +2678,45 @@ country_event = { # PSA offers peace
 	is_triggered_only = yes
 		
 	desc = { ###AUS offered peace###
-	text = amcivwar.5002.d.AUSPSA
-	trigger = {
-	tag = TEX
-	CSA = {
-	exists = no
+		text = amcivwar.5002.d.AUSPSA
+		trigger = {
+			tag = TEX
+			CSA = {
+				exists = no
+			}
 		}
-	}
 	}
 	desc = { ###ALL FACTIONS PEACE (for CSA)###
-	text = amcivwar.5002.d.AUSPSACSA
-	trigger = {
-	tag = TEX
-	has_global_flag = PSA_AUS_TREATY
-	has_global_flag = PSA_CSA_TREATY
-	TEX = {
-		exists = yes
+		text = amcivwar.5002.d.AUSPSACSA
+		trigger = {
+			tag = TEX
+			has_global_flag = PSA_AUS_TREATY
+			has_global_flag = PSA_CSA_TREATY
+			TEX = {
+				exists = yes
+			}
 		}
-	}
 	}
 	desc = {  ###CSA offered peace###
-	text = amcivwar.5002.d.CSAPSA
-	trigger = {
-	tag = CSA
-	TEX = {
-		exists = no
-	}
-	}
+		text = amcivwar.5002.d.CSAPSA
+		trigger = {
+			tag = CSA
+			TEX = {
+				exists = no
+			}
+		}
 	}
 	desc = { ###COR offered peace###
-	text = amcivwar.5002.d.CORPSA
-	trigger = {
-	tag = COR
-	CSA = {
-	exists = no
+		text = amcivwar.5002.d.CORPSA
+		trigger = {
+			tag = COR
+			CSA = {
+				exists = no
+			}
+			TEX = {
+				exists = no
+			}
 		}
-	TEX = {
-	exists = no
-		}
-	USA = {
-	exists = no
-		}
-	}
 	}
 	option = {  ###Offered peace###
 		name = amcivwar.5002.a
@@ -5515,6 +5488,7 @@ country_event = { # CSA wins the civil war
 			has_war_with = MEX
 			has_war_with = NEE
 			has_war_with = CAL
+			has_war_with = BBR
 			country_exists = USA
 			country_exists = TEX
 			country_exists = COR
@@ -5606,6 +5580,7 @@ country_event = { # AUS wins the civil war
 			has_war_with = MEX
 			has_war_with = NEE
 			has_war_with = CAL
+			has_war_with = BBR
 			country_exists = USA
 			country_exists = COR
 			country_exists = CSA
@@ -5679,6 +5654,7 @@ country_event = { # USA wins the civil war
 			has_war_with = MEX
 			has_war_with = NEE
 			has_war_with = CAL
+			has_war_with = BBR
 			country_exists = TEX
 			country_exists = CSA
 			country_exists = WCC
@@ -5779,6 +5755,7 @@ country_event = { # WCC wins the civil war
 			has_war_with = MEX
 			has_war_with = NEE
 			has_war_with = CAL
+			has_war_with = BBR
 			country_exists = TEX
 			country_exists = CSA
 			country_exists = COR
@@ -5880,6 +5857,7 @@ country_event = { # COR wins the civil war
 			has_war_with = MEX
 			has_war_with = NEE
 			has_war_with = CAL
+			has_war_with = BBR
 			country_exists = TEX
 			country_exists = CSA
 			country_exists = WCC
@@ -5975,6 +5953,7 @@ country_event = { # PSA wins the civil war
 			has_war_with = COR
 			has_war_with = WCC
 			has_war_with = CSA
+			has_war_with = BBR
 			has_country_flag = ACW_has_deal_with_devil
 		}
 		OR = {
@@ -6077,6 +6056,11 @@ country_event = { # PSA wins the civil war
 				days = 490
 				random = 70
 			}
+			country_event = {
+				id = pacificstates.116
+				days = 100
+				random = 20
+			}
 
 			if = {
 				limit = {
@@ -6132,6 +6116,7 @@ country_event = { # Nobody won the civil war
 			country_exists = CAL
 			country_exists = TEX
 			country_exists = CSA
+			country_exists = BBR
 		}
 	}
 
@@ -9580,6 +9565,7 @@ country_event = { # Canada Returning land to America ###
 							country_exists = CAL
 							country_exists = CSA
 							country_exists = TEX
+							country_exists = COR
 						}
 					}
 				}
@@ -9600,6 +9586,7 @@ country_event = { # Canada Returning land to America ###
 							country_exists = USA
 							country_exists = CSA
 							country_exists = TEX
+							country_exists = COR
 						}
 					}
 				}
@@ -9620,6 +9607,7 @@ country_event = { # Canada Returning land to America ###
 							country_exists = USA
 							country_exists = CSA
 							country_exists = CAL
+							country_exists = COR
 						}
 					}
 				}
@@ -10718,7 +10706,6 @@ country_event = {
 	id = amcivwar.2041
 	immediate = {log = "[GetDateText]: [Root.GetName]: event amcivwar.2041"}
 	title = amcivwar.2041.t
-	desc = amcivwar.2041.d
 	picture = GFX_report_event_generic_diplomacy2
 	
 	desc = {
@@ -10745,14 +10732,16 @@ country_event = {
 		}
 	}
 
-	is_triggered_only = yes
+	fire_only_once = yes
 
 	trigger = {
+		is_acw_tag = yes
+		has_global_flag = USA_civil_war_begun_flag
+		NOT = {
+		has_global_flag = USA_civil_war_over_flag
+		}
 		WCC = {
-			OR = {
-				surrender_progress > 0.80
-				has_capitulated = yes
-			}
+		surrender_progress > 0.80
 		}
 	}
 
@@ -10764,11 +10753,12 @@ country_event = {
 			white_peace_with_ROOT = yes
 		}
 		if = {
+			CAL = {
+			exists = yes
+			}
 			every_state = {
 			limit = {
-				OR = {
 				state = 1111
-				}
 				OR = {
 					is_owned_by = CAL
 					owner = {
@@ -10788,169 +10778,274 @@ country_event = {
 				transfer_state = 378
 				transfer_state = 385
 				transfer_state = 386
+				transfer_state = 376
+				set_country_flag = WCC_annexation
 				}
 			}
-		}
-			if = {
+			}
+		if = {
+			TEX = {
+			exists = yes
+			}
 			every_state = {
 			limit = {
 				OR = {
 				state = 382
+				OR = {
+					is_owned_by = TEX
+					owner = {
+						is_subject_of = TEX
+						}
+					}
+				AND = {
+				state = 1166
+				state = 388
 				}
 				OR = {
 					is_owned_by = TEX
 					owner = {
 						is_subject_of = TEX
+						}
 					}
 				}
 				}
 				TEX = {
-				transfer_state = 1112
-				transfer_state = 1103
-				transfer_state = 1110
+				transfer_state = 1166
+				transfer_state = 1157
+				transfer_state = 1164
 				transfer_state = 382
-				transfer_state = 376
+				transfer_state = 1174
+				transfer_state = 381
+				transfer_state = 388
+				transfer_state = 1096
 				set_country_flag = WCC_annexation
 				}
 			}
 			}
-			if = {
+		else_if = {
+			CAL = {
+			exists = yes
+			}
 			every_state = {
 			limit = {
 				OR = {
 				state = 382
+				OR = {
+					is_owned_by = CAL
+					owner = {
+						is_subject_of = CAL
+						}
+					}
+				AND = {
+				state = 1166
+				state = 388
 				}
 				OR = {
 					is_owned_by = CAL
 					owner = {
 						is_subject_of = CAL
+						}
 					}
 				}
 				}
 				CAL = {
-				transfer_state = 1112
-				transfer_state = 1103
-				transfer_state = 1110
+				transfer_state = 1166
+				transfer_state = 1157
+				transfer_state = 1164
 				transfer_state = 382
-				transfer_state = 376
+				transfer_state = 1174
+				transfer_state = 381
+				transfer_state = 388
+				transfer_state = 1096
 				set_country_flag = WCC_annexation
 				}
 			}
 			}
-			if = {
+		else_if = {
+			COR = {
+			exists = yes
+			}
 			every_state = {
 			limit = {
 				OR = {
 				state = 382
+				OR = {
+					is_owned_by = COR
+					owner = {
+						is_subject_of = COR
+						}
+					}
+				AND = {
+				state = 1166
+				state = 388
 				}
 				OR = {
 					is_owned_by = COR
 					owner = {
 						is_subject_of = COR
+						}
 					}
 				}
 				}
 				COR = {
-				transfer_state = 1112
-				transfer_state = 1103
-				transfer_state = 1110
+				transfer_state = 1166
+				transfer_state = 1157
+				transfer_state = 1164
 				transfer_state = 382
-				transfer_state = 376
+				transfer_state = 1174
+				transfer_state = 381
+				transfer_state = 388
+				transfer_state = 1096
 				set_country_flag = WCC_annexation
 				}
 			}
 			}
-			if = {
+		else_if = {
+			USA = {
+			exists = yes
+			}
 			every_state = {
 			limit = {
 				OR = {
 				state = 382
+				is_owned_by = USA
 				}
-				OR = {
-					is_owned_by = USA
-					owner = {
-						is_subject_of = USA
-					}
+				AND = {
+				state = 1166
+				state = 388
 				}
+				is_owned_by = USA
 				}
 				USA = {
-				transfer_state = 1112
-				transfer_state = 1103
-				transfer_state = 1110
+				transfer_state = 1166
+				transfer_state = 1157
+				transfer_state = 1164
 				transfer_state = 382
-				transfer_state = 376
+				transfer_state = 1174
+				transfer_state = 381
+				transfer_state = 388
+				transfer_state = 1096
 				set_country_flag = WCC_annexation
 				}
 			}
 			}
-			if = {
+		else_if = {
+			CSA = {
+			exists = yes
+			}
 			every_state = {
 			limit = {
 				OR = {
 				state = 382
+				OR = {
+					is_owned_by = CSA
+					owner = {
+						is_subject_of = CSA
+						}
+					}
+				AND = {
+				state = 1166
+				state = 388
 				}
 				OR = {
 					is_owned_by = CSA
 					owner = {
 						is_subject_of = CSA
+						}
 					}
 				}
 				}
 				CSA = {
-				transfer_state = 1112
-				transfer_state = 1103
-				transfer_state = 1110
+				transfer_state = 1166
+				transfer_state = 1157
+				transfer_state = 1164
 				transfer_state = 382
-				transfer_state = 376
+				transfer_state = 1174
+				transfer_state = 381
+				transfer_state = 388
+				transfer_state = 1096
 				set_country_flag = WCC_annexation
 				}
 			}
 			}
-			if = {
+		else_if = {
+			BBR = {
+			exists = yes
+			}
 			every_state = {
 			limit = {
 				OR = {
 				state = 382
+				OR = {
+					is_owned_by = BBR
+					owner = {
+						is_subject_of = BBR
+						}
+					}
+				AND = {
+				state = 1166
+				state = 388
 				}
 				OR = {
 					is_owned_by = BBR
 					owner = {
 						is_subject_of = BBR
+						}
 					}
 				}
 				}
 				BBR = {
-				transfer_state = 1112
-				transfer_state = 1103
-				transfer_state = 1110
+				transfer_state = 1166
+				transfer_state = 1157
+				transfer_state = 1164
 				transfer_state = 382
-				transfer_state = 376
+				transfer_state = 1174
+				transfer_state = 381
+				transfer_state = 388
+				transfer_state = 1096
 				set_country_flag = WCC_annexation
 				}
 			}
 			}
-			if = {
+		else_if = {
+			NEE = {
+			exists = yes
+			}
 			every_state = {
 			limit = {
 				OR = {
 				state = 382
+				OR = {
+					is_owned_by = NEE
+					owner = {
+						is_subject_of = NEE
+						}
+					}
+				AND = {
+				state = 1166
+				state = 388
 				}
 				OR = {
 					is_owned_by = NEE
 					owner = {
 						is_subject_of = NEE
+						}
 					}
 				}
 				}
 				NEE = {
-				transfer_state = 1112
-				transfer_state = 1103
-				transfer_state = 1110
+				transfer_state = 1166
+				transfer_state = 1157
+				transfer_state = 1164
 				transfer_state = 382
-				transfer_state = 376
+				transfer_state = 1174
+				transfer_state = 381
+				transfer_state = 388
+				transfer_state = 1096
 				set_country_flag = WCC_annexation
-					}
+				clr_global_flag = USA_WCC_existed
 				}
+			}
 			}
 		}
 	}
@@ -16384,5 +16479,23 @@ country_event = { # Panama Garrison
 	option = { # Flavor
 		name = amcivwar.1312.a
 		custom_effect_tooltip = ACW_bbr_unit_tooltip
+	}
+}
+
+country_event = { # No more baseball :(
+	id = amcivwar.1313
+	immediate = {log = "[GetDateText]: [Root.GetName]: event amcivwar.1312"}
+	title = amcivwar.1313.t
+	desc = amcivwar.1313.d
+	picture = GFX_report_event_USA_world_series_36
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = amcivwar.1313.a #Flavor
+		add_political_power = -5
+		add_stability = -0.01
 	}
 }

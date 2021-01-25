@@ -254,6 +254,7 @@ country_event = { # Canada Releases New England
 		}
 		puppet = NEE
 		add_to_faction = NEE
+		set_country_flag = CAN_new_england_decision
 		hidden_effect = {
 			CAN = {
 				NEE = {
@@ -331,6 +332,7 @@ country_event = { # Canada Releases New England
 		}
 		puppet = NEE
 		add_to_faction = NEE
+		set_country_flag = CAN_new_england_decision
 		hidden_effect = {
 			CAN = {
 				NEE = {
@@ -419,6 +421,7 @@ country_event = { # Canada Releases New England
 		add_stability = -0.05
 		add_war_support = -0.05
 		set_country_flag = CAN_no_puppet_state
+		set_country_flag = CAN_new_england_decision
 		hidden_effect = {
 			set_variable = {
 				CAN_yankee_rebellion = 0
@@ -469,6 +472,7 @@ country_event = { # Canada Releases New England
 		}
 		puppet = NEE
 		add_to_faction = NEE
+		set_country_flag = CAN_new_england_decision
 		hidden_effect = {
 			CAN = {
 				NEE = {
@@ -588,6 +592,7 @@ country_event = { # Canada Releases New England
 		}
 		puppet = NEE
 		add_to_faction = NEE
+		set_country_flag = CAN_new_england_decision
 		hidden_effect = {
 			CAN = {
 				NEE = {
@@ -659,6 +664,10 @@ country_event = { # Independent New England
 			country_event = {
 				id = newengland.41
 				days = 122
+			}
+			country_event = {
+				id = newengland.44
+				days = 162
 			}
 			country_event = {
 				id = newengland.54
@@ -3731,6 +3740,69 @@ country_event = { # Royal Visit to New England (New England)
 	}
 }
 
+country_event = { # 1937 "World Series"
+	id = newengland.44
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.43"}
+	title = newengland.44.t
+	desc = newengland.44.d
+	picture = GFX_report_event_USA_world_series_36
+
+	is_triggered_only = yes
+	
+	trigger = { has_war = no }
+
+	option = { # Flavor
+		name = newengland.44.a
+		hidden_effect = {
+			random_list = {
+				80 = {
+					country_event = {
+						id = newengland.45
+						days = 4
+					}
+				}
+				20 = {
+					country_event = {
+						id = newengland.46
+						days = 7
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { # Red Sox win the World Series!
+	id = newengland.45
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.43"}
+	title = newengland.45.t
+	desc = newengland.45.d
+	picture = GFX_report_event_USA_world_series_36
+
+	is_triggered_only = yes
+	
+	option = { # Flavor
+		name = newengland.45.a
+		add_political_power = 5
+		add_stability = 0.01
+	}
+}
+
+country_event = { # Bees win the World Series!
+	id = newengland.46
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.43"}
+	title = newengland.46.t
+	desc = newengland.46.d
+	picture = GFX_report_event_USA_world_series_36
+
+	is_triggered_only = yes
+	
+	option = { # Flavor
+		name = newengland.46.a
+		add_political_power = 5
+		add_stability = 0.01
+	}
+}
 
 ##########################
 ## UNDERGROUND RAILROAD ##
@@ -6531,6 +6603,7 @@ country_event = { # Feds appointed
 	
 	option = { # Harold Stirling Vanderbilt
 		name = newengland.107.c
+		set_country_flag = NEE_FEDS_APPOINTED
 		add_political_power = 20
 		add_popularity = { ideology = authoritarian_democrat popularity = 0.04 }
 		add_stability = 0.02
@@ -6553,6 +6626,7 @@ country_event = { # Feds appointed
 	
 	option = { # William Kissam Vanderbilt
 		name = newengland.107.e
+		set_country_flag = NEE_FEDS_APPOINTED
 		add_political_power = 15
 		add_popularity = { ideology = authoritarian_democrat popularity = 0.05 }
 		add_stability = 0.02

@@ -2056,6 +2056,9 @@ country_event = {
 
 	trigger = {
 		has_country_flag = TRM_Dem_coup
+		NOT = {
+		has_country_flag = TRM_NRA_coup
+		}
 	}
 	is_triggered_only = yes
 
@@ -2191,6 +2194,9 @@ country_event = {
 	desc = tram.87.d
 	trigger = {
 		has_country_flag = TRM_Dem_coup
+		NOT = {
+		has_country_flag = TRM_NRA_coup
+		}
 	}
 	is_triggered_only = yes
 
@@ -6197,6 +6203,12 @@ country_event = { #NRA wins
 	title = trmnra.5.t
 	desc = trmnra.5.d
 
+	trigger = {
+	NOT = {
+	has_country_flag = TRM_Mil_coup
+	}
+	}
+
 	is_triggered_only = yes
 	
 	option = {
@@ -6243,7 +6255,7 @@ country_event = { #NRA wins
 			remove_ideas = TRM_Aleksandr_Kolchak_cnav_pau
 			create_country_leader = {
 				name = "Mikhail Diterikhs"
-				picture = "Portrait_TRM_Diterikhs.tga"
+				picture = "gfx/leaders/RUS/Portrait_TRM_Diterikhs.tga"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 				traits = {}
@@ -6386,7 +6398,7 @@ country_event = { #NRA wins
 			remove_ideas = TRM_Aleksandr_Kolchak_cnav_pau
 			create_country_leader = {
 				name = "Mikhail Diterikhs"
-				picture = "Portrait_TRM_Diterikhs.tga"
+				picture = "gfx/leaders/RUS/Portrait_TRM_Diterikhs.tga"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 				traits = {}
@@ -6960,7 +6972,7 @@ country_event = { #NRA wins
 			remove_ideas = TRM_Aleksandr_Kolchak_cnav_pau
 			create_country_leader = {
 				name = "Mikhail Diterikhs"
-				picture = "Portrait_TRM_Diterikhs.tga"
+				picture = "gfx/leaders/RUS/Portrait_TRM_Diterikhs.tga"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 				traits = {}
@@ -7080,7 +7092,7 @@ country_event = { #NRA wins
 			remove_ideas = TRM_Aleksandr_Kolchak_cnav_pau
 			create_country_leader = {
 				name = "Mikhail Diterikhs"
-				picture = "Portrait_TRM_Diterikhs.tga"
+				picture = "gfx/leaders/RUS/Portrait_TRM_Diterikhs.tga"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 				traits = {}
@@ -7874,6 +7886,7 @@ country_event = {
 			ideology = totalist_subtype
 			traits = {peoples_tsar}
 		}
+		set_country_flag = LEADER_GUI_VISIBLE
 		set_country_flag = TRM_Monarchy
 		set_country_flag = TRM_KYRIL_TSAR
 		custom_effect_tooltip = TRM_legitimacy_will_increase
@@ -7921,6 +7934,7 @@ country_event = {
 			ideology = totalist_subtype
 			traits = {peoples_tsar}
 		}
+		set_country_flag = LEADER_GUI_VISIBLE
 		set_country_flag = TRM_Monarchy
 		set_country_flag = TRM_TSAR_VLAD
 		custom_effect_tooltip = TRM_legitimacy_will_increase
@@ -8004,6 +8018,7 @@ country_event = {
 
             }
 		}
+		set_country_flag = LEADER_GUI_VISIBLE
 	}
 }
 country_event = {
@@ -8117,6 +8132,7 @@ country_event = {
 			ideology = totalist_subtype
 			traits = {peoples_tsar}
 		}
+		set_country_flag = LEADER_GUI_VISIBLE
 		set_country_flag = TRM_TSAR_ALEX
 		set_country_flag = TRM_Monarchy
 		custom_effect_tooltip = TRM_legitimacy_will_increase
@@ -8135,6 +8151,7 @@ country_event = {
 			ideology = totalist_subtype
 			traits = {peoples_tsar}
 		}
+		set_country_flag = LEADER_GUI_VISIBLE
 		set_country_flag = TRM_Monarchy
 		custom_effect_tooltip = TRM_legitimacy_will_increase
 		hidden_effect = {
@@ -8167,6 +8184,7 @@ country_event = {
 			ideology = totalist_subtype
 			traits = {peoples_tsar}
 		}
+		set_country_flag = LEADER_GUI_VISIBLE
 		set_country_flag = TRM_TSAR_VLAD
 	}
 }
@@ -8194,6 +8212,7 @@ country_event = {
 			ideology = totalist_subtype
 			traits = {peoples_tsar}
 		}
+		set_country_flag = LEADER_GUI_VISIBLE
 	}
 }
 country_event = {

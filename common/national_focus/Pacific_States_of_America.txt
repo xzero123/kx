@@ -1229,9 +1229,33 @@ focus_tree = {
 		relative_position_id = CAL_Marshall_in_command
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_unified_front"
-			swap_ideas = {
-				remove_idea = CAL_Marshall_plan_idea_4_both
-				add_idea = CAL_Marshall_plan_idea_5
+			if = {
+				limit = { has_idea = CAL_Marshall_plan_idea_4_both }
+				swap_ideas = {
+					remove_idea = CAL_Marshall_plan_idea_4_both
+					add_idea = CAL_Marshall_plan_idea_5
+				}
+			}
+			if = {
+				limit = { has_idea = CAL_Marshall_plan_idea_4_left }
+				swap_ideas = {
+					remove_idea = CAL_Marshall_plan_idea_4_left
+					add_idea = CAL_Marshall_plan_idea_5
+				}
+			}
+			if = {
+				limit = { has_idea = CAL_Marshall_plan_idea_4_right }
+				swap_ideas = {
+					remove_idea = CAL_Marshall_plan_idea_4_right
+					add_idea = CAL_Marshall_plan_idea_5
+				}
+			}
+			if = {
+				limit = { has_idea = CAL_Marshall_plan_idea_4 }
+				swap_ideas = {
+					remove_idea = CAL_Marshall_plan_idea_4
+					add_idea = CAL_Marshall_plan_idea_5
+				}
 			}
 			add_timed_idea = {
 				idea = CAL_the_big_push_westwards
@@ -2670,7 +2694,10 @@ focus_tree = {
 			has_government = authoritarian_democrat
 			has_country_flag = PSA_1937_election_hearst
 		}
-		bypass = { has_government = authoritarian_democrat }
+		bypass = { 
+			has_government = authoritarian_democrat 
+			has_country_flag = PSA_1937_election_hearst
+		}
 		ai_will_do = {
 			factor = 5
 		}
@@ -3750,6 +3777,9 @@ focus_tree = {
 			NOT = {
 			has_country_leader = { ruling_only = yes name = "Walt Disney" }
 			}
+			NOT = {
+			has_country_leader = { ruling_only = yes name = "Howard Hughes" }
+			}
 		}
 		ai_will_do = {
 			factor = 5
@@ -4606,7 +4636,6 @@ focus_tree = {
 				has_government = social_liberal
 				has_government = social_democrat
 				has_government = radical_socialist
-				has_government = national_populist
 			}
 		}
 		bypass = {
@@ -4616,7 +4645,6 @@ focus_tree = {
 				has_government = social_liberal
 				has_government = social_democrat
 				has_government = radical_socialist
-				has_government = national_populist
 			}
 		}
 		prerequisite = {
@@ -6555,10 +6583,17 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_entente_support"
 			add_war_support = 0.03
 			hidden_effect = {
+			if = {
+			limit = {
+				NEE = {
+				is_ai = yes
+				}
+			}
 			country_event = {
 			id = ustates.271
 			days = 2
 				}
+			}
 			}
 		}
 	}
@@ -8216,8 +8251,22 @@ focus_tree = {
 		}
 		available = {
 			has_government = social_liberal
+			NOT = {
+			has_country_leader = {
+				name = "John F. Aiso"
+				ruling_only = yes
+			}
+			}
 		}
-		bypass = { has_government = social_liberal }
+		bypass = { 
+			has_government = social_liberal
+			NOT = {
+			has_country_leader = {
+				name = "John F. Aiso"
+				ruling_only = yes
+			}
+			}
+		}
 		ai_will_do = {
 			factor = 5
 		}
@@ -9723,6 +9772,12 @@ focus_tree = {
 		available = {
 			has_government = social_liberal
 			has_country_flag = CAL_liberals_won_twice_flag
+			NOT = {
+			has_country_leader = {
+				name = "John F. Aiso"
+				ruling_only = yes
+			}
+			}
 		}
 		ai_will_do = {
 			factor = 5
@@ -12649,6 +12704,7 @@ focus_tree = {
 					country_exists = COR
 					country_exists = CSA
 					country_exists = TEX
+					country_exists = USA
 				}
 			}
 			is_subject = no
@@ -13733,7 +13789,12 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_western_alliance"
+			if = {
+			limit = {
+			country_exists = CAN
+			}
 			CAN = { add_to_faction = CAL }
+			}
 		}
 	}
 	focus = {

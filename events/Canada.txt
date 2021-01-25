@@ -3,8 +3,24 @@
 ###########################
 
 add_namespace = canada
+add_namespace = cantest
 
 # Intro events
+country_event = {
+	id = cantest.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event cantest.1" }
+	title = cantest.1.t
+	desc = cantest.1.d
+	picture = GFX_report_event_CAN_refugees
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = cantest.1.a
+		add_ideas = CAN_William_Lyon_Mackenzie_King_hog_mli
+	}
+}
 country_event = {
 	id = canada.1
 	immediate = { log = "[GetDateText]: [Root.GetName]: event canada.1" }
@@ -649,10 +665,10 @@ country_event = {
 		trigger = { tag = CAN }
 		hidden_effect = {
 			random_list = {
-				55 = {
+				35 = {
 					country_event = { id = canada.21 days = 2 } #Detroit wins
 				}
-				45 = {
+				65 = {
 					country_event = { id = canada.22 days = 2 } #Toronto wins
 				}
 			}
@@ -776,7 +792,7 @@ country_event = {
 	}
 }
 
-# Bennett accuses government of not doing enough
+# King accuses government of not doing enough
 country_event = {
 	id = canada.25
 	immediate = { log = "[GetDateText]: [Root.GetName]: event canada.25" }
@@ -793,8 +809,8 @@ country_event = {
 
 	option = {
 		name = canada.25.a
-		add_to_variable = { CAN_conservative_support = 1 }
-		add_popularity = { ideology = social_conservative popularity = 0.05 }
+		add_to_variable = { CAN_liberal_support = 1 }
+		add_popularity = { ideology = market_liberal popularity = 0.05 }
 		hidden_effect = {
 			country_event = { id = canada.26 days = 20 random = 240 }
 		}
@@ -1598,6 +1614,7 @@ country_event = {
 			remove_ideas_with_trait = leader_of_the_british_exiles
 			multiply_variable = { CAN_conservative_support = 10 }
 			multiply_variable = { CAN_liberal_support = 10 }
+			complete_national_focus = CAN_elections
 		}
 	}
 
@@ -1630,6 +1647,12 @@ country_event = {
 					rule = CAN_political_path
 					option = CAN_POLITICAL_PATH_AUTHORITARIAN
 				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = canada.5001
+				days = 5
 			}
 		}
 		clear_variable = CAN_conservative_support
@@ -1741,6 +1764,12 @@ country_event = {
 			election_frequency = 60
 			elections_allowed = yes
 		}
+		hidden_effect = {
+			country_event = {
+				id = canada.5001
+				days = 5
+			}
+		}
 		GBR_returning_king_check = yes
 		hidden_effect = {
 			add_ideas = CAN_William_Lyon_Mackenzie_King_hog_mli
@@ -1754,6 +1783,467 @@ country_event = {
 			add_ideas = CAN_Hazen_Argue_eco_sde
 			add_ideas = CAN_Douglas_Abbott_sec_mli
 			country_event = { id = canada.51 days = 1 }
+		}
+	}
+}
+
+##Election Event Chain
+
+country_event = {
+	id = canada.5001
+	title = canada.5001.t
+	desc = canada.5001.d
+	picture = GFX_report_event_CAN_election
+
+	is_triggered_only = yes
+	
+	option = {
+		name = canada.5001.a #Honour the Government
+		add_political_power = 100
+	}
+	option = {
+		name = canada.5001.b #Nah
+		remove_all_ministers = yes
+		set_politics = {
+			ruling_party = authoritarian_democrat
+		}
+		set_country_flag = CAN_VACANT
+		hidden_effect = {
+			country_event = {
+				id = canada.5002
+				days = 4
+			}
+		}
+	}
+}
+
+country_event = { #Mps Protests
+	id = canada.5002
+	title = canada.5002.t
+	desc = canada.5002.d
+	picture = GFX_report_event_CAN_election
+
+	is_triggered_only = yes
+	
+	option = {
+		name = canada.5002.a #Fuck em
+		add_political_power = -100
+		add_stability = -0.02
+	}
+	option = {
+		name = canada.5002.b #Do Authoritarian_stuff
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+		hidden_effect = {
+			country_event = {
+				id = canada.5003
+				days = 4
+			}
+		}
+	}
+}
+
+country_event = { #King says screw you eddy
+	id = canada.5003
+	title = canada.5003.t
+	desc = canada.5003.d
+	picture = GFX_report_event_CAN_election
+
+	is_triggered_only = yes
+	
+	option = {
+		name = canada.5003.a #Fine!!!!
+		country_event = {
+			id = canada.5007
+			days = 5
+		}
+		set_country_flag = CAN_Eddy_Abdicated
+	}
+	option = {
+		name = canada.5003.b #Tell him to go to hell
+		hidden_effect = {
+			country_event = {
+				id = canada.5004
+				days = 4
+			}
+		}
+	}
+}
+
+country_event = { #Parliment says screw you eddy
+	id = canada.5004
+	title = canada.5004.t
+	desc = canada.5004.d
+	picture = GFX_report_event_CAN_election
+
+	is_triggered_only = yes
+	
+	option = {
+		name = canada.5004.a #Fine!!!!
+		country_event = {
+			id = canada.5008
+			days = 5
+		}
+	}
+	option = {
+		name = canada.5004.b #Do authoritarianism
+		hidden_effect = {
+			country_event = {
+				id = canada.5009
+				days = 4
+			}
+		}
+	}
+	option = {
+		name = canada.5004.b #Do nothing
+		hidden_effect = {
+			country_event = {
+				id = canada.5005 #Eddy gets shot
+				days = 4
+			}
+		}
+	}
+}
+
+country_event = { #Parliment says screw you eddy
+	id = canada.5005
+	title = canada.5005.t
+	desc = canada.5005.d
+	picture = GFX_report_event_CAN_election
+
+	is_triggered_only = yes
+	
+	option = {
+		name = canada.5005.a #Shot
+		country_event = {
+			id = canada.5007
+		}
+		set_country_flag = CAN_Eddy_Shot
+	}
+	option = {
+		name = canada.5005.b #Missed
+		hidden_effect = {
+			country_event = {
+				id = canada.5009 #Eddy Gets Tired of this shit and dissolves parliment
+				days = 4
+			}
+		}
+	}
+}
+
+country_event = { #Edward Steps Back
+	id = canada.5008
+	title = canada.5008.t
+	desc = canada.5008.d
+	
+	picture = GFX_report_event_CAN_election
+
+	is_triggered_only = yes
+	
+	option = {
+		name = canada.5008.a #Thank Christ
+		set_politics = {
+			ruling_party = market_liberal
+			election_frequency = 60
+			elections_allowed = yes
+		}
+		hidden_effect = {
+			add_ideas = CAN_William_Lyon_Mackenzie_King_hog_mli
+			if = {
+				limit = { has_country_flag = KR_british_king_base }
+				CAN_add_british_pm_in_exile = yes
+			}
+			else = {
+				add_ideas = CAN_Louis_St_Laurent_for_sli
+			}
+			add_ideas = CAN_CD_Howe_eco_mli
+			add_ideas = CAN_Ernest_Lapointe_sec_mli
+			country_event = {
+				id = canada.5011 #Royalists are Pissed
+				days = 5
+			}
+			country_event = {
+				id = canada.5012 #CCF is Pissed
+				days = 10
+			}
+		}
+	}
+}
+
+country_event = { #Edward Dissolves Parliment
+	id = canada.5009
+	title = canada.5009.t
+	desc = canada.5009.d
+	
+	picture = GFX_report_event_CAN_election
+
+	is_triggered_only = yes
+	
+	option = {
+		name = canada.5009.a #Thank Christ
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+		hidden_effect = {
+			remove_all_ministers = yes
+			set_country_flag = CAN_VACANT
+		}
+	}
+}
+
+country_event = { #New PM
+	id = canada.5010
+	title = canada.5010.t
+	desc = canada.5010.d
+	
+	picture = GFX_report_event_CAN_election
+
+	is_triggered_only = yes
+	
+	option = {
+		name = canada.5010.a #Who Needs One?
+		hidden_effect = {
+			add_ideas = {
+				CAN_King_Edward_VIII_hog_pau
+				CAN_Lord_Mountbatten_eco_pau
+				CAN_Maxwell_Knight_sec_pau
+			}
+		}
+	}
+	option = {
+		name = canada.5010.a #Put Bible Bill in Charge
+		hidden_effect = {
+			add_ideas = {
+				CAN_Sir_William_Aberhart_hog_pau
+				CAN_Lord_Mountbatten_eco_pau
+				CAN_Maxwell_Knight_sec_pau
+			}
+		}
+	}
+}
+
+country_event = { #Royalist Front is a Thing now
+	id = canada.5011
+	title = canada.5011.t
+	desc = canada.5011.d
+	
+	picture = GFX_report_event_CAN_election
+
+	is_triggered_only = yes
+	
+	option = {
+		name = canada.5011.a #
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.05
+		}
+		set_party_name = {
+			ideology = authoritarian_democrat
+			long_name = CAN_KP_authoritarian_democrat_party_long
+			name = CAN_KP_authoritarian_democrat_party
+		}
+		set_party_name = {
+			ideology = paternal_autocrat
+			long_name = CAN_KP_paternal_autocrat_party_long
+			name = CAN_KP_paternal_autocrat_party
+		}
+		set_party_name = {
+			ideology = national_populist
+			long_name = CAN_KP_national_populist_party_long
+			name = CAN_KP_national_populist_party
+		}
+		hidden_effect = {	
+			country_event = {
+				id = canada.5014
+				days = 19
+			}
+		}
+	}
+}
+
+country_event = { #CCF Surge
+	id = canada.5012
+	title = canada.5012.t
+	desc = canada.5012.d
+	
+	picture = GFX_report_event_CAN_election
+
+	is_triggered_only = yes
+	
+	option = {
+		name = canada.5012.a #
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.1
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.05
+		}
+	}
+}
+
+country_event = { #Exiles Flock to the Royalists
+	id = canada.5014
+	title = canada.5014.t
+	desc = canada.5014.d
+	
+	picture = GFX_report_event_CAN_election
+
+	is_triggered_only = yes
+	
+	option = {
+		name = canada.5014.a #oops
+		add_political_power = -20
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.05
+		}
+		hidden_effect = {
+			country_event = {
+				id = canada.5015
+				days = 40
+			}
+		}
+	}
+}
+
+country_event = { #Calls for a New Election
+	id = canada.5015
+	title = canada.5015.t
+	desc = canada.5015.d
+	
+	picture = GFX_report_event_CAN_election
+
+	is_triggered_only = yes
+	
+	option = {
+		name = canada.5015.a #Again with the elections
+		add_political_power = -20
+	}
+	option = {
+		name = canada.5015.a #Again with the elections
+		hidden_effect = {
+			country_event = {
+				id = canada.5016
+				days = 5
+			}
+		}
+	}
+}
+
+country_event = { #New Election
+	id = canada.5016
+	title = canada.5016.t
+	desc = canada.5016.d
+	
+	picture = GFX_report_event_CAN_election
+
+	is_triggered_only = yes
+	
+	option = {
+		name = canada.5016.a #Nothing Changes
+		increase_ruling_party_popularity_by_5 = yes
+	}
+	option = {
+		name = canada.5016.b #Kings Party Wins
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			election_frequency = 60
+			elections_allowed = yes
+		}
+		hidden_effect = {
+			country_event = {
+				id = canada.5017
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = canada.5016.c #CCF
+		set_politics = {
+			ruling_party = social_democrat
+			election_frequency = 60
+			elections_allowed = yes
+		}
+	}
+}
+
+country_event = { #KP Head
+	id = canada.5017
+	title = canada.5017.t
+	desc = canada.5017.d
+	
+	picture = GFX_report_event_CAN_election
+
+	is_triggered_only = yes
+	
+	option = {
+		name = canada.5017.a #Bible Bill
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			election_frequency = 60
+			elections_allowed = yes
+		}
+		remove_all_ministers = yes
+		add_ideas = {
+			CAN_Sir_William_Aberhart_hog_pau
+			CAN_Andrew_Carnell_eco_ade
+			CAN_WAC_Bennett_sec_ade
+		}
+	}
+	option = {
+		name = canada.5017.b #Arcand
+		set_politics = {
+			ruling_party = paternal_autocrat
+			election_frequency = 60
+			elections_allowed = yes
+		}
+		remove_all_ministers = yes
+		add_ideas = {
+			CAN_Adrien_Arcand_hog_pau
+			CAN_Lord_Mountbatten_eco_pau
+			CAN_Maxwell_Knight_sec_pau
+		}
+	}
+	option = {
+		name = canada.5017.c #Fuller
+		set_politics = {
+			ruling_party = national_populist
+			election_frequency = 60
+			elections_allowed = yes
+		}
+		hidden_effect = {
+			CAN_set_natpops_fuller = yes
+		}
+		remove_all_ministers = yes
+		add_ideas = {
+			CAN_JFC_Fuller_hog_npo
+			CAN_Murdoch_Alexander_MacPherson_eco_npo
+			CAN_Andrew_McNaughton_sec_npo
 		}
 	}
 }

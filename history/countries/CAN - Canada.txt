@@ -155,7 +155,7 @@ country_event = { id = entf.7 days = 272 } #Allenby
 set_war_support = 0.4
 
 set_politics = {
-	ruling_party = market_liberal
+	ruling_party = social_conservative
 	last_election = "1931.10.14"
 	election_frequency = 60
 	elections_allowed = yes
@@ -167,9 +167,9 @@ set_popularities = {
 	syndicalist = 1
 	social_democrat = 2
 	social_liberal = 10
-	market_liberal = 42
-	social_conservative = 30
-	authoritarian_democrat = 1
+	market_liberal = 35
+	social_conservative = 25
+	authoritarian_democrat = 13
 	paternal_autocrat = 2
 	national_populist = 10
 }
@@ -178,6 +178,11 @@ set_popularities = {
 set_autonomy = {
 	target = CAF
 	autonomy_state = kr_initial_wif_puppet
+}
+
+set_autonomy = {
+	target = NFL
+	autonomy_state = kr_autonomous_puppet
 }
 
 # reloading CAF politics
@@ -204,14 +209,18 @@ CAF = {
 
 set_convoys = 250
 
+set_country_flag = gg_Harold_Alexander
+set_country_flag = has_symbolic_figurehead
 add_ideas = {
 	CAN_anglo_french_tensions_2
 	CAN_great_depression_2
+	CAN_breaking_center
+	CAN_unsure_intervention
 	# Starting Cabinet
-	CAN_William_Lyon_Mackenzie_King_hog_mli
-	CAN_Austen_Chamberlain_lobe_ade
-	CAN_CD_Howe_eco_mli
-	CAN_Ernest_Lapointe_sec_mli
+	CAN_RB_Bennett_hog_sco
+	CAN_John_Bracken_eco_sco
+	CAN_Douglas_Hogg_lobe_ade
+	CAN_John_Diefenbaker_sec_sco
 }
 
 create_country_leader = {
@@ -257,6 +266,13 @@ create_country_leader = {
 	ideology = paternal_autocrat_subtype
 }
 create_country_leader = {
+	name = "George V"
+	desc = "POLITICS_GEORGE_DESC"
+	picture = "Portrait_Canada_King_George.tga"
+	expire = "1965.1.1"
+	ideology = national_populist_subtype
+}
+create_country_leader = {
 	name = "Tim Buck"
 	picture = "Portrait_Canada_Tim_Buck.tga"
 	expire = "1965.1.1"
@@ -274,12 +290,7 @@ create_country_leader = {
 	expire = "1965.1.1"
 	ideology = radical_socialist_subtype
 }
-create_country_leader = {
-	name = "Henry Herbert Stevens"
-	picture = "Portrait_Canada_Henry_Herbert_Stevens.tga"
-	expire = "1965.1.1"
-	ideology = national_populist_subtype
-}
+
 
 ### Field Marshals ###
 create_field_marshal = {# Bernard Montgomery

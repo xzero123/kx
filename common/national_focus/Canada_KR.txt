@@ -12,7 +12,7 @@ focus_tree = {
 		}
 	}
 	default = no
-	continuous_focus_position = { x = 3400 y = 1000 }
+	continuous_focus_position = { x = 3500 y = 1000 }
 
 	### POLITICAL
 
@@ -761,9 +761,7 @@ focus_tree = {
 	focus = {
 		id = CAN_crown_corporations
 		icon = GFX_focus_generic_industry_3
-		prerequisite = {
-			focus = CAN_kings_speech
-		}
+		
 		cost = 6
 		x = 10
 		y = 1
@@ -1098,7 +1096,7 @@ focus_tree = {
 					add_idea = CAN_great_depression_3
 				}
 			}
-			add_ideas = CAN_work_camps
+			add_ideas = CAN_Iron_Heel
 			add_tech_bonus = {
 				name = CAN_public_works
 				bonus = 1
@@ -1176,10 +1174,10 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAN_national_housing_act"
 			if = {
-				limit = { has_idea = CAN_work_camps }
+				limit = { has_idea = CAN_Iron_Heel }
 				swap_ideas = {
-					remove_idea = CAN_work_camps
-					add_idea = CAN_work_camps_2
+					remove_idea = CAN_Iron_Heel
+					add_idea = CAN_War_On_The_Horizon
 				}
 			}
 			every_owned_state = {
@@ -1655,9 +1653,7 @@ focus_tree = {
 	focus = {
 		id = CAN_expand_air_force
 		icon = GFX_goal_CAN_airforce
-		prerequisite = {
-			focus = CAN_kings_speech
-		}
+	
 		cost = 6
 		x = 16
 		y = 1
@@ -2199,9 +2195,7 @@ focus_tree = {
 	focus = {
 		id = CAN_overhaul_navy
 		icon = GFX_goal_CAN_navy
-		prerequisite = {
-			focus = CAN_kings_speech
-		}
+		
 		cost = 6
 		x = 21
 		y = 1
@@ -2791,9 +2785,7 @@ focus_tree = {
 	focus = {
 		id = CAN_address_army
 		icon = GFX_goal_CAN_army
-		prerequisite = {
-			focus = CAN_kings_speech
-		}
+	
 		cost = 6
 		x = 28
 		y = 1
@@ -4498,7 +4490,6 @@ focus_tree = {
 				has_war_with = TEX
 				has_war_with = CAL
 				has_war_with = NEE
-				has_war_with = BBR
 			}
 			if = {
 				limit = {
@@ -4506,7 +4497,6 @@ focus_tree = {
 					NOT = { country_exists = CSA }
 					NOT = { country_exists = CAL }
 					NOT = { country_exists = TEX }
-					NOT = { country_exists = COR }
 				}
 				USA = {
 					is_subject = no
@@ -4529,8 +4519,6 @@ focus_tree = {
 					NOT = { country_exists = CSA }
 					NOT = { country_exists = USA }
 					NOT = { country_exists = TEX }
-					NOT = { country_exists = COR }
-					NOT = { country_exists = BBR }
 				}
 				CAL = {
 					is_subject = no
@@ -4553,8 +4541,6 @@ focus_tree = {
 					NOT = { country_exists = CSA }
 					NOT = { country_exists = USA }
 					NOT = { country_exists = CAL }
-					NOT = { country_exists = COR }
-					NOT = { country_exists = BBR }
 				}
 				TEX = {
 					is_subject = no
@@ -4573,44 +4559,16 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					country_exists = COR
-					NOT = { country_exists = CSA }
-					NOT = { country_exists = USA }
-					NOT = { country_exists = CAL }
-					NOT = { country_exists = TEX }
-					NOT = { country_exists = BBR }
-				}
-				COR = {
-					is_subject = no
-					is_in_faction = no
-					OR = {
-						has_country_flag = CAN_returned_land
-						custom_trigger_tooltip = {
-							tooltip = CAN_supported_during_ACW
-							CAN = {
-								has_country_flag = CAN_supports_COR
-								has_country_flag = CAN_joined_the_ACW
-							}
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
 					NOT = {
 						country_exists = USA
 						country_exists = CAL
 						country_exists = TEX
-						country_exists = COR
-						country_exists = BBR
 					}
 				}
 				OR = {
 					country_exists = USA
 					country_exists = CAL
 					country_exists = TEX
-					country_exists = COR
-					country_exists = BBR
 				}
 			}
 		}
@@ -4644,8 +4602,6 @@ focus_tree = {
 					NOT = { country_exists = CSA }
 					NOT = { country_exists = CAL }
 					NOT = { country_exists = TEX }
-					NOT = { country_exists = COR }
-					NOT = { country_exists = BBR }
 				}
 				USA = { country_event = canada.227 }
 			}
@@ -4655,8 +4611,6 @@ focus_tree = {
 					NOT = { country_exists = CSA }
 					NOT = { country_exists = USA }
 					NOT = { country_exists = TEX }
-					NOT = { country_exists = COR }
-					NOT = { country_exists = BBR }
 				}
 				CAL = { country_event = canada.227 }
 			}
@@ -4666,19 +4620,6 @@ focus_tree = {
 					NOT = { country_exists = CSA }
 					NOT = { country_exists = CAL }
 					NOT = { country_exists = USA }
-					NOT = { country_exists = COR }
-					NOT = { country_exists = BBR }
-				}
-				TEX = { country_event = canada.227 }
-			}
-			if = {
-				limit = {
-					country_exists = COR
-					NOT = { country_exists = CSA }
-					NOT = { country_exists = CAL }
-					NOT = { country_exists = USA }
-					NOT = { country_exists = TEX }
-					NOT = { country_exists = BBR }
 				}
 				TEX = { country_event = canada.227 }
 			}
@@ -4730,7 +4671,6 @@ focus_tree = {
 				country_exists = NEE
 				has_country_flag = CAN_yankee_rebellion
 				has_country_flag = CAN_not_seized_new_england
-				has_country_flag = CAN_new_england_decision
 			}
 		}
 
@@ -4899,7 +4839,7 @@ focus_tree = {
 		id = CAN_return_of_the_king
 		icon = GFX_GBR_big_ben
 		cost = 4
-		x = 41
+		x = 59
 		y = 1
 
 		available = {
@@ -4928,120 +4868,242 @@ focus_tree = {
 			country_event = uk.1
 		}
 	}
-
+	
 	focus = {
-		id = CAN_canadian_referendum
-		icon = GFX_goal_CAN_referendum
-		cost = 5
+		id = CAN_Fate_of_Entente_Leadership
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_return_of_the_king
+		x = 3
+		y = 1
+		
 		prerequisite = {
 			focus = CAN_return_of_the_king
 		}
-		mutually_exclusive = {
-			focus = CAN_loyalty_to_the_empire
-		}
-		relative_position_id = CAN_return_of_the_king
-		x = -1
-		y = 1
 
 		available = {
-			is_subject = no
-			has_war = no
-			has_elected_government = yes
-			country_exists = GBR
-			OR = {
-				has_country_flag = CAN_warmeasact_invoked
-				custom_trigger_tooltip = {
-					tooltip = CAN_had_low_king_pop
-					check_variable = { CAN_was_king_popularity < 3 }
-				}
-			}
+			
 		}
 
 		ai_will_do = {
-			factor = 1
-		}
-		cancel_if_invalid = no
-		continue_if_invalid = yes
-
-		select_effect = {
-			country_event = { id = canada.304 days = 1 } #Debate begins
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus CAN_canadian_referendum"
-			country_event = canada.315
-		}
-	}
-
-	focus = {
-		id = CAN_canadian_constitution
-		icon = GFX_goal_constitutional_guarantees
-		cost = 6
-		prerequisite = {
-			focus = CAN_canadian_referendum
-		}
-		relative_position_id = CAN_return_of_the_king
-		x = -2
-		y = 2
-
-		available = {
-			has_country_flag = CAN_is_republic
-			is_subject = no
-		}
-
-		ai_will_do = {
-			factor = 1
+			factor = 100
 		}
 
 		available_if_capitulated = yes
 
+		bypass = {
+			country_exists = GBR
+		}
+
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus CAN_canadian_constitution"
-			country_event = canada.321
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_return_of_the_king"
+	
 		}
 	}
-
+	
 	focus = {
-		id = CAN_new_path
-		icon = GFX_focus_generic_eagle
-		cost = 6
+		id = CAN_Retain_Leadership
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_Fate_of_Entente_Leadership
+		x = 0
+		y = 1
+		
 		prerequisite = {
-			focus = CAN_canadian_constitution
+			focus = CAN_Fate_of_Entente_Leadership
 		}
-		relative_position_id = CAN_return_of_the_king
-		x = -2
-		y = 3
 
 		available = {
-			has_country_flag = CAN_is_republic
-			is_subject = no
+			
 		}
 
 		ai_will_do = {
-			factor = 1
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus CAN_new_path"
-			country_event = canada.322
-			add_ideas = CAN_new_nationalism
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_return_of_the_king"
+			country_event = uk.1
 		}
-		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_MANPOWER }
 	}
+	
+	focus = {
+		id = CAN_Reform_The_Entente
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_Fate_of_Entente_Leadership
+		x = 0
+		y = 2
+		
+		prerequisite = {
+			focus = CAN_Retain_Leadership
+		}
 
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_return_of_the_king"
+			country_event = uk.1
+		}
+	}
+	
+	focus = {
+		id = CAN_Canadian_Superpower
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_Fate_of_Entente_Leadership
+		x = -1
+		y = 3
+		
+		prerequisite = {
+			focus = CAN_Reform_The_Entente
+			focus = CAN_Establish_The_Dominion_Of_Britain
+		}
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_return_of_the_king"
+			country_event = uk.1
+		}
+	}
+	
+	focus = {
+		id = CAN_Turn_The_Tables
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_Fate_of_Entente_Leadership
+		x = -2
+		y = 1
+		
+		prerequisite = {
+			focus = CAN_Fate_of_Entente_Leadership
+		}
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_return_of_the_king"
+			country_event = uk.1
+		}
+	}
+	focus = {
+		id = CAN_Establish_The_Dominion_Of_Britain
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_Fate_of_Entente_Leadership
+		x = -2
+		y = 2
+		
+		prerequisite = {
+			focus = CAN_Turn_The_Tables
+		}
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_return_of_the_king"
+			country_event = uk.1
+		}
+	}
+	
+	focus = {
+		id = CAN_Hand_Over_The_Keys
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_Fate_of_Entente_Leadership
+		x = 2
+		y = 1
+		
+		prerequisite = {
+			focus = CAN_Fate_of_Entente_Leadership
+		}
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_return_of_the_king"
+			country_event = uk.1
+		}
+	}
+	
 	focus = {
 		id = CAN_loyalty_to_the_empire
 		icon = GFX_goal_british_monarchy
 		cost = 6
 		prerequisite = {
-			focus = CAN_return_of_the_king
+			focus = CAN_Hand_Over_The_Keys
 		}
-		mutually_exclusive = {
-			focus = CAN_canadian_referendum
-		}
-		relative_position_id = CAN_return_of_the_king
-		x = 1
-		y = 1
+	
+		relative_position_id = CAN_Fate_of_Entente_Leadership
+		x = 2
+		y = 2
 
 		available = {
 			is_subject = no
@@ -5070,18 +5132,19 @@ focus_tree = {
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 	}
-
+	
 	focus = {
 		id = CAN_british_investments
 		icon = GFX_goal_bag_of_money
 		cost = 6
+		relative_position_id = CAN_Fate_of_Entente_Leadership
+		x = 1
+		y = 3
+		
 		prerequisite = {
+			focus = CAN_Reform_The_Entente
 			focus = CAN_loyalty_to_the_empire
-			focus = CAN_canadian_referendum
 		}
-		relative_position_id = CAN_return_of_the_king
-		x = 2
-		y = 2
 
 		available = {
 			has_country_flag = CAN_loyal_to_britain
@@ -5104,17 +5167,887 @@ focus_tree = {
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 	}
+	
+	
+	
+	focus = {
+		id = CAN_The_Long_Road_To_Recovery
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_return_of_the_king
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = CAN_return_of_the_king
+		}
 
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_return_of_the_king"
+			country_event = uk.1
+		}
+	}
+	focus = {
+		id = CAN_Rebuilding_Britain
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_The_Long_Road_To_Recovery
+		x = -1
+		y = 1
+		
+		prerequisite = {	
+			focus = CAN_The_Long_Road_To_Recovery
+		}
+		
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	focus = {
+		id = CAN_National_Reconstruction_Authority
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_The_Long_Road_To_Recovery
+		x = -1
+		y = 2
+		
+		prerequisite = {	
+			focus = CAN_Rebuilding_Britain
+		}
+		
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	focus = {
+		id = CAN_Reconstruct_British_Politics
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_The_Long_Road_To_Recovery
+		prerequisite = {	
+			focus = CAN_The_Long_Road_To_Recovery
+		}
+		x = 1
+		y = 1
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	focus = {
+		id = CAN_Fate_Of_The_House_of_Lords
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_The_Long_Road_To_Recovery
+		prerequisite = {	
+			focus = CAN_Reconstruct_British_Politics
+		}
+		x = 1
+		y = 2
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	focus = {
+		id = CAN_Dealing_With_British_Reds
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_The_Long_Road_To_Recovery
+		prerequisite = {	
+			focus = CAN_Fate_Of_The_House_of_Lords
+		}
+		prerequisite = {	
+			focus = CAN_National_Reconstruction_Authority
+		}
+		x = 0
+		y = 3
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	
+	focus = {
+		id = CAN_Fate_Of_The_King
+		icon = GFX_GBR_big_ben
+		relative_position_id = CAN_return_of_the_king
+		cost = 4
+		x = 0
+		y = 5
+		
+		prerequisite = {	
+			focus = CAN_Dealing_With_British_Reds
+		}
+		
+		prerequisite = {	
+			focus = CAN_Canadian_Superpower
+			focus = CAN_british_investments
+		}
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	focus = {
+		id = CAN_Republican_Future
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_Fate_Of_The_King
+		mutually_exclusive = {
+			focus = CAN_A_Canadian_Kingdom
+			focus = CAN_Union_Of_The_Crowns
+		}
+		x = -6
+		y = 1
+		prerequisite = {
+			focus = CAN_Fate_Of_The_King
+		}
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	focus = {
+		id = CAN_Independent_Canadian_Identity
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_Republican_Future
+		prerequisite = {
+			focus = CAN_Republican_Future
+		}
+		x = -1
+		y = 1
+		
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	focus = {
+		id = CAN_Where_America_Failed
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_Republican_Future
+		prerequisite = {
+			focus = CAN_Republican_Future
+		}
+		x = 1
+		y = 1
+		
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	focus = {
+		id = CAN_new_path
+		icon = GFX_focus_generic_eagle
+		cost = 6
+		relative_position_id = CAN_Republican_Future
+		prerequisite = {
+			focus = CAN_A_World_Safe_For_Democracy
+		}
+		x = 2
+		y = 2
+
+		available = {
+			has_country_flag = CAN_is_republic
+			is_subject = no
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_new_path"
+			country_event = canada.322
+			add_ideas = CAN_new_nationalism
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_MANPOWER }
+	}
+	focus = {
+		id = CAN_The_New_Leader_Of_The_Free_World
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_Republican_Future
+		prerequisite = {
+			focus = CAN_Where_America_Failed
+		}
+		prerequisite = {
+			focus = CAN_Independent_Canadian_Identity
+		}
+		x = 0
+		y = 2
+		
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	focus = {
+		id = CAN_canadian_constitution
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_Republican_Future
+		prerequisite = {
+			focus = CAN_Where_America_Failed
+		}
+		prerequisite = {
+			focus = CAN_Independent_Canadian_Identity
+		}
+		x = -2
+		y = 2
+		
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_canadian_constitution"
+			country_event = canada.321
+		}
+	}
+	
+	focus = {
+		id = CAN_Union_Of_The_Crowns
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_Fate_Of_The_King
+		mutually_exclusive = {
+			focus = CAN_A_Canadian_Kingdom
+			focus = CAN_Republican_Future
+		}
+		x = 6
+		y = 1
+		prerequisite = {
+			focus = CAN_Fate_Of_The_King
+		}
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	focus = {
+		id = CAN_One_Nation_One_King
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_Union_Of_The_Crowns
+		x = -1
+		y = 1
+		mutually_exclusive = {
+			focus = CAN_Personal_Union
+		}
+		prerequisite = {
+			focus = CAN_Union_Of_The_Crowns
+		}
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	focus = {
+		id = CAN_Personal_Union
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_Union_Of_The_Crowns
+		x = 1
+		y = 1
+		mutually_exclusive = {
+			focus = CAN_One_Nation_One_King
+		}
+		prerequisite = {
+			focus = CAN_Union_Of_The_Crowns
+		}
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	focus = {
+		id = CAN_The_New_Head_Of_The_Empire
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_Union_Of_The_Crowns
+		x = 0
+		y = 2
+		
+		prerequisite = {
+			focus = CAN_Personal_Union
+			focus = CAN_One_Nation_One_King
+		}
+		
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	focus = {
+		id = CAN_An_Empire_Once_More
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_Union_Of_The_Crowns
+		x = 2
+		y = 2
+		
+		prerequisite = {
+			focus = CAN_Personal_Union
+			focus = CAN_One_Nation_One_King
+		}
+		
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	
+	focus = {
+		id = CAN_A_Canadian_Kingdom
+		icon = GFX_GBR_big_ben
+		cost = 4
+		mutually_exclusive = {
+			focus = CAN_Union_Of_The_Crowns
+			focus = CAN_Republican_Future
+		}
+		relative_position_id = CAN_Fate_Of_The_King
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = CAN_Fate_Of_The_King
+		}
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	focus = {
+		id = CAN_Define_Our_Own_Path
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_A_Canadian_Kingdom
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = CAN_A_Canadian_Kingdom
+		}
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	focus = {
+		id = CAN_A_Monarchy_To_Call_Our_Own
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_A_Canadian_Kingdom
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = CAN_A_Canadian_Kingdom
+		}
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	focus = {
+		id = CAN_Two_Crowns_Side_By_Side
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_A_Canadian_Kingdom
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = CAN_A_Monarchy_To_Call_Our_Own
+		}
+		prerequisite = {
+			focus = CAN_Define_Our_Own_Path
+		}
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	
+	focus = {
+		id = CAN_A_World_Safe_For_Democracy
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_A_Canadian_Kingdom
+		x = -3
+		y = 1
+		prerequisite = {
+			focus = CAN_Republican_Future
+			focus = CAN_A_Canadian_Kingdom
+		}
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	
+	focus = {
+		id = CAN_World_Police
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_A_Canadian_Kingdom
+		x = -2
+		y = 2
+		prerequisite = {
+			focus = CAN_A_World_Safe_For_Democracy
+		}
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	
+	focus = {
+		id = CAN_Support_Britain
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_A_Canadian_Kingdom
+		x = 3
+		y = 1
+		prerequisite = {
+			focus = CAN_Union_Of_The_Crowns
+			focus = CAN_A_Canadian_Kingdom
+		}
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	
+	focus = {
+		id = CAN_The_Saviors_Of_The_Empire
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_A_Canadian_Kingdom
+		x = 2
+		y = 2
+		prerequisite = {
+			focus = CAN_Support_Britain
+		}
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	
+	focus = {
+		id = CAN_Canadian_Glory
+		icon = GFX_GBR_big_ben
+		cost = 4
+		relative_position_id = CAN_A_Canadian_Kingdom
+		x = 4
+		y = 2
+		prerequisite = {
+			focus = CAN_Support_Britain
+		}
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			country_exists = GBR
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_Rebuilding_Britain"
+			
+		}
+	}
+	
 	focus = {
 		id = CAN_god_save_canada
 		icon = GFX_goal_national_mobilization
 		cost = 6
 		prerequisite = {
-			focus = CAN_british_investments
+			focus = CAN_The_New_Leader_Of_The_Free_World
+			focus = CAN_Two_Crowns_Side_By_Side
+			focus = CAN_The_New_Head_Of_The_Empire
 		}
 		relative_position_id = CAN_return_of_the_king
-		x = 2
-		y = 3
+		x = -1
+		y = 9
 
 		available = {
 			is_subject = no
@@ -5148,12 +6081,11 @@ focus_tree = {
 		icon = GFX_goal_COS_War
 		cost = 6
 		prerequisite = {
-			focus = CAN_canadian_referendum
-			focus = CAN_loyalty_to_the_empire
+			focus = CAN_god_save_canada
 		}
 		relative_position_id = CAN_return_of_the_king
-		x = 0
-		y = 2
+		x = -1
+		y = 10
 
 		available = {
 			is_subject = no
@@ -5177,11 +6109,13 @@ focus_tree = {
 		icon = GFX_focus_generic_support_the_left_right
 		cost = 6
 		prerequisite = {
-			focus = CAN_new_canadian_officers
+			focus = CAN_The_New_Leader_Of_The_Free_World
+			focus = CAN_Two_Crowns_Side_By_Side
+			focus = CAN_The_New_Head_Of_The_Empire
 		}
 		relative_position_id = CAN_return_of_the_king
-		x = 0
-		y = 3
+		x = 1
+		y = 9
 
 		available = {
 			is_subject = no
@@ -5210,8 +6144,8 @@ focus_tree = {
 			focus = CAN_filling_the_void
 		}
 		relative_position_id = CAN_return_of_the_king
-		x = 0
-		y = 4
+		x = 1
+		y = 10
 
 		available = {
 			is_subject = no
@@ -5233,5 +6167,1660 @@ focus_tree = {
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 	}
+
+
+	#### KX STUFF ####
+	focus = {
+		id = CAN_elections
+		icon = GFX_goal_support_democracy
+		cost = 6
+		available = {
+			always = no
+		}
+		x = -15
+		y = 0
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_elections"
+			custom_effect_tooltip = unlock_focuses
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_center_holds
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_elections
+		}
+		relative_position_id = CAN_elections
+		x = 0
+		y = 1
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_liberal_govt
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_center_holds
+		}
+		relative_position_id = CAN_center_holds
+		x = 3
+		y = 1
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_liberal_govt"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_marlibs
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_liberal_govt
+		}
+		relative_position_id = CAN_liberal_govt
+		x = -1
+		y = 1
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_soclibs
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_liberal_govt
+		}
+		relative_position_id = CAN_liberal_govt
+		x = 1
+		y = 1
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Canadian_Identity
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_soclibs
+			focus = CAN_marlibs
+		}
+		relative_position_id = CAN_liberal_govt
+		x = 0
+		y = 2
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Kings_New_Deal
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_marlibs
+		}
+		relative_position_id = CAN_liberal_govt
+		x = -2
+		y = 2
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Modernize_Social_Institutions
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_soclibs
+		}
+		relative_position_id = CAN_liberal_govt
+		x = 2
+		y = 2
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Anti_Syndicalism
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_Modernize_Social_Institutions
+		}
+		prerequisite = {
+			focus = CAN_Canadian_Identity
+		}
+		relative_position_id = CAN_liberal_govt
+		x = 1
+		y = 3
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Power_Of_Trade
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_Kings_New_Deal
+		}
+		prerequisite = {
+			focus = CAN_Canadian_Identity
+		}
+		relative_position_id = CAN_liberal_govt
+		x = -1
+		y = 3
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Our_Own_Destiny
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_Power_Of_Trade
+			focus = CAN_Anti_Syndicalism
+		}
+
+		relative_position_id = CAN_liberal_govt
+		x = 0
+		y = 4
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_conservative_govt
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_center_holds
+		}
+		relative_position_id = CAN_center_holds
+		x = -3
+		y = 1
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_soccon
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_conservative_govt
+		}
+		relative_position_id = CAN_conservative_govt
+		x = -1
+		y = 1
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_authdems
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_conservative_govt
+		}
+		relative_position_id = CAN_conservative_govt
+		x = 1
+		y = 1
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Iron_Heel
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_authdems
+			focus = CAN_soccon
+		}
+		relative_position_id = CAN_conservative_govt
+		x = 0
+		y = 2
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Bennets_New_Deal
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_soccon
+		}
+		relative_position_id = CAN_conservative_govt
+		x = -2
+		y = 2
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_All_For_The_Reclaimation
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_authdems
+		}
+		relative_position_id = CAN_conservative_govt
+		x = 2
+		y = 2
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Sedition_Acts
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_All_For_The_Reclaimation
+		}
+		prerequisite = {
+			focus = CAN_Iron_Heel
+		}
+		relative_position_id = CAN_conservative_govt
+		x = 1
+		y = 3
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Federal_Intervention
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_Bennets_New_Deal
+		}
+		prerequisite = {
+			focus = CAN_Iron_Heel
+		}
+		relative_position_id = CAN_conservative_govt
+		x = -1
+		y = 3
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_War_On_The_Horizon
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_Federal_Intervention
+			focus = CAN_Sedition_Acts
+		}
+
+		relative_position_id = CAN_conservative_govt
+		x = 0
+		y = 4
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	###Kings Party###
+	focus = {
+		id = CAN_kings_party
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_elections
+		}
+
+		relative_position_id = CAN_elections
+		x = -8
+		y = 1
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Arcands_Party
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_kings_party
+		}
+		mutually_exclusive = {
+			focus = CAN_Fullers_Party
+			focus = CAN_Aberhearts_Party
+		}
+
+		relative_position_id = CAN_kings_party
+		x = 0
+		y = 1
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Fullers_Party
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_kings_party
+		}
+		mutually_exclusive = {
+			focus = CAN_Arcands_Party
+			focus = CAN_Aberhearts_Party
+		}
+
+		relative_position_id = CAN_kings_party
+		x = 2
+		y = 1
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Aberhearts_Party
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_kings_party
+		}
+		mutually_exclusive = {
+			focus = CAN_Arcands_Party
+			focus = CAN_Fullers_Party
+		}
+		relative_position_id = CAN_kings_party
+		x = -2
+		y = 1
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_The_National_Security_Act
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_Arcands_Party
+			focus = CAN_Fullers_Party
+		}
+		mutually_exclusive = {
+			focus = CAN_Reform_The_Privy_Council
+		}
+
+		relative_position_id = CAN_kings_party
+		x = 1
+		y = 2
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Reform_The_Privy_Council
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_Arcands_Party
+			focus = CAN_Aberhearts_Party
+		}
+		mutually_exclusive = {
+			focus = CAN_The_National_Security_Act
+		}
+		
+		relative_position_id = CAN_kings_party
+		x = -1
+		y = 2
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_God_Save_The_King
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_Reform_The_Privy_Council
+			focus = CAN_The_National_Security_Act
+		}
+
+		relative_position_id = CAN_kings_party
+		x = 0
+		y = 3
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Sideline_The_House_Of_Commons
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_God_Save_The_King
+		}
+
+		relative_position_id = CAN_kings_party
+		x = -1
+		y = 4
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Anti_Syndicalism_Decree
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_God_Save_The_King
+		}
+
+		relative_position_id = CAN_kings_party
+		x = 1
+		y = 4
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Loyal_To_The_Crown
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_Anti_Syndicalism_Decree
+		}
+		prerequisite = {
+			focus = CAN_Sideline_The_House_Of_Commons
+		}
+
+		relative_position_id = CAN_kings_party
+		x = 0
+		y = 5
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	###CCF###
+	focus = {
+		id = CAN_cooperative_commonwealth
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_elections
+		}
+
+		relative_position_id = CAN_elections
+		x = 8
+		y = 1
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Coaliton_With_The_Liberals
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_cooperative_commonwealth
+		}
+		mutually_exclusive = {
+			focus = CAN_Look_Left
+			focus = CAN_Broad_Support
+		}
+
+		relative_position_id = CAN_cooperative_commonwealth
+		x = -2
+		y = 1
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Broad_Support
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_cooperative_commonwealth
+		}
+		mutually_exclusive = {
+			focus = CAN_Look_Left
+			focus = CAN_Coaliton_With_The_Liberals
+		}
+
+		relative_position_id = CAN_cooperative_commonwealth
+		x = 0
+		y = 1
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Look_Left
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_cooperative_commonwealth
+		}
+		mutually_exclusive = {
+			focus = CAN_Broad_Support
+			focus = CAN_Coaliton_With_The_Liberals
+		}
+
+		relative_position_id = CAN_cooperative_commonwealth
+		x = 2
+		y = 1
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_End_The_Red_Scare
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_Coaliton_With_The_Liberals
+			focus = CAN_Broad_Support
+			focus = CAN_Look_Left
+		}
+
+		relative_position_id = CAN_cooperative_commonwealth
+		x = 1
+		y = 2
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Entrench_The_CCF
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_Coaliton_With_The_Liberals
+			focus = CAN_Broad_Support
+			focus = CAN_Look_Left
+		}
+		relative_position_id = CAN_cooperative_commonwealth
+		x = -1
+		y = 2
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Implement_The_Regina_Manifesto
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_Entrench_The_CCF
+		}
+		prerequisite = {
+			focus = CAN_End_The_Red_Scare
+		}
+
+		relative_position_id = CAN_cooperative_commonwealth
+		x = 0
+		y = 3
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Universial_Pensions
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_Implement_The_Regina_Manifesto
+		}
+
+		relative_position_id = CAN_cooperative_commonwealth
+		x = -1
+		y = 4
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Public_Industries
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_Implement_The_Regina_Manifesto
+		}
+
+		relative_position_id = CAN_cooperative_commonwealth
+		x = 1
+		y = 4
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Universial_Health_Care
+		icon = GFX_goal_support_democracy
+		cost = 6
+		prerequisite = {
+			focus = CAN_Public_Industries
+		}
+		prerequisite = {
+			focus = CAN_Universial_Pensions
+		}
+
+		relative_position_id = CAN_cooperative_commonwealth
+		x = 0
+		y = 5
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	###Edward###
+	focus = {
+		id = CAN_Assert_Royal_Prerogatives
+		icon = GFX_goal_support_democracy
+		cost = 6
+		
+		x = -15
+		y = 8
+		
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_The_King_And_His_Court
+		icon = GFX_goal_support_democracy
+		cost = 6
+		mutually_exclusive = {
+			focus = CAN_Appoint_Bible_Bill
+		}
+		
+		x = -2
+		y = 1
+		
+		prerequisite = {
+			focus = CAN_Assert_Royal_Prerogatives
+		}
+		
+		available = {
+		}
+		
+		relative_position_id = CAN_Assert_Royal_Prerogatives
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Purge_Disloyal_Opposition
+		icon = GFX_goal_support_democracy
+		cost = 6
+		
+		x = -2
+		y = 2
+		
+		prerequisite = {
+			focus = CAN_The_King_And_His_Court
+		}
+		
+		available = {
+		}
+		
+		relative_position_id = CAN_Assert_Royal_Prerogatives
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Military_Youth
+		icon = GFX_goal_support_democracy
+		cost = 6
+		
+		x = -2
+		y = 3
+		
+		prerequisite = {
+			focus = CAN_Purge_Disloyal_Opposition
+		}
+		
+		available = {
+		}
+		
+		relative_position_id = CAN_Assert_Royal_Prerogatives
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Suspend_Parliment
+		icon = GFX_goal_support_democracy
+		cost = 6
+		
+		x = -4
+		y = 2
+		
+		prerequisite = {
+			focus = CAN_The_King_And_His_Court
+		}
+		
+		available = {
+		}
+		
+		relative_position_id = CAN_Assert_Royal_Prerogatives
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Extend_Martial_Law
+		icon = GFX_goal_support_democracy
+		cost = 6
+		
+		x = -4
+		y = 3
+		
+		prerequisite = {
+			focus = CAN_Suspend_Parliment
+		}
+		
+		available = {
+		}
+		
+		relative_position_id = CAN_Assert_Royal_Prerogatives
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Cult_Of_The_King
+		icon = GFX_goal_support_democracy
+		cost = 6
+		
+		x = -3
+		y = 4
+		
+		prerequisite = {
+			focus = CAN_Suspend_Parliment
+		}
+		
+		available = {
+		}
+		
+		relative_position_id = CAN_Assert_Royal_Prerogatives
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Appoint_Bible_Bill
+		icon = GFX_goal_support_democracy
+		cost = 6
+		
+		x = 2
+		y = 1
+		
+		prerequisite = {
+			focus = CAN_Assert_Royal_Prerogatives
+		}
+		
+		available = {
+		}
+		
+		relative_position_id = CAN_Assert_Royal_Prerogatives
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Implement_Social_Credit
+		icon = GFX_goal_support_democracy
+		cost = 6
+		
+		x = 2
+		y = 2
+		
+		prerequisite = {
+			focus = CAN_Appoint_Bible_Bill
+		}
+		
+		available = {
+		}
+		
+		relative_position_id = CAN_Assert_Royal_Prerogatives
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Dispensationalism
+		icon = GFX_goal_support_democracy
+		cost = 6
+		
+		x = 2
+		y = 3
+		
+		prerequisite = {
+			focus = CAN_Implement_Social_Credit
+		}
+		
+		available = {
+		}
+		
+		relative_position_id = CAN_Assert_Royal_Prerogatives
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Control_The_Press
+		icon = GFX_goal_support_democracy
+		cost = 6
+		
+		x = 4
+		y = 2
+		
+		prerequisite = {
+			focus = CAN_Appoint_Bible_Bill
+		}
+		
+		available = {
+		}
+		
+		relative_position_id = CAN_Assert_Royal_Prerogatives
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Christian_Morals
+		icon = GFX_goal_support_democracy
+		cost = 6
+		
+		x = 4
+		y = 3
+		
+		prerequisite = {
+			focus = CAN_Control_The_Press
+		}
+		
+		available = {
+		}
+		
+		relative_position_id = CAN_Assert_Royal_Prerogatives
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_New_Currency
+		icon = GFX_goal_support_democracy
+		cost = 6
+		
+		x = 3
+		y = 4
+		
+		prerequisite = {
+			focus = CAN_Control_The_Press
+		}
+		
+		available = {
+		}
+		
+		relative_position_id = CAN_Assert_Royal_Prerogatives
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Crackdown_On_Dissedents
+		icon = GFX_goal_support_democracy
+		cost = 6
+		
+		x = 0
+		y = 2
+		
+		prerequisite = {
+			focus = CAN_The_King_And_His_Court
+			focus = CAN_Appoint_Bible_Bill
+		}
+		
+		available = {
+		}
+		
+		relative_position_id = CAN_Assert_Royal_Prerogatives
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Suspend_Democracy
+		icon = GFX_goal_support_democracy
+		cost = 6
+		
+		x = 0
+		y = 3
+		
+		prerequisite = {
+			focus = CAN_Crackdown_On_Dissedents
+		}
+		
+		available = {
+		}
+		
+		relative_position_id = CAN_Assert_Royal_Prerogatives
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_Social_Credit_Realized
+		icon = GFX_goal_support_democracy
+		cost = 6
+		
+		x = 1
+		y = 4
+		
+		prerequisite = {
+			focus = CAN_Suspend_Democracy
+		}
+		prerequisite = {
+			focus = CAN_Christian_Morals
+		}
+		
+		available = {
+		}
+		
+		relative_position_id = CAN_Assert_Royal_Prerogatives
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_For_King_And_Country
+		icon = GFX_goal_support_democracy
+		cost = 6
+		
+		x = -1
+		y = 4
+		
+		prerequisite = {
+			focus = CAN_Suspend_Democracy
+		}
+		prerequisite = {
+			focus = CAN_Extend_Martial_Law
+		}
+		
+		available = {
+		}
+		
+		relative_position_id = CAN_Assert_Royal_Prerogatives
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = CAN_One_Nation_One_People_One_King
+		icon = GFX_goal_support_democracy
+		cost = 6
+		
+		x = 0
+		y = 5
+		
+		prerequisite = {
+			focus = CAN_For_King_And_Country
+			focus = CAN_Social_Credit_Realized
+		}
+		
+		available = {
+		}
+		
+		relative_position_id = CAN_Assert_Royal_Prerogatives
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_true_north"
+	
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	
 }
 

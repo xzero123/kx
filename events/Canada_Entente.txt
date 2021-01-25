@@ -5608,6 +5608,41 @@ news_event = {
 	}
 }
 
+# News - Edward VII Shot
+news_event = {
+	id = entente.1111
+	immediate = { log = "[GetDateText]: [Root.GetName]: event entente.1111" }
+	title = entente.1111.t
+	picture = GFX_news_event_CAN_edward
+
+	desc = {
+		text = entente.111.d.albert
+		trigger = { has_global_flag = CAN_king_albert_I }
+	}
+
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = entente.1111.a
+		trigger = { CAN_is_commonwealth_tag = yes }
+	}
+	option = {
+		name = entente.1111.b
+		trigger = {
+			CAN_is_commonwealth_tag = no
+			has_socialist_government = no
+		}
+	}
+	option = {
+		name = entente.1111.c
+		trigger = {
+			CAN_is_commonwealth_tag = no
+			has_socialist_government = yes
+		}
+	}
+}
+
 # Henry goes to become Governor-General of Australasia
 unit_leader_event = {
 	id = entente.112

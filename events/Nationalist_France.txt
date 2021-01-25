@@ -700,7 +700,7 @@ country_event = { #AF tries to repeal law of exile
 	option = { #sure, we need to be fwends with maurras
 		name = nfa.20.a 
 		add_popularity = {
-			ideology = national_poopulist
+			ideology = national_populist
 			popularity = 0.07
 		} 
 		add_stability = 0.06
@@ -717,7 +717,7 @@ country_event = { #AF tries to repeal law of exile
 		name = nfa.20.b
 		add_political_power = -10
 		add_popularity = {
-			ideology = national_poopulist
+			ideology = national_populist
 			popularity = -0.04
 		} 
 		hidden_effect = {
@@ -755,7 +755,7 @@ country_event = { #Jean arrives in Algiers while Maurras uses media power and po
 	option = { #yay
 		name = nfa.21.a 
 		add_popularity = {
-			ideology = national_poopulist
+			ideology = national_populist
 			popularity = 0.04
 		} 
 		add_popularity = {
@@ -791,7 +791,7 @@ country_event = { #louis bonaparte also shows up, now the law of exile is gone
 	option = { #ignore him, we owe the orleanists our loyalty
 		name = nfa.22.a 
 		add_popularity = {
-			ideology = national_poopulist
+			ideology = national_populist
 			popularity = 0.03
 		} 
 		add_political_power = 10
@@ -805,10 +805,10 @@ country_event = { #louis bonaparte also shows up, now the law of exile is gone
 	}
 
 	option = { #we should be weary of maurras, tacitly endorse louis
-		name = nfa.22.a 
+		name = nfa.22.b
 		add_popularity = {
-			ideology = national_poopulist
-			popularity = 0.03
+			ideology = national_populist
+			popularity = -0.03
 		} 
 		add_political_power = 10
 		hidden_effect = {
@@ -835,11 +835,11 @@ country_event = { #pétain commits to a restoration, AF secures influence
 	option = { #yay stable
 		name = nfa.23.a 
 		add_popularity = {
-			ideology = national_poopulist
-			popularity = 0.6
+			ideology = national_populist
+			popularity = 0.06
 		} 
 		add_political_power = 20
-		add_stability = 0.12
+		add_stability = 0.04
 		set_country_flag = NFA_jean_will_be_restored
 		remove_all_ministers = yes
 		add_ideas = {
@@ -866,7 +866,7 @@ country_event = { #AF gets angry because you stabbed them in the back for nappy
 	option = { #dig in, support nappy
 		name = nfa.24.a 
 		add_popularity = {
-			ideology = national_poopulist
+			ideology = national_populist
 			popularity = -0.08
 		} 
 		add_political_power = 10
@@ -886,7 +886,7 @@ country_event = { #AF gets angry because you stabbed them in the back for nappy
 	option = { #back down and try to appease maurras
 		name = nfa.24.b 
 		add_popularity = {
-			ideology = national_poopulist
+			ideology = national_populist
 			popularity = 0.03
 		} 
 		add_political_power = -20
@@ -958,7 +958,7 @@ country_event = { #Darnand wants to meet
 	option = { #sure, we need unity
 		name = nfa.26.a 
 		add_popularity = {
-			ideology = national_poopulist
+			ideology = national_populist
 			popularity = 0.04
 		} 
 		add_political_power = 10
@@ -975,7 +975,7 @@ country_event = { #Darnand wants to meet
 	option = { #nope
 		name = nfa.26.b 
 		add_popularity = {
-			ideology = national_poopulist
+			ideology = national_populist
 			popularity = -0.03
 		} 
 		add_political_power = -5
@@ -1704,6 +1704,954 @@ country_event = { #darnand breaks with croix-de-feu
 		}
 	}
 }
+
+country_event = { #kingdom of france revived
+	id = nfa.51
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.51"}
+	title = nfa.51.t
+	desc = nfa.51.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { 
+		name = nfa.51.a 
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.04
+		}
+		add_stability = 0.03
+	}
+}
+
+country_event = { #coronation
+	id = nfa.52
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.52"}
+	title = nfa.52.t
+	desc = nfa.52.d
+	picture = GFX_report_event_NFA_jean_at_desk
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { 
+		name = nfa.52.a 
+		add_political_power = 20
+		create_country_leader = {
+			name = "Jean III"
+			desc = "POLITICS_JEAN_III_DESC"
+			picture = "Portrait_NFA_Jean_dOrleans.tga"
+			expire = "1965.1.1"
+			ideology = national_populist_subtype
+			traits = { NFA_Old_King }
+		}
+		create_country_leader = {
+			name = "Jean III"
+			desc = "POLITICS_JEAN_III_DESC"
+			picture = "Portrait_NFA_Jean_dOrleans.tga"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+			traits = { NFA_Old_King }
+		}
+		create_country_leader = {
+			name = "Jean III"
+			desc = "POLITICS_JEAN_III_DESC"
+			picture = "Portrait_NFA_Jean_dOrleans.tga"
+			expire = "1965.1.1"
+			ideology = authoritarian_democrat_subtype
+			traits = { NFA_Old_King }
+		}
+	}
+}
+
+country_event = { #king's cabinet
+	id = nfa.53
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.53"}
+	title = nfa.53.t
+	desc = nfa.53.d
+	picture = GFX_report_event_NFA_event_AFFlavorMaurras
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { 
+		name = nfa.53.a 
+		set_politics = {
+			ruling_party = national_populist
+			elections_allowed = no
+		}
+		remove_all_ministers = yes
+		addadd_ideas = {
+			NFA_Charles_Maurras_hog_npo
+			NFA_Maurice_Pujo_for_npo
+			NFA_Leon_Daudet_eco_npo
+			NFA_Henri_Massis_sec_npo
+		}
+		set_country_flag = NFA_kingdom_revived
+		hidden_effect = {
+			country_event = { id = nfa.57 days = 50 }
+		}
+	}
+}
+
+country_event = { #purpose of camelots
+	id = nfa.54
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.54"}
+	title = nfa.54.t
+	desc = nfa.54.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #youth group
+		name = nfa.54.a 
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.05
+		}
+		add_stability = 0.06
+		add_political_power = 15
+		hidden_effect = {
+			country_event = { id = nfa.56 days = 60 }
+		}
+	}
+
+	option = { #poltical paramilitary
+		name = nfa.54.a 
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.02
+		}
+		add_manpower = 2000
+		add_war_support = 0.03
+		hidden_effect = {
+			country_event = { id = nfa.55 days = 60 }
+		}
+	}
+}
+
+country_event = { #camelots win street fight
+	id = nfa.55
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.55"}
+	title = nfa.55.t
+	desc = nfa.55.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #yuo get what yuo fucking deserve!!!!!!!!!!!!!!!
+		name = nfa.55.a 
+		add_command_power = 10
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.02
+		}
+		add_political_power = 5
+	}
+}
+
+country_event = { #royalist youth camps open
+	id = nfa.56
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.56"}
+	title = nfa.56.t
+	desc = nfa.56.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = nfa.56.a 
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.03
+		}
+		add_political_power = 15
+	}
+}
+
+country_event = { #fate of republican intellectuals
+	id = nfa.57
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.57"}
+	title = nfa.57.t
+	desc = nfa.57.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #harsh repression
+		name = nfa.57.a 
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.04
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.04
+		}
+		add_political_power = 25
+		add_stability = -0.03
+		hidden_effect = {
+            country_event = { id = nfa.58 days = 25 }
+		}
+	}
+
+	option = { #shut down their public representation but leave them be
+		name = nfa.57.b
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.02
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.02
+		}
+		add_political_power = -10
+		add_stability = 0.02
+		hidden_effect = {
+            country_event = { id = nfa.58 days = 25 }
+		}
+	}
+}
+
+country_event = { #fate of liberal politicians
+	id = nfa.58
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.58"}
+	title = nfa.58.t
+	desc = nfa.58.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #shut em down
+		name = nfa.58.a 
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.03
+		}
+		add_political_power = 40
+	}
+
+	option = { #let them adapt to the kingdom
+		name = nfa.58.b
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.01
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.01
+		}
+		add_stability = 0.03
+		set_country_flag = NFA_liberals_allowed_in_kingdom
+	}
+}
+
+country_event = { #future of parliament
+	id = nfa.59
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.59"}
+	title = nfa.59.t
+	desc = nfa.59.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #abolish it
+		name = nfa.59.a 
+		add_political_power = 30
+		add_command_power = 20
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.04
+		}
+	}
+
+	option = { #reform to an advisory body 
+		name = nfa.59.b
+		add_stability = 0.03
+		add_political_power = 40
+	}
+}
+
+country_event = { #classical curriculum
+	id = nfa.60
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.60"}
+	title = nfa.60.t
+	desc = nfa.60.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #based and redpilled
+		name = nfa.60.a 
+		add_political_power = 10
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.01
+		}
+	}
+}
+
+country_event = { #immigration
+	id = nfa.61
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.61"}
+	title = nfa.61.t
+	desc = nfa.61.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #limit it to med countries
+		name = nfa.61.a 
+		add_political_power = 35
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.01
+		}
+		add_manpower = -1000
+	}
+
+	option = { #managed numbers and assimilation
+		name = nfa.61.b 
+		add_political_power = 10
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.03
+		}
+		add_manpower = -500
+	}
+
+	option = { #end it outright
+		name = nfa.61.c
+		add_political_power = 50
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.05
+		}
+		add_war_support = 0.02
+		add_manpower = -2000
+	}
+}
+
+country_event = { #protestant missionaries
+	id = nfa.62
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.62"}
+	title = nfa.62.t
+	desc = nfa.62.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #leave them be
+		name = nfa.62.a 
+		add_political_power = 20
+		add_stability = 0.03
+	}
+
+	option = { #clamp down
+		name = nfa.62.b 
+		add_stability = -0.02
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.02
+		}
+		add_manpower = -500
+		CAN= {
+		    add_opinion_modifier = { target = NFA modifier = NFA_clamped_down_on_prots }               
+		}
+	}
+}
+
+country_event = { #freemasonry
+	id = nfa.63
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.63"}
+	title = nfa.63.t
+	desc = nfa.63.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #shut down the masonic lodges and ban masonry
+		name = nfa.63.a 
+		add_political_power = 35
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.02
+		}
+	}
+
+	option = { #round up known members
+		name = nfa.63.b 
+		add_stability = -0.02
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.04
+		}
+		add_manpower = -300
+		add_command_power = 20
+	}
+}
+
+country_event = { #repealing the crémieux decree
+	id = nfa.64
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.64"}
+	title = nfa.64.t
+	desc = nfa.64.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #epic
+		name = nfa.64.a 
+		add_political_power = 25
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.03
+		}
+		hidden_effect = {
+			country_event = { id = nfa.66 days = 30 }
+		}
+	}
+}
+
+country_event = { #aristocratic titles restored
+	id = nfa.65
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.65"}
+	title = nfa.65.t
+	desc = nfa.65.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #epic
+		name = nfa.65.a 
+		add_war_support = 0.04 
+		add_political_power = 20
+	}
+}
+
+country_event = { #pogroms
+	id = nfa.66
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.66"}
+	title = nfa.66.t
+	desc = nfa.66.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #egg them on
+		name = nfa.66.a 
+		add_stability = -0.05
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.04
+		}
+		add_political_power = 45
+        add_manpower = -50
+	}
+
+	option = { #reign them in
+		name = nfa.66.b
+		add_stability = 0.02
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.03
+		}
+		add_political_power = 10
+	}
+}
+
+country_event = { #jewish assets seized
+	id = nfa.67
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.67"}
+	title = nfa.67.t
+	desc = nfa.67.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #give them to patriotic frenchmen
+		name = nfa.67.a 
+		add_stability = 0.02
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.03
+		}
+		add_political_power = 60
+	}
+
+	option = { #state ownership
+		name = nfa.67.b
+		add_stability = -0.02
+		add_command_power = 20
+		459 = {
+			add_building_construction = {
+				type = industrial_complex 
+				level = 2
+			}
+		}		
+	}
+}
+
+country_event = { #native elites
+	id = nfa.68
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.68"}
+	title = nfa.68.t
+	desc = nfa.68.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #peers of the realm
+		name = nfa.68.a 
+		add_stability = 0.03
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.02
+		}
+	}
+
+	option = { #nominal independence, paying tribute to the King of France
+		name = nfa.68.b
+		add_stability = -0.02
+		add_political_power = 50
+		add_war_support = 0.01	
+	}
+}
+
+country_event = { #de gaulle co-operation
+	id = nfa.69
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.69"}
+	title = nfa.69.t
+	desc = nfa.69.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = NFA_de_gaulle_plan
+		has_completed_focus = NFA_emphasise_maurrasisme
+		has_completed_focus = NFA_anti_parliamentarisme
+		has_completed_focus = NFA_empower_the_camelots
+	}
+
+	mean_time_to_happen = {
+		days = 15
+	}
+
+	option = { #k
+		name = nfa.69.a 
+		add_command_power = 30
+		army_experience = 15
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.04
+		}
+		set_country_flag = NFA_AF_de_gaulle_cooperation
+	}
+
+	option = { #nah
+		name = nfa.69.b
+		add_political_power = -5
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.02
+		}
+		set_country_flag = NFA_no_AF_de_gaulle_cooperation
+	}
+}
+
+country_event = { #winning over the pope
+	id = nfa.70
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.70"}
+	title = nfa.70.t
+	desc = nfa.70.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #get maurras to convert
+		name = nfa.70.a 
+		add_political_power = -100
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.02
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+				    rule = italy_content
+					option = KX_OLD_ITALY
+				}
+			}
+            ITA = {
+				country_event = { nfa.71 days = 1 }
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+                    has_game_rule = {
+				        rule = italy_content
+					    option = NEW_ITALY
+				    }
+					has_game_rule = {
+				        rule = italy_content
+					    option = FUCK_ITALY_ALL_MY_HOMIES_HATE_ITALY
+				    }
+				}				
+			}
+            PAP = {
+				country_event = { nfa.71 days = 1 }
+			}
+		}
+	}
+
+	option = { #offer to protect the church
+		name = nfa.70.b
+		add_command_power = -25
+		add_war_support = 0.02
+		if = {
+			limit = {
+				has_game_rule = {
+				    rule = italy_content
+					option = KX_OLD_ITALY
+				}
+			}
+            ITA = {
+				country_event = { nfa.72 days = 1 }
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+                    has_game_rule = {
+				        rule = italy_content
+					    option = NEW_ITALY
+				    }
+					has_game_rule = {
+				        rule = italy_content
+					    option = FUCK_ITALY_ALL_MY_HOMIES_HATE_ITALY
+				    }
+				}				
+			}
+            PAP = {
+				country_event = { nfa.72 days = 1 }
+			}
+		}
+	}
+
+	option = { #offer to promote church hierarchy as per maurrasisme
+		name = nfa.70.c
+		add_political_power = 30
+		if = {
+			limit = {
+				has_game_rule = {
+				    rule = italy_content
+					option = KX_OLD_ITALY
+				}
+			}
+            ITA = {
+				country_event = { nfa.73 days = 1 }
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+                    has_game_rule = {
+				        rule = italy_content
+					    option = NEW_ITALY
+				    }
+					has_game_rule = {
+				        rule = italy_content
+					    option = FUCK_ITALY_ALL_MY_HOMIES_HATE_ITALY
+				    }
+				}				
+			}
+            PAP = {
+				country_event = { nfa.73 days = 1 }
+			}
+		}
+	}
+}
+
+country_event = { #papacy informed that Maurras wants to convert
+	id = nfa.71
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.71"}
+	title = nfa.71.t
+	desc = nfa.71.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #sure, lift the excommunication of the AF
+		name = nfa.71.a 
+		ai_chance = {
+			factor = 95
+		}
+		NFA = {
+			country_event = { id = nfa.74 days = 2 }
+		}
+	}
+
+	option = { #nah
+		name = nfa.71.b
+		ai_chance = {
+			factor = 5
+		}
+		NFA = {
+			country_event = { id = nfa.75 days = 2 }
+		}
+	}
+}
+
+country_event = { #papacy contacted by AF and warned about dangers of syndicalism
+	id = nfa.72
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.72"}
+	title = nfa.72.t
+	desc = nfa.72.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #sure, lift the excommunication of the AF
+		name = nfa.72.a 
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				SRI = { has_socialist_government = yes }
+			}
+		}
+		NFA = {
+			country_event = { id = nfa.74 days = 2 }
+		}
+	}
+
+	option = { #nah
+		name = nfa.72.b
+		NFA = {
+			country_event = { id = nfa.75 days = 2 }
+		}
+	}
+}
+
+country_event = { #papacy contacted by AF and asked nicely for end to excommunication
+	id = nfa.73
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.73"}
+	title = nfa.73.t
+	desc = nfa.73.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #sure, lift the excommunication of the AF
+		name = nfa.73.a 
+		ai_chance = {
+			factor = 5
+		}
+		NFA = {
+			country_event = { id = nfa.74 days = 2 }
+		}
+	}
+
+	option = { #nah
+		name = nfa.73.b
+		ai_chance = {
+			factor = 95
+		}
+		NFA = {
+			country_event = { id = nfa.75 days = 2 }
+		}
+	}
+}
+
+country_event = { #AF told that they're no longer excommunicated
+	id = nfa.74
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.74"}
+	title = nfa.74.t
+	desc = nfa.74.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #yay
+		name = nfa.74.a 
+		add_stability = 0.06
+		add_war_support = 0.06
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.04
+		}
+		set_country_flag = NFA_church_support
+	}
+}
+
+country_event = { #AF told that they're still excommunicated
+	id = nfa.75
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.75"}
+	title = nfa.75.t
+	desc = nfa.75.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #shit
+		name = nfa.75.a 
+		add_stability = -0.06
+		add_war_support = -0.06
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.04
+		}
+		set_country_flag = NFA_no_church_support
+		cancel_guarantee = PAP
+		cancel_guarantee = ITA
+	}
+}
+
+country_event = { #cagoulard co-operation
+	id = nfa.76
+	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.76"}
+	title = nfa.76.t
+	desc = nfa.76.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = NFA_la_cagoule_got_away
+		has_completed_focus = NFA_emphasise_maurrasisme
+		has_completed_focus = NFA_anti_parliamentarisme
+		has_completed_focus = NFA_empower_the_camelots
+		OR = {
+			has_country_flag = NFA_darlan_plan
+			has_country_flag = NFA_no_AF_de_gaulle_cooperation
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 15
+	}
+
+	option = { #k
+		name = nfa.76.a 
+		add_manpower = 600
+		add_command_power = 15
+		add_political_power = 25
+		set_country_flag = NFA_AF_cagoulard_cooperation
+	}
+
+	option = { #nah
+		name = nfa.76.b
+		add_political_power = -5
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.02
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

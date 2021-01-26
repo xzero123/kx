@@ -4075,7 +4075,7 @@ focus_tree = {
 		icon = GFX_goal_CUB_America
 		cost = 0
 
-		x = 35
+		x = 39
 		y = 1
 
 		available = {
@@ -4104,6 +4104,9 @@ focus_tree = {
 		cost = 3
 		prerequisite = {
 			focus = CAN_americans_at_war
+		}
+		mutually_exclusive = {
+			focus = CAN_the_failures_of_the_republic
 		}
 		relative_position_id = CAN_americans_at_war
 		x = -1
@@ -4831,7 +4834,407 @@ focus_tree = {
 			NEE = { country_event = canada.216 }
 		}
 	}
+	
+	focus = {
+		id = CAN_the_failures_of_the_republic
+		icon = X
+		cost = 3
+		prerequisite = {
+			focus = CAN_americans_at_war
+		}
+		mutually_exclusive = {
+			focus = CAN_intervention_debate
+		}
+		relative_position_id = CAN_americans_at_war
+		x = -4
+		y = 1
 
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+			
+		}
+
+		available_if_capitulated = yes
+
+		
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_new_england_question"
+			
+		}
+	}
+	
+	focus = {
+		id = CAN_retake_oregon
+		icon = X
+		cost = 3
+		prerequisite = {
+			focus = CAN_the_failures_of_the_republic
+		}
+		relative_position_id = CAN_the_failures_of_the_republic
+		x = -1
+		y = 1
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+			
+		}
+
+		available_if_capitulated = yes
+
+		
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_new_england_question"
+			
+		}
+	}
+
+	focus = {
+		id = CAN_1812
+		icon = X
+		cost = 3
+		prerequisite = {
+			focus = CAN_the_failures_of_the_republic
+		}
+		relative_position_id = CAN_the_failures_of_the_republic
+		x = 1
+		y = 1
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+			
+		}
+
+		available_if_capitulated = yes
+
+		
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_new_england_question"
+			
+		}
+	}
+
+	focus = {
+		id = CAN_the_redcoats_are_coming
+		icon = X
+		cost = 3
+		prerequisite = {
+			focus = CAN_retake_oregon
+		}
+		prerequisite = {
+			focus = CAN_1812
+		}
+		relative_position_id = CAN_the_failures_of_the_republic
+		x = 0
+		y = 2
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+			
+		}
+
+		available_if_capitulated = yes
+
+		
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_new_england_question"
+			
+		}
+	}
+
+	focus = {
+		id = CAN_retake_the_original_13
+		icon = X
+		cost = 3
+		prerequisite = {
+			focus = CAN_the_redcoats_are_coming
+		}
+		relative_position_id = CAN_the_failures_of_the_republic
+		x = -1
+		y = 3
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+			
+		}
+
+		available_if_capitulated = yes
+
+		
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_new_england_question"
+			
+		}
+	}
+	
+	focus = {
+		id = CAN_for_their_own_good
+		icon = X
+		cost = 3
+		prerequisite = {
+			focus = CAN_the_redcoats_are_coming
+		}
+		relative_position_id = CAN_the_failures_of_the_republic
+		x = 1
+		y = 3
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+			
+		}
+
+		available_if_capitulated = yes
+
+		
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_new_england_question"
+			
+		}
+	}
+
+	focus = {
+		id = CAN_americas_return
+		icon = X
+		cost = 3
+		prerequisite = {
+			focus = CAN_retake_the_original_13
+		}
+		prerequisite = {
+			focus = CAN_for_their_own_good
+		}
+		relative_position_id = CAN_the_failures_of_the_republic
+		x = 0
+		y = 4
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+			
+		}
+
+		available_if_capitulated = yes
+
+		
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_new_england_question"
+			
+		}
+	}
+
+	focus = {
+		id = CAN_erase
+		icon = X
+		cost = 3
+		prerequisite = {
+			focus = CAN_americas_return
+		}
+		relative_position_id = CAN_the_failures_of_the_republic
+		x = -1
+		y = 5
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+			
+		}
+
+		available_if_capitulated = yes
+
+		
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_new_england_question"
+			
+		}
+	}
+
+	focus = {
+		id = CAN_failures
+		icon = X
+		cost = 3
+		prerequisite = {
+			focus = CAN_americas_return
+		}
+		relative_position_id = CAN_the_failures_of_the_republic
+		x = 1
+		y = 5
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+			
+		}
+
+		available_if_capitulated = yes
+
+		
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_new_england_question"
+			
+		}
+	}
+
+	focus = {
+		id = CAN_one_salvation
+		icon = X
+		cost = 3
+		prerequisite = {
+			focus = CAN_failures
+		}
+		prerequisite = {
+			focus = CAN_erase
+		}
+		relative_position_id = CAN_the_failures_of_the_republic
+		x = 0
+		y = 6
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+			
+		}
+
+		available_if_capitulated = yes
+
+		
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_new_england_question"
+			
+		}
+	}
+
+	focus = {
+		id = CAN_divide_and_conquer
+		icon = X
+		cost = 3
+		prerequisite = {
+			focus = CAN_one_salvation
+		}
+		mutually_exclusive = {
+			focus = CAN_establish_the_dominion_of_america
+			focus = CAN_direct_rule
+		}
+		relative_position_id = CAN_the_failures_of_the_republic
+		x = 0
+		y = 7
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+			
+		}
+
+		available_if_capitulated = yes
+
+		
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_new_england_question"
+			
+		}
+	}
+
+	focus = {
+		id = CAN_direct_rule
+		icon = X
+		cost = 3
+		prerequisite = {
+			focus = CAN_one_salvation
+		}
+		mutually_exclusive = {
+			focus = CAN_establish_the_dominion_of_america
+			focus = CAN_divide_and_conquer
+		}
+		relative_position_id = CAN_the_failures_of_the_republic
+		x = -2
+		y = 7
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+			
+		}
+
+		available_if_capitulated = yes
+
+		
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_new_england_question"
+			
+		}
+	}
+
+	focus = {
+		id = CAN_establish_the_dominion_of_america
+		icon = X
+		cost = 3
+		prerequisite = {
+			focus = CAN_one_salvation
+		}
+		mutually_exclusive = {
+			focus = CAN_direct_rule
+			focus = CAN_divide_and_conquer
+		}
+		relative_position_id = CAN_the_failures_of_the_republic
+		x = 2
+		y = 7
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 100
+			
+		}
+
+		available_if_capitulated = yes
+
+		
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAN_new_england_question"
+			
+		}
+	}
 
 	### RETURN OF THE KING
 
@@ -4839,7 +5242,7 @@ focus_tree = {
 		id = CAN_return_of_the_king
 		icon = GFX_GBR_big_ben
 		cost = 4
-		x = 59
+		x = 48
 		y = 1
 
 		available = {

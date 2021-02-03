@@ -504,8 +504,8 @@ focus_tree = {
 			factor = 80
 		}
 		select_effect = {
-			country_event = { id = nfa.31 days = 10 }
-			country_event = { id = nfa.32 days = 20 }
+			country_event = { id = natfra.31 days = 10 }
+			country_event = { id = natfra.32 days = 20 }
 		}
 		available = {
 			has_country_flag = NFA_junta_stays
@@ -544,7 +544,7 @@ focus_tree = {
 				limit = { has_country_flag = NFA_de_gaulle_plan }
 				NFA = {
 					country_event = {
-						id = nfa.29 days = 1
+						id = natfra.29 days = 1
 					}
 				}
 			}
@@ -552,7 +552,7 @@ focus_tree = {
 				limit = { has_country_flag = NFA_darlan_plan }
 				NFA = {
 					country_event = {
-						id = nfa.30 days = 1
+						id = natfra.30 days = 1
 					}
 				}
 			}
@@ -572,21 +572,21 @@ focus_tree = {
 			factor = 80
 		}
 		select_effect = {
-			country_event = { id = nfa.33 days = 1 } #petain starts drafting constitution
-			country_event = { id = nfa.34 days = 20 } #fate of assembly
-			country_event = { id = nfa.35 days = 30 } #role of presidency
-			country_event = { id = nfa.36 days = 40 } #power of army
+			country_event = { id = natfra.33 days = 1 } #petain starts drafting constitution
+			country_event = { id = natfra.34 days = 20 } #fate of assembly
+			country_event = { id = natfra.35 days = 30 } #role of presidency
+			country_event = { id = natfra.36 days = 40 } #power of army
 			if = { 
 				limit = {
 				    has_country_flag = {
 				        flag = NFA_constitution_flag
-				        value < 2
+				        value < 3
 					}
 				}
-				country_event = { id = nfa.37 days = 56 }
+				country_event = { id = natfra.37 days = 56 }
 			}
 			else = { 
-				country_event = { id = nfa.38 days = 56 }
+				country_event = { id = natfra.38 days = 56 }
 			}
 		}			
 		available = {
@@ -620,7 +620,7 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = NFA_prestige_of_verdun
 			hidden_effect = {
-				country_event = { id = nfa.44 days = 20 }
+				country_event = { id = natfra.44 days = 20 }
 			}
 		}
 	}
@@ -687,7 +687,7 @@ focus_tree = {
 			factor = 80
 		}
 		select_effect = {
-			country_event = { id = nfa.41 days = 35 }
+			country_event = { id = natfra.41 days = 35 }
 		}
 		available = {
 			has_country_flag = NFA_junta_stays
@@ -780,7 +780,7 @@ focus_tree = {
 			factor = 80
 		}
 		select_effect = {
-			country_event = { id = nfa.39 days = 28 } 
+			country_event = { id = natfra.39 days = 28 } 
 		}
 		available = {
 			has_country_flag = NFA_junta_stays
@@ -805,7 +805,7 @@ focus_tree = {
 			factor = 80
 		}
 		select_effect = {
-			country_event = { id = nfa.45 days = 21 } 
+			country_event = { id = natfra.45 days = 21 } 
 		}
 		available = {
 			has_country_flag = NFA_junta_stays
@@ -816,7 +816,7 @@ focus_tree = {
 		completion_reward = {
 			add_country_leader_trait = NFA_cult_of_personality
 			hidden_effect = {
-				country_event = { id = nfa.40 days = 90 } 
+				country_event = { id = natfra.40 days = 90 } 
 			}
 		}
 	}
@@ -845,7 +845,7 @@ focus_tree = {
 				ideology = paternal_autocrat
 				popularity = 0.07
 			}
-			country_event = { id = nfa.46 days = 7 } 
+			country_event = { id = natfra.46 days = 7 } 
 		}
 	}
 	
@@ -888,7 +888,7 @@ focus_tree = {
 			factor = 80
 		}
 		select_effect = {
-			country_event = { id = nfa.48 days = 40 }
+			country_event = { id = natfra.48 days = 40 }
 		}
 		available = {
 			has_country_flag = NFA_junta_stays
@@ -1065,8 +1065,8 @@ focus_tree = {
 			factor = 80
 		}
 		select_effect = {
-			country_event = { id = nfa.77 days = 15 } #DLR forms unity govt
-			country_event = { id = nfa.78 days = 30 } #Marin joins
+			country_event = { id = natfra.77 days = 15 } #DLR forms unity govt
+			country_event = { id = natfra.78 days = 30 } #Marin joins
 		}
 		available = {
 			has_country_flag = NFA_de_la_rocque_in_charge
@@ -1080,7 +1080,7 @@ focus_tree = {
 				ideology = paternal_autocrat 
 				popularity = 0.06
 			}
-			country_event = { id = nfa.79 days = 2 }
+			country_event = { id = natfra.79 days = 2 }
 		}
 	}
 	
@@ -1105,6 +1105,7 @@ focus_tree = {
 			add_command_power = 40
 			army_experience = 25
 			add_manpower = 4000
+			country_event = { id = natfra.80 days = 1 }
 		}
 	}
 	
@@ -1133,6 +1134,7 @@ focus_tree = {
 				}
 			}			
 			add_ideas = NFA_business_alliance
+			country_event = { id = natfra.81 days = 1 }
 		}
 	}
 	
@@ -1147,6 +1149,11 @@ focus_tree = {
 		cost = 5
 		ai_will_do = {
 			factor = 80
+		}
+		select_effect = {
+			country_event = { id = natfra.84 days = 5 } #purge announced
+			country_event = { id = natfra.85 days = 15 } #PR attacked, leaders detained
+			country_event = { id = natfra.86 days = 30 } #AF attacked, leaders detained
 		}
 		available = {
 			has_country_flag = NFA_de_la_rocque_in_charge
@@ -1172,6 +1179,9 @@ focus_tree = {
 				ideology = national_populist
 				popularity = -0.02
 			}
+			hidden_effect = {
+				country_event = { id = natfra.87 days = 15 }
+			}
 		}
 	}
 
@@ -1187,6 +1197,9 @@ focus_tree = {
 		ai_will_do = {
 			factor = 80
 		}
+		select_effect = {
+			country_event = { id = natfra.89 days = 30 }
+		}
 		available = {
 			has_country_flag = NFA_de_la_rocque_in_charge
 		}
@@ -1199,12 +1212,15 @@ focus_tree = {
 				ideology = paternal_autocrat 
 				popularity = 0.04
 			}
+			hidden_effect = {
+				country_event = { id = natfra.88 days = 50 }
+			}
 		}
 	}
 
 	focus = {
 		id = NFA_republique_sociale
-		#icon = 
+		icon = GFX_goal_republique_social
 		prerequisite = { focus = NFA_bolster_the_mass_movement }
 		prerequisite = { focus = NFA_strike_hidden_socialism }
 		x = 0
@@ -1214,14 +1230,20 @@ focus_tree = {
 		ai_will_do = {
 			factor = 80
 		}
+		select_effect = {
+			country_event = { id = natfra.90 days = 15 } #corporatist stuff
+			country_event = { id = natfra.91 days = 35 } #parliament becomes weak
+			country_event = { id = natfra.92 days = 49 } #constitution adopted and pétain pisses off
+		}
 		available = {
-			has_country_flag = NFA_de_la_rocque_in_charge
+			has_country_flag = NFA_dlr_cut_off_petain
 		}
         cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			#events about new constitution + pétain pissing off
+			custom_effect_tooltip = NFA_dlr_constitution
+			set_country_flag = NFA_social
 		}
 	}
 
@@ -1279,6 +1301,9 @@ focus_tree = {
 		ai_will_do = {
 			factor = 80
 		}
+		select_effect = {
+			country_event = { id = natfra.102 days = 30 }
+		}
 		available = {
 			has_country_flag = NFA_de_la_rocque_in_charge
 		}
@@ -1291,6 +1316,9 @@ focus_tree = {
 				add_idea = NFA_class_cooperation
 			}
 			add_stability = 0.05
+			hidden_effect = {
+			    country_event = { id = natfra.93 days = 30 }
+			}
 		}
 	}
 
@@ -1315,6 +1343,9 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.04
 			add_political_power = 55
+			hidden_effect = {
+				country_event = { id = natfra.95 days = 20 }
+			}
 		}
 	}
 
@@ -1345,7 +1376,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_expand_the_dispos
-		#icon = 
+		icon = GFX_goal_expand_dispos
 		prerequisite = { focus = NFA_military_alliances }
 		x = -3
 		y = 2
@@ -1362,12 +1393,15 @@ focus_tree = {
 		available_if_capitulated = no
 		completion_reward = {
 			add_ideas = NFA_dispos
+			hidden_effect = {
+				country_event = { id = natfra.96 days = 80 } 
+			}
 		}
 	}
 
 	focus = {
 		id = NFA_le_flambeau
-		#icon = 
+		icon = GFX_goal_le_flambeau
 		prerequisite = { focus = NFA_expand_the_dispos }
 		x = -2
 		y = 3
@@ -1388,6 +1422,10 @@ focus_tree = {
             add_popularity = {
 				ideology = paternal_autocrat 
 				popularity = 0.05
+			}
+			country_event = { id = natfra.98 days = 2 }
+			hidden_effect = {
+				country_event = { id = natfra.100 days = 250 }
 			}
 		}
 	}
@@ -1415,6 +1453,7 @@ focus_tree = {
 				remove_idea = NFA_mass_party_1
 				add_idea = NFA_mass_party_2
 			}
+			hidden_effect = { id = nfa.99 days = 300 }
 		}
 	}
 
@@ -1428,6 +1467,9 @@ focus_tree = {
 		cost = 4
 		ai_will_do = {
 			factor = 80
+		}
+		select_effect = {
+			country_event = { id = natfra.97 days = 14 }
 		}
 		available = {
 			has_country_flag = NFA_de_la_rocque_in_charge
@@ -1505,6 +1547,9 @@ focus_tree = {
 		ai_will_do = {
 			factor = 80
 		}
+		select_effect = {
+			country_event = { id = natfra.101 days = 40 }
+		}
 		available = {
 			has_country_flag = NFA_de_la_rocque_in_charge
 		}
@@ -1533,7 +1578,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_social_dabord
-		#icon = 
+		icon = GFX_goal_strike_hidden_socialism
 		prerequisite = { focus = NFA_entrench_corporatism }
 		prerequisite = { focus = NFA_encourage_personality_cult }
 		prerequisite = { focus = NFA_legalist_state }
@@ -1551,10 +1596,10 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			add_stability = 0.04
+			add_stability = 0.03
 			add_war_support = 0.04
 			add_manpower = 5000
-			add_command_power = 40
+			add_command_power = 25
 			add_popularity = {
 				ideology = paternal_autocrat 
 				popularity = 0.05
@@ -1601,9 +1646,9 @@ focus_tree = {
 			factor = 100
 		}
 		select_effect = {
-			country_event = { id = nfa.51 days = 14 } #jean becomes king
-			country_event = { id = nfa.52 days = 28 } #jean's coronation
-            country_event = { id = nfa.53 days = 42 } #byebye pétain
+			country_event = { id = natfra.51 days = 14 } #jean becomes king
+			country_event = { id = natfra.52 days = 28 } #jean's coronation
+            country_event = { id = natfra.53 days = 42 } #byebye pétain
 		}
 		available = {
 			has_country_flag = NFA_jean_will_be_restored
@@ -1659,7 +1704,7 @@ focus_tree = {
 			factor = 80
 		}
 		select_effect = {
-			country_event = { id = nfa.54 days = 30 }
+			country_event = { id = natfra.54 days = 30 }
 		}
 		available = {
 			has_country_flag = NFA_kingdom_revived
@@ -1708,7 +1753,7 @@ focus_tree = {
 				ideology = social_conservative
 				popularity = -0.04
 			}
-			country_event = { id = nfa.59 days = 2 }
+			country_event = { id = natfra.59 days = 2 }
 		}
 	}
 	
@@ -1736,7 +1781,7 @@ focus_tree = {
 				add_idea = NFA_maurrasisme_2
 			}
 			hidden_effect = {
-				country_event = { id = nfa.60 days = 45 }
+				country_event = { id = natfra.60 days = 45 }
 			}
 		}
 	}
@@ -1754,10 +1799,10 @@ focus_tree = {
 			factor = 80
 		}
 		select_effect = {
-			country_event = { id = nfa.61 days = 10 }
-			country_event = { id = nfa.62 days = 20 }
-			country_event = { id = nfa.63 days = 30 }
-			country_event = { id = nfa.64 days = 40 }
+			country_event = { id = natfra.61 days = 10 }
+			country_event = { id = natfra.62 days = 20 }
+			country_event = { id = natfra.63 days = 30 }
+			country_event = { id = natfra.64 days = 40 }
 		}
 		available = {
 			has_country_flag = NFA_kingdom_revived
@@ -1794,7 +1839,7 @@ focus_tree = {
 			add_ideas = NFA_localist_laws
 			add_stability = 0.03
 			hidden_effect = {
-				country_event = { id = nfa.65 days = 3 }
+				country_event = { id = natfra.65 days = 3 }
 			}
 		}
 	}
@@ -1840,7 +1885,7 @@ focus_tree = {
 				level = 1
 				}   
 			}
-			country_event = { id = nfa.67 days = 2 }
+			country_event = { id = natfra.67 days = 2 }
 		}
 	}
 	
@@ -2018,7 +2063,7 @@ focus_tree = {
 				add_idea = NFA_localist_laws_3
 			}
 			add_political_power = 30
-			country_event = { id = nfa.68 days = 1 }
+			country_event = { id = natfra.68 days = 1 }
 		}
 	}
 	
@@ -2067,7 +2112,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			country_event = { id = nfa.70 days = 1 }
+			country_event = { id = natfra.70 days = 1 }
 		}
 	}
 	

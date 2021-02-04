@@ -25,7 +25,7 @@ focus_tree = {
     focus = {
 		id = NFA_compromise_with_the_liberals
 		#icon = 
-		x = 4
+		x = 3
 		y = 0
 		cost = 1
 		ai_will_do = {
@@ -40,11 +40,15 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = {
 			    ideology = social_liberal
-			    popularity = 0.03
+			    popularity = 0.02
+			}
+			add_popularity = {
+			    ideology = market_liberal
+			    popularity = 0.02
 		    }
 			add_popularity = {
 			    ideology = social_conservative
-			    popularity = 0.03
+			    popularity = 0.02
 		    }
 			add_popularity = {
 			    ideology = authoritarian_democrat
@@ -52,17 +56,17 @@ focus_tree = {
 		    }
 		}
 	}
-	
+
 	focus = {
-		id = NFA_address_the_nation
+		id = NFA_republican_govt
 		#icon = 
 		prerequisite = { focus = NFA_compromise_with_the_liberals }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 4
+		cost = 6
 		ai_will_do = {
-			factor = 57
+			factor = 100
 		}
 		available = {
 			has_country_flag = NFA_compromised_with_liberals
@@ -71,20 +75,25 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			add_political_power = 50
+			add_popularity = {
+			    ideology = authoritarian_democrat
+			    popularity = 0.03
+			}
+			remove_ideas = NFA_protests_2
 		}
 	}
-	
+
 	focus = {
-		id = NFA_appoint_marin
+		id = NFA_restore_assembly_power
 		#icon = 
-		prerequisite = { focus = NFA_compromise_with_the_liberals }
-		x = -1
-		y = 1
+		prerequisite = { focus = NFA_republican_govt }
+		x = 0
+		y = 2
 		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 3
+		cost = 6
 		ai_will_do = {
-			factor = 60
+			factor = 100
 		}
 		available = {
 			has_country_flag = NFA_compromised_with_liberals
@@ -93,20 +102,20 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			add_ideas = NFA_strengthened_assembly
 		}
 	}
-	
+
 	focus = {
 		id = NFA_reassure_the_military
 		#icon = 
-		prerequisite = { focus = NFA_address_the_nation }
-		x = 1
+		prerequisite = { focus = NFA_republican_govt }
+		x = -2
 		y = 2
 		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 5
+		cost = 6
 		ai_will_do = {
-			factor = 55
+			factor = 100
 		}
 		available = {
 			has_country_flag = NFA_compromised_with_liberals
@@ -118,40 +127,18 @@ focus_tree = {
 			
 		}
 	}
-	
+
 	focus = {
-		id = NFA_a_republican_cabinet
+		id = NFA_constitutional_security
 		#icon = 
-		prerequisite = { focus = NFA_appoint_marin }
-		x = -1
-		y = 2
-		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 5
-		ai_will_do = {
-			factor = 56
-		}
-		available = {
-			has_country_flag = NFA_compromised_with_liberals
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
-	focus = {
-		id = NFA_empower_the_assembly
-		#icon = 
-		prerequisite = { focus = NFA_a_republican_cabinet }
 		prerequisite = { focus = NFA_reassure_the_military }
-		x = 0
+		prerequisite = { focus = NFA_restore_assembly_power }
+		x = -1
 		y = 3
 		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 7
+		cost = 6
 		ai_will_do = {
-			factor = 80
+			factor = 100
 		}
 		available = {
 			has_country_flag = NFA_compromised_with_liberals
@@ -163,239 +150,331 @@ focus_tree = {
 			
 		}
 	}
-	
-	focus = {
-		id = NFA_delegate_to_the_politicians
-		#icon = 
-		prerequisite = { focus = NFA_empower_the_assembly }
-		x = 0
-		y = 4
-		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 5
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_compromised_with_liberals
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
-	focus = {
-		id = NFA_a_ceremonial_presidency
-		#icon = 
-		prerequisite = { focus = NFA_delegate_to_the_politicians }
-		x = -1
-		y = 5
-		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 5
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_compromised_with_liberals
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
-	focus = {
-		id = NFA_restore_the_constitution
-		#icon = 
-		prerequisite = { focus = NFA_delegate_to_the_politicians }
-		x = 1
-		y = 5
-		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 5
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_compromised_with_liberals
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
-	focus = {
-		id = NFA_lift_the_state_of_emergency
-		#icon = 
-		prerequisite = { focus = NFA_restore_the_constitution }
-		prerequisite = { focus = NFA_a_ceremonial_presidency }
-		x = 0
-		y = 6
-		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 5
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_compromised_with_liberals
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
-	focus = {
-		id = NFA_judicial_independence
-		#icon = 
-		prerequisite = { focus = NFA_empower_the_assembly }
-		x = -2
-		y = 4
-		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 5
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_compromised_with_liberals
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
-	focus = {
-		id = NFA_relax_censorship
-		#icon = 
-		prerequisite = { focus = NFA_judicial_independence }
-		x = -3
-		y = 5
-		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 5
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_compromised_with_liberals
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
-	focus = {
-		id = NFA_free_the_dissidents
-		#icon = 
-		prerequisite = { focus = NFA_relax_censorship }
-		x = -2
-		y = 6
-		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 5
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_compromised_with_liberals
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
-	focus = {
-		id = NFA_liberalise_the_economy
-		#icon = 
-		prerequisite = { focus = NFA_empower_the_assembly }
-		x = 2
-		y = 4
-		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 5
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_compromised_with_liberals
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
-	focus = {
-		id = NFA_tackle_corruption
-		#icon = 
-		prerequisite = { focus = NFA_liberalise_the_economy }
-		x = 3
-		y = 5
-		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 5
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_compromised_with_liberals
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
-	focus = {
-		id = NFA_promote_entrepeneurship
-		#icon = 
-		prerequisite = { focus = NFA_tackle_corruption }
-		x = 2
-		y = 6
-		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 5
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_compromised_with_liberals
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			
-		}
-	}
-	
+
 	focus = {
 		id = NFA_republican_traditions
 		#icon = 
-		prerequisite = { focus = NFA_free_the_dissidents }
-		prerequisite = { focus = NFA_lift_the_state_of_emergency }
+		prerequisite = { focus = NFA_reassure_the_military }
+		prerequisite = { focus = NFA_restore_assembly_power }
+		x = -3
+		y = 3
+		relative_position_id = NFA_compromise_with_the_liberals
+		cost = 6
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = NFA_compromised_with_liberals
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_ceremonial_presidency
+		#icon = 
+		prerequisite = { focus = NFA_constitutional_security }
+		prerequisite = { focus = NFA_republican_traditions }
+		x = -2
+		y = 4
+		relative_position_id = NFA_compromise_with_the_liberals
+		cost = 6
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = NFA_compromised_with_liberals
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_judicial_independence
+		#icon = 
+		prerequisite = { focus = NFA_ceremonial_presidency }
+		x = -3
+		y = 5
+		relative_position_id = NFA_compromise_with_the_liberals
+		cost = 6
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = NFA_compromised_with_liberals
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_free_petain_prisoners
+		#icon = 
+		prerequisite = { focus = NFA_judicial_independence }
+		x = -2
+		y = 6
+		relative_position_id = NFA_compromise_with_the_liberals
+		cost = 6
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = NFA_compromised_with_liberals
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_legislative_empowerment
+		#icon = 
+		prerequisite = { focus = NFA_ceremonial_presidency }
+		x = -1
+		y = 5
+		relative_position_id = NFA_compromise_with_the_liberals
+		cost = 6
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = NFA_compromised_with_liberals
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_monetary_reform
+		#icon = 
+		prerequisite = { focus = NFA_republican_govt }
+		x = 2
+		y = 2
+		relative_position_id = NFA_compromise_with_the_liberals
+		cost = 6
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = NFA_compromised_with_liberals
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_reynaud_plan 
+		#icon = 
+		prerequisite = { focus = NFA_monetary_reform }
+		mutually_exclusive = { focus = NFA_chautemps_plan }
+		x = 1
+		y = 3
+		relative_position_id = NFA_compromise_with_the_liberals
+		cost = 6
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = NFA_compromised_with_liberals
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_end_fourty_hour_week
+		#icon = 
+		prerequisite = { focus = NFA_reynaud_plan }
+		x = 1
+		y = 4
+		relative_position_id = NFA_compromise_with_the_liberals
+		cost = 6
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = NFA_compromised_with_liberals
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_free_market
+		#icon = 
+		prerequisite = { focus = NFA_end_fourty_hour_week }
+		x = 1
+		y = 5
+		relative_position_id = NFA_compromise_with_the_liberals
+		cost = 6
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = NFA_compromised_with_liberals
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+    focus = {
+		id = NFA_chautemps_plan 
+		#icon = 
+		prerequisite = { focus = NFA_monetary_reform }
+		mutually_exclusive = { focus = NFA_reynaud_plan }
+		x = 3
+		y = 3
+		relative_position_id = NFA_compromise_with_the_liberals
+		cost = 6
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = NFA_compromised_with_liberals
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_nationalise_infrastructure
+		#icon = 
+		prerequisite = { focus = NFA_chautemps_plan }
+		x = 3
+		y = 4
+		relative_position_id = NFA_compromise_with_the_liberals
+		cost = 6
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = NFA_compromised_with_liberals
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_worker_representation
+		#icon = 
+		prerequisite = { focus = NFA_nationalise_infrastructure }
+		x = 3
+		y = 5
+		relative_position_id = NFA_compromise_with_the_liberals
+		cost = 6
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = NFA_compromised_with_liberals
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_economic_mobilisation
+		#icon = 
+		prerequisite = { focus = NFA_worker_representation focus = NFA_free_market }
+		x = 2
+		y = 6
+		relative_position_id = NFA_compromise_with_the_liberals
+		cost = 6
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = NFA_compromised_with_liberals
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_republican_restoration
+		#icon = 
+		prerequisite = { focus = NFA_legislative_empowerment }
+		prerequisite = { focus = NFA_worker_representation focus = NFA_free_market }
+		x = 0
+		y = 6
+		relative_position_id = NFA_compromise_with_the_liberals
+		cost = 6
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = NFA_compromised_with_liberals
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_relax_censorship
+		#icon = 
+		prerequisite = { focus = NFA_republican_restoration }
+		prerequisite = { focus = NFA_free_petain_prisoners }
 		x = -1
 		y = 7
 		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 5
+		cost = 6
 		ai_will_do = {
-			factor = 80
+			factor = 100
 		}
 		available = {
 			has_country_flag = NFA_compromised_with_liberals
@@ -407,18 +486,18 @@ focus_tree = {
 			
 		}
 	}
-	
+
 	focus = {
-		id = NFA_business_ties
+		id = NFA_cleanse_corruption
 		#icon = 
-		prerequisite = { focus = NFA_promote_entrepeneurship }
-		prerequisite = { focus = NFA_lift_the_state_of_emergency }
+		prerequisite = { focus = NFA_republican_restoration }
+		prerequisite = { focus = NFA_economic_mobilisation }
 		x = 1
 		y = 7
 		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 5
+		cost = 6
 		ai_will_do = {
-			factor = 80
+			factor = 100
 		}
 		available = {
 			has_country_flag = NFA_compromised_with_liberals
@@ -430,18 +509,18 @@ focus_tree = {
 			
 		}
 	}
-	
+
 	focus = {
-		id = NFA_united_we_stand
+		id = NFA_government_of_consensus
 		#icon = 
-		prerequisite = { focus = NFA_republican_traditions }
-		prerequisite = { focus = NFA_business_ties }
+		prerequisite = { focus = NFA_cleanse_corruption }
+		prerequisite = { focus = NFA_relax_censorship }
 		x = 0
 		y = 8
 		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 5
+		cost = 6
 		ai_will_do = {
-			factor = 80
+			factor = 100
 		}
 		available = {
 			has_country_flag = NFA_compromised_with_liberals
@@ -851,7 +930,7 @@ focus_tree = {
 	
 	focus = {
 		id = NFA_morality_and_service
-		icon = GFX_goal_morality_and_service
+		icon = GFX_goal_COR_industrial_security_act
 		prerequisite = { focus = NFA_seek_clergy_support }
 		x = -3
 		y = 5
@@ -1065,8 +1144,8 @@ focus_tree = {
 			factor = 80
 		}
 		select_effect = {
-			country_event = { id = natfra.77 days = 15 } #DLR forms unity govt
-			country_event = { id = natfra.78 days = 30 } #Marin joins
+			country_event = { id = natfra.77 days = 10 } #DLR forms unity govt
+			country_event = { id = natfra.78 days = 20 } #Marin joins
 		}
 		available = {
 			has_country_flag = NFA_de_la_rocque_in_charge
@@ -1292,7 +1371,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_catholic_state_unions
-		icon = TEX_focus_Catholic_Unions
+		icon = GFX_goal_cargolic_unions
 		prerequisite = { focus = NFA_a_minimum_wage }
 		x = 2
 		y = 3
@@ -1432,7 +1511,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_fils_et_filles
-		#icon = 
+		icon = GFX_goal_fils_et_filles
 		prerequisite = { focus = NFA_le_flambeau }
 		prerequisite = { focus = NFA_republique_sociale }
 		x = -1
@@ -1459,7 +1538,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_votes_for_women
-		#icon = 
+		icon = GFX_goal_votes_for_women
 		prerequisite = { focus = NFA_le_flambeau }
 		x = -3
 		y = 4

@@ -40,7 +40,7 @@ ideas = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_political_unrest"}
 
 			modifier = {
-				stability_factor = -0.2
+				stability_factor = -0.1
 				political_power_cost = 0.25
 			}
 
@@ -152,7 +152,7 @@ ideas = {
 		}
 
     ###############
-	#Scandal ideas
+	#epic based jocn ideas
     ###############
 
 	NFA_protests_1 = {
@@ -165,9 +165,633 @@ ideas = {
 				political_power_gain = -0.20
 			}
 
-			name = NFA_transsaharian
+			name = NFA_protests
 			#picture = 
 		}
+
+    NFA_protests_2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_protests_2"}
+
+			modifier = {
+				stability_factor = -0.04
+				war_support_factor = -0.03
+				political_power_gain = -0.10
+			}
+
+			name = NFA_protests
+			#picture = 
+		}
+
+    NFA_prestige_of_verdun = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_prestige_of_verdun"}
+
+			modifier = {
+				war_support_factor = 0.03
+				mobilization_speed = 0.05
+				experience_gain_army_factor = 0.06
+				army_morale_factor = 0.03
+			}
+
+			name = NFA_prestige_of_verdun
+			#picture = 
+		}
+
+		NFA_liberation_priority = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_liberation_priority"}
+
+			modifier = {
+				command_power_gain_mult = 0.06
+				weekly_manpower = 40
+				research_bonus = { land_doctrine = 0.08 }
+                offensive_war_stability_factor = 0.08
+			}
+
+			name = NFA_liberation_priority
+			#picture = 
+		}
+
+		NFA_liberation_priority2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_liberation_priority2"}
+
+			modifier = {
+				command_power_gain_mult = 0.12
+				weekly_manpower = 60
+				research_bonus = { land_doctrine = 0.12 }
+				offensive_war_stability_factor = 0.14
+				conscription_factor = 0.06
+			}
+
+			name = NFA_liberation_priority
+			#picture = 
+		}
+
+		NFA_ties_with_business = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_ties_with_business"}
+
+			modifier = {
+				political_power_factor = -0.03
+				consumer_goods_factor = -0.07
+				production_speed_buildings_factor = 0.06
+				production_factory_max_efficiency_factor = 0.04
+				industrial_capacity_factory = -0.05
+				production_factory_efficiency_gain_factor = -0.02
+			}
+
+			name = NFA_ties_with_business
+			#picture = 
+		}
+
+		NFA_chantiers_de_la_jeunesse = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_chantiers_de_la_jeunesse"}
+
+			modifier = {
+				stability_factor = 0.07
+				conscription_factor = 0.06
+				resistance_target = -0.12
+				mobilization_speed = 0.06
+			}
+
+			name = NFA_chantiers_de_la_jeunesse
+			#picture = 
+		}
+
+		NFA_dictatorship_of_morals = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_dictatorship_of_morals"}
+
+			modifier = {
+				stability_factor = 0.12
+				conscription_factor = 0.12
+				resistance_target = -0.16
+				mobilization_speed = 0.09
+				political_power_gain = 0.08
+			}
+
+			name = NFA_dictatorship_of_morals
+			#picture = 
+		}
+
+		NFA_revolution_nationale = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_revolution_nationale"}
+
+			modifier = {
+				stability_factor = 0.19
+				conscription_factor = 0.18
+				resistance_target = -0.16
+				mobilization_speed = 0.09
+				political_power_gain = 0.15
+				resistance_damage_to_garrison = -0.09
+			}
+
+			name = NFA_revolution_nationale
+			#picture = 
+		}
+
+		NFA_crusade_for_the_metropole = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_crusade_for_the_metropole"}
+
+			modifier = {
+				command_power_gain_mult = 0.18
+				weekly_manpower = 60
+				research_bonus = { land_doctrine = 0.16 }
+				offensive_war_stability_factor = 0.14
+				conscription_factor = 0.12
+				compliance_gain = 0.09
+			}
+
+			name = NFA_crusade_for_the_metropole
+			#picture = 
+		}
+
+		NFA_strengthened_intelligence = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_strengthened_intelligence"}
+
+			modifier = {
+				intel_network_gain_factor = 0.25
+				own_operative_detection_chance_factor = -0.3
+				root_out_resistance_effectiveness_factor = 0.3
+				intel_network_gain = 0.2
+			}
+
+			name = NFA_strengthened_intelligence
+			#picture = 
+		}
+
+		NFA_the_roar_of_the_lion = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_the_roar_of_the_lion"}
+
+			modifier = {
+				command_power_gain_mult = 0.2
+				weekly_manpower = 60
+				research_bonus = { land_doctrine = 0.16 }
+				offensive_war_stability_factor = 0.18
+				conscription_factor = 0.19
+				compliance_gain = 0.09
+				war_support_factor = 0.05
+				max_command_power_mult = 0.1
+			}
+
+			name = NFA_the_roar_of_the_lion
+			#picture = 
+		}
+
+		NFA_maurrasisme_1 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_maurrasisme_1"}
+
+			modifier = {
+				political_power_factor = 0.07
+				party_popularity_stability_factor = 0.06
+				stability_factor = 0.04
+			}
+
+			name = NFA_maurrasisme
+			#picture = 
+		}
+
+		NFA_camelots_du_roi = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_camelots_du_roi"}
+
+			modifier = {
+				conscription_factor = 0.08
+				war_support_factor = 0.04
+				army_morale_factor = 0.04
+			}
+
+			name = NFA_camelots_du_roi
+			#picture = 
+		}
+
+		NFA_maurrasisme_2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_maurrasisme_2"}
+
+			modifier = {
+				political_power_factor = 0.12
+				party_popularity_stability_factor = 0.06
+				stability_factor = 0.08
+				stability_weekly = 0.005
+			}
+
+			name = NFA_maurrasisme
+			#picture = 
+		}
+
+		NFA_localist_laws = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_localist_laws"}
+
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.03
+				global_building_slots_factor = 0.18
+				political_power_cost = -0.05
+			}
+
+			name = NFA_localist_laws
+			#picture = 
+		}
+
+		NFA_maurrasisme_3 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_maurrasisme_3"}
+
+			modifier = {
+				political_power_factor = 0.17
+				party_popularity_stability_factor = 0.09
+				stability_factor = 0.12
+				stability_weekly = 0.01
+				research_speed_factor = 0.05
+			}
+
+			name = NFA_maurrasisme
+			#picture = 
+		}
+
+		NFA_localist_laws_2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_localist_laws_2"}
+
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.07
+				global_building_slots_factor = 0.25
+				political_power_cost = -0.08
+			}
+
+			name = NFA_localist_laws
+			#picture = 
+		}
+
+		NFA_traditionalist_culture_1 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_traditionalist_culture_1"}
+
+			modifier = {
+				war_support_factor = 0.04
+				conscription_factor = 0.08
+				encryption_factor = 0.09
+			}
+
+			name = NFA_traditionalist_culture
+			#picture = 
+		}
+
+		NFA_localist_laws_3 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_localist_laws_3"}
+
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.10
+				global_building_slots_factor = 0.30
+				political_power_cost = -0.08
+				conscription_factor = 0.08
+			}
+
+			name = NFA_localist_laws
+			#picture = 
+		}
+
+		NFA_traditionalist_culture_2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_traditionalist_culture_2"}
+
+			modifier = {
+				war_support_factor = 0.09
+				conscription_factor = 0.12
+				encryption_factor = 0.18
+				monthly_population = 0.15
+			}
+
+			name = NFA_traditionalist_culture
+			#picture = 
+		}
+
+		NFA_liberty_under_the_king = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_liberty_under_the_king"}
+
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.10
+				global_building_slots_factor = 0.30
+				political_power_cost = -0.16
+				conscription_factor = 0.12
+				stability_factor = 0.06
+			}
+
+			name = NFA_liberty_under_the_king
+			#picture = 
+		}
+
+		NFA_cult_of_jeanne_darc = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_cult_of_jeanne_darc"}
+
+			modifier = {
+				war_support_factor = 0.16
+				conscription_factor = 0.16
+				encryption_factor = 0.18
+				monthly_population = 0.25
+
+			}
+
+			name = NFA_cult_of_jeanne_darc
+			#picture = 
+		}
+
+		NFA_maurrasisme_4 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_maurrasisme_4"}
+
+			modifier = {
+				political_power_factor = 0.22
+				party_popularity_stability_factor = 0.09
+				stability_factor = 0.16
+				stability_weekly = 0.015
+				research_speed_factor = 0.09
+			}
+
+			name = NFA_maurrasisme
+			#picture = 
+		}
+
+		NFA_mass_party_1 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_mass_party_1"}
+
+			modifier = {
+				stability_weekly = 0.0025
+				conscription_factor = 0.06
+				war_support_factor = 0.03
+				party_popularity_stability_factor = 0.08
+			}
+
+			name = NFA_mass_party_1
+			#picture = 
+		}
+
+		NFA_business_alliance = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_business_alliance"}
+
+			modifier = {
+				production_factory_max_efficiency_factor = 0.06
+				production_speed_buildings_factor = 0.02
+				consumer_goods_factor = -0.03
+	            industrial_capacity_factory = 0.02
+			}
+
+			name = NFA_business_alliance
+			#picture = 
+		}
+
+		NFA_class_cooperation = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_class_cooperation"}
+
+			modifier = {
+				production_factory_max_efficiency_factor = 0.09
+				production_speed_buildings_factor = 0.04
+				consumer_goods_factor = -0.05
+	            industrial_capacity_factory = 0.07
+			}
+
+			name = NFA_class_cooperation
+			#picture = 
+		}
+
+		NFA_class_cooperation2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_class_cooperation2"}
+
+			modifier = {
+				production_factory_max_efficiency_factor = 0.12
+				production_speed_buildings_factor = 0.04
+				consumer_goods_factor = -0.05
+	            industrial_capacity_factory = 0.07
+				stability_factor = 0.07
+				political_power_factor = 0.04
+				research_speed_factor = 0.03
+			}
+
+			name = NFA_class_cooperation
+			#picture = 
+		}
+
+		NFA_dispos = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_dispos"}
+
+			modifier = {
+				weekly_manpower = 50
+				command_power_gain_mult = 0.07
+				resistance_decay = 0.10
+				decryption_factor = 0.06
+				encryption_factor = 0.06
+			}
+
+			name = NFA_dispos
+			#picture = 
+		}
+
+		NFA_mass_party_2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_mass_party_2"}
+
+			modifier = {
+				stability_weekly = 0.005
+				conscription_factor = 0.09
+				war_support_factor = 0.08
+				party_popularity_stability_factor = 0.12
+				max_command_power_mult = 0.15
+                political_power_factor = 0.08
+			}
+
+			name = NFA_mass_party_1
+			#picture = 
+		}
+		
+        NFA_mass_party_3 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_mass_party_3"}
+
+			modifier = {
+				stability_weekly = 0.005
+				conscription_factor = 0.12
+				war_support_factor = 0.08
+				party_popularity_stability_factor = 0.16
+				max_command_power_mult = 0.18
+                political_power_factor = 0.14
+				stability_factor = 0.06
+			}
+
+			name = NFA_mass_party_1
+			#picture = 
+		}
+
+		NFA_french_corporatism = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_french_corporatism"}
+
+			modifier = {
+				production_factory_max_efficiency_factor = 0.14
+				production_speed_buildings_factor = 0.06
+				consumer_goods_factor = -0.09
+	            industrial_capacity_factory = 0.12
+				stability_factor = 0.10
+				political_power_factor = 0.04
+				research_speed_factor = 0.07
+			}
+
+			name = NFA_french_corporatism
+			#picture = 
+		}
+
+		NFA_strengthened_assembly = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_strengthened_assembly"}
+
+			modifier = {
+				production_factory_max_efficiency_factor = 0.02
+				political_power_factor = 0.06
+				stability_weekly = 0.004
+				party_popularity_stability_factor = 0.05
+			}
+
+			name = NFA_strengthened_assembly
+			#picture = 
+		}
+
+		NFA_strengthened_assembly2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_strengthened_assembly2"}
+
+			modifier = {
+				production_factory_max_efficiency_factor = 0.02
+				political_power_factor = 0.09
+				stability_weekly = 0.006
+				party_popularity_stability_factor = 0.09
+				max_command_power_mult = 0.08
+                surrender_limit = 0.05
+			}
+
+			name = NFA_strengthened_assembly
+			#picture = 
+		}
+
+		NFA_republican_ideal = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_republican_ideal"}
+
+			modifier = {
+				war_support_factor = 0.04
+				conscription_factor = 0.06
+				weekly_manpower = 15
+			}
+
+			name = NFA_republican_ideal
+			#picture = 
+		}
+
+		NFA_strengthened_assembly3 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_strengthened_assembly3"}
+
+			modifier = {
+				production_factory_max_efficiency_factor = 0.03
+				political_power_factor = 0.12
+				stability_weekly = 0.006
+				party_popularity_stability_factor = 0.14
+				max_command_power_mult = 0.10
+                surrender_limit = 0.05
+				stability_factor = 0.04
+			}
+
+			name = NFA_strengthened_assembly
+			#picture = 
+		}
+
+		NFA_strengthened_assembly4 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_strengthened_assembly4"}
+
+			modifier = {
+				production_factory_max_efficiency_factor = 0.03
+				political_power_factor = 0.16
+				stability_weekly = 0.009
+				party_popularity_stability_factor = 0.14
+				max_command_power_mult = 0.15
+                surrender_limit = 0.08
+				stability_factor = 0.06
+			}
+
+			name = NFA_strengthened_assembly
+			#picture = 
+		}
+
+		NFA_reynaud_economy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_reynaud_economy"}
+
+			modifier = {
+				production_factory_efficiency_gain_factor = -0.02
+				production_factory_max_efficiency_factor = 0.03
+				consumer_goods_factor = -0.01
+				stability_factor = -0.03
+				production_factory_start_efficiency_factor = 0.03
+			}
+
+			name = NFA_reynaud_economy
+			#picture = 
+		}
+
+		NFA_reynaud_economy2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_reynaud_economy2"}
+
+			modifier = {
+				production_factory_efficiency_gain_factor = -0.04
+				production_factory_max_efficiency_factor = 0.05
+				consumer_goods_factor = -0.04
+				stability_factor = -0.05
+				production_factory_start_efficiency_factor = 0.06
+			}
+
+			name = NFA_reynaud_economy
+			#picture = 
+		}
+
+		NFA_chautemps_economy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_chautemps_economy"}
+
+			modifier = {
+				industrial_capacity_factory = 0.03
+				production_speed_buildings_factor = 0.03
+				consumer_goods_factor = 0.02
+				political_power_factor = -0.04
+				production_factory_efficiency_gain_factor = 0.01
+			}
+
+			name = NFA_chautemps_economy
+			#picture = 
+		}
+
+		NFA_chautemps_economy2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_chautemps_economy2"}
+
+			modifier = {
+				industrial_capacity_factory = 0.05
+				production_speed_buildings_factor = 0.06
+				consumer_goods_factor = 0.04
+				political_power_factor = -0.08
+				production_factory_efficiency_gain_factor = 0.03
+			}
+
+			name = NFA_chautemps_economy
+			#picture = 
+		}
+
+		NFA_republican_ideal2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_republican_ideal2"}
+
+			modifier = {
+				war_support_factor = 0.09
+				conscription_factor = 0.10
+				weekly_manpower = 25
+				compliance_gain = 0.06
+                research_speed_factor = 0.04
+			}
+
+			name = NFA_republican_ideal
+			#picture = 
+		}
+
+		NFA_united_govt = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea NFA_united_govt"}
+
+			modifier = {
+				war_support_factor = 0.14
+				conscription_factor = 0.10
+				weekly_manpower = 40
+				compliance_gain = 0.1
+                research_speed_factor = 0.08
+			}
+
+			name = NFA_united_govt
+			#picture = 
+		}
+
 
 	##############
 	# Companies

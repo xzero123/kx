@@ -432,6 +432,10 @@ focus_tree = {
 			owns_state = 553
 		}
 
+		bypass = {
+			NOT = { owns_state = 553 }
+		}
+
 		prerequisite = {
 			focus = SYR_sunni_dominance
 		}
@@ -3192,7 +3196,7 @@ focus_tree = {
 		icon = GFX_goal_generic_sea_focused_navy
 
 		available = {
-			controls_state = 553
+			553 = { is_owned_and_controlled_by = ROOT }
 		}
 
 		prerequisite = {
@@ -3746,7 +3750,7 @@ focus_tree = {
 					limit = {
 						TRU = {
 							has_dynamic_modifier = {
-								modifier = IRQ_League_of_Arab_States_dynamic_modifier
+								modifier = SYR_League_of_Arab_States_dynamic_modifier
 								scope = SYR
 							}
 						}

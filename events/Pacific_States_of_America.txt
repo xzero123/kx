@@ -682,6 +682,22 @@ country_event = { # 1937 Election
 						rule = CAL_political
 						option = CAL_POLITICAL_PATH_JAPAN
 					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_AISO
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_DISNEY
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_HUGHES
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_NORTON
+					}
 				}
 			}
 		}
@@ -753,6 +769,22 @@ country_event = { # 1937 Election
 					has_game_rule = {
 						rule = CAL_political
 						option = CAL_POLITICAL_PATH_JAPAN
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_AISO
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_DISNEY
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_HUGHES
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_NORTON
 					}
 				}
 			}
@@ -857,6 +889,22 @@ country_event = { # 1937 Election
 					has_game_rule = {
 						rule = CAL_political
 						option = CAL_POLITICAL_PATH_JAPAN
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_AISO
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_DISNEY
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_HUGHES
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_NORTON
 					}
 				}
 			}
@@ -989,6 +1037,22 @@ country_event = { # 1937 Election
 						rule = CAL_political
 						option = CAL_POLITICAL_PATH_JAPAN
 					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_AISO
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_DISNEY
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_HUGHES
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_NORTON
+					}
 				}
 			}
 		}
@@ -1093,6 +1157,22 @@ country_event = { # 1937 Election
 						rule = CAL_political
 						option = CAL_POLITICAL_PATH_JAPAN
 					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_AISO
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_DISNEY
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_HUGHES
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_NORTON
+					}
 				}
 			}
 		}
@@ -1165,6 +1245,22 @@ country_event = { # 1937 Election
 						rule = CAL_political
 						option = CAL_POLITICAL_PATH_REPUBLICAN
 					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_AISO
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_DISNEY
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_HUGHES
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_NORTON
+					}
 				}
 			}
 		}
@@ -1198,23 +1294,39 @@ country_event = { # 1937 Election
 		ai_chance = {
 			factor = 12
 			modifier = {
-				factor = 100
+				factor = 0
 				OR = {
 					has_game_rule = {
 						rule = CAL_political
-						option = CAL_POLITICAL_PATH_AISO
+						option = CAL_POLITICAL_PATH_COMMONWEALTH
 					}
 					has_game_rule = {
 						rule = CAL_political
-						option = CAL_POLITICAL_PATH_DISNEY
+						option = CAL_POLITICAL_PATH_REPUBLICAN
 					}
 					has_game_rule = {
 						rule = CAL_political
-						option = CAL_POLITICAL_PATH_HUGHES
+						option = CAL_POLITICAL_PATH_PROGRESSIVE
+					}					
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_DEMREP
 					}
 					has_game_rule = {
 						rule = CAL_political
-						option = CAL_POLITICAL_PATH_NORTON
+						option = CAL_POLITICAL_PATH_DEMOCRAT
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_HEARST
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_BODIN
+					}
+					has_game_rule = {
+						rule = CAL_political
+						option = CAL_POLITICAL_PATH_JAPAN
 					}
 				}
 			}
@@ -1253,8 +1365,6 @@ country_event = { # 1937 Election
 				long_name = "Military Government"
 				name = "Military Government"
 			}
-			set_country_flag = CAL_not_participating_in_acw
-			set_global_flag = CAL_not_participating_in_acw
 			clr_country_flag = choice_made
 		}
 	}
@@ -1776,10 +1886,16 @@ country_event = { # 1940 Progressive Primary
 	trigger = {
 		has_country_flag = PSA_Progs_Win
 		tag = CAL
-		has_elected_government = yes		
+		has_elected_government = yes	
+		date > 1940.1.1
+		date < 1945.1.1	
 		NOT = {
 			has_country_flag = PSA_had_1940_election
 		}
+	}
+	
+	mean_time_to_happen = {
+	days = 1
 	}
 
 	fire_only_once = yes
@@ -1850,7 +1966,8 @@ country_event = { # 1940 Democratic-Republican Primary
 		tag = CAL
 		has_country_flag = PSA_Libs_Win
 		has_elected_government = yes
-		has_country_flag = PSA_had_1940_election
+		date > 1940.1.1
+		date < 1945.1.1
 		NOT = {
 			has_country_flag = PSA_had_1940_election
 		}
@@ -1924,7 +2041,8 @@ country_event = { # 1940 Republican Primary
 		tag = CAL
 		has_country_flag = PSA_MarkLibs_Win
 		has_elected_government = yes
-		has_country_flag = PSA_had_1940_election
+		date > 1940.1.1
+		date < 1945.1.1
 		NOT = {
 			has_country_flag = PSA_had_1940_election
 		}
@@ -2005,7 +2123,8 @@ country_event = { # 1940 Democrat Primary
 			}
 		}
 		tag = CAL
-		has_elected_government = yes
+		date > 1940.1.1
+		date < 1945.1.1
 		has_country_flag = PSA_had_1940_election
 		NOT = {
 			has_country_flag = PSA_had_1940_election
@@ -2056,6 +2175,7 @@ country_event = { # 1940 Democrat Primary
 	set_country_flag = Dem_survive
 	}
 	
+	
 	trigger = {
 		has_country_flag = PSA_Conservatives_Win
 		NOT = {
@@ -2068,7 +2188,8 @@ country_event = { # 1940 Democrat Primary
 		}
 		tag = CAL
 		has_elected_government = yes
-		has_country_flag = PSA_had_1940_election
+		date > 1940.1.1
+		date < 1945.1.1
 		NOT = {
 			has_country_flag = PSA_had_1940_election
 		}
@@ -2133,7 +2254,6 @@ country_event = { # 1940 election
 	trigger = {
 		tag = CAL
 		has_democratic_government = yes
-		has_country_flag = PSA_had_1940_election
 		NOT = {
 			has_country_flag = PSA_had_1940_election
 		}
@@ -4734,7 +4854,7 @@ country_event = { # Trial of the Weapons companies
 	}
 
 	mean_time_to_happen = {
-		months = 2
+		months = 6
 	}
 
 	immediate = {
@@ -5528,6 +5648,105 @@ country_event = { # Reich's Failed Explosion.
 	}
 }
 
+country_event = { # Wartime baseball
+	id = pacificstates.115
+	immediate = {log = "[GetDateText]: [Root.GetName]: event pacificstates.114"}
+	title = pacificstates.115.t
+	desc = pacificstates.115.d
+	picture = GFX_report_event_USA_world_series_36
+
+	is_triggered_only = yes
+
+	option = { # Flavor
+		name = pacificstates.115.a
+		add_political_power = 5
+		add_stability = 0.01
+		add_war_support = 0.01
+	}
+}
+
+country_event = { # Postwar baseball- Major League teams moving west
+	id = pacificstates.116
+	immediate = {log = "[GetDateText]: [Root.GetName]: event pacificstates.114"}
+	title = pacificstates.116.t
+	desc = pacificstates.116.d
+	picture = GFX_report_event_USA_world_series_36
+
+	is_triggered_only = yes
+
+	option = { # Flavor
+		name = pacificstates.116.a
+		hidden_effect = {
+			country_event = {
+				id = pacificstates.117
+				days = 162
+			}
+		}
+	}
+}
+
+country_event = { # First Postwar World Series
+	id = pacificstates.117
+	immediate = {log = "[GetDateText]: [Root.GetName]: event pacificstates.114"}
+	title = pacificstates.117.t
+	desc = pacificstates.117.d
+	picture = GFX_report_event_USA_world_series_36
+
+	is_triggered_only = yes
+
+	option = { # Flavor
+		name = pacificstates.117.a
+		hidden_effect = {
+			random_list = {
+				50 = {
+					country_event = {
+						id = pacificstates.118
+						days = 7
+					}
+				}
+				50 = {
+					country_event = {
+						id = pacificstates.119
+						days = 7
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { # Dodgers win!
+	id = pacificstates.118
+	immediate = {log = "[GetDateText]: [Root.GetName]: event pacificstates.114"}
+	title = pacificstates.118.t
+	desc = pacificstates.118.d
+	picture = GFX_report_event_USA_world_series_36
+
+	is_triggered_only = yes
+
+	option = { # Flavor
+		name = pacificstates.118.a
+		add_political_power = 5
+		add_stability = 0.01
+	}
+}
+
+country_event = { # Yankees win!
+	id = pacificstates.119
+	immediate = {log = "[GetDateText]: [Root.GetName]: event pacificstates.114"}
+	title = pacificstates.119.t
+	desc = pacificstates.119.d
+	picture = GFX_report_event_USA_world_series_36
+
+	is_triggered_only = yes
+
+	option = { # Flavor
+		name = pacificstates.119.a
+		add_political_power = 5
+		add_stability = 0.01
+	}
+}
+
 ### Initial Events
 country_event = {
 	id = pacificstates.150
@@ -5601,6 +5820,7 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			country_event = { id = pacificstates.205 days = 5 }
+			country_event = { id = pacificstates.115 days = 100 }
 		}
 	}
 
@@ -5699,9 +5919,41 @@ country_event = {# Rethinking our Tank Production
 
 	option = {# Let's focus on more reliable models
 		name = pacificstates.203.a
+		if = {
+		limit = {
+		has_idea = CAL_Marshall_plan_idea_4
+		}
 		swap_ideas = {
 			remove_idea = CAL_Marshall_plan_idea_4
 			add_idea = CAL_Marshall_plan_idea_5
+			}
+		}
+		else_if = {
+		limit = {
+		has_idea = CAL_Marshall_plan_idea_4_left
+		}
+		swap_ideas = {
+			remove_idea = CAL_Marshall_plan_idea_4_left
+			add_idea = CAL_Marshall_plan_idea_5
+			}
+		}
+		else_if = {
+		limit = {
+		has_idea = CAL_Marshall_plan_idea_4_right
+		}
+		swap_ideas = {
+			remove_idea = CAL_Marshall_plan_idea_4_right
+			add_idea = CAL_Marshall_plan_idea_5
+			}
+		}
+		else_if = {
+		limit = {
+		has_idea = CAL_Marshall_plan_idea_4_both
+		}
+		swap_ideas = {
+			remove_idea = CAL_Marshall_plan_idea_4_both
+			add_idea = CAL_Marshall_plan_idea_5
+			}
 		}
 	}
 	option = {# I like it how it is
@@ -5793,7 +6045,7 @@ country_event = {# Hearst Runs
 	picture = GFX_hearst_event
 
 	is_triggered_only = yes
-
+	fire_only_once = yes
 
 	option = {# Heartism
 		name = pacificstates.207.a
@@ -9728,6 +9980,16 @@ country_event = {# Party Beliefs
 	
 	option = {# Hubbard's Advice
 		name = pacificstates.356.a
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = CAL_political
+					option = CAL_POLITICAL_PATH_JAPAN
+				}
+			}
+		}
 		set_country_flag = CAL_followed_hubbard
 		add_political_power = -40
 		add_popularity = { ideology = national_populist popularity = -0.01 }
@@ -9735,6 +9997,16 @@ country_event = {# Party Beliefs
 	}
 	option = {# No, this is enough
 		name = pacificstates.356.b
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = CAL_political
+					option = CAL_POLITICAL_PATH_BODIN
+				}
+			}
+		}
 		set_country_flag = CAL_hubbard_too_much
 		add_popularity = { ideology = national_populist popularity = 0.05 }
 		add_stability = -0.1
@@ -10294,6 +10566,8 @@ country_event = { # The Provisional Government
 						is_core_of = USA
 						is_core_of = TEX
 						is_core_of = CSA
+						is_core_of = COR
+						is_core_of = WCC
 						is_claimed_by = CAL 
 					}
 				}
@@ -10917,7 +11191,7 @@ country_event = { # The Provisional Government
 				name = "Royal Party"
 			}
 			set_party_name = {
-				ideology = authoritarian_democrat
+				ideology = paternal_autocrat
 				long_name = "Royal Party (Absolutist)"
 				name = "Royal Party"
 			}
@@ -10926,6 +11200,10 @@ country_event = { # The Provisional Government
 
 	option = { # Hiram Johnson
 		name = KX_california.14.a
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.20
+		}
 		hidden_effect = {
 			add_ideas = {
 				CAL_Hiram_Johnson_hog_sde
@@ -10943,6 +11221,10 @@ country_event = { # The Provisional Government
 	}
 	option = { # John Arthur Gellatly
 		name = KX_california.14.b
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.20
+		}
 		hidden_effect = {
 			add_ideas = {
 				CAL_John_Arthur_Gellatly_hog_mli
@@ -10960,6 +11242,10 @@ country_event = { # The Provisional Government
 	}
 	option = { # Frank Merriam
 		name = KX_california.14.c
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.20
+		}
 		hidden_effect = {
 			add_ideas = {
 				CAL_Frank_Merriam_hog_mli
@@ -11546,38 +11832,46 @@ country_event = {
 		}
 	}
 }
-country_event = {
-	id = KX_california.3000
+##country_event = {
+	##id = KX_california.3000
 	
-	title = KX_california.33.t
-	desc = KX_california.33.d
-	immediate = { 
-		log = "[GetDateText]: [Root.GetName]: event KX_california.32" 
-		white_peace = {
-			tag = TEX
-			message = "The Pacific States have renounced their claims to America...for now"
-		}
-		white_peace = {
-			tag = USA
-			message = "The Pacific States have renounced their claims to America...for now"
-		}
-		white_peace = {
-			tag = CSA
-			message = "The Pacific States have renounced their claims to America...for now"
-		}
-		white_peace = {
-			tag = COR
-			message = "The Pacific States have renounced their claims to America...for now"
-		}
-	}
-	trigger = {
-		tag = CAL
-		has_country_flag = CAL_not_participating_in_acw
-		has_war = yes
-	}
-	
-	fire_only_once = yes
-	
-	hidden = yes
-
-}
+##	title = KX_california.33.t
+##	desc = KX_california.33.d
+##	immediate = { 
+##		log = "[GetDateText]: [Root.GetName]: event KX_california.3000" 
+##		CAL = {
+##		white_peace = {
+##			tag = TEX
+##			message = "The Pacific States have renounced their claims to America...for now"
+##		}
+##		white_peace = {
+##			tag = USA
+##			message = "The Pacific States have renounced their claims to America...for now"
+##		}
+##		white_peace = {
+##			tag = WCC
+##			message = "The Pacific States have renounced their claims to America...for now"
+##		}
+##		white_peace = {
+##			tag = CSA
+##			message = "The Pacific States have renounced their claims to America...for now"
+##		}
+##		white_peace = {
+##			tag = COR
+##			message = "The Pacific States have renounced their claims to America...for now"
+##		}
+##		}
+##	}
+##	#trigger = {
+##	#	tag = CAL
+##	#	has_country_flag = CAL_not_participating_in_acw
+##	#	has_war = yes
+##	#}
+##	
+##	is_triggered_only = yes
+##	
+##	fire_only_once = yes
+##	
+##	hidden = yes
+##
+##}

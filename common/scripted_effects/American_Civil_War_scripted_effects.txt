@@ -1140,7 +1140,6 @@ USA_release_WCC = {
 			add_state_core = 380
 			add_state_core = 382
 			add_state_core = 387
-			add_state_core = 834
 			add_state_core = 1096
 			add_state_core = 1157
 			add_state_core = 1174
@@ -1261,7 +1260,7 @@ USA_release_WCC = {
 
 		every_state = {
 			limit = {
-				is_core_of = PSA
+				is_core_of = CAL
 				NOT = { is_core_of = WCC }
 				NOT = { is_claimed_by = WCC }
 			}
@@ -1786,7 +1785,6 @@ USA_civil_war_begins = {
 			limit = { country_exists = CAL 	}
 			CAL = { declare_war_on = { target = USA type = annex_everything	} }
 			CAL = { declare_war_on = { target = WCC type = annex_everything	} }
-			CAL = { declare_war_on = { target = COR type = annex_everything	} }
 		}
 		if = {
 			limit = { country_exists = COR 	
@@ -2351,6 +2349,30 @@ USA_demobilize_forces = {
 			limit = { has_template = "Army-National Guard Division" }
 			delete_unit_template_and_units = { division_template = "Army-National Guard Division" }
 		}
+		if = {
+			limit = { has_template = "Loyalist Cavalry Guard" }
+			delete_unit_template_and_units = { division_template = "Loyalist Cavalry Guard" }
+		}
+		if = {
+			limit = { has_template = "Loyalist Militia" }
+			delete_unit_template_and_units = { division_template = "Loyalist Militia" }
+		}
+		if = {
+			limit = { has_template = "Mounted Loyalists" }
+			delete_unit_template_and_units = { division_template = "Mounted Loyalists" }
+		}
+		if = {
+			limit = { has_template = "Loyalist Motorized Guard" }
+			delete_unit_template_and_units = { division_template = "Loyalist Motorized Guard" }
+		}
+		if = {
+			limit = { has_template = "Loyalist Garrison" }
+			delete_unit_template_and_units = { division_template = "Loyalist Garrison" }
+		}
+		if = {
+			limit = { has_template = "Irish Volunteers" }
+			delete_unit_template_and_units = { division_template = "Irish Volunteers" disband = yes }
+		}
 	}
 	USA = {
 		if = {
@@ -2368,6 +2390,10 @@ USA_demobilize_forces = {
 		if = {
 			limit = { has_template = "Loyalist Motorized Guard" }
 			delete_unit_template_and_units = { division_template = "Loyalist Motorized Guard" }
+		}
+		if = {
+			limit = { has_template = "Loyalist Garrison" }
+			delete_unit_template_and_units = { division_template = "Loyalist Garrison" }
 		}
 		if = {
 			limit = { has_template = "Irish Volunteers" }
@@ -2602,6 +2628,10 @@ TEX_increase_recovery = {
 			add_idea = TEX_national_recovery_idea6
 		}
 	}
+	else_if = {
+		limit = { has_idea = TEX_national_recovery_idea6 }
+			remove_ideas = TEX_national_recovery_idea6
+	}
 }
 
 TEX_increase_political_recovery = {
@@ -2639,6 +2669,10 @@ TEX_increase_political_recovery = {
 			remove_idea = TEX_political_instability_5
 			add_idea = TEX_political_instability_6
 		}
+	}
+	else_if = {
+		limit = { has_idea = TEX_political_instability_6 }
+			remove_ideas = TEX_political_instability_6
 	}
 }
 

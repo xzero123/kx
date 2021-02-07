@@ -6,6 +6,8 @@
 
 add_namespace = nfa
 
+add_namespace = natfra
+
 ##########
 # Return to the Mainland
 ##########
@@ -81,6 +83,13 @@ country_event = { #The Situation of the French Republic - Growing Concerns
 
 	option = {
 		name = nfa.3.a #Growing Concerns
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = natfra.50 days = 10
+				}
+			}
+		}
 	}
 }
 
@@ -135,10 +144,10 @@ country_event = { #The Lion in Canada
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.6 days = 14
+					id = natfra.6 days = 14
 				}
 				country_event = {
-					id = nfa.10 days = 28
+					id = natfra.10 days = 28
 				}
 			}
 		}
@@ -146,10 +155,10 @@ country_event = { #The Lion in Canada
 }
 
 country_event = { #Murder in the Casbah
-	id = nfa.6
-	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.6"}
-	title = nfa.6.t
-	desc = nfa.6.d
+	id = natfra.6
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.6"}
+	title = natfra.6.t
+	desc = natfra.6.d
 	picture = GFX_report_event_NFA_event_ArmyReview
 
 	fire_only_once = yes
@@ -157,22 +166,22 @@ country_event = { #Murder in the Casbah
 	is_triggered_only = yes
 
 	option = {
-		name = nfa.6.a #Investigate the natives
+		name = natfra.6.a #Investigate the natives
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.7 days = 14
+					id = natfra.7 days = 14
 				}
 			}
 		}
 	}
 	
 	option = {
-		name = nfa.6.b #Dig deeper
+		name = natfra.6.b #Dig deeper
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.8 days = 21
+					id = natfra.8 days = 21
 				}
 			}
 		}
@@ -180,10 +189,10 @@ country_event = { #Murder in the Casbah
 }
 
 country_event = { #ENA Cell Rounded Up
-	id = nfa.7
-	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.7"}
-	title = nfa.7.t
-	desc = nfa.7.d
+	id = natfra.7
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.7"}
+	title = natfra.7.t
+	desc = natfra.7.d
 	picture = GFX_report_event_NFA_event_NFA_riots
 
 	fire_only_once = yes
@@ -191,7 +200,7 @@ country_event = { #ENA Cell Rounded Up
 	is_triggered_only = yes
 
 	option = {
-		name = nfa.7.a #order a new crackdown
+		name = natfra.7.a #order a new crackdown
 			every_owned_state = {
 			limit = {
 				NOT = {	is_core_of = NFA }
@@ -204,10 +213,10 @@ country_event = { #ENA Cell Rounded Up
 }
 
 country_event = { #white murderers arrested
-	id = nfa.8
-	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.8"}
-	title = nfa.8.t
-	desc = nfa.8.d
+	id = natfra.8
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.8"}
+	title = natfra.8.t
+	desc = natfra.8.d
 	picture = GFX_report_event_NFA_event_NFA_riots
 
 	fire_only_once = yes
@@ -215,11 +224,11 @@ country_event = { #white murderers arrested
 	is_triggered_only = yes
 
 	option = {
-		name = nfa.8.a #make them talk
+		name = natfra.8.a #make them talk
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.9 days = 14
+					id = natfra.9 days = 14
 				}
 			}
 		}	                
@@ -227,10 +236,10 @@ country_event = { #white murderers arrested
 }
 
 country_event = { #la cagoule exposed
-	id = nfa.9
-	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.9"}
-	title = nfa.9.t
-	desc = nfa.9.d
+	id = natfra.9
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.9"}
+	title = natfra.9.t
+	desc = natfra.9.d
 	picture = GFX_report_event_NFA_event_Deloncle
 
 	fire_only_once = yes
@@ -238,7 +247,7 @@ country_event = { #la cagoule exposed
 	is_triggered_only = yes
 
 	option = {
-		name = nfa.9.a #fuck off darnand
+		name = natfra.9.a #fuck off darnand
 		add_stability = -0.03
         add_political_power = 10
         add_popularity = {
@@ -250,10 +259,10 @@ country_event = { #la cagoule exposed
 }
 
 country_event = { #janin wants to bribe deputies
-	id = nfa.10
-	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.10"}
-	title = nfa.10.t
-	desc = nfa.10.d
+	id = natfra.10
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.10"}
+	title = natfra.10.t
+	desc = natfra.10.d
 	picture = GFX_report_event_NFA_event_NFA_Assembly
 
 	fire_only_once = yes
@@ -261,11 +270,11 @@ country_event = { #janin wants to bribe deputies
 	is_triggered_only = yes
 
 	option = {
-		name = nfa.10.a #go on then what could go wrong
+		name = natfra.10.a #go on then what could go wrong
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.11 days = 7
+					id = natfra.11 days = 7
 				}
 			}
 		}
@@ -273,10 +282,10 @@ country_event = { #janin wants to bribe deputies
 }
 
 country_event = { #janin gets exposed
-	id = nfa.11
-	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.11"}
-	title = nfa.11.t
-	desc = nfa.11.d
+	id = natfra.11
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.11"}
+	title = natfra.11.t
+	desc = natfra.11.d
 	picture = GFX_report_event_NFA_event_NFA_riots
 
 	fire_only_once = yes
@@ -284,11 +293,11 @@ country_event = { #janin gets exposed
 	is_triggered_only = yes
 
 	option = {
-		name = nfa.11.a #feck
+		name = natfra.11.a #feck
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.12 days = 2
+					id = natfra.12 days = 2
 				}
 			}
 		}
@@ -303,10 +312,10 @@ country_event = { #janin gets exposed
 }
 
 country_event = { #janin resigns
-	id = nfa.12
-	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.12"}
-	title = nfa.12.t
-	desc = nfa.12.d
+	id = natfra.12
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.12"}
+	title = natfra.12.t
+	desc = natfra.12.d
 	picture = GFX_report_event_NFA_event_NFA_Assembly
 
 	fire_only_once = yes
@@ -314,11 +323,11 @@ country_event = { #janin resigns
 	is_triggered_only = yes
 
 	option = {
-		name = nfa.12.a 
+		name = natfra.12.a 
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.13 days = 4
+					id = natfra.13 days = 4
 				}
 			}
 		}
@@ -332,10 +341,10 @@ country_event = { #janin resigns
 }
 
 country_event = { #tf you gonna do now phil?
-	id = nfa.13
-	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.13"}
-	title = nfa.13.t
-	desc = nfa.13.d
+	id = natfra.13
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.13"}
+	title = natfra.13.t
+	desc = natfra.13.d
 	picture = GFX_report_event_NFA_event_Petain1
 
 	fire_only_once = yes
@@ -343,11 +352,11 @@ country_event = { #tf you gonna do now phil?
 	is_triggered_only = yes
 
 	option = { #de la rocque
-		name = nfa.13.a 
+		name = natfra.13.a 
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.14 days = 4
+					id = natfra.14 days = 7
 				}
 			}
 		}
@@ -355,14 +364,15 @@ country_event = { #tf you gonna do now phil?
 			ideology = paternal_autocrat
 			popularity = 0.04
 		}
+		add_stability = 0.03
 	}
 	
 	option = { #libs
-		name = nfa.13.b
+		name = natfra.13.b
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.17 days = 4
+					id = natfra.17 days = 7
 				}
 			}
 		}
@@ -378,14 +388,15 @@ country_event = { #tf you gonna do now phil?
 			ideology = authoritarian_democrat
 			popularity = 0.02
 		}
+		add_stability = 0.03
 	}
 	
 	option = { #martial law
-		name = nfa.13.c
+		name = natfra.13.c
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.16 days = 4
+					id = natfra.16 days = 3
 				}
 			}
 		}
@@ -401,22 +412,24 @@ country_event = { #tf you gonna do now phil?
 }
 
 country_event = { #meeting de la rocque
-	id = nfa.14
-	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.14"}
-	title = nfa.14.t
-	desc = nfa.14.d
-	picture = GFX_report_event_NFA_event_NFA_Assembly
+	id = natfra.14
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.14"}
+	title = natfra.14.t
+	desc = natfra.14.d
+	picture = GFX_report_event_NFA_delaRocque_speech
 
 	fire_only_once = yes
 
 	is_triggered_only = yes
 
 	option = { #accept
-		name = nfa.14.a 
+		name = natfra.14.a 
+		add_political_power = 20
+		add_stability = 0.02
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.15 days = 7
+					id = natfra.15 days = 7
 				}
 			}
 		}
@@ -427,11 +440,12 @@ country_event = { #meeting de la rocque
 	}
 	
 	option = { #nah mate
-		name = nfa.14.b
+		name = natfra.14.b
+		add_stability = -0.03
 		hidden_effect = {
-			NFA = {
+			natfra = {
 				country_event = {
-					id = nfa.16 days = 4
+					id = natfra.19 days = 7
 				}
 			}
 		}
@@ -443,18 +457,19 @@ country_event = { #meeting de la rocque
 }
 
 country_event = { #the de la rocque cabinet
-	id = nfa.15
-	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.15"}
-	title = nfa.15.t
-	desc = nfa.15.d
-	picture = GFX_report_event_NFA_event_NFA_Assembly
+	id = natfra.15
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.15"}
+	title = natfra.15.t
+	desc = natfra.15.d
+	picture = GFX_report_event_NFA_Delarocque
 
 	fire_only_once = yes
 
 	is_triggered_only = yes
 
 	option = { 
-		name = nfa.15.a 
+		name = natfra.15.a 
+		add_stability = 0.12
 		add_popularity = {
 			ideology = paternal_autocrat
 			popularity = 0.03
@@ -468,22 +483,40 @@ country_event = { #the de la rocque cabinet
 			NFA_Francois_Coty_eco_pau
 			NFA_Charles_Vallin_sec_pau
 		}
+		hidden_effect = {
+			retire_ideology_leader = paternal_autocrat
+			create_country_leader = {
+	            name = "Philippe Pétain"
+	            desc = "POLITICS_PHILIPPE_PETAIN_DESC"
+               	picture = "Portrait_NFA_Philippe_Petain.tga"
+             	expire = "1965.1.1"
+             	ideology = paternal_autocrat_subtype
+            	traits = {
+		            NFA_Lion_of_Verdun
+				}
+            }       
+		}
+		swap_ideas = {
+			remove_idea = NFA_protests_1
+			add_idea = NFA_protests_2
+		}
+		remove_ideas = NFA_internal_unrest
 	}
 }
 
 country_event = { #martial law
-	id = nfa.16
-	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.16"}
-	title = nfa.16.t
-	desc = nfa.16.d
-	picture = GFX_report_event_NFA_event_NFA_riots
+	id = natfra.16
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.16"}
+	title = natfra.16.t
+	desc = natfra.16.d
+	picture = GFX_report_event_NFA_event_NFAGenericArmy
 
 	fire_only_once = yes
 
 	is_triggered_only = yes
 
 	option = { 
-		name = nfa.16.a 
+		name = natfra.16.a 
 		add_popularity = {
 			ideology = paternal_autocrat
 			popularity = 0.04
@@ -492,17 +525,38 @@ country_event = { #martial law
 		complete_national_focus = NFA_troops_on_the_streets
 		remove_all_ministers = yes
 		add_ideas = {
-			NFA_Phillipe_Petain_hog_pau
+			NFA_Philippe_Petain_hog_pau
+			NFA_Charles_Huntzinger_for_pau
+			NFA_Marie_Eugene_Debeney_eco_ade
+			NFA_George_Lamirand_sec_pau
 		}
-		add_stability = -0.03
+		add_stability = 0.08
+		hidden_effect = {
+			retire_ideology_leader = paternal_autocrat
+			create_country_leader = {
+	            name = "Philippe Pétain"
+	            desc = "POLITICS_PHILIPPE_PETAIN_DESC"
+               	picture = "Portrait_NFA_Philippe_Petain.tga"
+             	expire = "1965.1.1"
+             	ideology = paternal_autocrat_subtype
+            	traits = {
+		            NFA_Lion_of_Verdun
+				}
+            }       
+		}
+		swap_ideas = {
+			remove_idea = NFA_protests_1
+			add_idea = NFA_protests_2
+		}
+		remove_ideas = NFA_internal_unrest
 	}
 }
 
 country_event = { #meeting marin
-	id = nfa.17
-	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.17"}
-	title = nfa.17.t
-	desc = nfa.17.d
+	id = natfra.17
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.17"}
+	title = natfra.17.t
+	desc = natfra.17.d
 	picture = GFX_report_event_NFA_event_NFA_Assembly
 
 	fire_only_once = yes
@@ -510,11 +564,13 @@ country_event = { #meeting marin
 	is_triggered_only = yes
 
 	option = { #accept
-		name = nfa.17.a 
+		name = natfra.17.a 
+		add_political_power = 20
+		add_stability = 0.02
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.18 days = 7
+					id = natfra.18 days = 7
 				}
 			}
 		}
@@ -529,11 +585,12 @@ country_event = { #meeting marin
 	}
 	
 	option = { #nah mate
-		name = nfa.17.b
+		name = natfra.17.b
+		add_stability = -0.03
 		hidden_effect = {
 			NFA = {
 				country_event = {
-					id = nfa.16 days = 4
+					id = natfra.19 days = 7
 				}
 			}
 		}
@@ -549,10 +606,10 @@ country_event = { #meeting marin
 }
 
 country_event = { #the marin cabinet
-	id = nfa.18
-	immediate = {log = "[GetDateText]: [Root.GetName]: event nfa.18"}
-	title = nfa.18.t
-	desc = nfa.18.d
+	id = natfra.18
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.18"}
+	title = natfra.18.t
+	desc = natfra.18.d
 	picture = GFX_report_event_NFA_event_NFA_Assembly
 
 	fire_only_once = yes
@@ -560,20 +617,4530 @@ country_event = { #the marin cabinet
 	is_triggered_only = yes
 
 	option = { 
-		name = nfa.18.a 
+		name = natfra.18.a 
 		add_popularity = {
-			ideology = paternal_autocrat
-			popularity = 0.03
+			ideology = social_conservative
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.02
+		}  
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.06
 		} 
+		add_stability = 0.12
 		set_country_flag = NFA_compromised_with_liberals
 		complete_national_focus = NFA_compromise_with_the_liberals
 		remove_all_ministers = yes
 		add_ideas = {
-			NFA_Francois_de_la_Rocque_hog_pau
-			NFA_Jean_Mermoz_for_pau
-			NFA_Francois_Coty_eco_pau
-			NFA_Charles_Vallin_sec_pau
+			NFA_Louis_Marin_hog_sco
+			NFA_George_Bonnet_for_sli
+			NFA_Paul_Reynaud_eco_mli
+			NFA_Albert_Sarraut_sec_sli
 		}
+		swap_ideas = {
+			remove_idea = NFA_protests_1
+			add_idea = NFA_protests_2
+		}
+		remove_ideas = NFA_internal_unrest
+	}
+}
+
+country_event = { #time running out 
+	id = natfra.19
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.19"}
+	title = natfra.19.t
+	desc = natfra.19.d
+	picture = GFX_report_event_NFA_event_NFA_PetainSpeech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #fuck it martial law gamer time
+		name = natfra.19.a 
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		} 
+		add_stability = -0.02
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = natfra.16 days = 3
+				}
+			}
+		}
+	}
+
+	option = { #look for new fwends
+		name = natfra.19.b
+		add_political_power = -15
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = natfra.20 days = 7
+				}
+			}
+		}
+	}
+}
+
+country_event = { #AF tries to repeal law of exile
+	id = natfra.20
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.20"}
+	title = natfra.20.t
+	desc = natfra.20.d
+	picture = GFX_report_event_NFA_event_AFFlavorMaurras
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #sure, we need to be fwends with maurras
+		name = natfra.20.a 
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.07
+		} 
+		add_stability = 0.06
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = natfra.21 days = 14
+				}
+			}
+		}
+	}
+
+	option = { #nah lad
+		name = natfra.20.b
+		add_political_power = -10
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.04
+		} 
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = NFA_la_cagoule_got_away }
+				NFA = {
+					country_event = {
+						id = natfra.26 days = 7
+					}
+				}
+			}
+			else_if = {
+				limit = { has_country_flag = NFA_la_cagoule_exposed }
+				NFA = {
+					country_event = {
+						id = natfra.16 days = 7
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Jean arrives in Algiers while Maurras uses media power and popular support to back up the junta
+	id = natfra.21
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.21"}
+	title = natfra.21.t
+	desc = natfra.21.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #yay
+		name = natfra.21.a 
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.04
+		} 
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.06
+		} 
+		swap_ideas = {
+			remove_idea = NFA_protests_1
+			add_idea = NFA_protests_2
+		}
+		add_stability = 0.04
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = natfra.22 days = 5
+				}
+			}
+		}
+	}
+}
+
+country_event = { #louis bonaparte also shows up, now the law of exile is gone
+	id = natfra.22
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.22"}
+	title = natfra.22.t
+	desc = natfra.22.d
+	picture = GFX_report_event_NFA_Napoleon_Banner
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #ignore him, we owe the orleanists our loyalty
+		name = natfra.22.a 
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.03
+		} 
+		add_political_power = 10
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = natfra.23 days = 5
+				}
+			}
+		}
+	}
+
+	option = { #we should be weary of maurras, tacitly endorse louis
+		name = natfra.22.b
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.03
+		} 
+		add_political_power = 10
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = natfra.24 days = 5
+				}
+			}
+		}
+	}
+}
+
+country_event = { #pétain commits to a restoration, AF secures influence
+	id = natfra.23
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.23"}
+	title = natfra.23.t
+	desc = natfra.23.d
+	picture = GFX_report_event_NFA_event_NFA_PetainSpeech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #yay stable
+		name = natfra.23.a 
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.06
+		} 
+		add_political_power = 20
+		add_stability = 0.04
+		set_country_flag = NFA_jean_will_be_restored
+		remove_all_ministers = yes
+		add_ideas = {
+			NFA_Philippe_Petain_hog_pau
+			NFA_Maurice_Pujo_for_npo
+			NFA_Marie_Eugene_Debeney_eco_ade
+			NFA_Charles_Maurras_naph_npo
+		}
+		remove_ideas = NFA_internal_unrest#
+		complete_national_focus = NFA_victory_for_af
+	}
+}
+
+country_event = { #AF gets angry because you stabbed them in the back for nappy
+	id = natfra.24
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.24"}
+	title = natfra.24.t
+	desc = natfra.24.d
+	picture = GFX_report_event_NFA_event_NFA_riots
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #dig in, support nappy
+		name = natfra.24.a 
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.08
+		} 
+		add_political_power = 10
+		add_stability = -0.03
+		add_ideas = {
+			NFA_Philippe_Petain_hog_pau
+		}
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = natfra.25 days = 35
+				}
+			}
+		}
+	}
+
+	option = { #back down and try to appease maurras
+		name = natfra.24.b 
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.03
+		} 
+		add_political_power = -20
+		add_stability = 0.04
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = NFA_la_cagoule_got_away }
+				NFA = {
+					country_event = {
+						id = natfra.26 days = 7
+					}
+				}
+			}
+			else_if = {
+				limit = { has_country_flag = NFA_la_cagoule_exposed }
+				NFA = {
+					country_event = {
+						id = natfra.23 days = 7
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #napoleonic restoration
+	id = natfra.25
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.25"}
+	title = natfra.25.t
+	desc = natfra.25.d
+	picture = GFX_report_event_NFA_Napoleon_Banner
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #yay stable
+		name = natfra.23.a 
+		add_stability = 0.09
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.08
+		} 
+		add_political_power = 20
+		set_country_flag = NFA_napoleonic_restoration
+		remove_all_ministers = yes
+		add_ideas = {
+			NFA_Philippe_Petain_hog_pau
+		}
+		hidden_effect = {
+            retire_country_leader = yes
+			NFA_setup_napoleon = yes
+		}
+		remove_ideas = NFA_internal_unrest
+	}
+}			
+
+country_event = { #Darnand wants to meet
+	id = natfra.26
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.26"}
+	title = natfra.26.t
+	desc = natfra.26.d
+	picture = GFX_report_event_NFA_darnand_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #sure, we need unity
+		name = natfra.26.a 
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.04
+		} 
+		add_political_power = 10
+		add_stability = 0.04
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = nfa.27 days = 7
+				}
+			}
+		}
+	}
+
+	option = { #nope
+		name = natfra.26.b 
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.03
+		} 
+		add_political_power = -5
+		add_stability = -0.02
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = natfra.16 days = 7
+				}
+			}
+		}
+	}
+}
+
+country_event = { #meeting gets bombed
+	id = natfra.27
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.27"}
+	title = natfra.27.t
+	desc = natfra.27.d
+	picture = GFX_report_event_NFA_event_Aftermath
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { 
+		name = natfra.27.a 
+		add_stability = -0.04
+		hidden_effect = {
+			NFA = {
+				country_event = {
+					id = natfra.28 days = 1
+				}
+			}
+		}
+	}
+}
+
+country_event = { #darnand seizes power
+	id = natfra.28
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.28"}
+	title = natfra.28.t
+	desc = natfra.28.d
+	picture = GFX_report_event_NFA_darnand_parade
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { 
+		name = natfra.28.a 
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.03
+		} 
+		add_stability = -0.02
+		set_country_flag = NFA_darnand_in_charge
+		remove_all_ministers = yes
+		add_ideas = {
+			NFA_Joseph_Darnand_hog_npo
+			NFA_Pierre_Gallet_for_npo
+			NFA_Pierre_Pucheu_eco_npo
+			NFA_Philippe_Henriot_sec_npo
+		}
+		hidden_effect = {
+			retire_ideology_leader = national_populist
+			create_country_leader = {
+	            name = "Philippe Pétain"
+	            desc = "POLITICS_PHILIPPE_PETAIN_DESC"
+               	picture = "Portrait_NFA_Philippe_Petain.tga"
+             	expire = "1965.1.1"
+             	ideology = national_populist_subtype
+            	traits = {
+		            NFA_Lion_of_Verdun
+				}
+            }       
+		}
+        set_politics = {
+			ruling_party = national_populist
+			elections_allowed = no
+		}
+		set_party_name = {
+			ideology = national_populist
+			long_name = NFA_national_populist_party_darnand_long
+			name = NFA_national_populist_party_darnand
+		}
+	}
+}
+
+country_event = { #de gaulle pm
+	id = natfra.29
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.29"}
+	title = natfra.29.t
+	desc = natfra.29.d
+	picture = GFX_report_event_NFA_de_gaulle
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { 
+		name = natfra.29.a 
+		add_stability = 0.03
+		add_political_power = 15
+		remove_ideas = NFA_Philippe_Petain_hog_pau
+		add_ideas = NFA_Charles_de_Gaulle_hog_pau
+	}
+}
+
+country_event = { #darlan pm
+	id = natfra.30
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.30"}
+	title = natfra.30.t
+	desc = natfra.30.d
+	picture = GFX_report_event_NFA_Petain_and_Darlan
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { 
+		name = natfra.30.a 
+		add_stability = 0.03
+		add_political_power = 15
+		remove_ideas = NFA_Philippe_Petain_hog_pau
+		add_ideas = NFA_Francois_Darlan_hog_pau
+	}
+}
+
+country_event = { #fate of PRD
+	id = natfra.31
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.31"}
+	title = natfra.31.t
+	desc = natfra.31.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #dissolve them
+		name = natfra.31.a 
+		add_stability = -0.04
+		add_political_power = 20
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		} 
+	}
+
+	option = { #favourable treatment in exchange for loyalty
+		name = natfra.31.b
+		add_stability = 0.03
+		add_political_power = -15
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.02
+		}  
+	}
+}
+
+country_event = { #fate of croix de feu
+	id = natfra.32
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.32"}
+	title = natfra.32.t
+	desc = natfra.32.d
+	picture = GFX_report_event_NFA_delaRocque_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #restrain de la rocque's personality cult
+		name = natfra.32.a 
+		add_stability = -0.02
+		add_political_power = 30
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.02
+		} 
+	}
+
+	option = { #consolidate alliance with de la rocqe
+		name = natfra.32.b
+		add_stability = 0.03
+		add_political_power = -40
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		} 
+	}
+}
+
+country_event = { #constitution drafting starts
+	id = natfra.33
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.33"}
+	title = natfra.33.t
+	desc = natfra.33.d
+	picture = GFX_report_event_NFA_event_NFA_PetainSpeech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = natfra.33.a 
+		add_political_power = 10
+		set_country_flag = {
+			flag = NFA_constitution_flag
+			value = 2
+		}
+	}
+}
+
+country_event = { #fate of assembly
+	id = natfra.34
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.34"}
+	title = natfra.34.t
+	desc = natfra.34.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #formalise their advisory role
+		name = natfra.34.a 
+		add_stability = -0.03
+		add_political_power = 10
+		add_command_power = 10
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		} 
+		modify_country_flag = {
+			flag = NFA_constitution_flag
+			value = 1
+		}
+	}
+
+	option = { #control it informally
+		name = natfra.34.b
+		add_stability = 0.04
+		add_political_power = -20
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		} 
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.02
+		}
+		modify_country_flag = {
+			flag = NFA_constitution_flag
+			value = -1
+		}
+	}
+}
+
+country_event = { #role of presidency
+	id = natfra.35
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.35"}
+	title = natfra.35.t
+	desc = natfra.35.d
+	picture = GFX_report_event_NFA_event_Petain1
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #formalise sweeping powers
+		name = natfra.35.a 
+		add_stability = -0.04
+		add_political_power = 20
+		add_command_power = 20
+		add_war_support = 0.03
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.02
+		}
+		modify_country_flag = {
+			flag = NFA_constitution_flag
+			value = 1
+		} 
+	}
+
+	option = { #rely on soft power
+		name = natfra.35.b
+		add_stability = 0.03
+		add_political_power = -10
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		} 
+	}
+	modify_country_flag = {
+		flag = NFA_constitution_flag
+		value = -1
+	}
+}
+
+country_event = { #role of army
+	id = natfra.36
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.36"}
+	title = natfra.36.t
+	desc = natfra.36.d
+	picture = GFX_report_event_NFA_event_NFAGenericArmy
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #give the army governmental powers
+		name = natfra.36.a 
+		add_stability = -0.05
+		add_command_power = 30
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.06
+		} 
+		add_war_support = 0.04
+		modify_country_flag = {
+			flag = NFA_constitution_flag
+			value = 1
+		}
+	}
+
+	option = { #we're in charge anyway, there's no need
+		name = natfra.36.b
+		add_stability = 0.04
+		add_political_power = 20
+		modify_country_flag = {
+			flag = NFA_constitution_flag
+			value = -1
+		}
+	}
+}
+
+country_event = { #""""moderate"""" constitution approved
+	id = natfra.37
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.37"}
+	title = natfra.37.t
+	desc = natfra.37.d
+	picture = GFX_report_event_NFA_Petain2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #yay
+		name = natfra.37.a 
+		add_stability = 0.07
+		clr_country_flag = NFA_constitution_flag
+		set_country_flag = NFA_soft_petain_constitution
+	}
+}
+
+country_event = { #strong constitution approved
+	id = natfra.38
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.38"}
+	title = natfra.38.t
+	desc = natfra.38.d
+	picture = GFX_report_event_NFA_Petain2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #yay
+		name = natfra.38.a 
+		add_stability = 0.07
+		clr_country_flag = NFA_constitution_flag
+		set_country_flag = NFA_strong_petain_constitution
+	}
+}
+
+country_event = { #focus of chantiers de la jeunesse
+	id = natfra.39
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.39"}
+	title = natfra.39.t
+	desc = natfra.39.d
+	picture = GFX_report_event_NFA_petain_and_youth
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #traditional values
+		name = natfra.39.a 
+		add_stability = 0.04
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		} 
+        add_political_power = 10
+	}
+
+	option = { #support for the government, pétain personality cult
+		name = natfra.39.b
+		add_war_support = 0.03
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.04
+		} 
+		add_command_power = 5
+	}
+
+	option = { #physical fitness, pseudo-military training
+		name = natfra.39.c
+		add_war_support = 0.02
+		army_experience = 15
+		add_command_power = 15
+		add_manpower = 1000
+	}
+}
+
+country_event = { #replacing marianne busts with pétain
+	id = natfra.40
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.40"}
+	title = natfra.40.t
+	desc = natfra.40.d
+	picture = GFX_report_event_NFA_event_AFFlavorMarianne
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #fuck it why not
+		name = natfra.40.a 
+		add_stability = -0.06
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.05
+		} 
+        add_command_power = 20
+	}
+
+	option = { #too far
+		name = natfra.40.b
+		add_stability = 0.03
+		add_political_power = 25
+	}
+}
+
+country_event = { #criteria for govt contracts
+	id = natfra.41
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.41"}
+	title = natfra.41.t
+	desc = natfra.41.d
+	picture = GFX_report_event_CUB_american_deal
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #loyalty
+		name = natfra.41.a 
+		add_stability = -0.02
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.04
+		} 
+        add_political_power = 45
+		hidden_effect = {
+			country_event = { id = nfa.42 days = 70 }
+		}
+	}
+
+	option = { #competence
+		name = natfra.41.b
+		add_stability = 0.03
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		}
+		hidden_effect = {
+			country_event = { id = nfa.43 days = 70 }
+		} 
+	}
+}
+
+country_event = { #corruption allegations
+	id = natfra.42
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.42"}
+	title = natfra.42.t
+	desc = natfra.42.d
+	picture = GFX_AF_trial_dec_4
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #crush the rumours
+		name = natfra.42.a 
+		add_stability = -0.06
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		} 
+        add_command_power = 15
+		add_political_power = 20
+	}
+
+	option = { #introduce an anti corruption campaign
+		name = natfra.42.b
+		add_political_power = -65
+		add_stability = 0.03
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.04
+		}
+	}
+}
+
+country_event = { #opponents of junta getting contracts
+	id = natfra.43
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.43"}
+	title = natfra.43.t
+	desc = natfra.43.d
+	picture = GFX_AF_trial_dec_3
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #ignore it
+		name = natfra.43.a 
+		add_stability = 0.04
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.06
+		} 
+		add_political_power = -40
+	}
+
+	option = { #increase vetting for loyalty
+		name = natfra.43.b
+		add_political_power = 30
+		add_stability = -0.03
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		}
+	}
+}
+
+country_event = { #historical revival of the great war
+	id = natfra.44
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.44"}
+	title = natfra.44.t
+	desc = natfra.44.d
+	picture = GFX_report_event_NFA_event_NFA_Soldiers
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #based and redpilled
+		name = natfra.44.a 
+		add_stability = 0.02
+		add_war_support = 0.04
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		} 
+	}
+}
+
+country_event = { #emphasis of propaganda about petain
+	id = natfra.45
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.45"}
+	title = natfra.45.t
+	desc = natfra.45.d
+	picture = GFX_report_event_NFA_Petain2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #his military successes
+		name = natfra.45.a 
+		add_war_support = 0.06
+		add_command_power = 30
+	}
+
+	option = { #his faith and patriotism
+		name = natfra.45.b
+		add_stability = 0.05
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.04
+		} 
+	}
+}
+
+country_event = { #extent of desecularisation
+	id = natfra.46
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.46"}
+	title = natfra.46.t
+	desc = natfra.46.d
+	picture = GFX_report_event_PAP_vatican
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #restore catholicism as state religion
+		name = natfra.46.a 
+		add_stability = -0.04
+		add_political_power = 30
+        add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		} 
+		hidden_effect = {
+			country_event = { id = natfra.47 days = 250 }
+		}
+	}
+
+	option = { #simply repeal anti-catholic laws
+		name = natfra.46.b
+		add_stability = 0.03
+		add_political_power = 10
+		hidden_effect = {
+			country_event = { id = natfra.49 days = 250 }
+		}
+	}
+}
+
+country_event = { #petain visits the pope
+	id = natfra.47
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.47"}
+	title = natfra.47.t
+	desc = natfra.47.d
+	picture = GFX_report_event_ITA_pope
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = natfra.47.a 
+		add_stability = 0.03
+		add_political_power = 20
+	}
+}
+
+country_event = { #defining the revolution nationale ideology
+	id = natfra.48
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.48"}
+	title = natfra.48.t
+	desc = natfra.48.d
+	picture = GFX_report_event_NFA_Petain2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #militarism and nationalism
+		name = natfra.48.a 
+		army_experience = 15
+		add_command_power = 20
+		add_war_support = 0.04
+	}
+
+	option = { #french traditionalism
+		name = natfra.48.b
+		add_stability = 0.03
+		add_political_power = 30
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		} 
+	}
+
+	option = { #devotion to the state and to pétain
+		name = natfra.48.c
+		add_stability = -0.02
+		add_political_power = 40
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.04
+		} 
+	}
+}
+
+country_event = { #archbishop of algiers endorses pétain
+	id = natfra.49
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.49"}
+	title = natfra.49.t
+	desc = natfra.49.d
+	picture = GFX_report_event_ITA_pope
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = natfra.49.a 
+		add_political_power = 35
+	}
+}
+
+country_event = { #darnand breaks with croix-de-feu
+	id = natfra.50
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.50"}
+	title = natfra.50.t
+	desc = natfra.50.d
+	picture = GFX_report_event_NFA_darnand_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #what a larping fag
+		name = natfra.50.a 
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.02
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.01
+		}
+	}
+}
+
+country_event = { #kingdom of france revived
+	id = natfra.51
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.51"}
+	title = natfra.51.t
+	desc = natfra.51.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { 
+		name = natfra.51.a 
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.04
+		}
+		add_stability = 0.03
+	}
+}
+
+country_event = { #coronation
+	id = natfra.52
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.52"}
+	title = natfra.52.t
+	desc = natfra.52.d
+	picture = GFX_report_event_NFA_jean_at_desk
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { 
+		name = natfra.52.a 
+		add_political_power = 20
+		create_country_leader = {
+			name = "Jean III"
+			desc = "POLITICS_JEAN_III_DESC"
+			picture = "Portrait_NFA_Jean_dOrleans.tga"
+			expire = "1965.1.1"
+			ideology = national_populist_subtype
+			traits = { NFA_Old_King }
+		}
+		create_country_leader = {
+			name = "Jean III"
+			desc = "POLITICS_JEAN_III_DESC"
+			picture = "Portrait_NFA_Jean_dOrleans.tga"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+			traits = { NFA_Old_King }
+		}
+		create_country_leader = {
+			name = "Jean III"
+			desc = "POLITICS_JEAN_III_DESC"
+			picture = "Portrait_NFA_Jean_dOrleans.tga"
+			expire = "1965.1.1"
+			ideology = authoritarian_democrat_subtype
+			traits = { NFA_Old_King }
+		}
+	}
+}
+
+country_event = { #king's cabinet
+	id = natfra.53
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.53"}
+	title = natfra.53.t
+	desc = natfra.53.d
+	picture = GFX_report_event_NFA_event_AFFlavorMaurras
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { 
+		name = natfra.53.a 
+		set_politics = {
+			ruling_party = national_populist
+			elections_allowed = no
+		}
+		remove_all_ministers = yes
+		add_ideas = {
+			NFA_Charles_Maurras_hog_npo
+			NFA_Maurice_Pujo_for_npo
+			NFA_Leon_Daudet_eco_npo
+			NFA_Henri_Massis_sec_npo
+		}
+		set_country_flag = NFA_kingdom_revived
+		hidden_effect = {
+			country_event = { id = natfra.57 days = 50 }
+		}
+	}
+}
+
+country_event = { #purpose of camelots
+	id = natfra.54
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.54"}
+	title = natfra.54.t
+	desc = natfra.54.d
+	picture = GFX_report_event_camelots_du_roi
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #youth group
+		name = natfra.54.a 
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.05
+		}
+		add_stability = 0.06
+		add_political_power = 15
+		hidden_effect = {
+			country_event = { id = natfra.56 days = 60 }
+		}
+	}
+
+	option = { #poltical paramilitary
+		name = natfra.54.a 
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.02
+		}
+		add_manpower = 2000
+		add_war_support = 0.03
+		hidden_effect = {
+			country_event = { id = natfra.55 days = 60 }
+		}
+	}
+}
+
+country_event = { #camelots win street fight
+	id = natfra.55
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.55"}
+	title = natfra.55.t
+	desc = natfra.55.d
+	picture = GFX_report_event_camelots_du_roi
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #yuo get what yuo fucking deserve!!!!!!!!!!!!!!!
+		name = natfra.55.a 
+		add_command_power = 10
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.02
+		}
+		add_political_power = 5
+	}
+}
+
+country_event = { #royalist youth camps open
+	id = natfra.56
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.56"}
+	title = natfra.56.t
+	desc = natfra.56.d
+	picture = GFX_report_event_camelots_du_roi
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = natfra.56.a 
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.03
+		}
+		add_political_power = 15
+	}
+}
+
+country_event = { #fate of republican intellectuals
+	id = natfra.57
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.57"}
+	title = natfra.57.t
+	desc = natfra.57.d
+	picture = GFX_AF_trial_dec_3
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #harsh repression
+		name = natfra.57.a 
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.04
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.04
+		}
+		add_political_power = 25
+		add_stability = -0.03
+		hidden_effect = {
+            country_event = { id = natfra.58 days = 25 }
+		}
+	}
+
+	option = { #shut down their public representation but leave them be
+		name = natfra.57.b
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.02
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.02
+		}
+		add_political_power = -10
+		add_stability = 0.02
+		hidden_effect = {
+            country_event = { id = natfra.58 days = 25 }
+		}
+	}
+}
+
+country_event = { #fate of liberal politicians
+	id = natfra.58
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.58"}
+	title = natfra.58.t
+	desc = natfra.58.d
+	picture = GFX_AF_trial_dec_2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #shut em down
+		name = natfra.58.a 
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.03
+		}
+		add_political_power = 40
+	}
+
+	option = { #natfra them adapt to the kingdom
+		name = nfa.58.b
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.01
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.01
+		}
+		add_stability = 0.03
+		set_country_flag = NFA_liberals_allowed_in_kingdom
+	}
+}
+
+country_event = { #future of parliament
+	id = natfra.59
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.59"}
+	title = natfra.59.t
+	desc = natfra.59.d
+	picture = GFX_report_event_NFA_event_NFA_Assembly
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #abolish it
+		name = natfra.59.a 
+		add_political_power = 30
+		add_command_power = 20
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.04
+		}
+	}
+
+	option = { #reform to an advisory body 
+		name = natfra.59.b
+		add_stability = 0.03
+		add_political_power = 40
+	}
+}
+
+country_event = { #classical curriculum
+	id = natfra.60
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.60"}
+	title = natfra.60.t
+	desc = natfra.60.d
+	picture = GFX_report_event_generic_books
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #based and redpilled
+		name = natfra.60.a 
+		add_political_power = 10
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.01
+		}
+	}
+}
+
+country_event = { #immigration
+	id = natfra.61
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.61"}
+	title = natfra.61.t
+	desc = natfra.61.d
+	picture = GFX_report_event_IRE_immigration
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #limit it to med countries
+		name = natfra.61.a 
+		add_political_power = 35
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.01
+		}
+		add_manpower = -1000
+	}
+
+	option = { #managed numbers and assimilation
+		name = natfra.61.b 
+		add_political_power = 10
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.03
+		}
+		add_manpower = -500
+	}
+
+	option = { #end it outright
+		name = natfra.61.c
+		add_political_power = 50
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.05
+		}
+		add_war_support = 0.02
+		add_manpower = -2000
+	}
+}
+
+country_event = { #protestant missionaries
+	id = natfra.62
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.62"}
+	title = natfra.62.t
+	desc = natfra.62.d
+	picture = GFX_report_event_NFA_event_flavor1
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #leave them be
+		name = natfra.62.a 
+		add_political_power = 20
+		add_stability = 0.03
+	}
+
+	option = { #clamp down
+		name = natfra.62.b 
+		add_stability = -0.02
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.02
+		}
+		add_manpower = -500
+		CAN= {
+		    add_opinion_modifier = { target = NFA modifier = NFA_clamped_down_on_prots }               
+		}
+	}
+}
+
+country_event = { #freemasonry
+	id = natfra.63
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.63"}
+	title = natfra.63.t
+	desc = natfra.63.d
+	picture = GFX_report_event_SIC_occultism
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #shut down the masonic lodges and ban masonry
+		name = natfra.63.a 
+		add_political_power = 35
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.02
+		}
+	}
+
+	option = { #round up known members
+		name = natfra.63.b 
+		add_stability = -0.02
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.04
+		}
+		add_manpower = -300
+		add_command_power = 20
+	}
+}
+
+country_event = { #repealing the crémieux decree
+	id = natfra.64
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.64"}
+	title = natfra.64.t
+	desc = natfra.64.d
+	picture = GFX_report_event_FRA_jews
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #epic
+		name = natfra.64.a 
+		add_political_power = 25
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.03
+		}
+		hidden_effect = {
+			country_event = { id = natfra.66 days = 30 }
+		}
+	}
+}
+
+country_event = { #aristocratic titles restored
+	id = natfra.65
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.65"}
+	title = natfra.65.t
+	desc = natfra.65.d
+	picture = GFX_report_event_NFA_event_AFFlavorAristocracy
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #epic
+		name = natfra.65.a 
+		add_war_support = 0.04 
+		add_political_power = 20
+	}
+}
+
+country_event = { #pogroms
+	id = natfra.66
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.66"}
+	title = natfra.66.t
+	desc = natfra.66.d
+	picture = GFX_report_event_FRA_jews
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #egg them on
+		name = natfra.66.a 
+		add_stability = -0.05
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.04
+		}
+		add_political_power = 45
+        add_manpower = -50
+	}
+
+	option = { #reign them in
+		name = natfra.66.b
+		add_stability = 0.02
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.03
+		}
+		add_political_power = 10
+	}
+}
+
+country_event = { #jewish assets seized
+	id = natfra.67
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.67"}
+	title = natfra.67.t
+	desc = natfra.67.d
+	picture = GFX_report_event_GEO_wealth
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #give them to patriotic frenchmen
+		name = natfra.67.a 
+		add_stability = 0.02
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.03
+		}
+		add_political_power = 60
+	}
+
+	option = { #state ownership
+		name = natfra.67.b
+		add_stability = -0.02
+		add_command_power = 20
+		459 = {
+			add_building_construction = {
+				type = industrial_complex 
+				level = 2
+			}
+		}		
+	}
+}
+
+country_event = { #native elites
+	id = natfra.68
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.68"}
+	title = natfra.68.t
+	desc = natfra.68.d
+	picture = GFX_report_event_NFA_event_flavor38
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #peers of the realm
+		name = natfra.68.a 
+		add_stability = 0.03
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.02
+		}
+	}
+
+	option = { #nominal independence, paying tribute to the King of France
+		name = natfra.68.b
+		add_stability = -0.02
+		add_political_power = 50
+		add_war_support = 0.01	
+	}
+}
+
+country_event = { #de gaulle co-operation
+	id = natfra.69
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.69"}
+	title = natfra.69.t
+	desc = natfra.69.d
+	picture = GFX_report_event_NFA_de_gaulle
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = NFA_de_gaulle_plan
+		has_completed_focus = NFA_emphasise_maurrasisme
+		has_completed_focus = NFA_anti_parliamentarisme
+		has_completed_focus = NFA_empower_the_camelots
+	}
+
+	mean_time_to_happen = {
+		days = 15
+	}
+
+	option = { #k
+		name = natfra.69.a 
+		add_command_power = 30
+		army_experience = 15
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.04
+		}
+		set_country_flag = NFA_AF_de_gaulle_cooperation
+	}
+
+	option = { #nah
+		name = natfra.69.b
+		add_political_power = -5
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.02
+		}
+		set_country_flag = NFA_no_AF_de_gaulle_cooperation
+	}
+}
+
+country_event = { #winning over the pope
+	id = natfra.70
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.70"}
+	title = natfra.70.t
+	desc = natfra.70.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #get maurras to convert
+		name = natfra.70.a 
+		add_political_power = -100
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.02
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+				    rule = italy_content
+					option = KX_OLD_ITALY
+				}
+			}
+            ITA = {
+				country_event = { id = natfra.71 days = 1 }
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+                    has_game_rule = {
+				        rule = italy_content
+					    option = NEW_ITALY
+				    }
+					has_game_rule = {
+				        rule = italy_content
+					    option = FUCK_ITALY_ALL_MY_HOMIES_HATE_ITALY
+				    }
+				}				
+			}
+            PAP = {
+				country_event = { id = natfra.71 days = 1 }
+			}
+		}
+	}
+
+	option = { #offer to protect the church
+		name = natfra.70.b
+		add_command_power = -25
+		add_war_support = 0.02
+		if = {
+			limit = {
+				has_game_rule = {
+				    rule = italy_content
+					option = KX_OLD_ITALY
+				}
+			}
+            ITA = {
+				country_event = { id = natfra.72 days = 1 }
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+                    has_game_rule = {
+				        rule = italy_content
+					    option = NEW_ITALY
+				    }
+					has_game_rule = {
+				        rule = italy_content
+					    option = FUCK_ITALY_ALL_MY_HOMIES_HATE_ITALY
+				    }
+				}				
+			}
+            PAP = {
+				country_event = { id = natfra.72 days = 1 }
+			}
+		}
+	}
+
+	option = { #offer to promote church hierarchy as per maurrasisme
+		name = natfra.70.c
+		add_political_power = 30
+		if = {
+			limit = {
+				has_game_rule = {
+				    rule = italy_content
+					option = KX_OLD_ITALY
+				}
+			}
+            ITA = {
+				country_event = { natfra.73 days = 1 }
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+                    has_game_rule = {
+				        rule = italy_content
+					    option = NEW_ITALY
+				    }
+					has_game_rule = {
+				        rule = italy_content
+					    option = FUCK_ITALY_ALL_MY_HOMIES_HATE_ITALY
+				    }
+				}				
+			}
+            PAP = {
+				country_event = { id = natfra.73 days = 1 }
+			}
+		}
+	}
+}
+
+country_event = { #papacy informed that Maurras wants to convert
+	id = natfra.71
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.71"}
+	title = natfra.71.t
+	desc = natfra.71.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #sure, lift the excommunication of the AF
+		name = natfra.71.a 
+		ai_chance = {
+			factor = 95
+		}
+		NFA = {
+			country_event = { id = natfra.74 days = 2 }
+		}
+	}
+
+	option = { #nah
+		name = natfra.71.b
+		ai_chance = {
+			factor = 5
+		}
+		NFA = {
+			country_event = { id = natfra.75 days = 2 }
+		}
+	}
+}
+
+country_event = { #papacy contacted by AF and warned about dangers of syndicalism
+	id = natfra.72
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.72"}
+	title = natfra.72.t
+	desc = natfra.72.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #sure, lift the excommunication of the AF
+		name = natfra.72.a 
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				SRI = { has_socialist_government = yes }
+			}
+		}
+		NFA = {
+			country_event = { id = natfra.74 days = 2 }
+		}
+	}
+
+	option = { #nah
+		name = natfra.72.b
+		NFA = {
+			country_event = { id = natfra.75 days = 2 }
+		}
+	}
+}
+
+country_event = { #papacy contacted by AF and asked nicely for end to excommunication
+	id = natfra.73
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.73"}
+	title = natfra.73.t
+	desc = natfra.73.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #sure, lift the excommunication of the AF
+		name = natfra.73.a 
+		ai_chance = {
+			factor = 5
+		}
+		NFA = {
+			country_event = { id = natfra.74 days = 2 }
+		}
+	}
+
+	option = { #nah
+		name = natfra.73.b
+		ai_chance = {
+			factor = 95
+		}
+		NFA = {
+			country_event = { id = natfra.75 days = 2 }
+		}
+	}
+}
+
+country_event = { #AF told that they're no longer excommunicated
+	id = natfra.74
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.74"}
+	title = natfra.74.t
+	desc = natfra.74.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #yay
+		name = natfra.74.a 
+		add_stability = 0.06
+		add_war_support = 0.06
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.04
+		}
+		set_country_flag = NFA_church_support
+	}
+}
+
+country_event = { #AF told that they're still excommunicated
+	id = natfra.75
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.75"}
+	title = natfra.75.t
+	desc = natfra.75.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #shit
+		name = natfra.75.a 
+		add_stability = -0.06
+		add_war_support = -0.06
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.04
+		}
+		set_country_flag = NFA_no_church_support
+		cancel_guarantee = PAP
+		cancel_guarantee = ITA
+	}
+}
+
+country_event = { #cagoulard co-operation
+	id = natfra.76
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.76"}
+	title = natfra.76.t
+	desc = natfra.76.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = NFA_la_cagoule_got_away
+		has_completed_focus = NFA_emphasise_maurrasisme
+		has_completed_focus = NFA_anti_parliamentarisme
+		has_completed_focus = NFA_empower_the_camelots
+		OR = {
+			has_country_flag = NFA_darlan_plan
+			has_country_flag = NFA_no_AF_de_gaulle_cooperation
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 15
+	}
+
+	option = { #k
+		name = natfra.76.a 
+		add_manpower = 600
+		add_command_power = 15
+		add_political_power = 25
+		set_country_flag = NFA_AF_cagoulard_cooperation
+	}
+
+	option = { #nah
+		name = natfra.76.b
+		add_political_power = -5
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.02
+		}
+	}
+}
+
+country_event = { #DLR unity govt
+	id = natfra.77
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.77"}
+	title = natfra.77.t
+	desc = natfra.77.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #epic
+		name = natfra.77.a 
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		}
+		add_stability = 0.01
+		add_political_power = 20
+	}
+}
+
+country_event = { #unity govt absorbs FR
+	id = natfra.78
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.78"}
+	title = natfra.78.t
+	desc = natfra.78.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #epic
+		name = natfra.78.a 
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.04
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = -0.01
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.01
+		}
+		add_political_power = 15
+		add_stability = 0.03
+		hidden_effect = {
+			country_event = { id = natfra.103 days = 300 }
+		}
+	}
+}
+
+country_event = { #DLR given extensive powers as head of unity govt
+	id = natfra.79
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.79"}
+	title = natfra.79.t
+	desc = natfra.79.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #epic
+		name = natfra.79.a 
+		add_stability = 0.02
+		add_political_power = 30
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		}
+		remove_ideas = NFA_protests_2
+	}
+}
+
+country_event = { #getting de Gaulle/Darlan on side
+	id = natfra.80
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.80"}
+	title = {
+		text = natfra.80.t.degaulle 
+		trigger = { has_country_flag = NFA_de_gaulle_plan }
+	}
+	title = {
+		text = natfra.80.t.darlan
+		trigger = { has_country_flag = NFA_darlan_plan }
+	}
+	desc = {
+		text = natfra.80.d.degaulle 
+		trigger = { has_country_flag = NFA_de_gaulle_plan }
+	}
+	desc = {
+		text = natfra.80.d.darlan
+		trigger = { has_country_flag = NFA_darlan_plan }
+	}
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #government positions and greater autonomy given to army, particularly his loyalists
+		name = natfra.80.a 
+		army_experience = 5
+		add_political_power = 20
+        add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.01
+		}
+	}
+}
+
+country_event = { #friends in business
+	id = natfra.81
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.81"}
+	title = natfra.81.t
+	desc = natfra.81.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #reward their loyalty with govt posts
+		name = natfra.81.a 
+		add_stability = -0.02
+		add_political_power = 50
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.01
+		}
+		hidden_effect = {
+			country_event = { id = natfra.82 days = 100 }
+		}
+	}
+
+	option = { #they have their role, but avoid corruption
+		name = natfra.81.b
+		add_stability = 0.02
+		add_political_power = -30
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		}
+		hidden_effect = {
+			country_event = { id = natfra.83 days = 100 }
+		}
+	}
+}
+
+country_event = { #DLR accused of corruption
+	id = natfra.82
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.82"}
+	title = natfra.82.t
+	desc = natfra.82.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #crush dissent
+		name = natfra.82.a 
+		add_stability = -0.04
+		add_political_power = 45
+		add_command_power = 20
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.02
+		}
+		set_country_flag = NFA_business_very_powerful
+	}
+
+	option = { #introduce anti-corruption drives
+		name = natfra.82.b
+		add_stability = 0.02
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		}
+		add_political_power = -50
+		set_country_flag = NFA_business_balanced
+	}
+}
+
+country_event = { #DLR's corporate buddies aren't content
+	id = natfra.83
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.83"}
+	title = natfra.83.t
+	desc = natfra.83.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #give them more contracts/subsidies to keep them happy
+		name = natfra.83.a 
+		add_political_power = -35
+		add_stability = 0.02
+		set_country_flag = NFA_business_balanced
+	}
+
+	option = { #cope seethe dilate etc
+		name = natfra.83.b
+		add_stability = -0.03
+		add_political_power = 30
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.01
+		}
+		set_country_flag = NFA_business_weak
+	}
+}
+
+country_event = { #DLR announces crackdown on enemy within
+	id = natfra.84
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.84"}
+	title = natfra.84.t
+	desc = natfra.84.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = natfra.84.a 
+		add_political_power = -15
+		add_command_power = 5
+		add_stability = -0.01
+	}
+}
+
+country_event = { #PR attacked, chautemps and daladier arrested
+	id = natfra.85
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.85"}
+	title = natfra.85.t
+	desc = natfra.85.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = natfra.85.a 
+		add_political_power = 10
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.04
+		}
+	}
+}
+
+country_event = { #AF attacked, maurras and pujo arrested
+	id = natfra.86
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.86"}
+	title = natfra.86.t
+	desc = natfra.86.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = natfra.86.a 
+		add_command_power = 5
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.04
+		}
+	}
+}
+
+country_event = { #DLR cuts Pétain off from his loyalists
+	id = natfra.87
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.87"}
+	title = natfra.87.t
+	desc = natfra.87.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = natfra.87.a 
+		add_political_power = 20
+		set_country_flag = NFA_dlr_cut_off_petain
+	}
+}
+
+country_event = { #arab wing of CdF
+	id = natfra.88
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.88"}
+	title = natfra.88.t
+	desc = natfra.88.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #sure
+		name = natfra.88.a 
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		}
+		add_manpower = 2000
+		add_stability = -0.04
+	}
+
+	option = { #nah
+		name = natfra.88.b 
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.01
+		}
+		add_stability = 0.03
+		add_political_power = 10
+	}
+}
+
+country_event = { #how to incentivise CoF membership for govt officials
+	id = natfra.89
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.89"}
+	title = natfra.89.t
+	desc = natfra.89.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #subtle pay raises for members
+		name = natfra.89.a 
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.01
+		}
+		add_manpower = 50
+		add_stability = 0.01
+		add_political_power = -40
+	}
+
+	option = { #favour members for promotions
+		name = natfra.89.b
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		}
+		add_stability = -0.02
+		add_political_power = 30
+		add_manpower = 200
+	}
+
+	option = { #just make it mandatory
+		name = natfra.89.c
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.04
+		}
+		add_stability = -0.04
+		add_political_power = 20
+		add_command_power = 5
+		add_manpower = 400
+	}
+}
+
+country_event = { #corporatist shit
+	id = natfra.90
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.90"}
+	title = natfra.90.t
+	desc = natfra.90.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #state supervision of capital-labour relations enshrined in constitution
+		name = natfra.90.a 
+		add_political_power = 25
+		add_stability = 0.02
+	}
+}
+
+country_event = { #parliament weakened and presidential powers enshrined
+	id = natfra.91
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.91"}
+	title = natfra.91.t
+	desc = natfra.91.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #state supervision of capital-labour relations enshrined in constitution
+		name = natfra.91.a 
+		add_command_power = 20
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		}
+	}
+}
+
+country_event = { #constitution adopted, DLR becomes president
+	id = natfra.92
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.92"}
+	title = natfra.92.t
+	desc = natfra.92.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #eyyyyyyyyyyy
+		name = natfra.92.a 
+		add_command_power = 20
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		}
+		retire_country_leader = yes
+        create_country_leader = {
+	        name = "François de la Rocque"
+	        desc = "POLITICS_FRANCOIS_DE_LA_ROCQUE_DESC"
+	        picture = "Portrait_NFA_François_de_la_Rocque.tga"
+         	expire = "1965.1.1"
+        	ideology = paternal_autocrat_subtype
+        	traits = {
+		        NFA_Colonel
+	        }
+        }
+		hidden_effect = {
+			country_event = { id = natfra.94 days = 40 }
+		}  
+	}
+}
+
+country_event = { #officials from old left-leaning trade unions
+	id = natfra.93
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.93"}
+	title = natfra.93.t
+	desc = natfra.93.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #let them stay on in exhchange for loyalty
+		name = natfra.93.a 
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.01
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.01
+		}
+		add_stability = -0.01
+		add_political_power = 45
+	}
+
+	option = { #very tight vetting
+		name = natfra.93.b
+		add_political_power = -10
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		}
+		add_stability = 0.01
+	}
+
+	option = { #purge
+		name = natfra.93.c
+		add_stability = -0.03
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.03
+		}
+		add_command_power = 25
+		add_political_power = 25
+	}
+}
+
+country_event = { #what to do with pétain
+	id = natfra.94
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.94"}
+	title = natfra.94.t
+	desc = natfra.94.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #parliamentarian
+		name = natfra.94.a 
+		add_stability = -0.01
+		add_political_power = 20
+		add_command_power = 5
+		remove_unit_leader = 800
+	}
+
+	option = { #ambassador to canada
+		name = natfra.94.b
+		add_political_power = -35
+		add_stability = 0.02
+		remove_unit_leader = 800
+	}
+
+	option = { #force hhim into retirement
+		name = natfra.94.c
+		add_stability = -0.04
+		add_political_power = 50
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		}
+		add_command_power = -10
+		remove_unit_leader = 800
+	}
+}
+
+country_event = { #DLR signs a concordat
+	id = natfra.95
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.95"}
+	title = natfra.95.t
+	desc = natfra.95.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #epic
+		name = natfra.95.a 
+		add_stability = 0.03
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.04
+		}
+	}
+}
+
+country_event = { #anti-semitism in CdF
+	id = natfra.96
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.96"}
+	title = natfra.96.t
+	desc = natfra.96.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #support it
+		name = natfra.96.a 
+		add_stability = -0.02
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		}
+		add_manpower = -100
+		add_political_power = 40
+	}
+
+	option = { #condemn it
+		name = natfra.96.b
+		add_stability = 0.03
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.01
+		}
+		add_political_power = -50
+	}
+}
+
+country_event = { #complaints against women voting
+	id = natfra.97
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.97"}
+	title = natfra.97.t
+	desc = natfra.97.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #sad!
+		name = natfra.97.a 
+		add_political_power = -20
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.01
+		}
+	}
+}
+
+country_event = { #incentivisng le flambeau
+	id = natfra.98
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.98"}
+	title = natfra.98.t
+	desc = natfra.98.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #make it cheap to buy
+		name = natfra.98.a 
+		add_political_power = -40
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.04
+		}
+	}
+
+	option = { #subsidise shops that sell it
+		name = natfra.98.b
+		add_political_power = -20
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		}
+	}
+}
+
+country_event = { #leisure for the people
+	id = natfra.99
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.99"}
+	title = natfra.99.t
+	desc = natfra.99.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = natfra.99.a 
+		add_political_power = 30
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		}
+	}
+}
+
+country_event = { #le petit journal purchased
+	id = natfra.100
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.100"}
+	title = natfra.100.t
+	desc = natfra.100.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = natfra.100.a 
+		add_political_power = 45
+	}
+}
+
+country_event = { #working with redressement francais
+	id = natfra.101
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.101"}
+	title = natfra.101.t
+	desc = natfra.101.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = natfra.101.a 
+		add_political_power = 20
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		}
+	}
+}
+
+country_event = { #CSPF established
+	id = natfra.102
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.102"}
+	title = natfra.102.t
+	desc = natfra.102.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = natfra.102.a 
+		add_stability = 0.03
+		add_manpower = 500
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		}
+	}
+}
+
+country_event = { #Marin retires
+	id = natfra.103
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.103"}
+	title = natfra.103.t
+	desc = natfra.103.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = natfra.103.a 
+		add_political_power = 20
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#####
+# Return to the Mainland
+#####
+
+country_event = { #Anti-syndicalist volunteers arrive!
+	id = nfa.60
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.60" }
+	title = nfa.60.t
+	desc = nfa.60.d
+	picture = GFX_report_event_french_resistance_01
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = nfa.60.a #Allons, à Paris!
+		add_stability = 0.02
+		hidden_effect = {
+			FRA = {
+				country_event = nfa.61
+			}
+			NFA = {
+				country_event = {
+					id = nfa.87
+					days = 20
+					random = 40
+				}
+			}
+		}	
+	}
+}
+
+country_event = { #Traitors! FRA
+	id = nfa.61
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.61" }
+	title = nfa.61.t
+	desc = nfa.61.d
+	picture = GFX_report_event_french_resistance_01
+
+	is_triggered_only = yes
+
+	option = {
+		name = nfa.61.a #It matters not! Death to the oppressors and their lackeys!
+		add_stability = -0.04
+		add_manpower = -3000
+	}
+}
+
+country_event = { #Resistance to Homecoming
+	id = nfa.87
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.87" }
+	title = nfa.87.t
+	desc = nfa.87.d
+	picture = GFX_report_event_NFA_event_Aftermath
+
+	is_triggered_only = yes
+
+	option = {
+		name = nfa.87.a #We must win over their support
+		random_state = {
+			limit = {
+				is_controlled_by = NFA
+				is_owned_by = FRA
+			}
+			damage_building = { type = infrastructure damage = 3 }
+		}
+		random_state = {
+			limit = {
+				is_controlled_by = NFA
+				is_owned_by = FRA
+			}
+			damage_building = { type = infrastructure damage = 3 }
+		}
+	}
+}
+
+
+# Rail Fix #
+state_event = { #Hidden Event to turn sabotaged railways back on
+	id = nfa.88
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.88" }
+	title = nfa.88.t
+	desc = nfa.88.d
+
+	is_triggered_only = yes
+
+	hidden = yes #makes sure the event stays hidden
+
+	option = {
+		name = nfa.88.a #Report if seen
+		PREV = { #Scope to the state that the rails were sabotaged in
+			add_state_modifier = { modifier = { disable_strategic_redeployment = -1 } } #A modifier of -1 turns strategic redeployment back on
+			add_state_modifier = { modifier = { local_supplies_for_controller = 0.5 } }	#Turn the supplies back to normal
+		}
+	}
+}
+
+#####
+# Spanish Intervention
+#####
+
+country_event = { #Nationalist France supports us! SPA
+	id = nfa.62
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.62" }
+	title = nfa.62.t
+	desc = nfa.62.d
+	picture = GFX_report_event_SPA_civwar
+
+	is_triggered_only = yes
+
+	option = {
+		name = nfa.62.a
+		add_manpower = 3000
+		custom_effect_tooltip = received_equipment_1500
+		add_ideas = SPA_advisors_natfrance
+		set_country_flag = SPA_help_from_natfrance
+		FROM_send_volunteers_to_ROOT = yes
+	}
+}
+
+country_event = { #Nationalist France supports us! SPR
+	id = nfa.63
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.63" }
+	title = nfa.63.t
+	desc = nfa.63.d
+	picture = GFX_report_event_SPA_civwar
+
+	is_triggered_only = yes
+
+	option = {
+		name = nfa.63.a
+		add_manpower = 3000
+		custom_effect_tooltip = received_equipment_1500
+		add_ideas = SPA_advisors_natfrance
+		FROM_send_volunteers_to_ROOT = yes
+	}
+}
+
+country_event = { #SWF in Africa what to do with Rio de Oro
+	id = nfa.64
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.64" }
+	title = nfa.64.t
+	desc = nfa.64.d
+	picture = GFX_report_event_NFA_event_ArmyReview
+
+	is_triggered_only = yes
+
+	option = {
+		name = nfa.64.a #Occupy those territories
+		ai_chance = { base = 60 }
+		add_opinion_modifier = { target = SPA modifier = NFA_seized_rif }
+		add_opinion_modifier = { target = SWF modifier = NFA_seized_rif }
+		add_opinion_modifier = { target = SPR modifier = NFA_seized_rif }
+		set_global_flag = NFA_seized_rif_flag
+		SWF = { 
+			country_event = { 
+				id = nfa.65 
+				days = 2 
+			} 
+		}
+		add_state_claim = 699
+		add_manpower = -1000
+		add_equipment_to_stockpile = { type = infantry_equipment_1 amount = -500 producer = NFA }
+	}
+
+	option = {
+		name = nfa.64.b #Take them and give them to the Carlists
+		ai_chance = { base = 40 }
+		trigger = { 
+			country_exists = SPR 
+			NOT = { has_war_with = SPR } 
+		}
+		add_opinion_modifier = { target = SPA modifier = NFA_seized_rif }
+		add_opinion_modifier = { target = SWF modifier = NFA_seized_rif }
+		add_opinion_modifier = { target = SPR modifier = NFA_gave_us_rif }
+		set_global_flag = NFA_gave_rif_carlist
+		SWF = { 
+			country_event = { 
+				id = nfa.66 
+				days = 2 
+			} 
+		}
+		add_manpower = -1000
+		add_equipment_to_stockpile = { type = infantry_equipment_1 amount = -500 producer = NFA }
+	}
+
+}
+
+country_event = { #Conflict in Africa seized rif
+	id = nfa.65
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.65" }
+	title = nfa.65.t
+	desc = nfa.65.d
+	picture = GFX_report_event_NFA_event_NFAGenericArmy
+
+	is_triggered_only = yes
+
+	option = {
+		name = nfa.65.a #Let them take them
+		ai_chance = { base = 50 }
+		NFA = {
+			transfer_state = 699
+		}
+	}
+
+	option = {
+		name = nfa.65.b #To war!
+		ai_chance = { base = 0 }
+		declare_war_on = { target = NFA type = annex_everything }
+	}
+
+	option = {
+		name = nfa.65.c #Offer what resistance we can.....
+		ai_chance = { base = 50 }
+		add_political_power = -40
+		NFA = { 
+			transfer_state = 699
+			add_stability = -0.04 
+		}
+	}
+
+}
+
+country_event = { #Conflict in Africa gave rif
+	id = nfa.66
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.66" }
+	title = nfa.66.t
+	desc = nfa.66.d
+	picture = GFX_report_event_NFA_event_NFAGenericArmy
+
+	is_triggered_only = yes
+
+	option = {
+		name = nfa.66.a #Let them take them
+		ai_chance = { base = 30 }
+		SPR = {
+			transfer_state = 699
+		}
+	}
+
+	option = {
+		name = nfa.66.b #To war!
+		ai_chance = { base = 10 }
+		declare_war_on = { target = NFA type = annex_everything }
+	}
+
+	option = {
+		name = nfa.66.c #Offer what resistance we can.....
+		ai_chance = { base = 60 }
+		add_political_power = -40
+		SPR = { 
+			transfer_state = 699
+			add_stability = -0.04 
+		}
+	}
+
+}
+
+#####
+# War and Morocco decisions
+#####
+
+country_event = { #NFA prepares to attack us! - FRA POV
+	id = nfa.110
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.110" }
+	title = nfa.110.t
+	desc = nfa.110.d
+	picture = GFX_report_event_french_tanks
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = nfa.110.a #They won't make it past the beach
+	}
+}
+
+country_event = { #French invasion of Morocco GEX
+	id = nfa.111
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.111" }
+	title = nfa.111.t
+	desc = nfa.111.d
+	picture = GFX_report_event_NFA_event_NFAGenericArmy
+
+	is_triggered_only = yes
+
+	option = {
+		name = nfa.111.a #There's nothing that we can do, surrender the colony
+		ai_chance = {
+			base = 30
+		}
+		add_stability = -0.03
+		if = {
+			limit = {
+				country_exists = MOR
+				MOR = {
+					is_subject_of = GEX
+				}
+			}
+			NFA = {
+				annex_country = {
+					target = MOR
+				}
+			}
+		}
+		NFA = {
+			country_event = {
+				id = nfa.113
+				days = 1
+			}
+		}
+	}
+
+	option = {
+		name = nfa.111.b #Offer what resistance we can...
+		ai_chance = {
+			base = 60
+		}
+		add_political_power = -50
+		if = {
+			limit = {
+				country_exists = MOR
+				MOR = {
+					is_subject_of = GEX
+				}
+			}
+			NFA = {
+				annex_country = {
+					target = MOR
+				}
+			}
+		}
+		NFA = {
+			country_event = {
+				id = nfa.112
+				days = 1
+			}
+		}
+	}
+
+	option = {
+		name = nfa.111.c #We may be weak, but we'll bow to no French - Resist any incursion
+		ai_chance = {
+			base = 10
+		}
+		add_stability = 0.04
+		NFA = {
+			country_event = {
+				id = nfa.114
+				days = 1
+			}
+		}
+	}
+}
+
+country_event = { #Morocco is ours! with resistance
+	id = nfa.112
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.112" }
+	title = nfa.112.t
+	desc = nfa.112.d
+	picture = GFX_report_event_NFA_event_ArmyReview
+
+	is_triggered_only = yes
+
+	option = {
+		name = nfa.112.a #Hm, that's weird
+		add_stability = -0.05
+		add_state_claim = 461
+		add_state_claim = 462
+		add_state_claim = 290
+		add_state_claim = 699
+		add_state_claim = 968
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_1
+			amount = -500
+			producer = NFA
+		}
+	}
+}
+
+country_event = { #Morocco is ours!
+	id = nfa.113
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.113" }
+	title = nfa.113.t
+	desc = {
+		text = nfa.113.d.moroccogermanpuppet
+		trigger = {
+			MOR = {
+				is_subject_of = GEX
+			}
+		}
+	}
+	desc = {
+		text = nfa.113.d.moroccoindependent
+		trigger = {
+			MOR = {
+				is_subject = no
+			}
+		}
+	}
+
+	is_triggered_only = yes
+	picture = GFX_report_event_NFA_event_ArmyReview
+
+	option = {
+		name = nfa.113.a
+		add_stability = 0.02
+		add_state_claim = 461
+		add_state_claim = 462
+		add_state_claim = 290
+		add_state_claim = 699
+		add_state_claim = 968
+	}
+}
+
+country_event = { #The German Warning
+	id = nfa.114
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.114" }
+	title = nfa.114.t
+	desc = nfa.114.d
+	picture = GFX_report_event_generic_towar
+
+	is_triggered_only = yes
+
+	option = {
+		name = nfa.114.a #Maybe we shouldn't mess with them... Retreat!
+		ai_chance = {
+			base = 20
+		}
+		add_stability = -0.04
+	}
+
+	option = {
+		name = nfa.114.b #Ignore their threats, advance into Morocco
+		ai_chance = {
+			base = 80
+		}
+		GEX = {
+			country_event = {
+				id = nfa.115
+				days = 1
+			}
+		}
+	}
+}
+
+country_event = { #Our threats have been ignored
+	id = nfa.115
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.115" }
+	title = nfa.115.t
+	desc = nfa.115.d
+	picture = GFX_report_event_NFA_event_NFAGenericArmy
+
+	is_triggered_only = yes
+
+	option = {
+		name = nfa.115.a #There's nothing that we can do, surrender the colony
+		ai_chance = {
+			base = 5
+		}
+		if = {
+			limit = {
+				country_exists = MOR
+				MOR = {
+					is_subject_of = GEX
+				}
+			}
+			NFA = {
+				annex_country = {
+					target = MOR
+				}
+			}
+		}
+		NFA = {
+			country_event = {
+				id = nfa.113
+				days = 1
+			}
+		}
+	}
+
+	option = {
+		name = nfa.115.b #Offer what resistance we can...
+		ai_chance = {
+			base = 45
+		}
+		if = {
+			limit = {
+				country_exists = MOR
+				MOR = {
+					is_subject_of = GEX
+				}
+			}
+			NFA = {
+				annex_country = {
+					target = MOR
+				}
+			}
+		}
+		NFA = {
+			country_event = {
+				id = nfa.112
+				days = 1
+			}
+		}
+	}
+
+	option = {
+		name = nfa.115.c #They made their choice - War!
+		ai_chance = {
+			base = 50
+		}
+		add_war_support = 0.05
+		declare_war_on = {
+			target = NFA
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { #French invasion of Morocco - independent Morocco
+	id = nfa.116
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.116" }
+	title = nfa.116.t
+	desc = nfa.116.d
+	picture = GFX_report_event_NFA_event_NFAGenericArmy
+
+	is_triggered_only = yes
+
+	option = {
+		name = nfa.116.a #There's nothing that we can do, we must surrender
+		ai_chance = {
+			base = 35
+		}
+		NFA = {
+			annex_country = {
+				target = MOR
+			}
+			country_event = {
+				id = nfa.113
+				days = 1
+			}
+		}
+	}
+
+	option = {
+		name = nfa.116.b #We may be weak, but we'll bow to no French - Resist any incursion
+		ai_chance = {
+			base = 65
+		}
+		add_stability = 0.1
+		NFA = {
+			country_event = {
+				id = nfa.117
+				days = 1
+			}
+		}
+	}
+}
+
+country_event = { #Moroccan response - independent
+	id = nfa.117
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.117" }
+	title = nfa.117.t
+	desc = nfa.117.d
+	picture = GFX_LBA_Senussi_Warrior
+
+	is_triggered_only = yes
+
+	option = { #We are not ready for war yet
+		name = nfa.117.a
+		ai_chance = {
+			base = 20
+		}
+		add_stability = -0.025
+		create_wargoal = {
+			type = annex_everything
+			target = MOR
+		}
+	}
+
+	option = { #We must fight them
+		name = nfa.117.b
+		ai_chance = {
+			base = 80
+		}
+		add_stability = 0.025
+		declare_war_on = {
+			target = MOR
+			type = annex_everything
+		}
+	}
+}
+
+ 
+#####
+# NFA/GER Case Deal Peace Events
+#####
+
+country_event = { # GER invites us to discuss the occupation of France
+	id = nfa.120
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.120" }
+	title = nfa.120.t
+	desc = nfa.120.d
+	picture = GFX_report_event_generic_map_france
+
+	is_triggered_only = yes
+
+	option = { #Meet with the Germans
+		name = nfa.120.a
+		ai_chance = {
+			base = 95
+			modifier = {
+				factor = 0.05
+				has_government = national_populist
+			}
+		}
+
+		if = {
+			limit = {
+				count_triggers = {
+					amount = 4
+					16 = { is_owned_and_controlled_by = GER } #Paris
+					19 = { is_owned_and_controlled_by = GER } #Bordeaux
+					20 = { is_owned_and_controlled_by = GER } #Lyon
+					21 = { is_owned_and_controlled_by = GER } #Marseilles
+					980 = { is_owned_and_controlled_by = GER } #Lille
+				}
+			}
+			GER = { country_event = { id = nfa.134 } } #The French enter negotiations - Case 1
+		}
+
+		else_if = {
+			limit = {
+				count_triggers = {
+					amount = 3
+					16 = { is_owned_and_controlled_by = GER } #Paris
+					19 = { is_owned_and_controlled_by = GER } #Bordeaux
+					20 = { is_owned_and_controlled_by = GER } #Lyon
+					21 = { is_owned_and_controlled_by = GER } #Marseilles
+					980 = { is_owned_and_controlled_by = GER } #Lille
+				}
+			}
+			GER = { country_event = { id = nfa.132 } } #The French enter negotiations - Case 2
+		}
+
+		else_if = {
+			limit = {
+				count_triggers = {
+					amount = 2
+					16 = { is_owned_and_controlled_by = GER } #Paris
+					19 = { is_owned_and_controlled_by = GER } #Bordeaux
+					20 = { is_owned_and_controlled_by = GER } #Lyon
+					21 = { is_owned_and_controlled_by = GER } #Marseilles
+					980 = { is_owned_and_controlled_by = GER } #Lille
+				}
+			}
+			GER = { country_event = { id = nfa.130 } } #The French enter negotiations - Case 3
+		}
+
+		else_if = {
+			limit = {
+				count_triggers = {
+					amount = 1
+					16 = { is_owned_and_controlled_by = GER } #Paris
+					19 = { is_owned_and_controlled_by = GER } #Bordeaux
+					20 = { is_owned_and_controlled_by = GER } #Lyon
+					21 = { is_owned_and_controlled_by = GER } #Marseilles
+					980 = { is_owned_and_controlled_by = GER } #Lille
+				}
+			}
+			GER = { country_event = { id = nfa.128 } } #The French enter negotiations - Case 4
+		}
+
+		else_if = {
+			limit = {
+				count_triggers = {
+					amount = 0
+					16 = { is_owned_and_controlled_by = GER } #Paris
+					19 = { is_owned_and_controlled_by = GER } #Bordeaux
+					20 = { is_owned_and_controlled_by = GER } #Lyon
+					21 = { is_owned_and_controlled_by = GER } #Marseilles
+					980 = { is_owned_and_controlled_by = GER } #Lille
+				}
+			}
+			GER = { country_event = { id = nfa.125 } } #The French enter negotiations - Case 5
+		}
+
+	}
+
+	option = { #Do not fall for the trick
+		name = nfa.120.b
+		ai_chance = {
+			base = 5
+		}
+		GER = { country_event = { id = nfa.121 } } #The French decline talks
+	}
+}
+
+country_event = { # France declines talks
+	id = nfa.121
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.121" }
+	title = nfa.121.t
+	desc = nfa.121.d
+	picture = GFX_report_event_generic_map_france
+
+	is_triggered_only = yes
+
+	option = { #Unfortunate
+		name = nfa.121.a
+		ai_chance = {
+			base = 100
+		}
+		add_manpower = -10000
+		GER_release_small_FRP = yes
+		FRP = {
+			add_ideas = FRP_Arms_Treaty_idea
+		}
+		add_ideas = GER_FRP_occupation_cost_1_idea
+		if = {
+			limit = {
+				980 = { is_owned_and_controlled_by = GER }
+				17 = { is_owned_and_controlled_by = GER }
+			}
+			NFA_Greater_Belgium_to_GER = yes
+		}
+		if = {
+			limit = {
+				983 = { is_owned_and_controlled_by = GER }
+				14 = { is_owned_and_controlled_by = GER }
+			}
+			GER_release_Brittany = yes
+		}
+	}
+}
+
+country_event = { # France declines deal
+	id = nfa.122
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.122" }
+	title = nfa.122.t
+	desc = nfa.122.d
+	picture = GFX_report_event_generic_conference1
+
+	is_triggered_only = yes
+
+	option = { #Unfortunate
+		name = nfa.122.a
+		ai_chance = {
+			base = 100
+		}
+		NFA_Clear_Peace_Deal_Flags = yes
+		add_manpower = -10000
+		GER_release_small_FRP = yes
+		FRP = {
+			add_ideas = FRP_Arms_Treaty_idea
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = NFA_peace_deal_1
+					has_global_flag = NFA_peace_deal_2
+				}
+			}
+			add_ideas = GER_FRP_occupation_cost_2_idea
+		}
+		else = {
+			add_ideas = GER_FRP_occupation_cost_1_idea
+		}
+		if = {
+			limit = {
+				980 = { is_owned_and_controlled_by = GER }
+				17 = { is_owned_and_controlled_by = GER }
+			}
+			NFA_Greater_Belgium_to_GER = yes
+		}
+		if = {
+			limit = {
+				983 = { is_owned_and_controlled_by = GER }
+				14 = { is_owned_and_controlled_by = GER }
+			}
+			GER_release_Brittany = yes
+		}
+	}
+}
+
+country_event = { # France accepts deal
+	id = nfa.123
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.123" }
+	title = nfa.123.t
+	desc = {
+		text = nfa.123.d.5 #Peace Deal 5
+		trigger = { has_global_flag = NFA_peace_deal_5 }
+	}
+	desc = {
+		text = nfa.123.d.4 #Peace Deal 4
+		trigger = { has_global_flag = NFA_peace_deal_4 }
+	}
+	desc = {
+		text = nfa.123.d.4.nobel #Peace Deal 4 - No BEL
+		trigger = { has_global_flag = NFA_peace_deal_4_nobel }
+	}
+	desc = {
+		text = nfa.123.d.3 #Peace Deal 3
+		trigger = { has_global_flag = NFA_peace_deal_3 }
+	}
+	desc = {
+		text = nfa.123.d.3.nobel #Peace Deal 3 - No BEL
+		trigger = { has_global_flag = NFA_peace_deal_3_nobel }
+	}
+	desc = {
+		text = nfa.123.d.2 #Peace Deal 2
+		trigger = { has_global_flag = NFA_peace_deal_2 }
+	}
+	desc = {
+		text = nfa.123.d.2.nobel #Peace Deal 2 - No BEL
+		trigger = { has_global_flag = NFA_peace_deal_2_nobel }
+	}
+	desc = {
+		text = nfa.123.d.1 #Peace Deal 1
+		trigger = { has_global_flag = NFA_peace_deal_1 }
+	}
+	desc = {
+		text = nfa.123.d.1.nobel #Peace Deal 1 - No BEL
+		trigger = { has_global_flag = NFA_peace_deal_1_nobel }
+	}
+	picture = GFX_report_event_generic_diplomacy3
+
+	is_triggered_only = yes
+
+	option = { #To a lasting peace!
+		name = nfa.123.a
+		ai_chance = {
+			base = 100
+		}
+		add_political_power = 50
+		set_truce = { target = NFA days = 400 }
+		if = {
+			limit = {
+				has_global_flag = NFA_peace_deal_5
+			}
+			NFA_Clear_Peace_Deal_Flags = yes
+			# Transfer land to NFA
+			GER_transfer_NFA = yes
+			# Economic Reparations from France
+			NFA_Economic_Reparations = yes
+		}
+		else_if = {
+			limit = {
+				has_global_flag = NFA_peace_deal_4_nobel
+			}
+			NFA_Clear_Peace_Deal_Flags = yes
+			# Transfer land to NFA
+			GER_transfer_NFA = yes
+			# Border Fort Dismantlement
+			NFA_Border_Dismantlement = yes
+			# Economic Reparations from France
+			NFA_Economic_Reparations = yes
+		}
+		else_if = {
+			limit = {
+				has_global_flag = NFA_peace_deal_4
+			}
+			NFA_Clear_Peace_Deal_Flags = yes
+			# Transfer land to NFA except Greater Belgium
+			GER_transfer_NFA_except_Belgium = yes
+			# Expanded Calais
+			NFA_Greater_Belgium_to_GER = yes
+			# Border Fort Dismantlement
+			NFA_Border_Dismantlement = yes
+			# Economic Reparations from France
+			NFA_Economic_Reparations = yes
+		}
+		else_if = {
+			limit = {
+				has_global_flag = NFA_peace_deal_3_nobel
+			}
+			NFA_Clear_Peace_Deal_Flags = yes
+			# Transfer land to NFA except Brittany
+			GER_transfer_NFA_except_Brittany = yes
+			# Make Brittany
+			GER_release_Brittany = yes
+			# Border Fort Dismantlement
+			NFA_Border_Dismantlement = yes
+			# Economic Reparations from France
+			NFA_Economic_Reparations = yes
+			# Military Disarmament
+			NFA_Military_Accords = yes
+		}
+		else_if = {
+			limit = {
+				has_global_flag = NFA_peace_deal_3
+			}
+			NFA_Clear_Peace_Deal_Flags = yes
+			# Transfer land to NFA except Greater Belgium and Brittany
+			GER_transfer_NFA_except_Belgium_and_Brittany = yes
+			# Expanded Calais
+			NFA_Greater_Belgium_to_GER = yes
+			# Make Brittany
+			GER_release_Brittany = yes
+			# Border Fort Dismantlement
+			NFA_Border_Dismantlement = yes
+			# Economic Reparations from France
+			NFA_Economic_Reparations = yes
+			# Military Disarmament
+			NFA_Military_Accords = yes
+		}
+		else_if = {
+			limit = {
+				has_global_flag = NFA_peace_deal_2_nobel
+			}
+			NFA_Clear_Peace_Deal_Flags = yes
+			# Transfer land to NFA except Brittany
+			GER_transfer_NFA_except_Brittany = yes
+			# Make Brittany
+			GER_release_Brittany = yes
+			# Border Fort Dismantlement
+			NFA_Border_Dismantlement = yes
+			# Economic Reparations from France
+			NFA_Economic_Reparations = yes
+			# Military Disarmament
+			NFA_Military_Accords_Harsh = yes
+			diplomatic_relation = {
+				country = NFA
+				relation = military_access
+				active = yes
+			}
+		}
+		else_if = {
+			limit = {
+				has_global_flag = NFA_peace_deal_2
+			}
+			NFA_Clear_Peace_Deal_Flags = yes
+			# Transfer land to NFA except Greater Belgium and Brittany
+			GER_transfer_NFA_except_Belgium_and_Brittany = yes
+			# Expanded Calais
+			NFA_Greater_Belgium_to_GER = yes
+			# Make Brittany
+			GER_release_Brittany = yes
+			# Border Fort Dismantlement
+			NFA_Border_Dismantlement = yes
+			# Economic Reparations from France
+			NFA_Economic_Reparations = yes
+			# Military Disarmament
+			NFA_Military_Accords_Harsh = yes
+			diplomatic_relation = {
+				country = NFA
+				relation = military_access
+				active = yes
+			}
+		}
+		else_if = {
+			limit = {
+				has_global_flag = NFA_peace_deal_1_nobel
+			}
+			NFA_Clear_Peace_Deal_Flags = yes
+			# Transfer land to NFA except Brittany
+			GER_transfer_NFA_except_Brittany = yes
+			# Make Brittany
+			GER_release_Brittany = yes
+			# Border Fort Dismantlement
+			NFA_Border_Dismantlement = yes
+			# Economic Reparations from France
+			NFA_Economic_Reparations = yes
+			# Military Disarmament
+			NFA_Military_Accords_Harsh = yes
+			diplomatic_relation = {
+				country = NFA
+				relation = military_access
+				active = yes
+			}
+			set_global_flag = ENT_france_agree_mittel
+			NFA = {
+				GER_add_to_mitteleuropa = yes
+			}
+		}
+		else_if = {
+			limit = {
+				has_global_flag = NFA_peace_deal_1
+			}
+			NFA_Clear_Peace_Deal_Flags = yes
+			# Transfer land to NFA except Greater Belgium and Brittany
+			GER_transfer_NFA_except_Belgium_and_Brittany = yes
+			# Expanded Calais
+			NFA_Greater_Belgium_to_GER = yes
+			# Make Brittany
+			GER_release_Brittany = yes
+			# Border Fort Dismantlement
+			NFA_Border_Dismantlement = yes
+			# Economic Reparations from France
+			NFA_Economic_Reparations = yes
+			# Military Disarmament
+			NFA_Military_Accords_Harsh = yes
+			diplomatic_relation = {
+				country = NFA
+				relation = military_access
+				active = yes
+			}
+			set_global_flag = ENT_france_agree_mittel
+			NFA = {
+				GER_add_to_mitteleuropa = yes
+			}
+		}
+	}
+
+}
+
+country_event = { # Congress of Lyon - Case 5 - GER decides demands
+	id = nfa.125
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.125" }
+	title = nfa.125.t
+	desc = {
+		text = nfa.125.d.5.bel #Belgium is an ally with GER
+		trigger = { BEL = { is_in_faction_with = GER } }
+	}
+	desc = {
+		text = nfa.125.d.5.wll #Wallonia is an ally with GER
+		trigger = { WLL = { is_in_faction_with = GER } }
+	}
+	desc = {
+		text = nfa.125.d.5.nobel #Belgium nor Wallonia is an ally with GER
+		trigger = { NOT = { GER_has_Belgian_Ally = yes } }
+	}
+	picture = GFX_report_event_generic_conference2
+
+	is_triggered_only = yes
+
+	option = { #Push the hawks plan
+		name = nfa.125.a 
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				is_ai = yes
+			}
+			modifier = {
+				factor = 0.25
+				surrender_progress > 0.3
+			}
+		}
+		add_political_power = -100
+		if = {
+			limit = { GER_has_Belgian_Ally = yes }
+			set_global_flag = NFA_peace_deal_4
+		}
+		else = {
+			set_global_flag = NFA_peace_deal_4_nobel
+		}
+		set_global_flag = GER_pushed_peace_deal
+		NFA = { country_event = { id = nfa.127 } } #French receive case deal 4
+		custom_effect_tooltip = NFA_Hawk_Warning_tt
+	}
+
+	option = { #The moderate plan
+		name = nfa.125.b
+		ai_chance = {
+			base = 100
+		}
+		set_global_flag = NFA_peace_deal_5
+		NFA = { country_event = { id = nfa.126 } } #French receive case deal 5
+	}
+}
+
+country_event = { # French receive case deal 5
+	id = nfa.126
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.126" }
+	title = nfa.126.t
+	desc = nfa.126.d
+	picture = GFX_report_event_generic_conference2
+
+	is_triggered_only = yes
+
+	option = { #Accept the offer
+		name = nfa.126.a
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_global_flag = GER_pushed_peace_deal
+			}
+		}
+		add_political_power = -50
+		GER = { country_event = { id = nfa.123 } } #France accepts the deal
+	}
+
+	option = { #Decline the offer
+		name = nfa.126.b
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0.25
+				is_ai = yes
+			}
+		}
+		add_political_power = -25
+		GER = { country_event = { id = nfa.122 } } #France declines the deal
+	}
+}
+
+country_event = { # French receive case deal 4
+	id = nfa.127
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.127" }
+	title = nfa.127.t
+	desc = {
+		text = nfa.127.d #Belgian Ally of Germany
+		trigger = { GER_has_Belgian_Ally = yes }
+	}
+	desc = {
+		text = nfa.127.d.nobel #Belgium nor Wallonia is an ally with GER
+		trigger = { NOT = { GER_has_Belgian_Ally = yes } }
+	}
+	picture = GFX_report_event_generic_conference2
+
+	is_triggered_only = yes
+
+	option = { #Accept the offer
+		name = nfa.127.a
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_global_flag = GER_pushed_peace_deal
+			}
+		}
+		add_political_power = -50
+		GER = { country_event = { id = nfa.123 } } #France accepts the deal
+	}
+
+	option = { #Decline the offer
+		name = nfa.127.b
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0.25
+				is_ai = yes
+			}
+			modifier = {
+				factor = 0
+				has_global_flag = GER_easy_peace_deal
+			}
+		}
+		add_political_power = -25
+		GER = { country_event = { id = nfa.122 } } #France declines the deal
+	}
+
+}
+
+country_event = { # Congress of Lyon - Case 4 - GER decides demands
+	id = nfa.128
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.128" }
+	title = nfa.128.t
+	desc = {
+		text = nfa.128.d.4.bel #Belgium is an ally with GER
+		trigger = { BEL = { is_in_faction_with = GER } }
+	}
+	desc = {
+		text = nfa.128.d.4.wll #Wallonia is an ally with GER
+		trigger = { WLL = { is_in_faction_with = GER } }
+	}
+	desc = {
+		text = nfa.128.d.4.nobel #Belgium nor Wallonia is an ally with GER
+		trigger = { NOT = { GER_has_Belgian_Ally = yes } }
+	}
+	picture = GFX_report_event_generic_conference2
+
+	is_triggered_only = yes
+
+	option = { #Push the hawks plan
+		name = nfa.128.a 
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				is_ai = yes
+			}
+			modifier = {
+				factor = 0.25
+				surrender_progress > 0.3
+			}
+		}
+		add_political_power = -100
+		if = {
+			limit = { GER_has_Belgian_Ally = yes }
+			set_global_flag = NFA_peace_deal_3
+		}
+		else = {
+			set_global_flag = NFA_peace_deal_3_nobel
+		}
+		set_global_flag = GER_pushed_peace_deal
+		NFA = { country_event = { id = nfa.129 } } #French receive case deal 3
+		custom_effect_tooltip = NFA_Hawk_Warning_tt
+	}
+
+	option = { #The moderate plan
+		name = nfa.128.b
+		ai_chance = {
+			base = 100
+		}
+		if = {
+			limit = { GER_has_Belgian_Ally = yes }
+			set_global_flag = NFA_peace_deal_4
+		}
+		else = {
+			set_global_flag = NFA_peace_deal_4_nobel
+		}
+		NFA = { country_event = { id = nfa.127 } } #French receive case deal 4
+	}
+
+	option = { #Push the dove plan
+		name = nfa.128.c
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 4
+				NFA = {
+					has_same_government_as_ROOT = yes
+				}
+			}
+			modifier = {
+				factor = 4
+				surrender_progress > 0.3
+			}
+		}
+		add_political_power = 100
+		set_global_flag = NFA_peace_deal_5
+		set_global_flag = GER_easy_peace_deal
+		NFA = { country_event = { id = nfa.126 } } #French receive case deal 5
+		custom_effect_tooltip = NFA_Dove_tt
+	}
+}
+
+country_event = { # French receive case deal 3
+	id = nfa.129
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.129" }
+	title = nfa.129.t
+	desc = {
+		text = nfa.129.d #Belgian Ally of Germany
+		trigger = { GER_has_Belgian_Ally = yes }
+	}
+	desc = {
+		text = nfa.129.d.nobel #Belgium nor Wallonia is an ally with GER
+		trigger = { NOT = { GER_has_Belgian_Ally = yes } }
+	}
+	picture = GFX_report_event_generic_conference2
+
+	is_triggered_only = yes
+
+	option = { #Accept the offer
+		name = nfa.129.a
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_global_flag = GER_pushed_peace_deal
+			}
+		}
+		add_political_power = -50
+		GER = { country_event = { id = nfa.123 } } #France accepts the deal
+	}
+
+	option = { #Decline the offer
+		name = nfa.129.b
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0.25
+				is_ai = yes
+			}
+			modifier = {
+				factor = 0
+				has_global_flag = GER_easy_peace_deal
+			}
+		}
+		add_political_power = -25
+		GER = { country_event = { id = nfa.122 } } #France declines the deal
+	}
+
+}
+
+country_event = { # Congress of Lyon - Case 3 - GER decides demands
+	id = nfa.130
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.130" }
+	title = nfa.130.t
+	desc = {
+		text = nfa.130.d.3.bel #Belgium is an ally with GER
+		trigger = { BEL = { is_in_faction_with = GER } }
+	}
+	desc = {
+		text = nfa.130.d.3.wll #Wallonia is an ally with GER
+		trigger = { WLL = { is_in_faction_with = GER } }
+	}
+	desc = {
+		text = nfa.130.d.3.nobel #Belgium nor Wallonia is an ally with GER
+		trigger = { NOT = { GER_has_Belgian_Ally = yes } }
+	}
+	picture = GFX_report_event_generic_conference2
+
+	is_triggered_only = yes
+
+	option = { #Push the hawks plan
+		name = nfa.130.a 
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				is_ai = yes
+			}
+			modifier = {
+				factor = 0.25
+				surrender_progress > 0.3
+			}
+		}
+		add_political_power = -100
+		if = {
+			limit = { GER_has_Belgian_Ally = yes }
+			set_global_flag = NFA_peace_deal_2
+		}
+		else = {
+			set_global_flag = NFA_peace_deal_2_nobel
+		}
+		set_global_flag = GER_pushed_peace_deal
+		NFA = { country_event = { id = nfa.131 } } #French receive case deal 2
+		custom_effect_tooltip = NFA_Hawk_Warning_tt
+	}
+
+	option = { #The moderate plan
+		name = nfa.130.b
+		ai_chance = {
+			base = 100
+		}
+		if = {
+			limit = { GER_has_Belgian_Ally = yes }
+			set_global_flag = NFA_peace_deal_3
+		}
+		else = {
+			set_global_flag = NFA_peace_deal_3_nobel
+		}
+		NFA = { country_event = { id = nfa.129 } } #French receive case deal 3
+	}
+
+	option = { #Push the dove plan
+		name = nfa.130.c
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 4
+				NFA = {
+					has_same_government_as_ROOT = yes
+				}
+			}
+			modifier = {
+				factor = 4
+				surrender_progress > 0.3
+			}
+		}
+		add_political_power = 100
+		if = {
+			limit = { GER_has_Belgian_Ally = yes }
+			set_global_flag = NFA_peace_deal_4
+		}
+		else = {
+			set_global_flag = NFA_peace_deal_4_nobel
+		}
+		set_global_flag = GER_easy_peace_deal
+		NFA = { country_event = { id = nfa.127 } } #French receive case deal 4
+		custom_effect_tooltip = NFA_Dove_tt
+	}
+}
+
+country_event = { # French receive case deal 2
+	id = nfa.131
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.131" }
+	title = nfa.131.t
+	desc = {
+		text = nfa.131.d #Belgian Ally of Germany
+		trigger = { GER_has_Belgian_Ally = yes }
+	}
+	desc = {
+		text = nfa.131.d.nobel #Belgium nor Wallonia is an ally with GER
+		trigger = { NOT = { GER_has_Belgian_Ally = yes } }
+	}
+	picture = GFX_report_event_generic_conference2
+
+	is_triggered_only = yes
+
+	option = { #Accept the offer
+		name = nfa.131.a
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_global_flag = GER_pushed_peace_deal
+			}
+		}
+		add_political_power = -50
+		GER = { country_event = { id = nfa.123 } } #France accepts the deal
+	}
+
+	option = { #Decline the offer
+		name = nfa.131.b
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0.25
+				is_ai = yes
+			}
+			modifier = {
+				factor = 0
+				has_global_flag = GER_easy_peace_deal
+			}
+		}
+		add_political_power = -25
+		GER = { country_event = { id = nfa.122 } } #France declines the deal
+	}
+
+}
+
+country_event = { # Congress of Lyon - Case 2 - GER decides demands
+	id = nfa.132
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.132" }
+	title = nfa.132.t
+	desc = {
+		text = nfa.132.d.2.bel #Belgium is an ally with GER
+		trigger = { BEL = { is_in_faction_with = GER } }
+	}
+	desc = {
+		text = nfa.132.d.2.wll #Wallonia is an ally with GER
+		trigger = { WLL = { is_in_faction_with = GER } }
+	}
+	desc = {
+		text = nfa.132.d.2.nobel #Belgium nor Wallonia is an ally with GER
+		trigger = { NOT = { GER_has_Belgian_Ally = yes } }
+	}
+	picture = GFX_report_event_generic_conference2
+
+	is_triggered_only = yes
+
+	option = { #Push the hawks plan
+		name = nfa.132.a 
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				is_ai = yes
+			}
+			modifier = {
+				factor = 0.25
+				surrender_progress > 0.3
+			}
+		}
+		add_political_power = -100
+		if = {
+			limit = { GER_has_Belgian_Ally = yes }
+			set_global_flag = NFA_peace_deal_1
+		}
+		else = {
+			set_global_flag = NFA_peace_deal_1_nobel
+		}
+		set_global_flag = GER_pushed_peace_deal
+		NFA = { country_event = { id = nfa.133 } } #French receive case deal 1
+		custom_effect_tooltip = NFA_Hawk_Warning_tt
+	}
+
+	option = { #The moderate plan
+		name = nfa.132.b
+		ai_chance = {
+			base = 100
+		}
+		if = {
+			limit = { GER_has_Belgian_Ally = yes }
+			set_global_flag = NFA_peace_deal_2
+		}
+		else = {
+			set_global_flag = NFA_peace_deal_2_nobel
+		}
+		NFA = { country_event = { id = nfa.131 } } #French receive case deal 2
+	}
+
+	option = { #Push the dove plan
+		name = nfa.132.c
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 4
+				NFA = {
+					has_same_government_as_ROOT = yes
+				}
+			}
+			modifier = {
+				factor = 4
+				surrender_progress > 0.3
+			}
+		}
+		add_political_power = 100
+		if = {
+			limit = { GER_has_Belgian_Ally = yes }
+			set_global_flag = NFA_peace_deal_3
+		}
+		else = {
+			set_global_flag = NFA_peace_deal_3_nobel
+		}
+		set_global_flag = GER_easy_peace_deal
+		NFA = { country_event = { id = nfa.129 } } #French receive case deal 3
+		custom_effect_tooltip = NFA_Dove_tt
+	}
+}
+
+country_event = { # French receive case deal 1
+	id = nfa.133
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.133" }
+	title = nfa.133.t
+	desc = {
+		text = nfa.133.d #Belgian Ally of Germany
+		trigger = { GER_has_Belgian_Ally = yes }
+	}
+	desc = {
+		text = nfa.133.d.nobel #Belgium nor Wallonia is an ally with GER
+		trigger = { NOT = { GER_has_Belgian_Ally = yes } }
+	}
+	picture = GFX_report_event_generic_conference2
+
+	is_triggered_only = yes
+
+	option = { #Accept the offer
+		name = nfa.133.a
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_global_flag = GER_pushed_peace_deal
+			}
+		}
+		add_political_power = -50
+		GER = { country_event = { id = nfa.123 } } #France accepts the deal
+	}
+
+	option = { #Decline the offer
+		name = nfa.133.b
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0.25
+				is_ai = yes
+			}
+		}
+		add_political_power = -25
+		GER = { country_event = { id = nfa.122 } } #France declines the deal
+	}
+
+}
+
+country_event = { # Congress of Lyon - Case 1 - GER decides demands
+	id = nfa.134
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.134" }
+	title = nfa.134.t
+	desc = {
+		text = nfa.134.d.1.bel #Belgium is an ally with GER
+		trigger = { BEL = { is_in_faction_with = GER } }
+	}
+	desc = {
+		text = nfa.134.d.1.wll #Wallonia is an ally with GER
+		trigger = { WLL = { is_in_faction_with = GER } }
+	}
+	desc = {
+		text = nfa.134.d.1.nobel #Belgium nor Wallonia is an ally with GER
+		trigger = { NOT = { GER_has_Belgian_Ally = yes } }
+	}
+	picture = GFX_report_event_generic_conference2
+
+	is_triggered_only = yes
+
+	option = { #The moderate plan
+		name = nfa.134.b
+		ai_chance = {
+			base = 100
+		}
+		if = {
+			limit = { GER_has_Belgian_Ally = yes }
+			set_global_flag = NFA_peace_deal_1
+		}
+		else = {
+			set_global_flag = NFA_peace_deal_1_nobel
+		}
+		NFA = { country_event = { id = nfa.133 } } #French receive case deal 1
+	}
+
+	option = { #Push the dove plan
+		name = nfa.134.c
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 4
+				NFA = {
+					has_same_government_as_ROOT = yes
+				}
+			}
+			modifier = {
+				factor = 4
+				surrender_progress > 0.3
+			}
+		}
+		add_political_power = 100
+		if = {
+			limit = { GER_has_Belgian_Ally = yes }
+			set_global_flag = NFA_peace_deal_2
+		}
+		else = {
+			set_global_flag = NFA_peace_deal_2_nobel
+		}
+		set_global_flag = GER_easy_peace_deal
+		NFA = { country_event = { id = nfa.131 } } #French receive case deal 2
+		custom_effect_tooltip = NFA_Dove_tt
+	}
+}
+
+country_event = { #AI NFA will declare war! - CAN Player POV
+	id = nfa.140
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.140" }
+	title = nfa.140.t
+	desc = nfa.140.d
+	picture = GFX_report_event_NFA_event_NFAGenericArmy
+
+	is_triggered_only = yes
+
+	option = {
+		name = nfa.140.a #They are right, let them declare war!
+	}
+
+	option = {
+		name = nfa.140.b #Stop it! now is not the time
+		NFA = {
+			set_country_flag = CAN_block_NFA_declaration_war
+		}
+	}
+}
+
+#####
+# FRP joins NFA
+#####
+
+country_event = { #Join National France? FRP	That's if FRP is somehow freed after some peace conference fuckery
+	id = nfa.155
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.155" }
+	title = nfa.155.t
+	desc = nfa.155.d
+	picture = GFX_report_event_generic_map_france
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = FRP
+		is_subject = no
+		country_exists = NFA
+		NFA = {
+			is_subject = no
+		}
+		has_war = no
+	}
+
+	mean_time_to_happen = {
+		days = 5
+	}
+
+	option = {
+		name = nfa.155.a #Join National France!
+		ai_chance = {
+			base = 100
+		}
+		NFA = {
+			country_event = nfa.156
+		}
+	}
+
+	option = {
+		name = nfa.155.b #oh boy do I love being independent
+		ai_chance = {
+			base = 0
+		}
+		add_stability = -0.4
+	}
+}
+
+country_event = { #FRP wants to join us
+	id = nfa.156
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nfa.156" }
+	title = nfa.156.t
+	desc = nfa.156.d
+	picture = GFX_report_event_generic_map_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = nfa.156.a #Finally an united France
+		FRP = {
+			transfer_navy = {
+				target = NFA
+			}
+		}
+		annex_country = {
+			target = FRP
+		}
+		add_stability = 0.1
 	}
 }
 

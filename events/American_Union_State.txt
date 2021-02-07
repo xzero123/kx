@@ -19,35 +19,35 @@ country_event = {###Our Flag
 		tag = TEX
 	}
 
-	option = {
+	option = {	
 		
 		name = unionstate.205.a
-		set_cosmetic_tag = TEX_pelican
+		set_cosmetic_tag = TEX_standard
 	}
 	option = {
-		
+
 		name = unionstate.205.b
-		set_cosmetic_tag = TEX_louisiana_red_star
+		set_cosmetic_tag = TEX
 	}
-	option = {
+	option = {	
 		
 		name = unionstate.205.c
-		set_cosmetic_tag = TEX_louisiana_secession
+		set_cosmetic_tag = TEX_blue_eagle_standard
 	}
 	option = {
 		
 		name = unionstate.205.e
 		set_cosmetic_tag = TEX_eagle
 	}
-	option = {	
+	option = {
 		
 		name = unionstate.205.f
-		set_cosmetic_tag = TEX_standard
+		set_cosmetic_tag = TEX_pelican
 	}
-	option = {	
+	option = {
 		
 		name = unionstate.205.g
-		set_cosmetic_tag = TEX_blue_eagle_standard
+		set_cosmetic_tag = TEX_louisiana_secession
 	}
 	option = {	
 		
@@ -55,40 +55,40 @@ country_event = {###Our Flag
 		set_cosmetic_tag = TEX_coast_guard_flag
 	}
 	option = {
-
+		
 		name = unionstate.205.i
-		set_cosmetic_tag = TEX
+		set_cosmetic_tag = TEX_louisiana_red_star
 	}
 }
 
-#country_event = {###Our Flag
-#	id = unionstate.206
-#	immediate = {log = "[GetDateText]: [Root.GetName]: event unionstate.206"}
-#	title = unionstate.206.t
-#	desc = unionstate.206.d
-#	picture = GFX_event_TEX_flags_event
-#
-#	fire_only_once = yes
-#	
-#	trigger = {
-#		tag = TEX
-#	}
-#
-#	option = {
-#		
-#		name = unionstate.206.a
-#		set_cosmetic_tag = TEX_eagle
-#	}
-#	option = {	
-#		
-#		name = unionstate.206.b
-#		set_cosmetic_tag = TEX_standard
-#	}
-#		
-#		name = unionstate.206.c
-#		set_cosmetic_tag = TEX_blues
-#	}
-#}
+country_event = {###Our Flag
+	id = unionstate.206
+	immediate = {log = "[GetDateText]: [Root.GetName]: event unionstate.206"}
+	title = unionstate.206.t
+	desc = unionstate.206.d
+	picture = GFX_event_TEX_flags_event
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = TEX
+	}
+
+	mean_time_to_happen = {
+		days = 3
+	}
+
+	option = {
+		
+		name = unionstate.206.a
+		set_cosmetic_tag = TEX_louisiana_red_star
+	}
+
+	option = {
+		
+		name = unionstate.206.b
+	}
+}
 
 ### internal conflict stuff 1 - 10 ###
 country_event = { # The American Legion Appointment
@@ -737,6 +737,11 @@ country_event = { # Long associate disappears
 	fire_only_once = yes
 	is_triggered_only = yes
 
+	trigger = {
+	tag = TEX
+	NOT = { has_country_flag = TEX_catholic_monarchy_declared }
+	}
+
 	option = { #Promise them more
 		name = unionstate.23.a
 		add_political_power = -10
@@ -857,23 +862,28 @@ country_event = { # AUS Election
 		hidden_effect = {
 		set_country_flag = AUS_election_occured
 		set_country_flag = NPP_Victory
-		set_cosmetic_tag = TEX_not_nazis
+		if = {
+			limit = {
+				NOT = {	has_cosmetic_tag = NEE_america }
+			}
+			set_cosmetic_tag = TEX_not_nazis
+			}
 		}
 		hidden_effect = {
 			random_other_country = {
 				news_event = { id = worldnews.203 days = 1 }
 			}
 			country_event = {
-				id = unionstate.5102
-				days = 1420
-				random = 10
+				id = unionstate.25
+				days = 1460
+				random = 20
 			}
 		}
 	}
 	option = { # Christian Party
 		name = unionstate.2300.c
 		add_political_power = 50
-		add_popularity = { ideology = social_liberal popularity = 0.1 }
+		add_popularity = { ideology = social_conservative popularity = 0.1 }
 		
 		set_politics = {
 		ruling_party = social_conservative
@@ -894,9 +904,9 @@ country_event = { # AUS Election
 				news_event = { id = worldnews.204 days = 1 }
 			}
 			country_event = {
-				id = unionstate.5102
-				days = 1420
-				random = 10
+				id = unionstate.25
+				days = 1460
+				random = 20
 			}
 		}
 	}
@@ -918,9 +928,9 @@ country_event = { # AUS Election
 		hidden_effect = {
 		set_country_flag = AUS_election_occured
 		country_event = {
-				id = unionstate.5102
-				days = 1420
-				random = 10
+				id = unionstate.25
+				days = 1460
+				random = 20
 			}
 		}
 	}
@@ -1129,13 +1139,16 @@ country_event = { # New Election
 			add_ideas = TEX_willard_kemp_hog_sco
 			add_ideas = TEX_Orville_Roundtree_for_sco
 			add_ideas = TEX_George_Fisher_eco_sco
+			create_country_leader = {
+				name = "William Dudley Pelley"
+				desc = "POLITICS_WILLIAM_DUDLEY_PELLEY"
+				picture = "Portrait_TEX_William_Dudley_Pelley.tga"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+				traits = { authoritarian_tendencies }
+				}
 		}
 		hidden_effect = {
-			country_event = {
-				id = unionstate.5103
-				days = 1420
-				random = 10
-			}
 			country_event = {
 				id = unionstate.5104
 				days = 1460
@@ -1196,11 +1209,6 @@ country_event = { # New Election
 			add_ideas = TEX_herman_ekern_sec_sli
 		}
 		hidden_effect = {
-			country_event = {
-				id = unionstate.5103
-				days = 1420
-				random = 10
-			}
 			country_event = {
 				id = unionstate.5104
 				days = 1460
@@ -1444,6 +1452,7 @@ country_event = { #Second Great Migration
 	COR = {
 	exists = yes
 		}
+		tag = TEX
 	}
 	
 	mean_time_to_happen = {
@@ -2254,6 +2263,11 @@ country_event = { #Long Dead
 		ideology = authoritarian_democrat_subtype
 		traits = { staunch_constitutionalist }
 			}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			election_frequency = 48
+			elections_allowed = yes
+		}
 		}
 		else_if = {
 		limit = { has_completed_focus = TEX_perfect_democracy }
@@ -2265,11 +2279,11 @@ country_event = { #Long Dead
 		ideology = social_conservative_subtype
 		traits = { staunch_constitutionalist }
 			}
-		}
 		set_politics = {
 			ruling_party = social_conservative
 			election_frequency = 48
 			elections_allowed = yes
+			}
 		}
 	}
 	option = { #Big Jim Folsom
@@ -2298,6 +2312,11 @@ country_event = { #Long Dead
 		ideology = authoritarian_democrat_subtype
 		traits = { big_jim }
 			}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			election_frequency = 48
+			elections_allowed = yes
+			}
 		}
 		else_if = {
 		limit = { has_completed_focus = TEX_perfect_democracy }
@@ -2309,11 +2328,11 @@ country_event = { #Long Dead
 		ideology = social_liberal_subtype
 		traits = { big_jim }
 			}
-		}
 		set_politics = {
 			ruling_party = social_liberal
 			election_frequency = 48
 			elections_allowed = yes
+			}
 		}
 	}
 	option = { #Sid McMath
@@ -2354,7 +2373,7 @@ country_event = { #Long Dead
 		desc = "POLITICS_SID_MCMATH_DESC"
 		picture = "gfx/leaders/TEX/TEX_Seth_McMath.tga"
 		expire = "1965.1.1"
-		ideology = social_liberal_subtype
+		ideology = social_democrat_subtype
 		traits = { economic_reformer }
 			}
 		set_politics = {
@@ -2504,7 +2523,7 @@ country_event = { #Long Dead
 		desc = "POLITICS_EARL_LONG_DESC"
 		picture = "gfx/leaders/TEX/Portrait_TEX_Earl_Kemp_Long.tga"
 		expire = "1965.1.1"
-		ideology = authoritarian_democrat_subtype
+		ideology = paternal_autocrat_subtype
 		traits = { hog_political_protege }
 			}
 		set_politics = {
@@ -3617,7 +3636,12 @@ country_event = { # AUS Election
 		hidden_effect = {
 		set_country_flag = AUS_second_election_occured
 		set_country_flag = NPP_Victory_two
-		set_cosmetic_tag = TEX_not_nazis
+		if = {
+			limit = {
+				NOT = {	has_cosmetic_tag = NEE_america }
+			}
+			set_cosmetic_tag = TEX_not_nazis
+		}
 		}
 	}
 	option = { # Christian Party
@@ -5381,7 +5405,7 @@ country_event = { # Hahaha Huey goes BOOM
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 			}
-                        create_country_leader = {
+            create_country_leader = {
 				name = "Philip Carroll"
 				desc = "POLITICS_CARROLL_DESC"
 				picture = "Portrait_TEX_Philip_gen.tga"
@@ -5414,11 +5438,6 @@ country_event = { # Hahaha Huey goes BOOM
 				id = unionstate.309
 				days = 3
 				random = 5
-			}
-			country_event = {
-				id = unionstate.310
-				days = 7
-				random = 9
 			}
 			country_event = {
 				id = unionstate.311
@@ -5508,13 +5527,14 @@ country_event = { # AVE CHRISTUS
 	immediate = { log = "[GetDateText]: [Root.GetName]: event unionstate.310" }
 	title = unionstate.310.t
 	desc = unionstate.310.d
-	picture = GFX_AUS_silver_legion
+	picture = GFX_TEX_based_hood
 
 	fire_only_once = yes
 	is_triggered_only = yes
 
 	trigger = {
         has_country_flag = TEX_catholic_monarchy_declared
+		NOT = { has_country_flag = TEX_catholic_stuart_now }
 		has_government = national_populist
 	}
 
@@ -5587,6 +5607,7 @@ country_event = { # Great Jesuit missions along the East Coast
 
 	trigger = {
 		has_government = national_populist
+		NOT = { has_country_flag = TEX_catholic_stuart_now }
         has_country_flag = TEX_catholic_monarchy_declared
 	}
 
@@ -5656,11 +5677,13 @@ country_event = { # The Militarization of the Order
 				logistics_skill = 2
 			}
 		add_political_power = 25
-		load_oob = TEX_KNIGHTS
 		add_stability = 0.15
 		add_popularity = {
 			ideology = national_populist
 			popularity = 0.10
+		}
+		hidden_effect = {
+			load_oob = TEX_KNIGHTS
 		}
 	}
 }
@@ -5750,6 +5773,7 @@ country_event = { # AMERICAE SANCTUS
 
 	option = {
 		name = unionstate.319.a
+		set_country_flag = LEADER_GUI_VISIBLE
 		set_cosmetic_tag = TEX_catholic_guad
 		kill_ideology_leader = national_populist
 		create_country_leader = {
@@ -5777,6 +5801,7 @@ country_event = { # NO BODY EXPECTS THE AMERICAN Inquisition
 
 	trigger = {
 		has_government = national_populist
+		NOT = { has_country_flag = TEX_catholic_stuart_now }
         has_country_flag = TEX_catholic_monarchy_declared
 	}
 
@@ -5816,6 +5841,7 @@ country_event = { # HOUSE STUART
 				TEX_new_bonnie_prince
 			}
 		}
+		set_country_flag = LEADER_GUI_VISIBLE
 		hidden_effect = {
 			country_event = {
 				id = unionstate.323

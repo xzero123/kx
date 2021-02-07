@@ -93,6 +93,136 @@ political_actions = {
 			}
 		}
 	}
+	USA_oldorder_act_quickly = {
+		icon = us_flag
+
+		allowed = { always = no } #manually activated
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+
+		days_mission_timeout = 100
+		is_good = no
+		fire_only_once = yes
+
+		cancel_trigger = {
+			OR = {
+				has_completed_focus = USA_progressive_collaboration
+				has_completed_focus = USA_home_rule_negotiations
+				has_completed_focus = USA_counter_klan
+				has_completed_focus = USA_reassure_business
+				has_completed_focus = USA_Garner_free_trade
+				has_completed_focus = USA_smash_radicals
+				has_completed_focus = USA_undermine_old_democrats
+				has_completed_focus = USA_now_is_prosperity_around_the_corner
+				has_country_flag = USA_macarthur_coup
+			}
+		}
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout USA_oldorder_act_quickly"
+			add_political_power = -100
+			country_event = ustates.526
+		}
+	}
+
+	USA_long_act_quickly = {
+		icon = us_flag
+
+		allowed = { always = no } #manually activated
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+
+		days_mission_timeout = 50
+		is_good = no
+		fire_only_once = yes
+
+		cancel_trigger = {
+			OR = {
+				has_completed_focus = USA_pass_relief_bill
+				has_completed_focus = USA_fight_anarchists
+				has_completed_focus = USA_hit_bankers
+				has_completed_focus = USA_focus_on_odp
+				has_country_flag = USA_macarthur_coup
+			}
+		}
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout USA_long_act_quickly"
+			add_political_power = -100
+			country_event = ustates.526
+		}
+	}
+
+	USA_reed_act_quickly = {
+		icon = us_flag
+
+		allowed = { always = no } #manually activated
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+
+		days_mission_timeout = 50
+		is_good = no
+		fire_only_once = yes
+
+		cancel_trigger = {
+			OR = {
+				has_completed_focus = USA_sweeping_reforms
+				has_completed_focus = USA_the_means_of_production
+				has_completed_focus = USA_focus_on_odp
+				has_country_flag = USA_macarthur_coup
+			}
+		}
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout USA_reed_act_quickly"
+			add_political_power = -100
+			country_event = ustates.526
+		}
+	}
+	
+	USA_murray_act_quickly = {
+		icon = us_flag
+
+		allowed = { always = no } #manually activated
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+
+		days_mission_timeout = 50
+		is_good = no
+		fire_only_once = yes
+
+		cancel_trigger = {
+			OR = {
+				has_completed_focus = USA_the_last_word
+				has_completed_focus = USA_fight_anarchists
+				has_completed_focus = USA_hit_bankers
+				has_completed_focus = USA_crack_the_minutemen
+				has_country_flag = USA_macarthur_coup
+			}
+		}
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout USA_murray_act_quickly"
+			add_political_power = -100
+			country_event = ustates.526
+		}
+	}
 }
 
 USA_american_imperialism = {
@@ -1520,6 +1650,7 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 				has_completed_focus = CSA_reconstruction
 				has_completed_focus = TEX_begin_reconstruction
 				has_completed_focus = COR_begin_reconstruction
+				has_completed_focus = WCC_military_industrial_complex
 				AND = {
 					tag = NEE
 					has_country_flag = NEE_claimed_america
@@ -1607,6 +1738,7 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 				has_completed_focus = USA_begin_reconstruction
 				has_completed_focus = CSA_reconstruction
 				has_completed_focus = TEX_begin_reconstruction
+				has_completed_focus = WCC_military_industrial_complex
 				AND = {
 					tag = NEE
 					has_country_flag = NEE_claimed_america
@@ -1708,6 +1840,7 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 				has_completed_focus = USA_begin_reconstruction
 				has_completed_focus = CSA_reconstruction
 				has_completed_focus = TEX_begin_reconstruction
+				has_completed_focus = WCC_military_industrial_complex
 				AND = {
 					tag = NEE
 					has_country_flag = NEE_claimed_america
@@ -1811,6 +1944,7 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 				has_completed_focus = USA_begin_reconstruction
 				has_completed_focus = CSA_reconstruction
 				has_completed_focus = TEX_begin_reconstruction
+				has_completed_focus = WCC_military_industrial_complex
 				AND = {
 					tag = NEE
 					has_country_flag = NEE_claimed_america
@@ -1903,6 +2037,7 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 				has_completed_focus = USA_begin_reconstruction
 				has_completed_focus = CSA_reconstruction
 				has_completed_focus = TEX_begin_reconstruction
+				has_completed_focus = WCC_military_industrial_complex
 				AND = {
 					tag = NEE
 					has_country_flag = NEE_claimed_america
@@ -1981,9 +2116,9 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 			376 = { is_owned_and_controlled_by = ROOT }
 			382 = { is_owned_and_controlled_by = ROOT }
 			1150 = { is_owned_and_controlled_by = ROOT }
-			1154 = { is_owned_and_controlled_by = ROOT }
 			1157 = { is_owned_and_controlled_by = ROOT }
 			1161 = { is_owned_and_controlled_by = ROOT }
+			1164 = { is_owned_and_controlled_by = ROOT }
 			1165 = { is_owned_and_controlled_by = ROOT }
 			1096 = { is_owned_and_controlled_by = ROOT }
 			1175 = { is_owned_and_controlled_by = ROOT }
@@ -1996,6 +2131,7 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 				has_completed_focus = USA_begin_reconstruction
 				has_completed_focus = CSA_reconstruction
 				has_completed_focus = TEX_begin_reconstruction
+				has_completed_focus = WCC_military_industrial_complex
 				AND = {
 					tag = NEE
 					has_country_flag = NEE_claimed_america
@@ -2013,9 +2149,9 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 					376 = { is_core_of = ROOT }
 					382 = { is_core_of = ROOT }
 					1150 = { is_core_of = ROOT }
-					1154 = { is_core_of = ROOT }
 					1157 = { is_core_of = ROOT }
 					1161 = { is_core_of = ROOT }
+					1164 = { is_core_of = ROOT }
 					1165 = { is_core_of = ROOT }
 					1096 = { is_core_of = ROOT }
 					1175 = { is_core_of = ROOT }
@@ -2043,10 +2179,10 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 						state = 376
 						state = 382
 						state = 1150
-						state = 1154
 						state = 1157
 						state = 1161
-						state = 1155
+						state = 1164
+						state = 1165
 						state = 1096
 						state = 1175
 						state = 1174
@@ -2085,6 +2221,7 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 			797 = { is_owned_and_controlled_by = ROOT }
 			829 = { is_owned_and_controlled_by = ROOT }
 			798 = { is_owned_and_controlled_by = ROOT }
+			1165 = { is_owned_and_controlled_by = ROOT }
 		}
 		visible = {
 			OR = {
@@ -2093,6 +2230,7 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 				has_completed_focus = USA_begin_reconstruction
 				has_completed_focus = CSA_reconstruction
 				has_completed_focus = TEX_begin_reconstruction
+				has_completed_focus = WCC_military_industrial_complex
 				AND = {
 					tag = NEE
 					has_country_flag = NEE_claimed_america
@@ -2107,6 +2245,7 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 					797 = { is_core_of = ROOT }
 					829 = { is_core_of = ROOT }
 					798 = { is_core_of = ROOT }
+					1165 = { is_core_of = ROOT }
 				}
 			}
 		}
@@ -2127,6 +2266,7 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 						state = 797
 						state = 829
 						state = 798
+						state = 1165
 					}
 				}
 				remove_ACW_cores = yes
@@ -2165,6 +2305,7 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 				has_completed_focus = USA_begin_reconstruction
 				has_completed_focus = CSA_reconstruction
 				has_completed_focus = TEX_begin_reconstruction
+				has_completed_focus = WCC_military_industrial_complex
 				AND = {
 					tag = NEE
 					has_country_flag = NEE_claimed_america
@@ -2217,6 +2358,7 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 				has_completed_focus = USA_begin_reconstruction
 				has_completed_focus = CSA_reconstruction
 				has_completed_focus = TEX_begin_reconstruction
+				has_completed_focus = WCC_military_industrial_complex
 				AND = {
 					tag = NEE
 					has_country_flag = NEE_claimed_america
@@ -2288,6 +2430,8 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 				has_completed_focus = USA_begin_reconstruction
 				has_completed_focus = CSA_reconstruction
 				has_completed_focus = TEX_begin_reconstruction
+				has_completed_focus = COR_begin_reconstruction
+				has_completed_focus = WCC_military_industrial_complex
 				AND = {
 					tag = NEE
 					has_country_flag = NEE_claimed_america
@@ -2561,6 +2705,73 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 			CAN = {	country_event = ustates.273 }
 		}
 	}
+	
+	USA_reclaim_independent_alaska_decision = {# Reclaim Independent Alaska
+		icon = generic_political_discourse
+		allowed = {
+			OR = {
+				tag = USA
+				tag = CAL
+				tag = COR
+				tag = TEX
+				tag = NEE
+				tag = WCC
+			}
+		}
+		available = {
+			is_subject = no
+			463 = { is_owned_and_controlled_by = ALA }
+		}
+		visible = {
+			ALA = { is_subject = no }
+			OR = {
+				ALA = {
+					OR = {
+						has_country_flag = ALA_DEMOCRACY
+						has_country_flag = ALA_BARONS
+					}
+				}
+				AND = {
+					has_socialist_government = yes
+					ALA = { has_country_flag = ALA_WICKERSHAM }
+				}
+			}
+			NOT = {
+				has_war_with = ALA
+				count_triggers = {
+					amount = 2
+					country_exists = USA
+					country_exists = CAL
+					country_exists = TEX
+					country_exists = CSA
+					country_exists = WCC
+				}
+			}
+			has_global_flag = USA_civil_war_over_flag
+			OR = {
+				NOT = { tag = NEE }
+				has_country_flag = NEE_claimed_america
+			}
+		}
+		fire_only_once = yes
+		cost = 80
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+			modifier = {
+				factor = 0
+				has_army_manpower = { size < 250000 }
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision USA_reclaim_independent_alaska_decision"
+			set_country_flag = asked_alaska_@ALA
+			ALA = {	country_event = Alaska.100 }
+		}
+	}
 
 	USA_reclaim_hawaii_decision = {# Reclaim Hawaii
 		icon = generic_political_discourse
@@ -2751,6 +2962,7 @@ USA_rainbow_war_plans_decisions = {
 			OR = {
 				tag = USA
 				tag = CAL
+				tag = WCC
 			}
 		}
 		available = {
@@ -2769,6 +2981,7 @@ USA_rainbow_war_plans_decisions = {
 			OR = {
 				has_completed_focus = USA_enter_the_fray
 				has_completed_focus = CAL_enter_the_fray
+				has_completed_focus = WCC_enter_the_fray
 			}
 			country_exists = CAN
 			has_socialist_government = no
@@ -3030,6 +3243,7 @@ USA_rainbow_war_plans_decisions = {
 				tag = USA
 				tag = CAL
 				tag = TEX
+				tag = WCC
 			}
 		}
 		available = {
@@ -3056,6 +3270,7 @@ USA_rainbow_war_plans_decisions = {
 			OR = {
 				has_completed_focus = USA_enter_the_fray
 				has_completed_focus = CAL_enter_the_fray
+				has_completed_focus = WCC_enter_the_fray
 			}
 			country_exists = JAP
 			JAP = {
@@ -3105,6 +3320,7 @@ USA_rainbow_war_plans_decisions = {
 				tag = USA
 				tag = CAL
 				tag = TEX
+				tag = WCC
 			}
 		}
 		available = {
@@ -3141,6 +3357,7 @@ USA_rainbow_war_plans_decisions = {
 			OR = {
 				has_completed_focus = USA_enter_the_fray
 				has_completed_focus = CAL_enter_the_fray
+				has_completed_focus = WCC_enter_the_fray
 			}
 			has_socialist_government = no
 			country_exists = FRA
@@ -3222,6 +3439,7 @@ USA_rainbow_war_plans_decisions = {
 			OR = {
 				has_completed_focus = USA_enter_the_fray
 				has_completed_focus = CAL_enter_the_fray
+				has_completed_focus = WCC_enter_the_fray
 			}
 			country_exists = GER
 			GER = {
@@ -3267,6 +3485,7 @@ USA_rainbow_war_plans_decisions = {
 				tag = USA
 				tag = CAL
 				tag = TEX
+				tag = WCC
 			}
 		}
 		available = {
@@ -3290,6 +3509,7 @@ USA_rainbow_war_plans_decisions = {
 			OR = {
 				has_completed_focus = USA_enter_the_fray
 				has_completed_focus = CAL_enter_the_fray
+				has_completed_focus = WCC_enter_the_fray
 			}
 			country_exists = SOV
 			SOV = {
@@ -3339,6 +3559,7 @@ USA_rainbow_war_plans_decisions = {
 				tag = USA
 				tag = CAL
 				tag = TEX
+				tag = WCC
 			}
 		}
 		available = {
@@ -3362,6 +3583,7 @@ USA_rainbow_war_plans_decisions = {
 			OR = {
 				has_completed_focus = USA_enter_the_fray
 				has_completed_focus = CAL_enter_the_fray
+				has_completed_focus = WCC_enter_the_fray
 			}
 			country_exists = RUS
 			RUS = {
@@ -3412,6 +3634,7 @@ USA_rainbow_war_plans_decisions = {
 				tag = USA
 				tag = CAL
 				tag = TEX
+				tag = WCC
 			}
 		}
 
@@ -3667,7 +3890,7 @@ USA_republican_policies = {# Republican Policies
 	USA_republican_desegregate_the_military = {
 		icon = GFX_decision_generic_independence
 		allowed = { original_tag = USA }
-		available = { has_completed_focus = CAL_encourage_integration }
+		available = { has_completed_focus = USA_encourage_integration }
 		cost = 100
 		fire_only_once = yes
 

@@ -42,12 +42,6 @@ focus_tree = {
 
 		completion_reward = {
 			custom_effect_tooltip = USA_gwbill_vote_occurs
-			hidden_effect = {
-				random_other_country = {
-					limit = { is_ai = yes }
-					country_event = ustates.506
-				}
-			}
 		}
 	}
 
@@ -113,7 +107,7 @@ focus_tree = {
 
 	focus = {
 		id = USA_deploy_national_guard
-		icon = GFX_goal_army_guy
+		icon = GFX_goal_USA_national_guard
 		cost = 6.00
 		prerequisite = {
 			focus = USA_war_plan_white
@@ -824,6 +818,884 @@ focus_tree = {
 		}
 	}
 	
+	###HOOVER####	
+	focus = {
+		id = USA_4_more_years
+		icon = GFX_USA_4_more_years-57748
+		x = 14
+		y = 8
+		cost = 1
+		available = {
+				has_country_flag = USA_had_1936_election
+				has_country_flag = USA_Herb_36_Victory
+			}
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 99
+		}
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_Hoover_won_again"
+			custom_effect_tooltip = unlock_focuses
+			add_political_power = 200
+			increase_ruling_party_popularity_by_5 = yes
+		}
+	}
+
+	#Focus for Today, we are scrounging for a meal
+	focus = {
+		id = USA_today_we_are_scrounging_for_a_meal
+		icon = GFX_USA_today_we_are_scrounging_for_a_meal-57758
+		x = -3
+		y = 1
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_4_more_years }
+		relative_position_id = USA_4_more_years
+		ai_will_do = {
+			factor = 25
+		}
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		completion_reward = {
+			country_event = ustates.4004
+			add_political_power = -25
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.01
+			}
+		}
+	}
+
+	#Focus for Today, We are living in a Shanty
+	focus = {
+		id = USA_today_we_are_living_in_a_shanty
+		icon = GFX_USA_today_we_are_living_in_a_shanty-57759
+		x = -1
+		y = 1
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_4_more_years }
+		ai_will_do = {
+			factor = 25
+		}
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_4_more_years
+		completion_reward = {
+			country_event = ustates.4003
+			add_political_power = -25
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.01
+			}
+
+		}
+	}
+
+	#Focus for You made us what we are today
+	focus = {
+		id = USA_you_made_us_what_we_are_today
+		icon = GFX_USA_you_made_us_what_we_are_today-57751
+		x = 1
+		y = 1
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_4_more_years }
+		ai_will_do = {
+			factor = 25
+		}
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_4_more_years
+		completion_reward = {
+			country_event = ustates.4005
+			add_political_power = -25
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.01
+			}
+		}
+	}
+
+	#Focus for We would like to thank you Herb
+	focus = {
+		id = USA_we_would_like_to_thank_you_herb
+		icon = GFX_USA_we_would_like_to_thank_you_herb-57750
+		x = 3
+		y = 1
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_4_more_years }
+		ai_will_do = {
+			factor = 25
+		}
+		relative_position_id = USA_4_more_years
+		completion_reward = {
+			country_event = ustates.4006
+			add_political_power = -25
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.01
+			}
+
+		}
+	}
+
+	#Focus for Now is Prosperity around the Corner?
+	focus = {
+		id = USA_now_is_prosperity_around_the_corner
+		icon = GFX_USA_now_is_prosperity_around_the_corner-57749
+		x = 1
+		y = 1
+		cost = 0
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = USA_we_would_like_to_thank_you_herb 
+		}
+		prerequisite = { 
+			focus = USA_you_made_us_what_we_are_today 
+		}
+		prerequisite = { 
+			focus = USA_today_we_are_living_in_a_shanty 
+		}
+		prerequisite = { 
+			focus = USA_today_we_are_scrounging_for_a_meal 
+		}
+		ai_will_do = {
+		factor = 1
+		}
+		available = {
+				has_country_flag = USA_Herb_36_Victory
+				has_country_flag = USA_president_inaugurated
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_4_more_years
+		#bypass = {
+			#has_country_flag = USA_Herb_36_Victory
+			#has_country_flag = USA_president_inaugurated
+		#}
+		relative_position_id = USA_today_we_are_living_in_a_shanty
+		completion_reward = {
+					custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	#Focus for Working with the Democrats
+	focus = {
+		id = USA_working_with_the_democrats
+		icon = GFX_USA_working_with_the_democrats-57753
+		x = -4
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_now_is_prosperity_around_the_corner }
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_now_is_prosperity_around_the_corner
+		completion_reward = {
+			add_political_power = 200
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.09
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.11
+			}
+			add_stability = 0.10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Appoint new Judges
+	focus = {
+		id = USA_appoint_new_judges
+		icon = GFX_USA_appoint_new_judges-57756
+		x = 0
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_working_with_the_democrats }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_working_with_the_democrats
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.03
+			}
+			add_stability = 0.06
+		}
+	}
+	
+	#Focus for The Hoover Raids
+	focus = {
+		id = USA_the_hoover_raids
+		icon = GFX_USA_the_hoover_raids-62514
+		x = -1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_appoint_new_judges }
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_appoint_new_judges
+		completion_reward = {
+			country_event = ustates.4008
+			add_political_power = -50
+			hidden_effect = {
+				clr_country_flag = Assassination_soon_tm
+				set_country_flag = Assassination_soon_tm_Avoided
+				}
+			}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Dealing with the Riots
+	focus = {
+		id = USA_dealing_with_the_riots
+		icon = GFX_USA_dealing_with_the_riots-57757
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_appoint_new_judges }
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_appoint_new_judges
+		completion_reward = {
+			country_event = ustates.4007
+			add_political_power = -50
+			}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Only enough room for two...
+	focus = {
+		id = USA_only_enough_room_for_two
+		icon = GFX_USA_only_enough_room_for_two-62351
+		x = -1
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = USA_the_hoover_raids 
+		}
+		prerequisite = { focus = USA_dealing_with_the_riots }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_dealing_with_the_riots
+		completion_reward = {
+			country_event = ustates.4020
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.04
+			}
+		}
+	}
+	
+	#Focus for in this Cozy Cottage built for two
+	focus = {
+		id = USA_in_this_cozy_cottage_built_for_two
+		icon = GFX_USA_in_this_cozy_cottage_built_for_two-62352
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = USA_only_enough_room_for_two 
+		}
+		prerequisite = { 
+			focus = USA_investigate_hollywood 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_only_enough_room_for_two
+		completion_reward = {
+			add_ideas = USA_Constitution_idea
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.05
+			}
+		}
+	}
+	
+	#Focus for Embrace Knox's Economics
+	focus = {
+		id = USA_embrace_knoxs_economics
+		icon = GFX_USA_embrace_knoxs_economics-62534
+		x = 4
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_now_is_prosperity_around_the_corner
+		completion_reward = {
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.05
+			}
+			add_stability = 0.05
+		}
+		prerequisite = { focus = USA_now_is_prosperity_around_the_corner }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Balancing the Budget
+	focus = {
+		id = USA_balancing_the_budget
+		icon = GFX_USA_balancing_the_budget-62853
+		x = 0
+		y = 1
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_embrace_knoxs_economics }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_embrace_knoxs_economics
+		completion_reward = {
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.02
+			}
+			add_stability = 0.03
+			add_political_power = 15
+		}
+	}
+#Focus for Everyman a pot?
+	focus = {
+		id = USA_everyman_a_pot
+		icon = GFX_USA_everyman_a_pot-62854
+		x = -1
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_balancing_the_budget }
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_balancing_the_budget
+		completion_reward = {
+		country_event = ustates.4060
+			add_stability = 0.09
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+
+	#Focus for Everypot a Chicken?
+	focus = {
+		id = USA_everypot_a_chicken
+		icon = GFX_USA_everypot_a_chicken-62855
+		x = 1
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_balancing_the_budget }
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_balancing_the_budget
+		completion_reward = {
+			country_event = ustates.4061
+			add_stability = 0.09
+			hidden_effect = {
+				clr_country_flag = Dustbowl_anger
+			}
+		}
+	}
+	
+	#Focus for Peace through Trade
+	focus = {
+		id = USA_peace_through_trade_2
+		icon = GFX_USA_peace_through_trade-62866
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = USA_everyman_a_pot 
+		}
+		prerequisite = { 
+			focus = USA_everypot_a_chicken 
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_everyman_a_pot
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_tokyo_talks"
+			GER = { add_opinion_modifier = { target = GER modifier = medium_increase } }
+			diplomatic_relation = {
+			country = GER
+			relation = non_aggression_pact
+			active = yes
+			}
+			GER = {
+			diplomatic_relation = {
+			country = USA
+			relation = non_aggression_pact
+			active = yes
+			}
+			}
+			hidden_effect = {
+				set_country_flag = USA_economic_crisis_recovery_set
+			}
+		}
+	}
+	#Focus for It can't happen here
+	focus = {
+		id = USA_we_wont_let_it_happen_here
+		icon = GFX_USA_it_cant_happen_here-62868
+		x = -1
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = USA_investigate_the_military 
+		}
+		prerequisite = { 
+			focus = USA_peace_through_trade_2
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_everyman_a_pot
+		completion_reward = {
+				add_ideas = USA_American_Democracy_idea
+				add_stability = 0.25
+		}
+	}
+	
+	#Focus for House of Un-American Activites
+	focus = {
+		id = USA_house_of_unamerican_activites
+		icon = GFX_USA_house_of_unamerican_activites-62354
+		x = 0
+		y = 1
+		cost = 8
+		available = {
+				has_country_flag = USA_Herb_36_Victory
+				has_country_flag = USA_political_crisis_Solved
+				has_country_flag = USA_economic_crisis_recovery_set
+			}
+		prerequisite = { focus = USA_now_is_prosperity_around_the_corner }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = USA_now_is_prosperity_around_the_corner
+		completion_reward = {
+			add_political_power = -150
+			country_event = ustates.4009
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.16
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.08
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.04
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.02
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.02
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.02
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.08
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.08
+			}
+			add_stability = -0.10
+				hidden_effect = {
+					remove_ideas = USA_black_monday
+					remove_ideas = USA_black_monday2
+					remove_ideas = USA_black_monday2_garner
+				}
+		}
+	}
+
+	#Focus for Investigate the ODP
+	focus = {
+		id = USA_investigate_the_odp
+		icon = GFX_USA_investigate_the_odp-62357
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		prerequisite = { focus = USA_house_of_unamerican_activites }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = USA_house_of_unamerican_activites
+		completion_reward = {
+			country_event = ustates.4010
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.25
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.01
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.04
+			}
+			add_stability = 0.05
+		}
+	}
+
+	#Focus for Investigate the SPA
+	focus = {
+		id = USA_investigate_the_spa
+		icon = GFX_USA_investigate_the_spa-62363
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_house_of_unamerican_activites }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_house_of_unamerican_activites
+		completion_reward = {
+			country_event = ustates.4011
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.25
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.25
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.25
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.04
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.01
+			}
+			add_stability = 0.05
+		}
+	}
+
+	#Focus for Investigate the AFP
+	focus = {
+		id = USA_investigate_the_afp
+		icon = GFX_USA_investigate_the_afp-62364
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = USA_investigate_the_odp 
+		}
+		prerequisite = { 
+			focus = USA_investigate_the_spa 
+		}
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_investigate_the_odp
+		completion_reward = {
+			country_event = ustates.4012
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.10
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.25
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.01
+			}
+			add_stability = 0.05
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Investigate Hollywood?
+	focus = {
+		id = USA_investigate_hollywood
+		icon = GFX_USA_investigate_hollywood-62360
+		x = -1
+		y = 1
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_investigate_the_afp }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_investigate_the_afp
+		completion_reward = {
+			country_event = ustates.4013
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.07
+			}
+			add_stability = -0.15
+		}
+	}
+
+	#Focus for Investigate the Military?
+	focus = {
+		id = USA_investigate_the_military
+		icon = GFX_USA_investigate_the_military-62362
+		x = 1
+		y = 1
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_investigate_the_afp }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_investigate_the_afp
+		completion_reward = {
+			country_event = ustates.4014
+			add_popularity = {
+				ideology = social_conservative
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.25
+			}
+			add_stability = -0.15
+		}
+	}
+
+	focus = {
+		id = USA_hoovers_america
+		icon = GFX_USA_hoovers_america-62869
+		x = -2
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = USA_in_this_cozy_cottage_built_for_two 
+		}
+		prerequisite = { 
+			focus = USA_we_wont_let_it_happen_here
+		}
+		available = {
+				has_country_leader = {
+					name = "Herbert Hoover"
+					ruling_only = yes
+				}
+		}
+		relative_position_id = USA_we_wont_let_it_happen_here
+		completion_reward = {
+			country_event = ustates.4100
+			remove_ideas = USA_Hoovers_Legacy
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.50
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.08
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.08
+			}
+			add_stability = 0.25
+			hidden_effect = {
+				remove_ideas = USA_Dustbowl_Intense
+				remove_ideas = USA_Hoovervilles
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	
 	###Garner Presidency ###
 	focus = {# Garner Triumphs
 		id = USA_garner_wins
@@ -1137,7 +2009,7 @@ focus_tree = {
 	
 	focus = {# A Blow for Liberty
 		id = USA_yay_liquor
-		icon = GFX_goal_liberty
+		icon = GFX_america_goal_champagn
 		cost = 6.00
 		available = {
 				has_country_leader = { ruling_only = yes name = "John Nance Garner" }
@@ -1200,7 +2072,7 @@ focus_tree = {
 	
 	focus = {# Last Bastion of American Democracy
 		id = USA_last_bastion
-		icon = GFX_goal_liberty
+		icon = GFX_NEE_salute_red_white_blue
 		cost = 5.00
 		available = {
 			OR = {
@@ -1212,7 +2084,7 @@ focus_tree = {
 				has_global_flag = USA_civil_war_over_flag
 			}
 		}
-		x = 72
+		x = 80
 		y = 15
 		ai_will_do = {
 			factor = 100
@@ -1613,7 +2485,7 @@ focus_tree = {
 
 	focus = {# National Railroads
 		id = USA_national_railroads
-		icon = GFX_goal_production
+		icon = GFX_CAL_national_railroads
 		cost = 5.00
 		prerequisite = {
 			focus = USA_new_anti_trust_laws
@@ -1716,7 +2588,7 @@ focus_tree = {
 	
 	focus = {# Fight Crime
 		id = USA_fight_crime
-		icon = GFX_goal_generic_stable_government
+		icon = GFX_focus_usa_guarantee_the_american_dream
 		cost = 5.00
 		prerequisite = {
 			focus = USA_farm_credit_act
@@ -2145,7 +3017,7 @@ focus_tree = {
 	
 	focus = {# Liberal unions
 		id = USA_liberal_unions
-		icon = GFX_goal_tblra_union_agreement
+		icon = GFX_NEE_Labor_Committee
 		cost = 5.00
 		prerequisite = {
 			focus = USA_brain_trust
@@ -2170,7 +3042,7 @@ focus_tree = {
 	
 	focus = {# Banking Act
 		id = USA_banking_act
-		icon = GFX_goal_generic_government_deals
+		icon = GFX_goal_TEX_banks_for_america
 		cost = 5.00
 		prerequisite = {
 			focus = USA_social_liberals_in_power
@@ -2195,7 +3067,7 @@ focus_tree = {
 	
 	focus = {# Farm Security Act
 		id = USA_farm_security_act
-		icon = GFX_goal_agricultural_aid
+		icon = GFX_CAL_farm_bankruptcy_act
 		cost = 5.00
 		prerequisite = {
 			focus = USA_banking_act
@@ -2255,7 +3127,7 @@ focus_tree = {
 	
 	focus = {# Medicare
 		id = USA_medicare
-		icon = GFX_goal_generic_stable_government
+		icon = GFX_goal_healthcare
 		cost = 5.00
 		prerequisite = {
 			focus = USA_farm_security_act
@@ -2288,7 +3160,7 @@ focus_tree = {
 	
 	focus = {# Mathematical Table Project
 		id = USA_mathematical_tables_project
-		icon = GFX_goal_brain
+		icon = GFX_goal_computer_focus
 		cost = 5.00
 		prerequisite = {
 			focus = USA_liberal_unions
@@ -2516,7 +3388,7 @@ focus_tree = {
 
 	focus = {# Settlement Movement
 		id = USA_settelment_movement
-		icon = GFX_goal_factory_complex
+		icon = GFX_NEE_housing_expansion
 		cost = 5.00
 			prerequisite = {
 			focus = USA_market_liberals_in_power
@@ -2846,7 +3718,7 @@ focus_tree = {
 
 	focus = {# Trust Busting
 		id = USA_trust_busting
-		icon = GFX_goal_Centralised_Government
+		icon = GFX_CAL_new_antitrust_laws
 		cost = 5.00
 		prerequisite = {
 			focus = USA_settelment_movement
@@ -2856,7 +3728,10 @@ focus_tree = {
 				has_government = market_liberal
 				has_government = social_liberal
 			}
+			OR = {
+			has_global_flag = USA_civil_war_avoided_flag
 			has_idea = USA_economic_recovery_idea
+			}
 		}
 		ai_will_do = {
 			factor = 5
@@ -2874,7 +3749,7 @@ focus_tree = {
 
 	focus = {# Efficiency Movement
 		id = USA_efficiency_movement
-		icon = GFX_goal_great_science
+		icon = GFX_goal_generic_lightbulb
 		cost = 5.00
 		prerequisite = {
 			focus = USA_trust_busting
@@ -2883,7 +3758,10 @@ focus_tree = {
 			focus = USA_securities_act
 		}
 		available = {
-			has_government = social_liberal
+			OR = {
+				has_government = market_liberal
+				has_government = social_liberal
+			}
 		}
 		ai_will_do = {
 			factor = 5
@@ -2935,7 +3813,7 @@ focus_tree = {
 	
 	focus = {# Soften Regulations
 		id = USA_soften_regulations
-		icon = GFX_goal_generic_trade
+		icon = GFX_HUN_deregulation
 		cost = 5.00
 		prerequisite = {
 			focus = USA_market_liberals_in_power
@@ -2959,7 +3837,7 @@ focus_tree = {
 
 	focus = {# Small business Support
 		id = USA_small_business_support
-		icon = GFX_goal_production
+		icon = GFX_NEE_support_small_businesses
 		cost = 5.00
 		prerequisite = {
 			focus = USA_soften_regulations
@@ -3079,7 +3957,7 @@ focus_tree = {
 	
 	focus = {# American Laissez Fair
 		id = USA_american_laisze_faire
-		icon = GFX_goal_capitalist_system
+		icon = GFX_NEE_public_kickbacks
 		cost = 5.00
 		prerequisite = {
 			focus = USA_small_business_support
@@ -3153,7 +4031,7 @@ focus_tree = {
 	
 	focus = {# Education Philanthropy
 		id = USA_education_philanthropy
-		icon = GFX_goal_KTG_Bookstack
+		icon = GFX_goal_COR_University_System_of_America
 		cost = 5.00
 		prerequisite = {
 			focus = USA_incentivize_charity
@@ -3515,7 +4393,7 @@ focus_tree = {
 
 	focus = {# New Liberalism
 		id = USA_new_liberalism
-		icon = GFX_goal_Fight_for_Freedom
+		icon = GFX_NEE_modern_republicanism
 		cost = 5.00
 		prerequisite = {
 			focus = USA_give_me_your_poor
@@ -3560,7 +4438,7 @@ focus_tree = {
 	
 	focus = {# Farm Education Campaign
 		id = USA_education_campaign
-		icon = GFX_goal_agriculture
+		icon = GFX_BBR_rural_schools
 		cost = 5.00
 		prerequisite = {
 			focus = USA_new_liberalism
@@ -3619,7 +4497,7 @@ focus_tree = {
 
 	focus = {# Social Gospel
 		id = USA_social_gospel
-		icon = GFX_BEL_Improve_Catholic_Relations
+		icon = GFX_goal_COR_captains_of_industry
 		cost = 5.00
 		prerequisite = {
 			focus = USA_market_liberals_in_power
@@ -3646,7 +4524,7 @@ focus_tree = {
 
 	focus = {# Labor-Management Act
 		id = USA_labor_management
-		icon = GFX_goal_generic_intelligence_exchange
+		icon = GFX_goal_COR_labor_control_act
 		cost = 5.00
 		prerequisite = {
 			focus = USA_social_gospel
@@ -3679,7 +4557,7 @@ focus_tree = {
 
 	focus = {# Fiscal Reform
 		id = USA_fiscal_reform
-		icon = GFX_goal_constitutional_guarantees
+		icon = GFX_goal_USA_price_control
 		cost = 5.00
 		prerequisite = {
 			focus = USA_social_gospel
@@ -3737,7 +4615,7 @@ focus_tree = {
 
 	focus = {# Bureau of the Budget
 		id = USA_bureau_of_the_budget
-		icon = GFX_goal_government_icon
+		icon = GFX_USA_congress_released
 		cost = 5.00
 		prerequisite = {
 			focus = USA_fiscal_reform
@@ -3796,7 +4674,7 @@ focus_tree = {
 
 	focus = {# Welfare Reform
 		id = USA_welfare_reform
-		icon = GFX_goal_constitutional_guarantees
+		icon = GFX_HUN_austerity
 		cost = 5.00
 		prerequisite = {
 			focus = USA_social_conservatives_in_power
@@ -3856,7 +4734,7 @@ focus_tree = {
 	
 	focus = {# Increase Defense Spending
 		id = USA_increase_defense_spending
-		icon = GFX_goal_constitutional_guarantees
+		icon = MON_army_money
 		cost = 5.00
 		prerequisite = {
 			focus = USA_levering_act
@@ -3889,7 +4767,7 @@ focus_tree = {
 
 	focus = {# Support Businesses
 		id = USA_support_business
-		icon = GFX_focus_generic_industry_3
+		icon = GFX_goal_TEX_coop_plan
 		cost = 5.00
 		prerequisite = {
 			focus = USA_social_conservatives_in_power
@@ -3984,7 +4862,7 @@ focus_tree = {
 
 	focus = {# Business Grants
 		id = USA_business_grants
-		icon = GFX_goal_generic_positive_trade_relations
+		icon = GFX_goal_TEX_keynesian_economics
 		cost = 5.00
 		prerequisite = {
 			focus = USA_support_business
@@ -4010,7 +4888,7 @@ focus_tree = {
 	
 	focus = {# America's Business is Business
 		id = USA_america_business_is_business
-		icon = GFX_focus_generic_the_giant_wakes
+		icon = GFX_goal_USA_american_industry
 		cost = 5.00
 		prerequisite = {
 			focus = USA_business_grants
@@ -4078,7 +4956,7 @@ focus_tree = {
 
 	focus = {# Public Schooling
 		id = USA_public_schooling
-		icon = GFX_goal_KTG_Bookstack
+		icon = GFX_NEE_education_spending
 		cost = 5.00
 		prerequisite = {
 			focus = USA_social_conservatives_in_power
@@ -4132,7 +5010,7 @@ focus_tree = {
 	
 	focus = {# Moral Education
 		id = USA_moral_education
-		icon = GFX_BEL_Catholic_Education
+		icon = GFX_NEE_ivy_league
 		cost = 5.00
 		prerequisite = {
 			focus = USA_patriotic_shorts
@@ -4325,7 +5203,7 @@ focus_tree = {
 	
 	focus = {# Protect Symbols
 		id = USA_stop_desecration
-		icon = GFX_goal_American_Service
+		icon = GFX_BBR_american_traditions
 		cost = 5.00
 		prerequisite = {
 			focus = USA_self_regulation
@@ -4446,13 +5324,14 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_calm_the_storm"
-			custom_effect_tooltip = unlock_focuses
+			add_political_power = 25
+			#custom_effect_tooltip = unlock_focuses
 		}
 	}
 	
 	focus = {# Counter the Klan
 		id = USA_counter_klan
-		icon = GFX_goal_big_news
+		icon = GFX_goal_COR_deal_with_race_baitors
 		cost = 6.00
 		available = {
 			OR = {
@@ -4503,7 +5382,7 @@ focus_tree = {
 	
 	focus = {# Union Moderation
 		id = USA_moderate_the_unions
-		icon = GFX_goal_workers_for_business
+		icon = GFX_NEE_Labor_Committee
 		cost = 6.00
 		available = {
 			OR = {
@@ -4570,7 +5449,7 @@ focus_tree = {
 	
 	focus = {# Hunt Waste
 		id = USA_hunt_waste
-		icon = GFX_goal_generic_stable_government
+		icon = GFX_HUN_austerity
 		cost = 6.00
 		available = {
 			OR = {
@@ -4598,7 +5477,7 @@ focus_tree = {
 	
 	focus = {# Return to Normalcy
 		id = USA_return_to_normalcy
-		icon = GFX_goal_government_icon
+		icon = GFX_focus_usa_guarantee_the_american_dream
 		cost = 6.00
 		available = {
 			OR = {
@@ -4658,7 +5537,7 @@ focus_tree = {
 	
 	focus = {# Work Sharing Plan
 		id = USA_work_sharing_plan
-		icon = GFX_goal_social_reforms
+		icon = GFX_NEE_full_employement
 		cost = 6.00
 		available = {
 			OR = {
@@ -4810,7 +5689,7 @@ focus_tree = {
 	
 	focus = {# Investment
 		id = USA_landon_plan
-		icon = GFX_goal_generic_build_housing
+		icon = GFX_goal_TEX_coop_plan
 		cost = 6.00
 		available = {
 			OR = {
@@ -4874,7 +5753,7 @@ focus_tree = {
 	
 	focus = {# Unite Americans
 		id = USA_unite_federal_americans
-		icon = GFX_goal_USA_eagle
+		icon = GFX_NEE_salute_red_white_blue
 		cost = 6.00
 		available = {
 			OR = {
@@ -4959,7 +5838,7 @@ focus_tree = {
 	
 	focus = {# Emergency Intervention
 		id = USA_emergency_intervention
-		icon = GFX_goal_manage_industries
+		icon = GFX_HUN_economic_stimulus
 		cost = 1.00
 		available = {
 			has_government = social_democrat
@@ -5124,7 +6003,7 @@ focus_tree = {
 	
 	focus = {# Southern Investments
 		id = USA_southern_investments
-		icon = GFX_goal_generic_foreign_investments
+		icon = GFX_goal_COR_southern_stimulus
 		cost = 5.00
 		available = {
 			has_government = social_democrat
@@ -5519,7 +6398,7 @@ focus_tree = {
 	
 	focus = {# Fight the Debt
 		id = USA_fight_the_debt
-		icon = GFX_goal_generic_loans
+		icon = GFX_goal_USA_price_control
 		cost = 6.00
 		available = {
 			has_government = social_democrat
@@ -5580,7 +6459,7 @@ focus_tree = {
 		bypass = {
 			has_global_flag = USA_civil_war_over_flag
 		}
-		x = 26
+		x = 34
 		y = 10
 		ai_will_do = {
 			factor = 100
@@ -5605,7 +6484,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = USA_classical_liberal_mandate
 		}
-		x = 11
+		x = 22
 		y = 14
 		ai_will_do = {
 			factor = 50
@@ -5700,7 +6579,7 @@ focus_tree = {
 		prerequisite = {
 			focus = USA_national_rehabilition
 		}
-		x = 15
+		x = 26
 		y = 14
 		ai_will_do = {
 			factor = 50
@@ -6103,7 +6982,7 @@ focus_tree = {
 	
 	focus = {# Focus the Radical Redshirts
 		id = USA_hit_radical_redshirts
-		icon = GFX_focus_generic_anti_fascist_diplomacy
+		icon = GFX_goal_COR_disband_the_klan
 		cost = 6.00
 		prerequisite = {
 			focus = USA_fight_the_poll_tax
@@ -6154,7 +7033,7 @@ focus_tree = {
 	
 	focus = {# Traditional Machines
 		id = USA_traditional_machines
-		icon = GFX_focus_usa_voter_registration_act
+		icon = GFX_NEE_democratic_machine
 		cost = 6.00
 		prerequisite = {
 			focus = USA_hit_radical_redshirts
@@ -6286,7 +7165,7 @@ focus_tree = {
 	
 	focus = {# GI Bill
 		id = USA_the_gi_bill
-		icon = GFX_goal_generic_construct_civilian
+		icon = GFX_goal_American_Service
 		cost = 5.00
 		prerequisite = {
 			focus = USA_trial_of_the_federalists
@@ -6397,7 +7276,7 @@ focus_tree = {
 	
 	focus = {# Loyalty to America
 		id = USA_civil_liberties
-		icon = GFX_goal_liberty
+		icon = GFX_NEE_salute_red_white_blue
 		cost = 6.00
 		prerequisite = {
 			focus = USA_the_gi_bill
@@ -6430,8 +7309,8 @@ focus_tree = {
 			focus = USA_SPQA
 		}
 		relative_position_id = USA_classical_liberal_mandate
-		x = 11
-		y = 1
+		x = 8
+		y = 2
 		ai_will_do = {
 			factor = 40
 		}
@@ -6443,7 +7322,7 @@ focus_tree = {
 
 	focus = {# Rebuild Railroads
 		id = USA_rebuild_railroads
-		icon = GFX_goal_generic_construct_infrastructure
+		icon = GFX_CAL_national_railroads
 		cost = 6.00
 		available = {
 			357 = { is_owned_and_controlled_by = USA } #Maine
@@ -6504,7 +7383,7 @@ focus_tree = {
 
 	focus = {# Electrification
 		id = USA_electrification
-		icon = GFX_goal_Schelle
+		icon = GFX_goal_generic_lightbulb
 		cost = 6.00
 		prerequisite = {
 			focus = USA_rebuild_railroads
@@ -6528,7 +7407,7 @@ focus_tree = {
 
 	focus = {# Business Subsidies
 		id = USA_business_subsidies
-		icon = GFX_goal_generic_positive_trade_relations
+		icon = GFX_goal_CSA_capital_investments
 		cost = 6.00
 		prerequisite = {
 			focus = USA_begin_reconstruction
@@ -6684,7 +7563,7 @@ focus_tree = {
 
 	focus = {# Review the Fed
 		id = USA_review_the_fed
-		icon = GFX_goal_constitutional_guarantees
+		icon = GFX_goal_TEX_banks_for_america
 		cost = 6.00
 		prerequisite = {
 			focus = USA_economic_investments
@@ -6764,7 +7643,7 @@ focus_tree = {
 
 	focus = {# Rebuild The roads
 		id = USA_rebuild_the_roads
-		icon = GFX_goal_construction_engineering
+		icon = GFX_NEE_interstate_highway
 		cost = 6.00
 		prerequisite = {
 			focus = USA_begin_reconstruction
@@ -6948,7 +7827,7 @@ focus_tree = {
 
 	focus = {# Farming Subsidies
 		id = USA_farming_subsidies
-		icon = GFX_goal_agrarian_reform
+		icon = GFX_USA_sweep_farm_tariffs
 		cost = 6.00
 		prerequisite = {
 			focus = USA_rebuild_agriculture
@@ -7077,7 +7956,7 @@ focus_tree = {
 
 	focus = {# Restore Legitimacy
 		id = USA_restore_legitimacy
-		icon = GFX_goal_liberty
+		icon = GFX_NEE_salute_red_white_blue
 		cost = 6.00
 		prerequisite = {
 			focus = USA_farming_subsidies
@@ -7218,7 +8097,7 @@ focus_tree = {
 	}
 	focus = {# National Rehabilitation
 		id = USA_national_rehabilition
-		icon = GFX_goal_ideology_paternal_autocrat
+		icon = GFX_goal_USA_eagle
 		cost = 2.00
 		prerequisite = {
 			focus = USA_americanism
@@ -7280,7 +8159,7 @@ focus_tree = {
 		bypass = {
 			has_country_flag = USA_mac_shared_power
 		}
-		x = 36
+		x = 43
 		y = 14
 		ai_will_do = {
 			factor = 50
@@ -7363,7 +8242,7 @@ focus_tree = {
 	}
 	focus = {# Navy Support
 		id = USA_navy_support
-		icon = GFX_goal_navy_decision
+		icon = GFX_goal_USA_navy
 		cost = 6.00
 		prerequisite = {
 			focus = USA_the_committee
@@ -7481,7 +8360,7 @@ focus_tree = {
 	}
 	focus = {# Backroom Deals
 		id = USA_backroom_deals
-		icon = GFX_CAL_prohibition
+		icon = GFX_CAL_white_house_socials
 		cost = 6.00
 		prerequisite = {
 			focus = USA_court_generals
@@ -7503,7 +8382,7 @@ focus_tree = {
 	}
 	focus = {# Patriot Patry
 		id = USA_patriot_party
-		icon = GFX_goal_National_Security_Act
+		icon = GFX_CAL_safety_reforms
 		cost = 6.00
 		prerequisite = {
 			focus = USA_backroom_deals
@@ -7543,7 +8422,7 @@ focus_tree = {
 		prerequisite = {
 			focus = USA_national_rehabilition
 		}
-		x = 42
+		x = 50
 		y = 14
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_american_caeser"
@@ -7619,7 +8498,7 @@ focus_tree = {
 	
 	focus = {# Control Congress
 		id = USA_control_congress
-		icon = GFX_goal_Centralised_Government
+		icon = GFX_focus_generic_authoritarian_government
 		cost = 1.00
 		prerequisite = {
 			focus = USA_fbi_cointelpro
@@ -7677,7 +8556,7 @@ focus_tree = {
 	
 	focus = {# Army Education
 		id = USA_army_education
-		icon = GFX_focus_generic_military_academy
+		icon = GFX_CAL_citizen_education
 		cost = 6.00
 		prerequisite = {
 			focus = USA_nationalize_boy_scouts
@@ -7790,7 +8669,7 @@ focus_tree = {
 
 	focus = {# Empower the Army
 		id = USA_empower_the_army
-		icon = GFX_goal_military_academy
+		icon = GFX_goal_USA_army
 		cost = 6.00
 		prerequisite = {
 			focus = USA_allien_sedition_acts
@@ -7885,7 +8764,7 @@ focus_tree = {
 	
 	focus = {# Mandatory Service
 		id = USA_mandatory_service
-		icon = GFX_goal_army_guy_2
+		icon = GFX_goal_CAL_aggressive_conscription
 		cost = 6.00
 		prerequisite = {
 			focus = USA_all_american_legion
@@ -8087,7 +8966,7 @@ focus_tree = {
 	
 	focus = {# Military purchases
 		id = USA_military_purchases
-		icon = GFX_goal_munitions_factories
+		icon = GFX_goal_OTT_arms_purchase
 		cost = 6.00
 		prerequisite = {
 			focus = USA_civil_autonomy
@@ -8157,7 +9036,7 @@ focus_tree = {
 	
 	focus = {# Open elections
 		id = USA_limited_elections
-		icon = GFX_goal_government_icon
+		icon = GFX_goal_WCC_election_puppeteering
 		cost = 6.00
 		prerequisite = {
 			focus = USA_patriot_party
@@ -8178,7 +9057,7 @@ focus_tree = {
 	
 	focus = {# Protect Capitalism
 		id = USA_protect_capitalism
-		icon = GFX_goal_ideology_market_liberal
+		icon = GFX_goal_CAL_dictatorship_wealth
 		cost = 6.00
 		prerequisite = {
 			focus = USA_limited_elections
@@ -8297,17 +9176,19 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_reform_plan
-		icon = GFX_goal_American_Service
+		icon = GFX_goal_USA_army
 		cost = 3.00
 		prerequisite = {
 			focus = USA_war_department
 		}
 		available = {
 			OR = {
-				USA = {
-				has_war = yes
-				}
-				has_global_flag = USA_civil_war_over_flag 
+				country_exists = CSA
+				country_exists = COR
+				country_exists = TEX
+				country_exists = CAL
+				country_exists = WCC
+				has_global_flag = USA_civil_war_over_flag
 				has_global_flag = USA_civil_war_avoided_flag
 			}
 		}
@@ -8337,16 +9218,12 @@ focus_tree = {
 		}
 		available = {
 			OR = {
-				CSA = {
-					exists = yes
-				}
-				TEX = {
-					exists = yes
-				}
-				USA = {
-					exists = yes
-				}
-				has_global_flag = USA_civil_war_over_flag 
+				country_exists = CSA
+				country_exists = COR
+				country_exists = TEX
+				country_exists = CAL
+				country_exists = WCC
+				has_global_flag = USA_civil_war_over_flag
 				has_global_flag = USA_civil_war_avoided_flag
 			}
 		}
@@ -8364,7 +9241,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_chaffee_plan
-		icon = GFX_goal_generic_army_tanks3
+		icon = GFX_goal_NEE_chaffee
 		cost = 5.00
 		prerequisite = {
 			focus = USA_reform_plan
@@ -8400,7 +9277,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_McNair_Plan
-		icon = GFX_focus_generic_air_defense2
+		icon = GFX_goal_CAL_mcnair
 		cost = 5.00
 		prerequisite = {
 			focus = USA_reform_plan
@@ -8477,7 +9354,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_defense_contractors
-		icon = GFX_goal_manage_industries
+		icon = MON_army_money
 		cost = 5.00
 		prerequisite = {
 			focus = USA_standardize_the_M1
@@ -8543,7 +9420,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_efficient_production_program
-		icon = GFX_goal_production
+		icon = GFX_NEE_full_employement
 		cost = 5.00
 		prerequisite = {
 			focus = USA_restart_examining_boards
@@ -8568,7 +9445,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_shock_and_awe
-		icon = GFX_focus_generic_provoke_border_clashes
+		icon = GFX_goal_NEE_assault_the_line
 		cost = 5.00
 		prerequisite = {
 			focus = USA_top_notch_artillery
@@ -8667,7 +9544,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_military_research
-		icon = GFX_focus_generic_combined_arms
+		icon = GFX_HUN_new_warfighting_technology
 		cost = 5.00
 		prerequisite = {
 			focus = USA_take_the_fight_abroad
@@ -8693,7 +9570,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_increase_military_spending
-		icon = GFX_focus_mex_privatisation
+		icon = GFX_HUN_revive_military_funding
 		cost = 5.00
 		prerequisite = {
 			focus = USA_take_the_fight_abroad
@@ -8715,7 +9592,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_liberty_bonds
-		icon = GFX_goal_ideology_market_liberal
+		icon = GFX_CAL_bonus_bill
 		cost = 5.00
 		prerequisite = {
 			focus = USA_increase_military_spending
@@ -8741,7 +9618,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_army_rangers
-		icon = GFX_goal_generic_special_forces
+		icon = GFX_goal_COR_expand_rangers
 		cost = 5.00
 		prerequisite = {
 			focus = USA_chaffee_plan
@@ -8872,7 +9749,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_tank_competition
-		icon = GFX_goal_generic_army_tanks2
+		icon = GFX_goal_WCC_pattons_boys
 		cost = 5.00
 		prerequisite = {
 			focus = USA_increase_military_production
@@ -8940,7 +9817,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_fighter_development
-		icon = GFX_goal_generic_air_fighter
+		icon = GFX_goal_USA_freedom_fighters
 		cost = 5.00
 		prerequisite = {
 			focus = USA_expand_the_USAAC
@@ -8967,7 +9844,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_expand_air_corps_tactical_school
-		icon = GFX_goal_generic_air_doctrine
+		icon = GFX_goal_USA_usaaf
 		cost = 5.00
 		prerequisite = {
 			focus = USA_aerodrome_construction
@@ -8990,7 +9867,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_expand_wasps
-		icon = GFX_goal_continuous_air_production
+		icon = GFX_focus_generic_female_pilots
 		cost = 5.00
 		prerequisite = {
 			focus = USA_expand_air_corps_tactical_school
@@ -9076,7 +9953,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_expand_the_USAAC
-		icon = GFX_goal_america_domain
+		icon = GFX_goal_USA_usaac
 		cost = 5.00
 		prerequisite = {
 			focus = USA_air_force_debate
@@ -9104,7 +9981,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_create_the_USAAF
-		icon = GFX_goal_USA_usaaf
+		icon = GFX_goal_USA_airforce
 		cost = 5.00
 		prerequisite = {
 			focus = USA_air_force_debate
@@ -9135,7 +10012,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_modernize_cavalry_tactics
-		icon = GFX_goal_generic_cavalry
+		icon = GFX_goal_TEX_cavalry_recon
 		cost = 5.00
 		prerequisite = {
 			focus = USA_chaffee_plan
@@ -9188,7 +10065,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_top_notch_artillery
-		icon = GFX_goal_national_artillery
+		icon = GFX_goal_COR_militant_hoosiers
 		cost = 5.00
 		prerequisite = {
 			focus = USA_efficient_production_program
@@ -9470,7 +10347,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_central_operating_bases
-		icon = GFX_goal_generic_construction2
+		icon = MON_improve_construction
 		cost = 5.00
 		prerequisite = {
 			focus = USA_fighter_development
@@ -9544,7 +10421,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_Quesada_CAS
-		icon = GFX_goal_generic_secret_weapon
+		icon = GFX_goal_america_domain
 		cost = 5.00
 		prerequisite = {
 			focus = USA_flexible_bombers
@@ -9569,7 +10446,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_new_arms_factories
-		icon = GFX_goal_national_arsenal
+		icon = GFX_goal_munitions_factories
 		cost = 5.00
 		prerequisite = {
 			focus = USA_increase_military_spending
@@ -9630,7 +10507,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_woman_army_corps
-		icon = GFX_goal_continuous_reduce_training_time
+		icon = GFX_focus_generic_female_soldiers
 		cost = 5.00
 		prerequisite = {
 			focus = USA_military_research
@@ -9794,7 +10671,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_establish_a_new_officer_training_center
-		icon = GFX_focus_generic_military_mission
+		icon = GFX_BBR_mass_recruitment
 		cost = 5.00
 		prerequisite = {
 			focus = USA_hierarchical_reorganization
@@ -9822,7 +10699,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_a_gun_for_every_hand
-		icon = GFX_focus_secret_rearmament
+		icon = GFX_goal_BAN_arms_army
 		cost = 5.00
 		prerequisite = {
 			focus = USA_establish_a_new_officer_training_center
@@ -9865,7 +10742,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_engineer_corps_expansion
-		icon = GFX_goal_generic_construction2
+		icon = GFX_goal_USA_usace_modernization
 		cost = 5.00
 		prerequisite = {
 			focus = USA_a_gun_for_every_hand
@@ -9935,7 +10812,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_cult_of_aviation
-		icon = GFX_goal_generic_build_airforce
+		icon = GFX_goal_WCC_Bomb_Em_Back_into_the_stone_age
 		cost = 5.00
 		prerequisite = {
 			focus = USA_long_range_escorts
@@ -9960,7 +10837,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_macarthur_army_plan
-		icon = GFX_goal_USA_mac_in_command
+		icon = GFX_goal_USA_general_macarthur
 		cost = 5.00
 		prerequisite = {
 			focus = USA_reform_plan
@@ -9971,6 +10848,9 @@ focus_tree = {
 			}
 			NOT = {
 				has_idea = USA_George_Catlett_Marshall_Jr_cos
+			}
+			NOT = {
+			has_country_flag = USA_no_BigMac_Soc_Con
 			}
 		}
 		mutually_exclusive = {
@@ -10778,6 +11658,15 @@ focus_tree = {
 				is_coastal = yes
 				is_controlled_by = ROOT
 			}
+			OR = {
+				country_exists = CSA
+				country_exists = COR
+				country_exists = TEX
+				country_exists = CAL
+				country_exists = WCC
+				has_global_flag = USA_civil_war_over_flag
+				has_global_flag = USA_civil_war_avoided_flag
+			}
 		}
 		relative_position_id = USA_navy
 		x = -3
@@ -10821,6 +11710,15 @@ focus_tree = {
 			any_owned_state = {
 				is_coastal = yes
 				is_controlled_by = ROOT
+			}
+			OR = {
+				country_exists = CSA
+				country_exists = COR
+				country_exists = TEX
+				country_exists = CAL
+				country_exists = WCC
+				has_global_flag = USA_civil_war_over_flag
+				has_global_flag = USA_civil_war_avoided_flag
 			}
 		}
 		relative_position_id = USA_navy
@@ -10866,6 +11764,15 @@ focus_tree = {
 			any_owned_state = {
 				is_coastal = yes
 				is_controlled_by = ROOT
+			}
+			OR = {
+				country_exists = CSA
+				country_exists = COR
+				country_exists = TEX
+				country_exists = CAL
+				country_exists = WCC
+				has_global_flag = USA_civil_war_over_flag
+				has_global_flag = USA_civil_war_avoided_flag
 			}
 		}
 		relative_position_id = USA_navy
@@ -11001,7 +11908,7 @@ focus_tree = {
 
 	focus = {# Light Cruisers
 		id = USA_light_cruisers
-		icon = GFX_focus_generic_destroyer
+		icon = GFX_goal_EGY_sultan_fleet
 		cost = 6.00
 		prerequisite = {
 			focus = USA_carriers
@@ -11267,7 +12174,7 @@ focus_tree = {
 
 	focus = {# Expand WAVEs
 		id = USA_expand_waves
-		icon = GFX_goal_continuous_naval_production
+		icon = GFX_focus_generic_female_soldiers
 		cost = 6.00
 		prerequisite = {
 			focus = USA_new_admirals
@@ -11408,7 +12315,7 @@ focus_tree = {
 
 	focus = {# semper fi
 		id = USA_semper_fi
-		icon = GFX_goal_USA_usmc
+		icon = GFX_goal_USA_primaris_marines
 		cost = 6.00
 		prerequisite = {
 			focus = USA_urban_warfare
@@ -11503,7 +12410,7 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		cancel_if_invalid = yes
-		x = 75
+		x = 74
 		y = 9
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_mexican_repatriation"
@@ -13298,8 +14205,11 @@ focus_tree = {
 		available = {
 			is_subject = no
 			has_war = yes
-			any_enemy_country = {
-				is_in_north_america = no
+			custom_trigger_tooltip = {
+				tooltip = is_not_in_north_america_tt
+				any_enemy_country = {
+					is_in_north_america = no
+				}
 			}
 		}
 		relative_position_id = USA_new_interventionism
@@ -13392,6 +14302,7 @@ focus_tree = {
 			army_experience = 10
 			navy_experience = 10
 			air_experience = 10
+			unlock_decision_category_tooltip = USA_rainbow_war_plans_decisions
 		}
 	}
 
@@ -13442,8 +14353,11 @@ focus_tree = {
 		available = {
 			is_subject = no
 			has_war = yes
-			any_enemy_country = {
-				is_in_north_america = no
+			custom_trigger_tooltip = {
+				tooltip = is_not_in_north_america_tt
+				any_enemy_country = {
+					is_in_north_america = no
+				}
 			}
 		}
 		relative_position_id = USA_enter_the_fray
@@ -13475,8 +14389,11 @@ focus_tree = {
 		available = {
 			is_subject = no
 			has_war = yes
-			any_enemy_country = {
-				is_in_north_america = no
+			custom_trigger_tooltip = {
+				tooltip = is_not_in_north_america_tt
+				any_enemy_country = {
+					is_in_north_america = no
+				}
 			}
 		}
 		relative_position_id = USA_enter_the_fray
@@ -13870,7 +14787,6 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_enter_the_fray"
 			add_political_power = 100
-			unlock_decision_category_tooltip = USA_rainbow_war_plans_decisions
 		}
 	}
 	
@@ -13885,9 +14801,11 @@ focus_tree = {
 			focus = USA_make_mexico_friendly
 		}
 		available = {
-			is_subject = no
 			MEX = {
+			OR = {
 			has_socialist_government = no
+			is_puppet_of = USA
+			}
 			}
 		}
 		relative_position_id = USA_new_interventionism

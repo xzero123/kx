@@ -677,15 +677,15 @@ focus_tree = {
 		cost = 5
 		prerequisite = {focus = TRM_Ind_Transsib focus = TRM_Ind_Sib focus = TRM_Ind_Okh}
 		available = {
-			574 = { is_owned_and_controlled_by = TRM }
-			562 = { is_owned_and_controlled_by = TRM }
+			563 = { is_owned_and_controlled_by = TRM }
+			564 = { is_owned_and_controlled_by = TRM }
 		}
 		ai_will_do = {
 			factor = 5
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TRM_Ind_Mon"
-			574 = {
+			563 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -698,7 +698,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			562 = {
+			564 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -793,7 +793,7 @@ focus_tree = {
 		cost = 5
 		prerequisite = {focus = TRM_Ind_Bai focus = TRM_Ind_Mon}
 		available = {
-			565 = { is_owned_and_controlled_by = TRM }
+			570 = { is_owned_and_controlled_by = TRM }
 		}
 		ai_will_do = {
 			factor = 3
@@ -1124,10 +1124,9 @@ focus_tree = {
 		prerequisite = {focus = TRM_Ind_WHR focus = TRM_Ind_Ukraine focus = TRM_Ind_CA focus = TRM_Ind_Caucasus }
 		available = {
 			has_country_flag = TRM_become_russia
-			589 = { is_owned_and_controlled_by = TRM }
-			586 = { is_owned_and_controlled_by = TRM }
-			732 = { is_owned_and_controlled_by = TRM }
-			405 = { is_owned_and_controlled_by = TRM }
+			96 = { is_owned_and_controlled_by = TRM }
+			1091 = { is_owned_and_controlled_by = TRM }
+			13 = { is_owned_and_controlled_by = TRM }
 		}
 		ai_will_do = {
 			factor = 10
@@ -2642,13 +2641,18 @@ focus_tree = {
 	}
 	focus = {
 		id = TRM_Demand_KVZHD
-		text = RUS_Demand_KVZHD
+		text = RUS_Claim_KVZHD
 		icon = GFX_focus_rus_claim_kvzhd
 		prerequisite = {focus = TRM_China_Policy }
 		available = {
 			has_war = no
 			has_country_flag = TRM_become_russia
 			is_subject = no
+		}
+		bypass = {
+			883 = {
+			is_owned_by = ROOT
+			}
 		}
 		x = 6
 		y = 10
@@ -3141,9 +3145,15 @@ focus_tree = {
 		}
 		bypass = {
 			has_country_flag = TRM_Kolchak_alive
+			NOT = {
+			has_global_flag = Aleksandr_Kolchak_escaped
+			}
 		}
 		available = {
 			has_country_flag = TRM_Kolchak_alive
+			NOT = {
+			has_global_flag = Aleksandr_Kolchak_escaped
+			}
 		}
 	}
 	
@@ -4744,7 +4754,7 @@ focus = {
 		}
 		available = {
 			has_country_flag = TRM_NRA_coup
-			565 = { is_owned_and_controlled_by = ROOT }
+			#564 = { is_owned_and_controlled_by = ROOT }
 		}
 		mutually_exclusive = {
 			focus = TRM_Integrate_Buryats
@@ -4774,7 +4784,7 @@ focus = {
 		}
 		available = {
 			has_country_flag = TRM_NRA_coup
-			565 = { is_owned_and_controlled_by = ROOT }
+			#564 = { is_owned_and_controlled_by = ROOT }
 		}
 		mutually_exclusive = {
 			focus = TRM_Promise_Autonomy_To_Buryats
@@ -5232,7 +5242,7 @@ focus = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TRM_Expand_Military_Production"
-			574 = {
+			563 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
@@ -5240,7 +5250,7 @@ focus = {
 					instant_build = yes
 				}
 			}
-			562 = {
+			564 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -5316,31 +5326,31 @@ focus = {
 				}
 			}
 			random_owned_controlled_state = {
-				prioritize = { 565 }
+				prioritize = { 564 }
 				create_unit = {
 					division = "division_template = \"Buryat-Mongolskaya Diviziya\" start_experience_factor = 0.1"
 					owner = TRM
-					prioritize_location = 10583
+					prioritize_location = 7816
 				}
 				create_unit = {
 					division = "division_template = \"Buryat-Mongolskaya Diviziya\" start_experience_factor = 0.1"
 					owner = TRM
-					prioritize_location = 10583
+					prioritize_location = 7816
 				}
 				create_unit = {
 					division = "division_template = \"Buryat-Mongolskaya Diviziya\" start_experience_factor = 0.1"
 					owner = TRM
-					prioritize_location = 10583
+					prioritize_location = 7816
 				}
 				create_unit = {
 					division = "division_template = \"Buryat-Mongolskaya Diviziya\" start_experience_factor = 0.1"
 					owner = TRM
-					prioritize_location = 10583
+					prioritize_location = 7816
 				}
 				create_unit = {
 					division = "division_template = \"Buryat-Mongolskaya Diviziya\" start_experience_factor = 0.1"
 					owner = TRM
-					prioritize_location = 10583
+					prioritize_location = 7816
 				}
 			}
 		}

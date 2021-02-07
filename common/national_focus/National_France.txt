@@ -64,9 +64,15 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 6
+		cost = 7
 		ai_will_do = {
 			factor = 100
+		}
+		select_effect = {
+			country_event = { id = nfa.104 days = 10 } #marin starts making unity govt
+			country_event = { id = nfa.105 days = 20 } #flandin joins
+			country_event = { id = nfa.106 days = 30 } #daladier joins
+			country_event = { id = nfa.107 days = 40 } #pétain gives blessing to govt
 		}
 		available = {
 			has_country_flag = NFA_compromised_with_liberals
@@ -113,7 +119,7 @@ focus_tree = {
 		x = -2
 		y = 2
 		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 100
 		}
@@ -124,7 +130,9 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			army_experience = 15
+			add_command_power = 20
+			add_manpower = 2000
 		}
 	}
 
@@ -147,7 +155,11 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			swap_ideas = {
+				remove_idea = NFA_strengthened_assembly
+				add_idea = NFA_strengthened_assembly2
+			}
+			add_political_power = 20
 		}
 	}
 
@@ -170,7 +182,11 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			add_popularity = {
+			    ideology = authoritarian_democrat
+			    popularity = 0.04
+			}
+			add_idea = NFA_republican_ideal
 		}
 	}
 
@@ -182,7 +198,7 @@ focus_tree = {
 		x = -2
 		y = 4
 		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 100
 		}
@@ -193,7 +209,13 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			add_country_leader_trait = CAN_popular_figurehead
+			add_stability = 0.03
+			add_popularity = {
+			    ideology = authoritarian_democrat
+			    popularity = 0.02
+			}
+			add_political_power = 35
 		}
 	}
 
@@ -215,7 +237,11 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			swap_ideas = {
+				remove_idea = NFA_strengthened_assembly2
+				add_idea = NFA_strengthened_assembly3
+			}
+			add_stability = 0.02
 		}
 	}
 
@@ -226,7 +252,7 @@ focus_tree = {
 		x = -2
 		y = 6
 		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 100
 		}
@@ -237,7 +263,24 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			add_stability = 0.03
+			add_political_power = 60
+			add_popularity = {
+			    ideology = social_democrat
+			    popularity = 0.03
+			}
+			add_popularity = {
+			    ideology = social_liberal
+			    popularity = 0.03
+			}
+			add_popularity = {
+			    ideology = market_liberal
+			    popularity = 0.02
+			}
+			add_popularity = {
+			    ideology = social_conservative
+			    popularity = 0.01
+			}
 		}
 	}
 
@@ -259,7 +302,14 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			swap_ideas = {
+                remove_idea = NFA_strengthened_assembly3
+				add_idea = NFA_strengthened_assembly4
+			}
+			add_popularity = {
+			    ideology = authoritarian_democrat
+			    popularity = 0.04
+			}
 		}
 	}
 
@@ -270,7 +320,7 @@ focus_tree = {
 		x = 2
 		y = 2
 		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 100
 		}
@@ -281,7 +331,8 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			add_political_power = 50
+			add_stability = -0.02
 		}
 	}
 
@@ -293,7 +344,7 @@ focus_tree = {
 		x = 1
 		y = 3
 		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 100
 		}
@@ -304,7 +355,11 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			add_ideas = NFA_reynaud_economy
+			add_popularity = {
+			    ideology = market_liberal
+			    popularity = 0.03
+			}
 		}
 	}
 
@@ -326,7 +381,14 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			add_stability = -0.03
+			459 = {
+			    add_building_construction = {
+				type = industrial_complex 
+				level = 2
+				}
+			}
+			add_political_power = 30
 		}
 	}
 
@@ -348,7 +410,18 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			swap_ideas = {
+				remove_idea = NFA_reynaud_economy
+				add_idea = NFA_reynaud_economy2
+			}
+			add_popularity = {
+			    ideology = authoritarian_democrat
+			    popularity = 0.04
+			}
+			add_popularity = {
+			    ideology = market_liberal
+			    popularity = 0.02
+			}
 		}
 	}
 
@@ -360,7 +433,7 @@ focus_tree = {
 		x = 3
 		y = 3
 		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 100
 		}
@@ -371,7 +444,11 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			add_ideas = NFA_chautemps_economy
+			add_popularity = {
+			    ideology = social_liberal
+			    popularity = 0.03
+			}
 		}
 	}
 
@@ -415,7 +492,18 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			swap_ideas = {
+				remove_idea = NFA_chautemps_economy
+				add_idea = NFA_chautemps_economy2
+			}
+			add_popularity = {
+			    ideology = authoritarian_democrat
+			    popularity = 0.04
+			}
+			add_popularity = {
+			    ideology = social_liberal
+			    popularity = 0.02
+			}
 		}
 	}
 
@@ -426,7 +514,7 @@ focus_tree = {
 		x = 2
 		y = 6
 		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 6
+		cost = 7
 		ai_will_do = {
 			factor = 100
 		}
@@ -460,7 +548,10 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			swap_ideas = {
+				remove_idea = NFA_republican_ideal
+				add_idea = NFA_republican_ideal2
+			}
 		}
 	}
 
@@ -472,7 +563,7 @@ focus_tree = {
 		x = -1
 		y = 7
 		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 100
 		}
@@ -483,7 +574,24 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			add_stability = 0.03
+			add_political_power = 35
+			add_popularity = {
+			    ideology = social_democrat
+			    popularity = 0.02
+			}
+			add_popularity = {
+			    ideology = social_liberal
+			    popularity = 0.02
+			}
+			add_popularity = {
+			    ideology = market_liberal
+			    popularity = 0.02
+			}
+			add_popularity = {
+			    ideology = social_conservative
+			    popularity = 0.02
+			}
 		}
 	}
 
@@ -495,7 +603,7 @@ focus_tree = {
 		x = 1
 		y = 7
 		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 100
 		}
@@ -506,7 +614,13 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			add_political_power = -60
+			add_command_power = 15
+			add_stability = 0.05
+			add_popularity = {
+			    ideology = authoritarian_democrat
+			    popularity = 0.03
+			}
 		}
 	}
 
@@ -518,7 +632,7 @@ focus_tree = {
 		x = 0
 		y = 8
 		relative_position_id = NFA_compromise_with_the_liberals
-		cost = 6
+		cost = 7
 		ai_will_do = {
 			factor = 100
 		}
@@ -529,7 +643,11 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			add_popularity = {
+			    ideology = authoritarian_democrat
+			    popularity = 0.05
+			}
+			add_political_power = 40
 		}
 	}
 	

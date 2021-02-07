@@ -221,7 +221,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_judicial_independence
-		#icon = 
+		icon = GFX_goal_GFX_USA_appoint_new_judges57756
 		prerequisite = { focus = NFA_ceremonial_presidency }
 		x = -3
 		y = 5
@@ -315,7 +315,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_monetary_reform
-		#icon = 
+		icon = GFX_goal_bag_of_money
 		prerequisite = { focus = NFA_republican_govt }
 		x = 2
 		y = 2
@@ -394,7 +394,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_free_market
-		#icon = 
+		icon = GFX_goal_TEX_keynesian_economics
 		prerequisite = { focus = NFA_end_fourty_hour_week }
 		x = 1
 		y = 5
@@ -470,13 +470,43 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+			add_political_power = 25
+			459 = {
+			    add_building_construction = {
+				type = infrastructure      
+				level = 2
+				}
+			}
+			460 = {
+			    add_building_construction = {
+				type = infrastructure      
+				level = 1
+				}
+			}
+			458 = {
+			    add_building_construction = {
+				type = infrastructure      
+				level = 1
+				}
+			}
+			513 = {
+			    add_building_construction = {
+				type = infrastructure      
+				level = 1
+				}
+			}
+			665 = {
+			    add_building_construction = {
+				type = infrastructure      
+				level = 1
+				}
+			}
 		}
 	}
 
 	focus = {
 		id = NFA_worker_representation
-		#icon = 
+		icon = GFX_CAL_workers_compensation_act
 		prerequisite = { focus = NFA_nationalise_infrastructure }
 		x = 3
 		y = 5
@@ -509,7 +539,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_economic_mobilisation
-		#icon = 
+		icon = GFX_Military_Mobilisation
 		prerequisite = { focus = NFA_worker_representation focus = NFA_free_market }
 		x = 2
 		y = 6
@@ -525,7 +555,26 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			
+            add_war_support = 0.04
+			add_manpower = 2000
+			459 = {
+			    add_building_construction = {
+				type = arms_factory    
+				level = 1
+				}
+			}
+			460 = {
+			    add_building_construction = {
+				type = arms_factory      
+				level = 1
+				}
+			}
+			458 = {
+			    add_building_construction = {
+				type = arms_factory      
+				level = 1
+				}
+			}
 		}
 	}
 
@@ -597,7 +646,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_cleanse_corruption
-		#icon = 
+		icon = GFX_goal_generic_investigate_corruption
 		prerequisite = { focus = NFA_republican_restoration }
 		prerequisite = { focus = NFA_economic_mobilisation }
 		x = 1
@@ -648,6 +697,10 @@ focus_tree = {
 			    popularity = 0.05
 			}
 			add_political_power = 40
+			swap_ideas = {
+				remove_idea = NFA_republican_ideal2 
+				add_idea = NFA_united_govt
+			}
 		}
 	}
 	

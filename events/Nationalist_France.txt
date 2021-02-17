@@ -3351,27 +3351,633 @@ country_event = { #Marin retires
 	}
 }
 
+country_event = { #Marin unity govt
+	id = natfra.104
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.104"}
+	title = natfra.104.t
+	desc = natfra.104.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
 
+	fire_only_once = yes
 
+	is_triggered_only = yes
 
+	option = { #good luck
+		name = natfra.104.a 
+		add_political_power = 10
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.02
+		}
+	}
+}
 
+country_event = { #AD joins
+	id = natfra.105
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.105"}
+	title = natfra.105.t
+	desc = natfra.105.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
 
+	fire_only_once = yes
 
+	is_triggered_only = yes
 
+	option = { #overcoming rivalry, epic
+		name = natfra.105.a 
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.02
+		}
+		add_stability = 0.03
+	}
+}
 
+country_event = { #PR joins
+	id = natfra.106
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.106"}
+	title = natfra.106.t
+	desc = natfra.106.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
 
+	fire_only_once = yes
 
+	is_triggered_only = yes
 
+	option = { #cool
+		name = natfra.106.a 
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.02
+		}
+		add_stability = 0.03
+	}
+}
 
+country_event = { #Pétain speech
+	id = natfra.107
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.107"}
+	title = natfra.107.t
+	desc = natfra.107.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
 
+	fire_only_once = yes
 
+	is_triggered_only = yes
 
+	option = { #cool
+		name = natfra.107.a 
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.03
+		}
+		add_war_support = 0.02
+		add_political_power = 25
+	}
+}
 
+country_event = { #reassert parliamentary public image
+	id = natfra.108
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.108"}
+	title = natfra.108.t
+	desc = natfra.108.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
 
+	fire_only_once = yes
 
+	is_triggered_only = yes
 
+	option = { #use public speeches, propaganda
+		name = natfra.108.a 
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.02
+		}
+		add_stability = 0.01
+		add_political_power = -10
+	}
 
+	option = { #pass new token acts to create image of decisive leaderhsip
+		name = natfra.108.b
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.04
+		}
+		add_war_support = 0.01
+		add_stability = -0.02
+		add_political_power = -20
+	}
 
+	option = { #press for more endorsement from pétain
+		name = natfra.108.c
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+		add_war_support = 0.02
+		add_stability = 0.01
+		add_political_power = -35
+		add_command_power = -10
+	}
+}
+
+country_event = { #appeal to officers
+	id = natfra.109
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.109"}
+	title = natfra.109.t
+	desc = natfra.109.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #ramp up military budget
+		name = natfra.109.a 
+		add_political_power = -50
+		army_experience = 10
+		add_command_power = 40
+		add_stability = -0.02
+		add_war_support = 0.03
+	}
+
+	option = { #promise not to interfere with military affairs, give officers autonomy
+		name = natfra.109.b
+		add_political_power = -20
+		add_war_support = 0.02
+		add_command_power = 15
+		add_stability = -0.01
+	}
+
+	option = { #threaten to investigate abuses under junta
+		name = natfra.109.c
+		add_political_power = 60
+		add_stability = -0.03
+		add_war_support = -0.01
+		add_command_power = 30
+	}
+}
+
+country_event = { #restraining executive power
+	id = natfra.110
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.110"}
+	title = natfra.110.t
+	desc = natfra.110.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cut pétain off from allies, aides
+		name = natfra.110.a 
+		add_political_power = -50
+		army_experience = 10
+		add_command_power = 40
+		add_stability = -0.02
+		add_war_support = 0.03
+	}
+
+	option = { #use legislation to force pétain to seek legislative approval
+		name = natfra.110.b
+		add_political_power = -20
+		add_war_support = 0.02
+		add_command_power = 15
+		add_stability = -0.01
+	}
+}
+
+country_event = { #keeping pétain occupied
+	id = natfra.111
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.111"}
+	title = natfra.111.t
+	desc = natfra.111.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #constant public appearances
+		name = natfra.111.a 
+		add_command_power = -15
+		add_stability = 0.03
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.04
+		}
+	}
+
+	option = { #encourage him to focus on military
+		name = natfra.111.b
+		army_experience = 15
+		add_command_power = 30
+		add_political_power = -20
+		add_manpower = 500
+	}
+}
+
+country_event = { #pro pétain judges
+	id = natfra.112
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.112"}
+	title = natfra.112.t
+	desc = natfra.112.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #force into retirement
+		name = natfra.112.a 
+		add_political_power = 35
+		add_stability = -0.02
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.03
+		}
+	}
+
+	option = { #leave be
+		name = natfra.112.b
+		add_command_power = 5
+		add_stability = 0.03
+		add_political_power = -50
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.02
+		}
+	}
+}
+
+country_event = { #nasty people also getting released
+	id = natfra.113
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.113"}
+	title = natfra.113.t
+	desc = natfra.113.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #so what
+		name = natfra.113.a 
+		add_stability = -0.04
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.02
+		}
+		add_political_power = 60
+	}
+
+	option = { #more restraintss
+		name = natfra.113.b
+		add_political_power = -65
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.02
+		}
+		add_stability = 0.01
+	}
+}
+
+country_event = { #parliamentary prerogatives act introduced
+	id = natfra.114
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.114"}
+	title = natfra.114.t
+	desc = natfra.114.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = natfra.114.a 
+		add_political_power = 15
+	}
+}
+
+country_event = { #pushback from rightists
+	id = natfra.115
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.115"}
+	title = natfra.115.t
+	desc = natfra.115.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cringe
+		name = natfra.115.a 
+		add_political_power = -10
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.03
+		}
+	}
+}
+
+country_event = { #pétain endorses
+	id = natfra.116
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.116"}
+	title = natfra.116.t
+	desc = natfra.116.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cringe
+		name = natfra.116.a 
+		add_stability = 0.02
+		add_political_power = 20
+	}
+}
+
+country_event = { #passes
+	id = natfra.117
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.117"}
+	title = natfra.117.t
+	desc = natfra.117.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cringe
+		name = natfra.117.a 
+		add_stability = 0.03
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.02
+		}
+	}
+}
+
+country_event = { #economic policy
+	id = natfra.118
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.118"}
+	title = natfra.118.t
+	desc = natfra.118.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #reynaud
+		name = natfra.118.a 
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.02
+		}
+		set_country_flag = NFA_reynaud_plan_chosen
+	}
+
+	option = { #chautemps
+		name = natfra.118.b
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.02
+		}
+		set_country_flag = NFA_chautemps_plan_chosen
+		remove_ideas = NFA_Paul_Reynaud_eco_mli
+		add_ideas = NFA_Camille_Chautemps_eco_sli
+	}
+}
+
+country_event = { #people don't like attacks on workers' rights
+	id = natfra.119
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.119"}
+	title = natfra.119.t
+	desc = natfra.119.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #sad
+		name = natfra.119.a 
+		add_political_power = -35
+		add_stability = -0.01
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		}
+	}
+}
+
+country_event = { #support from business
+	id = natfra.120
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.120"}
+	title = natfra.120.t
+	desc = natfra.120.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = natfra.120.a 
+		add_political_power = 15
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.02
+		}
+	}
+}
+
+country_event = { #businessmen pissed off
+	id = natfra.121
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.121"}
+	title = natfra.121.t
+	desc = natfra.121.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = natfra.121.a 
+		add_political_power = -35
+		add_stability = -0.01
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.03
+		}
+	}
+}
+
+country_event = { #gaining support from CdF
+	id = natfra.122
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.122"}
+	title = natfra.122.t
+	desc = natfra.122.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = natfra.122.a 
+		add_political_power = 20
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.04
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.02
+		}
+	}
+}
+
+country_event = { #re-energised assembly
+	id = natfra.123
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.123"}
+	title = natfra.123.t
+	desc = natfra.123.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cool
+		name = natfra.123.a 
+		add_political_power = 35
+		add_stability = 0.03
+	}
+}
+
+country_event = { #maurras and dlr take advantage of relaxed censorship
+	id = natfra.124
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.124"}
+	title = natfra.124.t
+	desc = natfra.124.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #sad
+		name = natfra.124.a 
+		add_political_power = -20
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.03
+		}
+	}
+}
+
+country_event = { #removing old junta men for their corruption
+	id = natfra.125
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.125"}
+	title = natfra.125.t
+	desc = natfra.125.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #awesome
+		name = natfra.125.a 
+		add_political_power = -20
+		add_stability = 0.03
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.02
+		}
+	}
+
+	option = { #go a bit further and fire innocent people
+		name = natfra.125.b
+		add_political_power = -40
+		add_stability = -0.01
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.06
+		}
+	}
+}
+
+country_event = { #corruption on our side
+	id = natfra.126
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.126"}
+	title = natfra.126.t
+	desc = natfra.126.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #purge them too
+		name = natfra.126.a 
+		add_stability = 0.02
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.02
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.01
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.01
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = -0.01
+		}
+	}
+
+	option = { #turn a blind eye
+		name = natfra.126.b
+		add_political_power = 45
+		add_stability = -0.03
+	}
+}
 
 
 

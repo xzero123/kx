@@ -3979,9 +3979,59 @@ country_event = { #corruption on our side
 	}
 }
 
+country_event = { #Franchet d'Ésperey retires
+	id = natfra.127
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.127"}
+	title = natfra.127.t
+	desc = natfra.127.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
 
+	fire_only_once = yes
 
+	is_triggered_only = yes
 
+	option = { #see ya
+		name = natfra.127.a 
+		remove_unit_leader = 804
+		add_command_power = -5
+		remove_ideas = NFA_Louis_Franchet_d'Esperey_cos_pau
+		hidden_effect = {
+			set_country_flag = Louis_Franchet_d'Esperey_dead
+		}
+	}
+}
+
+country_event = { #Franchet d'Ésperey retires
+	id = natfra.128
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.128"}
+	title = natfra.128.t
+	desc = natfra.128.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #CdG
+		name = natfra.128.a 
+		set_country_flag = NFA_de_gaulle_plan
+		random_unit_leader = {
+			limit = { has_id = 802 } #CdG
+			promote_leader = yes
+		}
+		add_ideas = NFA_Charles_de_Gaulle_cos_npo
+	}
+
+	option = { #Darlan
+		name = natfra.128.b
+		set_country_flag = NFA_darlan_plan
+		random_unit_leader = {
+			limit = { has_id = 805 } #Weygand
+			promote_leader = yes
+		}
+		add_ideas = NFA_Francois_Darlan_cos_ade
+	}
+}
 
 
 

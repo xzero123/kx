@@ -2490,4 +2490,819 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = NFA_liberation_preparation
+		icon = GFX_goal_kingdom_from_ashes
+		x = 55
+		y = 0
+		cost = 6
+		ai_will_do = {
+			factor = 80
+		}
+		select_effect = {
+			country_event = { id = natfra.127 days = 20 } #franchet d'ésperey pisses off
+			country_event = { id = natfra.128 days = 30 } #choice between CdG and Darlan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			army_experience = 25
+			add_command_power = 25
+			add_tech_bonus = {
+                bonus = 0.5
+                uses = 1
+                category = land_doctrine
+            }
+		}
+	}
+
+	focus = {
+		id = NFA_industrialise_colonies
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_liberation_preparation }
+		x = 9
+		y = 1
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+    focus = {
+		id = NFA_entente_trade
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_industrialise_colonies }
+		x = 8
+		y = 2
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_dockyards
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_industrialise_colonies }
+		x = 10
+		y = 2
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_rearmament
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_dockyards }
+		prerequisite = { focus = NFA_entente_trade }
+		x = 9
+		y = 3
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_plane_subsidies
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_rearmament }
+		x = 10
+		y = 4
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_supply_liberation
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_rearmament }
+		x = 8
+		y = 4
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_build_transsaharian
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_liberation_preparation }
+		x = -9
+		y = 1
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_colonial_extraction
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_build_transsaharian }
+		x = -10
+		y = 2
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_extent_of_conscription
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_build_transsaharian }
+		x = -8
+		y = 2
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_native_autonomy
+		icon = GFX_goal_kingdom_from_ashes
+		mutually_exclusive = { focus = NFA_colonial_crackdown focus = NFA_status_quo }
+		prerequisite = { focus = NFA_extent_of_conscription }
+		prerequisite = { focus = NFA_colonial_extraction }
+		x = -11
+		y = 3
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_status_quo
+		icon = GFX_goal_kingdom_from_ashes
+		mutually_exclusive = { focus = NFA_colonial_crackdown focus = NFA_native_autonomy }
+		prerequisite = { focus = NFA_extent_of_conscription }
+		prerequisite = { focus = NFA_colonial_extraction }
+		x = -9
+		y = 3
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_colonial_crackdown
+		icon = GFX_goal_kingdom_from_ashes
+        mutually_exclusive = { focus = NFA_status_quo focus = NFA_native_autonomy }
+		prerequisite = { focus = NFA_extent_of_conscription }
+		prerequisite = { focus = NFA_colonial_extraction }
+		x = -7
+		y = 3
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_french_union
+		icon = GFX_goal_kingdom_from_ashes
+        mutually_exclusive = { focus = NFA_pacify_algeria }
+		prerequisite = { focus = NFA_native_autonomy focus = NFA_status_quo }
+		x = -10
+		y = 4
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_pacify_algeria
+		icon = GFX_goal_kingdom_from_ashes
+        mutually_exclusive = { focus = NFA_french_union }
+		prerequisite = { focus = NFA_colonial_crackdown focus = NFA_status_quo }
+		x = -8
+		y = 4
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_cdg_plan_chosen
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_liberation_preparation }
+        mutually_exclusive = { focus = NFA_darlan_plan_chosen }
+		x = -1
+		y = 1
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_gaulle_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_elite_army
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_cdg_plan_chosen }
+		x = -2
+		y = 2
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_gaulle_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_special_forces
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_elite_army }
+		x = -1
+		y = 3
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_gaulle_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_mobile_warfare
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_cdg_plan_chosen }
+		x = -4
+		y = 2
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_gaulle_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_tank_investments
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_mobile_warfare }
+		x = -5
+		y = 3
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_gaulle_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_artillery_improvements
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_mobile_warfare }
+		prerequisite = { focus = NFA_elite_army }
+		x = -3
+		y = 3
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_gaulle_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_concentrated_breakthrough
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_tank_investments }
+		prerequisite = { focus = NFA_artillery_improvements }
+		x = -4
+		y = 4
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_gaulle_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_officer_autonomy
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_special_forces }
+		prerequisite = { focus = NFA_artillery_improvements }
+		x = -2
+		y = 4
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_gaulle_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_air_support
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_officer_autonomy }
+		prerequisite = { focus = NFA_concentrated_breakthrough }
+		x = -3
+		y = 5
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_gaulle_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_armour_advancements
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_concentrated_breakthrough }
+		x = -5
+		y = 5
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_gaulle_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_subordinate_navy
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_officer_autonomy }
+		x = -1
+		y = 5
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_de_gaulle_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_darlan_plan_chosen
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_liberation_preparation }
+        mutually_exclusive = { focus = NFA_cdg_plan_chosen }
+		x = 1
+		y = 1
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_darlan_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_military_research
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_darlan_plan_chosen focus = NFA_cdg_plan_chosen }
+		x = 0
+		y = 2
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {				
+            add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = NFA_large_army
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_darlan_plan_chosen }
+		x = 2
+		y = 2
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_darlan_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_contact_resistance
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_large_army }
+		x = 1
+		y = 3
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_darlan_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_force_cooperation
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_darlan_plan_chosen }
+		x = 4
+		y = 2
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_darlan_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_coordinate_operations
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_force_cooperation }
+		prerequisite = { focus = NFA_large_army }
+		x = 3
+		y = 3
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_darlan_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_naval_influence
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_force_cooperation }
+		x = 5
+		y = 3
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_darlan_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_air_power
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_naval_influence }
+		prerequisite = { focus = NFA_coordinate_operations }
+		x = 4
+		y = 4
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_darlan_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_patriotic_appeals
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_contact_resistance }
+		prerequisite = { focus = NFA_coordinate_operations }
+		x = 2
+		y = 4
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_darlan_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_broad_offensives
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_patriotic_appeals }
+		prerequisite = { focus = NFA_air_power }
+		x = 3
+		y = 5
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_darlan_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_citizen_soldier
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_patriotic_appeals }
+		x = 1
+		y = 5
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_darlan_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = NFA_dominate_mediterranean
+		icon = GFX_goal_kingdom_from_ashes
+		prerequisite = { focus = NFA_air_power }
+		x = 5
+		y = 5
+		relative_position_id = NFA_liberation_preparation
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = NFA_darlan_plan
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			
+		}
+	}
 }

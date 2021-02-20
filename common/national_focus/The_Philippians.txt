@@ -1,0 +1,91 @@
+###########################
+#Philipians Tree
+# By AmCath
+###########################
+focus_tree = {
+	id = PHI
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = PHI
+		}
+	}
+	default = no
+
+	### intro ###
+	focus = {# based
+		id = PHI_american_twlight
+		icon = GFX_goal_wip
+		cost = 7.25
+		ai_will_do = { factor = 5 }
+		x = 6
+		y = 0
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TEX_new_washington"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+    focus = {# based
+		id = PHI_tax_reform
+		icon = GFX_goal_wip
+		cost = 7.25
+		ai_will_do = { factor = 5 }
+		x = 6
+		y = 1
+        prerequisite = {
+            focus = PHI_american_twlight
+        }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TEX_new_washington"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+    focus = {# based
+		id = PHI_democratic_reforms
+		icon = GFX_goal_wip
+		cost = 7.25
+		ai_will_do = { factor = 5 }
+		x = 8
+		y = 1
+        prerequisite = {
+            focus = PHI_american_twlight
+        }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TEX_new_washington"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+    focus = {# based
+		id = PHI_detatchment
+		icon = GFX_goal_wip
+		cost = 7.25
+		ai_will_do = { factor = 5 }
+		x = 4
+		y = 1
+        prerequisite = {
+            focus = PHI_american_twlight
+        }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TEX_new_washington"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+    focus = {# based
+		id = PHI_black_monday_fallout
+		icon = GFX_goal_wip
+		cost = 7.25
+		ai_will_do = { factor = 5 }
+		x = 6
+		y = 5
+        prerequisite = {
+            focus = PHI_detatchment
+            focus = PHI_tax_reform
+            focus = PHI_democratic_reforms
+        }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TEX_new_washington"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+}

@@ -146,9 +146,6 @@ country_event = { #The Lion in Canada
 				country_event = {
 					id = natfra.6 days = 14
 				}
-				country_event = {
-					id = natfra.10 days = 28
-				}
 			}
 		}
 	}
@@ -4033,8 +4030,94 @@ country_event = { #Franchet d'Ésperey retires
 	}
 }
 
+country_event = { #extent of conscription
+	id = natfra.129
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.129"}
+	title = natfra.129.t
+	desc = natfra.129.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
 
+	fire_only_once = yes
 
+	is_triggered_only = yes
+
+	option = { #very light
+		name = natfra.129.a 
+		trigger = { 
+			has_country_flag = NFA_kingdom_revived
+		}
+		add_political_power = 50
+		add_stability = 0.07
+		set_country_flag = NFA_conscription_very_light
+	}
+
+	option = { #light
+		name = natfra.129.b
+		trigger = { 
+			has_country_flag = NFA_kingdom_revived
+			has_country_flag = NFA_compromised_with_liberals
+		}
+		add_political_power = 35
+		add_stability = 0.04
+		set_country_flag = NFA_conscription_light
+	}
+
+	option = { #medium
+		name = natfra.129.c
+		trigger = { 
+			has_country_flag = NFA_de_la_rocque_in_charge
+			has_country_flag = NFA_compromised_with_liberals
+			has_country_flag = NFA_junta_stays
+		}
+		add_political_power = 20
+		add_stability = 0.01
+		set_country_flag = NFA_conscription_medium
+	}
+
+	option = { #heavy
+		name = natfra.129.d
+		trigger = { 
+			has_country_flag = NFA_darnand_in_charge
+			has_country_flag = NFA_de_la_rocque_in_charge
+			has_country_flag = NFA_junta_stays
+		}
+		add_political_power = -5
+		add_stability = -0.02
+		set_country_flag = NFA_conscription_heavy
+	}
+
+	option = { #very heavy
+		name = natfra.129.d
+		trigger = { 
+			has_country_flag = NFA_darnand_in_charge
+			has_country_flag = NFA_junta_stays
+		}
+		add_political_power = -20
+		add_stability = -0.05
+		set_country_flag = NFA_conscription_very_heavy
+	}
+}
+
+country_event = { #your country has gone to shit
+	id = natfra.130
+	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.130"}
+	title = natfra.130.t
+	desc = natfra.130.d
+	picture = GFX_report_event_NFA_event_AFFlavorSacre
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #oh shit oh fuck
+		name = natfra.130.a 
+		add_political_power = -35
+		add_stability = -0.02
+        country_event = {
+			id = natfra.10 days = 10
+		}
+	}
+}
 
 
 

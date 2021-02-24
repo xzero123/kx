@@ -24,7 +24,7 @@ focus_tree = {
     
     focus = {
 		id = NFA_compromise_with_the_liberals
-		#icon = 
+		icon = GFX_goal_NFA_republican_cabinet
 		x = 3
 		y = 0
 		cost = 1
@@ -92,7 +92,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_restore_assembly_power
-		#icon = 
+		icon = GFX_goal_Fight_for_Freedom
 		prerequisite = { focus = NFA_republican_govt }
 		x = 0
 		y = 2
@@ -117,7 +117,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_reassure_the_military
-		#icon = 
+		icon = GFX_goal_NFA_reassure_army
 		prerequisite = { focus = NFA_republican_govt }
 		x = -2
 		y = 2
@@ -144,7 +144,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_constitutional_security
-		icon = GFX_goal_constitutional_guarantees
+		icon = GFX_goal_NFA_constitutional_guarantees
 		prerequisite = { focus = NFA_reassure_the_military }
 		prerequisite = { focus = NFA_restore_assembly_power }
 		x = -1
@@ -174,7 +174,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_republican_traditions
-		#icon = 
+		icon = GFX_goal_NFA_marianne
 		prerequisite = { focus = NFA_reassure_the_military }
 		prerequisite = { focus = NFA_restore_assembly_power }
 		x = -3
@@ -195,7 +195,7 @@ focus_tree = {
 			    ideology = authoritarian_democrat
 			    popularity = 0.04
 			}
-			add_idea = NFA_republican_ideal
+			add_ideas = NFA_republican_ideal
 		}
 	}
 
@@ -320,7 +320,7 @@ focus_tree = {
 			country_event = { id = natfra.117 days = 40 }
 		}
 		available = {
-			has_country_flag = NFA_compromised_with_liberals
+			has_completed_focus = NFA_judicial_independence
 		}
         cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -392,7 +392,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_end_fourty_hour_week
-		#icon = 
+		icon = GFX_goal_NFA_40_week
 		prerequisite = { focus = NFA_reynaud_plan }
 		x = 1
 		y = 4
@@ -487,7 +487,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_nationalise_infrastructure
-		#icon = 
+		icon = GFX_goal_NFA_nationalise_inf
 		prerequisite = { focus = NFA_chautemps_plan }
 		x = 3
 		y = 4
@@ -578,7 +578,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_economic_mobilisation
-		icon = GFX_Military_Mobilisation
+		icon = GFX_goal_NFA_economic_mob
 		prerequisite = { focus = NFA_worker_representation focus = NFA_free_market }
 		x = 2
 		y = 6
@@ -722,7 +722,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_government_of_consensus
-		#icon = 
+		icon = GFX_goal_NFA_government_consensus
 		prerequisite = { focus = NFA_cleanse_corruption }
 		prerequisite = { focus = NFA_relax_censorship }
 		x = 0
@@ -2085,7 +2085,7 @@ focus_tree = {
 	
 	focus = {
 		id = NFA_break_the_four_estates
-		icon = GFX_goal_COR_jewish_segregation
+		icon = GFX_goal_bend_4_estates
 		prerequisite = { focus = NFA_empower_the_camelots }
 		prerequisite = { focus = NFA_emphasise_maurrasisme }
 		x = 1
@@ -2515,6 +2515,7 @@ focus_tree = {
                 uses = 1
                 category = land_doctrine
             }
+			country_event = { id = natfra.130 days = 1 }
 		}
 	}
 
@@ -2859,11 +2860,34 @@ focus_tree = {
 		ai_will_do = {
 			factor = 80
 		}
+		select_effect = {
+			country_event = { id = natfra.129 days = 21 }
+		}
         cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			country_event = { id = natfra.129 days = 1 }
+			custom_effect_tooltip = NFA_colonial_conscription_tooltip
+			if = {
+				limit = { has_country_flag = NFA_conscription_very_light }
+				add_ideas = NFA_very_light_conscription
+			}
+			else_if = {
+				limit = { has_country_flag = NFA_conscription_light }
+				add_ideas = NFA_light_conscription
+			}
+			else_if = {
+				limit = { has_country_flag = NFA_conscription_medium }
+				add_ideas = NFA_medium_conscription
+			}
+			else_if = {
+				limit = { has_country_flag = NFA_conscription_heavy }
+				add_ideas = NFA_heavy_conscription
+			}
+			else_if = {
+				limit = { has_country_flag = NFA_conscription_very_heavy }
+				add_ideas = NFA_very_heavy_conscription
+			}
 		}
 	}
 

@@ -154,7 +154,7 @@ country_event = { # Bombing in Warsaw
 		hidden_effect = {
 			country_event = {
 				id = poland.3
-				days = 21
+				days = 16
 				random_days = 4
 			}
 		}
@@ -176,8 +176,8 @@ country_event = { # March on Myslenice
 		hidden_effect = {
 			country_event = {
 				id = poland.125
-				days = 22
-				random_days = 8
+				days = 17
+				random_days = 11
 			}
 		}
 	}
@@ -198,8 +198,8 @@ country_event = { # General unrest in the countryside!
 		hidden_effect = {
 			country_event = {
 				id = poland.126
-				days = 24
-				random_days = 9
+				days = 23
+				random_days = 8
 			}
 		}
 	}
@@ -490,13 +490,6 @@ country_event = { # Chaos in the Countryside (Previously: Time to Choose)
 		name = poland.7.c
 		ai_chance = {
 			factor = 10
-			modifier = {
-				factor = 0
-				has_game_rule = {
-					rule = POL_the_great_debate
-					option = POL_THE_GREAT_DEBATE_CHRISTIAN
-				}
-			}
 		}
 		add_stability = 0.1
 		set_politics = {
@@ -2528,8 +2521,8 @@ country_event = { # The Council Is Distracted
                 hidden_effect = {
 			country_event = {
 				id = poland.4
-				days = 19
-				random_days = 2
+				days = 17
+				random_days = 4
 			}
 		}
 	}
@@ -2633,7 +2626,7 @@ country_event = { # Return Krakow - Response
 
 	option = {
 		name = poland.131.a
-		ai_chance = { factor = 10 }
+		ai_chance = { factor = 20 }
 		FROM = {
 			country_event = {
 				id = poland.136
@@ -2655,7 +2648,7 @@ country_event = { # Return Krakow - Response
 
 	option = {
 		name = poland.131.c
-		ai_chance = { factor = 60 }
+		ai_chance = { factor = 50 }
 		FROM = {
 			country_event = {
 				id = poland.138
@@ -4670,6 +4663,7 @@ country_event = { # Germany Abandons Poland
 	option = {
 		name = poland.235.a
 		ai_chance = { factor = 100 }
+		set_country_flag = POL_abandoned_flag
 		add_political_power = 100
 	}
 }

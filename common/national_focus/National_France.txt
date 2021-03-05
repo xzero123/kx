@@ -2850,7 +2850,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_liberation_preparation
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_NFA_prepare_liberation
 		x = 55
 		y = 0
 		cost = 6
@@ -2878,7 +2878,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_industrialise_colonies
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_MAF_allign_industrialists
 		prerequisite = { focus = NFA_liberation_preparation }
 		x = 9
 		y = 1
@@ -2940,7 +2940,7 @@ focus_tree = {
 
     focus = {
 		id = NFA_entente_trade
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_entente_arms_trade
 		prerequisite = { focus = NFA_industrialise_colonies }
 		x = 8
 		y = 2
@@ -2967,7 +2967,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_dockyards
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_CRO_buy_ships
 		prerequisite = { focus = NFA_industrialise_colonies }
 		x = 10
 		y = 2
@@ -3018,7 +3018,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_rearmament
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_factory_complex
 		prerequisite = { focus = NFA_dockyards }
 		prerequisite = { focus = NFA_entente_trade }
 		x = 9
@@ -3081,7 +3081,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_plane_subsidies
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_industry_air
 		prerequisite = { focus = NFA_rearmament }
 		x = 10
 		y = 4
@@ -3125,7 +3125,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_supply_liberation
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_WCC_price_of_rebellion
 		prerequisite = { focus = NFA_rearmament }
 		x = 8
 		y = 4
@@ -3139,12 +3139,13 @@ focus_tree = {
 		available_if_capitulated = no
 		completion_reward = {
 			add_ideas = NFA_liberation_supply
+			add_stability = -0.03
 		}
 	}
 
 	focus = {
 		id = NFA_build_transsaharian
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_NFA_Transsaharian_Railroad
 		prerequisite = { focus = NFA_liberation_preparation }
 		x = -9
 		y = 1
@@ -3167,7 +3168,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_colonial_extraction
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_COR_riches_of_africa
 		prerequisite = { focus = NFA_build_transsaharian }
 		x = -10
 		y = 2
@@ -3208,7 +3209,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_extent_of_conscription
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_NATFRA_conscription
 		prerequisite = { focus = NFA_build_transsaharian }
 		x = -8
 		y = 2
@@ -3216,6 +3217,15 @@ focus_tree = {
 		cost = 4
 		ai_will_do = {
 			factor = 80
+		}
+		available = {
+			OR = {
+				has_country_flag = NFA_compromised_with_liberals
+				has_country_flag = NFA_junta_stays
+				has_country_flag = NFA_kingdom_revived
+				has_country_flag = NFA_darnand_in_charge
+				has_country_flag = NFA_de_la_rocque_in_charge
+			}
 		}
 		select_effect = {
 			country_event = { id = natfra.129 days = 21 }
@@ -3250,7 +3260,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_native_autonomy
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_KTG_Educate_natives
 		mutually_exclusive = { focus = NFA_colonial_crackdown focus = NFA_status_quo }
 		prerequisite = { focus = NFA_extent_of_conscription }
 		prerequisite = { focus = NFA_colonial_extraction }
@@ -3277,7 +3287,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_status_quo
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_MAF_bezirksleiterrecht
 		mutually_exclusive = { focus = NFA_colonial_crackdown focus = NFA_native_autonomy }
 		prerequisite = { focus = NFA_extent_of_conscription }
 		prerequisite = { focus = NFA_colonial_extraction }
@@ -3308,7 +3318,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_colonial_crackdown
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_generic_execution
         mutually_exclusive = { focus = NFA_status_quo focus = NFA_native_autonomy }
 		prerequisite = { focus = NFA_extent_of_conscription }
 		prerequisite = { focus = NFA_colonial_extraction }
@@ -3339,7 +3349,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_french_union
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_NFA_french_union
         mutually_exclusive = { focus = NFA_pacify_algeria }
 		prerequisite = { focus = NFA_native_autonomy focus = NFA_status_quo }
 		x = -10
@@ -3363,7 +3373,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_pacify_algeria
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_NFA_pacify_afrika
         mutually_exclusive = { focus = NFA_french_union }
 		prerequisite = { focus = NFA_colonial_crackdown focus = NFA_status_quo }
 		x = -8
@@ -3387,7 +3397,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_cdg_plan_chosen
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_NFA_De_Gaulle_Plan
 		prerequisite = { focus = NFA_liberation_preparation }
         mutually_exclusive = { focus = NFA_darlan_plan_chosen }
 		x = -1
@@ -3415,7 +3425,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_elite_army
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_generic_army_training
 		prerequisite = { focus = NFA_cdg_plan_chosen }
 		x = -2
 		y = 2
@@ -3442,7 +3452,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_special_forces
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_NFA_Troupes_de_Marine_Focus
 		prerequisite = { focus = NFA_elite_army }
 		x = -1
 		y = 3
@@ -3468,7 +3478,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_mobile_warfare
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_doctrine_tank_warfare
 		prerequisite = { focus = NFA_cdg_plan_chosen }
 		x = -4
 		y = 2
@@ -3495,7 +3505,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_tank_investments
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_generic_army_tanks3
 		prerequisite = { focus = NFA_mobile_warfare }
 		x = -5
 		y = 3
@@ -3525,7 +3535,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_artillery_improvements
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_GEO_Artillery_Tactics
 		prerequisite = { focus = NFA_mobile_warfare }
 		prerequisite = { focus = NFA_elite_army }
 		x = -3
@@ -3557,7 +3567,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_concentrated_breakthrough
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_NEE_armored_spearhead
 		prerequisite = { focus = NFA_tank_investments }
 		prerequisite = { focus = NFA_artillery_improvements }
 		x = -4
@@ -3588,7 +3598,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_officer_autonomy
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_generic_army_high_command
 		prerequisite = { focus = NFA_special_forces }
 		prerequisite = { focus = NFA_artillery_improvements }
 		x = -2
@@ -3619,7 +3629,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_air_support
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_USA_organic_air_support
 		prerequisite = { focus = NFA_officer_autonomy }
 		prerequisite = { focus = NFA_concentrated_breakthrough }
 		x = -3
@@ -3647,7 +3657,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_armour_advancements
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_TEX_a_better_tank
 		prerequisite = { focus = NFA_concentrated_breakthrough }
 		x = -5
 		y = 5
@@ -3677,7 +3687,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_subordinate_navy
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_navy_decision
 		prerequisite = { focus = NFA_officer_autonomy }
 		x = -1
 		y = 5
@@ -3707,7 +3717,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_darlan_plan_chosen
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_NFA_Darlan_Plan
 		prerequisite = { focus = NFA_liberation_preparation }
         mutually_exclusive = { focus = NFA_cdg_plan_chosen }
 		x = 1
@@ -3735,7 +3745,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_military_research
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_military_research
 		prerequisite = { focus = NFA_darlan_plan_chosen focus = NFA_cdg_plan_chosen }
 		x = 0
 		y = 2
@@ -3754,7 +3764,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_large_army
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_mass_concentration_of_army
 		prerequisite = { focus = NFA_darlan_plan_chosen }
 		x = 2
 		y = 2
@@ -3780,7 +3790,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_contact_resistance
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_army_guy_2
 		prerequisite = { focus = NFA_large_army }
 		x = 1
 		y = 3
@@ -3813,7 +3823,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_force_cooperation
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_generic_army_cooperation
 		prerequisite = { focus = NFA_darlan_plan_chosen }
 		x = 4
 		y = 2
@@ -3836,7 +3846,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_coordinate_operations
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_focus_generic_navy_battleship3
 		prerequisite = { focus = NFA_force_cooperation }
 		prerequisite = { focus = NFA_large_army }
 		x = 3
@@ -3862,7 +3872,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_naval_influence
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_navy_hat_ships
 		prerequisite = { focus = NFA_force_cooperation }
 		x = 5
 		y = 3
@@ -3885,7 +3895,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_air_power
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_new_airforce
 		prerequisite = { focus = NFA_naval_influence }
 		prerequisite = { focus = NFA_coordinate_operations }
 		x = 4
@@ -3916,7 +3926,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_patriotic_appeals
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_COR_militant_hoosiers
 		prerequisite = { focus = NFA_contact_resistance }
 		prerequisite = { focus = NFA_coordinate_operations }
 		x = 2
@@ -3944,7 +3954,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_broad_offensives
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_TEX_night_assaults
 		prerequisite = { focus = NFA_patriotic_appeals }
 		prerequisite = { focus = NFA_air_power }
 		x = 3
@@ -3970,7 +3980,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_citizen_soldier
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_USA_national_guard
 		prerequisite = { focus = NFA_patriotic_appeals }
 		x = 1
 		y = 5
@@ -3995,7 +4005,7 @@ focus_tree = {
 
 	focus = {
 		id = NFA_dominate_mediterranean
-		icon = GFX_goal_kingdom_from_ashes
+		icon = GFX_goal_generic_mediterranean
 		prerequisite = { focus = NFA_air_power }
 		x = 5
 		y = 5

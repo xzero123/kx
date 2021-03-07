@@ -1106,7 +1106,7 @@ country_event = { #darlan pm
 	}
 }
 
-country_event = { #fate of PRD
+country_event = { #chose between Marin and DLR
 	id = natfra.31
 	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.31"}
 	title = natfra.31.t
@@ -1117,20 +1117,8 @@ country_event = { #fate of PRD
 
 	is_triggered_only = yes
 
-	option = { #dissolve them
+	option = { #Marin
 		name = natfra.31.a 
-		add_stability = -0.04
-		add_political_power = 20
-		add_popularity = {
-			ideology = paternal_autocrat
-			popularity = 0.03
-		} 
-	}
-
-	option = { #favourable treatment in exchange for loyalty
-		name = natfra.31.b
-		add_stability = 0.03
-		add_political_power = -15
 		add_popularity = {
 			ideology = paternal_autocrat
 			popularity = 0.02
@@ -1139,21 +1127,42 @@ country_event = { #fate of PRD
 			ideology = social_conservative
 			popularity = 0.02
 		}  
+		set_country_flag = NFA_supported_marin
+	}
+
+	option = { #DLR
+		name = natfra.31.b
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.02
+		}
+		set_country_flag = NFA_supported_dlr
 	}
 }
 
-country_event = { #fate of croix de feu
+country_event = { #parliament stabilises
 	id = natfra.32
 	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.32"}
 	title = natfra.32.t
-	desc = natfra.32.d
-	picture = GFX_report_event_NFA_delaRocque_speech
+	desc = {
+		text = natfra.32.d.marin
+		trigger = { has_country_flag = NFA_supported_marin }
+	}
+	desc = {
+		text = natfra.32.d.dlr
+		trigger = { has_country_flag = NFA_supported_dlr }
+	}
+	picture = GFX_report_event_NFA_event_NFA_Assembly
 
 	fire_only_once = yes
 
 	is_triggered_only = yes
 
-	option = { #restrain de la rocque's personality cult
+	option = { #cool
 		name = natfra.32.a 
 		add_stability = -0.02
 		add_political_power = 30
@@ -1162,19 +1171,9 @@ country_event = { #fate of croix de feu
 			popularity = -0.02
 		} 
 	}
-
-	option = { #consolidate alliance with de la rocqe
-		name = natfra.32.b
-		add_stability = 0.03
-		add_political_power = -40
-		add_popularity = {
-			ideology = paternal_autocrat
-			popularity = 0.03
-		} 
-	}
 }
 
-country_event = { #constitution drafting starts
+country_event = { #Pétain announces suspension of constitution
 	id = natfra.33
 	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.33"}
 	title = natfra.33.t
@@ -1188,14 +1187,18 @@ country_event = { #constitution drafting starts
 	option = { #cool
 		name = natfra.33.a 
 		add_political_power = 10
-		set_country_flag = {
-			flag = NFA_constitution_flag
-			value = 2
+        if = {
+			limit = { has_country_flag = NFA_supported_marin }
+			country_event = { id = natfra.34 days = 15 }
+		}
+		else_if = {
+			limit = { has_country_flag = NFA_supported_dlr }
+			country_event = { id = natfra.35 days = 15 }
 		}
 	}
 }
 
-country_event = { #fate of assembly
+country_event = { #marin wants promise that suspension is provisional
 	id = natfra.34
 	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.34"}
 	title = natfra.34.t
@@ -1206,45 +1209,34 @@ country_event = { #fate of assembly
 
 	is_triggered_only = yes
 
-	option = { #formalise their advisory role
+	option = { #sure
 		name = natfra.34.a 
-		add_stability = -0.03
-		add_political_power = 10
-		add_command_power = 10
 		add_popularity = {
 			ideology = paternal_autocrat
-			popularity = 0.03
-		} 
-		modify_country_flag = {
-			flag = NFA_constitution_flag
-			value = 1
-		}
-	}
-
-	option = { #control it informally
-		name = natfra.34.b
-		add_stability = 0.04
-		add_political_power = -20
-		add_popularity = {
-			ideology = paternal_autocrat
-			popularity = 0.02
+			popularity = -0.01
 		} 
 		add_popularity = {
 			ideology = social_conservative
 			popularity = 0.02
-		}
+		} 
+		add_stability = 0.03
+		set_country_flag = NFA_promised_to_restore_constitution
+	}
+
+	option = { #nah 
+		name = natfra.34.b
+	    add_political_power = 35
+		add_war_support = 0.01
+		add_command_power = 15
 		add_popularity = {
-			ideology = market_liberal
+			ideology = paternal_autocrat
 			popularity = 0.02
-		}
-		modify_country_flag = {
-			flag = NFA_constitution_flag
-			value = -1
-		}
+		} 
+		set_country_flag = NFA_promised_nothing
 	}
 }
 
-country_event = { #role of presidency
+country_event = { #DLR wants to further expand his party
 	id = natfra.35
 	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.35"}
 	title = natfra.35.t
@@ -1255,34 +1247,25 @@ country_event = { #role of presidency
 
 	is_triggered_only = yes
 
-	option = { #formalise sweeping powers
+	option = { #sure
 		name = natfra.35.a 
-		add_stability = -0.04
-		add_political_power = 20
-		add_command_power = 20
-		add_war_support = 0.03
-		add_popularity = {
-			ideology = paternal_autocrat
-			popularity = -0.02
-		}
-		modify_country_flag = {
-			flag = NFA_constitution_flag
-			value = 1
-		} 
-	}
-
-	option = { #rely on soft power
-		name = natfra.35.b
-		add_stability = 0.03
-		add_political_power = -10
 		add_popularity = {
 			ideology = paternal_autocrat
 			popularity = 0.03
-		} 
+		}
+		add_stability = 0.02
+		add_political_power = -40
+		set_country_flag = NFA_promises_to_dlr
 	}
-	modify_country_flag = {
-		flag = NFA_constitution_flag
-		value = -1
+
+	option = { #nah
+		name = natfra.35.b
+		add_political_power = 35
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.01
+		} 
+		set_country_flag = NFA_promised_nothing
 	}
 }
 
@@ -1297,33 +1280,27 @@ country_event = { #role of army
 
 	is_triggered_only = yes
 
-	option = { #give the army governmental powers
+	option = { #give the army formal powers
 		name = natfra.36.a 
-		add_stability = -0.05
-		add_command_power = 30
+		add_stability = -0.02
+		add_command_power = 5
 		add_popularity = {
 			ideology = paternal_autocrat
-			popularity = 0.06
+			popularity = 0.02
 		} 
-		add_war_support = 0.04
-		modify_country_flag = {
-			flag = NFA_constitution_flag
-			value = 1
-		}
+		add_war_support = 0.03
+		set_country_flag = NFA_army_formal_powers
 	}
 
 	option = { #we're in charge anyway, there's no need
 		name = natfra.36.b
-		add_stability = 0.04
-		add_political_power = 20
-		modify_country_flag = {
-			flag = NFA_constitution_flag
-			value = -1
-		}
+		add_stability = 0.03
+		add_political_power = 15
+		NFA_no_ambitious_officers
 	}
 }
 
-country_event = { #""""moderate"""" constitution approved
+country_event = { #junta political stabilisation
 	id = natfra.37
 	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.37"}
 	title = natfra.37.t
@@ -1336,28 +1313,55 @@ country_event = { #""""moderate"""" constitution approved
 
 	option = { #yay
 		name = natfra.37.a 
-		add_stability = 0.07
-		clr_country_flag = NFA_constitution_flag
-		set_country_flag = NFA_soft_petain_constitution
+		add_stability = 0.03
+		add_political_power = 25
 	}
 }
 
-country_event = { #strong constitution approved
+country_event = { #CDG/Darlan stacking govt with their loyalists
 	id = natfra.38
 	immediate = {log = "[GetDateText]: [Root.GetName]: event natfra.38"}
-	title = natfra.38.t
-	desc = natfra.38.d
+	title = {
+		text = natfra.38.t.degaulle 
+		trigger = { has_country_flag = NFA_de_gaulle_plan }
+	}
+	title = {
+		text = natfra.38.t.darlan
+		trigger = { has_country_flag = NFA_darlan_plan }
+	}
+	desc = {
+		text = natfra.38.d.degaulle 
+		trigger = { has_country_flag = NFA_de_gaulle_plan }
+	}
+	desc = {
+		text = natfra.38.d.darlan
+		trigger = { has_country_flag = NFA_darlan_plan }
+	}
 	picture = GFX_report_event_NFA_Petain2
 
 	fire_only_once = yes
 
 	is_triggered_only = yes
 
-	option = { #yay
+	option = { #nope
 		name = natfra.38.a 
-		add_stability = 0.07
-		clr_country_flag = NFA_constitution_flag
-		set_country_flag = NFA_strong_petain_constitution
+		add_command_power = -15
+		add_political_power = 10
+		set_country_flag = NFA_no_ambitious_officers
+	}
+
+	option = { #very well
+		name = natfra.38.b
+		add_command_power = 20
+		add_stability = -0.01
+		if = {
+			limit = { has_country_flag = NFA_de_gaulle_plan }
+			set_country_flag = NFA_de_gaulle_powerful
+		}
+		else_if = {
+			limit = { has_country_flag = NFA_darlan_plan }
+			set_country_flag = NFA_darlan_powerful
+		}
 	}
 }
 

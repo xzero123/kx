@@ -771,11 +771,7 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = {
 			    ideology = paternal_autocrat
-			    popularity = 0.07
-		    }
-			add_popularity = {
-			    ideology = authoritarian_democrat
-			    popularity = 0.03
+			    popularity = 0.04
 		    }
 			set_politics = {
 			ruling_party = paternal_autocrat
@@ -788,15 +784,43 @@ focus_tree = {
 		    }
 		}
 	}
+
+	focus = {
+		id = NFA_officers_in_govt
+		icon = GFX_goal_NFA_Army
+		prerequisite = { focus = NFA_troops_on_the_streets }
+		x = -2
+		y = 1
+		relative_position_id = NFA_troops_on_the_streets
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		select_effect = {
+			country_event = { id = natfra.36 days = 10 }
+		}
+		available = {
+			has_country_flag = NFA_junta_stays
+		}
+        cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_command_power = 25
+			army_experience = 10
+			add_war_support = 0.04
+			add_stability = -0.03
+		}
+	}
 	
 	focus = {
 		id = NFA_demand_the_assemblys_loyalty
 		icon = GFX_goal_Demand_Assembly_Loyalty 
 		prerequisite = { focus = NFA_troops_on_the_streets }
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = NFA_troops_on_the_streets
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 80
 		}
@@ -813,20 +837,21 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = {
 				ideology = paternal_autocrat
-				popularity = 0.04
+				popularity = 0.05
 			}
+			add_stability = 0.04
 			remove_ideas = NFA_protests_2
 		}
 	}
 	
 	focus = {
 		id = NFA_a_new_premier
-		icon = GFX_goal_NFA_new_premier
+		icon = GFX_goal_Choose_a_P
 		prerequisite = { focus = NFA_troops_on_the_streets }
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = NFA_troops_on_the_streets
-		cost = 4
+		cost = 5
 		ai_will_do = {
 			factor = 80
 		}
@@ -837,6 +862,11 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
+			add_popularity = {
+			    ideology = paternal_autocrat
+			    popularity = 0.02
+		    }
+			add_political_power = 15
 			if = {
 				limit = { has_country_flag = NFA_de_gaulle_plan }
 				NFA = {
@@ -861,30 +891,17 @@ focus_tree = {
 		icon = GFX_goal_A_New_Constitution
 		prerequisite = { focus = NFA_demand_the_assemblys_loyalty }
 		prerequisite = { focus = NFA_a_new_premier }
+		prerequisite = { focus = NFA_officers_in_govt }
 		x = 0
 		y = 2
 		relative_position_id = NFA_troops_on_the_streets
-		cost = 8
+		cost = 7
 		ai_will_do = {
 			factor = 80
 		}
 		select_effect = {
-			country_event = { id = natfra.33 days = 1 } #petain starts drafting constitution
-			country_event = { id = natfra.34 days = 20 } #fate of assembly
-			country_event = { id = natfra.35 days = 30 } #role of presidency
-			country_event = { id = natfra.36 days = 40 } #power of army
-			if = { 
-				limit = {
-				    has_country_flag = {
-				        flag = NFA_constitution_flag
-				        value < 3
-					}
-				}
-				country_event = { id = natfra.37 days = 56 }
-			}
-			else = { 
-				country_event = { id = natfra.38 days = 56 }
-			}
+			country_event = { id = natfra.33 days = 5 }
+			country_event = { id = natfra.37 days = 40 }
 		}			
 		available = {
 			has_country_flag = NFA_junta_stays
@@ -893,7 +910,18 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			custom_effect_tooltip = NFA_petain_constitution
+			add_political_power = 60
+			add_stability = -0.02
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.03
+			}
+			if = {
+				limit = { has_country_flag = NFA_army_formal_powers }
+				hidden_effect = {
+				    country_event = { id = natfra.38 days = 400 }
+			    }
+			}
 		}
 	}
 	
@@ -901,7 +929,7 @@ focus_tree = {
 		id = NFA_memories_of_verdun
 		icon = GFX_goal_Verdun_memories
 		prerequisite = { focus = NFA_a_new_constitution }
-		x = -2
+		x = -1
 		y = 3
 		relative_position_id = NFA_troops_on_the_streets
 		cost = 6
@@ -926,10 +954,10 @@ focus_tree = {
 		id = NFA_our_sole_purpose
 		icon = GFX_goal_Fight_the_gay
 		prerequisite = { focus = NFA_a_new_constitution }
-		x = 2
+		x = 1
 		y = 3
 		relative_position_id = NFA_troops_on_the_streets
-		cost = 7
+		cost = 6
 		ai_will_do = {
 			factor = 80
 		}
@@ -951,7 +979,7 @@ focus_tree = {
 		x = 1
 		y = 4
 		relative_position_id = NFA_troops_on_the_streets
-		cost = 5
+		cost = 6
 		ai_will_do = {
 			factor = 80
 		}
@@ -962,13 +990,13 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			add_manpower = 6893
+			add_manpower = 6500
 			add_popularity = {
 				ideology = paternal_autocrat
-				popularity = 0.06
+				popularity = 0.03
 			}
 			add_war_support = 0.04
-			add_political_power = 30
+			add_political_power = 10
 		}
 	}
 	
@@ -996,7 +1024,7 @@ focus_tree = {
 			add_ideas = NFA_ties_with_business
 			add_popularity = {
 				ideology = paternal_autocrat
-				popularity = 0.03
+				popularity = 0.04
 			}
 		}
 	}
@@ -1033,7 +1061,7 @@ focus_tree = {
 		x = 3
 		y = 5
 		relative_position_id = NFA_troops_on_the_streets
-		cost = 6
+		cost = 7
 		ai_will_do = {
 			factor = 80
 		}
@@ -1097,7 +1125,7 @@ focus_tree = {
 		x = -1
 		y = 5
 		relative_position_id = NFA_troops_on_the_streets
-		cost = 4
+		cost = 5
 		ai_will_do = {
 			factor = 80
 		}
@@ -1136,11 +1164,11 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			add_stability = 0.08
-			add_political_power = 60
+			add_stability = 0.05
+			add_political_power = 20
             add_popularity = {
 				ideology = paternal_autocrat
-				popularity = 0.07
+				popularity = 0.03
 			}
 			country_event = { id = natfra.46 days = 7 } 
 		}
@@ -1148,7 +1176,7 @@ focus_tree = {
 	
 	focus = {
 		id = NFA_morality_and_service
-		icon = GFX_goal_COR_industrial_security_act
+		icon = GFX_goal_NFA_morality_and_service
 		prerequisite = { focus = NFA_seek_clergy_support }
 		x = -3
 		y = 5
@@ -1246,49 +1274,13 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			add_stability = 0.07
-			add_war_support = 0.09
-			add_political_power = 50
+			add_stability = 0.02
+			add_war_support = 0.05
 			add_popularity = {
 				ideology = paternal_autocrat
-				popularity = 0.06
+				popularity = 0.04
 			}
-			add_manpower = 9834
-			add_command_power = 30
-		}
-	}
-	
-	focus = {
-		id = NFA_expand_the_deuxieme_beureau
-		icon = GFX_goal_expand_deuxieme_beureau
-		prerequisite = { focus = NFA_a_new_constitution }
-		x = 0
-		y = 3
-		relative_position_id = NFA_troops_on_the_streets
-		cost = 5
-		ai_will_do = {
-			factor = 80
-		}
-		available = {
-			has_country_flag = NFA_junta_stays
-		}
-        cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		completion_reward = {
-			add_ideas = NFA_strengthened_intelligence
-			add_popularity = {
-				ideology = social_liberal
-				popularity = -0.04
-			}
-			add_popularity = {
-				ideology = social_democrat
-				popularity = -0.04
-			}
-			add_popularity = {
-				ideology = national_populist
-				popularity = -0.04
-			}
+			add_command_power = 15
 		}
 	}
 	
@@ -1301,7 +1293,7 @@ focus_tree = {
 		x = 0
 		y = 7
 		relative_position_id = NFA_troops_on_the_streets
-		cost = 7
+		cost = 6
 		ai_will_do = {
 			factor = 80
 		}
@@ -1316,8 +1308,7 @@ focus_tree = {
 				remove_idea = NFA_crusade_for_the_metropole
 				add_idea = NFA_the_roar_of_the_lion
 			}
-			add_command_power = 50
-			army_experience = 30
+			add_political_power = 40
 		}
 	}
 	

@@ -1486,9 +1486,8 @@ country_event = { #corruption allegations
 		add_stability = -0.06
 		add_popularity = {
 			ideology = paternal_autocrat
-			popularity = 0.02
+			popularity = -0.02
 		} 
-        add_command_power = 15
 		add_political_power = 20
 	}
 
@@ -1498,7 +1497,7 @@ country_event = { #corruption allegations
 		add_stability = 0.03
 		add_popularity = {
 			ideology = paternal_autocrat
-			popularity = 0.04
+			popularity = 0.02
 		}
 	}
 }
@@ -1570,16 +1569,16 @@ country_event = { #emphasis of propaganda about petain
 
 	option = { #his military successes
 		name = natfra.45.a 
-		add_war_support = 0.06
-		add_command_power = 30
+		add_war_support = 0.04
+		add_command_power = 10
 	}
 
 	option = { #his faith and patriotism
 		name = natfra.45.b
-		add_stability = 0.05
+		add_stability = 0.03
 		add_popularity = {
 			ideology = paternal_autocrat
-			popularity = 0.04
+			popularity = 0.02
 		} 
 	}
 }
@@ -1703,7 +1702,7 @@ country_event = { #darnand breaks with croix-de-feu
 
 	is_triggered_only = yes
 
-	option = { #what a larping fag
+	option = { 
 		name = natfra.50.a 
 		add_popularity = {
 			ideology = paternal_autocrat
@@ -1775,7 +1774,7 @@ country_event = { #coronation
 			ideology = authoritarian_democrat_subtype
 			traits = { NFA_Old_King }
 		}
-		set_country_flag = NFK
+		set_cosmetic_tag = NFK
 	}
 }
 
@@ -1835,7 +1834,7 @@ country_event = { #purpose of camelots
 	}
 
 	option = { #poltical paramilitary
-		name = natfra.54.a 
+		name = natfra.54.b
 		add_popularity = {
 			ideology = national_populist
 			popularity = 0.02
@@ -1962,7 +1961,7 @@ country_event = { #fate of liberal politicians
 	}
 
 	option = { #natfra them adapt to the kingdom
-		name = nfa.58.b
+		name = natfra.58.b
 		add_popularity = {
 			ideology = social_liberal
 			popularity = 0.01
@@ -2044,14 +2043,15 @@ country_event = { #immigration
 			popularity = 0.01
 		}
 		add_manpower = -1000
+		add_stability = 0.01
 	}
 
 	option = { #managed numbers and assimilation
 		name = natfra.61.b 
-		add_political_power = 10
+		add_political_power = 15
 		add_popularity = {
 			ideology = national_populist
-			popularity = 0.03
+			popularity = 0.02
 		}
 		add_manpower = -500
 	}
@@ -2061,9 +2061,9 @@ country_event = { #immigration
 		add_political_power = 50
 		add_popularity = {
 			ideology = national_populist
-			popularity = 0.05
+			popularity = 0.04
 		}
-		add_war_support = 0.02
+		add_stability = -0.02
 		add_manpower = -2000
 	}
 }
@@ -2081,12 +2081,13 @@ country_event = { #protestant missionaries
 
 	option = { #leave them be
 		name = natfra.62.a 
-		add_political_power = 20
+		add_political_power = -40
 		add_stability = 0.03
 	}
 
 	option = { #clamp down
 		name = natfra.62.b 
+		add_political_power = 35
 		add_stability = -0.02
 		add_popularity = {
 			ideology = national_populist
@@ -2229,8 +2230,7 @@ country_event = { #jewish assets seized
 
 	option = { #state ownership
 		name = natfra.67.b
-		add_stability = -0.02
-		add_command_power = 20
+		add_political_power = -75
 		459 = {
 			add_building_construction = {
 				type = industrial_complex 
@@ -4022,7 +4022,7 @@ country_event = { #Franchet d'Ésperey retires
 			limit = { has_id = 802 } #CdG
 			promote_leader = yes
 		}
-		add_ideas = NFA_Charles_de_Gaulle_cos_npo
+		add_ideas = NFA_Charles_de_Gaulle_cos_ade
 	}
 
 	option = { #Darlan
@@ -4032,7 +4032,7 @@ country_event = { #Franchet d'Ésperey retires
 			limit = { has_id = 805 } #Weygand
 			promote_leader = yes
 		}
-		add_ideas = NFA_Francois_Darlan_cos_ade
+		add_ideas = NFA_Jean_Francois_Darlan_cos_ade
 	}
 }
 
@@ -4060,8 +4060,10 @@ country_event = { #extent of conscription
 	option = { #light
 		name = natfra.129.b
 		trigger = { 
-			has_country_flag = NFA_kingdom_revived
-			has_country_flag = NFA_compromised_with_liberals
+			OR = {
+                has_country_flag = NFA_kingdom_revived
+			    has_country_flag = NFA_compromised_with_liberals
+			}		
 		}
 		add_political_power = 35
 		add_stability = 0.04
@@ -4071,9 +4073,11 @@ country_event = { #extent of conscription
 	option = { #medium
 		name = natfra.129.c
 		trigger = { 
-			has_country_flag = NFA_de_la_rocque_in_charge
-			has_country_flag = NFA_compromised_with_liberals
-			has_country_flag = NFA_junta_stays
+			OR = {
+                has_country_flag = NFA_de_la_rocque_in_charge
+			    has_country_flag = NFA_compromised_with_liberals
+		     	has_country_flag = NFA_junta_stays
+			}		
 		}
 		add_political_power = 20
 		add_stability = 0.01
@@ -4081,11 +4085,13 @@ country_event = { #extent of conscription
 	}
 
 	option = { #heavy
-		name = natfra.129.d
+		name = natfra.129.e
 		trigger = { 
-			has_country_flag = NFA_darnand_in_charge
-			has_country_flag = NFA_de_la_rocque_in_charge
-			has_country_flag = NFA_junta_stays
+			OR = {
+                has_country_flag = NFA_darnand_in_charge
+			    has_country_flag = NFA_de_la_rocque_in_charge
+	    		has_country_flag = NFA_junta_stays
+			}			
 		}
 		add_political_power = -5
 		add_stability = -0.02
@@ -4093,10 +4099,12 @@ country_event = { #extent of conscription
 	}
 
 	option = { #very heavy
-		name = natfra.129.d
+		name = natfra.129.f
 		trigger = { 
-			has_country_flag = NFA_darnand_in_charge
-			has_country_flag = NFA_junta_stays
+			OR = {
+                has_country_flag = NFA_darnand_in_charge
+		    	has_country_flag = NFA_junta_stays
+			}			
 		}
 		add_political_power = -20
 		add_stability = -0.05

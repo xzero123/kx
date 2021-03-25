@@ -431,6 +431,7 @@ focus_tree = {
 				limit = {
 					is_core_of = BBR
 					is_controlled_by = BBR
+					is_coastal = yes
 					industrial_complex > 0
 				}
 				add_extra_state_shared_building_slots = 2
@@ -444,6 +445,7 @@ focus_tree = {
 				limit = {
 					is_core_of = BBR
 					is_controlled_by = BBR
+					is_coastal = yes
 					industrial_complex > 0
 				}
 				add_extra_state_shared_building_slots = 2
@@ -6158,30 +6160,8 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_pan_afrikan_identity"
 			add_threat = 5
 			add_war_support = 0.1
-			if = {
-				limit = { 
-					BBR = {
-						OR = {
-							has_government = totalist
-							has_government = paternal_autocrat
-						}
-					}
-				}
-				annex_country = {
-					target = LIB
-					transfer_troops = yes
-				}
-			}
-			else_if = {
-				limit = { 
-					BBR = {
-						has_government = national_populist
-					}
-				}
-				create_wargoal = {
-					type = annex_everything
-					target = LIB
-				}
+			LIB = {
+				country_event = bbr.1822
 			}
 		}
 	}
@@ -6785,7 +6765,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_defend_the_border"
-			1113 = {
+			1167 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = bunker
@@ -6794,7 +6774,7 @@ focus_tree = {
 					province = 12735
 				}
 			}
-			1113 = {
+			1168 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = bunker
@@ -7900,7 +7880,7 @@ focus_tree = {
 			focus = BBR_flipper_doctrine
 		}
 		relative_position_id = BBR_flipper_doctrine
-		x = 1
+		x = -1
 		y = 1
 		ai_will_do = {
 			factor = 50
@@ -7923,7 +7903,7 @@ focus_tree = {
 			focus = BBR_flipper_doctrine
 		}
 		relative_position_id = BBR_flipper_doctrine
-		x = -1
+		x = 1
 		y = 1
 		ai_will_do = {
 			factor = 50
@@ -7982,7 +7962,7 @@ focus_tree = {
 		icon = GFX_goal_national_artillery
 		cost = 6.00
 		prerequisite = {
-			focus = BBR_military_engineers
+			focus = BBR_artillery_support
 		}
 		relative_position_id = BBR_flipper_doctrine
 		x = 2

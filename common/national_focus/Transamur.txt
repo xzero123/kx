@@ -2649,6 +2649,11 @@ focus_tree = {
 			has_country_flag = TRM_become_russia
 			is_subject = no
 		}
+		bypass = {
+			883 = {
+			is_owned_by = ROOT
+			}
+		}
 		x = 6
 		y = 10
 		relative_position_id = TRM_Expand_RCW
@@ -5569,18 +5574,15 @@ focus = {
 			is_subject_of = JAP
 		}
 		bypass = {
-			is_subject_of = JAP
+			NOT = { is_subject_of = JAP }
 		}
 		mutually_exclusive = { focus = TRM_Co_Prosper_With_Japan }
 		ai_will_do = {
 			factor = 50
 		}
 		completion_reward = {
-			country_event = {
-				id = tramjap.4
-				days = 1
-			}
-		}
+                             JAP = { country_event = tramjap.4 }
+		} 
 	}
 		
 	focus = {

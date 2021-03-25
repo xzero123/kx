@@ -4728,39 +4728,15 @@ country_event = {
 		}
 		hidden_effect = {
 		set_country_flag = ENG_martial_law_declared
+			
 			if = {
 				limit = {
-					has_game_rule = {
-						rule = ENG_revolution
-						option = ENG_REVOLUTION_SUCCESS
-					}
-				}
-				country_event = uob.210
-			}
-			if = {
-				limit = {
-					OR = {
-						has_game_rule = {
-							rule = ENG_revolution
-							option = ENG_REVOLUTION_FAILURE
-						}
-						has_game_rule = {
-							rule = ENG_revolution
-							option = ENG_REVOLUTION_FAILURE_RESTORATION
-						}
-					}
+					has_country_flag = UOB_army_coup_gang
 				}
 				country_event = uob.212
 			}
 			else = {
-				random_list = {
-					50 = {
-						country_event = uob.211
-					} # Yay...?
-					50 = {
-						country_event = uob.212
-					} # Nay
-				}
+			 country_event = uob.211
 			}
 		}
 	}
@@ -4957,8 +4933,11 @@ country_event = {
 
 	is_triggered_only = yes
 
+	fire_only_once = yes
+
 	option = {
 		name = uob.210.a
+		set_country_flag = UOB_maximist_coup_happened
 		hidden_effect = {
 			country_event = uob.213 # What to do now?
 			news_event = {
@@ -4979,6 +4958,8 @@ country_event = {
 
 	is_triggered_only = yes
 
+	fire_only_once = yes
+
 	option = {
 		name = uob.211.a
 		hidden_effect = {
@@ -4990,29 +4971,16 @@ country_event = {
 	}
 
 	option = {
-		name = uob.211.b
-		hidden_effect = {
-			random_list = {
-				50 = {
-					country_event = uob.210
-					news_event = {
-						id = uob.221
-						days = 7
-					}
-				} # Yay
-				50 = {
-					country_event = uob.212
-					news_event = {
-						id = uob.223
-						days = 7
-					}
-				} # Nay
-			}
-		}
-	}
+    name = uob.211.b
+    hidden_effect = {
+    country_event = uob.210
+    news_event = {
+        id = uob.221
+         days = 7
+     }
+    }
+    }
 }
-
-# Nay
 
 country_event = {
 	id = uob.212
@@ -5022,6 +4990,9 @@ country_event = {
 	picture = GFX_report_event_election_vote
 
 	is_triggered_only = yes
+
+	fire_only_once = yes
+
 
 	option = {
 		ai_chance = {
@@ -8101,7 +8072,7 @@ country_event = { # Peace With Scotland
 		
 		white_peace = {
 			tag = SCT
-			message = "Scotland has won it's Independence"
+			message = "Scotland has won its Independence"
 		}
 		
 		
@@ -8154,7 +8125,7 @@ country_event = { # Peace With Wales
 		}
 		white_peace = {
 			tag = WAL
-			message = "Wales has won it's Independence"
+			message = "Wales has won its Independence"
 		}
 		
 		WAL = { 
@@ -8674,4 +8645,24 @@ country_event = { # fun camps
 		name = uobflavour.38.a
         add_political_power = -100
 	}
+}
+country_event = { #officers grumble
+	id = uob.2000
+	immediate = { log = "[GetDateText]: [Root.GetName]: event uob.2000" }
+	title = uob.2000.t
+	desc = uob.2000.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = { # it's fine
+		name = uob.2000.a
+		set_country_flag = UOB_army_coup_gang
+	}
+	option = { # oh fuck no
+		name = uob.2000.b
+		stability_factor = -0.05 
+        remove_unit_leader = 251
+	}
+}
 }

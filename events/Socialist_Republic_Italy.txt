@@ -691,6 +691,7 @@ country_event = { # Unione Socialista Cristiana majority
 			clr_country_flag = SRI_social_reform
 			clr_country_flag = SRI_anarcho_synd
 			clr_country_flag = SRI_national_synd
+			clr_country_flag = ITA_savoyard_on_throne
 			remove_all_ministers = yes
 			add_timed_idea = {
 				idea = SRI_congress_held
@@ -2500,6 +2501,7 @@ country_event = { # Unione Socialista Cristiana majority
 			clr_country_flag = SRI_social_reform
 			clr_country_flag = SRI_anarcho_synd
 			clr_country_flag = SRI_national_synd
+			clr_country_flag = ITA_savoyard_on_throne
 			remove_all_ministers = yes
 			set_country_flag = SRI_fifth_congress_done
 			add_timed_idea = {
@@ -3439,6 +3441,8 @@ country_event = { # Jesus the Carpenter and the Worker Priests
 	desc = socitaly.85.d
 	picture = GFX_report_event_SRI_catholic_priest
 
+	trigger = { has_socialist_government = yes }
+
 	is_triggered_only = yes
 
 	option = {
@@ -3457,6 +3461,8 @@ country_event = { # Christian Associations of Italian Workers
 	desc = socitaly.86.d
 	picture = GFX_report_event_SRI_catholic_priest
 
+	trigger = { has_socialist_government = yes }
+
 	is_triggered_only = yes
 
 	option = {
@@ -3473,6 +3479,8 @@ country_event = { # Futuristic Architecture
 	title = socitaly.87.t
 	desc = socitaly.87.d
 	picture = GFX_report_event_SRI_futurist_architecture
+
+	trigger = { has_socialist_government = yes }
 
 	is_triggered_only = yes
 
@@ -3491,6 +3499,8 @@ country_event = { # Associazione Ricreativa e Culturale Italiana
 	desc = socitaly.88.d
 	picture = GFX_report_event_ITA_italian_recreation1
 
+	trigger = { has_socialist_government = yes }
+
 	is_triggered_only = yes
 
 	option = {
@@ -3508,6 +3518,8 @@ country_event = { # Unione Donne italiane
 	desc = socitaly.89.d
 	picture = GFX_report_event_SRI_italy_women_congress
 
+	trigger = { has_socialist_government = yes }
+
 	is_triggered_only = yes
 
 	option = {
@@ -3521,6 +3533,8 @@ country_event = { # 1937 Championship between Bolgna and Torino
 	title = socitaly.90.t
 	desc = socitaly.90.d
 	picture = GFX_report_event_SRI_italy_football
+
+	trigger = { has_socialist_government = yes }
 
 	is_triggered_only = yes
 
@@ -3600,6 +3614,7 @@ country_event = { # Death of Filippo Turati
 	title = socitaly.101.t
 	desc = socitaly.101.d
 	picture = GFX_report_event_SRI_turati
+
 	is_triggered_only = yes
 	
 	trigger = { has_socialist_government = yes }
@@ -3615,6 +3630,7 @@ country_event = { # Maggio Musicale Fiorentino
 	title = socitaly.102.t
 	desc = socitaly.102.d
 	picture = GFX_report_event_SRI_palace
+
 	is_triggered_only = yes
 	
 	trigger = { has_socialist_government = yes }
@@ -8192,6 +8208,12 @@ country_event = { # Fall of Piedmont
 	
 	trigger = {
 	controls_state = 158
+	OR = {
+	has_global_flag = KX_ITA_COMPLETLEY_FUCKED
+	NOT = {
+	has_global_flag = SRI_NORTH
+	}
+	}
 	OR = {
 	has_country_leader = { ruling_only = yes name = "Julius Evola" }
 	has_country_leader = { ruling_only = yes name = "Victor Emmanuel III" }

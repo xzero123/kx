@@ -1,0 +1,514 @@
+###########################
+#   Malta Focus Tree  #
+###########################
+#Made by AmCath#
+###########################
+focus_tree = {
+	id = Malta
+
+	default = no
+
+	continuous_focus_position = { x = 100 y = 2000 }
+
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = MLT
+		}
+	}
+
+	focus = {
+		id = MLT_to_bring_down_an_empire
+		icon = GFX_goal_WIP
+		x = 11
+		y = 0
+		cost = 1
+		available = {
+			NOT = {
+				has_global_flag = Malta_Revealed
+			}
+		}
+		bypass = {
+			has_global_flag = Malta_Revealed
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			custom_effect_tooltip = MLT_starting_tt
+		}
+	}
+	focus = {
+		id = MLT_african_connetions
+		icon = GFX_goal_WIP
+		x = 10
+		y = 1
+		cost = 3
+		available = {
+			NOT = {
+				has_global_flag = Malta_Revealed
+			}
+		}
+		bypass = {
+			has_global_flag = Malta_Revealed
+		}
+		prerequisite ={
+			focus = MLT_to_bring_down_an_empire
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			custom_effect_tooltip = MLT_africa_tt
+		}
+	}
+	focus = {
+		id = MLT_eurpoean_connetions
+		icon = GFX_goal_WIP
+		x = 12
+		y = 1
+		cost = 3
+		available = {
+			NOT = {
+				has_global_flag = Malta_Revealed
+			}
+		}
+		bypass = {
+			has_global_flag = Malta_Revealed
+		}
+		prerequisite ={
+			focus = MLT_to_bring_down_an_empire
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			custom_effect_tooltip = MLT_euro_tt
+		}
+	}
+	focus = {
+		id = MLT_asian_connetions
+		icon = GFX_goal_WIP
+		x = 14
+		y = 1
+		cost = 3
+		available = {
+			NOT = {
+				has_global_flag = Malta_Revealed
+			}
+		}
+		bypass = {
+			has_global_flag = Malta_Revealed
+		}
+		prerequisite ={
+			focus = MLT_to_bring_down_an_empire
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			custom_effect_tooltip = MLT_asia_tt
+		}
+	}
+	focus = {
+		id = MLT_new_world_connetions
+		icon = GFX_goal_WIP
+		x = 8
+		y = 1
+		cost = 3
+		available = {
+			NOT = {
+				has_global_flag = Malta_Revealed
+			}
+		}
+		bypass = {
+			has_global_flag = Malta_Revealed
+		}
+		prerequisite ={
+			focus = MLT_to_bring_down_an_empire
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			custom_effect_tooltip = MLT_america_tt
+		}
+	}
+	focus = {
+		id = MLT_funds_for_SPA
+		icon = GFX_goal_WIP
+		x = 8
+		y = 2
+		cost = 3
+		available = {
+			NOT = {
+				has_global_flag = Malta_Revealed
+			}
+		}
+		bypass = {
+			has_global_flag = Malta_Revealed
+		}
+		prerequisite ={
+			focus = MLT_new_world_connetions
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			custom_effect_tooltip = MLT_SPA_tt
+			USA = {
+				add_popularity = {
+				ideology = syndicalist
+				popularity = 0.02
+				}
+				add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.02
+				}
+				add_popularity = {
+				ideology = totalist
+				popularity = 0.02
+				}
+			}
+		}
+	}
+	focus = {
+		id = MLT_support_long
+		icon = GFX_goal_WIP
+		x = 8
+		y = 3
+		cost = 3
+		available = {
+			NOT = {
+				has_global_flag = Malta_Revealed
+			}
+		}
+		bypass = {
+			has_global_flag = Malta_Revealed
+		}
+		prerequisite ={
+			focus = MLT_funds_for_SPA
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			custom_effect_tooltip = MLT_AFP_tt
+			USA = {
+				add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.04
+				}
+			}
+		}
+	}
+    focus = {
+		id = MLT_aid_ODP
+		icon = GFX_goal_WIP
+		x = 8
+		y = 4
+		cost = 3
+		available = {
+			NOT = {
+				has_global_flag = Malta_Revealed
+			}
+		}
+		bypass = {
+			has_global_flag = Malta_Revealed
+		}
+		prerequisite ={
+			focus = MLT_support_long
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			custom_effect_tooltip = MLT_ODP_tt
+			USA = {
+				add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.04
+				}
+                add_popularity = {
+				ideology = national_populist
+				popularity = 0.04
+				}
+			}
+		}
+	}
+    focus = {
+		id = MLT_black_doisser_aid
+		icon = GFX_goal_WIP
+		x = 10
+		y = 2
+		cost = 3
+		available = {
+			NOT = {
+				has_global_flag = Malta_Revealed
+			}
+		}
+		bypass = {
+			has_global_flag = Malta_Revealed
+		}
+		prerequisite ={
+			focus = MLT_african_connetions
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			custom_effect_tooltip = MLT_black_doisser_tt
+			MAF = {
+				add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.02
+				}
+                add_stability = -0.05
+			}
+		}
+	}
+    focus = {
+		id = MLT_lump_sum_to_liberian_masons
+		icon = GFX_goal_WIP
+		x = 10
+		y = 3
+		cost = 3
+		available = {
+			NOT = {
+				has_global_flag = Malta_Revealed
+			}
+		}
+		bypass = {
+			has_global_flag = Malta_Revealed
+		}
+		prerequisite ={
+			focus = MLT_black_doisser_aid
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			custom_effect_tooltip = MLT_liberia_tt
+			LIB = {
+				add_popularity = {
+				ideology = national_populist
+				popularity = 0.04
+				}
+                add_political_power = 60
+			}
+		}
+	}
+    focus = {
+		id = MLT_support_obama
+		icon = GFX_goal_WIP
+		x = 10
+		y = 4
+		cost = 3
+		available = {
+			NOT = {
+				has_global_flag = Malta_Revealed
+			}
+		}
+		bypass = {
+			has_global_flag = Malta_Revealed
+		}
+		prerequisite ={
+			focus = MLT_lump_sum_to_liberian_masons
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			custom_effect_tooltip = MLT_obama_tt
+			KIK = {
+				add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 5500 }
+                add_manpower = 300
+			}
+		}
+	}
+    focus = {
+		id = MLT_funds_for_savikonv
+		icon = GFX_goal_WIP
+		x = 12
+		y = 2
+		cost = 3
+		available = {
+			NOT = {
+				has_global_flag = Malta_Revealed
+			}
+		}
+		bypass = {
+			has_global_flag = Malta_Revealed
+		}
+		prerequisite ={
+			focus = MLT_eurpoean_connetions
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			custom_effect_tooltip = MLT_russia_tt
+			RUS = {
+				add_popularity = {
+				ideology = national_populist
+				popularity = 0.04
+				}
+			}
+		}
+	}
+    focus = {
+		id = MLT_support_french_extermists
+		icon = GFX_goal_WIP
+		x = 12
+		y = 3
+		cost = 3
+		available = {
+			NOT = {
+				has_global_flag = Malta_Revealed
+			}
+		}
+		bypass = {
+			has_global_flag = Malta_Revealed
+		}
+		prerequisite ={
+			focus = MLT_funds_for_savikonv
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			custom_effect_tooltip = MLT_france_tt
+			FRA = {
+				add_popularity = {
+				ideology = totalist
+				popularity = 0.04
+				}
+			}
+		}
+	}
+    focus = {
+		id = MLT_stroke_austrian_pangermanism
+		icon = GFX_goal_WIP
+		x = 12
+		y = 4
+		cost = 3
+		available = {
+			NOT = {
+				has_global_flag = Malta_Revealed
+			}
+		}
+		bypass = {
+			has_global_flag = Malta_Revealed
+		}
+		prerequisite ={
+			focus = MLT_support_french_extermists
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			custom_effect_tooltip = MLT_AUS_tt
+			AUS = {
+				add_popularity = {
+				ideology = national_populist
+				popularity = 0.04
+				}
+			}
+		}
+	}
+    focus = {
+		id = MLT_support_the_KMT
+		icon = GFX_goal_WIP
+		x = 14
+		y = 2
+		cost = 3
+		available = {
+			NOT = {
+				has_global_flag = Malta_Revealed
+			}
+		}
+		bypass = {
+			has_global_flag = Malta_Revealed
+		}
+		prerequisite ={
+			focus = MLT_asian_connetions
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			custom_effect_tooltip = MLT_KMT_tt
+			CHI = {
+				add_manpower = 2000
+                add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 5500 }
+			}
+		}
+	}
+    focus = {
+		id = MLT_fund_the_trm_monbols
+		icon = GFX_goal_WIP
+		x = 14
+		y = 3
+		cost = 3
+		available = {
+			NOT = {
+				has_global_flag = Malta_Revealed
+			}
+		}
+		bypass = {
+			has_global_flag = Malta_Revealed
+		}
+		prerequisite ={
+			focus = MLT_asian_connetions
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			custom_effect_tooltip = MLT_TRM_tt
+			TRM = {
+				add_popularity = {
+				ideology = totalist
+				popularity = 0.04
+				}
+			}
+		}
+	}
+    focus = {
+		id = MLT_aid_japanese_antigermany_efforts
+		icon = GFX_goal_WIP
+		x = 14
+		y = 4
+		cost = 3
+		available = {
+			NOT = {
+				has_global_flag = Malta_Revealed
+			}
+		}
+		bypass = {
+			has_global_flag = Malta_Revealed
+		}
+		prerequisite ={
+			focus = MLT_asian_connetions
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			custom_effect_tooltip = MLT_JAP_tt
+			JAP  = {
+				increase_ruling_party_popularity_by_5 = yes
+                add_equipment_to_stockpile = { type = infantry_equipment_2 amount = 5000 }
+                add_war_support = 0.10
+			}
+		}
+	}
+    focus = {
+		id = MLT_the_truth_comes_out
+		icon = GFX_goal_WIP
+		x = 11
+		y = 5
+		cost = 3
+		available = {
+			has_global_flag = Malta_Revealed
+		}
+		bypass = {
+			has_global_flag = Malta_Revealed
+		}
+		prerequisite ={
+			focus = MLT_aid_japanese_antigermany_efforts
+            focus = MLT_stroke_austrian_pangermanism
+            focus = MLT_support_obama
+            focus = MLT_aid_ODP
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			custom_effect_tooltip = MLT_truth_tt
+		
+		}
+	}
+    focus = {
+		id = MLT_a_future_in_flux
+		icon = GFX_goal_WIP
+		x = 11
+		y = 6
+		cost = 3
+		prerequisite ={
+			focus = MLT_the_truth_comes_out
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus XSM_three_province_plan"
+			country_event = mlt.1
+		
+		}
+	}
+
+}
+

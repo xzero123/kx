@@ -141,7 +141,9 @@ focus_tree = {
 		y = 7
 			available = {
 					has_socialist_government = yes
-					has_country_flag = UKR_Kruschev_won
+					has_country_flag = UKR_Kruschev_won 
+                                        NOT = { has_country_flag = UKR_Vynnych_won }
+                                        NOT = { has_country_flag = UKR_Chekhivsky_Invited }
 					NOT = {
 							UKR = {
 									is_subject_of = GER
@@ -1141,6 +1143,10 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_comrade_devotion
 		}
+                available = {
+                    NOT = { has_country_flag = UKR_Vynnych_won }
+                    NOT = { has_country_flag = UKR_Chekhivsky_Invited }
+                }
 		x = 1
 		y = 9
 			completion_reward = {
@@ -1170,6 +1176,8 @@ focus_tree = {
 		relative_position_id = UKR_Our_Future
 			available = {
 					has_socialist_government = yes
+                                        NOT = { has_country_flag = UKR_Vynnych_won }
+                                        NOT = { has_country_flag = UKR_Chekhivsky_Invited }
 					date > 1939.01.01
 					NOT = {
 							UKR = {
@@ -1225,6 +1233,10 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_Tax_Kulaks
 		}
+                available = {
+                    NOT = { has_country_flag = UKR_Vynnych_won }
+                    NOT = { has_country_flag = UKR_Chekhivsky_Invited }
+                }
 		ai_will_do = {
 				factor = 10
 		}
@@ -1248,6 +1260,8 @@ focus_tree = {
 		y = 8
 			available = {
 					has_socialist_government = yes
+                                        NOT = { has_country_flag = UKR_Vynnych_won }
+                                        NOT = { has_country_flag = UKR_Chekhivsky_Invited }
 					date > 1938.01.01
 					NOT = {
 							UKR = {
@@ -1313,6 +1327,10 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_Invite_Khrushchev
 		}
+                available = {
+                    NOT = { has_country_flag = UKR_Vynnych_won }
+                    NOT = { has_country_flag = UKR_Chekhivsky_Invited }
+                }
 		x = -5
 		y = 2
 		relative_position_id = UKR_Our_Future
@@ -1334,6 +1352,10 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_Popular_Front
 		}
+                available = {
+                    NOT = { has_country_flag = UKR_Vynnych_won }
+                    NOT = { has_country_flag = UKR_Chekhivsky_Invited }
+                }
 		x = -5
 		y = 3
 		relative_position_id = UKR_Our_Future
@@ -1356,6 +1378,10 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = UKR_Tax_Kulaks
 		}
+                available = {
+                    NOT = { has_country_flag = UKR_Vynnych_won }
+                    NOT = { has_country_flag = UKR_Chekhivsky_Invited }
+                }
 		x = -6
 		y = 4
 		relative_position_id = UKR_Our_Future
@@ -1387,6 +1413,10 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = UKR_Exp_Kulaks
 		}
+                available = {
+                    NOT = { has_country_flag = UKR_Vynnych_won }
+                    NOT = { has_country_flag = UKR_Chekhivsky_Invited }
+                }
 		x = -4
 		y = 4
 		relative_position_id = UKR_Our_Future
@@ -1416,6 +1446,8 @@ focus_tree = {
 		relative_position_id = UKR_Our_Future
 			available = {
 					has_country_flag = UKR_Taxation_fail
+                                    NOT = { has_country_flag = UKR_Vynnych_won }
+                                    NOT = { has_country_flag = UKR_Chekhivsky_Invited }
 				}
 			ai_will_do = {
 					factor = 10
@@ -1512,6 +1544,8 @@ focus_tree = {
 		relative_position_id = UKR_Our_Future
 			available = {
 					has_socialist_government = yes
+                                        NOT = { has_country_flag = UKR_Vynnych_won }
+                                        NOT = { has_country_flag = UKR_Chekhivsky_Invited }
 					date > 1938.01.01
 					NOT = {
 							UKR = {
@@ -1551,6 +1585,7 @@ focus_tree = {
 							has_country_flag = UKR_Vynnych_won
 							is_subject_of = GER
 						}
+                                      NOT = { has_country_flag = UKR_Chekhivsky_Invited }
 				}
 			ai_will_do = {
 					factor = 10

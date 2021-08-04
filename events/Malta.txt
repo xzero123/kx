@@ -1,4 +1,5 @@
 ﻿add_namespace = malta
+add_namespace = mlt
 
 # The fall of the order
 country_event = {
@@ -164,4 +165,87 @@ news_event = { #Hidden Event for Nations to get the spirit
 			has_idea = MLT_sons_of_malta_base
 		}
 	}
+}
+
+country_event = {#fututre in flux
+	id = mlt.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event mlt.1" }
+	title = mlt.1.t
+	desc = mlt.1.d
+	
+	picture = GFX_report_event_MLT_Whisper
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #cuck to sandfrance
+		name = mlt.1.a
+		set_country_flag = MLT_sandcuck
+		GER = {
+			remove_from_faction = MLT
+			set_autonomy = {
+					target = MLT
+					autonomy_state = autonomy_free
+				}
+		}
+	}
+	option = { #cuck to england in exile
+		name = mlt.1.b
+		set_country_flag = MLT_anglocuck
+		GER = {
+			remove_from_faction = MLT
+			set_autonomy = {
+					target = MLT
+					autonomy_state = autonomy_free
+				}
+		}
+	}
+	option = { #cuck to germany 
+		name = mlt.1.c
+		set_country_flag = MLT_germcuck
+	}
+	option = { #reject cuckoldry
+		name = mlt.1.e
+		GER = {
+			remove_from_faction = MLT
+			set_autonomy = {
+					target = MLT
+					autonomy_state = autonomy_free
+				}
+		}
+		hidden_effect = {
+			country_event = {
+				id = mlt.2
+				days = 7
+			}
+		}
+	}
+}
+country_event = {#french invasion
+	id = mlt.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event mlt.2" }
+	title = mlt.2.t
+	desc = mlt.2.d
+	
+	picture = GFX_report_event_MLT_Whisper
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #it works
+		name = mlt.2.a
+		add_popularity = { ideology = syndicalist popularity = 0.2}
+		
+		set_politics = {
+		ruling_party = syndicalist
+		elections_allowed = no
+		}
+	}
+	option = { #cuck to england in exile
+		name = mlt.1.b
+		set_country_flag = MLT_knights_held_on
+	}
+	
 }

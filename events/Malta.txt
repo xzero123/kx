@@ -179,50 +179,29 @@ country_event = {#fututre in flux
 
 	fire_only_once = yes
 
-	option = { #cuck to sandfrance
+	option = { #call elections
 		name = mlt.1.a
-		set_country_flag = MLT_sandcuck
-		GER = {
-			remove_from_faction = MLT
-			set_autonomy = {
-					target = MLT
-					autonomy_state = autonomy_free
-				}
-		}
+		set_country_flag = MLT_elections
+		hidden_effect = {
+			country_event = {
+				id = mlt.3
+				days = 5
+			}
+		} 
+		
 	}
 	option = { #cuck to england in exile
 		name = mlt.1.b
-		set_country_flag = MLT_anglocuck
-		GER = {
-			remove_from_faction = MLT
-			set_autonomy = {
-					target = MLT
-					autonomy_state = autonomy_free
-				}
-		}
-	}
-	option = { #cuck to germany 
-		name = mlt.1.c
-		set_country_flag = MLT_germcuck
-	}
-	option = { #reject cuckoldry
-		name = mlt.1.e
-		GER = {
-			remove_from_faction = MLT
-			set_autonomy = {
-					target = MLT
-					autonomy_state = autonomy_free
-				}
-		}
+		set_country_flag = MLT_knights_held_on
 		hidden_effect = {
 			country_event = {
 				id = mlt.2
-				days = 7
+				days = 10
 			}
-		}
+		} 
 	}
 }
-country_event = {#french invasion
+country_event = {#uprising
 	id = mlt.2
 	immediate = { log = "[GetDateText]: [Root.GetName]: event mlt.2" }
 	title = mlt.2.t
@@ -236,16 +215,265 @@ country_event = {#french invasion
 
 	option = { #it works
 		name = mlt.2.a
-		add_popularity = { ideology = syndicalist popularity = 0.2}
-		
+		add_popularity = { ideology = radical_socialist popularity = 0.1}
+		set_country_flag = MTL_commie_uprising
 		set_politics = {
-		ruling_party = syndicalist
+		ruling_party = radical_socialist
 		elections_allowed = no
 		}
 	}
-	option = { #cuck to england in exile
-		name = mlt.1.b
-		set_country_flag = MLT_knights_held_on
+	option = { #it fails
+		name = mlt.2.b
 	}
 	
 }
+country_event = {#labor leadership vote
+	id = mlt.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event mlt.3" }
+	title = mlt.3.t
+	desc = mlt.3.d
+	
+	picture = GFX_report_event_MLT_Whisper
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #radicals
+		name = mlt.3.a
+		add_popularity = { ideology = radical_socialist popularity = 0.05}
+		set_country_flag = MLT_radical_labour
+		country_event = {
+				id = mlt.4
+				days = 5
+			}
+	}
+	option = { #BOFFA DEEZ NUTS
+		name = mlt.3.b
+		add_popularity = { ideology = social_democrat popularity = 0.05}
+		set_country_flag = MLT_sucdem_labour
+		country_event = {
+				id = mlt.4
+				days = 5
+			}
+	}
+	
+}
+country_event = {#natioanlist vote
+	id = mlt.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event mlt.4" }
+	title = mlt.4.t
+	desc = mlt.4.d
+	
+	picture = GFX_report_event_MLT_Whisper
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #soccon
+		name = mlt.4.a
+		add_popularity = { ideology = social_conservative popularity = 0.2}
+		set_country_flag = MLT_soccon_nat
+		country_event = {
+				id = mlt.5
+				days = 5
+			}
+	}
+	option = { #knights
+		name = mlt.4.b
+		add_popularity = { ideology = authoritarian_democrat popularity = 0.2}
+		set_country_flag = MLT_knight_nat
+		country_event = {
+				id = mlt.5
+				days = 5
+			}
+	}
+	option = { #knights
+		name = mlt.4.c
+		add_popularity = { ideology = national_populist popularity = 0.2}
+		set_country_flag = MLT_natpop_nat
+		country_event = {
+				id = mlt.5
+				days = 5
+			}
+	}
+	
+}
+
+country_event = {#consititon leadership vote
+	id = mlt.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event mlt.5" }
+	title = mlt.5.t
+	desc = mlt.5.d
+	
+	picture = GFX_report_event_MLT_Whisper
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #mark
+		name = mlt.5.a
+		add_popularity = { ideology = market_liberal popularity = 0.05}
+		set_country_flag = MLT_marlib_con
+		country_event = {
+				id = mlt.6
+				days = 5
+			}
+	}
+	option = { #soclib
+		name = mlt.5.b
+		add_popularity = { ideology = social_liberal popularity = 0.05}
+		set_country_flag = MLT_soclib_con
+		country_event = {
+				id = mlt.6
+				days = 5
+			}
+	}
+	
+}
+
+country_event = {#election
+	id = mlt.6
+	immediate = { log = "[GetDateText]: [Root.GetName]: event mlt.6" }
+	title = mlt.6.t
+	desc = mlt.6.d
+	
+	picture = GFX_report_event_MLT_Whisper
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #nationalists
+		name = mlt.6.a
+		if = {
+			limit = {
+				has_country_flag = MLT_soccon_nat
+			}
+			add_popularity = { ideology = social_conservative popularity = 0.1}
+			set_country_flag = MTL_nat_victory
+			set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = no
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = MLT_knight_nat
+			}
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.1}
+			set_country_flag = MLT_knights_held_on
+			set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = no
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = MLT_natpop_nat
+			}
+
+			add_popularity = { ideology = national_populist popularity = 0.1}
+			set_country_flag = MTL_nat_victory
+			set_politics = {
+			ruling_party = national_populist
+			elections_allowed = no
+			}
+		}
+	}
+	option = { #labour
+		name = mlt.6.b
+		if = {
+			limit = {
+				has_country_flag = MLT_sucdem_labour
+			}
+			add_popularity = { ideology = social_democrat popularity = 0.1}
+			set_country_flag = MLT_labour_victory
+			set_politics = {
+			ruling_party = social_democrat
+			elections_allowed = no
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = MLT_radical_labour
+			}
+			add_popularity = { ideology = radical_socialist popularity = 0.1}
+			set_country_flag = MLT_labour_victory
+			set_politics = {
+			ruling_party = radical_socialist
+			elections_allowed = no
+			}
+			hidden_effect = {
+				country_event = {
+					id = mlt.7
+					day = 2
+				}
+			}
+		}
+	}
+	option = { #conpart
+		name = mlt.6.c
+		if = {
+			limit = {
+				has_country_flag = MLT_marlib_con
+			}
+			name = mlt.2.a
+			add_popularity = { ideology = market_liberal popularity = 0.1}
+			set_country_flag = MLT_con_victory
+			set_politics = {
+			ruling_party = market_liberal
+			elections_allowed = no
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = MLT_soclib_con
+			}
+			add_popularity = { ideology = social_liberal popularity = 0.1}
+			set_country_flag = MLT_con_victory
+			set_politics = {
+			ruling_party = social_liberal
+			elections_allowed = no
+			}
+		}
+		
+	}
+	
+}
+
+country_event = {#kngits attempt coup
+	id = mlt.7
+	immediate = { log = "[GetDateText]: [Root.GetName]: event mlt.5" }
+	title = mlt.7.t
+	desc = mlt.5.d
+	
+	picture = GFX_report_event_MLT_Whisper
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #works
+		name = mlt.7.a
+		add_popularity = { ideology = paternal_autocrat popularity = 0.05}
+		set_country_flag = MLT_knights_held_on
+		clr_country_flag = MLT_labour_victory
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+			}
+		
+	}
+	option = { #failed
+		name = mlt.7.b
+		add_popularity = { ideology = radical_socialist popularity = 0.05}
+	}
+	
+}
+
+
+
+

@@ -1,17 +1,19 @@
 GEX_can_flee_MAF = {
-	MAF = {
-		NOT = { has_country_flag = GEX_rejected_exiles }
-		OR = {
-			has_global_flag = GEX_game_rule_bypass
-			has_game_rule = {
-				rule = GEX_exile
-				option = DEFAULT
-			}
-			has_game_rule = {
-				rule = GEX_exile
-				option = GER_EXILE_MAF
-			}
+	OR = {
+		has_global_flag = GEX_game_rule_bypass
+		MAF = { is_ai = no }
+		has_game_rule = {
+			rule = GEX_exile
+			option = DEFAULT
 		}
+		has_game_rule = {
+			rule = GEX_exile
+			option = GEX_EXILE_MAF
+		}
+	}
+	MAF = {
+		exists = yes
+		NOT = { has_country_flag = GEX_rejected_exiles }
 		OR = { 
 			NOT = { has_country_flag = GEX_exile_skip }
 			has_global_flag = GEX_players_absent
@@ -29,19 +31,21 @@ GEX_can_flee_MAF = {
 }
 
 GEX_can_flee_GEA = {
-	GEA = {
-		NOT = { has_country_flag = GEX_rejected_exiles }
-		OR = {
-			has_global_flag = GEX_game_rule_bypass
-			has_game_rule = {
-				rule = GEX_exile
-				option = DEFAULT
-			}
-			has_game_rule = {
-				rule = GEX_exile
-				option = GER_EXILE_GEA
-			}
+	OR = {
+		has_global_flag = GEX_game_rule_bypass
+		GEA = { is_ai = no }
+		has_game_rule = {
+			rule = GEX_exile
+			option = DEFAULT
 		}
+		has_game_rule = {
+			rule = GEX_exile
+			option = GEX_EXILE_GEA
+		}
+	}
+	GEA = {
+		exists = yes
+		NOT = { has_country_flag = GEX_rejected_exiles }
 		OR = { 
 			NOT = { has_country_flag = GEX_exile_skip }
 			has_global_flag = GEX_players_absent
@@ -58,19 +62,21 @@ GEX_can_flee_GEA = {
 }
 
 GEX_can_flee_AOG = {
-	AOG = {
-		NOT = { has_country_flag = GEX_rejected_exiles }
-		OR = {
-			has_global_flag = GEX_game_rule_bypass
-			has_game_rule = {
-				rule = GEX_exile
-				option = DEFAULT
-			}
-			has_game_rule = {
-				rule = GEX_exile
-				option = GER_EXILE_AOG
-			}
+	OR = {
+		has_global_flag = GEX_game_rule_bypass
+		AOG = { is_ai = no }
+		has_game_rule = {
+			rule = GEX_exile
+			option = DEFAULT
 		}
+		has_game_rule = {
+			rule = GEX_exile
+			option = GEX_EXILE_AOG
+		}
+	}
+	AOG = {
+		exists = yes
+		NOT = { has_country_flag = GEX_rejected_exiles }
 		OR = { 
 			NOT = { has_country_flag = GEX_exile_skip }
 			has_global_flag = GEX_players_absent
@@ -91,23 +97,24 @@ GEX_can_flee_AOG = {
 }
 
 GEX_can_flee_TXS = {
-	TXS = {
-		NOT = { has_country_flag = GEX_rejected_exiles }
-		OR = {
-			has_global_flag = GEX_game_rule_bypass
-			has_game_rule = {
-				rule = GEX_exile
-				option = DEFAULT
-			}
-			has_game_rule = {
-				rule = GEX_exile
-				option = GER_EXILE_TXS
-			}
-			has_game_rule = {
-				rule = GEX_exile
-				option = GER_EXILE_TXS_KAISER
-			}
+	OR = {
+		TXS = { is_ai = no }
+		has_game_rule = {
+			rule = GEX_exile
+			option = DEFAULT
 		}
+		has_game_rule = {
+			rule = GEX_exile
+			option = GEX_EXILE_TXS
+		}
+		has_game_rule = {
+			rule = GEX_exile
+			option = GEX_EXILE_TXS_KAISER
+		}
+	}
+	TXS = {
+		exists = yes
+		NOT = { has_country_flag = GEX_rejected_exiles }
 		OR = { 
 			NOT = { has_country_flag = GEX_exile_skip }
 			has_global_flag = GEX_players_absent
@@ -121,19 +128,21 @@ GEX_can_flee_TXS = {
 }
 
 GEX_can_flee_OTT = {
-	OTT = {
-		NOT = { has_country_flag = GEX_rejected_exiles }
-		OR = {
-			has_global_flag = GEX_game_rule_bypass
-			has_game_rule = {
-				rule = GEX_exile
-				option = DEFAULT
-			}
-			has_game_rule = {
-				rule = GEX_exile
-				option = GER_EXILE_OTT
-			}
+	OR = {
+		OTT = { is_ai = no }
+		has_global_flag = GEX_game_rule_bypass
+		has_game_rule = {
+			rule = GEX_exile
+			option = DEFAULT
 		}
+		has_game_rule = {
+			rule = GEX_exile
+			option = GEX_EXILE_OTT
+		}
+	}
+	OTT = {
+		exists = yes
+		NOT = { has_country_flag = GEX_rejected_exiles }
 		OR = { 
 			NOT = { has_country_flag = GEX_exile_skip }
 			has_global_flag = GEX_players_absent
@@ -151,26 +160,7 @@ GEX_can_flee_OTT = {
 }
 
 GEX_fled_to_us = {
-	OR = {
-		AND = {
-			tag = MAF
-			has_global_flag = GER_flees_to_africa
-		}
-		AND = {
-			tag = GEA
-			has_global_flag = GER_flees_to_asia
-		}
-		AND = {
-			tag = AOG
-			has_global_flag = GER_flees_to_china
-		}
-		AND = {
-			tag = TXS
-			has_global_flag = GER_flees_to_texas
-		}
-		AND = {
-			tag = OTT
-			has_global_flag = GER_flees_to_turkey
-		}
-	}
+	tag = GEX
+	has_global_flag = GER_became_GEX
+	NOT = { has_global_flag = GER_did_not_became_GEX }
 }

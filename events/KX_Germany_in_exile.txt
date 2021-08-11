@@ -20,12 +20,13 @@ country_event = {
 		tag = GER
 		is_subject = no
 		has_war = yes
-		if = {
-			limit = { NOT = { controls_state = 64 } } #Brandenburg
-			surrender_progress > 0.75
-		}
-		else = {
+		OR = {
+			AND = {
+				NOT = { controls_state = 64 } #Brandenburg
+				surrender_progress > 0.75
+			}
 			surrender_progress > 0.8
+			has_capitulated = yes
 		}
 	}
 
@@ -137,13 +138,6 @@ country_event = {
 					}
 				}
 			}
-			
-			if = {
-				limit = {
-					GER = { is_ai = yes }
-				}
-				german_ai_flees = yes
-			}
 		}
 	}
 
@@ -154,7 +148,6 @@ country_event = {
 			GEX_can_flee_MAF = yes
 		}
 		set_country_flag = GER_capitulated
-		set_global_flag = GER_flees_to_africa
 		custom_effect_tooltip = MAF_player_becomes_GEX
 		hidden_effect = {
 			MAF = { country_event = GEX.2 }
@@ -168,7 +161,6 @@ country_event = {
 			GEX_can_flee_GEA = yes
 		}
 		set_country_flag = GER_capitulated
-		set_global_flag = GER_flees_to_asia
 		custom_effect_tooltip = GEA_player_becomes_GEX
 		hidden_effect = {
 			GEA = { country_event = GEX.2 }
@@ -182,7 +174,6 @@ country_event = {
 			GEX_can_flee_AOG = yes
 		}
 		set_country_flag = GER_capitulated
-		set_global_flag = GER_flees_to_china
 		custom_effect_tooltip = AOG_player_becomes_GEX
 		hidden_effect = {
 			AOG = { country_event = GEX.2 }
@@ -196,7 +187,6 @@ country_event = {
 			GEX_can_flee_TXS = YES
 		}
 		set_country_flag = GER_capitulated
-		set_global_flag = GER_flees_to_texas
 		custom_effect_tooltip = TXS_player_becomes_GEX
 		hidden_effect = {
 			TXS = { country_event = GEX.2 }
@@ -209,7 +199,6 @@ country_event = {
 			GEX_can_flee_OTT = yes
 		}
 		set_country_flag = GER_capitulated
-		set_global_flag = GER_flees_to_turkey
 		custom_effect_tooltip = OTT_player_becomes_GEX
 		hidden_effect = {
 			OTT = { country_event = GEX.2 }
@@ -267,20 +256,30 @@ country_event = {
 				factor = 0
 				has_game_rule = {
 					rule = GEX_exile
-					option = GER_EXILE_FAIL
+					option = GEX_EXILE_FAIL
 				}
 			}
 		}
-		custom_effect_tooltip = MAF_player_becomes_GEX
 		GER = {
 			country_event = GEX.4
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					tag = TXS
+				}
+				country_event = {
+					id = GEXTXS.1
+					days = 30
+				}
+			}
 		}
 	}
 	
 	option = {
 		name = GEX.2.f #Pass to next
 		trigger = {
-			ai = no
+			is_ai = no
 			NOT = { has_global_flag = GEX_players_absent }
 		}
 		set_country_flag = GEX_exile_skip
@@ -303,24 +302,31 @@ country_event = {
 						option = DEFAULT
 					}
 					AND = {
+						tag = MAF
+						has_game_rule = {
+							rule = GEX_exile
+							option = GEX_EXILE_MAF
+						}
+					}
+					AND = {
 						tag = GEA
 						has_game_rule = {
 							rule = GEX_exile
-							option = GER_EXILE_GEA
+							option = GEX_EXILE_GEA
 						}
 					}
 					AND = {
 						tag = AOG
 						has_game_rule = {
 							rule = GEX_exile
-							option = GER_EXILE_AOG
+							option = GEX_EXILE_AOG
 						}
 					}
 					AND = {
 						tag = OTT
 						has_game_rule = {
 							rule = GEX_exile
-							option = GER_EXILE_OTT
+							option = GEX_EXILE_OTT
 						}
 					}
 					AND = {
@@ -328,11 +334,11 @@ country_event = {
 						OR = {
 							has_game_rule = {
 								rule = GEX_exile
-								option = GER_EXILE_TXS
+								option = GEX_EXILE_TXS
 							}
 							has_game_rule = {
 								rule = GEX_exile
-								option = GER_EXILE_TXS_KAISER
+								option = GEX_EXILE_TXS_KAISER
 							}
 						}
 					}
@@ -412,7 +418,7 @@ country_event = {
 					}
 					has_game_rule = {
 						rule = GEX_exile
-						option = GER_EXILE_MAF
+						option = GEX_EXILE_MAF
 					}
 				}
 			}
@@ -453,7 +459,7 @@ country_event = {
 					}
 					has_game_rule = {
 						rule = GEX_exile
-						option = GER_EXILE_MAF
+						option = GEX_EXILE_MAF
 					}
 				}
 			}
@@ -495,6 +501,10 @@ country_event = {
 	desc = { text = GEX.3.t.TEX trigger = { FROM = { tag = TEX } } }
 	desc = { text = GEX.3.t.OTT trigger = { FROM = { tag = OTT } } }
 	picture = GFX_report_event_MAF_tanganyika
+	
+	immediate = {
+		set_global_flag = GEX_cycle_1
+	}
 
 	is_triggered_only = yes
 
@@ -505,7 +515,6 @@ country_event = {
 			GEX_can_flee_MAF = yes
 		}
 		set_country_flag = GER_capitulated
-		set_global_flag = GER_flees_to_africa
 		custom_effect_tooltip = MAF_player_becomes_GEX
 		hidden_effect = {
 			MAF = { country_event = GEX.2 }
@@ -519,7 +528,6 @@ country_event = {
 			GEX_can_flee_GEA = yes
 		}
 		set_country_flag = GER_capitulated
-		set_global_flag = GER_flees_to_asia
 		custom_effect_tooltip = GEA_player_becomes_GEX
 		hidden_effect = {
 			GEA = { country_event = GEX.2 }
@@ -533,7 +541,6 @@ country_event = {
 			GEX_can_flee_AOG = yes
 		}
 		set_country_flag = GER_capitulated
-		set_global_flag = GER_flees_to_china
 		custom_effect_tooltip = AOG_player_becomes_GEX
 		hidden_effect = {
 			AOG = { country_event = GEX.2 }
@@ -547,7 +554,6 @@ country_event = {
 			GEX_can_flee_TXS = YES
 		}
 		set_country_flag = GER_capitulated
-		set_global_flag = GER_flees_to_texas
 		custom_effect_tooltip = TXS_player_becomes_GEX
 		hidden_effect = {
 			TXS = { country_event = GEX.2 }
@@ -560,7 +566,6 @@ country_event = {
 			GEX_can_flee_OTT = yes
 		}
 		set_country_flag = GER_capitulated
-		set_global_flag = GER_flees_to_turkey
 		custom_effect_tooltip = OTT_player_becomes_GEX
 		hidden_effect = {
 			OTT = { country_event = GEX.2 }
@@ -602,13 +607,13 @@ country_event = {
 		title = { text = GEX.4.t.MAF trigger = { FROM = { tag = MAF } } }
 		title = { text = GEX.4.t.GEA trigger = { FROM = { tag = GEA } } }
 		title = { text = GEX.4.t.AOG trigger = { FROM = { tag = AOG } } }
-		title = { text = GEX.4.t.TEX trigger = { FROM = { tag = TEX } } }
+		title = { text = GEX.4.t.TXS trigger = { FROM = { tag = TXS } } }
 		title = { text = GEX.4.t.OTT trigger = { FROM = { tag = OTT } } }
-		desc = { text = GEX.4.t.MAF trigger = { FROM = { tag = MAF } } }
-		desc = { text = GEX.4.t.GEA trigger = { FROM = { tag = GEA } } }
-		desc = { text = GEX.4.t.AOG trigger = { FROM = { tag = AOG } } }
-		desc = { text = GEX.4.t.TEX trigger = { FROM = { tag = TEX } } }
-		desc = { text = GEX.4.t.OTT trigger = { FROM = { tag = OTT } } }
+		desc = { text = GEX.4.d.MAF trigger = { FROM = { tag = MAF } } }
+		desc = { text = GEX.4.d.GEA trigger = { FROM = { tag = GEA } } }
+		desc = { text = GEX.4.d.AOG trigger = { FROM = { tag = AOG } } }
+		desc = { text = GEX.4.d.TXS trigger = { FROM = { tag = TXS } } }
+		desc = { text = GEX.4.d.OTT trigger = { FROM = { tag = OTT } } }
 		picture = GFX_report_event_MAF_tanganyika
 
 		is_triggered_only = yes
@@ -724,10 +729,6 @@ country_event = {
 				}
 				TXS = {
 					germany_flees_to_exile = yes
-					country_event = {
-						id = GEXTXS.1
-						days = 30
-					}
 				}
 				germany_capitulates = yes
 			}
@@ -760,6 +761,23 @@ country_event = {
 				}
 				germany_capitulates = yes
 			}
+		}
+	}
+	
+	country_event = {
+		id = GEX.5
+		immediate = { log = "[GetDateText]: [Root.GetName]: event GEX.5" }
+		picture = GFX_report_event_MAF_tanganyika
+
+		is_triggered_only = yes
+		
+		option = {
+			name = GEX.5.h #Ai script
+			trigger = {
+				is_ai = yes
+			}
+			german_ai_flees = yes
+			set_country_flag = GEX_cycle_1
 		}
 	}
 	
@@ -1034,7 +1052,7 @@ country_event = {
 					factor = 0
 					has_game_rule = {
 						rule = GEX_exile
-						option = GER_EXILE_TXS_KAISER
+						option = GEX_EXILE_TXS_KAISER
 					}
 				}
 			}
@@ -1042,14 +1060,14 @@ country_event = {
 		}
 		
 		option = { #KTX
-			name = GEXTXS.1.a
+			name = GEXTXS.1.b
 			ai_chance = {
 				factor = 50
 				modifier = {
 					factor = 0
 					has_game_rule = {
 						rule = GEX_exile
-						option = GER_EXILE_TXS
+						option = GEX_EXILE_TXS
 					}
 				}
 			}

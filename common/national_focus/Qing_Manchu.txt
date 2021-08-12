@@ -7,6 +7,10 @@ focus_tree = {
 	id = QIE_manchu
 	country = {
 		factor = 0
+		modifier = {
+			add = 10
+			tag = QIE
+		}
 	}
 	
 	shared_focus = QIE_tianran_takes_over
@@ -1615,7 +1619,7 @@ focus_tree = {
 				name = QIE_manchu_naval_academy
 				bonus = 1
 				uses = 1
-				category = cat_trade_interdiction
+				category = naval_doctrine
 			}
 		}
 		search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1969,7 +1973,19 @@ focus_tree = {
 		relative_position_id = QIE_YGD_enroll_in_baoding
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
+			log = "[GetDateText]: [Root.GetName]: Focus QIE_YGD_expand_our_flock"
+			if = {
+				limit = {
+					has_idea = QIE_YGD_military_zeal_assault
+				}
+				swap_ideas = {
+					remove_idea = QIE_YGD_military_zeal_assault
+					add_idea = QIE_YGD_military_zeal_both
+				}
+			}
+			else = {
+				add_ideas = QIE_YGD_military_zeal_expand
+			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -2012,13 +2028,25 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
+			if = {
+				limit = {
+					has_idea = QIE_YGD_military_zeal_expand
+				}
+				swap_ideas = {
+					remove_idea = QIE_YGD_military_zeal_expand
+					add_idea = QIE_YGD_military_zeal_both
+				}
+			}
+			else = {
+				add_ideas = QIE_YGD_military_zeal_assault
+			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	
 	focus = {
-		id = QIE_YGD_holy_fortresses
-		icon = GFX_goal_shanhaiguan
+		id = QIE_YGD_officers_an_shiet
+		icon = MON_doctrine_II
 		cost = 5.00
 		prerequisite = {
 			focus = QIE_YGD_old_methods_new_guns
@@ -2032,14 +2060,14 @@ focus_tree = {
 		relative_position_id = QIE_YGD_enroll_in_baoding
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
+			log = "[GetDateText]: [Root.GetName]: Focus QIE_YGD_officers_an_shiet"
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	
 	focus = {
-		id = QIE_YGD_officers_an_shiet
-		icon = MON_doctrine_II
+		id = QIE_YGD_holy_fortresses
+		icon = GFX_goal_shanhaiguan
 		cost = 5.00
 		prerequisite = {
 			focus = QIE_YGD_mass_assault_doctrine
@@ -2053,7 +2081,11 @@ focus_tree = {
 		relative_position_id = QIE_YGD_enroll_in_baoding
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
+			log = "[GetDateText]: [Root.GetName]: Focus QIE_YGD_holy_fortresses"
+			swap_ideas = {
+				remove_idea = QIE_YGD_military_zeal_both
+				add_idea = QIE_YGD_military_zeal_forts
+			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -2074,7 +2106,11 @@ focus_tree = {
 		relative_position_id = QIE_YGD_enroll_in_baoding
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
+			log = "[GetDateText]: [Root.GetName]: Focus QIE_YGD_military_controled"
+			swap_ideas = {
+				remove_idea = QIE_YGD_military_zeal_forts
+				add_idea = QIE_YGD_military_zeal_final
+			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}

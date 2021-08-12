@@ -339,8 +339,8 @@ ideas = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea QIE_missionary_idea"}
 			picture = FRA_national_mobilization_focus
 			modifier = {
-				political_power_gain = -0.10
-				war_support_weekly = 0.01
+				national_populist_drift = 0.03
+				stability_weekly = 0.01
 			}
 		}
 		QIE_expansionist_religion = {
@@ -591,6 +591,75 @@ ideas = {
 			picture = generic_exploit_mines
 			modifier = {
 				consumer_goods_factor = 0.05
+			}
+		}
+		QIE_YGD_very_disloyal_military = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea QIE_big_debt"}
+			picture = tfv_can_conscription_crisis
+			modifier = {
+				war_support_factor = -0.20
+				army_morale_factor = -0.20
+			}
+		}
+		QIE_YGD_disloyal_military = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea QIE_big_debt"}
+			picture = tfv_can_conscription_crisis
+			modifier = {
+				war_support_factor = -0.10
+				army_morale_factor = -0.10
+			}
+		}
+		QIE_YGD_military_zeal_expand = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea QIE_big_debt"}
+			picture = chi_chinese_support
+			modifier = {
+				conscription = 0.05
+			}
+		}
+		QIE_YGD_military_zeal_assault = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea QIE_big_debt"}
+			picture = chi_chinese_support
+			modifier = {
+				combat_width_factor = -0.09
+				minimum_training_level = -0.10
+				supply_consumption_factor = -0.10
+			}
+		}
+		QIE_YGD_military_zeal_both = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea QIE_big_debt"}
+			picture = chi_chinese_support
+			modifier = {
+				conscription = 0.05
+				combat_width_factor = -0.09
+				minimum_training_level = -0.10
+				supply_consumption_factor = -0.10
+			}
+		}
+		QIE_YGD_military_zeal_forts = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea QIE_big_debt"}
+			picture = chi_chinese_support
+			modifier = {
+				conscription = 0.05
+				combat_width_factor = -0.09
+				minimum_training_level = -0.10
+				supply_consumption_factor = -0.20
+				max_dig_in_factor = 0.20
+				dig_in_speed_factor = 0.20
+			}
+		}
+		QIE_YGD_military_zeal_final = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea QIE_big_debt"}
+			picture = chi_chinese_support
+			modifier = {
+				conscription = 0.07
+				combat_width_factor = -0.09
+				minimum_training_level = -0.10
+				supply_consumption_factor = -0.20
+				max_dig_in_factor = 0.20
+				dig_in_speed_factor = 0.20
+				army_org_factor = 0.10
+				army_morale_factor = 0.10
+				war_support_weekly = 0.01
 			}
 		}
 	}

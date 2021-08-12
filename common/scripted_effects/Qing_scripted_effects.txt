@@ -225,3 +225,43 @@ QIE_zhili_clique_flees = {
 		}
 	}
 }
+
+QIEYGD_MORE_POWAH = {
+	
+	if = {
+		limit = {
+			has_idea = GEXGER_trauma_least
+		}
+		remove_ideas = GEXGER_trauma_least
+	}
+	
+	if = {
+		limit = {
+			has_idea = GEXGER_trauma_lesser
+		}
+		swap_ideas = {
+			remove_idea = GEXGER_trauma_lesser
+			add_idea = GEXGER_trauma_least
+		}
+	}
+	
+	if = {
+		limit = {
+			has_idea = GEXGER_trauma_less
+		}
+		swap_ideas = {
+			remove_idea = GEXGER_trauma_less
+			add_idea = GEXGER_trauma_lesser
+		}
+	}
+	
+	if = {
+		limit = {
+			has_idea = GEXGER_trauma
+		}
+		swap_ideas = {
+			remove_idea = GEXGER_trauma
+			add_idea = GEXGER_trauma_less
+		}
+	}
+}

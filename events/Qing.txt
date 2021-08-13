@@ -8517,20 +8517,9 @@ country_event = { #zhang tianran coup - waiting for .10.1 FUCK WAITING FOR YOU T
 	option = {
 		name = qieygd.1.a #uh oh
 		hidden_effect = {
+			add_stability = -0.25
 			set_politics = {
 				ruling_party = national_populist
-			}
-			set_popularities = {
-				totalist = 0
-				syndicalist = 0
-				radical_socialist = 0
-				social_democrat = 15
-				social_liberal = 10
-				market_liberal = 0
-				social_conservative = 15
-				authoritarian_democrat = 0
-				paternal_autocrat = 0
-				national_populist = 60
 			}
 			retire_country_leader = yes
 			create_country_leader = {
@@ -8553,6 +8542,7 @@ country_event = { #zhang tianran coup - waiting for .10.1 FUCK WAITING FOR YOU T
 				QIE_Hao_Jinying_eco_npo
 				QIE_Han_Enrong_sec_npo
 			}
+			add_ideas = QIE_YGD_low_legitimacy_3
 			set_global_flag = QIE_yiguandao_couped
 		}
 	}
@@ -8560,5 +8550,39 @@ country_event = { #zhang tianran coup - waiting for .10.1 FUCK WAITING FOR YOU T
 	option = {
 		name = qieygd.1.b #uhh, nevermind
 		set_global_flag = QIE_yiguandao_no_coup
+	}
+}
+
+country_event = {
+	id = qieygd.2
+	title = qieygd.2.t
+	desc = qieygd.2.d
+	picture = GFX_report_event_SQI_yiguandao_military
+
+	is_triggered_only = yes
+
+	option = {
+		name = qieygd.2.a
+		set_technology = { bicycle_infantry = 1 }
+	}
+	
+	option = {
+		name = qieygd.2.b
+		add_tech_bonus = {
+			name = QIE_YGD_officers_an_shiet
+			bonus = 1.5
+			uses = 2
+			category = artillery
+		}
+	}
+	
+	option = {
+		name = qieygd.2.c
+		add_tech_bonus = {
+			name = QIE_YGD_officers_an_shiet
+			bonus = 1
+			uses = 2
+			category = armor
+		}
 	}
 }

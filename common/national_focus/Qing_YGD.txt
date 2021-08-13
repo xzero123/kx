@@ -102,7 +102,14 @@
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus QIE_YGD_convert_zhili_monarchists"
-			add_political_power = 120
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.10
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.10
+			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -120,8 +127,12 @@
 		relative_position_id = QIE_tianran_takes_over
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
-			add_political_power = 100
+			log = "[GetDateText]: [Root.GetName]: Focus QIE_YGD_sideline_manchu"
+			add_popularity = {
+				ideology = social_conservative
+				popularity = -0.10
+			}
+			QIEYGD_MORE_POWAH = yes
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -142,8 +153,9 @@
 		relative_position_id = QIE_tianran_takes_over
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
-			add_political_power = 100
+			log = "[GetDateText]: [Root.GetName]: Focus QIE_YGD_consolidate_civ_power"
+			add_political_power = 35
+			QIEYGD_MORE_POWAH = yes
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -178,9 +190,14 @@
 				ideology = radical_socialist
 				popularity = -0.10
 			}
-			add_popularity = {
-				ideology = social_liberal
-				popularity = -0.10
+			if = {
+				limit = {
+					tag = QIE
+				}
+				add_popularity = {
+					ideology = market_liberal
+					popularity = -0.10
+				}
 			}
 			add_stability = 0.10
 		}
@@ -201,7 +218,8 @@
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
-			add_political_power = 100
+			QIEYGD_MORE_POWAH = yes
+			add_war_support = 0.10
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -223,7 +241,8 @@
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
-			add_political_power = 100
+			QIEYGD_MORE_POWAH = yes
+			add_stability = 0.10
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -449,7 +468,7 @@
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
 			add_ideas = QIE_YGD_mao_moment
-			add_stability = 0.05
+			add_stability = 0.10
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -467,8 +486,25 @@
 		relative_position_id = QIE_tianran_takes_over
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
-			add_political_power = 100
+			log = "[GetDateText]: [Root.GetName]: Focus QIE_YGD_factories1"
+			QIEYGD_MORE_POWAH = yes
+			random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -490,7 +526,44 @@
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
-			add_political_power = 100
+			random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			swap_ideas = {
+				remove_idea = QIE_YGD_mao_moment
+				add_idea = QIE_YGD_mass_industry
+			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -509,7 +582,23 @@
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
-			add_political_power = 100
+			597 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -540,6 +629,9 @@
 		prerequisite = {
 			focus = QIE_YGD_holy_meritocracy
 		}
+		available = {
+			has_idea = QIE_YGD_legitimacy_2
+		}
 		x = 0
 		y = 6
 
@@ -547,7 +639,8 @@
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
-			add_political_power = 100
+			add_stability = 0.10
+			remove_ideas = QIE_fractured_empire
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -567,12 +660,20 @@
 		}
 		x = 0
 		y = 7
+		
+		available = {
+			OR = {
+				NOT = { country_exists = QIE }
+				NOT = { country_exists = SQI }
+			}
+		}
 
 		relative_position_id = QIE_tianran_takes_over
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
-			add_political_power = 100
+			custom_effect_tooltip = QIE_imperial_consolidation_TT
+			custom_effect_tooltip = QIE_we_win_TT
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -591,7 +692,11 @@
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
-			add_political_power = 100
+			custom_effect_tooltip = QIE_destroy_concessions_TT
+			create_wargoal = {
+				type = annex_everything
+				target = AOG
+			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -605,12 +710,35 @@
 		}
 		x = 1
 		y = 8
+		
+		bypass = {
+			OR = {
+				NOT = { country_exists = FNG }
+				has_war_with = FNG
+			}
+			OR = {
+				has_global_flag = JAP_Fading_Sun
+				has_war_with = JAP
+			}
+		}
 
 		relative_position_id = QIE_tianran_takes_over
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
-			add_political_power = 100
+			declare_war_on = {
+				target = FNG
+				type = annex_everything
+			}
+			if = {
+				limit = {
+					NOT =  { has_global_flag = JAP_Fading_Sun }
+				}
+				declare_war_on = {
+					target = JAP
+					type = annex_everything
+				}
+			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -625,6 +753,12 @@
 		prerequisite = {
 			focus = QIE_YGD_destroy_concessions
 		}
+		available = {
+			FNG = {
+				exists = no
+			}
+			has_global_flag = JAP_Fading_Sun
+		}
 		x = 0
 		y = 9
 
@@ -632,7 +766,8 @@
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
-			add_political_power = 100
+			add_war_support = 0.30
+			add_stability = 0.30
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}

@@ -227,41 +227,50 @@ QIE_zhili_clique_flees = {
 }
 
 QIEYGD_MORE_POWAH = {
-	
+
 	if = {
 		limit = {
-			has_idea = GEXGER_trauma_least
-		}
-		remove_ideas = GEXGER_trauma_least
-	}
-	
-	if = {
-		limit = {
-			has_idea = GEXGER_trauma_lesser
+			has_idea = QIE_YGD_legitimacy_1
 		}
 		swap_ideas = {
-			remove_idea = GEXGER_trauma_lesser
-			add_idea = GEXGER_trauma_least
+			remove_idea = QIE_YGD_legitimacy_1
+			add_idea = QIE_YGD_legitimacy_2
 		}
 	}
-	
-	if = {
+	else_if = {
 		limit = {
-			has_idea = GEXGER_trauma_less
+			has_idea = QIE_YGD_legitimacy
 		}
 		swap_ideas = {
-			remove_idea = GEXGER_trauma_less
-			add_idea = GEXGER_trauma_lesser
+			remove_idea = QIE_YGD_legitimacy
+			add_idea = QIE_YGD_legitimacy_1
 		}
 	}
-	
-	if = {
+	else_if = {
 		limit = {
-			has_idea = GEXGER_trauma
+			has_idea = QIE_YGD_low_legitimacy
 		}
 		swap_ideas = {
-			remove_idea = GEXGER_trauma
-			add_idea = GEXGER_trauma_less
+			remove_idea = QIE_YGD_low_legitimacy
+			add_idea = QIE_YGD_legitimacy
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = QIE_YGD_low_legitimacy_2
+		}
+		swap_ideas = {
+			remove_idea = QIE_YGD_low_legitimacy_2
+			add_idea = QIE_YGD_low_legitimacy
+		}
+	}
+	else = {
+		limit = {
+			has_idea = QIE_YGD_low_legitimacy_3
+		}
+		swap_ideas = {
+			remove_idea = QIE_YGD_low_legitimacy_3
+			add_idea = QIE_YGD_low_legitimacy_2
 		}
 	}
 }

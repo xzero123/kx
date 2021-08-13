@@ -9,7 +9,7 @@
 		cost = 2.00
 		available = {
 			OR = {
-				has_global_flag = QIE_yiguandao_couped
+				has_country_flag = QIE_yiguandao_couped
 				AND = {
 					tag = SQI
 					has_country_leader = {
@@ -404,13 +404,17 @@
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
-			every_owned_state = {
+			every_state = {
 				limit = {
 					OR = {
 						state = 608
 						state = 597
 						state = 1048
 						state = 613
+					}
+					OR = {
+						is_owned_by = QIE
+						is_owned_by = SQI
 					}
 				}
 				add_extra_state_shared_building_slots = 1
@@ -487,7 +491,7 @@
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus QIE_YGD_factories1"
-			QIEYGD_MORE_POWAH = yes
+			remove_ideas = QIE_big_debt
 			random_owned_controlled_state = {
 				limit = {
 					ROOT = { has_full_control_of_state = PREV }
@@ -630,7 +634,7 @@
 			focus = QIE_YGD_holy_meritocracy
 		}
 		available = {
-			has_idea = QIE_YGD_legitimacy_2
+			has_idea = QIE_YGD_legitimacy_1
 		}
 		x = 0
 		y = 6
@@ -640,7 +644,7 @@
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus QIE_pick_YCP"
 			add_stability = 0.10
-			remove_ideas = QIE_fractured_empire
+			QIEYGD_MORE_POWAH = yes
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}

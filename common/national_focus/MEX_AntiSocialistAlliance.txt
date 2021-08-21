@@ -1,0 +1,668 @@
+focus_tree = {
+	id = MEX_AntiSocialistAlliance
+	country = {
+		factor = 0
+		modifier = {
+			add = 0
+			tag = MEX
+		}
+	}
+	shared_focus = MEX_Reconquista
+	shared_focus = MEX_army_modernization
+	shared_focus = MEX_air
+	shared_focus = MEX_navy
+	
+	#Focus for The ASA Victorious!
+	focus = {
+		id = MEX_ASA_the_asa_victorious
+		icon = GFX_goal_MEX_ASA_Victorious
+		x = 19
+		y = 0
+		bypass = {
+			has_country_flag = MEX_ASA_alliance_flag
+		}
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Coup Stopped
+	focus = {
+		id = MEX_ASA_coup_stopped
+		icon = GFX_goal_MEX_Coup_Stopped
+		relative_position_id = MEX_ASA_the_asa_victorious
+		x = -8
+		y = 1
+		cost = 5
+		available = {
+			has_country_flag = MEX_coup_stopped
+		}
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_the_asa_victorious }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Republic or Monarchy?
+	focus = {
+		id = MEX_ASA_republic_or_monarchy
+		icon = GFX_goal_MEX_republic_or_monarchy
+		relative_position_id = MEX_ASA_coup_stopped
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_coup_stopped }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Monarchy Restored!
+	focus = {
+		id = MEX_ASA_monarchy_restored
+		icon = GFX_goal_MEX_monarchist_alternative
+		relative_position_id = MEX_ASA_coup_stopped
+		x = -2
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_republic_or_monarchy }
+		mutually_exclusive = { focus = MEX_ASA_republic_maintained }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for The Imperial Title
+	focus = {
+		id = MEX_ASA_the_imperial_title
+		icon = GFX_goal_MEX_title_for_leader
+		relative_position_id = MEX_ASA_coup_stopped
+		x = -4
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_monarchy_restored }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for A Imperial Constitution
+	focus = {
+		id = MEX_ASA_a_imperial_constitution
+		icon = GFX_goal_MEX_a_new_constitution
+		relative_position_id = MEX_ASA_coup_stopped
+		x = -3
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_the_imperial_title }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for An "Organic" Monarchy
+	focus = {
+		id = MEX_ASA_an_organic_monarchy
+		icon = GFX_goal_MEX_organic_monarchy
+		relative_position_id = MEX_ASA_coup_stopped
+		x = -2
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_a_imperial_constitution }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Only Removed by the Monarch
+	focus = {
+		id = MEX_ASA_only_removed_by_the_monarch
+		icon = GFX_goal_MEX_Only_Removed_by_the_Monarch
+		relative_position_id = MEX_ASA_coup_stopped
+		x = -6
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_monarchy_restored }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Fire Socialist Judges
+	focus = {
+		id = MEX_ASA_fire_socialist_judges
+		icon = GFX_goal_MEX_fire_socialist_judges
+		relative_position_id = MEX_ASA_coup_stopped
+		x = -5
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_only_removed_by_the_monarch }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Exile the ARM
+	focus = {
+		id = MEX_ASA_exile_the_arm
+		icon = GFX_goal_MEX_Exile_the_ARM
+		relative_position_id = MEX_ASA_coup_stopped
+		x = -4
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_fire_socialist_judges }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Republic Maintained!
+	focus = {
+		id = MEX_ASA_republic_maintained
+		icon = GFX_goal_MEX_presidential_republic
+		relative_position_id = MEX_ASA_coup_stopped
+		x = 2
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_republic_or_monarchy }
+		mutually_exclusive = { focus = MEX_ASA_monarchy_restored }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Presidential Republic
+	focus = {
+		id = MEX_ASA_presidential_republic
+		icon = GFX_goal_MEX_restore_presidency
+		relative_position_id = MEX_ASA_coup_stopped
+		x = 4
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_republic_maintained }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Rewrite the Constitution
+	focus = {
+		id = MEX_ASA_rewrite_the_constitution
+		icon = GFX_goal_MEX_rewrite_constitution
+		relative_position_id = MEX_ASA_coup_stopped
+		x = 3
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_presidential_republic }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for A "Populist" Republic
+	focus = {
+		id = MEX_ASA_a_populist_republic
+		icon = GFX_goal_MEX_populist_republic
+		relative_position_id = MEX_ASA_coup_stopped
+		x = 2
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_rewrite_the_constitution }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Rotational Presidency
+	focus = {
+		id = MEX_ASA_rotational_presidency
+		icon = GFX_goal_MEX_Rotational_Presidency_1
+		relative_position_id = MEX_ASA_coup_stopped
+		x = 6
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_republic_maintained }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Fire Anti-Catholic Judges
+	focus = {
+		id = MEX_ASA_fire_anticatholic_judges
+		icon = GFX_goal_MEX_fire_anticatholic_judges
+		relative_position_id = MEX_ASA_coup_stopped
+		x = 5
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_rotational_presidency }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Exterminate the ARM
+	focus = {
+		id = MEX_ASA_exterminate_the_arm
+		icon = GFX_goal_MEX_Exterminate_the_ARM
+		relative_position_id = MEX_ASA_coup_stopped
+		x = 4
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_fire_anticatholic_judges }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Deploy the AIM in the Cities
+	focus = {
+		id = MEX_ASA_deploy_the_aim_in_the_cities
+		icon = GFX_goal_MEX_dominate_the_cities
+		relative_position_id = MEX_ASA_coup_stopped
+		x = 0
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_ASA_monarchy_restored 
+			focus = MEX_ASA_republic_maintained 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for The ACJM in the Countryside
+	focus = {
+		id = MEX_ASA_the_acjm_in_the_countryside
+		icon = GFX_goal_MEX_control_countryside
+		relative_position_id = MEX_ASA_coup_stopped
+		x = 0
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_deploy_the_aim_in_the_cities }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for A Semblance of Order
+	focus = {
+		id = MEX_ASA_a_semblance_of_order
+		icon = GFX_goal_MEX_stability
+		relative_position_id = MEX_ASA_coup_stopped
+		x = 0
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_the_acjm_in_the_countryside }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Choose the Leader of the Coalition
+	focus = {
+		id = MEX_ASA_choose_the_leader_of_the_coalition
+		icon = GFX_goal_MEX_Choose_the_Leader_of_the_Coalition
+		relative_position_id = MEX_ASA_coup_stopped
+		x = 0
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_ASA_a_semblance_of_order
+		}
+		prerequisite = { 
+			focus = MEX_ASA_exterminate_the_arm
+			focus = MEX_ASA_exile_the_arm
+		}
+		prerequisite = { 
+			focus = MEX_ASA_a_populist_republic
+			focus = MEX_ASA_an_organic_monarchy
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Coup Succeds
+	focus = {
+		id = MEX_ASA_coup_succeds
+		icon = GFX_goal_MEX_Coup_Succeeds
+		relative_position_id = MEX_ASA_the_asa_victorious
+		available = {
+			has_country_flag = MEX_goldshirts_in_charge
+		}
+		x = 8
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_the_asa_victorious }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for The Two Branches?
+	focus = {
+		id = MEX_ASA_the_two_branches
+		icon = GFX_goal_MEX_The_two_Branches
+		relative_position_id = MEX_ASA_coup_succeds
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_coup_succeds }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for All the Power to the Executive
+	focus = {
+		id = MEX_ASA_all_the_power_to_the_executive
+		icon = GFX_goal_MEX_All_power_to_the_Executive
+		relative_position_id = MEX_ASA_coup_succeds
+		x = -2
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_the_two_branches }
+		mutually_exclusive = { focus = MEX_ASA_maintian_the_3_branches }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for "El Jefe"
+	focus = {
+		id = MEX_ASA_el_jefe
+		icon = GFX_goal_MEX_ASA_Victorious
+		relative_position_id = MEX_ASA_coup_succeds
+		x = -4
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_all_the_power_to_the_executive }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Write A New Constitution
+	focus = {
+		id = MEX_ASA_write_a_new_constitution
+		icon = GFX_goal_MEX_new_constitution
+		relative_position_id = MEX_ASA_coup_succeds
+		x = -3
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_el_jefe }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for A Mexican State
+	focus = {
+		id = MEX_ASA_a_mexican_state
+		icon = GFX_goal_MEX_Mexican_State
+		relative_position_id = MEX_ASA_coup_succeds
+		x = -2
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_write_a_new_constitution }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for President for Life!
+	focus = {
+		id = MEX_ASA_president_for_life
+		icon = GFX_goal_MEX_President_for_life
+		relative_position_id = MEX_ASA_coup_succeds
+		x = -6
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_all_the_power_to_the_executive }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Appointed Judges
+	focus = {
+		id = MEX_ASA_appointed_judges
+		icon = GFX_goal_MEX_Appointed_judges
+		relative_position_id = MEX_ASA_coup_succeds
+		x = -5
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_president_for_life }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Exterminate the Fanatics
+	focus = {
+		id = MEX_ASA_exterminate_the_fanatics
+		icon = GFX_goal_MEX_Exterminate_the_Fanatics
+		relative_position_id = MEX_ASA_coup_succeds
+		x = -4
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_appointed_judges }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Maintian the 3 Branches
+	focus = {
+		id = MEX_ASA_maintian_the_3_branches
+		icon = GFX_goal_MEX_Maintain_the_3_branches
+		relative_position_id = MEX_ASA_coup_succeds
+		x = 2
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_the_two_branches }
+		mutually_exclusive = { focus = MEX_ASA_all_the_power_to_the_executive }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for The President
+	focus = {
+		id = MEX_ASA_the_president
+		icon = GFX_goal_MEX_restore_presidency
+		relative_position_id = MEX_ASA_coup_succeds
+		x = 4
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_maintian_the_3_branches }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for "Fix" the Constitution
+	focus = {
+		id = MEX_ASA_fix_the_constitution
+		icon = GFX_goal_MEX_rewrite_constitution
+		relative_position_id = MEX_ASA_coup_succeds
+		x = 3
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_the_president }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for The Mexican "Republic"
+	focus = {
+		id = MEX_ASA_the_mexican_republic
+		icon = GFX_goal_MEX_presidential_republic
+		relative_position_id = MEX_ASA_coup_succeds
+		x = 2
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_fix_the_constitution }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Abolish Elections
+	focus = {
+		id = MEX_ASA_abolish_elections
+		icon = GFX_goal_MEX_broken_democracy
+		relative_position_id = MEX_ASA_coup_succeds
+		x = 6
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_maintian_the_3_branches }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Nationalist Judges
+	focus = {
+		id = MEX_ASA_nationalist_judges
+		icon = GFX_goal_MEX_Nationalist_Judges
+		relative_position_id = MEX_ASA_coup_succeds
+		x = 5
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_abolish_elections }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Exile the Remmnants
+	focus = {
+		id = MEX_ASA_exile_the_remmnants
+		icon = GFX_goal_MEX_Exile_the_Remnants
+		relative_position_id = MEX_ASA_coup_succeds
+		x = 4
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_nationalist_judges }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Secure the Cities
+	focus = {
+		id = MEX_ASA_secure_the_cities
+		icon = GFX_goal_MEX_dominate_the_cities
+		relative_position_id = MEX_ASA_coup_succeds
+		x = 0
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_ASA_all_the_power_to_the_executive 
+			focus = MEX_ASA_maintian_the_3_branches 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Send the Gold Shirts to the Countryside
+	focus = {
+		id = MEX_ASA_send_the_gold_shirts_to_the_countryside
+		icon = GFX_goal_MEX_control_countryside
+		relative_position_id = MEX_ASA_coup_succeds
+		x = 0
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_secure_the_cities }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for A New Order
+	focus = {
+		id = MEX_ASA_a_new_order
+		icon = GFX_goal_MEX_stability
+		relative_position_id = MEX_ASA_coup_succeds
+		x = 0
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_ASA_send_the_gold_shirts_to_the_countryside }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Old or New?
+	focus = {
+		id = MEX_ASA_old_or_new
+		icon = GFX_goal_MEX_Old_or_New
+		relative_position_id = MEX_ASA_coup_succeds
+		x = 0
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_ASA_a_new_order
+		}
+		prerequisite = { 
+			focus = MEX_ASA_exterminate_the_fanatics
+			focus = MEX_ASA_exile_the_remmnants
+		}
+		prerequisite = { 
+			focus = MEX_ASA_a_mexican_state
+			focus = MEX_ASA_the_mexican_republic
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+#End of focuses 
+ }

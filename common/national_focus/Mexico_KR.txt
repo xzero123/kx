@@ -7,7 +7,7 @@ focus_tree = {
 	country = {
 		factor = 0
 		modifier = {
-			add = 10
+			add = 100
 			tag = MEX
 		}
 	}
@@ -17,7 +17,7 @@ focus_tree = {
 	shared_focus = MEX_air
 	shared_focus = MEX_navy
 	default = no
-	continuous_focus_position = { x = 3700 y = 1000 }
+	continuous_focus_position = { x = 4000 y = 1000 }
 
 	### Calles Path ###
 	focus = {# Establish Maximato
@@ -1761,6 +1761,289 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	
+	### Communists ###
+	#Focus for The Lenin of the West
+	focus = {
+		id = MEX_PCM_the_lenin_of_the_west
+		icon = GFX_goal_MEX_Lenin_of_the_West
+		x = -8
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for \"Si, Comandante\"
+	focus = {
+		id = MEX_PCM_si_comandante
+		icon = GFX_goal_MEX_si_comandante
+		relative_position_id = MEX_PCM_the_lenin_of_the_west
+		x = 0
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_PCM_the_lenin_of_the_west }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Out of the Mud
+	focus = {
+		id = MEX_PCM_out_of_the_mud
+		icon = GFX_goal_MEX_from_the_mud
+		relative_position_id = MEX_PCM_the_lenin_of_the_west
+		x = -4
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_PCM_si_comandante }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for A Road paved in Tombstones
+	focus = {
+		id = MEX_PCM_a_road_paved_in_tombstones
+		icon = GFX_goal_MEX_Road_paved_with_Tombstones
+		relative_position_id = MEX_PCM_the_lenin_of_the_west
+		x = -4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_PCM_out_of_the_mud }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Smoke over Sonora
+	focus = {
+		id = MEX_PCM_smoke_over_sonora
+		icon = GFX_goal_MEX_Smoke_over_Sonora
+		relative_position_id = MEX_PCM_the_lenin_of_the_west
+		x = -4
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_PCM_a_road_paved_in_tombstones }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Red Cathedrals
+	focus = {
+		id = MEX_PCM_red_cathedrals
+		icon = GFX_goal_MEX_Red_Cathedrals
+		relative_position_id = MEX_PCM_the_lenin_of_the_west
+		x = -2
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_PCM_si_comandante }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for A Clergy in Chains
+	focus = {
+		id = MEX_PCM_a_clergy_in_chains
+		icon = GFX_goal_MEX_clergy_in_chains
+		relative_position_id = MEX_PCM_the_lenin_of_the_west
+		x = -2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_PCM_red_cathedrals }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Bood, Flesh, Clay and Hatred
+	focus = {
+		id = MEX_PCM_bood_flesh_clay_and_hatred
+		icon = GFX_goal_MEX_Blood_Sweat_Clay_and_Hatred
+		relative_position_id = MEX_PCM_the_lenin_of_the_west
+		x = -2
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_PCM_si_comandante }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for The End of \"El Jefe\"
+	focus = {
+		id = MEX_PCM_the_end_of_el_jefe
+		icon = GFX_goal_MEX_The_End_of_El_Jefe
+		relative_position_id = MEX_PCM_the_lenin_of_the_west
+		x = 0
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_PCM_si_comandante }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for True Communist Orthodoxy
+	focus = {
+		id = MEX_PCM_true_communist_orthodoxy
+		icon = GFX_goal_MEX_Full_Communist_Orthodoxy
+		relative_position_id = MEX_PCM_the_lenin_of_the_west
+		x = 0
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_PCM_the_end_of_el_jefe }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for The Red Velvet Glove
+	focus = {
+		id = MEX_PCM_the_red_velvet_glove
+		icon = GFX_goal_MEX_red_velvet_glove
+		relative_position_id = MEX_PCM_the_lenin_of_the_west
+		x = 0
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_PCM_true_communist_orthodoxy }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Demonize the Right Wing
+	focus = {
+		id = MEX_PCM_demonize_the_right_wing
+		icon = GFX_goal_MEX_Demonize_the_Right
+		relative_position_id = MEX_PCM_the_lenin_of_the_west
+		x = 2
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_PCM_si_comandante }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Divide and Destroy
+	focus = {
+		id = MEX_PCM_divide_and_destroy
+		icon = GFX_goal_MEX_divide_and_decimate
+		relative_position_id = MEX_PCM_the_lenin_of_the_west
+		x = 2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_PCM_demonize_the_right_wing }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Liquidate the Gold Shirts
+	focus = {
+		id = MEX_PCM_liquidate_the_gold_shirts
+		icon = GFX_goal_MEX_golden_terror
+		relative_position_id = MEX_PCM_the_lenin_of_the_west
+		x = 2
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_PCM_divide_and_destroy }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Offer them Mercy
+	focus = {
+		id = MEX_PCM_offer_them_mercy
+		icon = GFX_goal_MEX_Offer_Them_Mercy
+		relative_position_id = MEX_PCM_the_lenin_of_the_west
+		x = 4
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_PCM_si_comandante }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for ..... An Grant them None
+	focus = {
+		id = MEX_PCM__an_grant_them_none
+		icon = GFX_goal_MEX_grant_them_none
+		relative_position_id = MEX_PCM_the_lenin_of_the_west
+		x = 4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_PCM_offer_them_mercy }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Draconian Revisionism
+	focus = {
+		id = MEX_PCM_draconian_revisionism
+		icon = GFX_goal_MEX_Revisionism
+		relative_position_id = MEX_PCM_the_lenin_of_the_west
+		x = 4
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_PCM__an_grant_them_none }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for The Heir to Karl Marx
+	focus = {
+		id = MEX_PCM_the_heir_to_karl_marx
+		icon = GFX_goal_MEX_heir_of_marx
+		relative_position_id = MEX_PCM_the_lenin_of_the_west
+		x = 0
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_PCM_bood_flesh_clay_and_hatred 
+		}
+		prerequisite = { 
+			focus = MEX_PCM_the_red_velvet_glove 
+		}
+		prerequisite = { 
+			focus = MEX_PCM_smoke_over_sonora 
+		}
+		prerequisite = { 
+			focus = MEX_PCM_liquidate_the_gold_shirts 
+		}
+		prerequisite = { 
+			focus = MEX_PCM_draconian_revisionism 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
 	### Military Junta Non-Garza ###
 	#Focus for Felix Diaz
 	focus = {
@@ -2055,8 +2338,8 @@ focus_tree = {
 	focus = {
 		id = MEX_ITG_the_new_monarchy
 		icon = GFX_goal_MEX_title_for_leader
-		x = 25
-		y = 8
+		x = 1
+		y = 7
 		cost = 6
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -2424,15 +2707,372 @@ focus_tree = {
 		}
 	}
 	
+	### Synarchist/Integralist Republic ###
+	
+	#Focus for Synarchist Republic
+	focus = {
+		id = MEX_REP_synarchist_republic
+		icon = GFX_goal_unknown
+		x = -16
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for The Young Autocrat
+	focus = {
+		id = MEX_REP_the_young_autocrat
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_synarchist_republic
+		x = -2
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_REP_synarchist_republic }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Our Holy Republic
+	focus = {
+		id = MEX_REP_our_holy_republic
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_synarchist_republic
+		x = -2
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_REP_the_young_autocrat }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Talks with Integralists
+	focus = {
+		id = MEX_REP_talks_with_integralists
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_synarchist_republic
+		x = -2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_REP_our_holy_republic }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Overturn Socialist Economics
+	focus = {
+		id = MEX_REP_overturn_socialist_economics
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_synarchist_republic
+		x = 0
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_REP_synarchist_republic }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for State Corporatism
+	focus = {
+		id = MEX_REP_state_corporatism
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_synarchist_republic
+		x = 0
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_REP_overturn_socialist_economics }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for New Labor Laws
+	focus = {
+		id = MEX_REP_new_labor_laws
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_synarchist_republic
+		x = 0
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_REP_state_corporatism }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Synarchisms Entrenched
+	focus = {
+		id = MEX_REP_synarchisms_entrenched
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_synarchist_republic
+		x = -1
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_REP_new_labor_laws 
+		}
+		prerequisite = { 
+			focus = MEX_REP_no_where_to_hide 
+		}
+		prerequisite = { 
+			focus = MEX_REP_give_a_position_to_the_archbishop 
+		}
+		prerequisite = { 
+			focus = MEX_REP_talks_with_integralists 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Chase Them
+	focus = {
+		id = MEX_REP_chase_them
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_synarchist_republic
+		x = 2
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_REP_synarchist_republic 
+			focus = MEX_REP_integralist_republic 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Catch Them
+	focus = {
+		id = MEX_REP_catch_them
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_synarchist_republic
+		x = 2
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_REP_chase_them }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for No Where to HIde
+	focus = {
+		id = MEX_REP_no_where_to_hide
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_synarchist_republic
+		x = 2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_REP_catch_them }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Befriend the Church
+	focus = {
+		id = MEX_REP_befriend_the_church
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_synarchist_republic
+		x = 4
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_REP_integralist_republic 
+			focus = MEX_REP_synarchist_republic 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Establish State Catholicism
+	focus = {
+		id = MEX_REP_establish_state_catholicism
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_synarchist_republic
+		x = 4
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_REP_befriend_the_church }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Give a Position to the Archbishop
+	focus = {
+		id = MEX_REP_give_a_position_to_the_archbishop
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_synarchist_republic
+		x = 4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_REP_establish_state_catholicism }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Integralist Republic
+	focus = {
+		id = MEX_REP_integralist_republic
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_synarchist_republic
+		x = 6
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Agrarian Reforms
+	focus = {
+		id = MEX_REP_agrarian_reforms
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_integralist_republic
+		x = 0
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_REP_integralist_republic }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Destroy Ejidos
+	focus = {
+		id = MEX_REP_destroy_ejidos
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_integralist_republic
+		x = 0
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_REP_agrarian_reforms }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Organic Corporatism
+	focus = {
+		id = MEX_REP_organic_corporatism
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_integralist_republic
+		x = 0
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_REP_destroy_ejidos }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Archduke Vasconcelos
+	focus = {
+		id = MEX_REP_archduke_vasconcelos
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_integralist_republic
+		x = 2
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_REP_integralist_republic }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Republic in Name Only
+	focus = {
+		id = MEX_REP_republic_in_name_only
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_integralist_republic
+		x = 2
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_REP_archduke_vasconcelos }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for An Eventual Restoration
+	focus = {
+		id = MEX_REP_an_eventual_restoration
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_integralist_republic
+		x = 2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_REP_republic_in_name_only }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for The Regency
+	focus = {
+		id = MEX_REP_the_regency
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_REP_integralist_republic
+		x = 1
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_REP_no_where_to_hide 
+		}
+		prerequisite = { 
+			focus = MEX_REP_give_a_position_to_the_archbishop 
+		}
+		prerequisite = { 
+			focus = MEX_REP_organic_corporatism 
+		}
+		prerequisite = { 
+			focus = MEX_REP_an_eventual_restoration 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
 	### Goldshirts ###
 	
 	#Focus for New Guard Victorious
 	focus = {
 		id = MEX_GOL_new_guard_victorious
 		icon = GFX_goal_unknown
-		x = 1
+		x = 12
 		y = 8
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 1
@@ -2446,7 +3086,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_new_guard_victorious
 		x = -2
 		y = 1
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_new_guard_victorious }
 		ai_will_do = {
@@ -2461,7 +3101,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_new_guard_victorious
 		x = -2
 		y = 2
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_destroy_catholicism }
 		ai_will_do = {
@@ -2476,7 +3116,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_new_guard_victorious
 		x = -2
 		y = 3
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_bring_back_aztec_beliefs }
 		ai_will_do = {
@@ -2491,7 +3131,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_new_guard_victorious
 		x = 0
 		y = 1
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_new_guard_victorious }
 		ai_will_do = {
@@ -2506,7 +3146,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_new_guard_victorious
 		x = 0
 		y = 2
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_heirs_of_the_aztecs }
 		ai_will_do = {
@@ -2521,7 +3161,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_new_guard_victorious
 		x = 0
 		y = 3
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_the_warrior_state }
 		ai_will_do = {
@@ -2536,7 +3176,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_new_guard_victorious
 		x = 2
 		y = 1
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_new_guard_victorious }
 		ai_will_do = {
@@ -2551,7 +3191,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_new_guard_victorious
 		x = 2
 		y = 2
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_take_the_reins }
 		ai_will_do = {
@@ -2566,7 +3206,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_new_guard_victorious
 		x = 2
 		y = 3
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_total_control }
 		ai_will_do = {
@@ -2581,7 +3221,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_new_guard_victorious
 		x = 0
 		y = 4
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { 
 			focus = MEX_GOL_eternal_war_economy 
@@ -2607,7 +3247,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_new_guard_victorious
 		x = 4
 		y = 1
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { 
 			focus = MEX_GOL_old_guard_victorious 
@@ -2625,7 +3265,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_new_guard_victorious
 		x = 4
 		y = 2
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_continue_the_persecution }
 		ai_will_do = {
@@ -2640,7 +3280,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_new_guard_victorious
 		x = 4
 		y = 3
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_eliminate_socialist_leaders }
 		ai_will_do = {
@@ -2655,7 +3295,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_new_guard_victorious
 		x = 8
 		y = 0
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 1
@@ -2669,7 +3309,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_old_guard_victorious
 		x = -2
 		y = 1
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_bring_corporations_in }
 		ai_will_do = {
@@ -2684,7 +3324,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_old_guard_victorious
 		x = -2
 		y = 2
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_old_guard_victorious }
 		ai_will_do = {
@@ -2699,7 +3339,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_old_guard_victorious
 		x = -2
 		y = 3
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_ally_the_landlords }
 		ai_will_do = {
@@ -2714,7 +3354,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_old_guard_victorious
 		x = 0
 		y = 1
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_old_guard_victorious }
 		ai_will_do = {
@@ -2729,7 +3369,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_old_guard_victorious
 		x = 0
 		y = 2
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_mexican_nationalism }
 		ai_will_do = {
@@ -2744,7 +3384,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_old_guard_victorious
 		x = 0
 		y = 3
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_national_revival }
 		ai_will_do = {
@@ -2759,7 +3399,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_old_guard_victorious
 		x = 2
 		y = 1
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_old_guard_victorious }
 		ai_will_do = {
@@ -2774,7 +3414,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_old_guard_victorious
 		x = 2
 		y = 2
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_secularize }
 		ai_will_do = {
@@ -2789,7 +3429,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_old_guard_victorious
 		x = 2
 		y = 3
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_GOL_ban_practice }
 		ai_will_do = {
@@ -2804,7 +3444,7 @@ focus_tree = {
 		relative_position_id = MEX_GOL_old_guard_victorious
 		x = 0
 		y = 4
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { 
 			focus = MEX_GOL_arm_supremacy 
@@ -2828,9 +3468,9 @@ focus_tree = {
 	focus = {
 		id = MEX_dia_de_muertos
 		icon = GFX_goal_MEX_Dia_los_Muertos
-		x = 15
-		y = 23
-		cost = 10
+		x = 55
+		y = 11
+		cost = 6
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 1
@@ -2844,7 +3484,7 @@ focus_tree = {
 		relative_position_id = MEX_dia_de_muertos
 		x = -3
 		y = 1
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_dia_de_muertos }
 		ai_will_do = {
@@ -2859,7 +3499,7 @@ focus_tree = {
 		relative_position_id = MEX_dia_de_muertos
 		x = -3
 		y = 2
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_our_lady_of_mercy }
 		ai_will_do = {
@@ -2874,7 +3514,7 @@ focus_tree = {
 		relative_position_id = MEX_dia_de_muertos
 		x = -3
 		y = 3
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_santa_muerte }
 		ai_will_do = {
@@ -2889,7 +3529,7 @@ focus_tree = {
 		relative_position_id = MEX_dia_de_muertos
 		x = -1
 		y = 1
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_dia_de_muertos }
 		ai_will_do = {
@@ -2904,7 +3544,7 @@ focus_tree = {
 		relative_position_id = MEX_dia_de_muertos
 		x = -1
 		y = 2
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_when_the_blood_flowed_like_wine }
 		ai_will_do = {
@@ -2919,7 +3559,7 @@ focus_tree = {
 		relative_position_id = MEX_dia_de_muertos
 		x = -1
 		y = 3
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_nuestra_gratitud_eterna }
 		ai_will_do = {
@@ -2934,7 +3574,7 @@ focus_tree = {
 		relative_position_id = MEX_dia_de_muertos
 		x = 1
 		y = 1
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_dia_de_muertos }
 		ai_will_do = {
@@ -2949,7 +3589,7 @@ focus_tree = {
 		relative_position_id = MEX_dia_de_muertos
 		x = 1
 		y = 2
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_the_road_to_glory }
 		ai_will_do = {
@@ -2960,11 +3600,11 @@ focus_tree = {
 	#Focus for Neo-Latin Renaissance
 	focus = {
 		id = MEX_neolatin_renaissance
-		icon = GFX_goal_unknown
+		icon = GFX_goal_MEX_Neo-Latin_Renaissance
 		relative_position_id = MEX_dia_de_muertos
 		x = 1
 		y = 3
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_juana_de_arco_renacida }
 		ai_will_do = {
@@ -2975,11 +3615,11 @@ focus_tree = {
 	#Focus for From Death, A New Life
 	focus = {
 		id = MEX_from_death_a_new_life
-		icon = GFX_goal_MEX_Neo-Latin_Renaissance
+		icon = GFX_goal_MEX_From_Death_A_New_Life
 		relative_position_id = MEX_dia_de_muertos
 		x = 3
 		y = 1
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_dia_de_muertos }
 		ai_will_do = {
@@ -2994,7 +3634,7 @@ focus_tree = {
 		relative_position_id = MEX_dia_de_muertos
 		x = 3
 		y = 2
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_from_death_a_new_life }
 		ai_will_do = {
@@ -3009,7 +3649,7 @@ focus_tree = {
 		relative_position_id = MEX_dia_de_muertos
 		x = 3
 		y = 3
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_nuestro_corazon_de_oro }
 		ai_will_do = {
@@ -3024,7 +3664,7 @@ focus_tree = {
 		relative_position_id = MEX_dia_de_muertos
 		x = 0
 		y = 4
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { 
 			focus = MEX_the_cathar_reformation 
@@ -3037,6 +3677,651 @@ focus_tree = {
 		}
 		prerequisite = { 
 			focus = MEX_catholic_industrial_complex 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	## Non-Crazy Monarchy ##
+	#Focus for A Mexican Monarch
+	focus = {
+		id = MEX_MEK_a_mexican_monarch
+		icon = GFX_goal_MEX_organic_monarchy
+		x = 38
+		y = 11
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Fernando I de Moctezuma
+	focus = {
+		id = MEX_MEK_fernando_i_de_moctezuma
+		icon = GFX_goal_MEX_Fernando_I_de_Moctezuma
+		relative_position_id = MEX_MEK_a_mexican_monarch
+		x = -8
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_a_mexican_monarch }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for A Catholic Monarch
+	focus = {
+		id = MEX_MEK_a_catholic_monarch
+		icon = GFX_goal_MEX_catholic_monarch
+		relative_position_id = MEX_MEK_fernando_i_de_moctezuma
+		x = -2
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_fernando_i_de_moctezuma }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for State Catholicism
+	focus = {
+		id = MEX_MEK_state_catholicism
+		icon = GFX_goal_MEX_state_catholicism
+		relative_position_id = MEX_MEK_fernando_i_de_moctezuma
+		x = -2
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_a_catholic_monarch }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for "Divididos pero Iguales"
+	focus = {
+		id = MEX_MEK_divididos_pero_iguales
+		icon = GFX_goal_MEX_Divididos_pero_Iguales
+		relative_position_id = MEX_MEK_fernando_i_de_moctezuma
+		x = -2
+		y = 3
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_state_catholicism }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Punish the Extremists
+	focus = {
+		id = MEX_MEK_punish_the_extremists
+		icon = GFX_goal_MEX_Punish_the_Extremists
+		relative_position_id = MEX_MEK_fernando_i_de_moctezuma
+		x = 0
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_fernando_i_de_moctezuma }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Pardon the Moderates
+	focus = {
+		id = MEX_MEK_pardon_the_moderates
+		icon = GFX_goal_MEX_Pardon_the_Moderates
+		relative_position_id = MEX_MEK_fernando_i_de_moctezuma
+		x = 0
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_punish_the_extremists }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Reintegrate the Missguided
+	focus = {
+		id = MEX_MEK_reintegrate_the_missguided
+		icon = GFX_goal_MEX_Reintegrate_the_Misguided
+		relative_position_id = MEX_MEK_fernando_i_de_moctezuma
+		x = 0
+		y = 3
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_pardon_the_moderates }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Remember the First Empire
+	focus = {
+		id = MEX_MEK_remember_the_first_empire
+		icon = GFX_goal_MEX_Remember_the_First_Empire
+		relative_position_id = MEX_MEK_fernando_i_de_moctezuma
+		x = 2
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_fernando_i_de_moctezuma }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Elevate Moctezuma I
+	focus = {
+		id = MEX_MEK_elevate_moctezuma_i
+		icon = GFX_goal_MEX_Elevate_Moctezuma_I
+		relative_position_id = MEX_MEK_fernando_i_de_moctezuma
+		x = 2
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_remember_the_first_empire }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Forgive the Villians
+	focus = {
+		id = MEX_MEK_forgive_the_villians
+		icon = GFX_goal_MEX_Forgive_the_Villains
+		relative_position_id = MEX_MEK_fernando_i_de_moctezuma
+		x = 2
+		y = 3
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_elevate_moctezuma_i }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for House of Moctezuma
+	focus = {
+		id = MEX_MEK_house_of_moctezuma
+		icon = GFX_goal_MEX_House_of_Moctezuma
+		relative_position_id = MEX_MEK_fernando_i_de_moctezuma
+		x = 0
+		y = 4
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_MEK_reintegrate_the_missguided 
+		}
+		prerequisite = { 
+			focus = MEX_MEK_forgive_the_villians 
+		}
+		prerequisite = { 
+			focus = MEX_MEK_divididos_pero_iguales 
+		}
+		prerequisite = { 
+			focus = MEX_MEK_recovery_from_the_revolution 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Maintain some of the Policies
+	focus = {
+		id = MEX_MEK_maintain_some_of_the_policies
+		icon = GFX_goal_MEX_maintain_some_policies
+		relative_position_id = MEX_MEK_a_mexican_monarch
+		x = -4
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_MEK_maria_i_de_iturbide 
+			focus = MEX_MEK_fernando_i_de_moctezuma 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			MEX = { has_not_completed_focus = MEX_MEK_compromise_with_business }
+		}
+	}
+	
+	#Focus for Open our Market to the Entente
+	focus = {
+		id = MEX_MEK_open_our_market_to_the_entente
+		icon = GFX_goal_MEX_open_markets_for_entente
+		relative_position_id = MEX_MEK_a_mexican_monarch
+		x = -4
+		y = 3
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_maintain_some_of_the_policies }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Recovery from the Revolution
+	focus = {
+		id = MEX_MEK_recovery_from_the_revolution
+		icon = GFX_goal_MEX_recovery_from_revolution
+		relative_position_id = MEX_MEK_a_mexican_monarch
+		x = -4
+		y = 4
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_open_our_market_to_the_entente }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Maria I de Iturbide
+	focus = {
+		id = MEX_MEK_maria_i_de_iturbide
+		icon = GFX_goal_MEX_maria_I_de_iturbide
+		relative_position_id = MEX_MEK_a_mexican_monarch
+		x = 0
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_a_mexican_monarch }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Find A Compromise
+	focus = {
+		id = MEX_MEK_find_a_compromise
+		icon = GFX_goal_MEX_find_compromise
+		relative_position_id = MEX_MEK_maria_i_de_iturbide
+		x = -2
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_maria_i_de_iturbide }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Secular but Catholic
+	focus = {
+		id = MEX_MEK_secular_but_catholic
+		icon = GFX_goal_MEX_secular_but_catholic
+		relative_position_id = MEX_MEK_maria_i_de_iturbide
+		x = -2
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_find_a_compromise }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Freedom of Practice
+	focus = {
+		id = MEX_MEK_freedom_of_practice
+		icon = GFX_goal_MEX_freedom_of_practice
+		relative_position_id = MEX_MEK_maria_i_de_iturbide
+		x = -2
+		y = 3
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_secular_but_catholic }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Break the Syndicalists
+	focus = {
+		id = MEX_MEK_break_the_syndicalists
+		icon = GFX_goal_MEX_Break_the_Syndicalists
+		relative_position_id = MEX_MEK_maria_i_de_iturbide
+		x = 0
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_maria_i_de_iturbide }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Mercy for Some
+	focus = {
+		id = MEX_MEK_mercy_for_some
+		icon = GFX_goal_MEX_mercy_for_some
+		relative_position_id = MEX_MEK_maria_i_de_iturbide
+		x = 0
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_break_the_syndicalists }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Reintegrate the Peninsula
+	focus = {
+		id = MEX_MEK_reintegrate_the_peninsula
+		icon = GFX_goal_MEX_Reintegrate_the_Peninsula
+		relative_position_id = MEX_MEK_maria_i_de_iturbide
+		x = 0
+		y = 3
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_mercy_for_some }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Memories of Agustin
+	focus = {
+		id = MEX_MEK_memories_of_agustin
+		icon = GFX_goal_MEX_Memories_of_Agustin
+		relative_position_id = MEX_MEK_maria_i_de_iturbide
+		x = 2
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_maria_i_de_iturbide }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for The Fake Liberal
+	focus = {
+		id = MEX_MEK_the_fake_liberal
+		icon = GFX_goal_MEX_fake_liberal
+		relative_position_id = MEX_MEK_maria_i_de_iturbide
+		x = 2
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_memories_of_agustin }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for The True Maximilian
+	focus = {
+		id = MEX_MEK_the_true_maximilian
+		icon = GFX_goal_MEX_The_True_Maximilian
+		relative_position_id = MEX_MEK_maria_i_de_iturbide
+		x = 2
+		y = 3
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_the_fake_liberal }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for House of Iturbide
+	focus = {
+		id = MEX_MEK_house_of_iturbide
+		icon = GFX_goal_MEX_house_of_iturbide
+		relative_position_id = MEX_MEK_maria_i_de_iturbide
+		x = 0
+		y = 4
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_MEK_reintegrate_the_peninsula
+		}
+		prerequisite = { 
+			focus = MEX_MEK_the_true_maximilian
+		}
+		prerequisite = { 
+			focus = MEX_MEK_freedom_of_practice
+		}
+		prerequisite = { 
+			focus = MEX_MEK_corporatist_economy
+			focus = MEX_MEK_recovery_from_the_revolution
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Compromise with Businessman
+	focus = {
+		id = MEX_MEK_compromise_with_businessman
+		icon = GFX_goal_MEX_compromise_with_businessmen
+		relative_position_id = MEX_MEK_a_mexican_monarch
+		x = 4
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_MEK_porfirio_i_de_diaz 
+			focus = MEX_MEK_maria_i_de_iturbide 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			MEX = { has_not_completed_focus = MEX_MEK_maintain_some_of_the_policies }
+		}
+	}
+
+	#Focus for Open our Market to the Reichpakt
+	focus = {
+		id = MEX_MEK_open_our_market_to_the_reichpakt
+		icon = GFX_goal_MEX_open_markets_for_reichspakt
+		relative_position_id = MEX_MEK_a_mexican_monarch
+		x = 4
+		y = 3
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_compromise_with_businessman }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Corporatist Economy
+	focus = {
+		id = MEX_MEK_corporatist_economy
+		icon = GFX_goal_MEX_corporate_economics
+		relative_position_id = MEX_MEK_a_mexican_monarch
+		x = 4
+		y = 4
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_open_our_market_to_the_reichpakt }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Porfirio I de Diaz
+	focus = {
+		id = MEX_MEK_porfirio_i_de_diaz
+		icon = GFX_goal_MEX_Porfirio_I_de_Diaz
+		relative_position_id = MEX_MEK_a_mexican_monarch
+		x = 8
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_a_mexican_monarch }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Start Secularization
+	focus = {
+		id = MEX_MEK_start_secularization
+		icon = GFX_goal_MEX_begin_secularization2
+		relative_position_id = MEX_MEK_porfirio_i_de_diaz
+		x = -2
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_porfirio_i_de_diaz }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for A Secular Mexico
+	focus = {
+		id = MEX_MEK_a_secular_mexico
+		icon = GFX_goal_MEX_secular_mexico
+		relative_position_id = MEX_MEK_porfirio_i_de_diaz
+		x = -2
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_start_secularization }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Friendship with the Church
+	focus = {
+		id = MEX_MEK_friendship_with_the_church
+		icon = GFX_goal_MEX_friendship_with_church
+		relative_position_id = MEX_MEK_porfirio_i_de_diaz
+		x = -2
+		y = 3
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_a_secular_mexico }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Focus for Persecute Socialists
+	focus = {
+		id = MEX_MEK_persecute_socialists
+		icon = GFX_goal_MEX_Persecute_Socialists
+		relative_position_id = MEX_MEK_porfirio_i_de_diaz
+		x = 0
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_porfirio_i_de_diaz }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Destroy the Rebels
+	focus = {
+		id = MEX_MEK_destroy_the_rebels
+		icon = GFX_goal_MEX_Destroy_the_Rebels
+		relative_position_id = MEX_MEK_porfirio_i_de_diaz
+		x = 0
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_persecute_socialists }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Stop the Persecution
+	focus = {
+		id = MEX_MEK_stop_the_persecution
+		icon = GFX_goal_MEX_Stop_the_Persecution
+		relative_position_id = MEX_MEK_porfirio_i_de_diaz
+		x = 0
+		y = 3
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_destroy_the_rebels }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for The Good of Porfirio
+	focus = {
+		id = MEX_MEK_the_good_of_porfirio
+		icon = GFX_goal_MEX_good_of_porfirio
+		relative_position_id = MEX_MEK_porfirio_i_de_diaz
+		x = 2
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_porfirio_i_de_diaz }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for The Bad of Madero
+	focus = {
+		id = MEX_MEK_the_bad_of_madero
+		icon = GFX_goal_MEX_bad_of_madero
+		relative_position_id = MEX_MEK_porfirio_i_de_diaz
+		x = 2
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_the_good_of_porfirio }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Fulfill his Last Wish
+	focus = {
+		id = MEX_MEK_fulfill_his_last_wish
+		icon = GFX_goal_MEX_Fulfill_his_Last_Wish
+		relative_position_id = MEX_MEK_porfirio_i_de_diaz
+		x = 2
+		y = 3
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_MEK_the_bad_of_madero }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for House of Diaz
+	focus = {
+		id = MEX_MEK_house_of_diaz
+		icon = GFX_goal_MEX_house_diaz
+		relative_position_id = MEX_MEK_porfirio_i_de_diaz
+		x = 0
+		y = 4
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_MEK_corporatist_economy 
+		}
+		prerequisite = { 
+			focus = MEX_MEK_friendship_with_the_church 
+		}
+		prerequisite = { 
+			focus = MEX_MEK_stop_the_persecution 
+		}
+		prerequisite = { 
+			focus = MEX_MEK_fulfill_his_last_wish 
 		}
 		ai_will_do = {
 			factor = 1

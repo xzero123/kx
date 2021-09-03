@@ -152,7 +152,7 @@ focus_tree = {
 	}
 	focus = {# Defense Logistics Agency
 		id = CAL_defense_logistics_agency
-		icon = GFX_goal_generic_war_in_the_plate
+		icon = GFX_goal_ATH_logistics
 		cost = 5
 		x = 0
 		y = 2
@@ -2031,6 +2031,26 @@ focus_tree = {
 				bonus = 1
 				uses = 1
 				category = naval_doctrine
+			}
+			create_navy_leader = {# Lloyd M. Mustin
+				name = "Lloyd M. Mustin"
+				portrait_path = "gfx/leaders/CAL/Portrait_CAL_Lloyd_Mustin.png"
+				traits = {fly_swatter}
+				skill = 3
+				attack_skill = 2
+				defense_skill = 3
+				maneuvering_skill = 2
+				coordination_skill = 3
+			}
+			create_navy_leader = {# Richard Nixon
+				name = "Richard Nixon"
+				portrait_path = "gfx/leaders/CAL/Portrait_CAL_Richard_Nixon_Admiral.png"
+				traits = {}
+				skill = 2
+				attack_skill = 1
+				defense_skill = 2
+				maneuvering_skill = 2
+				coordination_skill = 3
 			}
 		}
 	}
@@ -5922,7 +5942,7 @@ focus_tree = {
 	
 	focus = {# Restore Legitimacy
 		id = CAL_restore_legitimacy
-		icon = GFX_goal_foreign_diplomacy
+		icon = GFX_HUN_hungary_diplomat
 		cost = 6.00
 		prerequisite = {
 			focus = CAL_farming_subsidies
@@ -8220,7 +8240,10 @@ focus_tree = {
 			focus = CAL_securities_act
 		}
 		available = {
+			OR = {
+			has_government = market_liberal
 			has_government = social_liberal
+			}
 		}
 		ai_will_do = {
 			factor = 5

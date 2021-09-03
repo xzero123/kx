@@ -2203,10 +2203,10 @@ country_event = { # Golshirt Coup
 			ruling_party = national_populist
 			elections_allowed = no
 		}
-		create_country_leader = {# Nicolás Rodríguez Carrasco
-			name = "Nicolás Rodríguez Carrasco"
-			desc = "POLITICS_CARRASCO_DESC"
-			picture = "Portrait_Nicolas_Rodriguez_Carrazco_Militar.png"
+		create_country_leader = {# Golshirt Council
+			name = "Golshirt Council"
+			desc = "POLITICS_GOLDSHIRTS_DESC"
+			picture = "Goldshirt_Council.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 			traits = {}
@@ -2232,12 +2232,6 @@ country_event = { # Golshirt Coup
 		set_politics = {
 			ruling_party = national_populist
 			elections_allowed = no
-		}
-		hidden_effect = {
-			country_event = {
-				id = mexico.450
-				days = 10
-			}
 		}
 	}
 }
@@ -2325,6 +2319,45 @@ country_event = { # integralist leadership
 			name = "Salvador Abascal"
 			desc = "POLITICS_SALVADOR_ABSCAL"
 			picture = "portrait_MEX_Salvador_Abascal.png"
+			expire = "1965.1.1"
+			ideology = national_populist_subtype
+			traits = {}
+		}
+	}
+}
+
+country_event = { # goldshirt leadership
+	id = mexico.4502
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.4502"}
+	title = mexico.4502.t
+	desc = mexico.4502.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = { #garza
+		name = mexico.4502.a
+		create_country_leader = {# Roque Garza
+			name = "Roque Garza"
+			desc = "POLITICS_ROQUE_GARZA_DESC"
+			picture = "Portrait_Roque_Garza_Militar.png"
+			expire = "1965.1.1"
+			ideology = national_populist_subtype
+			traits = {}
+		}
+	}
+	option = { #carrasco
+		name = mexico.45.b
+		create_country_leader = {# Nicolás Rodríguez Carrasco
+			name = "Nicolás Rodríguez Carrasco"
+			desc = "POLITICS_CARRASCO_DESC"
+			picture = "Portrait_Nicolas_Rodriguez_Carrazco_Militar.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 			traits = {}

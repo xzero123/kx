@@ -697,6 +697,8 @@ country_event = { # Cristero War begins
 			add_state_core = 485	
 			transfer_state = 478
 			add_state_core = 478
+			
+			save_global_event_target_as = Jesus_Mexico
 				
 			### Leader
 			create_country_leader = { # Enrique Gorostieta
@@ -708,7 +710,7 @@ country_event = { # Cristero War begins
 				traits = {}
 			}
 			
-			create_corps_commander = {
+			create_field_marshal = {
 				name = "Enrique Gorostieta"
 				portrait_path = "gfx/leaders/MEX/Portrait_Enrique_Gorostieta_Militar.png"
 				traits = {
@@ -716,24 +718,23 @@ country_event = { # Cristero War begins
 					commando
 					skirmisher
 				}
-				skill = 3
-				attack_skill = 4
+				skill = 2
+				attack_skill = 1
 				defense_skill = 2
-				planning_skill = 2
+				planning_skill = 1
 				logistics_skill = 2
 			}
 			
-			create_corps_commander = {
+			create_field_marshal = {
 				name = "Jesus Degollado"
-				portrait_path = "gfx/leaders/MEX/Portrait_Luis_Navarro_Orrigel.png"
+				portrait_path = "gfx/leaders/MEX/Portrait_Jesus_Degollado_Militar.png"
 				traits = {
 					commando
-					skirmisher
 				}
-				skill = 3
-				attack_skill = 4
+				skill = 2
+				attack_skill = 1
 				defense_skill = 2
-				planning_skill = 2
+				planning_skill = 1
 				logistics_skill = 2
 			}
 				
@@ -742,12 +743,11 @@ country_event = { # Cristero War begins
 				portrait_path = "gfx/leaders/MEX/Portrait_Luis_Navarro_Orrigel.png"
 				traits = {
 					commando
-					skirmisher
 				}
-				skill = 3
-				attack_skill = 4
+				skill = 2
+				attack_skill = 1
 				defense_skill = 2
-				planning_skill = 2
+				planning_skill = 1
 				logistics_skill = 2
 			}
 				
@@ -756,12 +756,11 @@ country_event = { # Cristero War begins
 				portrait_path = "gfx/leaders/MEX/Portrait_Anatolio_Partida.png"
 				traits = {
 					commando
-					skirmisher
 				}
-				skill = 3
-				attack_skill = 4
+				skill = 2
+				attack_skill = 1
 				defense_skill = 2
-				planning_skill = 2
+				planning_skill = 1
 				logistics_skill = 2
 			}
 					
@@ -770,12 +769,11 @@ country_event = { # Cristero War begins
 				portrait_path = "gfx/leaders/MEX/Portrait_Carlos_Bouquet_Carranza.png"
 				traits = {
 					commando
-					skirmisher
 				}
-				skill = 3
-				attack_skill = 4
+				skill = 2
+				attack_skill = 1
 				defense_skill = 2
-				planning_skill = 2
+				planning_skill = 1
 				logistics_skill = 2
 			}
 					
@@ -784,12 +782,11 @@ country_event = { # Cristero War begins
 				portrait_path = "gfx/leaders/MEX/Portrait_Lauro_Rocha.png"
 				traits = {
 					commando
-					skirmisher
 				}
-				skill = 3
-				attack_skill = 4
+				skill = 2
+				attack_skill = 1
 				defense_skill = 2
-				planning_skill = 2
+				planning_skill = 1
 				logistics_skill = 2
 			}
 						
@@ -798,12 +795,11 @@ country_event = { # Cristero War begins
 				portrait_path = "gfx/leaders/MEX/Portrait_MCS_Armando_J_Ayala.png"
 				traits = {
 					commando
-					skirmisher
 				}
-				skill = 3
-				attack_skill = 4
+				skill = 2
+				attack_skill = 1
 				defense_skill = 2
-				planning_skill = 2
+				planning_skill = 1
 				logistics_skill = 2
 			}
 				
@@ -812,26 +808,24 @@ country_event = { # Cristero War begins
 				portrait_path = "gfx/leaders/MEX/Portrait_MCS_Jesus_Garcia.png"
 				traits = {
 					commando
-					skirmisher
 				}
-				skill = 3
-				attack_skill = 4
+				skill = 2
+				attack_skill = 1
 				defense_skill = 2
-				planning_skill = 2
+				planning_skill = 1
 				logistics_skill = 2
 			}
 			
 			create_corps_commander = {
-				name = "Gorostieta Chavalo"
+				name = "Juan Chavalo"
 				portrait_path = "gfx/leaders/MEX/Portrait_MCS_Captain_Kid.png"
 				traits = {
 					commando
-					skirmisher
 				}
-				skill = 3
-				attack_skill = 4
+				skill = 2
+				attack_skill = 1
 				defense_skill = 2
-				planning_skill = 2
+				planning_skill = 1
 				logistics_skill = 2
 			}
 				
@@ -877,22 +871,22 @@ country_event = { # Cristero War begins
 				
 			478 = {
 				create_unit = {
-					division = "division_template = \"Madagaskar Garrison\" start_experience_factor = 0.1"
-					owner = ROOT
+					division = "division_template = \"Christian Division\" start_experience_factor = 0.1"
+					owner = event_target:Jesus_Mexico
 				}
 				create_unit = {
-					division = "division_template = \"Madagaskar Garrison\" start_experience_factor = 0.1"
-					owner = ROOT
+					division = "division_template = \"Christian Division\" start_experience_factor = 0.1"
+					owner = event_target:Jesus_Mexico
 				}
 			}
 			485 = {
 				create_unit = {
-					division = "division_template = \"Madagaskar Garrison\" start_experience_factor = 0.1"
-					owner = ROOT
+					division = "division_template = \"Christian Division\" start_experience_factor = 0.1"
+					owner = event_target:Jesus_Mexico
 				}
 				create_unit = {
-					division = "division_template = \"Madagaskar Garrison\" start_experience_factor = 0.1"
-					owner = ROOT
+					division = "division_template = \"Christian Division\" start_experience_factor = 0.1"
+					owner = event_target:Jesus_Mexico
 				}
 			}
 		}
@@ -1434,6 +1428,244 @@ country_event = { # Cristero War - victory for the Criesteros
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 			traits = {}
+		}
+		effect_tooltip = {
+			create_field_marshal = {
+				name = "Enrique Gorostieta"
+				portrait_path = "gfx/leaders/MEX/Portrait_Enrique_Gorostieta_Militar.png"
+				traits = {
+					politically_connected
+					commando
+					skirmisher
+				}
+				skill = 2
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 2
+			}
+			
+			create_field_marshal = {
+				name = "Jesus Degollado"
+				portrait_path = "gfx/leaders/MEX/Portrait_Jesus_Degollado_Militar.png"
+				traits = {
+					commando
+				}
+				skill = 2
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 2
+			}
+				
+			create_corps_commander = {
+				name = "Luis Navarro Orrigel"
+				portrait_path = "gfx/leaders/MEX/Portrait_Luis_Navarro_Orrigel.png"
+				traits = {
+					commando
+				}
+				skill = 2
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 2
+			}
+				
+			create_corps_commander = {
+				name = "Anatolio Partida"
+				portrait_path = "gfx/leaders/MEX/Portrait_Anatolio_Partida.png"
+				traits = {
+					commando
+				}
+				skill = 2
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 2
+			}
+					
+			create_corps_commander = {
+				name = "Carlos Bouquet Carranza"
+				portrait_path = "gfx/leaders/MEX/Portrait_Carlos_Bouquet_Carranza.png"
+				traits = {
+					commando
+				}
+				skill = 2
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 2
+			}
+					
+			create_corps_commander = {
+				name = "Lauro Rocha"
+				portrait_path = "gfx/leaders/MEX/Portrait_Lauro_Rocha.png"
+				traits = {
+					commando
+				}
+				skill = 2
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 2
+			}
+						
+			create_corps_commander = {
+				name = "Armando J. Ayala"
+				portrait_path = "gfx/leaders/MEX/Portrait_MCS_Armando_J_Ayala.png"
+				traits = {
+					commando
+				}
+				skill = 2
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 2
+			}
+				
+			create_corps_commander = {
+				name = "Jesus Garcia"
+				portrait_path = "gfx/leaders/MEX/Portrait_MCS_Jesus_Garcia.png"
+				traits = {
+					commando
+				}
+				skill = 2
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 2
+			}
+			
+			create_corps_commander = {
+				name = "Juan Chavalo"
+				portrait_path = "gfx/leaders/MEX/Portrait_MCS_Captain_Kid.png"
+				traits = {
+					commando
+				}
+				skill = 2
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 2
+			}
+		}
+		create_field_marshal = {
+			name = "Enrique Gorostieta"
+			portrait_path = "gfx/leaders/MEX/Portrait_Enrique_Gorostieta_Militar.png"
+			traits = {
+				politically_connected
+				commando
+				skirmisher
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+			
+		create_field_marshal = {
+			name = "Jesus Degollado"
+			portrait_path = "gfx/leaders/MEX/Portrait_Jesus_Degollado_Militar.png"
+			traits = {
+				commando
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+				
+		create_corps_commander = {
+			name = "Luis Navarro Orrigel"
+			portrait_path = "gfx/leaders/MEX/Portrait_Luis_Navarro_Orrigel.png"
+			traits = {
+				commando
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+				
+		create_corps_commander = {
+			name = "Anatolio Partida"
+			portrait_path = "gfx/leaders/MEX/Portrait_Anatolio_Partida.png"
+			traits = {
+				commando
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+					
+		create_corps_commander = {
+			name = "Carlos Bouquet Carranza"
+			portrait_path = "gfx/leaders/MEX/Portrait_Carlos_Bouquet_Carranza.png"
+			traits = {
+				commando
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+					
+		create_corps_commander = {
+			name = "Lauro Rocha"
+			portrait_path = "gfx/leaders/MEX/Portrait_Lauro_Rocha.png"
+			traits = {
+				commando
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+						
+		create_corps_commander = {
+			name = "Armando J. Ayala"
+			portrait_path = "gfx/leaders/MEX/Portrait_MCS_Armando_J_Ayala.png"
+			traits = {
+				commando
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+			
+		create_corps_commander = {
+			name = "Jesus Garcia"
+			portrait_path = "gfx/leaders/MEX/Portrait_MCS_Jesus_Garcia.png"
+			traits = {
+				commando
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+			
+		create_corps_commander = {
+			name = "Juan Chavalo"
+			portrait_path = "gfx/leaders/MEX/Portrait_MCS_Captain_Kid.png"
+			traits = {
+				commando
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
 		}
 		set_party_name = {
 			ideology = authoritarian_democrat

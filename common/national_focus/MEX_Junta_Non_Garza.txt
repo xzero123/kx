@@ -18,14 +18,13 @@ focus_tree = {
 		icon = GFX_goal_MEX_death_of_marshal
 		x = 10
 		y = 1
-		cost = 8
+		cost = 2
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
-			add_political_power = 100
-add_stability = -0.05
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_death_of_the_marshall"
 		}
 	}
 
@@ -36,13 +35,14 @@ add_stability = -0.05
 		relative_position_id = MEX_JUNTA_death_of_the_marshall
 		x = 0
 		y = 1
-		cost = 8
+		cost = 2
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_JUNTA_death_of_the_marshall }
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_an_emergency_session"
 			country_event = {
 				id = mexico.460
 				days = 5
@@ -57,7 +57,7 @@ add_stability = -0.05
 		relative_position_id = MEX_JUNTA_death_of_the_marshall
 		x = -2
 		y = 2
-		cost = 8
+		cost = 2
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_JUNTA_an_emergency_session }
 		mutually_exclusive = { focus = MEX_JUNTA_a_monarchist_alternative }
@@ -65,8 +65,8 @@ add_stability = -0.05
 			factor = 1
 		}
 		completion_reward = {
-			add_political_power = -50
-add_stability = -0.05
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_maintain_the_plan"
+			set_country_flag = MEX_JUNTA_Republic
 		}
 	}
 	
@@ -84,8 +84,7 @@ add_stability = -0.05
 			factor = 1
 		}
 		completion_reward = {
-			add_political_power = 50
-add_stability = -0.1
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_elections_every_10_years"
 		}
 	}
 	
@@ -103,8 +102,7 @@ add_stability = -0.1
 			factor = 1
 		}
 		completion_reward = {
-			add_political_power = -100
-add_stability = 0.05
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_reduce_judicial_independence"
 		}
 	}
 	
@@ -122,7 +120,7 @@ add_stability = 0.05
 			factor = 1
 		}
 		completion_reward = {
-			add_stability = -0.15
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_strict_punishments"
 		}
 	}
 	
@@ -140,8 +138,7 @@ add_stability = 0.05
 			factor = 1
 		}
 		completion_reward = {
-			add_stability = 0.1
-add_political_power = -50
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_restore_the_presidency"
 		}
 	}
 	
@@ -159,7 +156,7 @@ add_political_power = -50
 			factor = 1
 		}
 		completion_reward = {
-			add_stability = 0.15
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_rewrite_the_constitution"
 		}
 	}
 
@@ -177,7 +174,7 @@ add_political_power = -50
 			factor = 1
 		}
 		completion_reward = {
-			add_stability = 0.2
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_a_presidential_republic"
 		}
 	}
 
@@ -188,7 +185,7 @@ add_political_power = -50
 		relative_position_id = MEX_JUNTA_death_of_the_marshall
 		x = 2
 		y = 2
-		cost = 8
+		cost = 2
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_JUNTA_an_emergency_session }
 		mutually_exclusive = { focus = MEX_JUNTA_maintain_the_plan }
@@ -196,8 +193,8 @@ add_political_power = -50
 			factor = 1
 		}
 		completion_reward = {
-			add_political_power = -100
-add_stability = -0.1
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_a_monarchist_alternative"
+			set_country_flag = MEX_COUNTER_Monarchy_Restored
 		}
 	}
 	
@@ -208,14 +205,14 @@ add_stability = -0.1
 		relative_position_id = MEX_JUNTA_death_of_the_marshall
 		x = 4
 		y = 3
-		cost = 8
+		cost = 2
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_JUNTA_a_monarchist_alternative }
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
-			add_political_power = 100
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_only_removed_by_a_vote_of_noconfidence"
 		}
 	}
 
@@ -226,15 +223,14 @@ add_stability = -0.1
 		relative_position_id = MEX_JUNTA_death_of_the_marshall
 		x = 3
 		y = 4
-		cost = 8
+		cost = 2
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_JUNTA_only_removed_by_a_vote_of_noconfidence }
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
-			add_political_power = -150
-add_stability = 0.1
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_bribe_the_judges"
 		}
 	}
 
@@ -245,17 +241,16 @@ add_stability = 0.1
 		relative_position_id = MEX_JUNTA_death_of_the_marshall
 		x = 2
 		y = 5
-		cost = 8
+		cost = 2
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_JUNTA_bribe_the_judges }
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
-			add_stability = -0.15
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_a_strict_code_of_law"
 		}
 	}
-	
 	#Focus for A Title for the Leader
 	focus = {
 		id = MEX_JUNTA_a_title_for_the_leader
@@ -263,15 +258,14 @@ add_stability = 0.1
 		relative_position_id = MEX_JUNTA_death_of_the_marshall
 		x = 6
 		y = 3
-		cost = 8
+		cost = 2
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_JUNTA_a_monarchist_alternative }
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
-			add_stability = 0.05
-add_political_power = -100
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_a_title_for_the_leader"
 		}
 	}
 
@@ -282,14 +276,14 @@ add_political_power = -100
 		relative_position_id = MEX_JUNTA_death_of_the_marshall
 		x = 5
 		y = 4
-		cost = 8
+		cost = 2
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_JUNTA_a_title_for_the_leader }
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
-			add_stability = 0.1
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_a_new_constitution"
 		}
 	}
 
@@ -307,7 +301,7 @@ add_political_power = -100
 			factor = 1
 		}
 		completion_reward = {
-			add_stability = 0.15
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_a_constitutional_monarchy"
 		}
 	}
 	
@@ -318,7 +312,7 @@ add_political_power = -100
 		relative_position_id = MEX_JUNTA_death_of_the_marshall
 		x = 0
 		y = 3
-		cost = 8
+		cost = 2
 		available_if_capitulated = yes
 		prerequisite = { 
 			focus = MEX_JUNTA_a_monarchist_alternative 
@@ -328,7 +322,7 @@ add_political_power = -100
 			factor = 1
 		}
 		completion_reward = {
-			any_owned_state = { set_demilitarized_zone = no }
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_dominate_the_cities"
 		}
 	}
 
@@ -339,14 +333,14 @@ add_political_power = -100
 		relative_position_id = MEX_JUNTA_death_of_the_marshall
 		x = 0
 		y = 4
-		cost = 8
+		cost = 2
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_JUNTA_dominate_the_cities }
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
-			any_owned_state = { set_demilitarized_zone = no }
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_secure_the_countryside"
 		}
 	}
 
@@ -357,14 +351,14 @@ add_political_power = -100
 		relative_position_id = MEX_JUNTA_death_of_the_marshall
 		x = 0
 		y = 5
-		cost = 8
+		cost = 2
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_JUNTA_secure_the_countryside }
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
-			add_stability = 0.15
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_stability"
 		}
 	}
 	
@@ -379,26 +373,40 @@ add_political_power = -100
 		cost = 10
 		available_if_capitulated = yes
 		prerequisite = { 
-			focus = MEX_JUNTA_
 			focus = MEX_JUNTA_stability
 		}
 		prerequisite = { 
 			focus = MEX_JUNTA_a_constitutional_monarchy
-		}
-		prerequisite = { 
 			focus = MEX_JUNTA_a_presidential_republic
 		}
 		prerequisite = { 
 			focus = MEX_JUNTA_strict_punishments
-		}
-		prerequisite = { 
 			focus = MEX_JUNTA_a_strict_code_of_law
 		}
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_elect_our_leader"
+			if = {
+				limit = {
+					has_country_flag = MEX_COUNTER_Monarchy_Restored
+				}
+				country_event = {
+					id = mexico.360
+					days = 2
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = MEX_JUNTA_Republic
+				}
+				country_event = {
+					id = mexico.361
+					days = 2
+				}
+			}
+			load_focus_tree = mexican_focus
 		}
 	}
 

@@ -5360,7 +5360,10 @@ focus_tree = {
 			has_country_flag = MEX_restored_democracy
 		}
 		bypass = {
-			has_country_flag = MEX_appointed_PRUN
+			OR = {
+				has_country_flag = MEX_appointed_PRUN
+				has_country_flag = MEX_christero_appointed_soccon
+			}
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_constitutional_convention"
@@ -5631,35 +5634,13 @@ focus_tree = {
 		}
 	}
 	
-	#Focus for Catholic Identity
-	focus = {
-		id = MEX_catholic_identity
-		icon = GFX_goal_unknown
-		relative_position_id = MEX_pan
-		x = 0
-		y = 1
-		cost = 7
-		available_if_capitulated = yes
-		prerequisite = { focus = MEX_support_the_church }
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-			has_government = social_conservative
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_catholic_identity"
-			add_popularity = {ideology = social_conservative popularity = 0.05}
-		}
-	}
-	
 	#Focus for Support the Church
 	focus = {
 		id = MEX_support_the_church
 		icon = GFX_goal_unknown
 		relative_position_id = MEX_pan
 		x = 0
-		y = 2
+		y = 1
 		cost = 7
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_pan }
@@ -5672,6 +5653,28 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_support_the_church"
 			add_popularity = { ideology = social_conservative popularity = 0.05}
+		}
+	}
+	
+	#Focus for Catholic Identity
+	focus = {
+		id = MEX_catholic_identity
+		icon = GFX_goal_unknown
+		relative_position_id = MEX_pan
+		x = 0
+		y = 2
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_support_the_church }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_government = social_conservative
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_catholic_identity"
+			add_popularity = {ideology = social_conservative popularity = 0.05}
 		}
 	}
 

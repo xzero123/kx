@@ -1385,6 +1385,54 @@ country_event = { # Cristero War - more battles
 		custom_effect_tooltip = MEX_cristero_add_1
 	}
 }
+
+country_event = { # Cristero War - they win
+	id = mexico.210
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.210"}
+	title = mexico.210.t
+	desc = mexico.210.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	trigger = {
+		tag = MEX
+		MCS = {
+			controls_state = 277
+		}
+	}
+
+	option = { # Mexican victory
+		name = mexico.21.a
+		set_variable = {
+			MEX_cristero_power = 30
+		}
+		add_ideas = MEX_cristero_war_idea
+	}
+}
+
+country_event = { # Cristero War - they loose
+	id = mexico.211
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.211"}
+	title = mexico.211.t
+	desc = mexico.211.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	trigger = {
+		tag = MEX
+		MEX = {
+			controls_state = 478
+			controls_state = 485
+		}
+	}
+
+	option = { # Mexican victory
+		name = mexico.21.a
+		set_variable = {
+			MEX_cristero_power = -5
+		}
+		add_ideas = MEX_cristero_war_idea
+	}
+}
+
 country_event = { # Cristero War - victory for the Criesteros
 	id = mexico.22
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.22"}
@@ -1431,7 +1479,7 @@ country_event = { # Cristero War - victory for the Criesteros
 		}
 		effect_tooltip = {
 			create_field_marshal = {
-				name = "Enrique Gorostieta"
+				name = "Enrique Gorostieta Velarde"
 				portrait_path = "gfx/leaders/MEX/Portrait_Enrique_Gorostieta_Militar.png"
 				traits = {
 					politically_connected
@@ -1550,7 +1598,7 @@ country_event = { # Cristero War - victory for the Criesteros
 			}
 		}
 		create_field_marshal = {
-			name = "Enrique Gorostieta"
+			name = "Enrique Gorostieta Velarde"
 			portrait_path = "gfx/leaders/MEX/Portrait_Enrique_Gorostieta_Militar.png"
 			traits = {
 				politically_connected
@@ -1681,17 +1729,17 @@ country_event = { # Cristero War - victory for the Criesteros
 	}
 }
 country_event = { # Cristero War - victory for the Criesteros
-	id = mexico.220
-	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.220"}
-	title = mexico.220.t
-	desc = mexico.220.d
+	id = mexico.2200
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.2200"}
+	title = mexico.2200.t
+	desc = mexico.2200.d
 	picture = GFX_report_event_generic_diplomacy2
 
 	is_triggered_only = yes
 	fire_only_once = yes
 
 	option = { # Become SocCon
-		name = mexico.220.a
+		name = mexico.2200.a
 		remove_ideas = MEX_cristero_war_idea
 		clear_variable = MEX_cristero_power
 		add_war_support = 0.05
@@ -1705,9 +1753,10 @@ country_event = { # Cristero War - victory for the Criesteros
 			ruling_party = social_conservative
 			elections_allowed = yes
 		}
+		set_country_flag = MEX_christero_appointed_soccon
 	}
 	option = { # Become Nat-Pop
-		name = mexico.22.b
+		name = mexico.2200.b
 		remove_ideas = MEX_cristero_war_idea
 		clear_variable = MEX_cristero_power
 		add_war_support = 0.05

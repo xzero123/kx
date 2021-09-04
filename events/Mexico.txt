@@ -3443,6 +3443,156 @@ country_event = { # Campesinos War - victory for the federal government
 		army_experience = 25
 	}
 }
+
+country_event = { # Elections of 1937
+	id = mexico.53
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.53"}
+	title = mexico.53.t
+	desc = mexico.53.d
+
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # Authoritarian Democrat
+		name = mexico.53.a
+		hidden_effect = {
+			set_country_flag = MEX_the_1942_elections_happened
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.10
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = yes
+		}
+		create_country_leader = {# Emergency Council
+			name = "Emergency Council"
+			desc = "POLITICS_EMERGENCY_COUNCIL_DESC"
+			picture = "mexico_emergency_council.png"
+			expire = "1965.1.1"
+			ideology = authoritarian_democrat_subtype
+			traits = {}
+		}
+	}
+	option = { # Social Conservative
+		name = mexico.53.b
+		hidden_effect = {
+			set_country_flag = MEX_the_1942_elections_happened
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.10
+		}
+		set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = yes
+		}
+		set_country_flag = MEX_true_democracy
+		remove_all_ministers = yes
+		add_ideas = {
+			MEX_Manuel_Gomez_Morin_hog_sco
+			MEX_Juan_Lascurian_for_sco
+			MEX_Luis_Montes_de_Oca_eco_sco
+			MEX_Efrain_Gonzalez_Luna_sec_sco
+		}
+		create_country_leader = {# Emergency Council
+			name = "Emergency Council"
+			desc = "POLITICS_EMERGENCY_COUNCIL_DESC"
+			picture = "mexico_emergency_council.png"
+			expire = "1965.1.1"
+			ideology = social_conservative_subtype
+			traits = {}
+		}
+	}
+	option = { # Market Liberal
+		name = mexico.53.c
+		hidden_effect = {
+			set_country_flag = MEX_the_1942_elections_happened
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.10
+		}
+		set_politics = {
+			ruling_party = market_liberal
+			elections_allowed = yes
+		}
+		set_country_flag = MEX_true_democracy
+		remove_all_ministers = yes
+		add_ideas = {
+			MEX_Miguel_Valdez_hog_mli
+			MEX_Jamie_Bodet_for_mli
+			MEX_Antonio_Martinez_Baez_eco_mli
+			MEX_Hector_Perez_Martinez_sec_mli
+		}
+		create_country_leader = {# Emergency Council
+			name = "Emergency Council"
+			desc = "POLITICS_EMERGENCY_COUNCIL_DESC"
+			picture = "mexico_emergency_council.png"
+			expire = "1965.1.1"
+			ideology = market_liberal_subtype
+			traits = {}
+		}
+	}
+	option = { # Social Liberal
+		name = mexico.53.e
+		remove_all_ministers = yes
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.10
+		}
+		set_politics = {
+			ruling_party = social_liberal
+			elections_allowed = yes
+		}
+		remove_all_ministers = yes
+		add_ideas = {
+			MEX_Manuel_Avila_Camacho_hog_sli
+			MEX_Francisco_Castillo_Najera_for_sli
+			MEX_Eduardo_Aranzolo_eco_sli
+			MEX_Primo_Villa_Michel_sec_sli
+		}
+		create_country_leader = {# Emergency Council
+			name = "Emergency Council"
+			desc = "POLITICS_EMERGENCY_COUNCIL_DESC"
+			picture = "mexico_emergency_council.png"
+			expire = "1965.1.1"
+			ideology = social_liberal_subtype
+			traits = {}
+		}
+	}
+
+	option = { # Social Democrat
+		name = mexico.53.f
+		remove_all_ministers = yes
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.10
+		}
+		set_politics = {
+			ruling_party = social_democrat
+			elections_allowed = yes
+		}
+		remove_all_ministers = yes
+		add_ideas = MEX_Lazaro_Cardenas_hog_sde
+		add_ideas = MEX_Eduardo_Hay_for_sde
+		add_ideas = MEX_Efrain_Buenrostro_Ochoa_eco_sde
+		add_ideas = MEX_Ignacio_Garcia_Tellez_sec_sde
+		create_country_leader = {# Emergency Council
+			name = "Emergency Council"
+			desc = "POLITICS_EMERGENCY_COUNCIL_DESC"
+			picture = "mexico_emergency_council.png"
+			expire = "1965.1.1"
+			ideology = social_democrat_subtype
+			traits = {}
+		}
+	}
+}
+
+
 ### Military Junta 61 - 80 ###
 country_event = { # New Constitution
 	id = mexico.61
@@ -5453,6 +5603,48 @@ country_event = {
 	option = {
 		name = mexicodemocratic.12.a
 		ai_chance = { factor = 1}
+		hidden_effect = {
+			create_country_leader = { # Lazaro Cardenas
+				name = "Lázaro Cárdenas"
+				desc = "POLITICS_LAZARO_CARDENAS_DESC"
+				picture = "Portrait_MEX_Lazaro_Cardenas.png"
+				expire = "1965.1.1"
+				ideology = social_democrat_subtype
+				traits = {}
+			}
+			create_country_leader = {# 
+				name = "Manuel Avila Camacho"
+				desc = "POLITICS_AVILLA_DESC"
+				picture = "Portrait_Mexico_Manuel_Avila_Camacho.png"
+				expire = "1965.1.1"
+				ideology = social_liberal_subtype
+				traits = {}
+			}	
+			create_country_leader = {# Juan Andreu Almazán
+				name = "Miguel Aleman Valdéz"
+				desc = "POLITICS_Valdez_DESC"
+				picture = "Portrait_Mexico_Miguel_Valdes.png"
+				expire = "1965.1.1"
+				ideology = market_liberal_subtype
+				traits = {}
+			}
+			create_country_leader = {# Juan Andreu Almazán
+				name = "Manuel Gomez Morín"
+				desc = "POLITICS_MORIN_DESC"
+				picture = "Portrait_Mexico_Manuel_Gomez_Morin.png"
+				expire = "1965.1.1"
+				ideology = social_conservative_subtype
+				traits = {}
+			}
+			create_country_leader = {# Juan Andreu Almazán
+				name = "Juan Andreu Almazán"
+				desc = "POLITICS_JUAN_ALMAZAN_DESC"
+				picture = "Portrait_Mexico_Juan_Almazan.png"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+				traits = {}
+			}
+		}
 	}
 }
 
@@ -5473,6 +5665,48 @@ country_event = {
 	option = {
 		name = mexicodemocratic.13.a
 		ai_chance = { factor = 1}
+		hidden_effect = {
+			create_country_leader = { # Lazaro Cardenas
+				name = "Lázaro Cárdenas"
+				desc = "POLITICS_LAZARO_CARDENAS_DESC"
+				picture = "Portrait_MEX_Lazaro_Cardenas.png"
+				expire = "1965.1.1"
+				ideology = social_democrat_subtype
+				traits = {}
+			}
+			create_country_leader = {# 
+				name = "Manuel Avila Camacho"
+				desc = "POLITICS_AVILLA_DESC"
+				picture = "Portrait_Mexico_Manuel_Avila_Camacho.png"
+				expire = "1965.1.1"
+				ideology = social_liberal_subtype
+				traits = {}
+			}	
+			create_country_leader = {# Juan Andreu Almazán
+				name = "Miguel Aleman Valdéz"
+				desc = "POLITICS_Valdez_DESC"
+				picture = "Portrait_Mexico_Miguel_Valdes.png"
+				expire = "1965.1.1"
+				ideology = market_liberal_subtype
+				traits = {}
+			}
+			create_country_leader = {# Juan Andreu Almazán
+				name = "Manuel Gomez Morín"
+				desc = "POLITICS_MORIN_DESC"
+				picture = "Portrait_Mexico_Manuel_Gomez_Morin.png"
+				expire = "1965.1.1"
+				ideology = social_conservative_subtype
+				traits = {}
+			}
+			create_country_leader = {# Juan Andreu Almazán
+				name = "Juan Andreu Almazán"
+				desc = "POLITICS_JUAN_ALMAZAN_DESC"
+				picture = "Portrait_Mexico_Juan_Almazan.png"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+				traits = {}
+			}
+		}
 	}
 }
 
@@ -5998,13 +6232,21 @@ country_event = {
 		ai_chance = { factor = 1}
 		add_popularity = { ideology = social_democrat popularity = 0.05}
 		hidden_effect = {
-			create_country_leader = { # Lazaro Cardenas
-				name = "Lázaro Cárdenas"
-				desc = "POLITICS_LAZARO_CARDENAS_DESC"
-				picture = "Portrait_MEX_Lazaro_Cardenas.png"
-				expire = "1965.1.1"
-				ideology = social_democrat_subtype
-				traits = {}
+			if = {
+				limit = {
+					NOT = {
+						has_government = social_democrat
+					}
+				}
+			
+				create_country_leader = { # Lazaro Cardenas
+					name = "Lázaro Cárdenas"
+					desc = "POLITICS_LAZARO_CARDENAS_DESC"
+					picture = "Portrait_MEX_Lazaro_Cardenas.png"
+					expire = "1965.1.1"
+					ideology = social_democrat_subtype
+					traits = {}
+				}
 			}
 			clr_country_flag = soc_dems_are_socialists
 		}

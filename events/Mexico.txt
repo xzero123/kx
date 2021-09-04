@@ -685,6 +685,91 @@ country_event = { # Cristero War begins
 			} 
 		}
 	}
+	
+	option = {
+		name = mexico.12.b
+		create_dynamic_country = {	#Jesus Mexico
+			original_tag = MEX
+			copy_tag = MEX
+
+			#State
+			transfer_state = 485
+			add_state_core = 485	
+			transfer_state = 478
+			add_state_core = 478
+				
+			### Leader
+			create_country_leader = { # Enrique Gorostieta
+				name = "Enrique Gorostieta"
+				desc = "POLITICS_GOROSTIETA_DESC"
+				picture = "gfx/leaders/MEX/Portrait_Enrique_Gorostieta.png"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+				traits = {}
+			}
+				
+			### Politics
+			set_popularities = {
+				totalist = 0
+				radical_socialist = 0
+				syndicalist = 0
+				social_democrat = 10
+				social_liberal = 0
+				market_liberal = 10
+				social_conservative = 20
+				authoritarian_democrat = 40
+				paternal_autocrat = 10
+				national_populist = 10
+			}
+			set_party_name = {
+				ideology = authoritarian_democrat
+				name = MEX_jesus_authoritarian_democrat_party
+				long_name = MEX_jesus_authoritarian_democrat_party_long
+			}
+			set_politics = {
+				ruling_party = authoritarian_democrat
+				elections_allowed = no
+			}
+			set_cosmetic_tag = MEX_JESUS
+
+			#Units
+			division_template = {
+				name = "Christian Division"
+				division_names_group = MEX_INF_01
+
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+				}
+				priority = 0
+			}
+				
+			478 = {
+				create_unit = {
+					division = "division_template = \"Madagaskar Garrison\" start_experience_factor = 0.1"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "division_template = \"Madagaskar Garrison\" start_experience_factor = 0.1"
+					owner = ROOT
+				}
+			}
+			485 = {
+				create_unit = {
+					division = "division_template = \"Madagaskar Garrison\" start_experience_factor = 0.1"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "division_template = \"Madagaskar Garrison\" start_experience_factor = 0.1"
+					owner = ROOT
+				}
+			}
+		}
+	}
 }
 country_event = { # Pope informed about Catholic suppression
 	id = mexico.13
@@ -4823,6 +4908,7 @@ country_event = {
 	title = mexicodemocratic.7.title
 	desc = mexicodemocratic.7.desc
 	picture = GFX_term_lenght
+	is_triggered_only = yes
 	major = yes
 	option = {
 		name = mexicodemocratic.7.a

@@ -218,18 +218,16 @@ country_event = { # Zapata is dead!
 			set_country_flag = Francisco_Mendoza_Palma_dead
 			set_country_flag = Jesus_Salgado_dead
 			set_country_flag = Margarita_Neri_dead
-			if = {
+			every_unit_leader = {
 				limit = {
-					has_unit_leader = 9373
+					NOT = {
+						has_trait = mex_junta_general
+					}
 				}
-				remove_unit_leader = 9373
+				set_unit_leader_flag = MEX_rev_leader
+				set_nationality = XXA
 			}
-			if = {
-				limit = {
-					has_unit_leader = 9374
-				}
-				remove_unit_leader = 9374
-			}
+			MEX_create_counter_revolutionary_generals
 		}
 		hidden_effect = {
 			add_ideas = MEX_Alberto_B_Gutierrez_hog_pau
@@ -2705,11 +2703,19 @@ country_event = { # Golshirt Coup
 			ideology = national_populist_subtype
 			traits = {}
 		}
+		MEX_create_goldshirt_generals = yes
 		set_country_flag = MEX_goldshirts_in_charge
 		set_party_name = {
 			ideology = national_populist
 			name = MEX_golshirt_national_populist_party
 			long_name = MEX_golshirt_national_populist_party_long
+		}
+		add_ideas = MEX_anti_goldshirt_resistance_idea
+		hidden_effect = {
+			country_event = {	
+				id = mexico.141
+				days = 3
+			}
 		}
 	}
 	option = {
@@ -3386,6 +3392,25 @@ country_event = { # Campesinos War - victory for the campesinos
 	title = mexico.59.t
 	desc = mexico.59.d
 	picture = GFX_report_event_generic_diplomacy2
+	
+	immediate = {
+		hidden_effect = {
+			XXA = {
+				every_unit_leader = {
+					limit = {
+						has_unit_leader_flag = MEX_rev_leader
+					}
+					set_nationality = MEX
+				}
+			}
+			every_unit_leader = {
+				limit = {
+					has_trait = mex_counter_revolutionary
+				}
+				set_nationality = XXA
+			}
+		}
+	}
 
 	trigger = {
 		tag = MEX
@@ -4777,6 +4802,713 @@ country_event = { # Bohemia Poblana
 		add_political_power = 5
 	}
 }
+
+### Golshirts ###
+
+country_event = { # goldshirt coup
+	id = mexico.141
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.141"}
+	title = mexico.141.t
+	desc = mexico.141.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.141.a
+		hidden_effect = {
+			news_event = {
+				id = mexico.142
+				days = 1
+			}
+			country_event = {
+				id = mexico.143
+				days = 10
+			}
+			country_event = {
+				id = mexico.144
+				days = 20
+			}
+			country_event = {
+				id = mexico.149
+				days = 30
+			}
+		}
+	}
+}
+
+news_event = { # goldshirt coup news
+	id = mexico.142
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.141"}
+	title = mexico.141.t
+	desc = mexico.141.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.141.a
+		
+	}
+}
+
+country_event = { # christ bois gone
+	id = mexico.143
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.143"}
+	title = mexico.143.t
+	desc = mexico.143.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.143.a
+		
+	}
+}
+
+country_event = { # hinterlands
+	id = mexico.144
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.144"}
+	title = mexico.144.t
+	desc = mexico.144.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.144.a
+		
+	}
+}
+
+country_event = { # maria dead
+	id = mexico.145
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.145"}
+	title = mexico.145.t
+	desc = mexico.145.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.145.a
+	}
+}
+
+country_event = { # diaz
+	id = mexico.146
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.146"}
+	title = mexico.146.t
+	desc = mexico.146.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.146.a
+		hidden_effect = {
+			country_event = {
+				id = mexico.153
+				days = 21
+			}
+		}
+	}
+}
+
+country_event = { # cedillo purge
+	id = mexico.147
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.147"}
+	title = mexico.147.t
+	desc = mexico.147.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.147.a
+		hidden_effect = {
+			country_event = {
+				id = mexico.148
+				days = 11
+			}
+			country_event = {
+				id = mexico.146
+				days = 21
+			}
+		}
+	}
+}
+
+country_event = { # Señora de las Sombras
+	id = mexico.148
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.148"}
+	title = mexico.148.t
+	desc = mexico.148.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.148.a
+		
+	}
+}
+
+country_event = { # factionalism
+	id = mexico.149
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.149"}
+	title = mexico.149.t
+	desc = mexico.149.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.149.a
+		
+	}
+}
+
+country_event = { # weakness
+	id = mexico.150
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.150"}
+	title = mexico.150.t
+	desc = mexico.150.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.150.a
+		hidden_effect = {
+			country_event = {
+				id = mexico.151
+				days = 10
+			}
+		}
+	}
+}
+
+country_event = { # Religious Syncretism ascendant in Mexico
+	id = mexico.151
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.151"}
+	title = mexico.151.t
+	desc = mexico.151.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.151.a
+		hidden_effect = {
+			country_event = {
+				id = mexico.152
+				days = 11
+			}
+		}
+	}
+}
+
+country_event = { # santa murete
+	id = mexico.152
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.152"}
+	title = mexico.152.t
+	desc = mexico.152.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.152.a
+		hidden_effect = {
+			country_event = {
+				id = mexico.147
+				days = 11
+			}
+		}
+	}
+}
+
+country_event = { # diaz
+	id = mexico.153
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.153"}
+	title = mexico.153.t
+	desc = mexico.153.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.153.a
+		hidden_effect = {
+			country_event = {
+				id = mexico.154
+				days = 5
+			}
+		}
+	}
+	
+	option = { #
+		name = mexico.153.b
+		hidden_effect = {
+			country_event = {
+				id = mexico.155
+				days = 5
+			}
+		}
+		
+	}
+}
+
+country_event = { # living dead (rocque)
+	id = mexico.154
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.154"}
+	title = mexico.154.t
+	desc = mexico.154.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.154.a
+		set_country_flag = MEX_rocque_dead
+		country_event = {
+			id = mexico.158
+			days = 20
+		}
+	}
+}
+
+country_event = { # living dead (carrasco)
+	id = mexico.155
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.154"}
+	title = mexico.155.t
+	desc = mexico.155.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.155.a
+		set_country_flag = MEX_carrasco_dead
+		hidden_effect = {
+			country_event = {
+				id = mexico.158
+				days = 20
+			}
+		}
+	}
+}
+
+country_event = { # pni intro
+	id = mexico.156
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.156"}
+	title = mexico.156.t
+	desc = mexico.156.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.156.a
+		
+	}
+}
+
+country_event = { # synarchist intro
+	id = mexico.157
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.157"}
+	title = mexico.157.t
+	desc = mexico.157.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.157.a
+		
+	}
+}
+
+country_event = { # fire
+	id = mexico.158
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.158"}
+	title = mexico.158.t
+	desc = mexico.158.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.158.a
+		hidden_effect = {
+			country_event = {
+				id = mexico.159
+				days = 10
+			}
+		}
+	}
+}
+
+country_event = { # radio
+	id = mexico.159
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.159"}
+	title = mexico.159.t
+	desc = mexico.159.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.159.a
+		hidden_effect = {
+			country_event = {
+				id = mexico.160
+				days = 10
+			}
+		}
+	}
+}
+
+country_event = { # maria iii speaks
+	id = mexico.160
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.160"}
+	title = mexico.160.t
+	desc = mexico.160.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.160.a
+		hidden_effect = {
+			country_event = {
+				id = mexico.161
+				days = 10
+			}
+		}
+	}
+}
+
+country_event = { # battle of veracruz
+	id = mexico.161
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.161"}
+	title = mexico.161.t
+	desc = mexico.161.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #cedillo wins
+		name = mexico.161.a
+		hidden_effect = {
+			country_event = {
+				id = mexico.162
+				days = 2
+			}
+		}
+	}
+	
+	option = { #
+		name = mexico.161.b
+		hidden_effect = {
+			country_event = {
+				id = mexico.163
+				days = 2
+			}
+		}
+	}
+}
+
+country_event = { # battle of veracruz, cedillo wins
+	id = mexico.162
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.162"}
+	title = mexico.162.t
+	desc = mexico.162.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.162.a
+		
+	}
+}
+
+country_event = { # battle of veracruz, maria wins
+	id = mexico.163
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.163"}
+	title = mexico.163.t
+	desc = mexico.163.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.163.a
+		hidden_effect = {
+			country_event = {
+				id = mexico.164
+				days = 10
+			}
+		}
+	}
+}
+
+country_event = { # fernando supports maria
+	id = mexico.164
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.164"}
+	title = mexico.164.t
+	desc = mexico.164.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.164.a
+		hidden_effect = {
+			country_event = {
+				id = mexico.165
+				days = 1
+			}
+		}
+	}
+}
+
+country_event = { # fernando supports maria
+	id = mexico.165
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.165"}
+	title = mexico.165.t
+	desc = mexico.165.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.165.a
+		hidden_effect = {
+			country_event = {
+				id = mexico.166
+				days = 10
+			}
+		}
+	}
+}
+
+country_event = { # seige of san luis
+	id = mexico.166
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.166"}
+	title = mexico.166.t
+	desc = mexico.166.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { # maria wins
+		name = mexico.166.a
+		hidden_effect = {
+			country_event = {
+				id = mexico.167
+				days = 2
+			}
+		}
+	}
+	
+	option = { # cedillo wins
+		name = mexico.166.b
+		hidden_effect = {
+			country_event = {
+				id = mexico.169
+				days = 2
+			}
+		}
+	}
+}
+
+country_event = { # seige of san luis, maria wins
+	id = mexico.167
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.167"}
+	title = mexico.167.t
+	desc = mexico.167.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.167.a
+		hidden_effect = {
+			country_event = {
+				id = mexico.170
+				days = 20
+			}
+		}
+	}
+}
+
+country_event = { # seige of san luis, cedillo wins
+	id = mexico.169
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.169"}
+	title = mexico.169.t
+	desc = mexico.169.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.169.a
+		
+	}
+}
+
+country_event = { # knights of sonora
+	id = mexico.170
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.170"}
+	title = mexico.170.t
+	desc = mexico.170.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.170.a
+		hidden_effect = {
+			country_event = {
+				id = mexico.171
+				days = 20
+			}
+		}
+	}
+}
+
+country_event = { # battle for mexico city
+	id = mexico.171
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.171"}
+	title = mexico.171.t
+	desc = mexico.171.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { # maria wins
+		name = mexico.171.a
+		hidden_effect = {
+			country_event = {
+				id = mexico.173
+				days = 2
+			}
+		}
+	}
+	
+	option = { # cedillo wins
+		name = mexico.171.a
+		hidden_effect = {
+			country_event = {
+				id = mexico.172
+				days = 2
+			}
+		}
+	}
+}
+
+country_event = { # battle for mexico city, cedillo wins
+	id = mexico.172
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.172"}
+	title = mexico.172.t
+	desc = mexico.172.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.172.a
+		
+	}
+}
+
+country_event = { # battle for mexico city, maria wins
+	id = mexico.173
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.173"}
+	title = mexico.173.t
+	desc = mexico.173.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.173.a
+		create_country_leader = {
+			name = "María III"
+			desc = "POLITICS_MARIA_III_DESC"
+			picture = "Portrait_Maria_III_Civilian.png"
+			expire = "1965.1.1"
+			ideology = national_populist_subtype
+			traits = {}
+		}
+		set_party_name = {
+			ideology = national_populist
+			name = MEX_santa_muerte_party
+			long_name = MEX_santa_muerte_party_long
+		}
+		set_cosmetic_tag = MEX_HME
+		create_field_marshal = {
+			name = "Maria III"
+			portrait_path = "gfx/leaders/MEX/Portrait_Enrique_Gorostieta_Militar.png"
+			traits = {
+				politically_connected
+				media_personality
+				trait_reckless
+				offensive_doctrine
+				inspirational_leader
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
+		}
+		every_unit_leader = {
+			limit = {
+				has_trait = mex_gold_shirt
+			}
+			set_nationality = XXA
+		}
+	}
+}
+
+
 ### Foreign Policy ###
 country_event = { # Mexico wishes to join the Internationale (fired from focus)
 	id = mexico.200

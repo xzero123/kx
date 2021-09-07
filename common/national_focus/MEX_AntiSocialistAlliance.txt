@@ -3,7 +3,7 @@ focus_tree = {
 	country = {
 		factor = 0
 		modifier = {
-			add = 0
+			add = 10
 			tag = MEX
 		}
 	}
@@ -28,6 +28,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_the_asa_victorious"
+			custom_effect_tooltip = cubanoeffect_tooltip
 		}
 	}
 
@@ -42,6 +43,9 @@ focus_tree = {
 		available = {
 			has_country_flag = MEX_coup_stopped
 		}
+		bypass = {
+			has_country_flag = MEX_coup_stopped
+		}
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_ASA_the_asa_victorious }
 		ai_will_do = {
@@ -49,6 +53,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_coup_stopped"
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 
@@ -59,7 +64,7 @@ focus_tree = {
 		relative_position_id = MEX_ASA_coup_stopped
 		x = 0
 		y = 1
-		cost = 2
+		cost = 1
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_ASA_coup_stopped }
 		ai_will_do = {
@@ -67,6 +72,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_republic_or_monarchy"
+			country_event = {
+				id = mexico.108
+				days = 2
+			}
 		}
 	}
 
@@ -81,12 +90,16 @@ focus_tree = {
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_ASA_republic_or_monarchy }
 		mutually_exclusive = { focus = MEX_ASA_republic_maintained }
+		available = {
+			always = no
+		}
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_monarchy_restored"
 			set_country_flag = MEX_Monarchy_Restored
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 
@@ -105,6 +118,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_the_imperial_title"
+			add_ideas = MEX_ASA_the_imperial_title
+			add_political_power = 100
+			add_stability = 0.05
 		}
 	}
 	
@@ -123,6 +139,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_a_imperial_constitution"
+			swap_ideas = {
+				remove_idea = MEX_ASA_the_imperial_title
+				add_idea = MEX_ASA_a_imperial_constitution
+			}
+			add_war_support = 0.04
+			add_stability = 0.02
 		}
 	}
 
@@ -141,6 +163,14 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_an_organic_monarchy"
+			swap_ideas = {
+				remove_idea = MEX_ASA_a_imperial_constitution
+				add_idea = MEX_ASA_an_organic_monarchy
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.05
+			}
 		}
 	}
 
@@ -159,6 +189,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_only_removed_by_the_monarch"
+			add_stability = 0.15
+			add_political_power = 100
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.04
+			}
 		}
 	}
 
@@ -177,6 +213,22 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_fire_socialist_judges"
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.2
+			}
 		}
 	}
 	
@@ -195,6 +247,13 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_exile_the_arm"
+			MEX_decrease_goldshirt_resistance = yes
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.04
+			}
+			add_political_power = -150
+			add_manpower = -1500
 		}
 	}
 	
@@ -209,12 +268,16 @@ focus_tree = {
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_ASA_republic_or_monarchy }
 		mutually_exclusive = { focus = MEX_ASA_monarchy_restored }
+		available = {
+			always = no
+		}
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_republic_maintained"
 			set_country_flag = MEX_IntegroSynarchist_Republic
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	
@@ -232,7 +295,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_republic_maintained"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_presidential_republic"
+			add_ideas = MEX_ASA_presidential_republic
+			add_political_power = 100
+			add_stability = 0.05
 		}
 	}
 
@@ -251,6 +317,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_rewrite_the_constitution"
+			swap_ideas = {
+				remove_idea = MEX_ASA_presidential_republic
+				add_idea = MEX_ASA_rewrite_the_constitution
+			}
+			add_war_support = 0.04
+			add_stability = 0.02
 		}
 	}
 
@@ -269,6 +341,14 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_a_populist_republic"
+			swap_ideas = {
+				remove_idea = MEX_ASA_rewrite_the_constitution
+				add_idea = MEX_ASA_a_populist_republic
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.05
+			}
 		}
 	}
 
@@ -287,6 +367,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_rotational_presidency"
+			add_stability = 0.15
+			add_political_power = 100
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.04
+			}
 		}
 	}
 
@@ -305,6 +391,30 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_fire_anticatholic_judges"
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.1
+			}
 		}
 	}
 	
@@ -323,6 +433,13 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_exterminate_the_arm"
+			MEX_decrease_goldshirt_resistance = yes
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.06
+			}
+			add_political_power = -100
+			add_manpower = -1500
 		}
 	}
 	
@@ -344,6 +461,22 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_deploy_the_aim_in_the_cities"
+			MEX_decrease_goldshirt_resistance = yes
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 479
+						state = 477
+						state = 485
+					}
+				}
+				set_demilitarized_zone = no
+			}
+			hidden_effect = {
+				subtract_from_variable = { var = MEX_campesinos_power value = 1 }
+			}
+			add_stability = 0.02
+			custom_effect_tooltip = MEX_campesinos_subtract_1
 		}
 	}
 
@@ -362,6 +495,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_the_acjm_in_the_countryside"
+			MEX_decrease_goldshirt_resistance = yes
+			every_owned_state = {
+				limit = {
+					is_demilitarized = yes
+				}
+				set_demilitarized_zone = no
+			}
+			hidden_effect = {
+				subtract_from_variable = { var = MEX_campesinos_power value = 1 }
+			}
+			add_stability = 0.02
+			custom_effect_tooltip = MEX_campesinos_subtract_1
 		}
 	}
 
@@ -380,6 +525,14 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_a_semblance_of_order"
+			MEX_decrease_goldshirt_resistance = yes
+			add_political_power = 100
+			add_stability = 0.05
+			hidden_effect = {
+				subtract_from_variable = { var = MEX_campesinos_power value = 1 }
+			}
+			add_stability = 0.02
+			custom_effect_tooltip = MEX_campesinos_subtract_1
 		}
 	}
 
@@ -430,6 +583,9 @@ focus_tree = {
 		available = {
 			has_country_flag = MEX_goldshirts_in_charge
 		}
+		bypass = {
+			has_country_flag = MEX_goldshirts_in_charge
+		}
 		x = 8
 		y = 1
 		cost = 2
@@ -440,6 +596,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_coup_succeds"
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	
@@ -450,7 +607,7 @@ focus_tree = {
 		relative_position_id = MEX_ASA_coup_succeds
 		x = 0
 		y = 1
-		cost = 2
+		cost = 1
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_ASA_coup_succeds }
 		ai_will_do = {
@@ -458,6 +615,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_the_two_branches"
+			country_event = {
+				id = mexico.174
+				days = 2
+			}
 		}
 	}
 	
@@ -477,6 +638,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_all_the_power_to_the_executive"
+			custom_effect_tooltip = unlock_focuses
+			custom_effect_tooltip = MEX_increase_carrasco_tt
 		}
 	}
 	
@@ -495,6 +658,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_el_jefe"
+			add_ideas = MEX_ASA_el_jefe
+			add_political_power = 50
+			add_stability = -0.02
 		}
 	}
 
@@ -513,6 +679,15 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_write_a_new_constitution"
+			swap_ideas = {
+				remove_idea = MEX_ASA_el_jefe
+				add_idea = MEX_ASA_write_a_new_constitution
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.05
+			}
+			add_stability = 0.05
 		}
 	}
 	
@@ -531,6 +706,13 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_a_mexican_state"
+			swap_ideas = {
+				remove_idea = MEX_ASA_write_a_new_constitution
+				add_idea = MEX_ASA_a_mexican_state
+			}
+			add_stability = 0.05
+			add_war_support = 0.05
+			add_political_power = 50
 		}
 	}
 	
@@ -549,6 +731,13 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_president_for_life"
+			add_political_power = -100
+			add_stability = 0.04
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.05
+			}
 		}
 	}
 
@@ -567,6 +756,30 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_appointed_judges"
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.1
+			}
 		}
 	}
 	
@@ -591,6 +804,21 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_exterminate_the_fanatics"
 			MEX_decrease_resistance = yes
+			add_popularity = {
+				ideology = social_conservative
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.2
+			}
+			add_manpower = -2500
+			add_political_power = 50
+			add_war_support = -0.05
 		}
 	}
 	
@@ -610,6 +838,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_maintian_the_3_branches"
+			custom_effect_tooltip = unlock_focuses
+			custom_effect_tooltip = MEX_increase_garza_tt
 		}
 	}
 	
@@ -628,6 +858,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_the_president"
+			add_ideas = MEX_ASA_the_president
+			add_stability = 0.02
+			add_political_power = -50
 		}
 	}
 
@@ -646,6 +879,15 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_fix_the_constitution"
+			swap_ideas = {
+				remove_idea = MEX_ASA_the_president
+				add_idea = MEX_ASA_fix_the_constitution
+			}
+			add_political_power = 50
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.02
+			}
 		}
 	}
 
@@ -664,6 +906,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_the_mexican_republic"
+			swap_ideas = {
+				remove_idea = MEX_ASA_fix_the_constitution
+				add_idea = MEX_ASA_the_mexican_republic
+			}
+			add_stability = 0.02
+			add_war_support = 0.02
 		}
 	}
 	
@@ -682,6 +930,13 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_abolish_elections"
+			add_political_power = 100
+			add_stability = -0.04
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.05
+			}
 		}
 	}
 
@@ -700,6 +955,30 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_nationalist_judges"
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.1
+			}
 		}
 	}
 
@@ -724,6 +1003,21 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_exile_the_remmnants"
 			MEX_decrease_resistance = yes
+			add_popularity = {
+				ideology = social_conservative
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.1
+			}
+			add_manpower = -1500
+			add_political_power = -50
+			add_war_support = 0.05
 		}
 	}
 	
@@ -751,6 +1045,21 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_secure_the_cities"
 			MEX_decrease_resistance = yes
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 479
+						state = 477
+						state = 485
+					}
+				}
+				set_demilitarized_zone = no
+			}
+			hidden_effect = {
+				subtract_from_variable = { var = MEX_campesinos_power value = 1 }
+			}
+			add_stability = 0.02
+			custom_effect_tooltip = MEX_campesinos_subtract_1
 		}
 	}
 
@@ -775,6 +1084,17 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_send_the_gold_shirts_to_the_countryside"
 			MEX_decrease_resistance = yes
+			every_owned_state = {
+				limit = {
+					is_demilitarized = yes
+				}
+				set_demilitarized_zone = no
+			}
+			hidden_effect = {
+				subtract_from_variable = { var = MEX_campesinos_power value = 1 }
+			}
+			add_stability = 0.02
+			custom_effect_tooltip = MEX_campesinos_subtract_1
 		}
 	}
 
@@ -799,6 +1119,13 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_a_new_order"
 			MEX_decrease_resistance = yes
+			add_political_power = 100
+			add_stability = 0.05
+			hidden_effect = {
+				subtract_from_variable = { var = MEX_campesinos_power value = 1 }
+			}
+			add_stability = 0.02
+			custom_effect_tooltip = MEX_campesinos_subtract_1
 		}
 	}
 	
@@ -828,9 +1155,42 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ASA_old_or_new"
 			load_focus_tree = mexican_focus
-			country_event = {
-				id = mexico.4502
-				days = 2
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = MEX_shits_bout_to_go_down
+					}
+				}
+				country_event = {
+					id = mexico.4502
+					days = 2
+				}
+			}
+			if = {	
+				limit = {
+					has_country_flag = MEX_carrasco_dead
+				}
+				create_country_leader = {# Roque Garza
+					name = "Roque Garza"
+					desc = "POLITICS_ROQUE_GARZA_DESC"
+					picture = "Portrait_Roque_Garza_Militar.png"
+					expire = "1965.1.1"
+					ideology = national_populist_subtype
+					traits = {}
+				}
+			}
+			if = {	
+				limit = {
+					has_country_flag = MEX_rocque_dead
+				}
+				create_country_leader = {# Nicolás Rodríguez Carrasco
+					name = "Nicolás Rodríguez Carrasco"
+					desc = "POLITICS_CARRASCO_DESC"
+					picture = "Portrait_Nicolas_Rodriguez_Carrazco_Militar.png"
+					expire = "1965.1.1"
+					ideology = national_populist_subtype
+					traits = {}
+				}
 			}
 			set_country_flag = MEX_Goldshirt_Takeover
 		}

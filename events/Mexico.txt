@@ -17,32 +17,6 @@ country_event = { # Start up Event
 
 	option = {
 		name = mexico.1.a
-		hidden_effect = {
-		create_country_leader = {# 
-			name = "Manuel Avila Camacho"
-			desc = "POLITICS_AVILLA_DESC"
-			picture = "Portrait_Mexico_Manuel_Avila_Camacho.png"
-			expire = "1965.1.1"
-			ideology = social_liberal_subtype
-			traits = {}
-		}
-		create_country_leader = {# Juan Andreu Almazán
-			name = "Miguel Aleman Valdéz"
-			desc = "POLITICS_Valdez_DESC"
-			picture = "Portrait_Mexico_Miguel_Valdes.png"
-			expire = "1965.1.1"
-			ideology = market_liberal_subtype
-			traits = {}
-		}
-		create_country_leader = {# Juan Andreu Almazán
-			name = "Manuel Gomez Morín"
-			desc = "POLITICS_MORIN_DESC"
-			picture = "Portrait_Mexico_Manuel_Gomez_Morin.png"
-			expire = "1965.1.1"
-			ideology = social_conservative_subtype
-			traits = {}
-			}
-		}
 		country_event = {
 			id = mexico.300
 			days = 1
@@ -211,6 +185,20 @@ country_event = { # Zapata is dead!
 			ideology = radical_socialist_subtype
 			traits = {}
 		}
+		set_party_name = {
+			name = MEX_DL_social_democrat_party
+			long_name = MEX_DL_social_democrat_party_long
+			ideology = social_democrat
+		}
+		create_country_leader = { # Lazaro Cardenas
+			name = "Lázaro Cárdenas"
+			desc = "POLITICS_LAZARO_CARDENAS_DESC"
+			picture = "Portrait_MEX_Lazaro_Cardenas.png"
+			expire = "1965.1.1"
+			ideology = social_democrat_subtype
+			traits = {}
+		}
+		clr_country_flag = soc_dems_are_socialists
 		hidden_effect = {
 			set_country_flag = Genovevo_de_la_O_dead
 			set_country_flag = Gildardo_Magana_dead
@@ -218,17 +206,35 @@ country_event = { # Zapata is dead!
 			set_country_flag = Francisco_Mendoza_Palma_dead
 			set_country_flag = Jesus_Salgado_dead
 			set_country_flag = Margarita_Neri_dead
+		}
+		hidden_effect = {
 			every_unit_leader = {
 				limit = {
 					NOT = {
-						has_trait = mex_junta_general
+						has_id = 93731
+						has_id = 93732
+						has_id = 94731
 					}
 				}
 				set_unit_leader_flag = MEX_rev_leader
 				set_nationality = XXA
 			}
-			MEX_create_counter_revolutionary_generals
 		}
+		every_unit_leader = {
+			limit = {
+				has_id = 93731
+			}
+			promote_leader = yes
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.05
+		}
+		MEX_create_counter_revolutionary_generals = yes
 		hidden_effect = {
 			add_ideas = MEX_Alberto_B_Gutierrez_hog_pau
 			add_ideas = MEX_Pazcual_Diaz_Barreto_for_pau
@@ -238,6 +244,13 @@ country_event = { # Zapata is dead!
 			country_event = {
 				id = mexico.42
 				days = 2
+			}
+			country_event = { id = mexico.63 days = 120 random_days = 90 }
+			country_event = { id = mexico.84 days = 150 random_days = 150 }
+			
+			country_event = {
+				id = mexico.43
+				days = 11
 			}
 		}
 		set_politics = {
@@ -686,6 +699,7 @@ country_event = { # Cristero War begins
 	
 	option = {
 		name = mexico.12.b
+		set_country_flag = MEX_rebellion
 		create_dynamic_country = {	#Jesus Mexico
 			original_tag = MEX
 			copy_tag = MEX
@@ -708,124 +722,7 @@ country_event = { # Cristero War begins
 				traits = {}
 			}
 			
-			create_field_marshal = {
-				name = "Enrique Gorostieta"
-				portrait_path = "gfx/leaders/MEX/Portrait_Enrique_Gorostieta_Militar.png"
-				traits = {
-					politically_connected
-					commando
-					skirmisher
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
-			}
-			
-			create_field_marshal = {
-				name = "Jesus Degollado"
-				portrait_path = "gfx/leaders/MEX/Portrait_Jesus_Degollado_Militar.png"
-				traits = {
-					commando
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
-			}
-				
-			create_corps_commander = {
-				name = "Luis Navarro Orrigel"
-				portrait_path = "gfx/leaders/MEX/Portrait_Luis_Navarro_Orrigel.png"
-				traits = {
-					commando
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
-			}
-				
-			create_corps_commander = {
-				name = "Anatolio Partida"
-				portrait_path = "gfx/leaders/MEX/Portrait_Anatolio_Partida.png"
-				traits = {
-					commando
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
-			}
-					
-			create_corps_commander = {
-				name = "Carlos Bouquet Carranza"
-				portrait_path = "gfx/leaders/MEX/Portrait_Carlos_Bouquet_Carranza.png"
-				traits = {
-					commando
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
-			}
-					
-			create_corps_commander = {
-				name = "Lauro Rocha"
-				portrait_path = "gfx/leaders/MEX/Portrait_Lauro_Rocha.png"
-				traits = {
-					commando
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
-			}
-						
-			create_corps_commander = {
-				name = "Armando J. Ayala"
-				portrait_path = "gfx/leaders/MEX/Portrait_MCS_Armando_J_Ayala.png"
-				traits = {
-					commando
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
-			}
-				
-			create_corps_commander = {
-				name = "Jesus Garcia"
-				portrait_path = "gfx/leaders/MEX/Portrait_MCS_Jesus_Garcia.png"
-				traits = {
-					commando
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
-			}
-			
-			create_corps_commander = {
-				name = "Juan Chavalo"
-				portrait_path = "gfx/leaders/MEX/Portrait_MCS_Captain_Kid.png"
-				traits = {
-					commando
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
-			}
+			MEX_create_christero_generals = yes
 				
 			### Politics
 			set_popularities = {
@@ -1403,6 +1300,9 @@ country_event = { # Cristero War - they win
 		set_variable = {
 			MEX_cristero_power = 30
 		}
+		annex_country = {
+			target = MCS
+		}
 		add_ideas = MEX_cristero_war_idea
 	}
 }
@@ -1420,6 +1320,7 @@ country_event = { # Cristero War - they loose
 			controls_state = 478
 			controls_state = 485
 		}
+		has_country_flag = MEX_rebellion
 	}
 
 	option = { # Mexican victory
@@ -1475,244 +1376,7 @@ country_event = { # Cristero War - victory for the Criesteros
 			ideology = authoritarian_democrat_subtype
 			traits = {}
 		}
-		effect_tooltip = {
-			create_field_marshal = {
-				name = "Enrique Gorostieta Velarde"
-				portrait_path = "gfx/leaders/MEX/Portrait_Enrique_Gorostieta_Militar.png"
-				traits = {
-					politically_connected
-					commando
-					skirmisher
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
-			}
-			
-			create_field_marshal = {
-				name = "Jesus Degollado"
-				portrait_path = "gfx/leaders/MEX/Portrait_Jesus_Degollado_Militar.png"
-				traits = {
-					commando
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
-			}
-				
-			create_corps_commander = {
-				name = "Luis Navarro Orrigel"
-				portrait_path = "gfx/leaders/MEX/Portrait_Luis_Navarro_Orrigel.png"
-				traits = {
-					commando
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
-			}
-				
-			create_corps_commander = {
-				name = "Anatolio Partida"
-				portrait_path = "gfx/leaders/MEX/Portrait_Anatolio_Partida.png"
-				traits = {
-					commando
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
-			}
-					
-			create_corps_commander = {
-				name = "Carlos Bouquet Carranza"
-				portrait_path = "gfx/leaders/MEX/Portrait_Carlos_Bouquet_Carranza.png"
-				traits = {
-					commando
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
-			}
-					
-			create_corps_commander = {
-				name = "Lauro Rocha"
-				portrait_path = "gfx/leaders/MEX/Portrait_Lauro_Rocha.png"
-				traits = {
-					commando
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
-			}
-						
-			create_corps_commander = {
-				name = "Armando J. Ayala"
-				portrait_path = "gfx/leaders/MEX/Portrait_MCS_Armando_J_Ayala.png"
-				traits = {
-					commando
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
-			}
-				
-			create_corps_commander = {
-				name = "Jesus Garcia"
-				portrait_path = "gfx/leaders/MEX/Portrait_MCS_Jesus_Garcia.png"
-				traits = {
-					commando
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
-			}
-			
-			create_corps_commander = {
-				name = "Juan Chavalo"
-				portrait_path = "gfx/leaders/MEX/Portrait_MCS_Captain_Kid.png"
-				traits = {
-					commando
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 2
-			}
-		}
-		create_field_marshal = {
-			name = "Enrique Gorostieta Velarde"
-			portrait_path = "gfx/leaders/MEX/Portrait_Enrique_Gorostieta_Militar.png"
-			traits = {
-				politically_connected
-				commando
-				skirmisher
-			}
-			skill = 2
-			attack_skill = 1
-			defense_skill = 2
-			planning_skill = 1
-			logistics_skill = 2
-		}
-			
-		create_field_marshal = {
-			name = "Jesus Degollado"
-			portrait_path = "gfx/leaders/MEX/Portrait_Jesus_Degollado_Militar.png"
-			traits = {
-				commando
-			}
-			skill = 2
-			attack_skill = 1
-			defense_skill = 2
-			planning_skill = 1
-			logistics_skill = 2
-		}
-				
-		create_corps_commander = {
-			name = "Luis Navarro Orrigel"
-			portrait_path = "gfx/leaders/MEX/Portrait_Luis_Navarro_Orrigel.png"
-			traits = {
-				commando
-			}
-			skill = 2
-			attack_skill = 1
-			defense_skill = 2
-			planning_skill = 1
-			logistics_skill = 2
-		}
-				
-		create_corps_commander = {
-			name = "Anatolio Partida"
-			portrait_path = "gfx/leaders/MEX/Portrait_Anatolio_Partida.png"
-			traits = {
-				commando
-			}
-			skill = 2
-			attack_skill = 1
-			defense_skill = 2
-			planning_skill = 1
-			logistics_skill = 2
-		}
-					
-		create_corps_commander = {
-			name = "Carlos Bouquet Carranza"
-			portrait_path = "gfx/leaders/MEX/Portrait_Carlos_Bouquet_Carranza.png"
-			traits = {
-				commando
-			}
-			skill = 2
-			attack_skill = 1
-			defense_skill = 2
-			planning_skill = 1
-			logistics_skill = 2
-		}
-					
-		create_corps_commander = {
-			name = "Lauro Rocha"
-			portrait_path = "gfx/leaders/MEX/Portrait_Lauro_Rocha.png"
-			traits = {
-				commando
-			}
-			skill = 2
-			attack_skill = 1
-			defense_skill = 2
-			planning_skill = 1
-			logistics_skill = 2
-		}
-						
-		create_corps_commander = {
-			name = "Armando J. Ayala"
-			portrait_path = "gfx/leaders/MEX/Portrait_MCS_Armando_J_Ayala.png"
-			traits = {
-				commando
-			}
-			skill = 2
-			attack_skill = 1
-			defense_skill = 2
-			planning_skill = 1
-			logistics_skill = 2
-		}
-			
-		create_corps_commander = {
-			name = "Jesus Garcia"
-			portrait_path = "gfx/leaders/MEX/Portrait_MCS_Jesus_Garcia.png"
-			traits = {
-				commando
-			}
-			skill = 2
-			attack_skill = 1
-			defense_skill = 2
-			planning_skill = 1
-			logistics_skill = 2
-		}
-			
-		create_corps_commander = {
-			name = "Juan Chavalo"
-			portrait_path = "gfx/leaders/MEX/Portrait_MCS_Captain_Kid.png"
-			traits = {
-				commando
-			}
-			skill = 2
-			attack_skill = 1
-			defense_skill = 2
-			planning_skill = 1
-			logistics_skill = 2
-		}
+		MEX_create_christero_generals = yes
 		set_party_name = {
 			ideology = authoritarian_democrat
 			name = MEX_jesus_authoritarian_democrat_party
@@ -1721,7 +1385,7 @@ country_event = { # Cristero War - victory for the Criesteros
 		hidden_effect = {
 			country_event = {
 				id = mexico.220
-				days = 5
+				days = 45
 			}
 		}
 	}
@@ -1826,19 +1490,28 @@ country_event = { # Calles is dead!
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = MEX
-		date > 1941.3.10
-	}
+	is_triggered_only = yes
 
-	mean_time_to_happen = {
-		months = 24
+	trigger = {
+		OR = {
+			has_government = totalist
+			has_socialist_government = no
+		}
 	}
 
 	option = { # Cardenas takes over
 		name = mexico.24.a
 		set_country_flag = MEX_Lazaro_Cardenas_hog_tot
-		add_ideas = MEX_Abelardo_L_Rodriguez_hog_tot
+		if = {
+			limit = { has_government = totalist }
+			add_ideas = MEX_Abelardo_L_Rodriguez_hog_tot
+			hidden_effect = {
+				country_event = {
+					id = mexico.25
+					days = 4
+				}
+			}
+		}
 		create_country_leader = { # Lazaro Cardenas
 			name = "Lázaro Cárdenas"
 			desc = "POLITICS_LAZARO_CARDENAS_DESC"
@@ -1850,8 +1523,11 @@ country_event = { # Calles is dead!
 	}
 	option = { # Emilio Portes Gil
 		name = mexico.24.b
+		if = {
+			limit = { has_government = totalist }
+			add_ideas = MEX_Emilio_Portes_Gil_hog_tot
+		}
 		set_country_flag = MEX_gil_succedes_calles
-		add_ideas = MEX_Emilio_Portes_Gil_hog_tot
 		create_country_leader = { # Emilio Portes Gil
 			name = "Emilio Portes Gil"
 			desc = "POLITICS_EMILIO_GIL_DESC"
@@ -1864,7 +1540,10 @@ country_event = { # Calles is dead!
 	option = { # Abelardo L. Rodríguez
 		name = mexico.24.c
 		set_country_flag = MEX_rodriguez_succedes_calles
-		add_ideas = MEX_Abelardo_L_Rodriguez_hog_tot
+		if = {
+			limit = { has_government = totalist }
+			add_ideas = MEX_Abelardo_L_Rodriguez_hog_tot
+		}
 		create_country_leader = { # Abelardo L. Rodríguez
 			name = "Abelardo L. Rodríguez"
 			desc = "POLITICS_ABELARDO_RODRIGUEZ"
@@ -1905,6 +1584,9 @@ country_event = { # Cardenas and the Maximato
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 			traits = {}
+		}
+		hidden_effect = {
+			country_event = { id = mexico.41 days = 200 random_days = 100 }
 		}
 	}
 }
@@ -2021,8 +1703,9 @@ country_event = { # Elections of 1942
 		hidden_effect = {
 			add_ideas = MEX_Manuel_Avila_Camacho_hog_sde
 			add_ideas = MEX_Jaime_Torres_Bodet_for_sde
-			add_ideas = MEX_Efrain_Buenrostro_Ochoa_eco_sde
+			add_ideas = MEX_Alberto_J_Pani_eco_sde
 			add_ideas = MEX_Miguel_Aleman_Valdes_sec_sde
+			country_event = { id = mexico.41 days = 200 random_days = 100 }
 		}
 		set_politics = {
 			ruling_party = social_democrat
@@ -2153,6 +1836,7 @@ country_event = { # Elections of 1947
 			add_ideas = MEX_Ezequiel_Padilla_Penaloza_for_sde
 			add_ideas = MEX_Primo_Villa_Michel_eco_sde
 			add_ideas = MEX_Roque_Estrada_Reynoso_sec_sde
+			country_event = { id = mexico.41 days = 200 random_days = 100 }
 		}
 		set_politics = {
 			ruling_party = social_democrat
@@ -2174,16 +1858,10 @@ country_event = { # Academy of the Mayan Language founded
 	title = mexico.28.t
 	desc = mexico.28.d
 
-	fire_only_once = yes
+	is_triggered_only = yes
 
 	trigger = {
-		tag = MEX
-		date > 1937.04.11
 		has_socialist_government = yes
-	}
-
-	mean_time_to_happen = {
-		months = 2
 	}
 
 	option = { #
@@ -2200,18 +1878,12 @@ country_event = { # Mexican muralism
 	title = mexico.29.t
 	desc = mexico.29.d
 
-	fire_only_once = yes
+	is_triggered_only = yes
 
 	trigger = {
-		tag = MEX
-		date > 1936.08.11
 		has_socialist_government = yes
 	}
-
-	mean_time_to_happen = {
-		months = 24
-	}
-
+	
 	option = { #
 		name = mexico.29.a
 		add_popularity = {
@@ -2228,14 +1900,10 @@ country_event = { # Popular Graphic Workshop
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = MEX
-		date > 1938.05.11
-		has_socialist_government = yes
-	}
+	is_triggered_only = yes
 
-	mean_time_to_happen = {
-		months = 2
+	trigger = {
+		has_socialist_government = yes
 	}
 
 	option = { #
@@ -2254,19 +1922,10 @@ country_event = { # Monument to the Revolution
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = MEX
-		date > 1938.08.11
-		OR = {
-			has_government = totalist
-			has_government = syndicalist
-			has_government = radical_socialist
-			has_government = social_democrat
-		}
-	}
+	is_triggered_only = yes
 
-	mean_time_to_happen = {
-		months = 1
+	trigger = {
+		has_socialist_government = yes
 	}
 
 	option = { #
@@ -2281,16 +1940,10 @@ country_event = { # National Parks
 	title = mexico.32.t
 	desc = mexico.32.d
 
-	fire_only_once = yes
+	is_triggered_only = yes
 
 	trigger = {
-		tag = MEX
-		date > 1936.05.10
 		has_socialist_government = yes
-	}
-
-	mean_time_to_happen = {
-		months = 72
 	}
 
 	option = { #
@@ -2304,16 +1957,10 @@ country_event = { # Regeneración
 	title = mexico.33.t
 	desc = mexico.33.d
 
-	fire_only_once = yes
+	is_triggered_only = yes
 
 	trigger = {
-		tag = MEX
-		date > 1937.04.11
 		has_socialist_government = yes
-	}
-
-	mean_time_to_happen = {
-		months = 5
 	}
 
 	option = { #
@@ -2330,16 +1977,10 @@ country_event = { # Frente Unico Pro Derechos de la Mujer
 	title = mexico.34.t
 	desc = mexico.34.d
 
-	fire_only_once = yes
+	is_triggered_only = yes
 
 	trigger = {
-		tag = MEX
-		date > 1936.05.11
 		has_socialist_government = yes
-	}
-
-	mean_time_to_happen = {
-		months = 3
 	}
 
 	option = { #
@@ -2355,14 +1996,10 @@ country_event = { # Women's sufferage
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = MEX
-		date > 1938.06.15
-		has_socialist_government = yes
-	}
+	is_triggered_only = yes
 
-	mean_time_to_happen = {
-		months = 5
+	trigger = {
+		has_socialist_government = yes
 	}
 
 	option = { #
@@ -2384,13 +2021,10 @@ country_event = { # Mexican Anarchist Federation
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = MEX
-		has_socialist_government = yes
-	}
+	is_triggered_only = yes
 
-	mean_time_to_happen = {
-		months = 72
+	trigger = {
+		has_socialist_government = yes
 	}
 
 	option = { #
@@ -2482,14 +2116,7 @@ country_event = { # Dealing with Business Cartels
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = MEX
-		has_government = social_democrat
-	}
-
-	mean_time_to_happen = {
-		months = 24
-	}
+	is_triggered_only = yes
 
 	option = { #
 		name = mexico.41.a
@@ -2519,6 +2146,14 @@ country_event = { # Campesinos War begins
 				id = mexico.1000
 			} 
 		}
+		every_owned_state = {
+			limit = {
+				NOT = {
+					state = 277
+				}
+			}
+			set_demilitarized_zone = yes
+		}
 	}
 }
 country_event = { # what do
@@ -2530,15 +2165,7 @@ country_event = { # what do
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = MEX
-		has_idea = MEX_campesinos_war_idea
-		has_authoritarian_government = yes
-	}
-
-	mean_time_to_happen = {
-		months = 2
-	}
+	is_triggered_only = yes
 
 	option = { # the DL
 		name = mexico.43.a
@@ -2564,6 +2191,16 @@ country_event = { # what do
 				id = mexico.44 
 				days = 5
 			}
+			XXA = {
+				every_unit_leader = {
+					limit = {
+						has_unit_leader_flag = MEX_rev_leader
+					}
+					set_nationality = MEX
+				}
+			}
+			remove_unit_leader = 9374
+			remove_unit_leader = 9373
 		}
 		add_popularity = {
 			ideology = authoritarian_democrat
@@ -2581,6 +2218,23 @@ country_event = { # what do
 			ideology = social_liberal
 			popularity = 0.05
 		}
+		create_country_leader = {# Emergency Council
+			name = "Constitutional Committee"
+			desc = "POLITICS_EMERGENCY_COUNCIL_DESC"
+			picture = "mexico_emergency_council.png"
+			expire = "1965.1.1"
+			ideology = authoritarian_democrat_subtype
+			traits = {}
+		}
+		set_party_name = {
+			name = MEX_DL_unity_party
+			long_name = MEX_DL_unity_party_long
+			ideology = authoritarian_democrat
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = no
+		}
 		load_focus_tree = MEX_Democratc_Initial
 	}
 	option = { # the ASA
@@ -2597,7 +2251,7 @@ country_event = { # what do
 		}
 		add_popularity = {
 			ideology = national_populist
-			popularity = -0.05
+			popularity = 0.05
 		}
 		hidden_effect = {
 			set_country_flag = MEX_ASA_alliance_flag
@@ -2618,8 +2272,8 @@ country_event = { # what do
 		  }
 		}
 		add_popularity = {
-			ideology = national_populist
-			popularity = -0.05
+			ideology = paternal_autocrat
+			popularity = 0.05
 		}
 		hidden_effect = {
 			set_country_flag = MEX_goldshirt_alliance_rejected_flag
@@ -2628,6 +2282,19 @@ country_event = { # what do
 			country_event = {
 				id = mexico.46
 				days = 7
+			}
+			MEX_create_junta_generals = yes
+		}
+		hidden_effect = {
+			country_event = {
+				id = mexico.100
+				days = 60
+				random_days = 300
+			}
+			country_event = {
+				id = mexico.101
+				days = 60
+				random_days = 300
 			}
 		}
 	}
@@ -2733,6 +2400,7 @@ country_event = { # Golshirt Coup
 			ruling_party = national_populist
 			elections_allowed = no
 		}
+		add_ideas = MEX_goldshirt_resistance_idea
 	}
 }
 
@@ -2803,11 +2471,7 @@ country_event = { # integralist leadership
 	fire_only_once = yes
 
 	is_triggered_only = yes
-
-	mean_time_to_happen = {
-		months = 1
-	}
-
+	
 	option = { #keep Vasconcelos
 		name = mexico.4501.a
 		
@@ -2837,10 +2501,6 @@ country_event = { # goldshirt leadership
 
 	is_triggered_only = yes
 
-	mean_time_to_happen = {
-		months = 1
-	}
-
 	option = { #garza
 		name = mexico.4502.a
 		create_country_leader = {# Roque Garza
@@ -2851,9 +2511,18 @@ country_event = { # goldshirt leadership
 			ideology = national_populist_subtype
 			traits = {}
 		}
+		if = {
+			limit = {
+				has_idea = MEX_ASA_a_mexican_state
+			}
+			swap_ideas = {
+				remove_idea = MEX_ASA_a_mexican_state
+				add_idea = MEX_ASA_the_mexican_republic
+			}
+		}
 	}
 	option = { #carrasco
-		name = mexico.45.b
+		name = mexico.4502.b
 		create_country_leader = {# Nicolás Rodríguez Carrasco
 			name = "Nicolás Rodríguez Carrasco"
 			desc = "POLITICS_CARRASCO_DESC"
@@ -2861,6 +2530,15 @@ country_event = { # goldshirt leadership
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 			traits = {}
+		}
+		if = {
+			limit = {
+				has_idea = MEX_ASA_the_mexican_republic
+			}
+			swap_ideas = {
+				remove_idea = MEX_ASA_the_mexican_republic
+				add_idea = MEX_ASA_a_mexican_state
+			}
 		}
 	}
 }
@@ -2886,6 +2564,7 @@ country_event = { # garza speech
 			ideology = paternal_autocrat_subtype
 			traits = {}
 		}
+		remove_unit_leader = 93731
 	}
 	option = { # he lives
 		name = mexico.46.b
@@ -3494,7 +3173,7 @@ country_event = { # Elections of 1937
 			elections_allowed = yes
 		}
 		create_country_leader = {# Emergency Council
-			name = "Emergency Council"
+			name = "Constitutional Committee"
 			desc = "POLITICS_EMERGENCY_COUNCIL_DESC"
 			picture = "mexico_emergency_council.png"
 			expire = "1965.1.1"
@@ -3524,7 +3203,7 @@ country_event = { # Elections of 1937
 			MEX_Efrain_Gonzalez_Luna_sec_sco
 		}
 		create_country_leader = {# Emergency Council
-			name = "Emergency Council"
+			name = "Constitutional Committee"
 			desc = "POLITICS_EMERGENCY_COUNCIL_DESC"
 			picture = "mexico_emergency_council.png"
 			expire = "1965.1.1"
@@ -3554,7 +3233,7 @@ country_event = { # Elections of 1937
 			MEX_Hector_Perez_Martinez_sec_mli
 		}
 		create_country_leader = {# Emergency Council
-			name = "Emergency Council"
+			name = "Constitutional Committee"
 			desc = "POLITICS_EMERGENCY_COUNCIL_DESC"
 			picture = "mexico_emergency_council.png"
 			expire = "1965.1.1"
@@ -3581,7 +3260,7 @@ country_event = { # Elections of 1937
 			MEX_Primo_Villa_Michel_sec_sli
 		}
 		create_country_leader = {# Emergency Council
-			name = "Emergency Council"
+			name = "Constitutional Committee"
 			desc = "POLITICS_EMERGENCY_COUNCIL_DESC"
 			picture = "mexico_emergency_council.png"
 			expire = "1965.1.1"
@@ -3603,11 +3282,11 @@ country_event = { # Elections of 1937
 		}
 		remove_all_ministers = yes
 		add_ideas = MEX_Lazaro_Cardenas_hog_sde
-		add_ideas = MEX_Eduardo_Hay_for_sde
-		add_ideas = MEX_Efrain_Buenrostro_Ochoa_eco_sde
-		add_ideas = MEX_Ignacio_Garcia_Tellez_sec_sde
+		add_ideas = MEX_Isidro_Fabela_for_sde
+		add_ideas = MEX_Alberto_J_Pani_eco_sde
+		add_ideas = MEX_Miguel_Aleman_Valdes_sec_sde
 		create_country_leader = {# Emergency Council
-			name = "Emergency Council"
+			name = "Constitutional Committee"
 			desc = "POLITICS_EMERGENCY_COUNCIL_DESC"
 			picture = "mexico_emergency_council.png"
 			expire = "1965.1.1"
@@ -3663,18 +3342,14 @@ country_event = { # anti-Zapata laws
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = MEX
-		has_authoritarian_government = yes
-	}
-
-	mean_time_to_happen = {
-		months = 5
-	}
-
+	is_triggered_only = yes
+	
 	option = {
 		name = mexico.63.a
 		set_country_flag = MEX_native_law_repealled
+		hidden_effect = {
+			country_event = { id = mexico.64 days = 60 random_days = 60 }
+		}
 	}
 	option = {
 		name = mexico.63.b
@@ -3692,15 +3367,11 @@ country_event = { # The Yucatan revolt
 	title = mexico.64.t
 	desc = mexico.64.d
 
-	fire_only_once = yes
+	is_triggered_only = yes
 
 	trigger = {
-		tag = MEX
-		has_country_flag = MEX_native_law_repealled
-	}
-
-	mean_time_to_happen = {
-		months = 3
+		has_authoritarian_government = yes
+		is_subject = no
 	}
 
 	option = { # Bring order to the Yucatan
@@ -3915,6 +3586,75 @@ country_event = { # Elections of 1937
 			ruling_party = authoritarian_democrat
 			elections_allowed = yes
 		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
 	}
 	option = { # Social Conservative
 		name = mexico.81.b
@@ -3925,9 +3665,74 @@ country_event = { # Elections of 1937
 			ideology = social_conservative
 			popularity = 0.10
 		}
-		set_politics = {
-			ruling_party = social_conservative
-			elections_allowed = yes
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_conservative
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_conservative
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_conservative
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
 		}
 		set_country_flag = MEX_true_democracy
 		remove_all_ministers = yes
@@ -3947,9 +3752,74 @@ country_event = { # Elections of 1937
 			ideology = market_liberal
 			popularity = 0.10
 		}
-		set_politics = {
-			ruling_party = market_liberal
-			elections_allowed = yes
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = market_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = market_liberal
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = market_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = market_liberal
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = market_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = market_liberal
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
 		}
 		set_country_flag = MEX_true_democracy
 		remove_all_ministers = yes
@@ -3967,9 +3837,74 @@ country_event = { # Elections of 1937
 			ideology = social_liberal
 			popularity = 0.10
 		}
-		set_politics = {
-			ruling_party = social_liberal
-			elections_allowed = yes
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
 		}
 		remove_all_ministers = yes
 		add_ideas = {
@@ -3987,15 +3922,80 @@ country_event = { # Elections of 1937
 			ideology = social_democrat
 			popularity = 0.10
 		}
-		set_politics = {
-			ruling_party = social_democrat
-			elections_allowed = yes
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
 		}
 		remove_all_ministers = yes
 		add_ideas = MEX_Lazaro_Cardenas_hog_sde
-		add_ideas = MEX_Eduardo_Hay_for_sde
-		add_ideas = MEX_Efrain_Buenrostro_Ochoa_eco_sde
-		add_ideas = MEX_Ignacio_Garcia_Tellez_sec_sde
+		add_ideas = MEX_Isidro_Fabela_for_sde
+		add_ideas = MEX_Alberto_J_Pani_eco_sde
+		add_ideas = MEX_Miguel_Aleman_Valdes_sec_sde
 	}
 }
 country_event = { # Elections of 1942
@@ -4019,8 +4019,7 @@ country_event = { # Elections of 1942
 	}
 
 	option = { # Authoritarian Democrat
-		name = mexico.82.a
-		trigger = { NOT = { has_country_flag = MEX_PRUN_gone } }
+		name = mexico.81.a
 		hidden_effect = {
 			set_country_flag = MEX_the_1942_elections_happened
 		}
@@ -4028,22 +4027,82 @@ country_event = { # Elections of 1942
 			ideology = authoritarian_democrat
 			popularity = 0.10
 		}
-		create_country_leader = { # Juan Andreu Almazán
-			name = "Juan Andreu Almazán"
-			desc = "POLITICS_JUAN_ALMAZAN_DESC"
-			picture = "Portrait_Mexico_Juan_Almazan.png"
-			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
-			traits = {}
-		}
 		set_politics = {
 			ruling_party = authoritarian_democrat
 			elections_allowed = yes
 		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
 	}
-		
 	option = { # Social Conservative
-		name = mexico.82.b
+		name = mexico.81.b
 		hidden_effect = {
 			set_country_flag = MEX_the_1942_elections_happened
 		}
@@ -4051,9 +4110,74 @@ country_event = { # Elections of 1942
 			ideology = social_conservative
 			popularity = 0.10
 		}
-		set_politics = {
-			ruling_party = social_conservative
-			elections_allowed = yes
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_conservative
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_conservative
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_conservative
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
 		}
 		set_country_flag = MEX_true_democracy
 		remove_all_ministers = yes
@@ -4065,7 +4189,7 @@ country_event = { # Elections of 1942
 		}
 	}
 	option = { # Market Liberal
-		name = mexico.82.c
+		name = mexico.81.c
 		hidden_effect = {
 			set_country_flag = MEX_the_1942_elections_happened
 		}
@@ -4073,9 +4197,74 @@ country_event = { # Elections of 1942
 			ideology = market_liberal
 			popularity = 0.10
 		}
-		set_politics = {
-			ruling_party = market_liberal
-			elections_allowed = yes
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = market_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = market_liberal
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = market_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = market_liberal
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = market_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = market_liberal
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
 		}
 		set_country_flag = MEX_true_democracy
 		remove_all_ministers = yes
@@ -4086,19 +4275,81 @@ country_event = { # Elections of 1942
 			MEX_Hector_Perez_Martinez_sec_mli
 		}
 	}
-	
 	option = { # Social Liberal
-		name = mexico.82.e
-		hidden_effect = {
-			set_country_flag = MEX_the_1942_elections_happened
-		}
+		name = mexico.81.od
+		remove_all_ministers = yes
 		add_popularity = {
 			ideology = social_liberal
 			popularity = 0.10
 		}
-		set_politics = {
-			ruling_party = social_liberal
-			elections_allowed = yes
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
 		}
 		remove_all_ministers = yes
 		add_ideas = {
@@ -4107,25 +4358,89 @@ country_event = { # Elections of 1942
 			MEX_Eduardo_Aranzolo_eco_sli
 			MEX_Primo_Villa_Michel_sec_sli
 		}
-		set_country_flag = MEX_true_democracy
 	}
-	
+
 	option = { # Social Democrat
-		name = mexico.82.f
+		name = mexico.81.e
 		remove_all_ministers = yes
 		add_popularity = {
 			ideology = social_democrat
 			popularity = 0.10
 		}
-		set_politics = {
-			ruling_party = social_democrat
-			elections_allowed = yes
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
 		}
 		remove_all_ministers = yes
 		add_ideas = MEX_Lazaro_Cardenas_hog_sde
-		add_ideas = MEX_Eduardo_Hay_for_sde
-		add_ideas = MEX_Efrain_Buenrostro_Ochoa_eco_sde
-		add_ideas = MEX_Ignacio_Garcia_Tellez_sec_sde
+		add_ideas = MEX_Isidro_Fabela_for_sde
+		add_ideas = MEX_Alberto_J_Pani_eco_sde
+		add_ideas = MEX_Miguel_Aleman_Valdes_sec_sde
 	}
 }
 country_event = { # Elections of 1947
@@ -4149,8 +4464,7 @@ country_event = { # Elections of 1947
 	}
 
 	option = { # Authoritarian Democrat
-		name = mexico.83.a
-		trigger = { NOT = { has_country_flag = MEX_PRUN_gone } }
+		name = mexico.81.a
 		hidden_effect = {
 			set_country_flag = MEX_the_1942_elections_happened
 		}
@@ -4158,22 +4472,82 @@ country_event = { # Elections of 1947
 			ideology = authoritarian_democrat
 			popularity = 0.10
 		}
-		create_country_leader = { # Aquiles Elorduy
-			name = "Aquiles Elorduy"
-			desc = "POLITICS_AQUEILES_ELORDUY_DESC"
-			picture = "Portrait_Mexico_Aquiles_Elorduy.png"
-			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
-			traits = {}
-		}
 		set_politics = {
 			ruling_party = authoritarian_democrat
 			elections_allowed = yes
 		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
 	}
-	
 	option = { # Social Conservative
-		name = mexico.83.b
+		name = mexico.81.b
 		hidden_effect = {
 			set_country_flag = MEX_the_1942_elections_happened
 		}
@@ -4181,9 +4555,74 @@ country_event = { # Elections of 1947
 			ideology = social_conservative
 			popularity = 0.10
 		}
-		set_politics = {
-			ruling_party = social_conservative
-			elections_allowed = yes
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_conservative
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_conservative
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_conservative
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
 		}
 		set_country_flag = MEX_true_democracy
 		remove_all_ministers = yes
@@ -4195,7 +4634,7 @@ country_event = { # Elections of 1947
 		}
 	}
 	option = { # Market Liberal
-		name = mexico.83.c
+		name = mexico.81.c
 		hidden_effect = {
 			set_country_flag = MEX_the_1942_elections_happened
 		}
@@ -4203,9 +4642,74 @@ country_event = { # Elections of 1947
 			ideology = market_liberal
 			popularity = 0.10
 		}
-		set_politics = {
-			ruling_party = market_liberal
-			elections_allowed = yes
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = market_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = market_liberal
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = market_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = market_liberal
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = market_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = market_liberal
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
 		}
 		set_country_flag = MEX_true_democracy
 		remove_all_ministers = yes
@@ -4217,19 +4721,81 @@ country_event = { # Elections of 1947
 		}
 	}
 	option = { # Social Liberal
-		name = mexico.83.e
-		hidden_effect = {
-			set_country_flag = MEX_the_1942_elections_happened
-		}
+		name = mexico.81.od
+		remove_all_ministers = yes
 		add_popularity = {
 			ideology = social_liberal
 			popularity = 0.10
 		}
-		set_politics = {
-			ruling_party = social_liberal
-			elections_allowed = yes
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
 		}
-		set_country_flag = MEX_true_democracy
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
 		remove_all_ministers = yes
 		add_ideas = {
 			MEX_Manuel_Avila_Camacho_hog_sli
@@ -4238,22 +4804,88 @@ country_event = { # Elections of 1947
 			MEX_Primo_Villa_Michel_sec_sli
 		}
 	}
+
 	option = { # Social Democrat
-		name = mexico.83.f
+		name = mexico.81.e
 		remove_all_ministers = yes
 		add_popularity = {
 			ideology = social_democrat
 			popularity = 0.10
 		}
-		set_politics = {
-			ruling_party = social_democrat
-			elections_allowed = yes
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
 		}
 		remove_all_ministers = yes
 		add_ideas = MEX_Lazaro_Cardenas_hog_sde
-		add_ideas = MEX_Eduardo_Hay_for_sde
-		add_ideas = MEX_Efrain_Buenrostro_Ochoa_eco_sde
-		add_ideas = MEX_Ignacio_Garcia_Tellez_sec_sde
+		add_ideas = MEX_Isidro_Fabela_for_sde
+		add_ideas = MEX_Alberto_J_Pani_eco_sde
+		add_ideas = MEX_Miguel_Aleman_Valdes_sec_sde
 	}
 }
 
@@ -4264,20 +4896,67 @@ country_event = { # Palacio Legislativo Federal
 	desc = mexico.84.d
 
 	fire_only_once = yes
+	is_triggered_only = yes
 
 	trigger = {
 		tag = MEX
 		has_authoritarian_government = yes
 	}
-
-	mean_time_to_happen = {
-		months = 12
-	}
+	
 	option = { #
 		name = mexico.84.a
 		add_political_power = 5
 	}
 }
+
+country_event = { # military question
+	id = mexico.85
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.85"}
+	title = mexico.85.t
+	desc = mexico.85.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	
+	option = { # trial
+		name = mexico.85.a
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.1
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		add_political_power = 100
+		add_command_power = -50
+		remove_unit_leader = 93731
+	}
+	
+	option = { # do nothing
+		name = mexico.85.b
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.05
+		}
+		add_political_power = -100
+		add_command_power = 50
+	}
+}
+
 ### National Populist 100 - 124 ###
 country_event = { # Patria vs La Raza
 	id = mexico.100
@@ -4287,13 +4966,10 @@ country_event = { # Patria vs La Raza
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = MEX
-		has_government = national_populist
-	}
+	is_triggered_only = yes
 
-	mean_time_to_happen = {
-		months = 12
+	trigger = {
+		has_government = national_populist
 	}
 
 	option = { # We must appease these dissidents
@@ -4321,14 +4997,7 @@ country_event = { # Head of the Revolutionary Action Mexicanista
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = MEX
-		has_government = national_populist
-	}
-
-	mean_time_to_happen = {
-		months = 12
-	}
+	is_triggered_only = yes
 
 	option = { # the Secret Police Chief
 		name = mexico.101.a
@@ -4452,15 +5121,7 @@ country_event = { # Juventudes Sinarquistas
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = MEX
-		has_government = national_populist
-		has_completed_focus = MEX_synarchismo
-	}
-
-	mean_time_to_happen = {
-		months = 6
-	}
+	is_triggered_only = yes
 
 	option = { # The Youth are the future
 		name = mexico.106.a
@@ -4468,6 +5129,37 @@ country_event = { # Juventudes Sinarquistas
 			ideology = national_populist
 			popularity = 0.03
 		}
+	}
+}
+
+### Integralist/Synarchists Events ###
+
+country_event = { # republic or monarchy
+	id = mexico.108
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.108"}
+	title = mexico.108.t
+	desc = mexico.108.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { # maintain the republic
+		name = mexico.106.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.03
+		}
+		complete_national_focus = MEX_ASA_republic_maintained
+	}
+	
+	option = { # restore the monarchy
+		name = mexico.106.b
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.03
+		}
+		complete_national_focus = MEX_ASA_monarchy_restored
 	}
 }
 
@@ -4481,15 +5173,8 @@ country_event = { # Here's the Point is released
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = MEX
-		date > 1940.09.11
-	}
-
-	mean_time_to_happen = {
-		months = 1
-	}
-
+	is_triggered_only = yes
+	
 	option = { #
 		name = mexico.125.a
 		add_political_power = 5
@@ -4503,14 +5188,7 @@ country_event = { # María Candelaria is released
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = MEX
-		date > 1943.05.11
-	}
-
-	mean_time_to_happen = {
-		months = 1
-	}
+	is_triggered_only = yes
 
 	option = { #
 		name = mexico.126.a
@@ -4525,14 +5203,7 @@ country_event = { # Wild Flower is released
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = MEX
-		date > 1942.04.11
-	}
-
-	mean_time_to_happen = {
-		months = 1
-	}
+	is_triggered_only = yes
 
 	option = { #
 		name = mexico.127.a
@@ -4546,10 +5217,7 @@ country_event = { # Mexican cup 1939
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = MEX
-		date > 1939.06.25
-	}
+	is_triggered_only = yes
 
 	option = { #
 		name = mexico.128.a
@@ -4609,14 +5277,7 @@ country_event = { # El Santo enters the Ring
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = MEX
-		date > 1942.05.26
-	}
-
-	mean_time_to_happen = {
-		months = 12
-	}
+	is_triggered_only = yes
 
 	option = { #
 		name = mexico.131.a
@@ -4631,10 +5292,7 @@ country_event = { # 1937 Orizaba earthquake
 
 	fire_only_once = yes
 
-	trigger = {
-		date > 1937.07.26
-		owns_state = 477
-	}
+	is_triggered_only = yes
 
 	option = { #
 		name = mexico.132.a
@@ -4675,10 +5333,7 @@ country_event = { # 1940 El Centro earthquake
 
 	fire_only_once = yes
 
-	trigger = {
-		date > 1940.05.19
-		owns_state = 829
-	}
+	is_triggered_only = yes
 
 	option = { #
 		name = mexico.133.a
@@ -4719,11 +5374,8 @@ country_event = { # 1941 Colima earthquake
 
 	fire_only_once = yes
 
-	trigger = {
-		date > 1941.04.15
-		owns_state = 478
-	}
-
+	is_triggered_only = yes
+	
 	option = { #
 		name = mexico.134.a
 		random_list = {
@@ -4764,16 +5416,11 @@ country_event = { # Children of Morelia
 	fire_only_once = yes
 
 	trigger = {
-		tag = MEX
-		has_global_flag = USA_civil_war_over_flag
 		NOT = {
 			has_government = national_populist
 		}
 	}
-
-	mean_time_to_happen = {
-		months = 12
-	}
+	is_triggered_only = yes
 
 	option = { #
 		name = mexico.135.a
@@ -4788,14 +5435,7 @@ country_event = { # Bohemia Poblana
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = MEX
-		date > 1942.3.10
-	}
-
-	mean_time_to_happen = {
-		months = 12
-	}
+	is_triggered_only = yes
 
 	option = { #
 		name = mexico.136.a
@@ -4810,6 +5450,7 @@ country_event = { # goldshirt coup
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.141"}
 	title = mexico.141.t
 	desc = mexico.141.d
+	picture = GFX_report_event_MEX_gold_shirts_coup
 
 	fire_only_once = yes
 
@@ -4840,16 +5481,17 @@ country_event = { # goldshirt coup
 
 news_event = { # goldshirt coup news
 	id = mexico.142
-	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.141"}
-	title = mexico.141.t
-	desc = mexico.141.d
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.142"}
+	title = mexico.142.t
+	desc = mexico.142.d
+	picture = GFX_report_event_MEX_Gold_shirts_news
 
 	fire_only_once = yes
 
 	is_triggered_only = yes
 
 	option = { #
-		name = mexico.141.a
+		name = mexico.142.a
 		
 	}
 }
@@ -4859,14 +5501,15 @@ country_event = { # christ bois gone
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.143"}
 	title = mexico.143.t
 	desc = mexico.143.d
-
+	picture = GFX_report_event_MEX_hanged
+	
 	fire_only_once = yes
 
 	is_triggered_only = yes
 
 	option = { #
 		name = mexico.143.a
-		
+		remove_unit_leader = 104013
 	}
 }
 
@@ -4875,6 +5518,7 @@ country_event = { # hinterlands
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.144"}
 	title = mexico.144.t
 	desc = mexico.144.d
+	picture = GFX_report_event_MEX_forest
 
 	fire_only_once = yes
 
@@ -4891,6 +5535,7 @@ country_event = { # maria dead
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.145"}
 	title = mexico.145.t
 	desc = mexico.145.d
+	picture = GFX_report_event_MEX_maria
 
 	fire_only_once = yes
 
@@ -4906,6 +5551,7 @@ country_event = { # diaz
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.146"}
 	title = mexico.146.t
 	desc = mexico.146.d
+	picture = GFX_report_event_MEX_diaz_2
 
 	fire_only_once = yes
 
@@ -4927,6 +5573,7 @@ country_event = { # cedillo purge
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.147"}
 	title = mexico.147.t
 	desc = mexico.147.d
+	picture = GFX_report_event_MEX_mansion
 
 	fire_only_once = yes
 
@@ -4952,6 +5599,7 @@ country_event = { # Señora de las Sombras
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.148"}
 	title = mexico.148.t
 	desc = mexico.148.d
+	picture = GFX_report_event_MEX_nuestra_senora
 
 	fire_only_once = yes
 
@@ -4968,6 +5616,7 @@ country_event = { # factionalism
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.149"}
 	title = mexico.149.t
 	desc = mexico.149.d
+	picture = GFX_report_event_MEX_roque_carrasco
 
 	fire_only_once = yes
 
@@ -4984,6 +5633,7 @@ country_event = { # weakness
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.150"}
 	title = mexico.150.t
 	desc = mexico.150.d
+	picture = GFX_report_event_MEX_cactus
 
 	fire_only_once = yes
 
@@ -5005,6 +5655,7 @@ country_event = { # Religious Syncretism ascendant in Mexico
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.151"}
 	title = mexico.151.t
 	desc = mexico.151.d
+	picture = GFX_report_event_MEX_death_cult
 
 	fire_only_once = yes
 
@@ -5026,6 +5677,7 @@ country_event = { # santa murete
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.152"}
 	title = mexico.152.t
 	desc = mexico.152.d
+	picture = GFX_report_event_MEX_death_cult
 
 	fire_only_once = yes
 
@@ -5047,6 +5699,7 @@ country_event = { # diaz
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.153"}
 	title = mexico.153.t
 	desc = mexico.153.d
+	picture = GFX_report_event_MEX_diaz_2
 
 	fire_only_once = yes
 
@@ -5079,6 +5732,7 @@ country_event = { # living dead (rocque)
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.154"}
 	title = mexico.154.t
 	desc = mexico.154.d
+	picture = GFX_report_event_MEX_roque
 
 	fire_only_once = yes
 
@@ -5087,6 +5741,7 @@ country_event = { # living dead (rocque)
 	option = { #
 		name = mexico.154.a
 		set_country_flag = MEX_rocque_dead
+		remove_unit_leader = 120107
 		country_event = {
 			id = mexico.158
 			days = 20
@@ -5099,6 +5754,7 @@ country_event = { # living dead (carrasco)
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.154"}
 	title = mexico.155.t
 	desc = mexico.155.d
+	picture = GFX_report_event_MEX_carrasco
 
 	fire_only_once = yes
 
@@ -5106,6 +5762,7 @@ country_event = { # living dead (carrasco)
 
 	option = { #
 		name = mexico.155.a
+		remove_unit_leader = 120108
 		set_country_flag = MEX_carrasco_dead
 		hidden_effect = {
 			country_event = {
@@ -5121,6 +5778,7 @@ country_event = { # pni intro
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.156"}
 	title = mexico.156.t
 	desc = mexico.156.d
+	picture = GFX_report_event_MEX_abascal_vasconcelos
 
 	fire_only_once = yes
 
@@ -5137,6 +5795,7 @@ country_event = { # synarchist intro
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.157"}
 	title = mexico.157.t
 	desc = mexico.157.d
+	picture = GFX_report_event_MEX_urquiza_and_fatso
 
 	fire_only_once = yes
 
@@ -5153,6 +5812,7 @@ country_event = { # fire
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.158"}
 	title = mexico.158.t
 	desc = mexico.158.d
+	picture = GFX_report_event_MEX_fire_2
 
 	fire_only_once = yes
 
@@ -5174,6 +5834,7 @@ country_event = { # radio
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.159"}
 	title = mexico.159.t
 	desc = mexico.159.d
+	picture = GFX_report_event_MEX_diaz
 
 	fire_only_once = yes
 
@@ -5195,6 +5856,7 @@ country_event = { # maria iii speaks
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.160"}
 	title = mexico.160.t
 	desc = mexico.160.d
+	picture = GFX_report_event_MEX_arms
 
 	fire_only_once = yes
 
@@ -5216,6 +5878,7 @@ country_event = { # battle of veracruz
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.161"}
 	title = mexico.161.t
 	desc = mexico.161.d
+	picture = GFX_report_event_MEX_mexican_army
 
 	fire_only_once = yes
 
@@ -5247,6 +5910,7 @@ country_event = { # battle of veracruz, cedillo wins
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.162"}
 	title = mexico.162.t
 	desc = mexico.162.d
+	picture = GFX_report_event_MEX_fire_3
 
 	fire_only_once = yes
 
@@ -5254,7 +5918,10 @@ country_event = { # battle of veracruz, cedillo wins
 
 	option = { #
 		name = mexico.162.a
-		
+		swap_ideas = {
+			add_idea = MEX_anti_goldshirt_resistance_idea
+			remove_idea = MEX_anti_goldshirt_resistance_idea_greater
+		}
 	}
 }
 
@@ -5263,6 +5930,7 @@ country_event = { # battle of veracruz, maria wins
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.163"}
 	title = mexico.163.t
 	desc = mexico.163.d
+	picture = GFX_report_event_MEX_fire_1
 
 	fire_only_once = yes
 
@@ -5284,6 +5952,7 @@ country_event = { # fernando supports maria
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.164"}
 	title = mexico.164.t
 	desc = mexico.164.d
+	picture = GFX_report_event_MEX_maya
 
 	fire_only_once = yes
 
@@ -5305,6 +5974,7 @@ country_event = { # fernando supports maria
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.165"}
 	title = mexico.165.t
 	desc = mexico.165.d
+	picture = GFX_report_event_MEX_maya
 
 	fire_only_once = yes
 
@@ -5326,6 +5996,7 @@ country_event = { # seige of san luis
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.166"}
 	title = mexico.166.t
 	desc = mexico.166.d
+	picture = GFX_report_event_MEX_cathedral
 
 	fire_only_once = yes
 
@@ -5357,6 +6028,7 @@ country_event = { # seige of san luis, maria wins
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.167"}
 	title = mexico.167.t
 	desc = mexico.167.d
+	picture = GFX_report_event_MEX_fire_5
 
 	fire_only_once = yes
 
@@ -5378,6 +6050,7 @@ country_event = { # seige of san luis, cedillo wins
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.169"}
 	title = mexico.169.t
 	desc = mexico.169.d
+	picture = GFX_report_event_MEX_fire_4
 
 	fire_only_once = yes
 
@@ -5385,7 +6058,10 @@ country_event = { # seige of san luis, cedillo wins
 
 	option = { #
 		name = mexico.169.a
-		
+		swap_ideas = {
+			add_idea = MEX_anti_goldshirt_resistance_idea
+			remove_idea = MEX_anti_goldshirt_resistance_idea_greater
+		}
 	}
 }
 
@@ -5394,6 +6070,7 @@ country_event = { # knights of sonora
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.170"}
 	title = mexico.170.t
 	desc = mexico.170.d
+	picture = GFX_report_event_MEX_cristero
 
 	fire_only_once = yes
 
@@ -5415,6 +6092,7 @@ country_event = { # battle for mexico city
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.171"}
 	title = mexico.171.t
 	desc = mexico.171.d
+	picture = GFX_report_event_MEX_santa_muerte_2
 
 	fire_only_once = yes
 
@@ -5446,6 +6124,7 @@ country_event = { # battle for mexico city, cedillo wins
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.172"}
 	title = mexico.172.t
 	desc = mexico.172.d
+	picture = GFX_report_event_MEX_santa_muerte
 
 	fire_only_once = yes
 
@@ -5453,7 +6132,10 @@ country_event = { # battle for mexico city, cedillo wins
 
 	option = { #
 		name = mexico.172.a
-		
+		swap_ideas = {
+			add_idea = MEX_anti_goldshirt_resistance_idea
+			remove_idea = MEX_anti_goldshirt_resistance_idea_greater
+		}
 	}
 }
 
@@ -5462,6 +6144,7 @@ country_event = { # battle for mexico city, maria wins
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.173"}
 	title = mexico.173.t
 	desc = mexico.173.d
+	picture = GFX_report_event_MEX_dead
 
 	fire_only_once = yes
 
@@ -5484,13 +6167,28 @@ country_event = { # battle for mexico city, maria wins
 		}
 		set_cosmetic_tag = MEX_HME
 		create_field_marshal = {
-			name = "Maria III"
-			portrait_path = "gfx/leaders/MEX/Portrait_Enrique_Gorostieta_Militar.png"
+			name = "María III"
+			portrait_path = "gfx/leaders/MEX/Portrait_Maria_III_Militar.png"
 			traits = {
 				politically_connected
 				media_personality
 				trait_reckless
 				offensive_doctrine
+				inspirational_leader
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
+		}
+		create_corps_commander = {
+			name = "Jose Reyes Vega"
+			portrait_path = "gfx/leaders/MEX/Portrait_Jose_Reyes_Vega.png"
+			traits = {
+				politically_connected
+				media_personality
+				trait_reckless
 				inspirational_leader
 			}
 			skill = 2
@@ -5505,6 +6203,32 @@ country_event = { # battle for mexico city, maria wins
 			}
 			set_nationality = XXA
 		}
+		load_focus_tree = mexican_focus
+	}
+}
+
+country_event = { # two branches
+	id = mexico.174
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.174"}
+	title = mexico.174.t
+	desc = mexico.174.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { # maint govt
+		name = mexico.174.a
+		add_political_power = -50
+		add_stability = 0.05
+		complete_national_focus = MEX_ASA_the_two_branches
+	}
+	
+	option = { # all power
+		name = mexico.174.b
+		add_political_power = 50
+		add_stability = -0.05
+		complete_national_focus = MEX_ASA_all_the_power_to_the_executive
 	}
 }
 
@@ -5790,7 +6514,7 @@ country_event = { # America wants the Soc-Dems to be in charge(Mexico)
 			hidden_effect = {
 				add_ideas = MEX_Manuel_Avila_Camacho_hog_sde
 				add_ideas = MEX_Jaime_Torres_Bodet_for_sde
-				add_ideas = MEX_Efrain_Buenrostro_Ochoa_eco_sde
+				add_ideas = MEX_Alberto_J_Pani_eco_sde
 				add_ideas = MEX_Miguel_Aleman_Valdes_sec_sde
 			}
 			set_politics = {
@@ -6108,12 +6832,14 @@ country_event = {
 		ai_chance = { factor = 1}
 		add_stability = 0.1
 		country_event = { days = 14 id = mexicodemocratic.4}
+		add_popularity = { ideology = national_populist popularity = -0.05}
 	}
 	option = {
 		name = mexicodemocratic.3.b
 		ai_chance = { factor = 1}
 		add_stability = 0.15
 		country_event = { days = 14 id = mexicodemocratic.4}
+		add_popularity = { ideology = national_populist popularity = -0.1}
 	}
 }
 
@@ -6135,7 +6861,7 @@ country_event = {
 	option = {
 		name = mexicodemocratic.4.b
 		ai_chance = { factor = 1}
-		remove_ideas = MEX_Campesino_Wars
+		remove_ideas = MEX_campesinos_war_idea
 		add_popularity = { ideology = radical_socialist popularity = 0.05}
 		add_popularity = { ideology = syndicalist popularity = 0.05}
 		add_popularity = { ideology = totalist popularity = 0.05}
@@ -6156,13 +6882,13 @@ country_event = {
 		name = mexicodemocratic.5.a
 		ai_chance = { factor = 1}
 		army_experience = 25
-		add_war_support = 10
+		add_war_support = 0.10
 		country_event = { days = 14 id = mexicodemocratic.6}
 	}
 	option = {
 		name = mexicodemocratic.5.b
 		ai_chance = { factor = 1}
-		add_stability = 5
+		add_stability = 0.5
 		army_experience = 10 
 		country_event = { days = 14 id = mexicodemocratic.6}
 	}
@@ -6663,19 +7389,53 @@ country_event = {
 	option = {
 		name = mexicodemocratic.16.a
 		ai_chance = { factor = 1}
-		set_politics = {ruling_party = authoritarian_democrat elections_allowed = no}
-		country_event = { days = 1460 = mexico.81}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 55
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		effect_tooltip = {
+			set_politics = {
+				ruling_party = authoritarian_democrat
+				elections_allowed = yes
+				election_frequency = 55
+			}
+		}
+		hidden_effect = { country_event = { days = 1460 id = mexico.81} }
 		add_ideas = MEX_Juan_Andreu_Almazan_hog_ade
 		add_ideas = MEX_Victorino_Barcenas_for_ade
 		add_ideas = MEX_Pastor_Castro_Tinoco_eco_ade
-		add_ideas = MEX_Fernando_Rodarte_Fernandez_sec_ade
-		add_popularity = { ideology = authoritarian_democrat popularity = 0.2}
+		add_ideas = MEX_Efrain_Gonzalez_Luna_sec_ade
+		add_popularity = { ideology = authoritarian_democrat popularity = 0.05}
 	}
 	option = {
 		name = mexicodemocratic.16.b
 		ai_chance = { factor = 1}
-		set_politics = {ruling_party = social_conservative elections_allowed = no}
-		country_event = { days = 1460 = mexico.81}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_conservative
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 55
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		effect_tooltip = {
+			set_politics = {
+				ruling_party = social_conservative
+				elections_allowed = yes
+				election_frequency = 55
+			}
+		}
+		hidden_effect = { country_event = { days = 1460 id = mexico.81} }
 		remove_all_ministers = yes
 		add_ideas = {
 			MEX_Manuel_Gomez_Morin_hog_sco
@@ -6683,13 +7443,30 @@ country_event = {
 			MEX_Luis_Montes_de_Oca_eco_sco
 			MEX_Efrain_Gonzalez_Luna_sec_sco
 		}
-		add_popularity = { ideology = social_conservative popularity = 0.2}
+		add_popularity = { ideology = social_conservative popularity = 0.05}
 	}
 	option = {
 		name = mexicodemocratic.16.c
 		ai_chance = { factor = 1}
-		set_politics = {ruling_party = market_liberal elections_allowed = no}
-		country_event = { days = 1460 = mexico.81}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = market_liberal
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 55
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		effect_tooltip = {
+			set_politics = {
+				ruling_party = market_liberal
+				elections_allowed = yes
+				election_frequency = 55
+			}
+		}
+		hidden_effect = { country_event = { days = 1460 id = mexico.81} }
 		remove_all_ministers = yes
 		add_ideas = {
 			MEX_Miguel_Valdez_hog_mli
@@ -6697,13 +7474,30 @@ country_event = {
 			MEX_Antonio_Martinez_Baez_eco_mli
 			MEX_Hector_Perez_Martinez_sec_mli
 		}
-		add_popularity = { ideology = market_liberal popularity = 0.2}
+		add_popularity = { ideology = market_liberal popularity = 0.05}
 	}
 	option = {
 		name = mexicodemocratic.16.d
 		ai_chance = { factor = 1}
-		set_politics = {ruling_party = social_liberal elections_allowed = no}
-		country_event = { days = 1460 = mexico.81}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_liberal
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 55
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		effect_tooltip = {
+			set_politics = {
+				ruling_party = social_liberal
+				elections_allowed = yes
+				election_frequency = 55
+			}
+		}
+		hidden_effect = { country_event = { days = 1460 id = mexico.81} }
 		remove_all_ministers = yes
 		add_ideas = {
 			MEX_Manuel_Avila_Camacho_hog_sli
@@ -6711,19 +7505,36 @@ country_event = {
 			MEX_Eduardo_Aranzolo_eco_sli
 			MEX_Primo_Villa_Michel_sec_sli
 		}
-		add_popularity = { ideology = social_liberal popularity = 0.2}
+		add_popularity = { ideology = social_liberal popularity = 0.05}
 	}
 	option = {
 		name = mexicodemocratic.16.e
 		ai_chance = { factor = 1}
-		set_politics = {ruling_party = social_democrat elections_allowed = no}
-		country_event = { days = 1460 = mexico.81}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_democrat
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 55
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		effect_tooltip = {
+			set_politics = {
+				ruling_party = social_democrat
+				elections_allowed = yes
+				election_frequency = 55
+			}
+		}
+		hidden_effect = { country_event = { days = 1460 id = mexico.81} }
 		remove_all_ministers = yes
 		add_ideas = MEX_Lazaro_Cardenas_hog_sde
-		add_ideas = MEX_Eduardo_Hay_for_sde
-		add_ideas = MEX_Efrain_Buenrostro_Ochoa_eco_sde
-		add_ideas = MEX_Ignacio_Garcia_Tellez_sec_sde
-		add_popularity = { ideology = social_democrat popularity = 0.2}
+		add_ideas = MEX_Isidro_Fabela_for_sde
+		add_ideas = MEX_Alberto_J_Pani_eco_sde
+		add_ideas = MEX_Miguel_Aleman_Valdes_sec_sde
+		add_popularity = { ideology = social_democrat popularity = 0.05}
 	}
 }
 
@@ -6742,19 +7553,53 @@ country_event = {
 	option = {
 		name = mexicodemocratic.17.a
 		ai_chance = { factor = 1}
-		set_politics = {ruling_party = authoritarian_democrat elections_allowed = no}
-		country_event = { days = 1825 = mexico.81}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 60
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		effect_tooltip = {
+			set_politics = {
+				ruling_party = authoritarian_democrat
+				elections_allowed = yes
+				election_frequency = 60
+			}
+		}
+		hidden_effect = { country_event = { days = 1825 id = mexico.81} }
 		add_ideas = MEX_Juan_Andreu_Almazan_hog_ade
 		add_ideas = MEX_Victorino_Barcenas_for_ade
 		add_ideas = MEX_Pastor_Castro_Tinoco_eco_ade
-		add_ideas = MEX_Fernando_Rodarte_Fernandez_sec_ade
-		add_popularity = { ideology = authoritarian_democrat popularity = 0.2}
+		add_ideas = MEX_Efrain_Gonzalez_Luna_sec_ade
+		add_popularity = { ideology = authoritarian_democrat popularity = 0.05}
 	}
 	option = {
 		name = mexicodemocratic.17.b
 		ai_chance = { factor = 1}
-		set_politics = {ruling_party = social_conservative elections_allowed = no}
-		country_event = { days = 1825 = mexico.81}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_conservative
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 60
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		effect_tooltip = {
+			set_politics = {
+				ruling_party = social_conservative
+				elections_allowed = yes
+				election_frequency = 60
+			}
+		}
+		hidden_effect = { country_event = { days = 1825 id = mexico.81} }
 		remove_all_ministers = yes
 		add_ideas = {
 			MEX_Manuel_Gomez_Morin_hog_sco
@@ -6762,13 +7607,30 @@ country_event = {
 			MEX_Luis_Montes_de_Oca_eco_sco
 			MEX_Efrain_Gonzalez_Luna_sec_sco
 		}
-		add_popularity = { ideology = social_conservative popularity = 0.2}
+		add_popularity = { ideology = social_conservative popularity = 0.05}
 	}
 	option = {
 		name = mexicodemocratic.17.c
 		ai_chance = { factor = 1}
-		set_politics = {ruling_party = market_liberal elections_allowed = no}
-		country_event = { days = 1825 = mexico.81}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = market_liberal
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 60
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		effect_tooltip = {
+			set_politics = {
+				ruling_party = market_liberal
+				elections_allowed = yes
+				election_frequency = 60
+			}
+		}
+		hidden_effect = { country_event = { days = 1825 id = mexico.81} }
 		remove_all_ministers = yes
 		add_ideas = {
 			MEX_Miguel_Valdez_hog_mli
@@ -6776,13 +7638,30 @@ country_event = {
 			MEX_Antonio_Martinez_Baez_eco_mli
 			MEX_Hector_Perez_Martinez_sec_mli
 		}
-		add_popularity = { ideology = market_liberal popularity = 0.2}
+		add_popularity = { ideology = market_liberal popularity = 0.05}
 	}
 	option = {
 		name = mexicodemocratic.17.d
 		ai_chance = { factor = 1}
-		set_politics = {ruling_party = social_liberal elections_allowed = no}
-		country_event = { days = 1825 = mexico.81}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_liberal
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 60
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		effect_tooltip = {
+			set_politics = {
+				ruling_party = social_liberal
+				elections_allowed = yes
+				election_frequency = 60
+			}
+		}
+		hidden_effect = { country_event = { days = 1825 id = mexico.81} }
 		remove_all_ministers = yes
 		add_ideas = {
 			MEX_Manuel_Avila_Camacho_hog_sli
@@ -6790,18 +7669,35 @@ country_event = {
 			MEX_Eduardo_Aranzolo_eco_sli
 			MEX_Primo_Villa_Michel_sec_sli
 		}
-		add_popularity = { ideology = social_liberal popularity = 0.2}
+		add_popularity = { ideology = social_liberal popularity = 0.05}
 	}
 	option = {
 		name = mexicodemocratic.17.e
 		ai_chance = { factor = 1}
-		set_politics = {ruling_party = social_democrat elections_allowed = no}
-		country_event = { days = 1825 = mexico.81}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_democrat
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 60
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		effect_tooltip = {
+			set_politics = {
+				ruling_party = social_democrat
+				elections_allowed = yes
+				election_frequency = 60
+			}
+		}
+		hidden_effect = { country_event = { days = 1825 id = mexico.81} }
 		add_ideas = MEX_Lazaro_Cardenas_hog_sde
-		add_ideas = MEX_Eduardo_Hay_for_sde
-		add_ideas = MEX_Efrain_Buenrostro_Ochoa_eco_sde
-		add_ideas = MEX_Ignacio_Garcia_Tellez_sec_sde
-		add_popularity = { ideology = social_democrat popularity = 0.2}
+		add_ideas = MEX_Isidro_Fabela_for_sde
+		add_ideas = MEX_Alberto_J_Pani_eco_sde
+		add_ideas = MEX_Miguel_Aleman_Valdes_sec_sde
+		add_popularity = { ideology = social_democrat popularity = 0.05}
 	}
 }
 ##Event: Elections 1936
@@ -6819,19 +7715,53 @@ country_event = {
 	option = {
 		name = mexicodemocratic.18.a
 		ai_chance = { factor = 1}
-		set_politics = {ruling_party = authoritarian_democrat elections_allowed = no}
-		country_event = { days = 2190 = mexico.81}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 75
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		effect_tooltip = {
+			set_politics = {
+				ruling_party = authoritarian_democrat
+				elections_allowed = yes
+				election_frequency = 75
+			}
+		}
+		country_event = { days = 2190 id = mexico.81}
 		add_ideas = MEX_Juan_Andreu_Almazan_hog_ade
 		add_ideas = MEX_Victorino_Barcenas_for_ade
 		add_ideas = MEX_Pastor_Castro_Tinoco_eco_ade
-		add_ideas = MEX_Fernando_Rodarte_Fernandez_sec_ade
-		add_popularity = { ideology = authoritarian_democrat popularity = 0.2}
+		add_ideas = MEX_Efrain_Gonzalez_Luna_sec_ade
+		add_popularity = { ideology = authoritarian_democrat popularity = 0.05}
 	}
 	option = {
 		name = mexicodemocratic.18.b
 		ai_chance = { factor = 1}
-		set_politics = {ruling_party = social_conservative elections_allowed = no}
-		country_event = { days = 2190 = mexico.81}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_conservative
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 75
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		effect_tooltip = {
+			set_politics = {
+				ruling_party = social_conservative
+				elections_allowed = yes
+				election_frequency = 75
+			}
+		}
+		country_event = { days = 2190 id = mexico.81}
 		remove_all_ministers = yes
 		add_ideas = {
 			MEX_Manuel_Gomez_Morin_hog_sco
@@ -6839,13 +7769,30 @@ country_event = {
 			MEX_Luis_Montes_de_Oca_eco_sco
 			MEX_Efrain_Gonzalez_Luna_sec_sco
 		}
-		add_popularity = { ideology = social_conservative popularity = 0.2}
+		add_popularity = { ideology = social_conservative popularity = 0.05}
 	}
 	option = {
 		name = mexicodemocratic.18.c
 		ai_chance = { factor = 1}
-		set_politics = {ruling_party = market_liberal elections_allowed = no}
-		country_event = { days = 2190 = mexico.81}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = market_liberal
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 75
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		effect_tooltip = {
+			set_politics = {
+				ruling_party = market_liberal
+				elections_allowed = yes
+				election_frequency = 75
+			}
+		}
+		country_event = { days = 2190 id = mexico.81}
 		remove_all_ministers = yes
 		add_ideas = {
 			MEX_Miguel_Valdez_hog_mli
@@ -6853,13 +7800,30 @@ country_event = {
 			MEX_Antonio_Martinez_Baez_eco_mli
 			MEX_Hector_Perez_Martinez_sec_mli
 		}
-		add_popularity = { ideology = market_liberal popularity = 0.2}
+		add_popularity = { ideology = market_liberal popularity = 0.05}
 	}
 	option = {
 		name = mexicodemocratic.18.d
 		ai_chance = { factor = 1}
-		set_politics = {ruling_party = social_liberal elections_allowed = no}
-		country_event = { days = 2190 = mexico.81}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_liberal
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 75
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		effect_tooltip = {
+			set_politics = {
+				ruling_party = social_liberal
+				elections_allowed = yes
+				election_frequency = 75
+			}
+		}
+		country_event = { days = 2190 id = mexico.81}
 		remove_all_ministers = yes
 		add_ideas = {
 			MEX_Manuel_Avila_Camacho_hog_sli
@@ -6867,18 +7831,35 @@ country_event = {
 			MEX_Eduardo_Aranzolo_eco_sli
 			MEX_Primo_Villa_Michel_sec_sli
 		}
-		add_popularity = { ideology = social_liberal popularity = 0.2}
+		add_popularity = { ideology = social_liberal popularity = 0.05}
 	}
 	option = {
 		name = mexicodemocratic.18.e
 		ai_chance = { factor = 1}
-		set_politics = {ruling_party = social_democrat elections_allowed = no}
-		country_event = { days = 2190 = mexico.81}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_democrat
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 75
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		effect_tooltip = {
+			set_politics = {
+				ruling_party = social_democrat
+				elections_allowed = yes
+				election_frequency = 75
+			}
+		}
+		country_event = { days = 2190 id = mexico.81}
 		add_ideas = MEX_Lazaro_Cardenas_hog_sde
-		add_ideas = MEX_Eduardo_Hay_for_sde
-		add_ideas = MEX_Efrain_Buenrostro_Ochoa_eco_sde
-		add_ideas = MEX_Ignacio_Garcia_Tellez_sec_sde
-		add_popularity = { ideology = social_democrat popularity = 0.2}
+		add_ideas = MEX_Isidro_Fabela_for_sde
+		add_ideas = MEX_Alberto_J_Pani_eco_sde
+		add_ideas = MEX_Miguel_Aleman_Valdes_sec_sde
+		add_popularity = { ideology = social_democrat popularity = 0.05}
 	}
 }
 
@@ -6894,8 +7875,13 @@ country_event = {
 	option = {
 		name = mexicodemocratic.19.a
 		ai_chance = { factor = 1}
-		country_event = { days = 28 = mexicodemocratic.20 }
-		add_popularity = { ideology = authoritarian_democrat popularity = 0.05}
+		country_event = { days = 5 id = mexicodemocratic.20 }
+		add_popularity = { ideology = authoritarian_democrat popularity = 0.02}
+		set_party_name = {
+			name = MEX_DL_authoritarian_democrat_party
+			long_name = MEX_DL_authoritarian_democrat_party_long
+			ideology = authoritarian_democrat
+		}
 	}
 }
 
@@ -6911,8 +7897,13 @@ country_event = {
 	option = {
 		name = mexicodemocratic.20.a
 		ai_chance = { factor = 1}
-		add_popularity = { ideology = social_conservative popularity = 0.05}
-		country_event = { days = 28 = mexicodemocratic.21 }
+		add_popularity = { ideology = social_conservative popularity = 0.02}
+		country_event = { days = 5 id = mexicodemocratic.21 }
+		set_party_name = {
+			name = MEX_DL_social_conservative_party
+			long_name = MEX_DL_social_conservative_party_long
+			ideology = social_conservative
+		}
 	}
 }
 
@@ -6928,8 +7919,13 @@ country_event = {
 	option = {
 		name = mexicodemocratic.21.a
 		ai_chance = { factor = 1}
-		add_popularity = { ideology = market_liberal popularity = 0.05}
-		country_event = { days = 28 = mexicodemocratic.22 }
+		add_popularity = { ideology = market_liberal popularity = 0.02}
+		country_event = { days = 5 id = mexicodemocratic.22 }
+		set_party_name = {
+			name = MEX_DL_market_liberal_party
+			long_name = MEX_DL_market_liberal_party_long
+			ideology = market_liberal
+		}
 	}
 }
 
@@ -6945,8 +7941,13 @@ country_event = {
 	option = {
 		name = mexicodemocratic.22.a
 		ai_chance = { factor = 1}
-		add_popularity = { ideology = social_liberal popularity = 0.05}
-		country_event = { days = 28 = mexicodemocratic.23 }
+		add_popularity = { ideology = social_liberal popularity = 0.02}
+		country_event = { days = 5 id = mexicodemocratic.23 }
+		set_party_name = {
+			name = MEX_DL_social_liberal_party
+			long_name = MEX_DL_social_liberal_party_long
+			ideology = social_liberal
+		}
 	}
 }
 
@@ -6962,25 +7963,11 @@ country_event = {
 	option = {
 		name = mexicodemocratic.23.a
 		ai_chance = { factor = 1}
-		add_popularity = { ideology = social_democrat popularity = 0.05}
-		hidden_effect = {
-			if = {
-				limit = {
-					NOT = {
-						has_government = social_democrat
-					}
-				}
-			
-				create_country_leader = { # Lazaro Cardenas
-					name = "Lázaro Cárdenas"
-					desc = "POLITICS_LAZARO_CARDENAS_DESC"
-					picture = "Portrait_MEX_Lazaro_Cardenas.png"
-					expire = "1965.1.1"
-					ideology = social_democrat_subtype
-					traits = {}
-				}
-			}
-			clr_country_flag = soc_dems_are_socialists
+		add_popularity = { ideology = social_democrat popularity = 0.02}
+		set_party_name = {
+			name = MEX_social_democrat_party
+			long_name = MEX_social_democrat_party_long
+			ideology = social_democrat
 		}
 	}
 }
@@ -7511,7 +8498,7 @@ country_event = { #####Americans refuse
 			target = USA
 			type = annex_everything
 		}
-		set_country_flag = mexico_req_reconquista
+		set_country_flag = MEX_Reconquista
 		add_political_power = 100
 		USA = {
 			country_event = {
@@ -7580,7 +8567,7 @@ country_event = { ##### Send Peace offer?
 	trigger = {
 		tag = MEX
 		has_war_with = USA
-		has_completed_focus = mexico_req_Reconquista
+		has_completed_focus = MEX_Reconquista
 		NOT = { has_country_flag = MEX_asked_USA_for_peace }
 		controls_all_owned_states = yes
 		USA = { surrender_progress > 0.50 }
@@ -7777,7 +8764,7 @@ country_event = { ##### Americans Accept
 		ai_chance = {
 			factor = 100
 		}
-		clr_country_flag = mexico_req_reconquista
+		clr_country_flag = MEX_Reconquista
 		add_political_power = 100
 		USA = {
 			white_peace_with_ROOT = yes
@@ -7838,7 +8825,7 @@ country_event = { ##### Send Peace offer?
 	trigger = {
 		tag = MEX
 		has_war_with = USA
-		has_completed_focus = mexico_req_Reconquista
+		has_completed_focus = MEX_Reconquista
 		NOT = { has_country_flag = MEX_asked_USA_for_peace }
 		controls_all_owned_states = yes
 		USA = { surrender_progress > 0.50 }
@@ -8054,7 +9041,7 @@ country_event = { ##### Americans Accept
 		ai_chance = {
 			factor = 100
 		}
-		clr_country_flag = mexico_req_reconquista
+		clr_country_flag = MEX_Reconquista
 		add_political_power = 100
 		USA = {
 			white_peace_with_ROOT = yes
@@ -8883,7 +9870,7 @@ country_event = {
 			factor = 100
 		}
 		hidden_effect = {
-		set_global_flag = TXS_mexico_req_WAR
+		set_global_flag = TXS_MEX_WAR
 		TXS = {
 			transfer_state = 375
 			transfer_state = 1096
@@ -8939,7 +9926,7 @@ country_event = {
 	option = {
 		trigger = {
 			NOT = {
-				has_country_flag = Junta
+				has_government = paternal_autocrat
 			}
 		}
 		name = mexico_req.52.c
@@ -9087,7 +10074,7 @@ country_event = { ######Women in the North
 			factor = 56
 		}
 		add_political_power = -160
-		add_ideas = mexico_req_Womans
+		add_ideas = MEX_Womans
 
 	}
 	option = { ####Voting in Local Assemblies

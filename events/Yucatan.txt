@@ -12,7 +12,7 @@ country_event = { # New Constitution
 	immediate = {log = "[GetDateText]: [Root.GetName]: event yucatan.1"}
 	title = yucatan.1.t
 	desc = yucatan.1.d
-	picture = diplomacy2
+	picture = GFX_report_event_diplomacy2
 
 	is_triggered_only = yes
 
@@ -25,7 +25,7 @@ country_event = { # The Land Issue
 	immediate = {log = "[GetDateText]: [Root.GetName]: event yucatan.2"}
 	title = yucatan.2.t
 	desc = yucatan.2.d
-	picture = diplomacy2
+	picture = GFX_report_event_diplomacy2
 
 	is_triggered_only = yes
 
@@ -44,7 +44,7 @@ country_event = { # Mexican Spies
 	immediate = {log = "[GetDateText]: [Root.GetName]: event yucatan.3"}
 	title = yucatan.3.t
 	desc = yucatan.3.d
-	picture = diplomacy2
+	picture = GFX_report_event_diplomacy2
 
 	is_triggered_only = yes
 
@@ -231,7 +231,7 @@ country_event = { # Chan Santa Cruz Rebellion brewing
 	immediate = {log = "[GetDateText]: [Root.GetName]: event yucatan.22"}
 	title = yucatan.22.t
 	desc = yucatan.22.d
-	picture = diplomacy2
+	picture = GFX_report_event_diplomacy2
 
 	trigger = {
 		NOT = {
@@ -261,7 +261,7 @@ country_event = { # Rebellion Begins!
 	immediate = {log = "[GetDateText]: [Root.GetName]: event yucatan.22"}
 	title = yucatan.23.t
 	desc = yucatan.23.d
-	picture = diplomacy2
+	picture = GFX_report_event_diplomacy2
 
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -310,5 +310,92 @@ country_event = { # Hidden event to unlock Yucatan focuses
 	
 	option = {
 		set_country_flag = YUC_indepedence_war_over
+	}
+}
+
+country_event = { # Join Central America - CEN
+	id = yucatan.28
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yucatan.28 FROM = [From.GetName]" }
+	title = yucatan.28.t
+	desc = yucatan.28.d
+	picture = GFX_report_event_ELS_meeting
+
+	is_triggered_only = yes
+
+	option = { # let them in!
+		name = yucatan.28.a
+		ai_chance = {
+			base = 90
+		}
+		YUC = {
+			country_event = {
+				id = yucatan.29
+				days = 1
+			}
+		}
+		add_political_power = -25
+	}
+	option = { # Nope
+		name = yucatan.28.b
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+country_event = { # We are accepted into Centroamerica
+	id = yucatan.29
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yucatan.29 FROM = [From.GetName]" }
+	title = yucatan.29.t
+	desc = yucatan.29.d
+	picture = GFX_report_event_ELS_meeting
+
+	is_triggered_only = yes
+
+	option = { # yay
+		name = yucatan.29.a
+		CEN = {
+			country_event = {
+				id = yucatan.30
+			}
+		}
+	}
+}
+
+country_event = { # YUC Joins
+	id = yucatan.30
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yucatan.30 FROM = [From.GetName]" }
+	title = yucatan.30.t
+	desc = yucatan.30.d
+	picture = GFX_report_event_ELS_meeting
+
+	is_triggered_only = yes
+
+	option = { # yay
+		name = yucatan.30.a
+		annex_country = { target = YUC transfer_troops = yes }
+		add_state_core = 474
+		hidden_effect = {
+			create_field_marshal = {
+				name = "Salvador Alvarado"
+				portrait_path = "gfx/leaders/YUC/Portrait_Salvador_Alvarado.png"
+				traits = { organizer old_guard }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 3
+				logistics_skill = 1
+			}
+			create_corps_commander = {
+				name = "Manuel Castilla Brito"
+				portrait_path = "gfx/leaders/YUC/Portrait_Manuel_Castilla_Brito.png"
+				traits = { trickster defensive_doctrine politically_connected }
+				skill = 3
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 1
+				logistics_skill = 2
+			}
+		}
 	}
 }

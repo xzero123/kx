@@ -18,13 +18,17 @@ focus_tree = {
 		icon = GFX_goal_MEX_DL_Victorious
 		x = 20
 		y = 0
+		bypass = {
+			always = yes
+		}
 		cost = 2
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_dl_victorious"
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	
@@ -35,14 +39,18 @@ focus_tree = {
 		relative_position_id = MEX_DL_dl_victorious
 		x = 0
 		y = 1
-		cost = 2
+		cost = 1
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_DL_dl_victorious }
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_military_question"
+			country_event = {
+				id = mexico.85
+				days = 2
+			}
 		}
 	}
 	
@@ -53,7 +61,7 @@ focus_tree = {
 		relative_position_id = MEX_DL_dl_victorious
 		x = -2
 		y = 2
-		cost = 2
+		cost = 1
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_DL_military_question }
 		mutually_exclusive = { focus = MEX_DL_maintain_the_presidency }
@@ -61,7 +69,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_restore_the_monarchy"
 			set_country_flag = MEX_DEM_restored_monarchy
 			custom_effect_tooltip = MEX_monarchy_option
 		}
@@ -81,7 +89,25 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_constitutional_monarchy"
+			add_ideas = MEX_DL_constitutional_monarchy
+			add_stability = 0.03
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
 		}
 	}
 
@@ -99,7 +125,12 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_a_new_constitution"
+			swap_ideas = {
+				remove_idea = MEX_DL_constitutional_monarchy
+				add_idea = MEX_DL_a_new_constitution
+			}
+			add_political_power = 50
 		}
 	}
 	
@@ -117,7 +148,14 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_the_kingdom_of_mexico"
+			swap_ideas = {
+				remove_idea = MEX_DL_a_new_constitution
+				add_idea = MEX_DL_the_kingdom_of_mexico
+			}
+			add_stability = 0.05
+			add_war_support = 0.05
+			add_political_power = 50
 		}
 	}
 	
@@ -135,7 +173,17 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_term_limits"
+			add_political_power = 100
+			add_stability = 0.05
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.05
+			}
 		}
 	}
 
@@ -153,7 +201,29 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_apolitical_judges"
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+			add_political_power = -50
+			add_stability = 0.02
 		}
 	}
 	
@@ -171,7 +241,31 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_mass_exiling"
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.05
+			}
+			add_political_power = 50
+			add_stability = -0.02
+			add_manpower = -1500
+			hidden_effect = {
+				subtract_from_variable = { var = MEX_campesinos_power value = 1 }
+			}
+			add_stability = 0.02
+			custom_effect_tooltip = MEX_campesinos_subtract_1
 		}
 	}
 	
@@ -190,8 +284,25 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_maintain_the_presidency"
 			set_country_flag = MEX_DEM_presidency
+			add_political_power = 100
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.04
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.04
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.04
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.04
+			}
 		}
 	}
 	
@@ -209,7 +320,24 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_presidential_republic"
+			add_ideas = MEX_DL_presidential_republic
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
 		}
 	}
 	
@@ -227,7 +355,12 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_reform_the_constitution"
+			swap_ideas = {
+				remove_idea = MEX_DL_presidential_republic
+				add_idea = MEX_DL_reform_the_constitution
+			}
+			add_political_power = 50
 		}
 	}
 	
@@ -245,7 +378,14 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_the_republic_of_mexico"
+			swap_ideas = {
+				remove_idea = MEX_DL_reform_the_constitution
+				add_idea = MEX_DL_the_republic_of_mexico
+			}
+			add_political_power = 50
+			add_war_support = 0.05
+			add_stability = 0.05
 		}
 	}
 	
@@ -263,7 +403,17 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_prohibit_reelections"
+			add_political_power = 100
+			add_stability = 0.05
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.05
+			}
 		}
 	}
 
@@ -281,7 +431,29 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_democratic_judges"
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.06
+			}
+			add_political_power = 50
+			add_stability = -0.04
 		}
 	}
 
@@ -299,7 +471,31 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_mass_arrests"
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.02
+			}
+			add_political_power = -50
+			add_stability = 0.02
+			add_manpower = -1500
+			hidden_effect = {
+				subtract_from_variable = { var = MEX_campesinos_power value = 1 }
+			}
+			add_stability = 0.02
+			custom_effect_tooltip = MEX_campesinos_subtract_1
 		}
 	}
 	
@@ -320,7 +516,22 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_enter_the_cities"
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 479
+						state = 477
+						state = 485
+					}
+				}
+				set_demilitarized_zone = no
+			}
+			hidden_effect = {
+				subtract_from_variable = { var = MEX_campesinos_power value = 1 }
+			}
+			add_stability = 0.02
+			custom_effect_tooltip = MEX_campesinos_subtract_1
 		}
 	}
 
@@ -338,7 +549,18 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_secure_the_countryside"
+				every_owned_state = {
+				limit = {
+					is_demilitarized = yes
+				}
+				set_demilitarized_zone = no
+			}
+			hidden_effect = {
+				subtract_from_variable = { var = MEX_campesinos_power value = 1 }
+			}
+			add_stability = 0.02
+			custom_effect_tooltip = MEX_campesinos_subtract_1
 		}
 	}
 
@@ -356,7 +578,14 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_democracy_secured"
+			add_political_power = 100
+			add_stability = 0.05
+			hidden_effect = {
+				subtract_from_variable = { var = MEX_campesinos_power value = 1 }
+			}
+			add_stability = 0.02
+			custom_effect_tooltip = MEX_campesinos_subtract_1
 		}
 	}
 	
@@ -384,7 +613,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_secured"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_emergency_elections"
 			country_event = {
 				id = mexico.53
 				days = 2

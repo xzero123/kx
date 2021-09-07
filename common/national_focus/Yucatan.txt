@@ -1223,8 +1223,14 @@ focus_tree = {
 		id = YUC_central_american_overtures
 		icon = GFX_goal_centroamerica
 		cost = 10.00
-		prerequisite = {
-			focus = YUC_peoples_revolution
+		available = {
+			has_government = radical_socialist
+			is_subject = no
+			CEN = {
+				exists = yes
+				is_subject = no
+				has_socialist_government = yes
+			}
 		}
 		available = { has_government = radical_socialist }
 		ai_will_do = { factor = 5 }
@@ -1235,6 +1241,12 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_central_american_overtures"
 			custom_effect_tooltip = YUC_central_american_overtures_tooltip
+			CEN = {
+				country_event = {
+					id = yucatan.28
+					days = 1
+				}
+			}
 		}
 	}
 ### Economic Section ###

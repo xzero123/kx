@@ -2123,6 +2123,205 @@ country_event = { # Dealing with Business Cartels
 		add_political_power = 5
 	}
 }
+
+country_event = { # tolenado does authoritarianism
+	id = mexico.410
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.410"
+	title = mexico.410.t
+	desc = mexico.410.d
+	
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_variable = { MEX_toledano_auth = 1 }
+			country_event = {
+				id = mexico.411
+				days = 23
+			}
+		}
+	}
+
+	option = { # allow it
+		name = mexico.410.a
+		add_political_power = 5
+		add_to_variable = { MEX_toledano_auth = 1 }
+	}
+	
+	option = { # do nothing
+		name = mexico.410.b
+		add_political_power = 5
+	}
+}
+
+country_event = { # tolenado does authoritarianism
+	id = mexico.411
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.411"
+	title = mexico.411.t
+	desc = mexico.411.d
+	
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = mexico.412
+				days = 23
+			}
+		}
+	}
+
+	option = { # allow it
+		name = mexico.411.a
+		add_political_power = 5
+		add_to_variable = { MEX_toledano_auth = 1 }
+	}
+	
+	option = { # do nothing
+		name = mexico.411.b
+		add_political_power = 5
+	}
+}
+
+country_event = { # tolenado does authoritarianism
+	id = mexico.412
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.412"
+	title = mexico.412.t
+	desc = mexico.412.d
+	
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = mexico.414
+				days = 23
+			}
+		}
+	}
+
+	option = { # allow it
+		name = mexico.412.a
+		add_political_power = 5
+		add_to_variable = { MEX_toledano_auth = 1 }
+	}
+	
+	option = { # do nothing
+		name = mexico.412.b
+		add_political_power = 5
+	}
+}
+
+country_event = { # tolenado does authoritarianism
+	id = mexico.414
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.414"
+	title = mexico.414.t
+	desc = mexico.414.d
+	
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					check_variable = { MEX_toledano_auth > 3 }
+				}
+				country_event = {
+					id = mexico.416
+					days = 14
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { MEX_toledano_auth < 3 }
+				}
+				country_event = {
+					id = mexico.415
+					days = 14
+				}
+			}
+		}
+	}
+
+	option = { # allow it
+		name = mexico.414.a
+		add_political_power = 5
+		add_to_variable = { MEX_toledano_auth = 1 }
+	}
+	
+	option = { # do nothing
+		name = mexico.414.b
+		add_political_power = 5
+	}
+}
+
+country_event = { # tolenado removed
+	id = mexico.415
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.415"
+	title = mexico.415.t
+	desc = mexico.415.d
+	
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { # allow it
+		name = mexico.415.a
+		create_country_leader = {# Fidel Velasquez
+			name = "Fidel Velasquez"
+			desc = "POLITICS_VELASQUEZ_DESC"
+			picture = "Portrait_MEX_Fidel_Velasquez.png"
+			expire = "1965.1.1"
+			ideology = totalist_subtype
+			traits = {}
+		}
+	}
+}
+
+country_event = { # tolenado totalism time
+	id = mexico.416
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.416"
+	title = mexico.416.t
+	desc = mexico.416.d
+	
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { # allow it
+		name = mexico.416.a
+		create_country_leader = {# Vicente Toledano
+			name = "Vicente Toledano"
+			desc = "POLITICS_VINCENTE_TOLEDANO_DESC"
+			picture = "Portrait_Mexico_Vincente_Toledano.png"
+			expire = "1965.1.1"
+			ideology = totalist_subtype
+			traits = {}
+		}
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.15
+		}
+		set_politics = {
+			ruling_party = totalist
+			elections_allowed = no
+		}
+		set_party_name = {
+			name = MEX_communist_totalist_party
+			long_name = MEX_communist_totalist_party_long
+			ideology = totalist
+		}
+	}
+}
+
 ### The Campesinos War Coup 42 - 60###
 country_event = { # Campesinos War begins
 	id = mexico.42

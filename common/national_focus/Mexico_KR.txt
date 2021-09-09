@@ -4571,6 +4571,9 @@ focus_tree = {
 		available = {
 			has_country_flag = MEX_COUNTER_Monarchy_Restored
 		}
+		bypass = {
+			has_country_flag = MEX_COUNTER_Monarchy_Restored
+		}
 		cost = 6
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -4578,6 +4581,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_a_mexican_monarch"
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	
@@ -4588,13 +4592,13 @@ focus_tree = {
 		relative_position_id = MEX_MEK_a_mexican_monarch
 		available = {
 			has_country_leader = {
-				name = "Don Fernando I"
+				name = "Moctezuma III"
 				ruling_only = yes
 			}
 		}
 		x = -8
 		y = 1
-		cost = 6
+		cost = 0
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_MEK_a_mexican_monarch }
 		ai_will_do = {
@@ -4602,6 +4606,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_fernando_i_de_moctezuma"
+			set_cosmetic_tag = MEE_moctemzuma
 		}
 	}
 	
@@ -4620,6 +4625,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_a_catholic_monarch"
+			swap_ideas = {
+				remove_idea = MEX_church_question
+				add_idea = MEX_MEK_a_catholic_monarch
+			}
 		}
 	}
 	
@@ -4638,6 +4647,14 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_state_catholicism"
+			swap_ideas = {
+				remove_idea = MEX_MEK_a_catholic_monarch
+				add_idea = MEX_MEK_state_catholicism
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.02
+			}
 		}
 	}
 	
@@ -4656,6 +4673,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_divididos_pero_iguales"
+			add_stability = 0.03
+			swap_ideas = {
+				remove_idea = MEX_MEK_state_catholicism
+				add_idea = MEX_MEK_divididos_pero_iguales
+			}
 		}
 	}
 	
@@ -4674,6 +4696,20 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_punish_the_extremists"
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.04
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.04
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.04
+			}
+			add_political_power = 100
+			add_stability = 0.05
 		}
 	}
 	
@@ -4692,6 +4728,16 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_pardon_the_moderates"
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.04
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.04
+			}
+			add_war_support = 0.05
+			add_political_power = 100
 		}
 	}
 	
@@ -4702,6 +4748,8 @@ focus_tree = {
 		relative_position_id = MEX_MEK_fernando_i_de_moctezuma
 		x = 0
 		y = 3
+		available = {
+			country_exists = YUC
 		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_MEK_pardon_the_moderates }
@@ -4710,6 +4758,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_reintegrate_the_missguided"
+			YUC = {
+				country_event = {
+					id = mexico.68
+					days = 10
+				}
+			}
 		}
 	}
 	
@@ -4728,6 +4782,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_remember_the_first_empire"
+			add_ideas = MEX_MEK_remember_the_first_empire
 		}
 	}
 	
@@ -4746,6 +4801,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_elevate_moctezuma_i"
+			swap_ideas = {
+				remove_idea = MEX_MEK_remember_the_first_empire
+				add_idea = MEX_MEK_remember_the_first_empire2
+			}
 		}
 	}
 	
@@ -4764,6 +4823,13 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_forgive_the_villians"
+			add_political_power = 100
+			add_stability = 0.05
+			add_war_support = 0.05
+			add_opinion_modifier = {
+				target = SPR
+				modifier = KR_approves_of_govt
+			}
 		}
 	}
 	
@@ -4793,6 +4859,15 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_house_of_moctezuma"
+			swap_ideas = {
+				remove_idea = MEX_JUNTA_a_constitutional_monarchy
+				add_idea = MEX_MEK_house_of_moctezuma
+			}
+			set_party_name = {
+				ideology = paternal_autocrat
+				name = MEX_MEK_house_of_moctezuma
+				long_name = MEX_MEK_house_of_moctezuma
+			}
 		}
 	}
 	
@@ -5396,7 +5471,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_prun"
-			add_popularitu = {ideology = authoritarian_democrat popularity = 0.05}
+			add_popularity = {ideology = authoritarian_democrat popularity = 0.05}
 		}
 	}
 	

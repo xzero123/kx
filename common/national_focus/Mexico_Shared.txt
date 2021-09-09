@@ -2,12 +2,6 @@
 		id = MEX_Reconquista
 		icon = GFX_focus_mex_redeem_aztlan
 		available = {
-			OR = {
-			has_government = paternal_autocrat
-			has_government = national_populist
-			has_government = authoritarian_democrat
-			has_government = totalist
-			}
 			is_subject = no
 			controls_all_owned_states = yes
 			has_global_flag = USA_civil_war_begun_flag
@@ -17,7 +11,7 @@
 				WCC = { is_neighbor_of = MEX }
 			}
 		}
-		x = 75
+		x = 74
 		y = 0
 		ai_will_do = {
 			factor = 1
@@ -46,33 +40,14 @@
 			focus = MEX_Reconquista
 		}
 		available = {
-			OR = {
-			has_government = paternal_autocrat
-			has_government = national_populist
-			has_government = authoritarian_democrat
-			has_government = totalist
+			NOT = {
+				has_country_flag = MEX_Peace
 			}
 			is_subject = no
-			controls_all_owned_states = yes
-			TXS = {
-				is_neighbor_of = MEX
-				OR = {
-					owns_state = 375 #Northern Texas
-					owns_state = 833 #Southern Texas
-					owns_state = 1166 #Trans-Pecos
-				}
-			}
+			has_war = no
 		}
-		bypass = {
-			TXS = {
-				NOT = {
-					owns_state = 375 #Northern Texas
-					owns_state = 833 #Southern Texas
-					owns_state = 1166 #Trans-Pecos
-				}
-			}
-		}
-		x = 76
+		relative_position_id = MEX_Reconquista
+		x = 2
 		y = 1
 		ai_will_do = {
 			factor = 70
@@ -82,35 +57,15 @@
 			}
 			modifier = {
 				factor = 0
-				OR = {
-					any_other_country = { has_guaranteed = TXS }
-					TXS = { is_in_faction = yes }
+				TEX = {
+					is_ai = no
 				}
 			}
 			modifier = {
-				factor = 0.1
-				NOT = { has_country_flag = SocDem }
-				USA = {
-					has_war_with = CSA
-					has_war_with = TEX
-					has_war_with = COR
-					is_neighbor_of = MEX
-				}
+				factor = 0
 				OR = {
-					798 = { is_owned_and_controlled_by = USA } #Los Angeles
-					829 = { is_owned_and_controlled_by = USA } #Southern California
-					377 = { is_owned_and_controlled_by = USA } #Arizona
-					376 = { is_owned_and_controlled_by = USA } #New Mexico
-					1096 = { is_owned_and_controlled_by = USA } #Rio Grande
-					1166 = { is_owned_and_controlled_by = USA } #Trans-Pecos
-					833 = { is_owned_and_controlled_by = USA } #Southern Texas
-					798 = { is_owned_and_controlled_by = WCC } #Los Angeles
-					829 = { is_owned_and_controlled_by = WCC } #Southern California
-					377 = { is_owned_and_controlled_by = WCC } #Arizona
-					376 = { is_owned_and_controlled_by = WCC } #New Mexico
-					1096 = { is_owned_and_controlled_by = WCC } #Rio Grande
-					1166 = { is_owned_and_controlled_by = WCC } #Trans-Pecos
-					833 = { is_owned_and_controlled_by = WCC } #Southern Texas
+					any_other_country = { has_guaranteed = TXS }
+					TXS = { is_in_faction = yes }
 				}
 			}
 		}
@@ -119,11 +74,80 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_California"
-			create_wargoal = { type = annex_everything target = TXS }
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_Texas"
+			if = {
+				limit = {
+					country_exists = TXS
+				}
+				
+				create_wargoal = { type = annex_everything target = TXS }
+				
+			}
+			else = {
+				TEX = {
+					country_event = {
+						id = mexico_req.120
+						days = 5
+					}
+				}
+			}
 		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 	}
+	
+	shared_focus = {
+		id = MEX_WCC
+		icon = GFX_WCC_great_reorganization
+		prerequisite = {
+			focus = MEX_Reconquista
+		}
+		available = {
+			WCC = {
+				exists = yes
+				NOT = {
+					has_government = national_populist
+				}
+			}
+			NOT = {
+				has_country_flag = MEX_Peace
+			}
+			is_subject = no
+			has_war = no
+		}
+		bypass = {
+			has_war_with = WCC
+		}
+		relative_position_id = MEX_Reconquista
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 70
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+			modifier = {
+				factor = 0
+				WCC = {
+					is_ai = no
+				}
+			}
+		}
+		cost = 2
+		cancel_if_invalid = yes
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_WCC"
+			WCC = {
+				country_event = {
+					id = mexico_req.10 days = 7
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+	
 	shared_focus = {
 		id = MEX_California
 		icon = GFX_goal_MEX_attack_california
@@ -131,35 +155,20 @@
 			focus = MEX_Reconquista
 		}
 		available = {
-			OR = {
-			has_government = paternal_autocrat
-			has_government = national_populist
-			has_government = authoritarian_democrat
-			has_government = totalist
+			NOT = {
+				has_country_flag = MEX_Peace
 			}
 			is_subject = no
 			controls_all_owned_states = yes
 			CAL = {
 				is_neighbor_of = MEX
-				OR = {
-					owns_state = 378 #Northern California
-					owns_state = 797 #San Francisco
-					owns_state = 798 #Los Angeles
-					owns_state = 829 #Southern California
-				}
 			}
 		}
 		bypass = {
-			CAL = {
-				NOT = {
-					owns_state = 378 #Northern California
-					owns_state = 797 #San Francisco
-					owns_state = 798 #Los Angeles
-					owns_state = 829 #Southern California
-				}
-			}
+			has_war_with = CAL
 		}
-		x = 74
+		relative_position_id = MEX_Reconquista
+		x = -2
 		y = 1
 		ai_will_do = {
 			factor = 70
@@ -218,12 +227,12 @@
 		}
 		prerequisite = {
 			focus = MEX_California
-		}
-		prerequisite = {
 			focus = MEX_Texas
+			focus = MEX_WCC
 		}
 		icon = GFX_goal_generic_controlled_board
-		x = 75
+		relative_position_id = MEX_Reconquista
+		x = 0
 		y = 2
 
 		ai_will_do = {
@@ -252,7 +261,8 @@
 			has_country_flag = Anglo_Rebel
 		}
 		icon = GFX_TXS_Alamo
-		x = 77
+		relative_position_id = MEX_Reconquista
+		x = 3
 		y = 3
 
 		ai_will_do = {
@@ -280,7 +290,8 @@
 			has_country_flag = Anglo_Rebel
 		}
 		icon = GFX_ALA_indian_culture
-		x = 79
+		relative_position_id = MEX_Reconquista
+		x = 5
 		y = 3
 
 		ai_will_do = {
@@ -308,7 +319,8 @@
 			has_country_flag = Anglo_Rebel
 		}
 		icon = GFX_focus_generic_female_rights
-		x = 71
+		relative_position_id = MEX_Reconquista
+		x = -5
 		y = 3
 
 		ai_will_do = {
@@ -336,7 +348,8 @@
 			has_country_flag = Anglo_Rebel
 		}
 		icon = GFX_goal_SRI_protestant
-		x = 73
+		relative_position_id = MEX_Reconquista
+		x = -3
 		y = 3
 
 		ai_will_do = {
@@ -363,7 +376,8 @@
 			has_country_flag = Anglo_Rebel
 		}
 		icon = GFX_goal_LEP_governor_question
-		x = 75
+		relative_position_id = MEX_Reconquista
+		x = -1
 		y = 3
 
 		ai_will_do = {
@@ -377,6 +391,35 @@
 			MEX = {
 				country_event = {
 					days = 7 id = mexico_req.58
+				}
+			}
+		}
+	}
+	shared_focus = {
+		id = MEX_Hollywood
+		prerequisite = {
+			focus = MEX_Reorganize_The_North
+		}
+		available = {
+			has_country_flag = Anglo_Rebel
+		}
+		available = {	MEX = { owns_state = 798 }}
+		icon = GFX_goal_generic_cinema
+		relative_position_id = MEX_Reconquista
+		x = 1
+		y = 3
+
+		ai_will_do = {
+			factor = 30
+		}
+		cost = 10
+		cancel_if_invalid = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_Hollywood"
+			MEX = {
+				country_event = {
+					days = 7 id = mexico_req.52
 				}
 			}
 		}
@@ -398,14 +441,19 @@
 		prerequisite = {
 			focus = MEX_Language
 		}
+		prerequisite = {
+			focus = MEX_Hollywood
+		}
 		mutually_exclusive = {
 			focus = MEX_Vigilantees
 		}
+		
 		available = {
 			has_country_flag = Anglo_Rebel
 		}
 		icon = GFX_goal_secret_agents
-		x = 77
+		relative_position_id = MEX_Reconquista
+		x = 2
 		y = 4
 
 		ai_will_do = {
@@ -441,6 +489,9 @@
 		prerequisite = {
 			focus = MEX_Language
 		}
+		prerequisite = {
+			focus = MEX_Hollywood
+		}
 		mutually_exclusive = {
 			focus = MEX_Secret_Police
 		}
@@ -448,7 +499,8 @@
 			has_country_flag = Anglo_Rebel
 		}
 		icon = GFX_goal_LEC_armsUSA
-		x = 73
+		relative_position_id = MEX_Reconquista
+		x = -2
 		y = 4
 
 		ai_will_do = {
@@ -473,7 +525,8 @@
 			has_country_flag = Anglo_Rebel
 		}
 		icon = GFX_NEE_reintergrate_america
-		x = 75
+		relative_position_id = MEX_Reconquista
+		x = 0
 		y = 5
 
 		ai_will_do = {

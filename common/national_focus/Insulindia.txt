@@ -2,6 +2,7 @@
 # 		Insulindia Tree		   #
 ################################
 # By Thomahawk2k			   #
+# reworked by yeet yeet        #
 ################################
 focus_tree = {
 	id = ins_focus
@@ -16,7 +17,7 @@ focus_tree = {
 	}
 
 	default = no
-	continuous_focus_position = { x = 1400 y = 1000 }
+	continuous_focus_position = { x = 500 y = 2000 }
 
 	focus = {
 		id = INS_merdeka
@@ -101,7 +102,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = -2
+		x = -4
 		y = 3
 
 		completion_reward = {
@@ -163,7 +164,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 2
+		x = 4
 		y = 3
 
 		completion_reward = {
@@ -185,7 +186,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = -2
+		x = -3
 		y = 4
 
 		completion_reward = {
@@ -197,7 +198,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	focus = {
-		id = INS_social_justice
+		id = INS_social_equality
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 8.00
 		prerequisite = {
@@ -218,7 +219,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	focus = {
-		id = INS_united_by_religion
+		id = INS_united_in_spirituality
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 8.00
 		prerequisite = {
@@ -228,7 +229,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 2
+		x = 3
 		y = 4
 
 		completion_reward = {
@@ -254,6 +255,146 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus INS_discourage_tribalism"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_musyawarah_untuk_mufakat
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_social_equality
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 0
+		y = 5
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_discourage_tribalism"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_heal_the_religious_divide
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_united_in_spirituality
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 2
+		y = 5
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_discourage_tribalism"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_nationalist_insulindia
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		mutually_exclusive = {
+			focus = INS_democratic_insulindia
+			focus = INS_religious_insulindia
+		}
+		prerequisite = {
+			focus = INS_discourage_tribalism
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = -2
+		y = 6
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_nationalist_insulindia"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_democratic_insulindia
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		mutually_exclusive = {
+			focus = INS_nationalist_insulindia
+			focus = INS_religious_insulindia
+		}
+		prerequisite = {
+			focus = INS_musyawarah_untuk_mufakat
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 0
+		y = 6
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_democratic_insulindia"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_religious_insulindia
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		mutually_exclusive = {
+			focus = INS_nationalist_insulindia
+			focus = INS_democratic_insulindia
+		}
+		prerequisite = {
+			focus = INS_heal_the_religious_divide
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 2
+		y = 6
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_religious_insulindia"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_bhinneka_tunggal_ika
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_nationalist_insulindia
+			focus = INS_democratic_insulindia
+			focus = INS_religious_insulindia
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 0
+		y = 7
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_religious_insulindia"
 			add_stability = 0.1
 			
 		}

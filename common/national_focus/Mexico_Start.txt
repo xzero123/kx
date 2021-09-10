@@ -120,9 +120,16 @@ focus_tree = {
 		available_if_capitulated = no
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_zapata_slain"
-			country_event = {
-				id = mexico.3
-				days = 1
+			if = {
+				limit = {
+					has_country_leader = {
+						name = "Eufemio Zapata"
+					}
+				}
+				country_event = {
+					id = mexico.3
+					days = 1
+				}
 			}
 		}
 	}

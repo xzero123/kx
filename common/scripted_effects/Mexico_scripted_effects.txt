@@ -438,3 +438,80 @@ MEX_create_christero_generals = {
 		logistics_skill = 2
 	}
 }
+
+MEX_military_coup_occurs = {
+	set_country_flag = MEX_military_coup_has_occured_flag
+	set_party_name = {
+		name = MEX_DL_social_democrat_party
+		long_name = MEX_DL_social_democrat_party_long
+		ideology = social_democrat
+	}
+	create_country_leader = { # Lazaro Cardenas
+		name = "Lázaro Cárdenas"
+		desc = "POLITICS_LAZARO_CARDENAS_DESC"
+		picture = "Portrait_MEX_Lazaro_Cardenas.png"
+		expire = "1965.1.1"
+		ideology = social_democrat_subtype
+		traits = {}
+	}
+	clr_country_flag = soc_dems_are_socialists
+	hidden_effect = {
+		set_country_flag = Genovevo_de_la_O_dead
+		set_country_flag = Gildardo_Magana_dead
+		set_country_flag = Pancho_Villa_dead
+		set_country_flag = Francisco_Mendoza_Palma_dead
+		set_country_flag = Jesus_Salgado_dead
+		set_country_flag = Margarita_Neri_dead
+	}
+	hidden_effect = {
+		every_unit_leader = {
+			limit = {
+				NOT = {
+					has_id = 93731
+					has_id = 93732
+					has_id = 94731
+				}
+			}
+			set_unit_leader_flag = MEX_rev_leader
+			set_nationality = XXA
+		}
+	}
+	every_unit_leader = {
+		limit = {
+			has_id = 93731
+		}
+		promote_leader = yes
+	}
+	add_popularity = {
+		ideology = paternal_autocrat
+		popularity = 0.02
+	}
+	add_popularity = {
+		ideology = national_populist
+		popularity = 0.05
+	}
+	MEX_create_counter_revolutionary_generals = yes
+	hidden_effect = {
+		add_ideas = MEX_Alberto_B_Gutierrez_hog_pau
+		add_ideas = MEX_Pazcual_Diaz_Barreto_for_pau
+		add_ideas = MEX_Miguel_Palomar_y_Vizcarra_eco_pau
+		add_ideas = MEX_Jose_Reyes_Vega_sec_pau
+
+		country_event = {
+			id = mexico.42
+			days = 2
+		}
+		country_event = { id = mexico.63 days = 120 random_days = 90 }
+		country_event = { id = mexico.84 days = 150 random_days = 150 }
+			
+		country_event = {
+			id = mexico.43
+			days = 11
+		}
+	}
+	set_politics = {
+		ruling_party = paternal_autocrat
+		elections_allowed = no
+	}
+	news_event = { id = worldnews.454 }
+}

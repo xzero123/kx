@@ -18,23 +18,23 @@ country_event = { # Start up Event
 	option = {
 		name = mexico.1.a
 		country_event = {
-			id = mexico.300
+			id = mexico.1200
 			days = 1
 		}
 	}
 }
 country_event = { # Start up Event
-	id = mexico.300
-	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.300"}
-	title = mexico.300.t
-	desc = mexico.300.d
+	id = mexico.1200
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.1200"}
+	title = mexico.1200.t
+	desc = mexico.1200.d
 
 	fire_only_once = yes
 
 	is_triggered_only = yes
 
 	option = {
-		name = mexico.300.a
+		name = mexico.1200.a
 	}
 }
 ### assassination attempt on Zapata's life ###
@@ -53,8 +53,8 @@ country_event = { # assassination attempt
 		ai_chance = {
 			factor = 50
 			modifier = {
-		    factor = 0
-		    OR = {
+				factor = 0
+				OR = {
 				  has_game_rule = {
 						rule = MEX_post_assassination
 						option = MEX_POST_ASSASSINATION_TOTALIST_CALLES
@@ -72,7 +72,7 @@ country_event = { # assassination attempt
 						option = MEX_POST_ASSASSINATION_NATIONAL_POPULIST_SINARQUISTA
 					}
 				}
-		  }
+			}
 		}
 		set_country_flag = MEX_zapata_is_alvie_flag
 	}
@@ -81,8 +81,8 @@ country_event = { # assassination attempt
 		ai_chance = {
 			factor = 50
 			modifier = {
-		    factor = 0
-		    OR = {
+				factor = 0
+				OR = {
 					has_game_rule = {
 						rule = MEX_post_assassination
 						option = MEX_POST_ASSASSINATION_ELECTION_TOTALIST
@@ -100,18 +100,28 @@ country_event = { # assassination attempt
 						option = MEX_POST_ASSASSINATION_ELECTION_SOCIAL_DEMOCRAT
 					}
 				}
-		  }
+			}
 		}
 		set_country_flag = MEX_zapata_is_dead_flag
+		kill_country_leader = yes
 		if = {
 			limit = {
 				has_unit_leader = 9372
 			}
 			remove_unit_leader = 9372
 		}
+		create_country_leader = {# Eufemio Zapata
+			name = "Eufemio Zapata"
+			desc = "POLITICS_EUFEMIO_ZAPATA_DESC"
+			picture = "Portrait_Mexico_Eufemio_Zapata.png"
+			expire = "1965.1.1"
+			ideology = radical_socialist_subtype
+			traits = {}
+		}
 	}
 }
-country_event = { # Zapata is dead!
+
+country_event = { # What does Eufemio do?
 	id = mexico.3
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.3"}
 	title = mexico.3.t
@@ -151,11 +161,16 @@ country_event = { # Zapata is dead!
 			ideology = radical_socialist_subtype
 			traits = {}
 		}
+		create_country_leader = {# Eufemio Zapata
+			name = "Eufemio Zapata"
+			desc = "POLITICS_EUFEMIO_ZAPATA_DESC"
+			picture = "Portrait_Mexico_Eufemio_Zapata.png"
+			expire = "1965.1.1"
+			ideology = totalist_subtype
+			traits = {}
+		}
 		hidden_effect = {
 			add_ideas = MEX_Plutarco_Elias_Calles_hog_tot
-			add_ideas = MEX_Manuel_C_Tellez_for_tot
-			add_ideas = MEX_Luis_N_Morones_eco_tot
-			add_ideas = MEX_Jose_Manuel_Puig_Casauranc_sec_tot
 		}
 		set_politics = {
 			ruling_party = totalist
@@ -163,109 +178,13 @@ country_event = { # Zapata is dead!
 		}
 		news_event = { id = worldnews.453 }
 	}
-	option = { # Right Wing Military seizes power
-		name = mexico.3.b
-		ai_chance = {
-			factor = 33
-			modifier = {
-		    factor = 0
-			  has_game_rule = {
-					rule = MEX_post_assassination
-					option = MEX_POST_ASSASSINATION_TOTALIST_CALLES
-				}
-		  }
-		}
-		set_country_flag = MEX_military_coup_has_occured_flag
-		kill_country_leader = yes
-		create_country_leader = { # Pancho Villa
-			name = "Pancho Villa"
-			desc = "POLITICS_PANCHO_VILLA_DESC"
-			picture = "Portrait_Mexico_Pancho_Villa.png"
-			expire = "1965.1.1"
-			ideology = radical_socialist_subtype
-			traits = {}
-		}
-		set_party_name = {
-			name = MEX_DL_social_democrat_party
-			long_name = MEX_DL_social_democrat_party_long
-			ideology = social_democrat
-		}
-		create_country_leader = { # Lazaro Cardenas
-			name = "Lázaro Cárdenas"
-			desc = "POLITICS_LAZARO_CARDENAS_DESC"
-			picture = "Portrait_MEX_Lazaro_Cardenas.png"
-			expire = "1965.1.1"
-			ideology = social_democrat_subtype
-			traits = {}
-		}
-		clr_country_flag = soc_dems_are_socialists
-		hidden_effect = {
-			set_country_flag = Genovevo_de_la_O_dead
-			set_country_flag = Gildardo_Magana_dead
-			set_country_flag = Pancho_Villa_dead
-			set_country_flag = Francisco_Mendoza_Palma_dead
-			set_country_flag = Jesus_Salgado_dead
-			set_country_flag = Margarita_Neri_dead
-		}
-		hidden_effect = {
-			every_unit_leader = {
-				limit = {
-					NOT = {
-						has_id = 93731
-						has_id = 93732
-						has_id = 94731
-					}
-				}
-				set_unit_leader_flag = MEX_rev_leader
-				set_nationality = XXA
-			}
-		}
-		every_unit_leader = {
-			limit = {
-				has_id = 93731
-			}
-			promote_leader = yes
-		}
-		add_popularity = {
-			ideology = paternal_autocrat
-			popularity = 0.05
-		}
-		add_popularity = {
-			ideology = national_populist
-			popularity = 0.05
-		}
-		MEX_create_counter_revolutionary_generals = yes
-		hidden_effect = {
-			add_ideas = MEX_Alberto_B_Gutierrez_hog_pau
-			add_ideas = MEX_Pazcual_Diaz_Barreto_for_pau
-			add_ideas = MEX_Miguel_Palomar_y_Vizcarra_eco_pau
-			add_ideas = MEX_Jose_Reyes_Vega_sec_pau
-
-			country_event = {
-				id = mexico.42
-				days = 2
-			}
-			country_event = { id = mexico.63 days = 120 random_days = 90 }
-			country_event = { id = mexico.84 days = 150 random_days = 150 }
-			
-			country_event = {
-				id = mexico.43
-				days = 11
-			}
-		}
-		set_politics = {
-			ruling_party = paternal_autocrat
-			elections_allowed = no
-		}
-		news_event = { id = worldnews.454 }
-	}
 	option = { # Coalition Government saves democracy
 		name = mexico.3.c
 		ai_chance = {
 			factor = 33
 			modifier = {
-		    factor = 0
-		    OR = {
+				factor = 0
+				OR = {
 				  has_game_rule = {
 						rule = MEX_post_assassination
 						option = MEX_POST_ASSASSINATION_TOTALIST_CALLES
@@ -283,14 +202,146 @@ country_event = { # Zapata is dead!
 						option = MEX_POST_ASSASSINATION_NATIONAL_POPULIST_SINARQUISTA
 					}
 				}
-		  }
+			}
 		}
-		kill_country_leader = yes
 		hidden_effect = {
-			add_ideas = MEX_Vicente_Lombardo_Toledano_hog_syn
-			add_ideas = MEX_Isidro_Fabela_for_sde
+			country_event = {
+				id = mexico.300
+				days = 20
+			}
+		}
+		set_temp_variable = { coalition_partner_var = token:syndicalist }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:radical_socialist }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+		news_event = { id = worldnews.455 }
+	}
+}
+
+country_event = { # Coalition
+	id = mexico.300
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.300"}
+	title = mexico.300.t
+	desc = mexico.300.d
+
+	is_triggered_only = yes
+
+	option = { # Survives
+		name = mexico.300.a
+		set_country_flag = MEX_Coalition_Survives
+	}
+	option = { # Cant do shit
+		name = mexico.300.b
+		hidden_effect = {
+			country_event = {
+				id = mexico.301
+				days = 20
+			}
+		}
+	}
+}
+
+country_event = { # Military Coup
+	id = mexico.301
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.301"}
+	title = mexico.301.t
+	desc = mexico.301.d
+
+	is_triggered_only = yes
+
+	option = { # Oopsy daisy
+		name = mexico.301.a
+		MEX_military_coup_occurs = yes
+	}
+}
+
+country_event = { # Calles gets Eufemio to resign
+	id = mexico.302
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.302"}
+	title = mexico.302.t
+	desc = mexico.302.d
+
+	is_triggered_only = yes
+
+	option = { # Beans that are Cold
+		name = mexico.302.a
+		create_country_leader = {# Plutarco Calles
+			name = "Plutarco Calles"
+			desc = "POLITICS_PLUTARCO_CALLES_DESC"
+			picture = "Portrait_Mexico_Plutarco_Calles.png"
+			expire = "1965.1.1"
+			ideology = totalist_subtype
+			traits = {}
+		}
+		remove_all_ministers = yes
+		hidden_effect = {
+			add_ideas = MEX_Plutarco_Elias_Calles_hog_tot
+			add_ideas = MEX_Manuel_C_Tellez_for_tot
+			add_ideas = MEX_Luis_N_Morones_eco_tot
+			add_ideas = MEX_Jose_Manuel_Puig_Casauranc_sec_tot
+		}
+	}
+	
+	option = { # fack off
+		name = mexico.302.b
+		hidden_effect = {
+			country_event = {
+				id = mexico.303
+				days = 10
+			}
+		}
+	}
+}
+
+country_event = { # Calles marches, Eufemio Killed
+	id = mexico.303
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.303"}
+	title = mexico.303.t
+	desc = mexico.303.d
+
+	is_triggered_only = yes
+
+	option = { # Beans that are Cold
+		name = mexico.303.a
+		create_country_leader = {# Plutarco Calles
+			name = "Plutarco Calles"
+			desc = "POLITICS_PLUTARCO_CALLES_DESC"
+			picture = "Portrait_Mexico_Plutarco_Calles.png"
+			expire = "1965.1.1"
+			ideology = totalist_subtype
+			traits = {}
+		}
+		hidden_effect = {
+			country_event = {
+				id = mexico.304
+				days = 10
+			}
+		}
+	}
+}
+
+country_event = { # Villa Attempts Counter Coup
+	id = mexico.304
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.304"}
+	title = mexico.304.t
+	desc = mexico.304.d
+
+	is_triggered_only = yes
+
+	option = { # Villa Wins
+		name = mexico.304.a
+		hidden_effect = {
+			add_ideas = MEX_Pancho_Villa_hog_rso
+			add_ideas = MEX_Francisco_Castillo_Najera_for_rso
 			add_ideas = MEX_Serafin_M_Robles_Morales_eco_rso
-			add_ideas = MEX_Ricardo_Flores_Magon_sec_syn
+			add_ideas = MEX_Ruben_Jaramillo_sec_rso
+		}
+		remove_all_ministers = yes
+		set_politics = {
+			ruling_party = radical_socialist
+			elections_allowed = yes
 		}
 		create_country_leader = { # Pancho Villa
 			name = "Pancho Villa"
@@ -300,9 +351,39 @@ country_event = { # Zapata is dead!
 			ideology = radical_socialist_subtype
 			traits = {}
 		}
-		news_event = { id = worldnews.455 }
+		set_country_flag = MEX_Elections_Can_occur
+	}
+	
+	option = { # Calles Wins
+		name = mexico.304.b
+		hidden_effect = {
+			country_event = {
+				id = mexico.305
+				days = 10
+			}
+		}
 	}
 }
+
+country_event = { # Garza Attempts Counter Coup
+	id = mexico.305
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.305"}
+	title = mexico.305.t
+	desc = mexico.305.d
+
+	is_triggered_only = yes
+
+	option = { # Garza Wins
+		name = mexico.305.a
+		MEX_military_coup_occurs = yes
+	}
+	
+	option = { # Calles Wins
+		name = mexico.305.b
+		set_country_flag = MEX_Elections_Can_occur
+	}
+}
+
 country_event = { # Elections of 1937
 	id = mexico.4
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.4"}
@@ -338,6 +419,10 @@ country_event = { # Elections of 1937
 		tag = MEX
 		date < 1938.1.1
 		has_socialist_government = yes
+		OR = {
+			has_country_flag = MEX_Coalition_Survives
+			has_country_flag = MEX_Elections_Can_occur
+		}
 	} 
 
 	immediate = {
@@ -373,6 +458,14 @@ country_event = { # Elections of 1937
 		add_popularity = {
 			ideology = totalist
 			popularity = 0.10
+		}
+		create_country_leader = {# Plutarco Calles
+			name = "Plutarco Calles"
+			desc = "POLITICS_PLUTARCO_CALLES_DESC"
+			picture = "Portrait_Mexico_Plutarco_Calles.png"
+			expire = "1965.1.1"
+			ideology = totalist_subtype
+			traits = {}
 		}
 		hidden_effect = {
 			add_ideas = MEX_Plutarco_Elias_Calles_hog_tot

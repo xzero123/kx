@@ -351,7 +351,18 @@ country_event = { # Villa Attempts Counter Coup
 			ideology = radical_socialist_subtype
 			traits = {}
 		}
-		set_country_flag = MEX_Elections_Can_occur
+		hidden_effect = {
+			country_event = {
+				id = mexico.300
+				days = 20
+			}
+		}
+		set_temp_variable = { coalition_partner_var = token:syndicalist }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:radical_socialist }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
 	}
 	
 	option = { # Calles Wins

@@ -75,6 +75,12 @@ country_event = { # assassination attempt
 			}
 		}
 		set_country_flag = MEX_zapata_is_alvie_flag
+		hidden_effect = {
+			country_event = {
+				id = mexico.306
+				days = 60
+			}
+		}
 	}
 	option = { # Zapata dies
 		name = mexico.2.b
@@ -116,8 +122,9 @@ country_event = { # assassination attempt
 			picture = "Portrait_Mexico_Eufemio_Zapata.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
-			traits = {}
+			traits = { dislikes_politics }
 		}
+		set_country_flag = MEX_Villa_Runs
 	}
 }
 
@@ -159,7 +166,7 @@ country_event = { # What does Eufemio do?
 			picture = "Portrait_Mexico_Pancho_Villa.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
-			traits = {}
+			traits = { dislikes_politics }
 		}
 		create_country_leader = {# Eufemio Zapata
 			name = "Eufemio Zapata"
@@ -349,7 +356,7 @@ country_event = { # Villa Attempts Counter Coup
 			picture = "Portrait_Mexico_Pancho_Villa.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
-			traits = {}
+			traits = { dislikes_politics }
 		}
 		hidden_effect = {
 			country_event = {
@@ -392,6 +399,25 @@ country_event = { # Garza Attempts Counter Coup
 	option = { # Calles Wins
 		name = mexico.305.b
 		set_country_flag = MEX_Elections_Can_occur
+	}
+}
+
+country_event = { # Villa's Candidacy
+	id = mexico.306
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.306"}
+	title = mexico.306.t
+	desc = mexico.306.d
+
+	is_triggered_only = yes
+
+	option = { # He Runs
+		name = mexico.306.a
+		set_country_flag = MEX_Villa_Runs
+	}
+	
+	option = { # He No Run
+		name = mexico.306.b
+		set_country_flag = MEX_Villa_Dosent_Run
 	}
 }
 
@@ -571,23 +597,51 @@ country_event = { # Elections of 1937
 			ideology = radical_socialist
 			popularity = 0.10
 		}
-		hidden_effect = {
-			add_ideas = MEX_Pancho_Villa_hog_rso
-			add_ideas = MEX_Francisco_Castillo_Najera_for_rso
-			add_ideas = MEX_Serafin_M_Robles_Morales_eco_rso
-			add_ideas = MEX_Ruben_Jaramillo_sec_rso
-		}
+		
 		set_politics = {
 			ruling_party = radical_socialist
 			elections_allowed = yes
 		}
-		create_country_leader = { # Pancho Villa
-			name = "Pancho Villa"
-			desc = "POLITICS_PANCHO_VILLA_DESC"
-			picture = "Portrait_Mexico_Pancho_Villa.png"
-			expire = "1965.1.1"
-			ideology = radical_socialist_subtype
-			traits = {}
+		if = {
+			limit = {
+				has_country_flag = MEX_Villa_Runs
+			}
+			create_country_leader = { # Pancho Villa
+				name = "Pancho Villa"
+				desc = "POLITICS_PANCHO_VILLA_DESC"
+				picture = "Portrait_Mexico_Pancho_Villa.png"
+				expire = "1965.1.1"
+				ideology = radical_socialist_subtype
+				traits = { dislikes_politics }
+			}
+
+			hidden_effect = {
+				add_ideas = MEX_Pancho_Villa_hog_rso
+				add_ideas = MEX_Francisco_Castillo_Najera_for_rso
+				add_ideas = MEX_Serafin_M_Robles_Morales_eco_rso
+				add_ideas = MEX_Ruben_Jaramillo_sec_rso
+			}
+		}
+		
+		if = {
+			limit = {
+				has_country_flag = MEX_Villa_Dosent_Run
+			}
+			hidden_effect = {
+				remove_all_ministers = yes
+				add_ideas = {
+					MEX_Antonio_Irineo_Villarreal_hog_rso
+					MEX_Gilberto_Bosques_Saldivar_for_rso
+					MEX_Adolfo_Ruiz_Cortines_eco_rso
+					MEX_Rafael_Buelna_sec_rso
+				}
+			}
+			create_country_leader = { # Antonio Irineo Villarreal
+				name = "Antonio Irineo Villarreal"
+				picture = "Portrait_Mexico_Antonio_Villarreal.png"
+				expire = "1965.1.1"
+				ideology = radical_socialist_subtype
+			}
 		}
 	}
 	option = { # Rubio	
@@ -1786,10 +1840,10 @@ country_event = { # Elections of 1942
 			ruling_party = radical_socialist
 			elections_allowed = yes
 		}
-		create_country_leader = { # Antonio Irineo Villarreal
-			name = "Antonio Irineo Villarreal"
-			desc = "POLITICS_ANTONIO_VILLARREAL_DESC"
-			picture = "Portrait_Mexico_Antonio_Villarreal.png"
+		create_country_leader = { # Antonio Díaz Soto y Gama
+			name = "Antonio Díaz Soto y Gama"
+			desc = "POLITICS_SOTO_Y_GAMA_DESC"
+			picture = "Portrait_Mexico_Antonio_Diaz_Soto_y_Gama.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
 			traits = {}
@@ -2331,8 +2385,11 @@ country_event = { # tolenado does authoritarianism
 	fire_only_once = yes
 
 	is_triggered_only = yes
-	
-	immediate = {
+
+	option = { # allow it
+		name = mexico.414.a
+		add_political_power = 5
+		add_to_variable = { MEX_toledano_auth = 1 }
 		hidden_effect = {
 			if = {
 				limit = {
@@ -2354,16 +2411,30 @@ country_event = { # tolenado does authoritarianism
 			}
 		}
 	}
-
-	option = { # allow it
-		name = mexico.414.a
-		add_political_power = 5
-		add_to_variable = { MEX_toledano_auth = 1 }
-	}
 	
 	option = { # do nothing
 		name = mexico.414.b
 		add_political_power = 5
+		hidden_effect = {
+			if = {
+				limit = {
+					check_variable = { MEX_toledano_auth > 3 }
+				}
+				country_event = {
+					id = mexico.416
+					days = 14
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { MEX_toledano_auth < 3 }
+				}
+				country_event = {
+					id = mexico.415
+					days = 14
+				}
+			}
+		}
 	}
 }
 

@@ -54,6 +54,34 @@ MEX_decrease_goldshirt_resistance = {
 	}
 }
 
+MEX_socialist_resistance_decrease = {
+	if = {
+		limit = { has_idea = MEX_socialist_democratic_resistance_idea }
+		swap_ideas = {
+			remove_idea = MEX_socialist_democratic_resistance_idea
+			add_idea = MEX_socialist_democratic_resistance_idea2
+		}
+	}
+	else_if = {
+		limit = { has_idea = MEX_socialist_democratic_resistance_idea2 }
+		swap_ideas = {
+			remove_idea = MEX_socialist_democratic_resistance_idea2
+			add_idea = MEX_socialist_democratic_resistance_idea3
+		}
+	}
+	else_if = {
+		limit = { has_idea = MEX_socialist_democratic_resistance_idea3 }
+		swap_ideas = {
+			remove_idea = MEX_socialist_democratic_resistance_idea3
+			add_idea = MEX_socialist_democratic_resistance_idea4
+		}
+	}
+	else_if = {
+		limit = { has_idea = MEX_socialist_democratic_resistance_idea4 }
+		remove_ideas = MEX_socialist_democratic_resistance_idea4
+	}
+}
+
 MEX_create_counter_revolutionary_generals = {
 	create_field_marshal = {
 		name = "Enrique Gorostieta Velarde"

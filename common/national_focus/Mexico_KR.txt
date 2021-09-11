@@ -4708,8 +4708,9 @@ focus_tree = {
 				ideology = radical_socialist
 				popularity = -0.04
 			}
-			add_political_power = 100
+			add_political_power = 50
 			add_stability = 0.05
+			MEX_socialist_resistance_decrease = yes
 		}
 	}
 	
@@ -4737,7 +4738,9 @@ focus_tree = {
 				popularity = 0.04
 			}
 			add_war_support = 0.05
-			add_political_power = 100
+			add_political_power = 50
+			MEX_socialist_resistance_decrease = yes
+			remove_ideas = MEX_dl_opposition
 		}
 	}
 	
@@ -4750,6 +4753,12 @@ focus_tree = {
 		y = 3
 		available = {
 			country_exists = YUC
+		}
+		bypass = {
+			NOT = {
+				country_exists = YUC
+			}
+		}
 		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_MEK_pardon_the_moderates }
@@ -4805,6 +4814,7 @@ focus_tree = {
 				remove_idea = MEX_MEK_remember_the_first_empire
 				add_idea = MEX_MEK_remember_the_first_empire2
 			}
+			add_research_slot = 1
 		}
 	}
 	
@@ -4829,6 +4839,22 @@ focus_tree = {
 			add_opinion_modifier = {
 				target = SPR
 				modifier = KR_approves_of_govt
+			}
+			SPR = {
+				add_opinion_modifier = {
+					target = MEX
+					modifier = KR_approves_of_govt
+				}
+			}
+			add_opinion_modifier = {
+				target = CAR
+				modifier = KR_approves_of_govt
+			}
+			CAR = {
+				add_opinion_modifier = {
+					target = MEX
+					modifier = KR_approves_of_govt
+				}
 			}
 		}
 	}
@@ -4890,6 +4916,10 @@ focus_tree = {
 	
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_maintain_some_of_the_policies"
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic
+				add_idea = MEX_revolution_economic2
+			}
 		}
 	}
 	
@@ -4908,6 +4938,19 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_open_our_market_to_the_entente"
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+			add_ideas = free_trade
+			add_opinion_modifier = {
+				target = ENT
+				modifier = KR_trade_agreement
+			}
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic2
+				add_idea = MEX_MEK_labour_economy
+			}
 		}
 	}
 	
@@ -4926,6 +4969,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_recovery_from_the_revolution"
+			swap_ideas = {
+				remove_idea = MEX_MEK_labour_economy
+				add_idea = MEX_MEK_labour_economy2
+			}
 		}
 	}
 	
@@ -4936,7 +4983,7 @@ focus_tree = {
 		relative_position_id = MEX_MEK_a_mexican_monarch
 		x = 0
 		y = 1
-		cost = 6
+		cost = 0
 		available = {
 			has_country_leader = {
 				name = "María Josephia Sophia I"
@@ -4950,6 +4997,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_maria_i_de_iturbide"
+			add_political_power = 100
+			set_cosmetic_tag = MEE
 		}
 	}
 	
@@ -4968,6 +5017,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_find_a_compromise"
+			add_stability = 0.02
+			swap_ideas = {
+				remove_idea = MEX_church_question
+				add_idea = MEX_church_question2
+			}
 		}
 	}
 	
@@ -4986,6 +5040,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_secular_but_catholic"
+			swap_ideas = {
+				remove_idea = MEX_church_question2
+				add_idea = MEX_MEK_secular_but_catholic
+			}
 		}
 	}
 
@@ -5004,6 +5062,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_freedom_of_practice"
+			swap_ideas = {
+				remove_idea = MEX_MEK_secular_but_catholic
+				add_idea = MEX_MEK_freedom_of_practice
+			}
 		}
 	}
 	
@@ -5022,6 +5084,21 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_break_the_syndicalists"
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.04
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.04
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.04
+			}
+			add_political_power = 50
+			add_stability = 0.05
+			MEX_socialist_resistance_decrease = yes
 		}
 	}
 
@@ -5040,6 +5117,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_mercy_for_some"
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.04
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.04
+			}
+			add_war_support = 0.05
+			add_political_power = 50
+			MEX_socialist_resistance_decrease = yes
+			remove_ideas = MEX_dl_opposition
 		}
 	}
 
@@ -5051,6 +5140,14 @@ focus_tree = {
 		x = 0
 		y = 3
 		cost = 6
+		available = {
+			country_exists = YUC
+		}
+		bypass = {
+			NOT = {
+				country_exists = YUC
+			}
+		}
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_MEK_mercy_for_some }
 		ai_will_do = {
@@ -5058,6 +5155,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_reintegrate_the_peninsula"
+			YUC = {
+				country_event = {
+					id = mexico.68
+					days = 10
+				}
+			}
 		}
 	}
 
@@ -5076,6 +5179,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_memories_of_agustin"
+			add_ideas = MEX_MEK_memories_of_agustin
 		}
 	}
 	
@@ -5094,6 +5198,22 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_the_fake_liberal"
+			swap_ideas = {
+				remove_idea = MEX_MEK_memories_of_agustin
+				add_idea = MEX_MEK_the_fake_liberal
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
+			}
 		}
 	}
 
@@ -5112,6 +5232,19 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_the_true_maximilian"
+			add_stability = 0.05
+			add_war_support = 0.05
+			add_opinion_modifier = {
+				target = AUS
+				modifier = KR_approves_of_govt
+			}
+			AUS = {
+				add_opinion_modifier = {
+					target = MEX
+					modifier = KR_approves_of_govt
+				}
+			}
+			add_research_slot = 1
 		}
 	}
 	
@@ -5142,6 +5275,15 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_house_of_iturbide"
+			swap_ideas = {
+				remove_idea = MEX_JUNTA_a_constitutional_monarchy
+				add_idea = MEX_MEK_house_of_iturbide
+			}
+			set_party_name = {
+				ideology = paternal_autocrat
+				name = MEX_MEK_house_of_iturbide
+				long_name = MEX_MEK_house_of_iturbide
+			}
 		}
 	}
 	
@@ -5166,6 +5308,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_compromise_with_businessman"
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic
+				add_idea = MEX_revolution_economic2
+			}
 		}
 	}
 
@@ -5184,6 +5330,19 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_open_our_market_to_the_reichpakt"
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+			add_ideas = free_trade
+			add_opinion_modifier = {
+				target = GER
+				modifier = KR_trade_agreement
+			}
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic2
+				add_idea = MEX_MEK_corporatist_economy
+			}
 		}
 	}
 	
@@ -5202,6 +5361,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_corporatist_economy"
+			swap_ideas = {
+				remove_idea = MEX_MEK_corporatist_economy
+				add_idea = MEX_corporatist_economy2
+			}
 		}
 	}
 
@@ -5212,7 +5375,7 @@ focus_tree = {
 		relative_position_id = MEX_MEK_a_mexican_monarch
 		x = 8
 		y = 1
-		cost = 6
+		cost = 0
 		available = {
 			has_country_leader = {
 				name = "Porfirio I"
@@ -5226,6 +5389,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_porfirio_i_de_diaz"
+			set_cosmetic_tag = MEE_porfirio
+			add_political_power = 100
 		}
 	}
 	
@@ -5244,6 +5409,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_start_secularization"
+			add_stability = 0.05
+			add_political_power = 100
+			swap_ideas = {
+				remove_idea = MEX_church_question
+				add_idea = MEX_church_question2
+			}
 		}
 	}
 
@@ -5262,6 +5433,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_a_secular_mexico"
+			swap_ideas = {
+				remove_idea = MEX_church_question2
+				add_idea = MEX_MEK_a_secular_mexico
+			}
 		}
 	}
 	
@@ -5280,6 +5455,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_friendship_with_the_church"
+			swap_ideas = {
+				remove_idea = MEX_MEK_a_secular_mexico
+				add_idea = MEX_MEK_friendship_with_the_church
+			}
 		}
 	}
 	
@@ -5298,6 +5477,19 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_persecute_socialists"
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.1
+			}
+			MEX_socialist_resistance_decrease = yes
 		}
 	}
 
@@ -5308,6 +5500,14 @@ focus_tree = {
 		relative_position_id = MEX_MEK_porfirio_i_de_diaz
 		x = 0
 		y = 2
+		available = {
+			country_exists = YUC
+		}
+		bypass = {
+			NOT = {
+				country_exists = YUC
+			}
+		}
 		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = MEX_MEK_persecute_socialists }
@@ -5315,7 +5515,11 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus v"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_destroy_the_rebels"
+			create_wargoal = {
+				target = YUC
+				type = annex_everything
+			}
 		}
 	}
 
@@ -5334,6 +5538,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_stop_the_persecution"
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.04
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.04
+			}
+			add_war_support = 0.05
+			add_political_power = 50
+			MEX_socialist_resistance_decrease = yes
+			remove_ideas = MEX_dl_opposition
 		}
 	}
 
@@ -5352,6 +5568,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_the_good_of_porfirio"
+			add_ideas = MEX_MEK_the_good_of_porfirio
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
+			}
+			add_war_support = 0.05
 		}
 	}
 
@@ -5370,6 +5592,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_the_bad_of_madero"
+			swap_ideas = {
+				remove_idea = MEX_MEK_the_good_of_porfirio
+				add_idea = MEX_MEK_the_bad_of_madero
+			}
+			add_research_slot = 1
 		}
 	}
 
@@ -5388,6 +5615,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_fulfill_his_last_wish"
+			add_command_power = 50
+			army_experience = 100
+			add_opinion_modifier = {
+				target = GER
+				modifier = KR_approves_of_govt
+			}
+			GER = {
+				add_opinion_modifier = {
+					target = MEX
+					modifier = KR_approves_of_govt
+				}
+			}
 		}
 	}
 
@@ -5417,6 +5656,15 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_MEK_house_of_diaz"
+			swap_ideas = {
+				remove_idea = MEX_JUNTA_a_constitutional_monarchy
+				add_idea = MEX_MEK_house_of_diaz
+			}
+			set_party_name = {
+				ideology = paternal_autocrat
+				name = MEX_MEK_house_of_diaz
+				long_name = MEX_MEK_house_of_diaz
+			}
 		}
 	}
 	

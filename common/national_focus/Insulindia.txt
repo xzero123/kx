@@ -56,7 +56,7 @@ focus_tree = {
 			factor = 200
 		}
 		relative_position_id = INS_merdeka
-		x = 0
+		x = 1
 		y = 1
 
 		completion_reward = {
@@ -81,7 +81,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 0
+		x = 1
 		y = 2
 
 		completion_reward = {
@@ -127,7 +127,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 0
+		x = 1
 		y = 3
 
 		completion_reward = {
@@ -164,7 +164,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 4
+		x = 6
 		y = 3
 
 		completion_reward = {
@@ -208,7 +208,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 0
+		x = 1
 		y = 4
 
 		completion_reward = {
@@ -229,7 +229,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 3
+		x = 5
 		y = 4
 
 		completion_reward = {
@@ -271,7 +271,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 0
+		x = 1
 		y = 5
 
 		completion_reward = {
@@ -292,7 +292,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 2
+		x = 4
 		y = 5
 
 		completion_reward = {
@@ -317,7 +317,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = -2
+		x = -1
 		y = 6
 
 		completion_reward = {
@@ -342,7 +342,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 0
+		x = 1
 		y = 6
 
 		completion_reward = {
@@ -367,7 +367,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 2
+		x = 3
 		y = 6
 
 		completion_reward = {
@@ -390,7 +390,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 0
+		x = 1
 		y = 7
 
 		completion_reward = {
@@ -399,6 +399,7 @@ focus_tree = {
 			
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
+		#ppp tree
 	}
 	focus = {
 		id = INS_ppp_victory
@@ -710,6 +711,284 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus INS_islamic_healthcare"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	#military tree
+	focus = {
+		id = INS_military_coup
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_merdeka
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 20
+		y = 1
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_islamic_healthcare"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_sudirman_in_charge
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_military_coup
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 17
+		y = 2
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_sudirman_in_charge"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_suharto_takes_over
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_military_coup
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 23
+		y = 2
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_suharto_takes_over"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_deploy_the_military
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_suharto_takes_over
+			focus = INS_sudirman_in_charge
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 20
+		y = 3
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_sudirman_in_charge"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_root_out_the_monarchists
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_deploy_the_military
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 19
+		y = 4
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_sudirman_in_charge"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_find_the_islamists
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_deploy_the_military
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 21
+		y = 4
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_sudirman_in_charge"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_destroy_the_murba
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_root_out_the_monarchists
+		}
+		prerequisite = {
+			focus = INS_find_the_islamists
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 20
+		y = 5
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_sudirman_in_charge"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_the_nation_saved
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_destroy_the_murba
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 20
+		y = 6
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_sudirman_in_charge"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_put_traitors_on_trial
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_sudirman_in_charge
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 17
+		y = 3
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_sudirman_in_charge"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_promise_democracy
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_put_traitors_on_trial
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 17
+		y = 4
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_sudirman_in_charge"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_allow_local_elections
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_promise_democracy
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 18
+		y = 5
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_sudirman_in_charge"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_reopen_dpr
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_allow_local_elections
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 18
+		y = 6
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_sudirman_in_charge"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_the_elections
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_reopen_dpr
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 18
+		y = 7
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_sudirman_in_charge"
 			add_stability = 0.1
 			
 		}

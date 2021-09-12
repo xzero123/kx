@@ -22,11 +22,14 @@ focus_tree = {
 	focus = {
 		id = INS_merdeka
 		icon = GFX_goal_INS_focus_merdeka
-		cost = 8.00
+		cost = 10
 		available = {
 			NOT = {
 				has_idea = INS_idea_insulindian_national_revolution
 			}
+		}
+		select_effect = {
+			country_event = inskx.1
 		}
 		ai_will_do = {
 			factor = 200
@@ -39,7 +42,7 @@ focus_tree = {
 			add_political_power = 50
 			#remove_ideas = INS_idea_insulindian_national_revolution
 			hidden_effect = {
-				country_event = ins.5
+				country_event = ins.4
 			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -49,6 +52,9 @@ focus_tree = {
 		id = INS_pni_victory
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 8.00
+		available = {
+			has_country_flag = ins_pni_majority
+		}
 		prerequisite = {
 			focus = INS_merdeka
 		}
@@ -407,6 +413,9 @@ focus_tree = {
 		cost = 8.00
 		prerequisite = {
 			focus = INS_merdeka
+		}
+		available = {
+			has_country_flag = ppp_victory
 		}
 		ai_will_do = {
 			factor = 1

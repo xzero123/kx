@@ -3,6 +3,7 @@
 ###########################
 
 add_namespace = ins
+add_namespace = inskx
 
 country_event = { #Assassination attempt on Sukarno
 	id = ins.1
@@ -15,8 +16,8 @@ country_event = { #Assassination attempt on Sukarno
 	trigger = {
 		tag = INS
 		OR = {
-			focus_progress = { focus = INS_political_crossroad progress > 0.5 }
-			has_completed_focus = INS_political_crossroad
+			focus_progress = { focus = INS_pni_victory progress > 0.5 }
+			has_completed_focus = INS_pni_victory
 		}
 		has_government = authoritarian_democrat
 		OR = {
@@ -166,6 +167,12 @@ country_event = { #Darul Islam tries to coup the government
 				days = 200
 			}
 		}
+		hidden_effect = {
+			country_event = {
+				id = inskx.5
+				days = 7
+			}
+		}
 	}
 }
 
@@ -202,7 +209,6 @@ country_event = { #Royalist Countercoup
 		}
 		add_stability = -0.05
 	}
-
 	option = { #The Coup succeeds
 		name = ins.3.b
 		ai_chance = {
@@ -259,6 +265,12 @@ country_event = { #Royalist Countercoup
 			country_event = {
 				id = ins.79
 				days = 30
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = inskx.5
+				days = 7
 			}
 		}
 	}
@@ -344,7 +356,7 @@ country_event = { #First Insulindian elections
 		}
 	}
 
-	option = { #Victory for Nahdlatul Ulama
+	option = { #Victory for PPP
 		name = ins.4.b
 		ai_chance = {
 			factor = 20
@@ -401,6 +413,7 @@ country_event = { #First Insulindian elections
 			INS_Sjafruddin_Prawiranegara_eco_sco
 			INS_Harsono_Tjokroaminoto_sec_sco
 		}
+		
 	}
 
 	option = { #Victory for the PNI
@@ -2893,7 +2906,7 @@ country_event = { #First election year + 4 years * amount of elections Insulindi
 		add_political_power = -50
 	}
 
-	option = { #Victory for Nahdlatul Ulama
+	option = { #Victory for the PPP
 		name = ins.69.b
 		ai_chance = {
 			factor = 20
@@ -2941,6 +2954,7 @@ country_event = { #First election year + 4 years * amount of elections Insulindi
 			INS_Sjafruddin_Prawiranegara_eco_sco
 			INS_Harsono_Tjokroaminoto_sec_sco
 		}
+		set_country_flag = ppp_victory
 	}
 
 	option = { #Victory for the PNI
@@ -5131,4 +5145,146 @@ country_event = { #Tan Malaka returns
 			set_nationality = INS
 		}
 	}
+}
+country_event = { #Elections announced!
+	id = inskx.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event inskx.1" }
+	title = inskx.1.t
+	desc = inskx.1.d
+
+	is_triggered_only = yes
+	picture = GFX_report_event_INS_independence_rally
+
+
+	option = { #Yay?
+		name = inskx.1.a
+		hidden_effect = {
+			country_event = {
+				id = inskx.2
+				days = 6
+			}
+		}
+    }
+	
+}
+country_event = { #PPP Forms
+	id = inskx.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event inskx.2" }
+	title = inskx.2.t
+	desc = inskx.2.d
+
+	is_triggered_only = yes
+	picture = GFX_report_event_INS_independence_rally
+
+
+	option = { #Interesting
+		name = inskx.2.a
+    add_popularity = {
+		ideology = social_conservative
+		popularity = 0.05
+	}
+	hidden_effect = {
+		country_event = {
+			id = inskx.3
+			days = 5
+		}
+	}
+}
+		}
+	
+}
+country_event = { #PSI and Murba announces election bid
+	id = inskx.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event inskx.3" }
+	title = inskx.3.t
+	desc = inskx.3.d
+
+	is_triggered_only = yes
+	picture = GFX_report_event_INS_independence_rally
+
+
+	option = { #Interesting
+		name = inskx.3.a
+    add_popularity = {
+		ideology = social_liberal
+		popularity = 0.03
+	}
+	add_popularity = {
+		ideology = radical_socialist
+		popularity = 0.04
+	}
+	hidden_effect = {
+		country_event = {
+			id = inskx.4
+			days = 5
+		}
+	}
+		}
+	
+}
+country_event = { #election violence!
+	id = inskx.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event inskx.4" }
+	title = inskx.4.t
+	desc = inskx.4.d
+
+	is_triggered_only = yes
+	picture = GFX_report_event_INS_independence_rally
+
+
+	option = { #Fuck
+		name = inskx.4.a
+    add_stability = -0.05
+		}
+	
+}
+country_event = { #military countercoup
+	id = inskx.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event inskx.4" }
+	title = inskx.5.t
+	desc = inskx.5.d
+
+	is_triggered_only = yes
+	picture = GFX_report_event_INS_independence_rally
+
+
+	option = { #countercoup succeeds!
+		name = inskx.5.a
+    add_stability = -0.05
+	set_country_flag = military_coup
+	set_politics = {
+		ruling_party = paternal_autocrat
+		elections_allowed = no
+		}
+		hidden_effect = {
+			country_event = {
+				id = inskx.6
+				days = 5
+			}
+		}
+		}
+	
+		option = { #countercoup fails!
+		name = inskx.5.b
+    add_stability = -0.05
+		}
+}
+country_event = { #military power struggle
+	id = inskx.6
+	immediate = { log = "[GetDateText]: [Root.GetName]: event inskx.4" }
+	title = inskx.6.t
+	desc = inskx.6.d
+
+	is_triggered_only = yes
+	picture = GFX_report_event_INS_independence_rally
+
+
+	option = { #sudirman wins!
+		name = inskx.6.a
+    set_country_flag = sudirman_powerstruggle_victory
+	}
+		option = { #suharto wins!
+		name = inskx.6.b
+    set_country_flag = suharto_powerstruggle_victory
+		}
 }

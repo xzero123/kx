@@ -1709,4 +1709,44 @@ focus_tree = {
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
+	focus = {
+		id = INS_bersiap
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+        available = {
+			has_idea = INS_idea_insulindian_national_revolution
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 20
+		y = 10
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_bersiap"
+			add_stability = 0.1
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_get_weapons
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+        prerequisite = {
+			focus = INS_bersiap
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 19
+		y = 11
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_bersiap"
+			add_stability = 0.1
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
 }

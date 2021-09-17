@@ -3797,6 +3797,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_old_or_new"
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	
@@ -3814,6 +3815,13 @@ focus_tree = {
 				ruling_only = yes
 			}
 		}
+		bypass = {
+			has_government = national_populist
+			has_country_leader = {
+				name = "Nicolás Rodríguez Carrasco"
+				ruling_only = yes
+			}
+		}
 		prerequisite = {
 			focus = MEX_GOL_old_or_new
 		}
@@ -3824,6 +3832,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_new_guard_victorious"
+			add_political_power = 100
 		}
 	}
 	
@@ -3842,6 +3851,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_destroy_catholicism"
+			swap_ideas = {
+				remove_idea = MEX_church_question
+				add_idea = MEX_GOL_destroy_catholicism
+			}
 		}
 	}
 	
@@ -3860,6 +3873,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_bring_back_aztec_beliefs"
+			swap_ideas = {
+				remove_idea = MEX_GOL_destroy_catholicism
+				add_idea = MEX_GOL_bring_back_aztec_beliefs
+			}
 		}
 	}
 	
@@ -3878,6 +3895,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_the_old_religion"
+			swap_ideas = {
+				remove_idea = MEX_GOL_bring_back_aztec_beliefs
+				add_idea = MEX_GOL_the_old_religion
+			}
 		}
 	}
 	
@@ -3896,6 +3917,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_heirs_of_the_aztecs"
+			add_ideas = MEX_GOL_heirs_of_the_aztecs
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.02
+			}
 		}
 	}
 	
@@ -3914,6 +3940,25 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_the_warrior_state"
+			add_ideas = MEX_GOL_the_warrior_state
+			add_war_support = 0.05
+			add_command_power = 100
+			army_experience = 100
+			random_owned_controlled_state = {
+				limit = { 
+					free_buliding_slots = { 
+						buliding = arms_factory size > 0 
+						include_locked = yes 
+					}
+				} 
+				add_extra_state_shared_bulding_slot = 2
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex = 1 
+					instant_build = yes
+				}
+			}
 		}
 	}
 	
@@ -3932,6 +3977,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_will_of_the_quetzalcoatl"
+			swap_ideas = {
+				remove_idea = MEX_GOL_the_warrior_state
+				add_idea = MEX_GOL_will_of_the_quetzalcoatl
+			}
 		}
 	}
 	
@@ -3950,6 +3999,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_take_the_reins"
+			add_political_power = 100
+			add_stability = 0.05
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.05
+			}
 		}
 	}
 
@@ -3968,6 +4023,38 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_total_control"
+			277 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
+			477 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
+			485 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
+			277 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = { type = industrial_complex level = 1	instant_build = yes }
+				}
+			}
+			478 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = { type = industrial_complex level = 1	instant_build = yes }
+				}
+			}
 		}
 	}
 
@@ -3986,6 +4073,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_eternal_war_economy"
+			add_ideas = war_economy
+			add_war_support = 0.05
 		}
 	}
 	
@@ -4015,6 +4104,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_return_of_the_old"
+			swap_ideas = {
+				remove_idea = MEX_ASA_a_mexican_state
+				add_idea = MEX_GOL_Neo_Aztec_Empire
+			}
 		}
 	}
 	

@@ -10,6 +10,7 @@ country_event = { # Start up Event
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.1"}
 	title = mexico.1.t
 	desc = mexico.1.d
+	picture = GFX_federalization_or_centralization
 
 	fire_only_once = yes
 
@@ -28,6 +29,7 @@ country_event = { # Start up Event
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.1200"}
 	title = mexico.1200.t
 	desc = mexico.1200.d
+	picture = GFX_federalization_or_centralization
 
 	fire_only_once = yes
 
@@ -2770,6 +2772,11 @@ country_event = { # Golshirt Coup
 			ideology = national_populist_subtype
 			traits = {}
 		}
+		set_party_name = {
+			ideology = national_populist
+			name = MEX_national_populist_party
+			long_name = MEX_national_populist_party_long
+		}
 		set_country_flag = MEX_coup_stopped
 		set_politics = {
 			ruling_party = national_populist
@@ -2809,6 +2816,7 @@ country_event = { # Sinarquista Coup
 			name = MEX_synarchist_national_populist_party
 			long_name = MEX_synarchist_national_populist_party_long
 		}
+		set_cosmetic_tag = MEX_synarchist
 		set_country_flag = MEX_synarchists_in_charge
 	}
 	option = {
@@ -2821,6 +2829,7 @@ country_event = { # Sinarquista Coup
 			ideology = national_populist_subtype
 			traits = {}
 		}
+		set_cosmetic_tag = MEX_integralist
 		set_country_flag = MEX_integralists_in_charge
 		set_party_name = {
 			ideology = national_populist
@@ -2886,6 +2895,7 @@ country_event = { # goldshirt leadership
 			ideology = national_populist_subtype
 			traits = {}
 		}
+		set_cosmetic_tag = MEX_goldshirt_old_guard
 		if = {
 			limit = {
 				has_idea = MEX_ASA_a_mexican_state
@@ -2906,6 +2916,7 @@ country_event = { # goldshirt leadership
 			ideology = national_populist_subtype
 			traits = {}
 		}
+		set_cosmetic_tag = MEX_goldshirt_new_guard
 		if = {
 			limit = {
 				has_idea = MEX_ASA_the_mexican_republic

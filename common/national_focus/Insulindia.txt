@@ -1710,6 +1710,113 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	focus = {
+		id = INS_sudirmans_insulindia
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_merdeka
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 40
+		y = 1
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_tax_the_nobles"
+			add_stability = 0.1
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_militarist_constitution
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_sudirmans_insulindia
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 38
+		y = 2
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_militarist_constitution"
+			add_stability = 0.1
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_balance_of_powers
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_sudirmans_insulindia
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 40
+		y = 2
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_balance_of_powers"
+			add_stability = 0.1
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_streamline_bureaucracy
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_sudirmans_insulindia
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 42
+		y = 2
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_streamline_bureaucracy"
+			add_stability = 0.1
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_everything_is_working
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_militarist_consitution
+		}
+		prerequisite = {
+			focus = INS_balance_of_powers
+		}
+		prerequisite = {
+			focus = INS_streamline_bureaucracy
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 40
+		y = 3
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_everything_is_working"
+			add_stability = 0.1
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	#tree for when war with dutch
+	focus = {
 		id = INS_bersiap
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 8.00
@@ -1735,6 +1842,9 @@ focus_tree = {
 		id = INS_get_weapons
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 2
+		available = {
+			has_idea = INS_idea_insulindian_national_revolution
+		}
         prerequisite = {
 			focus = INS_bersiap
 		}
@@ -1759,6 +1869,9 @@ focus_tree = {
 		id = INS_recruit_former_knil
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 3
+		available = {
+			has_idea = INS_idea_insulindian_national_revolution
+		}
         prerequisite = {
 			focus = INS_bersiap
 		}
@@ -1780,6 +1893,9 @@ focus_tree = {
 		id = INS_new_officers
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 1
+		available = {
+			has_idea = INS_idea_insulindian_national_revolution
+		}
         prerequisite = {
 			focus = INS_bersiap
 		}
@@ -1839,6 +1955,9 @@ focus_tree = {
 		id = INS_recruitment_campaign
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 8.00
+		available = {
+			has_idea = INS_idea_insulindian_national_revolution
+		}
         prerequisite = {
 			focus = INS_recruit_former_knil
 		}
@@ -1859,6 +1978,9 @@ focus_tree = {
 		id = INS_arms_workshops
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 8.00
+		available = {
+			has_idea = INS_idea_insulindian_national_revolution
+		}
         prerequisite = {
 			focus = INS_get_weapons
 		}
@@ -1896,6 +2018,9 @@ focus_tree = {
 		id = INS_sell_resources
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 8.00
+		available = {
+			has_idea = INS_idea_insulindian_national_revolution
+		}
         prerequisite = {
 			focus = INS_arms_workshops
 		}
@@ -1933,6 +2058,9 @@ focus_tree = {
 		id = INS_guerilla_warfare
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 3
+		available = {
+			has_idea = INS_idea_insulindian_national_revolution
+		}
         prerequisite = {
 			focus = INS_new_officers
 		}
@@ -1954,6 +2082,9 @@ focus_tree = {
 		id = INS_deploy_more_units
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 3
+		available = {
+			has_idea = INS_idea_insulindian_national_revolution
+		}
         prerequisite = {
 			focus = INS_recruitment_campaign
 		}
@@ -1975,6 +2106,9 @@ focus_tree = {
 		id = INS_the_great_push
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 4
+		available = {
+			has_idea = INS_idea_insulindian_national_revolution
+		}
         prerequisite = {
 			focus = INS_deploy_more_units
 		}

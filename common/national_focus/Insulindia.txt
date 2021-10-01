@@ -2108,7 +2108,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 50
+		x = 53
 		y = 1
 
 		completion_reward = {
@@ -2128,7 +2128,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 49
+		x = 52
 		y = 2
 
 		completion_reward = {
@@ -2148,7 +2148,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 51
+		x = 54
 		y = 2
 
 		completion_reward = {
@@ -2171,13 +2171,12 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 50
+		x = 53
 		y = 3
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus INS_the_iron_fist"
 			add_stability = 0.1
-			add_manpower = -28378
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -2192,13 +2191,115 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 47
+		x = 50
 		y = 4
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus INS_secure_the_state"
 			add_stability = 0.1
-			add_manpower = -28378
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_economic_revitalization
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_the_iron_fist
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 56
+		y = 4
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_economic_revitalization"
+			add_stability = 0.1
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_indirect_elections
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_secure_the_state
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 48
+		y = 5
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_indirect_elections"
+			add_stability = 0.1
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_connections_with_conservatives
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_secure_the_state
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 50
+		y = 5
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_connections_with_conservatives"
+			add_stability = 0.1
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_rewrite_constitution
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_secure_the_state
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 52
+		y = 5
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_rewrite_constitution"
+			add_stability = 0.1
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_three_party_system
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_indirect_elections
+		}
+		prerequisite = {
+			focus = INS_connections_with_conservatives
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 50
+		y = 6
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_three_party_system"
+			add_stability = 0.1
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}

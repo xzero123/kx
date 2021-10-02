@@ -4253,6 +4253,38 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_ally_the_landlords"
+			277 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
+			477 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
+			485 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
+			277 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = { type = industrial_complex level = 1	instant_build = yes }
+				}
+			}
+			478 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = { type = industrial_complex level = 1	instant_build = yes }
+				}
+			}
 		}
 	}
 	
@@ -4271,6 +4303,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_bring_corporations_in"
+			add_ideas = free_trade
+			add_stability = 0.05
 		}
 	}
 	
@@ -4289,6 +4323,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_indirect_control"
+			add_political_power = 100
+			add_stability = 0.05
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.05
+			}
 		}
 	}
 

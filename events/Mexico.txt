@@ -3015,6 +3015,28 @@ country_event = { # garza dead what now
 	}
 }
 
+country_event = { # porfirio 2.0 or junta
+	id = mexico.462
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.462"}
+	title = mexico.462.t
+	desc = mexico.462.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # monarchy time
+		name = mexico.462.a
+		set_country_flag = MEX_junta
+		complete_national_focus = MEX_never_again
+	}
+	option = { # no
+		name = mexico.462.b
+		set_country_flag = MEX_Porfiriato_2_electric_boogaloo_garza
+		complete_national_focus = MEX_a_new_diaz
+	}
+}
+
 country_event = {
 	id = mexico.360
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.360"}

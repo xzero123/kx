@@ -103,6 +103,17 @@ focus_tree = {
 					election_frequency = 80
 				}
 			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = paternal_autocrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 80
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
 		}
 	}
 	
@@ -225,6 +236,7 @@ focus_tree = {
 				add_idea = MEX_JUNTA_rewrite_the_constitution
 			}
 			add_stability = 0.05
+			remove_ideas = MEX_unclear_constitution
 		}
 	}
 
@@ -532,6 +544,7 @@ focus_tree = {
 			}
 			add_stability = 0.02
 			custom_effect_tooltip = MEX_campesinos_subtract_1
+			MEX_socialist_resistance_decrease = yes
 		}
 	}
 	

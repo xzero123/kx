@@ -4347,6 +4347,13 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_mexican_nationalism"
+			add_idea = MEX_GOL_mexican_nationalism
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex = 1 
+					instant_build = yes
+				}
+			}
 		}
 	}
 	
@@ -4365,6 +4372,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_national_revival"
+			swap_ideas = {
+				remove_idea = MEX_GOL_mexican_nationalism
+				add_idea = MEX_GOL_national_revival
+			}
 		}
 	}
 	
@@ -4383,6 +4394,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_arm_supremacy"
+			add_war_support = 0.05
+			add_command_power = 100
+			army_experience = 100
+			random_owned_controlled_state = {
+				limit = { 
+					free_buliding_slots = { 
+						buliding = arms_factory size > 0 
+						include_locked = yes 
+					}
+				} 
+				add_extra_state_shared_bulding_slot = 2
+			}
 		}
 	}
 
@@ -4401,6 +4424,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_secularize"
+			swap_ideas = {
+				remove_idea = MEX_church_question
+				add_idea = MEX_GOL_secularize
+			}
 		}
 	}
 
@@ -4419,6 +4446,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_ban_practice"
+			swap_ideas = {
+				remove_idea = MEX_GOL_secularize
+				add_idea = MEX_GOL_ban_practice
+			}
 		}
 	}
 	
@@ -4437,6 +4468,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_state_atheism"
+			swap_ideas = {
+				remove_idea = MEX_GOL_ban_practice
+				add_idea = MEX_GOL_state_atheism
+			}
 		}
 	}
 
@@ -4466,6 +4501,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_the_new_order"
+			swap_ideas = {
+				remove_idea = MEX_ASA_the_mexican_republic
+				add_idea = MEX_GOL_New_Mexico
+			}
 		}
 	}
 	

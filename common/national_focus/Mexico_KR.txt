@@ -2606,6 +2606,7 @@ focus_tree = {
 				remove_idea = MEX_JUNTA_imperial_presidency
 				add_idea = MEX_JUNTA_porfirio_was_right
 			}
+			add_research_slot = 1
 		}
 	}
 	
@@ -2627,6 +2628,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_secularization"
+			swap_ideas = {
+				remove_idea = MEX_church_question
+				add_idea = MEX_church_question2
+			}
 		}
 	}
 	
@@ -2647,6 +2652,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_favour_the_church"
+			swap_ideas = {
+				remove_idea = MEX_church_question2
+				add_idea = MEX_JUNTA_favour_the_church
+			}
 		}
 	}
 	
@@ -2667,6 +2676,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_secular_catholicism"
+			swap_ideas = {
+				remove_idea = MEX_JUNTA_favour_the_church
+				add_idea = MEX_JUNTA_secular_catholicism
+			}
 		}
 	}
 	
@@ -2688,6 +2701,15 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_persecute_the_traitors"
+			MEX_socialist_resistance_decrease = yes
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.2
+			}
 		}
 	}
 	
@@ -2708,6 +2730,15 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_proceed_with_the_plan"
+			MEX_socialist_resistance_decrease = yes
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.2
+			}
 		}
 	}
 	
@@ -2728,6 +2759,15 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_end_socialism"
+			MEX_socialist_resistance_decrease = yes
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.2
+			}
 		}
 	}
 	
@@ -2749,6 +2789,16 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_compromise_with_businessmen"
+			add_tech_bonus = {
+				name = MEX_privitization
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic
+				add_idea = MEX_revolution_economic2
+			}
 		}
 	}
 	
@@ -2769,6 +2819,14 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_a_sane_economic_plan"
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic
+				add_idea = MEX_laisze_faire_economy1
+			}
 		}
 	}
 	
@@ -2789,6 +2847,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_a_sane_economic_plan"
+			swap_ideas = {
+				remove_idea = MEX_laisze_faire_economy1
+				add_idea = MEX_laisze_faire_economy2
+			}
+			MEX = {	every_owned_state = { add_extra_state_shared_building_slots = 1	} }
 		}
 	}
 	
@@ -2809,6 +2872,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_military_junta"
+			swap_ideas = {
+				remove_idea = MEX_an_imperial_presidency
+				add_idea = MEX_JUNTA_military_junta
+			}
 		}
 	}
 	
@@ -2829,6 +2896,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_ban_reelections"
+			add_popularity = { ideology = paternal_autocrat popularity = 0.05 }
+			remove_country_leader_trait = emergency_powers
+			add_country_leader_trait = president_for_life
 		}
 	}
 	
@@ -2849,6 +2919,28 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_fix_democracy"
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.09
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.05
+			}
+			add_political_power = 100
+			add_stability = -0.05
 		}
 	}
 	
@@ -2869,6 +2961,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_forgive_the_past_and_walk_to_the_future"
+			swap_ideas = {
+				remove_idea = MEX_JUNTA_military_junta
+				add_idea = MEX_JUNTA_forgive_the_past_and_walk_to_the_future
+			}
+			add_research_slot = 1
 		}
 	}
 	
@@ -2898,6 +2995,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_succesfull_junta"
+			swap_ideas = {
+				add_idea = MEX_JUNTA_succesfull_junta
+				remove_idea = MEX_JUNTA_forgive_the_past_and_walk_to_the_future
+			}
 		}
 	}
 	
@@ -2927,6 +3028,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_JUNTA_vablo_is_victorious"
+			swap_ideas = {
+				add_idea = MEX_JUNTA_vablo_is_victorious
+				remove_idea = MEX_JUNTA_porfirio_was_right
+			}
 		}
 	}
 	
@@ -5174,6 +5279,12 @@ focus_tree = {
 				remove_idea = MEX_revolution_economic
 				add_idea = MEX_revolution_economic2
 			}
+			add_tech_bonus = {
+				name = MEX_privitization
+				bonus = 1
+				uses = 1
+				category = industry
+			}
 		}
 	}
 	
@@ -5227,6 +5338,7 @@ focus_tree = {
 				remove_idea = MEX_MEK_labour_economy
 				add_idea = MEX_MEK_labour_economy2
 			}
+			MEX = {	every_owned_state = { add_extra_state_shared_building_slots = 1	} }
 		}
 	}
 	
@@ -5566,6 +5678,12 @@ focus_tree = {
 				remove_idea = MEX_revolution_economic
 				add_idea = MEX_revolution_economic2
 			}
+			add_tech_bonus = {
+				name = MEX_privitization
+				bonus = 1
+				uses = 1
+				category = industry
+			}
 		}
 	}
 
@@ -5619,6 +5737,7 @@ focus_tree = {
 				remove_idea = MEX_MEK_corporatist_economy
 				add_idea = MEX_corporatist_economy2
 			}
+			MEX = {	every_owned_state = { add_extra_state_shared_building_slots = 1	} }
 		}
 	}
 

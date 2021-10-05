@@ -1116,7 +1116,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 30
+		x = 29
 		y = 1
 
 		completion_reward = {
@@ -1137,7 +1137,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 29
+		x = 28
 		y = 2
 
 		completion_reward = {
@@ -1158,7 +1158,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 31
+		x = 30
 		y = 2
 
 		completion_reward = {
@@ -1182,7 +1182,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 30
+		x = 29
 		y = 3
 
 		completion_reward = {
@@ -1224,7 +1224,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 33
+		x = 32
 		y = 4
 
 		completion_reward = {
@@ -1311,7 +1311,7 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 26
+		x = 25
 		y = 7
 
 		completion_reward = {
@@ -1326,7 +1326,31 @@ focus_tree = {
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 8.00
 		prerequisite = {
+			focus = INS_the_royal_law
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 27
+		y = 7
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_end_gender_issue"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_insulindia_sultan_rakyat
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
 			focus = INS_religious_freedoms
+		}
+		prerequisite = {
+			focus = INS_gender_reforms
 		}
 		ai_will_do = {
 			factor = 1
@@ -1353,6 +1377,48 @@ focus_tree = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
+		x = 31
+		y = 5
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_form_privy_council"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_form_privy_council
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_absolute_monarchy
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 31
+		y = 5
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_form_privy_council"
+			add_stability = 0.1
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_advisory_parliament
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_absolute_monarchy
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
 		x = 33
 		y = 5
 
@@ -1364,17 +1430,20 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	focus = {
-		id = INS_draft_constitution
+		id = INS_codify_law
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 8.00
 		prerequisite = {
 			focus = INS_form_privy_council
 		}
+		prerequisite = {
+			focus = INS_advisory_parliament
+		}
 		ai_will_do = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 33
+		x = 32
 		y = 6
 
 		completion_reward = {
@@ -1392,13 +1461,13 @@ focus_tree = {
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 8.00
 		prerequisite = {
-			focus = INS_draft_constitution
+			focus = INS_codify_law
 		}
 		ai_will_do = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 33
+		x = 31
 		y = 7
 
 		completion_reward = {
@@ -1408,18 +1477,18 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	focus = {
-		id = INS_strengthen_nobility
+		id = INS_reform_nobility
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 8.00
 		prerequisite = {
-			focus = INS_interior_security_ministry
+			focus = INS_codify_law
 		}
 		ai_will_do = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
 		x = 33
-		y = 8
+		y = 7
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus INS_strengthen_nobility"
@@ -1428,18 +1497,21 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	focus = {
-		id = INS_fan_nationalism
+		id = INS_sultan_allah
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 8.00
 		prerequisite = {
-			focus = INS_strengthen_nobility
+			focus = INS_reform_nobility
+		}
+		prerequisite = {
+			focus = INS_interior_security_ministry
 		}
 		ai_will_do = {
 			factor = 1
 		}
 		relative_position_id = INS_merdeka
-		x = 33
-		y = 9
+		x = 32
+		y = 8
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus INS_fan_nationalism"
@@ -1448,16 +1520,52 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	focus = {
-		id = INS_centralization_or_decentralization
+		id = INS_legacy_of_gajah_mada
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 8.00
 		prerequisite = {
-			focus = INS_fan_nationalism
-			focus = INS_end_gender_issue
+			focus = INS_insulindia_sultan_rakyat
+			focus = INS_sultan_allah
 		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 29
+		y = 9
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_majapahit_dreams"
+			add_stability = 0.1
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_kesultanan_malaya_raya
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
 		prerequisite = {
-			focus = INS_annual_meeting_of_nobles
-			focus = INS_royal_department_of_taxation
+			focus = INS_legacy_of_gajah_mada
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 28
+		y = 10
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_majapahit_dreams"
+			add_stability = 0.1
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_kesultanan_majapahit
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_legacy_of_gajah_mada
 		}
 		ai_will_do = {
 			factor = 1
@@ -1467,53 +1575,11 @@ focus_tree = {
 		y = 10
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus INS_centralization_or_decentralization"
-			add_stability = 0.1
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL }
-	}
-	focus = {
-		id = INS_majapahit_dreams
-		icon = GFX_goal_INS_focus_merdeka
-		cost = 8.00
-		prerequisite = {
-			focus = INS_centralization_or_decentralization
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		relative_position_id = INS_merdeka
-		x = 30
-		y = 11
-
-		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus INS_majapahit_dreams"
 			add_stability = 0.1
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
-	focus = {
-		id = INS_the_sultanate
-		icon = GFX_goal_INS_focus_merdeka
-		cost = 8.00
-		prerequisite = {
-			focus = INS_rein_military
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		relative_position_id = INS_merdeka
-		x = 30
-		y = 4
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus INS_the_sultanate"
-			add_stability = 0.1
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL }
-	}
-	
-	
 	focus = {
 		id = INS_sudirmans_insulindia
 		icon = GFX_goal_INS_focus_merdeka

@@ -4157,6 +4157,10 @@ focus_tree = {
 				ideology = national_populist
 				popularity = 0.05
 			}
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic
+				add_idea = MEX_revolution_economic2
+			}
 		}
 	}
 
@@ -4207,6 +4211,10 @@ focus_tree = {
 					add_building_construction = { type = industrial_complex level = 1	instant_build = yes }
 				}
 			}
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic2
+				add_idea = MEX_GOL_total_control
+			}
 		}
 	}
 
@@ -4227,6 +4235,10 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_eternal_war_economy"
 			add_ideas = war_economy
 			add_war_support = 0.05
+			swap_ideas = {
+				remove_idea = MEX_GOL_total_control
+				add_idea = MEX_GOL_eternal_war_economy
+			}
 		}
 	}
 	
@@ -4429,6 +4441,10 @@ focus_tree = {
 					add_building_construction = { type = industrial_complex level = 1	instant_build = yes }
 				}
 			}
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic
+				add_idea = MEX_revolution_economic2
+			}
 		}
 	}
 	
@@ -4449,6 +4465,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_GOL_bring_corporations_in"
 			add_ideas = free_trade
 			add_stability = 0.05
+			add_tech_bonus = {
+				name = MEX_privitization
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic
+				add_idea = MEX_laisze_faire_economy1
+			}
 		}
 	}
 	
@@ -4472,6 +4498,10 @@ focus_tree = {
 			add_popularity = {
 				ideology = national_populist
 				popularity = 0.05
+			}
+			swap_ideas = {
+				remove_idea = MEX_laisze_faire_economy1
+				add_idea = MEX_laisze_faire_economy2
 			}
 		}
 	}
@@ -6430,6 +6460,12 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_privatization"
 			random_owned_state = {add_extra_state_shared_building_slots = 3}
+			add_tech_bonus = {
+				name = MEX_privitization
+				bonus = 1
+				uses = 1
+				category = industry
+			}
 		}
 	}
 

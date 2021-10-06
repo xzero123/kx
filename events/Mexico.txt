@@ -6648,6 +6648,47 @@ country_event = { # two branches
 	}
 }
 
+country_event = { #aztec empire restored
+	id = mexico.175
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.175"}
+	title = mexico.175.t
+	desc = mexico.175.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { # aztec
+		name = mexico.175.a
+		create_country_leader = {# Itzcoatl II
+			name = "Itzcoatl II"
+			desc = "POLITICS_CARRASCO_MEGA_LARP_DESC"
+			picture = "Portrait_Itzcoatl_II.png"
+			expire = "1965.1.1"
+			ideology = national_populist_subtype
+			traits = {}
+		}
+		hidden_effect = {
+			if = {
+				limit = { MEX = { has_unit_leader = 120108 } }
+				every_unit_leader = {
+					limit = { has_id = 120108 }
+					set_leader_portrait = GFX_Portrait_Itzcoatl_II_Militar
+				}
+				every_unit_leader = {
+					limit = { has_id = 120108 }
+					set_leader_name = "Itzcoatl II"
+				}
+			}
+		}
+		set_cosmetic_tag = MEX_AZTEC_EMPIRE
+	}
+	
+	option = { # meh
+		name = mexico.175.b
+	}
+}
+
 
 ### Foreign Policy ###
 country_event = { # Mexico wishes to join the Internationale (fired from focus)

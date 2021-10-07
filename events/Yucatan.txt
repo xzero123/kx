@@ -91,20 +91,136 @@ country_event = { # Who to Ally with?
 
 	option = { # ally with the red shirts
 		name = yucatan.5.a
-		
+		set_country_flag = YUC_redshirt_alliance_flag
 	}
 	option = { # ally with the maya
 		name = yucatan.5.b
-		
+		set_country_flag = YUC_maya_alliance_flag
 	}
 	option = { # ally both
 		name = yucatan.5.c
+		set_country_flag = YUC_maya_and_redshirt_alliance_flag
 	}
-	option = { # no alliex
+	option = { # no allies
 		name = yucatan.5.e
+		set_country_flag = YUC_no_ally_flag
 	}
 }
 
+country_event = { # Who to Ally with?
+	id = yucatan.6
+	immediate = {log = "[GetDateText]: [Root.GetName]: event yucatan.5"}
+	title = yucatan.6.t
+	desc = yucatan.6.d
+	picture = GFX_report_event_diplomacy2
+
+	is_triggered_only = yes
+
+	option = { # coup suceeds
+		name = yucatan.6.a
+		set_politics = {
+			ruling_party = totalist
+			elections_allowed = no
+		}
+	}
+	option = { # pushed back
+		name = yucatan.6.b
+		country_event = {
+			id = yucatan.7
+			days = 3
+		}
+	}
+}
+
+country_event = { # Pataut or Authdem
+	id = yucatan.7
+	immediate = {log = "[GetDateText]: [Root.GetName]: event yucatan.7"}
+	title = yucatan.7.t
+	desc = yucatan.7.d
+	picture = GFX_report_event_diplomacy2
+
+	is_triggered_only = yes
+
+	option = { # coup suceeds
+		name = yucatan.7.a
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = no
+		}
+	}
+	option = { # pushed back
+		name = yucatan.7.b
+
+	}
+}
+
+country_event = { # maya attempt a coup
+	id = yucatan.8
+	immediate = {log = "[GetDateText]: [Root.GetName]: event yucatan.8"}
+	title = yucatan.8.t
+	desc = yucatan.8.d
+	picture = GFX_report_event_diplomacy2
+
+	is_triggered_only = yes
+
+	option = { # coup suceeds
+		name = yucatan.8.a
+		set_politics = {
+			ruling_party = national_populist
+			elections_allowed = no
+		}
+	}
+	option = { # pushed back
+		name = yucatan.8.b
+
+	}
+}
+
+country_event = { # both sides attempt coup
+	id = yucatan.9
+	immediate = {log = "[GetDateText]: [Root.GetName]: event yucatan.9"}
+	title = yucatan.9.t
+	desc = yucatan.9.d
+	picture = GFX_report_event_diplomacy2
+
+	is_triggered_only = yes
+
+	option = { # coup suceeds
+		name = yucatan.8.a
+		set_politics = {
+			ruling_party = national_populist
+			elections_allowed = no
+		}
+	}
+	option = { # coup suceeds
+		name = yucatan.8.b
+		set_politics = {
+			ruling_party = totalist
+			elections_allowed = no
+		}
+	}
+}
+
+country_event = { # coup
+	id = yucatan.9
+	immediate = {log = "[GetDateText]: [Root.GetName]: event yucatan.9"}
+	title = yucatan.9.t
+	desc = yucatan.9.d
+	picture = GFX_report_event_diplomacy2
+
+	is_triggered_only = yes
+
+	option = { # well shit
+		name = yucatan.9.a
+		add_ideas = YUC_shits_on_fire
+		hidden_effect = {
+			country_event = {
+				id = yucatan.10
+				days = 10
+			}
+		}
+	}
+}
 
 
 ### Political Events ###
@@ -246,6 +362,17 @@ country_event = { # Other elections Elections
 			elections_allowed = yes
 		}
 	}
+	option = { # Radical Socialist
+		name = yucatan.21.e
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.1
+		}
+		set_politics = {
+			ruling_party = radical_socialist
+			elections_allowed = yes
+		}
+	}
 }
 
 ### Foreign Relations ###
@@ -335,6 +462,42 @@ country_event = { # Hidden event to unlock Yucatan focuses
 	
 	option = {
 		set_country_flag = YUC_indepedence_war_over
+		if = {
+			limit = {
+				has_country_flag = YUC_redshirt_alliance_flag
+			}
+			country_event = {
+				id = yucatan.6
+				days = 23
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = YUC_maya_alliance_flag
+			}
+			country_event = {
+				id = yucatan.8
+				days = 23
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = YUC_maya_and_redshirt_alliance_flag
+			}
+			country_event = {
+				id = yucatan.9
+				days = 23
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = YUC_no_ally_flag
+			}
+			country_event = {
+				id = yucatan.20
+				days = 23
+			}
+		}
 	}
 }
 

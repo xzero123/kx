@@ -133,6 +133,7 @@ add_namespace = germans
 			ideology = authoritarian_democrat_subtype
 			traits = {}
 		}
+		set_cosmetic_tag = DKB_bog
 		remove_ideas_with_trait = head_of_government
 		add_ideas = DKB_Mikhail_N_Grabbe_hog_ade
 		unlock_national_focus = DKB_after
@@ -254,6 +255,7 @@ add_namespace = germans
 					set_nationality = DKB
 				}
 			}
+			drop_cosmetic_tag = yes
 		}
 		ai_chance = {
 			factor = 30
@@ -282,13 +284,20 @@ add_namespace = germans
 		}
 		set_cosmetic_tag = DKB_vlasov
 		remove_all_ministers = yes
+		add_ideas = {
+			DKB_Mikhail_Meandrov_hog_sde
+			DKB_Vladimir_Orlov_for_ade
+			DKB_Vasiliyy_N_Ivanis_eco_ade
+			DKB_Shavrov_Nikitin_sec_ade
+		}
 		set_country_flag = DKB_vlasov_coup
 		set_party_name = { 
         ideology = authoritarian_democrat
        long_name = DKB_paternal_autocrat_vlasov_long
         name = DKB_paternal_autocrat_vlasov
         }
-		#unlock_national_focus = DKB_vlasov
+		unlock_national_focus = DKB_after
+		unlock_national_focus = DKB_KONR_in_Power
 		custom_effect_tooltip = unfinshed_tooltip_DKB
 		hidden_effect = {
 		create_country_leader = {
@@ -1122,6 +1131,176 @@ country_event = { #vlasov ded
 		  }
 	   }
 	}
+	
+	#vlasovschina
+	country_event = { #Rostov Manifesto
+    id = vlasov.1
+	title = vlasov.1.t
+	desc = vlasov.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { 
+		name = vlasov.1.a
+		add_political_power = 100
+		add_stability = 0.10
+		add_war_support = 0.10
+		add_ideas = DKB_Rostov_Manifesto_idea
+		remove_ideas = DON_Cossack_state
+		remove_ideas = DON_Cossack_army
+		every_state = {
+				limit = {
+					OR = {
+						is_core_of = SOV
+						is_core_of = RUS
+					}
+				}
+				add_claim_by = ROOT
+			}
+	  }
+    }
+	
+	country_event = { #Cossacks Sideline
+    id = vlasov.2
+	title = vlasov.2.t
+	desc = vlasov.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { 
+		name = vlasov.2.a
+		add_political_power = 150
+        add_stability = -0.10
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.10
+		}
+	  }
+    }
+	
+	country_event = { #Cossack Autonomy
+    id = vlasov.3
+	title = vlasov.3.t
+	desc = vlasov.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { 
+		name = vlasov.3.a
+		add_political_power = -150
+        add_stability = 0.10
+		add_ideas = DKB_Cossack_Autonomy
+	  }
+    }
+	
+	country_event = { #ROA Propaganda
+    id = vlasov.4
+	title = vlasov.4.t
+	desc = vlasov.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { 
+		name = vlasov.4.a
+		add_political_power = 25
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+	  }
+    }
+	
+	country_event = { #Copying Solidarism
+    id = vlasov.5
+	title = vlasov.5.t
+	desc = vlasov.5.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { 
+		name = vlasov.5.a
+	  }
+    }
+	
+	country_event = { #Kolchakite Question
+    id = vlasov.6
+	title = vlasov.6.t
+	desc = vlasov.6.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	
+	option = { #We need them
+		name = vlasov.6.a
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.08
+		}
+		TRM = {
+		country_event = {
+         id = vlasov.7
+         days = 4
+         }
+	  }
+	  }
+	  
+	  
+	  option = { #Slience, Kolchakite
+		name = vlasov.6.b
+	  }
+    }
+	
+	country_event = { #TRM alliance Event
+    id = vlasov.7
+	title = vlasov.7.t
+	desc = vlasov.7.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { #Sure lol
+		name = vlasov.7.a
+		DKB = {
+		create_faction = "Russian Liberation Pact"
+		add_to_faction = TRM
+		}
+		ai_chance = {
+			factor = 75
+			modifier = {
+				add = -5000
+				OR = {
+				has_socialist_government = yes
+				is_in_faction_with = JAP
+				}
+			}
+		}
+	  }
+	  
+	  option = { #Slience, Vlasovite
+		name = vlasov.7.b
+		ai_chance = {
+			factor = 35
+		}
+		DKB {
+		country_event = {
+         id = vlasov.8
+         days = 4
+         }
+		 }
+	  }
+    }
+	
+	country_event = { #TRM refused
+    id = vlasov.8
+	title = vlasov.8.t
+	desc = vlasov.8.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { 
+		name = vlasov.8.a
+	  }
+    }
+	
 #demand shit
 country_event = { #The East Bank
 	id = dkbfor.49
@@ -1735,6 +1914,7 @@ country_event = { #Initial event
 	mean_time_to_happen = {
 		days = 0
 	}
+	picture = GFX_report_event_RUS_don_kuban_map
 
 	option = {
 		name = dkb.1.a
@@ -1860,8 +2040,6 @@ country_event = { #Kalmyks
 			division_template = "Kalmytskiy Kazaki"
 			disband = yes
 		}
-		remove_state_core = 237
-		remove_state_core = 1191
 		KLY = {
 			transfer_state = 237
 			transfer_state = 1191
@@ -3968,7 +4146,7 @@ country_event = { #Agreed
 		name = dkbfor.2.a
 		annex_country = {
 			target = FROM
-			transfer_troops = no
+			transfer_troops = yes
 		}
 	}
 }

@@ -8294,7 +8294,7 @@ focus = {
 			has_country_flag = DKB_pannwitz_lives
 		}
 		prerequisite = {
-			focus = DKB_Von_Pannwitz_Holds_on
+			focus = DKB_the_new_Ostdeutsches_Heer
 		}
 		ai_will_do = {
 			factor = 100
@@ -9554,7 +9554,1104 @@ focus = {
 		}
 	}
 	
+	
+	#Vlasov
+	focus = {
+		id = DKB_Russian_Liberation_Army
+		icon = GFX_DKB_roa
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+        available = {
+			has_country_flag = DKB_vlasov_coup
+			has_completed_focus = DKB_Rostov_Manifesto
+		}
+		
+		x = -44
+		y = 0
+		completion_reward = {
+	    army_experience = 50
+		custom_effect_tooltip = DKB_ROA_generals_will_serve_us_tooptip
+		hidden_effect = {
+		create_corps_commander = {
+	     name = "Boris Shteyfon"
+	     portrait_path = "gfx/leaders/RUS/Portrait_RUS_Boris_Shteyfon.png"
+	      traits = {
+		  panzer_leader
+		  politically_connected
+	       }
+	      skill = 2
+	      attack_skill = 2
+	      defense_skill = 1
+	      planning_skill = 2
+	      logistics_skill = 2
+         }
+		create_corps_commander = {
+	      name = "Viktor Maltsev"
+	      portrait_path = "gfx/leaders/DKB/Portrait_DKB_Viktor_Maltsev.png"
+	      traits = {
+		  career_officer
+	       }
+	      skill = 2
+	      attack_skill = 1
+	      defense_skill = 2
+	      planning_skill = 2
+	      logistics_skill = 2
+         }
+		 create_corps_commander = {
+	      name = "Anatoly Rogozhin"
+	      portrait_path = "gfx/leaders/DKB/Portrait_DKB_Anatoly_Rogozhin.png"
+	      traits = {
+		  old_guard
+		  infantry_officer
+		  skilled_staffer
+	       }
+	      skill = 3
+	      attack_skill = 2
+	      defense_skill = 2
+	      planning_skill = 3
+	      logistics_skill = 2
+         }
+		 create_corps_commander = {
+	      name = "Konstantin Kromiadi"
+	      portrait_path = "gfx/leaders/DKB/Portrait_DKB_Konstantin_Kromiadi.png"
+	      traits = {
+		  infantry_officer
+		  trait_cautious
+	       }
+	      skill = 1
+	      attack_skill = 1
+	      defense_skill = 1
+	      planning_skill = 2
+	      logistics_skill = 1
+         }
+		 create_corps_commander = {
+	      name = "Mikhail Skorodumov"
+	      portrait_path = "gfx/leaders/DKB/Portrait_DKB_Mikhail_Skorodumov.png"
+	      traits = {
+		  old_guard
+		  cavalry_officer
+	       }
+	      skill = 2
+	      attack_skill = 2
+	      defense_skill = 1
+	      planning_skill = 2
+	      logistics_skill = 4
+         }
+		 create_corps_commander = {
+	      name = "Mikhail Meandrov"
+	      portrait_path = "gfx/leaders/DKB/Portrait_DKB_Mikhail_Meandrov.png"
+	      traits = {
+		  politically_connected 
+		  inflexible_strategist
+	       }
+	      skill = 3
+	      attack_skill = 2
+	      defense_skill = 2
+	      planning_skill = 3
+	      logistics_skill = 4
+         }
+		 create_corps_commander = {
+			name = "Bronislav Kaminski"
+				portrait_path = "gfx/leaders/RUS/Portrait_RUS_Bronislav_Kaminski.png"
+				traits = {
+		        media_personality
+		        harsh_leader
+	             }
+	           #id = 1001
+			   skill = 2
+	           attack_skill = 3
+	           defense_skill = 1
+	           planning_skill = 1
+	           logistics_skill = 2
+			}
+			create_field_marshal = {
+				name = "Andrey Vlasov"
+				portrait_path = "gfx/leaders/RUS/Portrait_RUS_Andrey_Vlasov.png"
+				traits = {
+		        organisational_leader
+				politically_connected 
+				media_personality
+				war_hero
+				offensive_doctrine
+	             }
+			   skill = 3
+	           attack_skill = 3
+	           defense_skill = 3
+	           planning_skill = 3
+	           logistics_skill = 5
+			}
+			create_field_marshal = {
+				name = "Sergei Bunyachenko"
+				portrait_path = "gfx/leaders/DKB/Portrait_RUS_Sergei_Bunyachenko.png"
+				traits = {
+				inspirational_leader
+				hidden_sympathies
+				war_hero
+				logistics_wizard
+	             }
+			   skill = 4
+	           attack_skill = 4
+	           defense_skill = 2
+	           planning_skill = 5
+	           logistics_skill = 5
+			}
+		}
+	  }
+	}
+	
+	focus = {
+		id = DKB_The_Enemy_of_my_Enemy
+		icon = GFX_goal_align_germany
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		prerequisite = {
+			focus = DKB_Russian_Liberation_Army
+		}
+		mutually_exclusive = {
+			focus = DKB_Expel_the_German_Admin
+		}
+		relative_position_id = DKB_Russian_Liberation_Army
+		x = 1
+		y = 1
+		completion_reward = {
+	    add_ideas = DON_GER_mil_mis
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.05
+		}
+		}
+	}
+	
+	focus = {
+		id = DKB_Secure_German_Support
+		icon = GFX_goal_German_Investements
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		prerequisite = {
+			focus = DKB_The_Enemy_of_my_Enemy
+		}
+		
+		relative_position_id = DKB_Russian_Liberation_Army
+		x = 2
+		y = 2
+		completion_reward = {
+	    GER = {
+		give_guarantee = DKB
+		}
+		create_corps_commander = {
+				name = "Helmuth von Pannwitz"
+				portrait_path = "gfx/leaders/DKB/Portrait_DKB_Helmuth_von_Pannwitz.png"
+				traits = { cavalry_leader cavalry_officer }
+				skill = 3
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 4
+				logistics_skill = 2
+			}
+			
+		}
+	}
+	
+	focus = {
+		id = DKB_German_Arms_Shipments
+		icon = GFX_goal_mittel_arms_trade
+		cost = 3
+		ai_will_do = {
+			factor = 50
+		}
+		prerequisite = {
+			focus = DKB_Secure_German_Support
+		}
+		
+		relative_position_id = DKB_Russian_Liberation_Army
+		x = 2
+		y = 3
+		completion_reward = {
+	    add_equipment_to_stockpile = {
+        type = infantry_equipment
+        amount = 3000
+        producer = GER
+         }
+		 add_tech_bonus = {
+         bonus = 0.5
+         uses = 1
+         category = infantry_weapons
+           }
+		 
+		}
+	}
+	
+	focus = {
+		id = DKB_Expel_the_German_Admin
+		icon = GFX_goal_ZAM_expel_germans
+		cost = 3
+		ai_will_do = {
+			factor = 50
+		}
+		prerequisite = {
+			focus = DKB_Russian_Liberation_Army
+		}
+		mutually_exclusive = {
+			focus = DKB_The_Enemy_of_my_Enemy
+		}
+		relative_position_id = DKB_Russian_Liberation_Army
+		x = -1
+		y = 1
+		completion_reward = {
+	    add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.05
+		}
+		GER = { 
+		diplomatic_relation = {
+          country = DKB
+          relation = military_access
+          active = no
+          }
+		  
+		}
+		}
+	}
+	
+	
+	focus = {
+		id = DKB_By_Our_Hands_Alone
+		icon = GFX_BRY_Every_Hand_A_Rifle
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		prerequisite = {
+			focus = DKB_Expel_the_German_Admin
+		}
+		relative_position_id = DKB_Russian_Liberation_Army
+		x = -2
+		y = 2
+		completion_reward = {
+	    add_equipment_to_stockpile = {
+        type = infantry_equipment
+        amount = 1000
+        producer = DKB
+         }
+		 
+		}
+	}
+	
+	focus = {
+		id = DKB_All_for_the_Liberation
+		icon = GFX_goal_mass_concentration_of_army
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		prerequisite = {
+			focus = DKB_By_Our_Hands_Alone
+		}
+		relative_position_id = DKB_Russian_Liberation_Army
+		x = -2
+		y = 3
+		completion_reward = {
+	    add_ideas = DKB_All_For_The_Liberation
+		}
+	}
+	focus = {
+		id = DKB_Review_our_Doctrines
+		icon = GFX_goal_military_academy
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		prerequisite = {
+			focus = DKB_Expel_the_German_Admin
+			focus = DKB_The_Enemy_of_my_Enemy
+		}
+		relative_position_id = DKB_Russian_Liberation_Army
+		x = 0
+		y = 2
+		completion_reward = {
+	    add_tech_bonus = {
+         bonus = 1
+         uses = 2
+         category = land_doctrine
+           }
+		}
+	}
+	
+	focus = {
+		id = DKB_Begin_Proper_Mobilization
+		icon = GFX_goal_NFA_military_supremacy
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		prerequisite = {
+			focus = DKB_Review_our_Doctrines
+		}
+		relative_position_id = DKB_Russian_Liberation_Army
+		x = 0
+		y = 3
+		completion_reward = {
+	    add_ideas = DKB_Mobilization
+		}
+	}
+	
+	focus = {
+		id = DKB_New_Liberation_Army
+		icon = GFX_TRM_former_allies
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		prerequisite = {
+			focus = DKB_Begin_Proper_Mobilization
+		}
+		prerequisite = {
+			focus = DKB_All_for_the_Liberation
+			focus = DKB_German_Arms_Shipments
+		}
+		relative_position_id = DKB_Russian_Liberation_Army
+		x = 0
+		y = 4
+		completion_reward = {
+	    swap_ideas = {
+		add_idea = DKB_New_ROA
+		remove_idea = DKB_Mobilization
+		}
+		}
+	}
+	
+	focus = {
+		id = DKB_Appoint_Maltsev 
+		icon = GFX_goal_RUS_airforce
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		prerequisite = {
+			focus = DKB_Russian_Liberation_Army
+		}
+		x = 5
+		y = 1
+		relative_position_id = DKB_Russian_Liberation_Army
+		completion_reward = {
+	    air_experience = 50
+		}
+	}
+	
+	focus = {
+		id = DKB_Expand_Airfields_ROA
+		icon = GFX_goal_generic_airports
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		prerequisite = {
+			focus = DKB_Appoint_Maltsev
+		}
+		x = 6
+		y = 2
+		relative_position_id = DKB_Russian_Liberation_Army
+		completion_reward = {
+	    random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = air_base
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = DKB_Fancy_New_Planes
+		icon = GFX_HUN_fighters
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		prerequisite = {
+			focus = DKB_Appoint_Maltsev
+		}
+		x = 4
+		y = 2
+		relative_position_id = DKB_Russian_Liberation_Army
+		completion_reward = {
+	    add_tech_bonus = {
+         bonus = 0.5
+         uses = 1
+         category = light_air
+           }
+		}
+	}
+	
+	focus = {
+		id = DKB_Itll_Have_to_Do
+		icon = GFX_goal_new_airforce
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		prerequisite = {
+			focus = DKB_Fancy_New_Planes
+		}
+		prerequisite = {
+			focus = DKB_Expand_Airfields_ROA
+		}
+		x = 5
+		y = 3
+		relative_position_id = DKB_Russian_Liberation_Army
+		completion_reward = {
+	    air_experience = 100
+		add_tech_bonus = {
+         bonus = 1
+         uses = 2
+         category = air_doctrine
+           }
+		}
+	}
+	
+	
+	focus = {
+		id = DKB_KONR_in_Power
+		icon = GFX_goal_DKB_vlasov_wins
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+			has_country_flag = DKB_vlasov_coup
+		}
+		bypass = {
+			has_country_flag = DKB_vlasov_coup
+		}
+		x = -52
+		y = 0
+		completion_reward = {
+	    custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = DKB_Rostov_Manifesto
+		icon = GFX_goal_MEX_new_constitution
+		cost = 2
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_KONR_in_Power
+		}
+		x = 0
+		y = 1
+		completion_reward = {
+	    country_event = vlasov.1
+		}
+	}
+	
+	focus = {
+		id = DKB_Sideline_the_Cossacks
+		icon = GFX_TRM_Limit_Cossack_Autonomy
+		cost = 4
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_Rostov_Manifesto
+		}
+		mutually_exclusive = {
+			focus = DKB_A_Deal_for_Autonomy
+		}
+		x = 1
+		y = 2
+		completion_reward = {
+		country_event = vlasov.2
+		}
+	}
+	
+	focus = {
+		id = DKB_A_Deal_for_Autonomy
+		icon = GFX_BRY_Ties_With_Cossacks
+		cost = 4
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_Rostov_Manifesto
+		}
+		mutually_exclusive = {
+			focus = DKB_Sideline_the_Cossacks
+		}
+		x = -1
+		y = 2
+		completion_reward = {
+	    country_event = vlasov.3
+		}
+	}
+	
+	focus = {
+		id = DKB_Crush_the_DNSP
+		icon = GFX_TRM_Austerity_Measures
+		cost = 3
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_Sideline_the_Cossacks
+			focus = DKB_A_Deal_for_Autonomy
+		}
+		x = 1
+		y = 3
+		completion_reward = {
+	    add_political_power = 75
+		add_stability = 0.05
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = -0.15
+		}
+		}
+	}
+	
+	
+	focus = {
+		id = DKB_Martial_Law
+		icon = GFX_TRM_Martial_Law
+		cost = 3
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_Sideline_the_Cossacks
+			focus = DKB_A_Deal_for_Autonomy
+		}
+		x = -1
+		y = 3
+		completion_reward = {
+	    add_ideas = DKB_Martial_Law
+		}
+	}
+	
+	focus = {
+		id = DKB_the_Committee_Entrenched
+		icon = GFX_RUS_strengthen_chairman
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_Crush_the_DNSP
+		}
+		prerequisite = {
+			focus = DKB_Martial_Law
+		}
+		x = 0
+		y = 4
+		completion_reward = {
+	    swap_ideas = {
+		add_idea = DKB_Rostov_Manifesto_1
+		remove_idea = DKB_Rostov_Manifesto_idea
+		}
+		}
+	}
+	
+	focus = {
+		id = DKB_Peoples_Liberation
+		icon = GFX_goal_NFA_All_For_the_Liberation
+		cost = 3
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_the_Committee_Entrenched
+		}
+		x = 1
+		y = 5
+		completion_reward = {
+	    add_political_power = 45
+		add_stability = 0.07
+		}
+	}
+	
+	focus = {
+		id = DKB_ROA_Propaganda
+		icon = GFX_goal_NFA_national_propaganda
+		cost = 3
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_the_Committee_Entrenched
+		}
+		x = -1
+		y = 5
+		completion_reward = {
+	    add_war_support = 0.07
+		add_political_power = 35
+		country_event = vlasov.4
+		}
+	}
+	
+	focus = {
+		id = DKB_Lighten_Restrictions
+		icon = GFX_NEE_expand_civil_service
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_ROA_Propaganda
+		}
+		prerequisite = {
+			focus = DKB_Peoples_Liberation
+		}
+		x = 0
+		y = 6
+		completion_reward = {
+	    remove_ideas = DKB_Martial_Law
+		swap_ideas = {
+		remove_idea = DKB_Rostov_Manifesto_1
+		add_idea = DKB_Rostov_Manifesto_2
+		}
+		}
+	}
+	
+	focus = {
+		id = DKB_Economic_Recovery_Plan
+		icon = GFX_TRM_Restructure_Bureaucracy
+		cost = 2
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_Sideline_the_Cossacks
+			focus = DKB_A_Deal_for_Autonomy
+		}
+		x = 3
+		y = 3
+		completion_reward = {
+	    add_political_power = 75
+		}
+	}
+	
+	focus = {
+		id = DKB_ROA_Factories
+		icon = GFX_goal_munitions_factories
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_Economic_Recovery_Plan
+		}
+		x = 4
+		y = 4
+		completion_reward = {
+	    random_owned_state = {
+		add_building_construction = {
+        type = arms_factory
+        level = 2
+        instant_build = yes
+        }           
+		add_extra_state_shared_building_slots = 3
+		}
+		random_owned_state = {
+		add_building_construction = {
+        type = arms_factory
+        level = 1
+        instant_build = yes
+        }           
+		add_extra_state_shared_building_slots = 3
+		}
+		}
+	}
+	
+	focus = {
+		id = DKB_Take_Notes_from_Solidarism
+		icon = GFX_NEE_expand_organization
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_Economic_Recovery_Plan
+		}
+		x = 2
+		y = 4
+		completion_reward = {
+	    swap_ideas = {
+		remove_idea = DON_black_monday_1
+		add_idea = DON_black_monday_2
+		 }
+		 hidden_effect = {
+		 country_event = {
+         id = vlasov.5
+         days = 4
+         }
+		}
+	}
+	}
+	
+	focus = {
+		id = DKB_Begin_Industrialization
+		icon = GFX_goal_GEO_Industrialize_the_Countryside
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_Take_Notes_from_Solidarism
+		}
+		prerequisite = {
+			focus = DKB_ROA_Factories
+		}
+		x = 3
+		y = 5
+		completion_reward = {
+	    swap_ideas = {
+		remove_idea = DON_black_monday_2
+		add_idea = DON_black_monday_3
+		}
+		random_owned_state = {
+		add_building_construction = {
+        type = industrial_complex 
+        level = 3
+        instant_build = yes
+        }           
+		add_extra_state_shared_building_slots = 3
+		}
+		random_owned_state = {
+		add_building_construction = {
+        type = industrial_complex 
+        level = 1
+        instant_build = yes
+        }           
+		add_extra_state_shared_building_slots = 3
+		   }
+		 }
+		}
+	
+	focus = {
+		id = DKB_Economic_Recovery
+		icon = GFX_goal_generic_recovery
+		cost = 3
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_Begin_Industrialization
+		}
+		x = 3
+		y = 6
+		completion_reward = {
+	    remove_ideas = DON_black_monday_3
+		}
+	}
+	
+	focus = {
+		id = DKB_Prepare_to_Expand_vlasov
+		icon = GFX_RUS_caucasus
+		cost = 2
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_Sideline_the_Cossacks
+			focus = DKB_A_Deal_for_Autonomy
+		}
+		x = -3
+		y = 3
+		completion_reward = {
+	    add_war_support = 0.10
+		}
+	}
+	
+	focus = {
+		id = DKB_Liberate_Kuban
+		icon = GFX_DKB_annex_kuban
+		cost = 3
+		ai_will_do = {
+			factor = 50
+		}
+		bypass = {
+		KUB = {
+			exists = no
+			}
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_Prepare_to_Expand_vlasov
+		}
+		x = -2
+		y = 4
+		completion_reward = {
+	    every_state = {
+				limit = {
+					is_core_of = KUB
+				}
+				add_claim_by = ROOT
+			}
+			KUB = {
+				country_event = {
+					id = dkbfor.1
+					days = 2
+				}
+			}
+		}
+		}
+	
+	
+	focus = {
+		id = DKB_Liberate_Kalmykia
+		icon = GFX_DKB_annex_kalmykia
+		cost = 3
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_Prepare_to_Expand_vlasov
+		}
+		bypass = {
+		KLY = {
+			exists = no
+			}
+		}
+		x = -4
+		y = 4
+		completion_reward = {
+	    every_state = {
+				limit = {
+					is_core_of = KLY
+				}
+				add_claim_by = ROOT
+			}
+			KLY = {
+				country_event = {
+					id = dkbfor.1
+					days = 2
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = DKB_Liberate_the_Mountains
+		icon = GFX_DKB_annex_mountain
+		cost = 3
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_Liberate_Kalmykia
+		}
+		prerequisite = {
+			focus = DKB_Liberate_Kuban
+		}
+		bypass = {
+		MTR = {
+			exists = no
+			}
+		}
+		x = -3
+		y = 5
+		completion_reward = {
+	    every_state = {
+				limit = {
+					is_core_of = MTR
+				}
+				add_claim_by = ROOT
+			}
+			MTR = {
+				country_event = {
+					id = dkbfor.1
+					days = 2
+				}
+			}
+		}
+	}
+	
+	
+	focus = {
+		id = DKB_The_South_Liberated
+		icon = GFX_goal_RUS_flag
+		cost = 3
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_Liberate_the_Mountains
+		}
+		
+		x = -3
+		y = 6
+		completion_reward = {
+	    custom_effect_tooltip = DKB_cores_on_land_ger
+			hidden_effect = {
+			every_owned_state = {
+				limit = {
+					is_core_of = KUB
+				}
+				add_core_of = ROOT
+			}
+			every_owned_state = {
+				limit = {
+					is_core_of = KLY
+				}
+				add_core_of = ROOT
+			}
+			every_owned_state = {
+				limit = {
+					is_core_of = MTR
+				}
+				add_core_of = ROOT
+			}
+			}
+		}
+	}
+	
+	
+	focus = {
+		id = DKB_Kolchakite_Question
+		icon = GFX_TRM_Supreme_Ruler
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_The_South_Liberated
+		}
+		prerequisite = {
+			focus = DKB_Lighten_Restrictions
+			focus = DKB_Economic_Recovery
+		}
+		bypass = {
+		OR = {
+		is_in_faction = yes
+		TRM = {
+		OR = {
+		is_in_faction = yes
+		has_country_flag = Aleksandr_Kolchak_dead
+		    }
+		   }
+		 }
+		}
+		
+		x = 0
+		y = 7
+		completion_reward = {
+	    country_event = vlasov.6
+		}
+	}
+	
+	focus = {
+		id = DKB_Slay_the_Dragon
+		icon = GFX_goal_MON_we_dont_need_russia
+		cost = 2
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_Kolchakite_Question
+		}
+		
+		x = 0
+		y = 8
+		completion_reward = {
+			create_wargoal = {
+				target = 195.owner
+				type = annex_everything
+			}
+		}
+	}
+	
+	focus = {
+		id = DKB_Russia_Liberated
+		icon = GFX_KUB_lineitsy
+		cost = 2
+		ai_will_do = {
+			factor = 100
+		}
+        relative_position_id = DKB_KONR_in_Power
+		prerequisite = {
+			focus = DKB_Slay_the_Dragon
+		}
+		available = {
+			if = {
+				limit = {
+					country_exists = SOV
+					SOV = { has_country_flag = SOV_restored_in_transamur }
+				}
+				NOT = { country_exists = RUS }
+			}
+			else = {
+				NOT = {
+					OR = {
+						country_exists = SOV
+						country_exists = RUS
+					}
+				}
+			}
+			195 = { is_owned_and_controlled_by = ROOT }
+			219 = { is_owned_and_controlled_by = ROOT }
+			
+		}
+		x = 0
+		y = 9
+		completion_reward = {
+			set_cosmetic_tag = DKB_vlasov_RUS
+			every_owned_state = {
+				limit = {
+					is_core_of = RUS
+				}
+				add_core_of = ROOT
+			}
+			add_ideas = DKB_aftermath_uch_idea
+			add_ideas = DKB_aftermath_uch_economic_idea
+		}
+	}
+	
+	focus = {
+		id = DKB_
+		icon = GFX_goal_MON_we_dont_need_russia
+		cost = 2
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_Russia_Liberated
+		prerequisite = {
+			focus = DKB_Russia_Liberated
+		}
+		
+		x = 0
+		y = 1
+		completion_reward = {
+			
+		}
+	}
+	
 }
-
-
-

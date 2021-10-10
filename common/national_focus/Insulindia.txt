@@ -98,7 +98,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	focus = {
-		id = INS_nationalist_curriculum
+		id = INS_form_pramuka
 		icon = GFX_goal_KTG_Educate_natives
 		cost = 8.00
 		prerequisite = {
@@ -182,11 +182,11 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	focus = {
-		id = INS_insulindian_identity
+		id = INS_promote_bahasa_insulindia
 		icon = GFX_goal_HOL_dutch_unity
 		cost = 8.00
 		prerequisite = {
-			focus = INS_nationalist_curriculum
+			focus = INS_form_pramuka
 		}
 		ai_will_do = {
 			factor = 1
@@ -250,7 +250,7 @@ focus_tree = {
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 8.00
 		prerequisite = {
-			focus = INS_insulindian_identity
+			focus = INS_promote_bahasa_insulindia
 		}
 		ai_will_do = {
 			factor = 1
@@ -2175,14 +2175,74 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	focus = {
-		id = INS_five_year_plans
+		id = INS_suharto_family_enterprises
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_kino
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 55
+		y = 7
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_suharto_family_enterprises"
+			add_stability = 0.1
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_suharto_family_enterprises
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_kino
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 55
+		y = 7
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_suharto_family_enterprises"
+			add_stability = 0.1
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_the_hand_of_the_free_market
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_kino
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 57
+		y = 7
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_the_hand_of_the_free_market"
+			add_stability = 0.1
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_repelita
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 8.00
 		prerequisite = {
 			focus = INS_deregulate_banking_sector
 		}
 		prerequisite = {
-			focus = INS_rewrite_constitution
+			focus = INS_redefine_pancasila
 		}
 		ai_will_do = {
 			factor = 1
@@ -2218,7 +2278,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	focus = {
-		id = INS_connections_with_conservatives
+		id = INS_align_with_conservatives
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 8.00
 		prerequisite = {
@@ -2238,7 +2298,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	focus = {
-		id = INS_rewrite_constitution
+		id = INS_redefine_pancasila
 		icon = GFX_goal_INS_focus_merdeka
 		cost = 8.00
 		prerequisite = {
@@ -2265,7 +2325,7 @@ focus_tree = {
 			focus = INS_controlled_opposition
 		}
 		prerequisite = {
-			focus = INS_connections_with_conservatives
+			focus = INS_align_with_conservatives
 		}
 		ai_will_do = {
 			factor = 1
@@ -2277,6 +2337,79 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus INS_three_party_system"
 			add_stability = 0.1
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_mysterious_shootings
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_three_party_system
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 49
+		y = 7
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_mysterious_shootings"
+			add_stability = 0.05
+			add_manpower = -254
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_dwifungsi
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_three_party_system
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 51
+		y = 7
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_dwifungsi"
+			add_stability = 0.05
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_business_is_boomin
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 8.00
+		prerequisite = {
+			focus = INS_mysterious_shootings
+		}
+		prerequisite = {
+			focus = INS_dwifungsi
+		}
+		prerequisite = {
+			focus = INS_repelita
+		}
+		prerequisite = {
+			focus = INS_suharto_family_enterprises
+		}
+		prerequisite = {
+			focus = INS_the_hand_of_the_free_market
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = INS_merdeka
+		x = 53
+		y = 8
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_business_is_boomin"
+			add_stability = 0.05
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}

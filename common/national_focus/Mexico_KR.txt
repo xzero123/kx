@@ -6126,9 +6126,12 @@ focus_tree = {
 		available = {
 			has_government = authoritarian_democrat
 		}
+		bypass = {
+			has_government = authoritarian_democrat
+		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_prun"
-			add_popularity = {ideology = authoritarian_democrat popularity = 0.05}
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	
@@ -6151,8 +6154,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_limited_liberties"
-			add_popularity = {ideology = authoritarian_democrat popularity = -0.05}
-			add_stability = 0.1
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.05}
+			add_stability = 0.05
 		}
 	}
 	
@@ -6175,7 +6178,8 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_military_support"
 			army_experience = 25
-			add_war_support = 10
+			add_war_support = 0.05
+			add_stability = 0.05
 		}
 	}
 	

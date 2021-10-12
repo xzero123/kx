@@ -173,6 +173,45 @@ ideas = {
 		
 		### Democratic ###
 		
+		MEX_asa_resistance_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_anti_asa_resistance_idea"}
+			modifier = {
+				political_power_gain = -0.25
+				conscription_factor = -0.10
+				stability_factor = -0.20
+			}
+			picture = chi_war_of_resistance3
+		}
+		
+		MEX_asa_resistance_idea2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_anti_asa_resistance_idea2"}
+			modifier = {
+				political_power_gain = -0.2
+				conscription_factor = -0.05
+				stability_factor = -0.15
+			}
+			picture = chi_war_of_resistance3
+		}
+		
+		MEX_asa_resistance_idea3 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_anti_asa_resistance_idea3"}
+			modifier = {
+				political_power_gain = -0.15
+				conscription_factor = -0.02
+				stability_factor = -0.1
+			}
+			picture = chi_war_of_resistance3
+		}
+		
+		MEX_asa_resistance_idea4 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_anti_asa_resistance_idea4"}
+			modifier = {
+				political_power_gain = -0.1
+				stability_factor = -0.05
+			}
+			picture = chi_war_of_resistance3
+		}
+		
 		MEX_DL_constitutional_monarchy = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_DL_constitutional_monarchy"}
 			picture = X
@@ -232,6 +271,91 @@ ideas = {
 				market_liberal_drift = 0.01
 				social_liberal_drift = 0.01
 				social_democrat_drift = 0.01
+			}
+		}
+		
+		### Democratic - AuthDem ###
+		MEX_limited_liberties = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_limited_liberties"}
+			picture = generic_pp_unity_bonus
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.10
+			}
+		}
+		MEX_reactionary_thought = { #Reactionary Thought
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_reactionary_thought"}
+			modifier = {
+				encryption = 0.03
+				stability_weekly_factor = 0.01
+				political_power_gain = 0.02
+				consumer_goods_factor = -0.01
+				research_speed_factor = 0.03
+				party_popularity_stability_factor = 0.05
+			}
+			removal_cost = -1
+			picture = BBR_free_thought_societies
+		}	
+		
+		MEX_propaganda_campaign = { #Propaganda
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_propaganda_campaign"}
+			modifier = {
+				encryption = 0.03
+				stability_weekly_factor = 0.015
+				political_power_gain = 0.02
+				monthly_population = 0.05
+				consumer_goods_factor = -0.05
+				research_speed_factor = 0.03
+				party_popularity_stability_factor = 0.1
+			}
+			removal_cost = -1
+			picture = BBR_free_thought_societies
+		}
+		
+		MEX_laissezfaire_economy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_laissezfaire_economy"}
+			picture = generic_agrarian_reform
+			modifier = {
+				consumer_goods_factor = -0.03
+				production_factory_max_efficiency_factor = 0.03
+				production_factory_start_efficiency_factor = 0.03
+				research_speed_factor = 0.05
+				local_factories	= 0.1
+			}
+		}
+		
+		### Democratic - SocCon ###
+		MEX_support_the_church = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_support_the_church"}
+			picture = MEX_Church_Question
+			modifier = {
+				stability_factor = 0.02
+				war_support_factor = 0.02
+			}
+		}
+		
+		MEX_catholic_identity = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_catholic_identity"}
+			picture = MEX_Church_Question
+			modifier = {
+				stability_factor = 0.02
+				war_support_factor = 0.02
+				army_attack_factor = 0.05
+				army_org_factor = 0.05
+				industrial_capacity_factory = 0.05
+			}
+		}
+		
+		MEX_protectionist_economy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_protectionist_economy"}
+			picture = generic_agrarian_reform
+			modifier = {
+				consumer_goods_factor = -0.03
+				production_factory_max_efficiency_factor = 0.03
+				production_factory_start_efficiency_factor = 0.03
+				research_speed_factor = 0.05
+				local_resources_factor = 0.05
+				trade_opinion_factor = -0.1
 			}
 		}
 		
@@ -329,7 +453,6 @@ ideas = {
 		
 		MEX_JUNTA_favour_the_church = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_JUNTA_favour_the_church"}
-			name = MEX_church_question
 			picture = MEX_Church_Question
 			modifier = {
 				stability_factor = 0.02
@@ -339,7 +462,6 @@ ideas = {
 		
 		MEX_JUNTA_secular_catholicism = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_JUNTA_secular_catholicism"}
-			name = MEX_church_question
 			picture = MEX_Church_Question
 			modifier = {
 				stability_factor = 0.05

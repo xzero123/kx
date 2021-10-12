@@ -54,6 +54,34 @@ MEX_decrease_goldshirt_resistance = {
 	}
 }
 
+MEX_decrease_asa_resistance = {
+	if = {
+		limit = { has_idea = MEX_asa_resistance_idea }
+		swap_ideas = {
+			remove_idea = MEX_asa_resistance_idea
+			add_idea = MEX_asa_resistance_idea2
+		}
+	}
+	else_if = {
+		limit = { has_idea = MEX_asa_resistance_idea2 }
+		swap_ideas = {
+			remove_idea = MEX_asa_resistance_idea2
+			add_idea = MEX_asa_resistance_idea3
+		}
+	}
+	else_if = {
+		limit = { has_idea = MEX_asa_resistance_idea3 }
+		swap_ideas = {
+			remove_idea = MEX_asa_resistance_idea3
+			add_idea = MEX_asa_resistance_idea4
+		}
+	}
+	else_if = {
+		limit = { has_idea = MEX_asa_resistance_idea4 }
+		remove_ideas = MEX_asa_resistance_idea4
+	}
+}
+
 MEX_socialist_resistance_decrease = {
 	if = {
 		limit = { has_idea = MEX_socialist_democratic_resistance_idea }
@@ -454,7 +482,7 @@ MEX_create_christero_generals = {
 	}
 			
 	create_corps_commander = {
-		name = "Juan Chavalo"
+		name = "Jose Casillas"
 		portrait_path = "gfx/leaders/MEX/Portrait_MCS_Captain_Kid.png"
 		traits = {
 			commando

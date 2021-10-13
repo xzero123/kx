@@ -6614,7 +6614,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_neoliberalism"
-			add_popularity = {ideology = market_liberal popularity = 0.05}
+			add_popularity = { ideology = market_liberal popularity = 0.05 }
+			add_research_slot = 1
+			MEX_decrease_asa_resistance = yes
+			MEX_socialist_resistance_decrease = yes
+			add_ideas = MEX_neoliberalism
 		}
 	}
 
@@ -6637,6 +6641,11 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_media_support"
 			add_popularity = {ideology = market_liberal popularity = 0.05}
+			MEX_socialist_resistance_decrease = yes
+			swap_ideas = {
+				remove_idea = MEX_neoliberalism
+				add_idea = MEX_neoliberalism2
+			}
 		}
 	}
 
@@ -6763,7 +6772,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_mexico_industrialized"
-			#add_ideas = MEX_mexico_industrialized
+			add_ideas = MEX_mexico_industrialized
 		}
 	}
 	
@@ -6783,9 +6792,12 @@ focus_tree = {
 		available = {
 			has_government = social_liberal
 		}
+		bypass = {
+			has_government = social_liberal
+		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_pri"
-			add_popularity = {ideology = social_liberal popularity = 0.05}
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 
@@ -6808,6 +6820,8 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_progressive_thought"
 			add_popularity = {ideology = social_liberal popularity = 0.05}
+			add_research_slot = 1
+			add_ideas = MEX_progressive_thought
 		}
 	}
 
@@ -6830,6 +6844,11 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_civil_liberties"
 			add_popularity = {ideology = social_liberal popularity = 0.05}
+			remove_ideas = MEX_church_question
+			swap_ideas = {
+				remove_idea = MEX_progressive_thought
+				add_idea = MEX_civil_liberties
+			}
 		}
 	}
 	
@@ -6851,9 +6870,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_interventionist_economy"
-			remove_ideas = MEX_economic_legacy_of_the_revolution
-			#add_ideas = MEX_interventionist_economy
-			add_popularity = {ideology = social_liberal popularity = 0.1}
+			swap_ideas = {
+				remove_idea = MEX_economic_legacy_of_the_revolution
+				add_idea = MEX_interventionist_economy
+			}
 		}
 	}
 	
@@ -6882,6 +6902,8 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_secure_democracy"
 			add_stability = 0.05
+			MEX_decrease_asa_resistance = yes
+			increase_ruling_party_popularity_by_5 = yes
 		}
 	}
 	
@@ -6906,7 +6928,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_social_security"
-			add_stability = 0.1
+			add_stability = 0.05
+			random_owned_controlled_state = {	
+				limit = { 
+					free_buliding_slots = { 
+						buliding = industrial_complex 
+						size > 0 
+						include_locked = yes 
+					}
+				} 
+				add_extra_state_shared_bulding_slot = 2
+				add_building_construction = {type = industrial_complex = 1 instant_build = yes}
+			}
 		}
 	}
 
@@ -6931,7 +6964,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_universal_healthcare"
-			#add_ideas = MEX_universal_healthcare
+			add_ideas = MEX_universal_healthcare
 		}
 	}
 
@@ -6951,9 +6984,12 @@ focus_tree = {
 		available = {
 			has_government = social_democrat
 		}
+		bypass = {
+			has_government = social_democrat
+		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_plm"
-			add_popularity = {ideology = social_democrat popularity = 0.5}
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	
@@ -6976,6 +7012,8 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_social_democracy"
 			add_popularity = {ideology = social_democrat popularity = 0.05}
+			add_ideas = MEX_social_democracy
+			add_research_slot = 1
 		}
 	}
 
@@ -6998,6 +7036,12 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_moderate_the_left"
 			add_popularity = {ideology = social_democrat popularity = 0.05}
+			add_stability = 0.05
+			remove_ideas = MEX_church_question
+			swap_ideas = {
+				remove_idea = MEX_social_democracy
+				add_idea = MEX_moderate_the_left
+			}
 		}
 	}
 
@@ -7019,9 +7063,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_moderate_socialist_economy"
-			remove_ideas = MEX_economic_legacy_of_the_revolution
-			#add_ideas = MEX_moderate_socialist_economy
-			add_popularity = {ideology = social_democrat popularity = 0.1}
+			swap_ideas = {
+				remove_idea = MEX_economic_legacy_of_the_revolution
+				add_idea = MEX_moderate_socialist_economy
+			}
 		}
 	}
 
@@ -7045,6 +7090,8 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pna"
 			add_popularity = { ideology = radical_socialist popularity = -0.2}
 			add_popularity = {ideology = social_democrat popularity = 0.05}
+			add_stability = 0.05
+			add_political_power = 100
 		}
 	}
 	
@@ -7052,7 +7099,7 @@ focus_tree = {
 	#Focus for Meet with the PMT
 	focus = {
 		id = MEX_meet_with_the_pmt
-		icon = GFX_goal_ideology_totalist
+		icon = GFX_goal_ideology_syndicalist
 		relative_position_id = MEX_plm
 		x = 2
 		y = 2
@@ -7069,13 +7116,14 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pmt"
 			add_popularity = { ideology = syndicalist popularity = -0.2}
 			add_popularity = {ideology = social_democrat popularity = 0.05}
+			MEX_socialist_resistance_decrease = yes
 		}
 	}
 	
 	#Focus for Meet with the PNR
 	focus = {
 		id = MEX_meet_with_the_pnr
-		icon = GFX_goal_ideology_syndicalist
+		icon = GFX_goal_ideology_totalist
 		relative_position_id = MEX_plm
 		x = 2
 		y = 3
@@ -7092,6 +7140,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
 			add_popularity = { ideology = totalist popularity = -0.2}
 			add_popularity = {ideology = social_democrat popularity = 0.05}
+			MEX_socialist_resistance_decrease = yes
 		}
 	}
 }

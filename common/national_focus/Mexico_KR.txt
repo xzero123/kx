@@ -6531,16 +6531,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_end_the_ejido_system"
 			random_owned_controlled_state = {
-				limit = { 
-					free_buliding_slots = { 
-						buliding = industrial_complex 
-						size > 0 
-						include_locked = yes 
-					}
-				} 
 				add_extra_state_shared_bulding_slot = 2
-			}
-			random_owned_controlled_state = {
 				add_building_construction = {type = industrial_complex = 1 instant_build = yes}
 			}
 		}
@@ -6667,8 +6658,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_free_market_economy"
-			remove_ideas = MEX_revolution_economic
-			#add_ideas = MEX_free_market_economy
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic
+				add_idea = MEX_free_market_economy
+			}
 			add_popularity = {ideology = market_liberal popularity = 0.1}
 		}
 	}
@@ -6698,16 +6691,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_invest_in_the_industry"
-			random_owned_controlled_state = {	
-				limit = { 
-					free_buliding_slots = { 
-						buliding = industrial_complex 
-						size > 0 
-						include_locked = yes 
-					}
-				} 
+			random_owned_state = {	
 				add_extra_state_shared_bulding_slot = 2
-				add_building_construction = {type = industrial_complex = 1 instant_build = yes}
+				add_building_construction = {type = industrial_complex level = 1 instant_build = yes}
 			}
 		}
 	}
@@ -6733,20 +6719,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_invest_in_heavy_industry"
-			random_owned_controlled_state = {
-				limit = { 
-					free_buliding_slots = { 
-						buliding = arms_factory size > 0 
-						include_locked = yes 
-					}
-				} 
+			random_owned_state = {
 				add_extra_state_shared_bulding_slot = 2
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = industrial_complex = 1 
-					instant_build = yes
-				}
+				add_building_construction = {type = industrial_complex level = 1 instant_build = yes}
+				add_building_construction = {type = arms_factory level= 1 instant_build = yes}
 			}
 		}
 	}
@@ -6871,7 +6847,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_interventionist_economy"
 			swap_ideas = {
-				remove_idea = MEX_economic_legacy_of_the_revolution
+				remove_idea = MEX_revolution_economic
 				add_idea = MEX_interventionist_economy
 			}
 		}
@@ -7064,7 +7040,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_moderate_socialist_economy"
 			swap_ideas = {
-				remove_idea = MEX_economic_legacy_of_the_revolution
+				remove_idea = MEX_revolution_economic
 				add_idea = MEX_moderate_socialist_economy
 			}
 		}
@@ -7141,6 +7117,537 @@ focus_tree = {
 			add_popularity = { ideology = totalist popularity = -0.2}
 			add_popularity = {ideology = social_democrat popularity = 0.05}
 			MEX_socialist_resistance_decrease = yes
+		}
+	}
+	
+	#########################################
+	### Democracy Restored - Second Terms ###
+	#########################################
+
+	focus = {
+		id = MEX_second_election
+		icon = X
+		relative_position_id = MEX_constitutional_convention
+		x = 0
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_electoring_monitoring
+			focus = MEX_laissezfaire_economy
+			focus = MEX_destroy_reds
+			focus = MEX_protectionist_economy
+			focus = MEX_new_ranches
+			focus = MEX_free_market_economy
+			focus = MEX_mexico_industrialized
+			focus = MEX_interventionist_economy
+			focus = MEX_universal_healthcare
+			focus = MEX_moderate_socialist_economy
+			focus = MEX_meet_with_the_pnr
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_PLC_second_term
+		icon = X
+		relative_position_id = MEX_second_election
+		x = 0
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_second_election
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_marlib_1
+		icon = X
+		relative_position_id = MEX_PLC_second_term
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_PLC_second_term
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_marlib_2
+		icon = X
+		relative_position_id = MEX_PLC_second_term
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_PLC_second_term
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_PAN_second_term
+		icon = X
+		relative_position_id = MEX_second_election
+		x = -4
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_second_election
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_soccon_1
+		icon = X
+		relative_position_id = MEX_PAN_second_term
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_PAN_second_term
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_soccon_2
+		icon = X
+		relative_position_id = MEX_PAN_second_term
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_PAN_second_term
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_PRUN_second_term
+		icon = X
+		relative_position_id = MEX_second_election
+		x = -8
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_second_election
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_authdem_1
+		icon = X
+		relative_position_id = MEX_PRUN_second_term
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_PRUN_second_term
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_authdem_2
+		icon = X
+		relative_position_id = MEX_PRUN_second_term
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_PRUN_second_term
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_PCP_second_term
+		icon = X
+		relative_position_id = MEX_second_election
+		x = 4
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_second_election
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_soclib_1
+		icon = X
+		relative_position_id = MEX_PCP_second_term
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_PCP_second_term
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_soclib_2
+		icon = X
+		relative_position_id = MEX_PCP_second_term
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_PCP_second_term
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_PLM_second_term
+		icon = X
+		relative_position_id = MEX_second_election
+		x = 8
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_second_election
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_socdem_1
+		icon = X
+		relative_position_id = MEX_PLM_second_term
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_PLM_second_term
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_socdem_2
+		icon = X
+		relative_position_id = MEX_PLM_second_term
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_PLM_second_term
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_no_bans
+		icon = X
+		relative_position_id = MEX_constitutional_convention
+		x = 0
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_authdem_1
+			focus = MEX_authdem_2
+			focus = MEX_soccon_1
+			focus = MEX_soccon_2
+			focus = MEX_marlib_1
+			focus = MEX_marlib_2
+			focus = MEX_soclib_1
+			focus = MEX_soclib_2
+			focus = MEX_socdem_1
+			focus = MEX_socdem_2
+		}
+		mutually_exclusive = {
+			focus = MEX_ban_authoritarian_parties
+			focus = MEX_ban_socialist_parties
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_ban_socialist_parties
+		icon = X
+		relative_position_id = MEX_constitutional_convention
+		x = -2
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_authdem_1
+			focus = MEX_authdem_2
+			focus = MEX_soccon_1
+			focus = MEX_soccon_2
+		}
+		mutually_exclusive = {
+			focus = MEX_ban_authoritarian_parties
+			focus = MEX_no_bans
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_ban_authoritarian_parties
+		icon = X
+		relative_position_id = MEX_constitutional_convention
+		x = 2
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_soclib_1
+			focus = MEX_soclib_2
+			focus = MEX_socdem_1
+			focus = MEX_socdem_2
+		}
+		mutually_exclusive = {
+			focus = MEX_ban_socialist_parties
+			focus = MEX_no_bans
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_real_democracy
+		icon = X
+		relative_position_id = MEX_constitutional_convention
+		x = 1
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_no_bans
+		}
+		mutually_exclusive = {
+			focus = MEX_dominant_party_democracy
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = MEX_dominant_party_democracy
+		icon = X
+		relative_position_id = MEX_constitutional_convention
+		x = -1
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MEX_ban_authoritarian_parties
+			focus = MEX_ban_socialist_parties
+		}
+		mutually_exclusive = {
+			focus = MEX_real_democracy
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = MEX_second_elections
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_meet_with_the_pnr"
+		 	custom_effect_tooltip = unlock_focuses
 		}
 	}
 }

@@ -8659,7 +8659,7 @@ focus = {
 			}
 			create_field_marshal = {
 				name = "Sergei Bunyachenko"
-				portrait_path = "gfx/leaders/DKB/Portrait_RUS_Sergei_Bunyachenko.png"
+				portrait_path = "gfx/leaders/DKB/Portrait_DKB_Sergei_Bunyachenko.png"
 				traits = {
 				inspirational_leader
 				hidden_sympathies
@@ -9544,7 +9544,7 @@ focus = {
 	
 	focus = {
 		id = DKB_Slay_the_Dragon
-		icon = GFX_goal_MON_we_dont_need_russia
+		icon = GFX_goal_ATH_kapetanoi
 		cost = 2
 		ai_will_do = {
 			factor = 50
@@ -9602,6 +9602,7 @@ focus = {
 			every_owned_state = {
 				limit = {
 					is_core_of = RUS
+					is_core_of = TRM
 				}
 				add_core_of = ROOT
 			}
@@ -9687,7 +9688,7 @@ focus = {
 		x = -2
 		y = 1
 		completion_reward = {
-			
+			country_event = vlasov.9
 		}
 	}
 	
@@ -9718,7 +9719,7 @@ focus = {
 	
 	focus = {
 		id = DKB_The_Army_Provides
-		icon = GFX_goal_PAR_help_suffering
+		icon = GFX_goal_BAN_generous_military
 		cost = 5
 		ai_will_do = {
 			factor = 50
@@ -9768,7 +9769,29 @@ focus = {
 			remove_idea = DKB_aftermath_uch_idea_2
 			add_idea = DKB_aftermath_uch_idea_3
 			}
+			country_event = vlasov.10
 		}
 	}
 	
+	focus = {
+		id = DKB_Vlasovsty_Remain
+		icon = GFX_focus_rus_vlasov
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		has_country_flag = DKB_Vlasovtsy_Remain_flag
+		}
+        relative_position_id = DKB_A_Calm_Morning
+		prerequisite = {
+			focus = DKB_A_Calm_Morning
+		}
+		
+		x = 0
+		y = 1
+		completion_reward = {
+	    }
+	
+    }
 }

@@ -1092,6 +1092,45 @@ country_event = { #vlasov ded
 		 }
 		 set_cosmetic_tag = DKB_RUS_empire
 	 }
+	 option = { #sovl kino
+		name = germans.18.c
+		create_country_leader = {
+			name = "Ivan VII"
+			picture = "gfx/leaders/RUS/Portrait_RUS_Louis_Ferdinand.png"
+			expire = "1965.1.1"
+			ideology = authoritarian_democrat_subtype
+			traits = {}
+		 }
+		 hidden_effect = {
+		 create_country_leader = {
+			name = "Ivan VII"
+			picture = "gfx/leaders/RUS/Portrait_RUS_Louis_Ferdinand.png"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+			traits = {}
+		 }
+		 }
+		 set_cosmetic_tag = DKB_RUS_empire
+	 }
+	 option = { #sovl kino
+		name = germans.18.f
+		create_country_leader = {
+			name = "Louis I"
+			picture = "gfx/leaders/RUS/Portrait_RUS_Louis_Ferdinand.png"
+			expire = "1965.1.1"
+			ideology = authoritarian_democrat_subtype
+			traits = {}
+		 }
+		 hidden_effect = {
+		 create_country_leader = {
+			name = "Louis I"
+			picture = "gfx/leaders/RUS/Portrait_RUS_Louis_Ferdinand.png"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+			traits = {}
+		 }
+		 }
+	 }
 	}
 	
 	country_event = { # the, the death of vighelm
@@ -1299,6 +1338,171 @@ country_event = { #vlasov ded
 	option = { 
 		name = vlasov.8.a
 	  }
+    }
+	
+	country_event = { #Trials
+    id = vlasov.9
+	title = vlasov.9.t
+	desc = vlasov.9.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { #Only inprison schizos
+		name = vlasov.9.a
+		add_stability = 0.05
+		add_political_power = -25
+	  }
+	  option = { #Inprsion more 
+		name = vlasov.9.a
+		add_stability = -0.05
+		add_political_power = 25
+	  }
+	  
+    }
+	
+	country_event = { #Birth of United Russia
+    id = vlasov.10
+	title = vlasov.10.t
+	desc = vlasov.10.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { #A Bright Future awaits!
+		name = vlasov.10.a
+		add_stability = 0.05
+		add_political_power = 50
+		set_party_name = { 
+            ideology = authoritarian_democrat
+            long_name = DKB_united_russia_party_long
+            name = DKB_united_russia_party
+	     }
+		 hidden_effect = {
+		 country_event = {
+         id = vlasov.11
+         days = 8
+          }
+		 }
+	  }
+	  
+    }
+	
+	country_event = { #Kaminski and Voskoboinik annonce opposition!
+    id = vlasov.11
+	title = vlasov.11.t
+	desc = vlasov.11.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { 
+		name = vlasov.11.a
+		add_political_power = -25
+		set_party_name = { 
+            ideology = national_populist
+            long_name = DKB_kaminski_pannwitz_long
+            name = DKB_kaminski_pannwitz
+	     }
+		add_popularity = {
+             ideology = national_populist
+             popularity = 0.07
+            }
+		 hidden_effect = {
+		 country_event = {
+         id = vlasov.12
+         days = 10
+          }
+		 }
+	  }
+	  
+    }
+	
+	country_event = { #Kaminski-Voskoboinik Putsch
+    id = vlasov.12
+	title = vlasov.12.t
+	desc = vlasov.12.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { #The Putsch fails horribly!
+		name = vlasov.12.a
+		add_stability = -0.10
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.10
+		}
+		set_country_flag = DKB_Vlasovtsy_Remain_flag
+		
+	  }
+	option = { #Vlasov dies in the chaos!
+		name = vlasov.12.b
+		add_stability = -0.15
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.15
+		}
+		kill_country_leader = yes
+		create_country_leader = {
+				name = "Mikhail Meandrov"
+				picture = "gfx/leaders/DKB/Portrait_DKB_Mikhail_Meandrov.png"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+			 }		
+		 hidden_effect = {
+		  country_event = {
+          id = vlasov.13
+          days = 3
+          }
+		}
+	  }
+	  
+    }
+	
+	country_event = { #The Fate of the Motherland
+    id = vlasov.13
+	title = vlasov.13.t
+	desc = vlasov.13.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { #Kaminski Rises
+		name = vlasov.13.a
+		add_stability = -0.05
+		add_political_power = 150
+		add_popularity = {
+             ideology = national_populist
+             popularity = 0.10
+            }
+			set_politics = {
+			ruling_party = national_populist
+				elections_allowed = no
+			}
+			set_country_flag = DKB_Kaminski_Coup_flag
+	    }
+	option = { #Sheifton
+		name = vlasov.13.b
+		add_stability = 0.10
+		add_popularity = {
+             ideology = paternal_autocrat
+             popularity = 0.05
+            }
+			set_politics = {
+			ruling_party = paternal_autocrat
+				elections_allowed = no
+			}
+			set_country_flag = DKB_Kolchakites_in_Power
+	    }
+		option = { #Bunya
+		name = vlasov.13.c
+			add_stability = 0.05
+			set_country_flag = DKB_Bunyachenko_in_power
+			create_country_leader = {
+				name = "Sergei Bunyachenko"
+				picture = "gfx/leaders/DKB/Portrait_DKB_Sergei_Bunyachenko.png"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+			 }		
+	    }
+		
+	  
     }
 	
 #demand shit

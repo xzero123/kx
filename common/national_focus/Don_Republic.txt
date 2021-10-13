@@ -9607,13 +9607,19 @@ focus = {
 			}
 			add_ideas = DKB_aftermath_uch_idea
 			add_ideas = DKB_aftermath_uch_economic_idea
+			add_stability = -0.20
+			hidden_effect = {
+			remove_ideas = DKB_All_For_The_Liberation
+			remove_ideas = DKB_Rostov_Manifesto_2
+			remove_ideas = DKB_Cossack_Autonomy
+			}
 		}
 	}
 	
 	focus = {
-		id = DKB_
-		icon = GFX_goal_MON_we_dont_need_russia
-		cost = 2
+		id = DKB_New_Bureaucracy
+		icon = GFX_goal_agency
+		cost = 5
 		ai_will_do = {
 			factor = 50
 		}
@@ -9625,7 +9631,143 @@ focus = {
 		x = 0
 		y = 1
 		completion_reward = {
+			swap_ideas = {
+			remove_idea = DKB_aftermath_uch_idea
+			add_idea = DKB_aftermath_uch_idea_1 
+			}
 			
+		}
+	}
+	
+	focus = {
+		id = DKB_Pardon_Republican_Generals
+		icon = GFX_focus_legacy_of_the_whites
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_Russia_Liberated
+		prerequisite = {
+			focus = DKB_Russia_Liberated
+		}
+		
+		x = 2
+		y = 1
+		completion_reward = {
+			custom_effect_tooltip = DKB_vlasov_will_gain_republican_generals
+			hidden_effect = {
+			RUS = {
+			every_unit_leader = {
+			limit = {
+			 OR = {
+			 has_trait = RUS_denikin_officer
+			 has_trait = RUS_markov_officer
+			 has_trait = hidden_sympathies
+			 }
+			}
+			set_nationality = DKB
+		  }
+		 }
+		}
+	  }
+	}
+	
+	focus = {
+		id = DKB_Begin_the_Trials
+		icon = GFX_goal_generic_trial
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_Russia_Liberated
+		prerequisite = {
+			focus = DKB_Russia_Liberated
+		}
+		
+		x = -2
+		y = 1
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = DKB_Legacy_of_February
+		icon = GFX_RUS_spirit_of_revolution
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_Russia_Liberated
+		prerequisite = {
+			focus = DKB_Begin_the_Trials
+		}
+		prerequisite = {
+			focus = DKB_New_Bureaucracy
+		}
+		
+		x = -1
+		y = 2
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = DKB_aftermath_uch_idea_1
+			add_idea = DKB_aftermath_uch_idea_2
+			}
+		}
+	}
+	
+	focus = {
+		id = DKB_The_Army_Provides
+		icon = GFX_goal_PAR_help_suffering
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_Russia_Liberated
+		prerequisite = {
+			focus = DKB_Pardon_Republican_Generals
+		}
+		prerequisite = {
+			focus = DKB_New_Bureaucracy
+		}
+		
+		x = 1
+		y = 2
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = DKB_aftermath_uch_economic_idea
+			add_idea = DKB_aftermath_uch_economic_idea_1
+			}
+		}
+	}
+	
+	focus = {
+		id = DKB_A_Calm_Morning
+		icon = GFX_goal_generic_stable_government
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+        relative_position_id = DKB_Russia_Liberated
+		prerequisite = {
+			focus = DKB_The_Army_Provides
+		}
+		prerequisite = {
+			focus = DKB_Legacy_of_February
+		}
+		
+		x = 0
+		y = 3
+		completion_reward = {
+		 
+		 swap_ideas = {
+			remove_idea = DKB_aftermath_uch_economic_idea_1
+			add_idea = DKB_aftermath_uch_economic_idea_2
+			}
+			swap_ideas = {
+			remove_idea = DKB_aftermath_uch_idea_2
+			add_idea = DKB_aftermath_uch_idea_3
+			}
 		}
 	}
 	

@@ -12,12 +12,7 @@ country_event = {
 	desc = kx_geo.1.d
 	picture = GFX_news_event_GEO_rise_of_stalin
 	fire_only_once = yes
-
-	trigger = {
-		date > 1936.1.1
-		tag = GEO
-	}
-
+	is_triggered_only = yes 
 	option = {
 		name = kx_geo.1.a #Interesting...
 		#custom_effect_tooltip = KX_GEO_UNFINISHED
@@ -26,21 +21,50 @@ country_event = {
 
 country_event = {
 	id = kx_geo.2
-	immediate = {log = "[GetDateText]: [Root.GetName]: event kx_geo.2"}
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event kx_geo.2"
+		clr_country_flag = KX_GEO_FUTURE_IS_CERTAIN
+	}
 	title = kx_geo.2.t
 	desc = kx_geo.2.d
-	picture = GFX_news_event_GEO_stalin_wins
+	picture = GFX_news_event_GEO_rise_of_stalin
 	fire_only_once = yes
-
-	trigger = {
-		tag = GEO
-		date > 1936.3.21
-		has_government = radical_socialist
-	}
+	is_triggered_only = yes
 
 	option = {
 		name = kx_geo.2.a # Stalin takes full control of the government!
-		ai_chance = { factor = 80 }
+		ai_chance = { 
+			factor = 80
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_SOCCON
+					}
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_KINGDOM	
+					}
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_ABSOLUTIST
+					}
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_MENSHEVIK_SOCLIB
+					}
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_MENSHEVIK_RADSOC	
+					}
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_MENSHEVIK_REBEL
+					}
+				}
+			}
+		}
 		set_politics = {
 			ruling_party = totalist
 			elections_allowed = no
@@ -55,72 +79,45 @@ country_event = {
 			traits = {
 			}
 		}
-		remove_ideas_with_trait = head_of_government
-		remove_ideas_with_trait = security_minister
-		remove_ideas_with_trait = economic_minister
-		remove_ideas_with_trait = foreign_minister
-		
-		add_popularity = { ideology = totalist popularity = 0.20 }
-		
-		add_ideas = GEO_Ioseb_B_Dzughashvili_hog_tot
-		add_ideas = GEO_Lavrentij_Beria_sec_tot
-		add_ideas = GEO_Vladimir_Mayakovsky_eco_tot
-		add_ideas = GEO_Sergey_I_Kavtaradze_for_tot
-		complete_national_focus = GEO_black_monday
-		hidden_effect = {
-			add_ideas = GEO_black_monday_hits
+		remove_all_ministers = yes
+		add_ideas = {
+			GEO_eco_idea
+			GEO_georgian_defence_idea
+			GEO_Ioseb_B_Dzughashvili_hog_tot
+			GEO_Lavrentij_Beria_sec_tot
+			GEO_Vladimir_Mayakovsky_eco_tot
+			GEO_Sergey_I_Kavtaradze_for_tot
 		}
+
+		add_popularity = { ideology = totalist popularity = 0.20 }
 	}
 	
 	option = {
 		name = kx_geo.2.b # Social Democrats take control (*Yawn*)
-		ai_chance = { factor = 20 }
-		retire_country_leader = yes
-		create_country_leader = {
-			name = "Evgeni Gegechkori"
-			desc = "POLITICS_EVGENI_GEGECHKORI_DESC"
-			picture = "Portrait_GEO_Evgeni_Gegechkori.png"
-			expire = "1965.1.1"
-			ideology = social_democrat_subtype
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_GRAINEATER
+					}
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_DESK
+					}
+				}
+			}
 		}
-		
-		remove_all_ministers = yes
-		add_ideas = {
-			GEO_Evgeni_Gegechkori_hog_sde
-			GEO_Akaki_Chkhenkeli_for_sde
-			GEO_Noe_Khomeriki_eco_sde
-			GEO_Valiko_Jugheli_sec_sde
-			GEO_minority_problem
-		}	
-
-		remove_all_ministers = yes
-		
-		remove_ideas = GEO_eco_idea
-
-		add_popularity = {
-			ideology = social_democrat
-			popularity = 0.3
-		}
-		add_popularity = {
-			ideology = social_conservative
-			popularity = 0.3
-		}
-		
 		add_popularity = {
 			ideology = totalist
 			popularity = -0.3
 		}
-
-		set_politics = {
-			ruling_party = social_democrat
-			last_election = "1935.6.6"
-			election_frequency = 48
-			elections_allowed = yes
-		}
-		hidden_effect = {	
+		hidden_effect = {
 			country_event = {
-				id = geo.6
-				days = 9
+				id = geo.19
+				days = 4
 			}
 		}
 	}
@@ -450,14 +447,21 @@ country_event = {
 		ai_chance = {
 			factor = 10
 		}
-		 GEO = {
+		GEO = {
 				transfer_state = 1001
+				transfer_state = 1213
 
 				if = {
 					limit = {
 						1001 = { is_owned_and_controlled_by = OTT }
 					}
 					transfer_state = 1001
+				}
+				if = {
+					limit = {
+						1213 = { is_owned_and_controlled_by = OTT }
+					}
+					transfer_state = 1213
 				}
 		    }
 		OTT = {
@@ -578,7 +582,16 @@ country_event = {
 
 	option = {
 		name = kx_geo.157.a 
-		ai_chance = { factor = 70 }
+		ai_chance = { 
+			factor = 70
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = GEO_path
+					option = GEO_PATH_DESK
+				}
+			}
+		}
 		set_politics = {
 			ruling_party = totalist
 			elections_allowed = no
@@ -601,7 +614,16 @@ country_event = {
 	}
 	option = {
 		name = kx_geo.157.b 
-		ai_chance = { factor = 30 }
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = GEO_path
+					option = GEO_PATH_GRAINEATER
+				}
+			}
+		}
 		set_politics = {
 			ruling_party = totalist
 			elections_allowed = no
@@ -818,7 +840,7 @@ country_event = {
 
 country_event = {
 	id = kx_geo.167
-	immediate = {log = "[GetDateText]: [Root.GetName]: event kx_geo.165"}
+	immediate = {log = "[GetDateText]: [Root.GetName]: event kx_geo.167"}
 	title = kx_geo.167.t
 	desc = kx_geo.167.d
 	fire_only_once = yes
@@ -918,6 +940,10 @@ country_event = { # intro
 	option = {
 		name = geo.1.a #Interesting...
 		country_event = {
+			id = kx_geo.1
+			days = 2
+		}
+		country_event = {
 			id = geo.15
 			days = 4
 		}
@@ -928,7 +954,8 @@ country_event = { # Treaty of Poti reevaluation
 	id = geo.2
 	immediate = { log = "[GetDateText]: [Root.GetName]: event geo.2" }
 	title = geo.2.t
-	desc = geo.2.d
+	desc = { text = geo.2.d trigger = { NOT = { has_government = totalist } } }
+	desc = { text = geo.2.d2 trigger = { has_government = totalist } }
 	picture = GFX_report_event_generic_diplomacy1
 
 	is_triggered_only = yes
@@ -936,8 +963,18 @@ country_event = { # Treaty of Poti reevaluation
 	fire_only_once = yes
 
 	option = {
+		trigger = { 
+			NOT = { has_government = totalist }
+		}
 		ai_chance = {
 			factor = 25
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = GEO_treaty
+					option = GEO_TREATY_KEEP
+				}
+			}
 		}
 		name = geo.2.a
 		add_political_power = 25
@@ -950,12 +987,36 @@ country_event = { # Treaty of Poti reevaluation
 		}
 	}
 	option = {
+		trigger = { 
+			NOT = { has_government = totalist }
+		}
 		ai_chance = {
 			factor = 75
+			modifier = {
+				factor = 0			
+				has_game_rule = {
+					rule = GEO_treaty
+					option = GEO_TREATY_DENY
+				}
+			}
 		}
 		name = geo.2.b
 		add_political_power = -25
 		set_country_flag = GEO_keep_treaty
+	}
+	option = {
+		trigger = { 
+			has_government = totalist
+		}
+		name = geo.2.c
+		add_political_power = 25
+		set_country_flag = GEO_end_treaty
+		OTT = {
+			country_event = {
+				id = geo.56
+				days = 1
+			}
+		}
 	}
 }
 
@@ -1363,8 +1424,8 @@ country_event = { # pressures grow to call new elections in Mensheviks
 		add_political_power = -20
 		hidden_effect = {
 			country_event = {
-				id = geo.19
-				days = 7
+				id = kx_geo.2
+				days = 3
 			}
 		}
 	}
@@ -1778,8 +1839,15 @@ country_event = { # referendum
 		ai_chance = {
 			factor = 40
 			modifier = {
-				factor = 25
+				factor = 1.5
 				has_country_flag = GEO_end_treaty
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = GEO_path
+					option = GEO_PATH_SOCCON
+				}
 			}
 		}
 		set_cosmetic_tag = GEO_kingdom
@@ -1916,8 +1984,21 @@ country_event = { # referendum
 		ai_chance = {
 			factor = 60
 			modifier = {
-				factor = 75
-				has_country_flag = GEO_end_treaty
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_KINGDOM	
+					}
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_ABSOLUTIST
+					}
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_MENSHEVIK_REBEL
+					}
+				}
 			}
 		}
 	}
@@ -1996,6 +2077,16 @@ country_event = { # Kakutsa Cholokashvili comes to Giorgi Bagration with a propo
 
 	option = { # go with the plan
 		name = geo.35.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = GEO_path
+					option = GEO_PATH_KINGDOM	
+				}
+			}
+		}
 		hidden_effect = {
 			country_event = { #
 				id = geo.36
@@ -2006,6 +2097,22 @@ country_event = { # Kakutsa Cholokashvili comes to Giorgi Bagration with a propo
 
 	option = { # ignore the plan
 		name = geo.35.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_ABSOLUTIST
+					}
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_MENSHEVIK_REBEL
+					}
+				}
+			}
+		}
 		hidden_effect = {
 			country_event = { #
 				id = geo.37
@@ -2125,6 +2232,16 @@ country_event = { # siege of kutais
 
 	option = { # send a small force through the river
 		name = geo.40.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = GEO_path
+					option = GEO_PATH_ABSOLUTIST
+				}
+			}
+		}
 		hidden_effect = {
 			country_event = { #
 				id = geo.41
@@ -2134,6 +2251,16 @@ country_event = { # siege of kutais
 	}
 	option = { # march a large force in
 		name = geo.40.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = GEO_path
+					option = GEO_PATH_MENSHEVIK_REBEL
+				}
+			}
+		}
 		hidden_effect = {
 			country_event = { #
 				id = geo.42
@@ -2209,6 +2336,16 @@ country_event = { # siege of Sukhum
 
 	option = { # take main city first
 		name = geo.43.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = GEO_path
+					option = GEO_PATH_MENSHEVIK_REBEL
+				}
+			}
+		}
 		hidden_effect = {
 			country_event = { #
 				id = geo.44
@@ -2218,6 +2355,16 @@ country_event = { # siege of Sukhum
 	}
 	option = { # take the port first so they cant retreat
 		name = geo.43.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = GEO_path
+					option = GEO_PATH_ABSOLUTIST
+				}
+			}
+		}
 		hidden_effect = {
 			country_event = { #
 				id = geo.45
@@ -2293,6 +2440,16 @@ country_event = { # battle of Poti, need to get reinforcements to him
 
 	option = { # send troops down caucasian railway
 		name = geo.46.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = GEO_path
+					option = GEO_PATH_MENSHEVIK_REBEL
+				}
+			}
+		}
 		hidden_effect = {
 			country_event = { #
 				id = geo.47
@@ -2302,6 +2459,16 @@ country_event = { # battle of Poti, need to get reinforcements to him
 	}
 	option = { # organise support from Sukhum
 		name = geo.46.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = GEO_path
+					option = GEO_PATH_ABSOLUTIST
+				}
+			}
+		}
 		hidden_effect = {
 			country_event = { #
 				id = geo.48
@@ -3089,6 +3256,30 @@ country_event = { # 1936 election
 
 	option = { # Mensheviks win
 		name = geo.120.a
+		ai_chance = { 
+			factor = 40
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_SOCCON
+					}
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_KINGDOM	
+					}
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_ABSOLUTIST
+					}
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_MENSHEVIK_REBEL
+					}
+				}
+			}
+		}
 		if = {
 			limit = {
 				NOT = {
@@ -3128,6 +3319,22 @@ country_event = { # 1936 election
 
 	option = { # EDP-MMEP coalition
 		name = geo.120.b
+		ai_chance = { 
+			factor = 60
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_MENSHEVIK_SOCLIB
+					}
+					has_game_rule = {
+						rule = GEO_path
+						option = GEO_PATH_MENSHEVIK_RADSOC	
+					}
+				}
+			}
+		}
 		if = {
 			limit = {
 				NOT = {
@@ -3186,6 +3393,16 @@ country_event = { # menshevik coalition with who?
 
 	option = { # SSPRP
 		name = geo.121.a
+		ai_chance = { 
+			factor = 25
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = GEO_path
+					option = GEO_PATH_MENSHEVIK_RADSOC
+				}
+			}
+		}
 		if = {
 			limit = {
 				NOT = {
@@ -3211,6 +3428,16 @@ country_event = { # menshevik coalition with who?
 
 	option = { # SR
 		name = geo.121.b
+		ai_chance = { 
+			factor = 25
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = GEO_path
+					option = GEO_PATH_MENSHEVIK_SOCLIB
+				}
+			}
+		}
 		if = {
 			limit = {
 				NOT = {

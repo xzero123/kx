@@ -17,17 +17,15 @@ if = {
 		has_dlc = "Man the Guns"
 	}
 	set_technology = {
-		weltkrieg_light_ship_hull = 1
-		contact_mine = 1
-		weltkrieg_cruiser_hull = 1
+		early_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		
+		basic_naval_mines = 1
 
 		## Modules##
-		weltkrieg_naval_gunnery = 1
-		light_battery_one = 1
+		basic_battery = 1
+		basic_light_battery = 1
 		smoke_generator = 1
-
-		### Transport ###
-		transport = 1
 	}
 }
 
@@ -40,11 +38,8 @@ if = {
 		}
 	}
 	set_technology = {
-		weltkrieg_destroyer_nonmtg = 1
-		weltkrieg_cruiser_nonmtg = 1
-
-		### Transport ###
-		transport_n = 1
+		early_destroyer = 1
+		early_light_cruiser = 1
 	}
 }
 
@@ -85,6 +80,8 @@ add_ideas = {
 }
 
 country_event = { id = haiti.87 days = 1 }
+country_event = { id = haiti.526 days = 750 } #Cockfighting
+country_event = { id = haiti.74 days = 750 } #Kap Ayisyen Renaissance
 
 create_country_leader = {
 	name = "Joseph Jolibois Fils"
@@ -192,7 +189,7 @@ create_field_marshal = {
 ### Corps Commander
 create_corps_commander = {
 	name = "Démosthènes Calixte"
-	picture = "Portrait_Haiti_Desmothenes_Calixte.png"
+	picture = "Portrait_Haiti_Desmothenes_Calixte_general.png"
 	id = 1482
 	traits = {
 		cavalry_officer
@@ -265,4 +262,17 @@ create_corps_commander = {
 	defense_skill = 2
 	planning_skill = 1
 	logistics_skill = 3
+}
+
+create_corps_commander = {
+	name = "Alfred Auguste Nemours"
+	picture = "Portrait_Haiti_Alfred_Auguste_Nemours.png"
+	traits = {
+
+	}
+	skill = 1
+	attack_skill = 1
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 1
 }

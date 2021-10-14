@@ -1280,7 +1280,7 @@ shared_focus = {
 		relative_position_id = RUS_black_monday_recovery
 		x = 6
 		y = 1
-		cost = 15
+		cost = 8.5
 	
 		available = {
 			561 = { is_owned_and_controlled_by = ROOT } # Amur
@@ -1744,7 +1744,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = RUS_Army_Motorisation
-		icon = GFX_focus_rus_zis
+		icon = GFX_goal_generic_army_motorized
 		relative_position_id = RUS_russian_army
 		x = 1
 		y = 2
@@ -2843,7 +2843,7 @@ shared_focus = {
 				name = RUS_Fleet_Protectors
 				bonus = 0.5
 				uses = 1
-				category = cr_tech
+				category = ca_tech
 			}
 		}
 	}
@@ -2876,7 +2876,7 @@ shared_focus = {
 				name = RUS_Commerce_Raiders
 				bonus = 0.5
 				uses = 1
-				category = cr_tech
+				category = ca_tech
 			}
 		}
 	}
@@ -2923,7 +2923,7 @@ shared_focus = {
 					name = RUS_Fleet_Vanguards
 					bonus = 0.75
 					uses = 2
-					category = cr_tech
+					category = ca_tech
 				}
 			}
 			else = {
@@ -2931,8 +2931,8 @@ shared_focus = {
 					name = RUS_Fleet_Vanguards
 					bonus = 1
 					uses = 2
-					category = cr_tech
-					category = acr_tech
+					category = ca_tech
+					category = bc_tech
 				}
 			}
 		}
@@ -4810,7 +4810,10 @@ shared_focus = {
 			country_exists = GBR
 			country_exists = NFA
 		}
-		NOT = { country_exists = GER }
+		NOT = {
+			country_exists = GER
+			ENT = { is_in_faction_with = GEX }
+		}
 	}
 	bypass = {
 		is_in_faction_with = ENT

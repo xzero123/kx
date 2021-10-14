@@ -2378,7 +2378,7 @@ country_event = { # Reiber's Coup
 			ruling_party = paternal_autocrat
 			elections_allowed = no
 			}
-			remove_unit_leader = 89999 
+			remove_unit_leader = 79999 
 			remove_all_ministers = yes
 			add_ideas = {
 				TXS_Torklid_Rieber_hog_npo
@@ -2502,7 +2502,7 @@ country_event = {
 			}
 			add_political_power = 25
 		}
-		if = {
+		else_if = {
 			limit = {
 				original_tag = CAN
 				has_global_flag = TXS_negotiations_3
@@ -2519,7 +2519,7 @@ country_event = {
 			}
 			add_political_power = 25
 		}
-		if = {
+		else_if = {
 			limit = {
 				original_tag = TXS
 				has_global_flag = TXS_negotiations_2
@@ -2532,11 +2532,11 @@ country_event = {
 			CAN = {
 				country_event = {
 					id = TXS.22
-					days = 53
+					days = 3
 				}
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
 				original_tag = TXS
 				has_global_flag = TXS_negotiations_3
@@ -2653,7 +2653,7 @@ country_event = {
 		trigger = {
 			NOT = { has_global_flag = TXS_negotiations_1 }
 		}
-		name = TXS.21.d
+		name = TXS.21.e
 		ai_chance = {
 			factor = 5
 			modifier = {
@@ -2713,7 +2713,7 @@ country_event = {
 				add_to_faction = TXS
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
 				has_global_flag = TXS_negotiations_3
 			}
@@ -2785,7 +2785,7 @@ country_event = {
 			}
 			add_political_power = 25
 		}
-		if = {
+		else_if = {
 			limit = {
 				original_tag = GER
 				has_global_flag = TXS_negotiations_3
@@ -2802,7 +2802,7 @@ country_event = {
 			}
 			add_political_power = 25
 		}
-		if = {
+		else_if = {
 			limit = {
 				original_tag = TXS
 				has_global_flag = TXS_negotiations_2
@@ -2815,11 +2815,11 @@ country_event = {
 			GER = {
 				country_event = {
 					id = TXS.25
-					days = 53
+					days = 3
 				}
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
 				original_tag = TXS
 				has_global_flag = TXS_negotiations_3
@@ -2858,9 +2858,6 @@ country_event = {
 				}
 			}
 		}
-		clr_global_flag = TXS_negotiations_1
-		set_global_flag = TXS_negotiations_2
-		clr_global_flag = TXS_negotiations_3
 		if = {
 			limit = {
 				has_global_flag = TXS_negotiations_1
@@ -2884,6 +2881,9 @@ country_event = {
 				}
 			}
 		}
+		clr_global_flag = TXS_negotiations_1
+		set_global_flag = TXS_negotiations_2
+		clr_global_flag = TXS_negotiations_3
 	}
 	option = {
 		trigger = {
@@ -2906,9 +2906,6 @@ country_event = {
 				}
 			}
 		}
-		clr_global_flag = TXS_negotiations_1
-		clr_global_flag = TXS_negotiations_2
-		set_global_flag = TXS_negotiations_3
 		if = {
 			limit = {
 				has_global_flag = TXS_negotiations_1
@@ -2931,12 +2928,15 @@ country_event = {
 				}
 			}
 		}
+		clr_global_flag = TXS_negotiations_1
+		set_global_flag = TXS_negotiations_2
+		clr_global_flag = TXS_negotiations_3
 	}
 	option = {
 		trigger = {
 			NOT = { has_global_flag = TXS_negotiations_1 }
 		}
-		name = TXS.24.d
+		name = TXS.24.e
 		ai_chance = {
 			factor = 5
 			modifier = {
@@ -3068,7 +3068,7 @@ country_event = {
 			}
 			add_political_power = 25
 		}
-		if = {
+		else_if = {
 			limit = {
 				original_tag = FRA
 				has_global_flag = TXS_negotiations_3
@@ -3085,7 +3085,7 @@ country_event = {
 			}
 			add_political_power = 25
 		}
-		if = {
+		else_if = {
 			limit = {
 				original_tag = TXS
 				has_global_flag = TXS_negotiations_2
@@ -3098,11 +3098,11 @@ country_event = {
 			FRA = {
 				country_event = {
 					id = TXS.28
-					days = 53
+					days = 3
 				}
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
 				original_tag = TXS
 				has_global_flag = TXS_negotiations_3
@@ -3141,9 +3141,6 @@ country_event = {
 				}
 			}
 		}
-		clr_global_flag = TXS_negotiations_1
-		set_global_flag = TXS_negotiations_2
-		clr_global_flag = TXS_negotiations_3
 		if = {
 			limit = {
 				has_global_flag = TXS_negotiations_1
@@ -3167,6 +3164,9 @@ country_event = {
 				}
 			}
 		}
+		clr_global_flag = TXS_negotiations_1
+		set_global_flag = TXS_negotiations_2
+		clr_global_flag = TXS_negotiations_3
 	}
 	option = {
 		trigger = {
@@ -3219,7 +3219,7 @@ country_event = {
 		trigger = {
 			NOT = { has_global_flag = TXS_negotiations_1 }
 		}
-		name = TXS.27.d
+		name = TXS.27.e
 		ai_chance = {
 			factor = 5
 			modifier = {
@@ -3279,7 +3279,7 @@ country_event = {
 				add_to_faction = TXS
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
 				has_global_flag = TXS_negotiations_3
 			}
@@ -3325,6 +3325,7 @@ country_event = { # America is reunited
 		OR = {
 			tag = TXS
 			tag = ALA
+			tag = PAN
 		}
 		owns_state = 361 #Maryland
 		owns_state = 371 #Louisiana
@@ -3356,8 +3357,12 @@ country_event = { # America is reunited
 		name = TXS.30.a
 		trigger = {
 			NOT = {
+				has_country_flag = GEX_became_KTX
 				AND = {
-					tag = TXS
+					OR = {
+						tag = PAN
+						tag = TXS
+					}
 					NOT = {
 						has_country_flag = TXS_Remove_Texaco
 					}
@@ -3403,6 +3408,7 @@ country_event = { # America is reunited
 				tag = TXS
 				NOT = {
 					has_country_flag = TXS_Remove_Texaco
+					has_country_flag = GEX_became_KTX
 				}
 				OR = {
 					has_government = national_populist
@@ -3487,6 +3493,7 @@ country_event = { # America is reunited
 		name = TXS.30.e
 		trigger = {
 			NOT = {
+				tag = PAN
 				AND = {
 					tag = TXS
 					NOT = {
@@ -3526,6 +3533,57 @@ country_event = { # America is reunited
 				add_state_core = PREV
 			}
 		}
+	}
+	
+	option = { # at long last we are reunited
+		name = TXS.30.f
+		trigger = {
+			tag = TXS
+			OR = {
+				has_country_leader = {
+					ruling_only = yes
+					name = "Wilhelm II"
+				}
+				has_country_leader = {
+					ruling_only = yes
+					name = "Wilhelm III"
+				}
+			}
+		}
+		set_country_flag = TXS_UNITED_AMERICA
+		set_cosmetic_tag = USA_GER
+		
+	}
+
+	option = { # at long last we are reunited
+		name = TXS.30.a
+		trigger = {
+			tag = PAN
+		}
+		set_country_flag = TXS_UNITED_AMERICA
+		
+		if = {
+			limit = {
+				CAL = {
+					is_in_faction = yes
+					exists = yes
+				}
+				has_global_flag = CAL_seperatist_claim
+			}
+			CAL = {
+				every_owned_state = {
+					FROM.OWNER = { 
+						add_state_core = ROOT
+					}
+				}
+			}
+		}
+		every_owned_state = {
+			FROM.OWNER = { 
+				add_state_core = PREV
+			}
+		}
+		set_cosmetic_tag = NEE_america
 	}
 }
 country_event = { # Austrian say yes!
@@ -5549,6 +5607,7 @@ country_event = { # Introduction event
 			ideology = paternal_autocrat_subtype
 			traits = {}
 		}
+		set_country_flag = TXS_pappy_puppet
 	}
 	 
 	option = {
@@ -6297,6 +6356,7 @@ country_event = { # Texas Leaves!
 	
 	fire_only_once = yes
 	trigger = {
+		always = no
 		NOT = {
 			country_exists = GER
 			country_exists = MAF
@@ -6370,19 +6430,17 @@ country_event = { # B U N G H O L E
 
 country_event = { #Ike Returns
 	id = TXS.90
-	immediate = {log = "[GetDateText]: [Root.GetName]: event TXS.32"}
+	immediate = {log = "[GetDateText]: [Root.GetName]: event TXS.90"}
 	title = TXS.90.t
 	desc = TXS.90.d
-	#picture = 
+	picture = GFX_event_wcc_3
 	
 	fire_only_once = yes
 	
 	trigger = {
-		OR = {
-			WCC = {
-				exists = no
-				has_capitulated = yes
-			}
+		tag = TXS
+		WCC = {
+			has_capitulated = yes
 		}
 	}
 	 
@@ -6404,6 +6462,9 @@ country_event = { #Ike Returns
 			logistics_skill = 3
 		}
 		set_country_flag = TXS_Ike
+		WCC = {
+			remove_unit_leader = 9500
+		}
 	}
 }
 
@@ -6875,7 +6936,7 @@ country_event = { #Texaco Splits!
 	 
 	option = { #
 		name = TXS.110.a
-		set_country_flag = TXS_Texaco_Influence_5
+		set_variable = { TXS_Texaco_Influence = 5 }
 		add_ideas = TXS_texaco_monopoly
 		add_popularity = {
 			ideology = paternal_autocrat

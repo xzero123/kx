@@ -4846,7 +4846,20 @@ country_event = { # Reactions to the Black Belt
 	id = csa.70
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.70"}
 	title = csa.70.t
-	desc = csa.70.d
+	desc = { 
+		text = csa.70.d.vanguard
+		trigger = {
+			NOT = {
+			has_cosmetic_tag = BBR_totalist_tuul
+			}
+		}
+	}
+	desc = { 
+		text = csa.70.d.tuul
+		trigger = {
+			has_cosmetic_tag = BBR_totalist_tuul
+		}
+	}
 	picture = GFX_report_event_USA_congress
 
 	trigger = {
@@ -8200,6 +8213,9 @@ country_event = { # Continental Director
 			elections_allowed = no
 				}
 			hidden_effect = {
+				set_country_leader_portrait = {
+				portrait = "gfx/leaders/CSA/Portrait_CSA_burnham_supreme.png"
+			}
 				set_party_name = {
 				ideology = totalist
 				long_name = CSA_totalist_centralist_party_long
@@ -12776,11 +12792,6 @@ country_event = { # La Internationale
 	FRA = {
 	add_political_power = 40
 	add_opinion_modifier = { target = CSA modifier = small_increase }
-	}
-	diplomatic_relation = {
-    country = FRA
-    relation = non_aggression_pact
-    active = no
 		}
 	}
 	option = { # Send Military Aid
@@ -12791,13 +12802,8 @@ country_event = { # La Internationale
 		type = infantry_equipment
 		amount = -5000
 		producer = CSA
-		}
+	}
 	add_opinion_modifier = { target = CSA modifier = medium_increase }
-	diplomatic_relation = {
-    country = FRA
-    relation = non_aggression_pact
-    active = no
-		}
 	FRA = {
 	add_political_power = 40
 	add_manpower = 15000
@@ -12819,7 +12825,7 @@ country_event = { # La Internationale
 	diplomatic_relation = {
     country = FRA
     relation = non_aggression_pact
-    active = no
+    active = yes
 		}
 	}
 }

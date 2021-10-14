@@ -491,6 +491,10 @@ country_event = { #Pardon Gorgulov?
 	trigger = {
 		tag = RUS
 		has_country_flag = RUS_SAVI
+		has_country_leader = {
+			name = "Boris Savinkov"
+			ruling_only = yes
+		}
 		has_country_flag = RUS_GOR_ALIVE
 	}
 	mean_time_to_happen = {
@@ -1075,7 +1079,6 @@ country_event = { #Guchkov dies
 	}
 	option = {
 		name = russia.15.a
-		add_stability = -0.01
 	}
 }
 
@@ -8211,6 +8214,7 @@ country_event = { #Savinkov Proclaimed Vozhd
 				ruling_party = national_populist
 				elections_allowed = no
 			}
+			set_country_flag = PORTRAIT_PICKER_ACTIVE
 			add_stability = 0.15
 			RUS = {
 				set_cosmetic_tag = RUS_vozhdct
@@ -10564,6 +10568,10 @@ country_event = { #Finland seizes Karelia
 	desc = rusd.31.d
 	fire_only_once = yes
 	is_triggered_only = yes
+	trigger = {
+		tag = FIN
+		SOV = { NOT = { has_country_flag = SOV_restored_in_transamur } }
+	}
 	option = {
 		name = rusd.31.a
 		ai_chance = {
@@ -10978,10 +10986,26 @@ country_event = { #The Patriarch's Demands
 	option = {
 		name = orth.3.a
 		ai_chance = {
+			factor = 10
+		}
+		add_stability = -0.1
+		set_cosmetic_tag = RUS_TSAR_CLE
+	}
+	option = {
+		name = orth.3.b
+		ai_chance = {
 			factor = 60
 		}
 		add_stability = -0.1
 		set_cosmetic_tag = RUS_TSAR_CLE
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Sergius"
+			picture = "Portrait_RUS_Sergius_Stragorodsky.png"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+			traits = {}
+		}			
 	}
 }
 
@@ -20509,16 +20533,7 @@ country_event = { #Germany's Reaction on Russian plans in Caucasus
 		name = rusfor.1000.b #Threaten Russia and invite the endangered nations into the Völkerbund!
 		trigger = {
 			country_exists = DKB
-			DKB = {
-				has_war = no
-				is_subject = no
-				is_in_faction = no
-			}
-			KUB = {
-				has_war = no
-				is_subject = no
-				is_in_faction = no
-			}
+			country_exists = KUB
 			OR = {
 				is_neighbor_of = DKB
 				any_allied_country = {
@@ -20543,10 +20558,23 @@ country_event = { #Germany's Reaction on Russian plans in Caucasus
 			}
 		}
 		add_political_power = -30
-		DKB = {
-			country_event = {
-				id = rusfor.1001
-				days = 2
+		if = {
+			limit = {
+				DKB = { has_socialist_government = no }
+			}
+			DKB = {
+				country_event = {
+					id = rusfor.1001
+					days = 2
+				}
+			}
+		}
+		else = {
+			KUB = {
+				country_event = {
+					id = rusfor.1001
+					days = 2
+				}
 			}
 		}
 		FROM = {
@@ -20800,6 +20828,20 @@ country_event = { #Russia wants armenia
 		name = rusfor.5.a #abandon armenia
 		ai_chance = {
 			factor = 70
+		}
+		ARM = {
+			drop_cosmetic_tag = yes
+			remove_ideas = arm_ottoman_occupation
+			hidden_effect = {
+				set_politics = {
+					ruling_party = paternal_autocrat
+					elections_allowed = no
+				}
+				set_political_party = {
+					ideology = authoritarian_democrat
+					popularity = 0
+				}
+			}
 		}
 		set_autonomy = {
 			target = ARM
@@ -24976,8 +25018,23 @@ country_event = { #Germany invites DKB/GEO/AZE to the Reichspakt
 
 	option = {
 		name = rusfor.1001.a #Accept
+		trigger = {
+			has_socialist_government = no
+		}
 		ai_chance = {
 			factor = 50
+			modifier = {
+				factor = 0
+				don_is_pro_russian = yes
+			}
+			modifier = {
+				factor = 0
+				kuban_is_pro_russian = yes
+			}
+			modifier = {
+				factor = 0 
+				has_government = national_populist
+			}
 		}
 		FROM = {
 			country_event = {
@@ -24993,11 +25050,13 @@ country_event = { #Germany invites DKB/GEO/AZE to the Reichspakt
 					limit = {
 						OR = {
 							tag = KUB
+							tag = DKB
 							tag = KLY
 							tag = MTR
 							tag = GEO
 							tag = AZE
 						}
+						NOT = { tag = ROOT }
 						has_war = no
 						is_subject = no
 						is_in_faction = no
@@ -25838,9 +25897,10 @@ country_event = { #The Georgian question
 		name = rusfor.1025.c # For Mensheviks
 		trigger = {
 			OR = {
-				has_government = social_democrat
-				has_country_flag = social_democrat_coalition
+				has_left_democratic_government = yes
+				has_socialist_government = yes
 			}
+			GEO = { has_government = social_democrat }
 		}
 		ai_chance = {
 			factor = 100
@@ -25872,9 +25932,9 @@ country_event = { #Russian demands GEO
 			}
 		}
 		add_stability = -0.04
-		RUS = {
+		FROM = {
 			set_autonomy = {
-				target = GEO
+				target = ROOT
 				autonomous_state = kr_autonomous_puppet
 				freedom_level = 0.75
 			}
@@ -25886,8 +25946,8 @@ country_event = { #Russian demands GEO
 			factor = 50
 		}
 		add_stability = 0.08
-		RUS = {
-			add_to_faction = FROM
+		FROM = {
+			add_to_faction = ROOT
 		}
 	}
 		
@@ -28366,6 +28426,9 @@ country_event = { #Vladivostok is Russian!
 		ai_chance = {
 			factor = 20
 		}
+		hidden_effect = {
+			RUS_EVENT_CV01_naval_variant = yes
+		}
 		if = {
 			limit = {
 				tag = RUS
@@ -28865,7 +28928,18 @@ country_event = { #Transfer of the territory
 country_event = { #We've been defeated! FIN
 	id = rusfor.1232
 	immediate = { log = "[GetDateText]: [Root.GetName]: event rusfor.1232" }
-	title = rusfor.1232.t
+	title = {
+		text = rusfor.1232.t.victory
+		trigger = {
+			NOT = { surrender_progress > 0.2 }	
+		}
+	}
+	title = {
+		text = rusfor.1232.defeat
+		trigger = {
+			surrender_progress > 0.2	
+		}
+	}
 	desc = {
 		text = rusfor.1232.d.defeat
 		trigger = { surrender_progress > 0.2 }
@@ -29477,10 +29551,15 @@ country_event = { #WHR bonds
 		}
 		puppet = WHR
 		hidden_effect = {
-			GER = {
-				country_event = {
-					id = rusfor.12722
-					days = 2
+			if = {
+				limit = {
+					WHR = { is_subject_of = GER }
+				}
+				GER = {
+					country_event = {
+						id = rusfor.12722
+						days = 2
+					}
 				}
 			}
 			RUS = {
@@ -29710,6 +29789,38 @@ country_event = { #GER - WHR belarus alone
 		}
 	}
 }
+country_event = { #GER - WHR supports
+	id = rusfor.12722
+	title = rusfor.12722.t
+	desc = rusfor.12722.d
+	is_triggered_only = yes
+	
+	option = {
+		name = rusfor.12722.a
+		trigger = {
+			is_ai = no
+		}
+		declare_war_on = {
+			target = RUS
+			type = annex_everything
+		}
+	}
+	option = {
+		name = rusfor.12722.b
+		add_stability = -0.05
+		GER = { add_opinion_modifier = {
+			target = WHR
+			modifier = KR_disapproves_of_govt
+			}
+		}
+		GER = { add_opinion_modifier = {
+			target = RUS
+			modifier = KR_disapproves_of_govt
+			}
+		}
+	}
+}
+
 country_event = { #Spiritual Administration of the Muslims of Central Asia
 	id = rusfor.1273
 	immediate = { log = "[GetDateText]: [Root.GetName]: event rusfor.1273" }
@@ -32858,6 +32969,67 @@ country_event = { # Fate of Turkestan
 			OR = {
 				has_completed_focus = RUS_Expansionism
 				tag = SOV
+				has_socialist_government = yes
+			}
+		}
+		if = {
+			limit = {
+				has_global_flag = global_turkestan_united
+			}
+			UTR = {
+				country_event = {
+					id = rusfor.1453
+					days = 3
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					country_exists = KYR
+				}
+				KYR = {
+					country_event = {
+						id = rusfor.1453
+						days = 3
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = UZB
+				}
+				UZB = {
+					country_event = {
+						id = rusfor.1453
+						days = 3
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = TRK
+				}
+				TRK = {
+					country_event = {
+						id = rusfor.1453
+						days = 3
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = rusfor.1443.c
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 25
+				has_dictatorship_government = yes
+			}
+			modifier = {
+				add = 25
+				has_government = totalist
 			}
 		}
 		if = {
@@ -33715,6 +33887,155 @@ country_event = { # Turkestan refused
 		}
 	}
 }
+country_event = { # Japan-RUS peace
+	id = rusfor.1462
+	immediate = { log = "[GetDateText]: [Root.GetName]: event rusfor.1462" }
+	title = rusfor.1462.t
+	desc = rusfor.1462.d
+	trigger = {
+		tag = JAP
+		OR = {
+			has_war_with = RUS
+			has_war_with = SOV
+		}
+		NOT = { country_exists = TRM }
+		408 = { is_controlled_by_ROOT_or_ally = yes }
+		409 = { is_controlled_by_ROOT_or_ally = yes }
+	}
+	mean_time_to_happen = {
+		days = 7
+	}
+	option = {
+		name = rusfor.1462.a
+		408 = {
+			owner = {
+				country_event = {
+					id = rusfor.1463
+					days = 3
+				}
+			}
+		}
+	}
+}
+country_event = { # Japan-RUS peace
+	id = rusfor.1463
+	immediate = { log = "[GetDateText]: [Root.GetName]: event rusfor.1463" }
+	title = rusfor.1463.t
+	desc = rusfor.1463.d
+	is_triggered_only = yes
+	option = {
+		name = rusfor.1462.a
+		save_event_target_as = peace_country
+		every_enemy_country = {
+			limit = {
+				tag = JAP
+			}
+			event_target:peace_country = { white_peace = PREV }
+		}
+		every_enemy_country = {
+			limit = {
+				is_in_faction_with = JAP
+			}
+			event_target:peace_country = { white_peace = PREV }
+		}
+		every_enemy_country = {
+			limit = {
+				is_in_asia = yes
+			}
+			event_target:peace_country = { white_peace = PREV }
+		}
+		JAP = { transfer_state = 408 }
+		JAP = { transfer_state = 409 }
+		JAP = { transfer_state = 637 }
+		JAP = { transfer_state = 562 }
+		637 = { add_claim_by = JAP }
+		562 = { add_claim_by = JAP }
+		every_other_country = {
+			limit = {
+				is_chinese_tag = yes
+				is_subject_of = ROOT
+			}
+			release = PREV
+		}
+		decrease_ruling_party_popularity_by_10 = yes
+		add_stability = -0.2
+		add_war_support = -0.5
+		set_truce = {
+			target = FROM
+			days = 900
+		}
+		diplomatic_relation = {
+			country = FROM
+			relation = non_aggression_pact
+			active = yes
+		}
+	}
+}
+country_event = { # UTR-RUS peace
+	id = rusfor.1464
+	immediate = { log = "[GetDateText]: [Root.GetName]: event rusfor.1464" }
+	title = rusfor.1464.t
+	desc = rusfor.1464.d
+	trigger = {
+		is_russian_tag = yes
+		has_war_with = UTR
+		UTR = { surrender_progress < 0.1 }
+	}
+	is_triggered_only = yes
+	option = {
+		name = rusfor.1464.b
+		ai_chance = {
+			base = 100
+		}
+		UTR = {
+			country_event = {
+				id = rusfor.1465
+				days = 3
+			}
+		}
+		add_stability = 0.1
+	}
+	option = {
+		name = rusfor.1464.a
+		ai_chance = {
+			base = 0
+		}
+		add_war_support = -0.2
+		add_stability = -0.1
+	}
+}
+country_event = { # UTR-RUS peace
+	id = rusfor.1465
+	immediate = { log = "[GetDateText]: [Root.GetName]: event rusfor.1465" }
+	title = rusfor.1465.t
+	desc = rusfor.1465.d
+	is_triggered_only = yes
+	option = {
+		name = rusfor.1465.a
+		save_event_target_as = peace_country
+		white_peace = FROM
+		every_enemy_country = {
+			limit = {
+				OR = {
+					is_in_faction_with = FROM
+					is_subject_of = FROM
+				}
+			}
+			event_target:peace_country = { white_peace = PREV }
+		}
+		add_stability = 0.2
+		set_truce = {
+			target = FROM
+			days = 900
+		}
+		diplomatic_relation = {
+			country = FROM
+			relation = non_aggression_pact
+			active = yes
+		}
+		set_country_flag = RUS_UTR_peace
+	}
+}
 
 news_event = { #Vozhd Takes Power in Russia!
 	id = russianews.1
@@ -33799,7 +34120,7 @@ news_event = { #Wrangel makes himself Tsar
 	immediate = { log = "[GetDateText]: [Root.GetName]: event russianews.4" }
 	title = russianews.4.t
 	desc = russianews.4.d
-	picture = GFX_rus_black_tsar_event
+	picture = GFX_news_event_RUS_tsar_wrangel
 
 	major = yes
 
@@ -33970,7 +34291,7 @@ news_event = { #Eurasian Union
 	immediate = { log = "[GetDateText]: [Root.GetName]: event russianews.10" }
 	title = russianews.10.t
 	desc = russianews.10.d
-	picture = GFX_rus_eurasia_event
+	picture = GFX_news_event_RUS_moscow
 
 	major = yes
 
@@ -34269,6 +34590,44 @@ country_event = { #force TRM to collapse if the war drags on too long
 		force_capitulate = yes
 	}
 }
+country_event = { #soviet generals
+	id = russia.1923
+	immediate = { log = "[GetDateText]: [Root.GetName]: event russia.1919 FROM = [From.GetName]" }
+	title = russia.1923.t
+	desc = russia.1923.d
+	fire_only_once = yes
+
+	trigger = {
+		country_exists = SOV
+		tag = SOV
+		NOT = {
+			has_government = syndicalist
+			has_government = social_democrat
+			#AND = {
+			#	has_government = radical_socialist
+			#	has_idea = RUS_Vladimir_K_Volsky_hog_rso
+			#}
+		}
+	}
+	mean_time_to_happen = {
+		days = 15
+	}
+	option = {
+		name = russia.1923.a
+		bolsheviks_gome_home = yes
+		add_stability = -0.05
+		add_war_support = 0.05
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.05
+		}
+	}
+	option = {
+		name = russia.1923.b
+		add_stability = 0.05
+		add_political_power = 50
+	}
+}
 
 
 ### Renaming cities by Nicolay Romanov ###
@@ -34330,6 +34689,7 @@ country_event = {
         set_province_name = { id = 9097 name = "Petergof"}
         set_province_name = { id = 3529 name = "Tsaritsyn"}
         set_province_name = { id = 1821 name = "Novo-Nikolayevsk"}
+        set_province_name = { id = 9402 name = "Tsaryovokokshaysk"}
         217 = { set_state_name = "Tsaritsyn" }
         570 = { set_state_name = "Novo-Nikolayevsk" }
     }

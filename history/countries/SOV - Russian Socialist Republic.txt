@@ -23,37 +23,32 @@ if = {
 		has_dlc = "Man the Guns"
 	}
 	set_technology = {
-		weltkrieg_light_ship_hull = 1
-		contact_mine = 1
-		light_ship_hull_1936 = 1
-		weltkrieg_cruiser_hull = 1
-		cruiser_hull_1936 = 1
-		weltkrieg_submarine_hull = 1
-		submarine_hull_1936 = 1
-		cruiser_submarine = 1
-		carrier_conversion = 1
-		carrier_hull_1936 = 1
-		ship_hull_revived_ac = 1
-		weltkrieg_heavy_ship_hull = 1
-		heavy_ship_hull_1936 = 1
-
+		early_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		cruiser_submarines = 1
+		early_ship_hull_heavy = 1
+		
+		basic_naval_mines = 1
+		
 		## Modules##
-		early_torpedo = 1
-		weltkrieg_naval_gunnery = 1
-		naval_ammo_one = 1
-		light_battery_one = 1
-		sonar = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_medium_battery = 1
+		basic_secondary_battery = 1
+		basic_depth_charges = 1
+		basic_torpedo = 1
 		improved_ship_torpedo_launcher = 1
-		basic_cruiser_armor_scheme = 1
 		basic_heavy_armor_scheme = 1
-		capital_gunnery_one = 1
 
 		### Transport ###
-		transport = 1
+		mtg_transport = 1
 	}
 }
 
 ### Navy - Non MtG ###
+
 if = {
 	limit = {
 		NOT = {
@@ -61,22 +56,22 @@ if = {
 		}
 	}
 	set_technology = {
-		weltkrieg_destroyer_nonmtg = 1
-		interwar_destroyer_nonmtg = 1
-		weltkrieg_cruiser_nonmtg = 1
-		interwar_cruiser_nonmtg = 1
-		weltkrieg_submarine_nonmtg = 1
-		interwar_submarine_nonmtg = 1
-		weltkrieg_armored_cruiser_nonmtg = 1
-		interwar_armored_cruiser_nonmtg = 1
-		weltkrieg_fast_battleship_nonmtg = 1
-		interwar_fast_battleship_nonmtg = 1
-		weltkrieg_dreadnought_nonmtg = 1
-		super_heavy_dreadnought_nonmtg = 1
-		weltkrieg_carrier_nonmtg = 1
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+		early_submarine = 1
+		basic_submarine = 1
+		early_heavy_cruiser = 1
+		basic_heavy_cruiser = 1
+		early_battlecruiser = 1
+		early_battleship = 1
+		basic_battleship = 1
+		heavy_battleship = 1
+		early_carrier = 1
 
 		### Transport ###
-		transport_n = 1
+		transport = 1
 	}
 }
 
@@ -261,97 +256,7 @@ create_country_leader = {
 }
 
 ### Generals
-create_corps_commander = {
-	name = "Vladimir Antonov-Ovseyenko"
-	id = 1958	
-	portrait_path = "gfx/leaders/SOV/Vladimir_Antonov-Ovseyenko.png"
-	traits = { media_personality infantry_leader infantry_expert harsh_leader hill_fighter urban_assault_specialist }
-	skill = 3
-	attack_skill = 4
-	defense_skill = 1
-	planning_skill = 3
-	logistics_skill = 3
-}
-create_corps_commander = {
-	name = "Semyon Budyonny"
-	id = 1956	
-	portrait_path = "gfx/leaders/SOV/Semyon_Budyonny.png"
-	traits = { inspirational_leader media_personality cavalry_officer cavalry_expert skilled_staffer }
-	skill = 3
-	attack_skill = 4
-	defense_skill = 1
-	planning_skill = 3
-	logistics_skill = 3
-}
-create_corps_commander = {
-	name = "Vitaly Primakov"
-	id = 1962	
-	portrait_path = "gfx/leaders/SOV/Vitaly_Primakov.png"
-	traits = { cavalry_officer ranger }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 4
-	planning_skill = 1
-	logistics_skill = 2
-}
-create_corps_commander = {
-	name = "Ieronim Uborevich"
-	id = 1960
-	portrait_path = "gfx/leaders/SOV/Ieronim_Uborevich.png"
-	traits = { harsh_leader infantry_expert  }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 2
-}
-create_corps_commander = {
-	name = "Iona Yakir"
-	id = 1961	
-	portrait_path = "gfx/leaders/SOV/Iona_Yakir.png"
-	traits = { skilled_staffer inspirational_leader  }
-	skill = 2
-	attack_skill = 2
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 3
-}
-create_corps_commander = {
-	name = "Yan Gamarnik"
-	id = 1957	
-	portrait_path = "gfx/leaders/SOV/Yan_Gamarnik.png"
-	traits = { politically_connected harsh_leader organizer  }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
 
-create_corps_commander = {
-	name = "Ivan Konev"
-	id = 608
-	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Ivan_Konev.png"
-	traits = { panzer_leader harsh_leader winter_specialist }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-
-create_corps_commander = {
-	name = "Semyon Timoshenko"
-	id = 604
-	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Semyon_Timoshenko.png"
-	traits = { cavalry_officer politically_connected }
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 1
-}
 create_field_marshal = {
 	name = "Kliment Voroshilov"
 	id = 605
@@ -364,47 +269,20 @@ create_field_marshal = {
 	logistics_skill = 1
 }
 
-create_field_marshal = {
-	name = "Mikhail Tukhachevskiy"
-	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Mikhail_Tukhachevskiy.png"
-	traits = { 
-		offensive_doctrine
-		brilliant_strategist 
-		infantry_officer 
-		trait_reckless
-	}
-	id = 1954
-	skill = 4
-	attack_skill = 3
-	defense_skill = 4
-	planning_skill = 4
-	logistics_skill = 2
-}
-create_field_marshal = {
-	name = "Mikhail Frunze"
-	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Mikhail_Frunze.png"
-	traits = { inspirational_leader offensive_doctrine war_hero politically_connected }
-	id = 1955
+create_corps_commander = {
+	name = "Semyon Budyonny"
+	id = 1956	
+	portrait_path = "gfx/leaders/SOV/Semyon_Budyonny.png"
+	traits = { inspirational_leader media_personality cavalry_officer cavalry_expert skilled_staffer SOV_bolshevik_officer }
 	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 3
-}
-create_field_marshal = {
-	name = "Georgy Zhukov"
-	id = 457
-	portrait_path = "gfx/leaders/RUS/Portrait_Russia_Gregory_Zhukov_General.png"
-	traits = { inspirational_leader offensive_doctrine war_hero politically_connected }
-	skill = 4
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 4
+	attack_skill = 4
+	defense_skill = 1
+	planning_skill = 3
 	logistics_skill = 3
 }
 create_corps_commander = {
 	name = "Ivan Chernyakhovskiy"
-	portrait_path = "gfx/leaders/SOV/Portrait_Soviet_Ivan_Chernyakhovsky.png"
+	portrait_path = "gfx/leaders/SOV/Ivan_Chernyakhovsky.png"
 	traits = { organisational_leader armor_officer }
 	skill = 1
 	attack_skill = 1
@@ -413,28 +291,7 @@ create_corps_commander = {
 	logistics_skill = 1
 }
 
-create_corps_commander = {
-	name = "Issa Pliyev"
-	portrait_path = "gfx/leaders/SOV/Portrait_Soviet_Issa_Pliyev.png"
-	traits = { cavalry_officer }
-	skill = 1
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
-}
 
-create_corps_commander = {
-	name = "Pavel Dybenko"
-	portrait_path = "gfx/leaders/SOV/Pavel_Dybenko.png"
-	traits = { infantry_leader invader_ii  }
-	id = 80001
-	skill = 3
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 1
-	logistics_skill = 1
-}
 
 create_corps_commander = {
 	name = "Kirill Meretskov"
@@ -450,23 +307,12 @@ create_corps_commander = {
 create_corps_commander = {
 	name = "Maksim Purkayev"
 	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Maksim_Purkayev.png"
-	traits = { career_officer infantry_leader  }
+	traits = { career_officer infantry_leader }
 	skill = 2
 	attack_skill = 2
 	defense_skill = 3
 	planning_skill = 1
 	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Nikolay Berzarin"
-	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Nikolay_Berzarin.png"
-	traits = { infantry_leader  politically_connected }
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 1
-	logistics_skill = 2
 }
 
 create_corps_commander = {
@@ -480,6 +326,16 @@ create_corps_commander = {
 	logistics_skill = 1
 }
 
+create_corps_commander = {
+	name = "Semyon Gitler"
+	portrait_path = "gfx/leaders/RUS/Portrait_SOV_Semyon_Hitler.png"
+	traits = { infantry_officer inspirational_leader media_personality }
+	skill = 1
+	attack_skill = 3
+	defense_skill = 1
+	planning_skill = 2
+	logistics_skill = 1
+}
 create_corps_commander = {
 	name = "Nikolay Krylov"
 	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Nikolay_Krylov.png"
@@ -505,7 +361,7 @@ create_navy_leader = {
 }
 create_navy_leader = {
 	name = "Neon Antonov"
-	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Neon_Antonov.png"
+	portrait_path = "gfx/leaders/RUS/Portrait_Russia_Neon_Antonov.png"
 	traits = { }
 	skill = 2
 	attack_skill = 2

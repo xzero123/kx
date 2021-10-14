@@ -438,6 +438,7 @@ country_event = { # Murray Retires?
 	picture = GFX_USA_murray
 
 	trigger = {
+	tag = COR
 	has_country_leader = { ruling_only = yes name = "William H. Murray" }
 	date > 1941.02.10
 	}
@@ -475,7 +476,7 @@ country_event = { # Murray Retires?
 		create_country_leader = {
 				name = "Strom Thurmond"
 				desc = "COR_STROM_THURMOND_DESC"
-				picture = "gfx/leaders/COR/Portrait_COR_Strom_Thurmond.png"
+				picture = "gfx/leaders/USA/Portrait_USA_Strom_Thurmond.png"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 				traits = { smooth_talking_charmer }
@@ -899,6 +900,7 @@ country_event = { # Patton
 		hidden_effect = {
 			country_event = { id = constate.13 days = 9 }
 		}
+		drop_cosmetic_tag = yes
 	}
 }
 
@@ -4397,6 +4399,12 @@ country_event = { # Armstrong Dead
 		name = constate.5101.a
 		if = {
 		limit = {
+		has_idea = COR_the_eyes_of_god_idea
+		}
+		remove_ideas = COR_the_eyes_of_god_idea
+		}
+		if = {
+		limit = {
 		has_idea = COR_warriors_of_elijah_ideas
 		}
 		remove_ideas = COR_warriors_of_elijah_ideas
@@ -4426,6 +4434,12 @@ country_event = { # Armstrong Dead
 	}
 	option = { #Francis Parker Yockey
 		name = constate.5101.b
+		if = {
+		limit = {
+		has_idea = COR_the_eyes_of_god_idea
+		}
+		remove_ideas = COR_the_eyes_of_god_idea
+		}
 		if = {
 		limit = {
 		has_idea = COR_warriors_of_elijah_ideas

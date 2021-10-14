@@ -7327,6 +7327,7 @@ country_event = { #Peaceout event
 		is_puppet = no
 		NOT = {
 			is_in_faction_with = AUS
+			has_country_flag = CZE_wonrevolution_flag
 		}
 		has_war_with = AUS
 	}
@@ -7339,14 +7340,14 @@ country_event = { #Peaceout event
 			tag = AUS
 			message = CZE_wonrevolution
 		}
-		white_peace = {
-			tag = HUN
-		}
-		white_peace = {
-			tag = GAL
-		}
-		white_peace = {
-			tag = CRO
+		every_country = {
+			limit = {
+				has_war_with = CZE
+				is_in_faction_with = AUS
+			}
+			white_peace = {
+				tag = CZE
+			}
 		}
 		if = {
 			limit = {
@@ -7521,6 +7522,7 @@ country_event = { #Early peace
 		is_puppet = no
 		NOT = {
 			is_in_faction_with = AUS
+			has_country_flag = CZE_wonrevolution_flag
 		}
 		has_war_with = AUS
 	}
@@ -7534,14 +7536,14 @@ country_event = { #Early peace
 			tag = AUS
 			message = CZE_wonrevolution
 		}
-		white_peace = {
-			tag = HUN
-		}
-		white_peace = {
-			tag = GAL
-		}
-		white_peace = {
-			tag = CRO
+		every_country = {
+			limit = {
+				has_war_with = CZE
+				is_in_faction_with = AUS
+			}
+			white_peace = {
+				tag = CZE
+			}
 		}
 		
 		if = {
@@ -7946,9 +7948,6 @@ country_event = { #Defeat!
 			remove_core_of = CZE
 		}
 		set_country_flag = CZE_losttoslovakia
-		hidden_effect = {
-			load_focus_tree = bohemia_freeczech_focus
-		}
 	}
 }
 

@@ -3998,18 +3998,65 @@ country_event = { # Elections of 1937
 		tag = MEX
 		NOT = {
 			has_country_flag = MEX_the_1937_elections_happened
+			has_country_flag = MEX_dominant_democracy
 		}
 		has_democratic_government = yes
+	}
+	
+	
+	immediate = {
+		hidden_effect = {
+			create_country_leader = {# Rafael Miguel Pedrajo Barrios
+				name = "Rafael Miguel Pedrajo Barrios"
+				picture = "Portrait_Mexico_Rafael_Miguel_Pedrajo_Barrios.png"
+				expire = "1965.1.1"
+				ideology = social_democrat_subtype
+				traits = {}
+			}
+			create_country_leader = {# Adrián Aguirre Benavides
+				name = "Adrián Aguirre Benavides"
+				picture = "Portrait_Mexico_Adrian_Aguirre_Benavides.png"
+				expire = "1965.1.1"
+				ideology = social_liberal_subtype
+				traits = {}
+			}
+			create_country_leader = {# José Inocente Lugo
+				name = "José Inocente Lugo"
+				picture = "Portrait_Mexico_Jose_Inocente_Lugo.png"
+				expire = "1965.1.1"
+				ideology = market_liberal_subtype
+				traits = {}
+			}
+			create_country_leader = {# Raúl Madero González
+				name = "Raúl Madero González"
+				picture = "Portrait_Mexico_Raul_Madero_González.png"
+				expire = "1965.1.1"
+				ideology = social_conservative_subtype
+				traits = {}
+			}
+			create_country_leader = {# Melchor Ortega Camarena
+				name = "Melchor Ortega Camarena"
+				picture = "Portrait_Mexico_Melchor_Ortega_Camarena.png"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+				traits = {}
+			}
+		}
 	}
 
 	option = { # Authoritarian Democrat
 		name = mexico.81.a
+		trigger = {
+			NOT = {
+				has_country_flag = MEX_banned_authoritarian_parties
+			}
+		}
 		hidden_effect = {
 			set_country_flag = MEX_the_1942_elections_happened
 		}
 		add_popularity = {
 			ideology = authoritarian_democrat
-			popularity = 0.10
+			popularity = 0.02
 		}
 		set_politics = {
 			ruling_party = authoritarian_democrat
@@ -4087,12 +4134,17 @@ country_event = { # Elections of 1937
 	}
 	option = { # Social Conservative
 		name = mexico.81.b
+		trigger = {
+			NOT = {
+				has_country_flag = MEX_banned_authoritarian_parties
+			}
+		}
 		hidden_effect = {
 			set_country_flag = MEX_the_1942_elections_happened
 		}
 		add_popularity = {
 			ideology = social_conservative
-			popularity = 0.10
+			popularity = 0.02
 		}
 		if = {
 			limit = {
@@ -4179,7 +4231,7 @@ country_event = { # Elections of 1937
 		}
 		add_popularity = {
 			ideology = market_liberal
-			popularity = 0.10
+			popularity = 0.02
 		}
 		if = {
 			limit = {
@@ -4261,10 +4313,15 @@ country_event = { # Elections of 1937
 	}
 	option = { # Social Liberal
 		name = mexico.81.od
+		trigger = {
+			NOT = {
+				has_country_flag = MEX_banned_socialist_parties
+			}
+		}
 		remove_all_ministers = yes
 		add_popularity = {
 			ideology = social_liberal
-			popularity = 0.10
+			popularity = 0.02
 		}
 		if = {
 			limit = {
@@ -4346,10 +4403,15 @@ country_event = { # Elections of 1937
 
 	option = { # Social Democrat
 		name = mexico.81.e
+		trigger = {
+			NOT = {
+				has_country_flag = MEX_banned_socialist_parties
+			}
+		}
 		remove_all_ministers = yes
 		add_popularity = {
 			ideology = social_democrat
-			popularity = 0.10
+			popularity = 0.02
 		}
 		if = {
 			limit = {
@@ -4437,24 +4499,72 @@ country_event = { # Elections of 1942
 
 	is_triggered_only = yes
 	fire_only_once = yes
+	
+	
+	immediate = {
+		hidden_effect = {
+			create_country_leader = {# Ignacio García Tellez
+				name = "Ignacio García Tellez"
+				picture = "Portrait_Mexico_Ignacio_García_Tellez.png"
+				expire = "1965.1.1"
+				ideology = social_democrat_subtype
+				traits = {}
+			}
+			create_country_leader = {# Eduardo Neri Reynoso
+				name = "Eduardo Neri Reynoso"
+				picture = "Portrait_Mexico_Eduardo_Neri_Reynoso.png"
+				expire = "1965.1.1"
+				ideology = social_liberal_subtype
+				traits = {}
+			}
+			create_country_leader = {# Juan Andreu Almazán
+				name = "Miguel Aleman Valdéz"
+				picture = "Portrait_Mexico_Miguel_Valdes.png"
+				expire = "1965.1.1"
+				ideology = market_liberal_subtype
+				traits = {}
+			}
+			create_country_leader = {# Juan Andreu Almazán
+				name = "Manuel Gomez Morín"
+				desc = "POLITICS_MORIN_DESC"
+				picture = "Portrait_Mexico_Manuel_Gomez_Morin.png"
+				expire = "1965.1.1"
+				ideology = social_conservative_subtype
+				traits = {}
+			}
+			create_country_leader = {# Gilberto Valenzuela
+				name = "Gilberto Valenzuela"
+				picture = "Portrait_Mexico_Gilberto_Valenzuela.png"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+				traits = {}
+			}
+		}
+	}
 
 	trigger = {
 		tag = MEX
 		has_country_flag = MEX_the_1937_elections_happened
 		NOT = {
 			has_country_flag = MEX_the_1942_elections_happened
+			has_country_flag = MEX_dominant_democracy
 		}
 		has_democratic_government = yes
 	}
 
 	option = { # Authoritarian Democrat
 		name = mexico.81.a
+		trigger = {
+			NOT = {
+				has_country_flag = MEX_banned_authoritarian_parties
+			}
+		}
 		hidden_effect = {
 			set_country_flag = MEX_the_1942_elections_happened
 		}
 		add_popularity = {
 			ideology = authoritarian_democrat
-			popularity = 0.10
+			popularity = 0.02
 		}
 		set_politics = {
 			ruling_party = authoritarian_democrat
@@ -4532,12 +4642,17 @@ country_event = { # Elections of 1942
 	}
 	option = { # Social Conservative
 		name = mexico.81.b
+		trigger = {
+			NOT = {
+				has_country_flag = MEX_banned_authoritarian_parties
+			}
+		}
 		hidden_effect = {
 			set_country_flag = MEX_the_1942_elections_happened
 		}
 		add_popularity = {
 			ideology = social_conservative
-			popularity = 0.10
+			popularity = 0.02
 		}
 		if = {
 			limit = {
@@ -4624,7 +4739,7 @@ country_event = { # Elections of 1942
 		}
 		add_popularity = {
 			ideology = market_liberal
-			popularity = 0.10
+			popularity = 0.02
 		}
 		if = {
 			limit = {
@@ -4706,10 +4821,15 @@ country_event = { # Elections of 1942
 	}
 	option = { # Social Liberal
 		name = mexico.81.od
+		trigger = {
+			NOT = {
+				has_country_flag = MEX_banned_socialist_parties
+			}
+		}
 		remove_all_ministers = yes
 		add_popularity = {
 			ideology = social_liberal
-			popularity = 0.10
+			popularity = 0.02
 		}
 		if = {
 			limit = {
@@ -4791,10 +4911,15 @@ country_event = { # Elections of 1942
 
 	option = { # Social Democrat
 		name = mexico.81.e
+		trigger = {
+			NOT = {
+				has_country_flag = MEX_banned_socialist_parties
+			}
+		}
 		remove_all_ministers = yes
 		add_popularity = {
 			ideology = social_democrat
-			popularity = 0.10
+			popularity = 0.02
 		}
 		if = {
 			limit = {
@@ -4879,6 +5004,46 @@ country_event = { # Elections of 1947
 	desc = mexico.83.d
 
 	picture = GFX_report_event_election_vote
+	
+	immediate = {
+		hidden_effect = {
+			create_country_leader = {# Francisco Javier Santamaría
+				name = "Francisco Javier Santamaría"
+				picture = "Portrait_Mexico_Francisco_Javier_Santamaría.png"
+				expire = "1965.1.1"
+				ideology = social_democrat_subtype
+				traits = {}
+			}
+			create_country_leader = {# Francisco Javier Santamaría
+				name = "Aquiles Elorduy García"
+				picture = "Portrait_Mexico_Aquiles_Elorduy_Garcia.png"
+				expire = "1965.1.1"
+				ideology = social_liberal_subtype
+				traits = {}
+			}
+			create_country_leader = {# Adolfo Ruiz Cortines
+				name = "Adolfo Ruiz Cortines"
+				picture = "Portrait_Mexico_Adolfo_Ruiz_Cortines.png"
+				expire = "1965.1.1"
+				ideology = market_liberal_subtype
+				traits = {}
+			}
+			create_country_leader = {# Efrain González Luna
+				name = "Efrain González Luna"
+				picture = "Portrait_Mexico_Efrain_Gonzalez_Luna.png"
+				expire = "1965.1.1"
+				ideology = social_conservative_subtype
+				traits = {}
+			}
+			create_country_leader = {# Luis L. León
+				name = "Luis L. León"
+				picture = "Portrait_Mexico_Luis_L_Leon.png"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+				traits = {}
+			}
+		}
+	}
 
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -4888,18 +5053,24 @@ country_event = { # Elections of 1947
 		has_country_flag = MEX_the_1937_elections_happened
 		NOT = {
 			has_country_flag = MEX_the_1942_elections_happened
+			has_country_flag = MEX_dominant_democracy
 		}
 		has_democratic_government = yes
 	}
 
 	option = { # Authoritarian Democrat
 		name = mexico.81.a
+		trigger = {
+			NOT = {
+				has_country_flag = MEX_banned_authoritarian_parties
+			}
+		}
 		hidden_effect = {
 			set_country_flag = MEX_the_1942_elections_happened
 		}
 		add_popularity = {
 			ideology = authoritarian_democrat
-			popularity = 0.10
+			popularity = 0.02
 		}
 		set_politics = {
 			ruling_party = authoritarian_democrat
@@ -4977,12 +5148,17 @@ country_event = { # Elections of 1947
 	}
 	option = { # Social Conservative
 		name = mexico.81.b
+		trigger = {
+			NOT = {
+				has_country_flag = MEX_banned_authoritarian_parties
+			}
+		}
 		hidden_effect = {
 			set_country_flag = MEX_the_1942_elections_happened
 		}
 		add_popularity = {
 			ideology = social_conservative
-			popularity = 0.10
+			popularity = 0.02
 		}
 		if = {
 			limit = {
@@ -5069,7 +5245,7 @@ country_event = { # Elections of 1947
 		}
 		add_popularity = {
 			ideology = market_liberal
-			popularity = 0.10
+			popularity = 0.02
 		}
 		if = {
 			limit = {
@@ -5151,10 +5327,15 @@ country_event = { # Elections of 1947
 	}
 	option = { # Social Liberal
 		name = mexico.81.od
+		trigger = {
+			NOT = {
+				has_country_flag = MEX_banned_socialist_parties
+			}
+		}
 		remove_all_ministers = yes
 		add_popularity = {
 			ideology = social_liberal
-			popularity = 0.10
+			popularity = 0.02
 		}
 		if = {
 			limit = {
@@ -5236,10 +5417,1529 @@ country_event = { # Elections of 1947
 
 	option = { # Social Democrat
 		name = mexico.81.e
+		trigger = {
+			NOT = {
+				has_country_flag = MEX_banned_socialist_parties
+			}
+		}
 		remove_all_ministers = yes
 		add_popularity = {
 			ideology = social_democrat
-			popularity = 0.10
+			popularity = 0.02
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
+		remove_all_ministers = yes
+		add_ideas = MEX_Lazaro_Cardenas_hog_sde
+		add_ideas = MEX_Isidro_Fabela_for_sde
+		add_ideas = MEX_Alberto_J_Pani_eco_sde
+		add_ideas = MEX_Miguel_Aleman_Valdes_sec_sde
+	}
+}
+
+### Military Democracy 81 - 99 ###
+country_event = { # Puppet Elections of 1937
+	id = mexico.810
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.810"}
+	title = mexico.810.t
+	desc = mexico.810.d
+
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = MEX
+		NOT = {
+			has_country_flag = MEX_the_1937_elections_happened
+		}
+		has_country_flag = MEX_dominant_democracy
+		has_democratic_government = yes
+	}
+	
+	
+	immediate = {
+		hidden_effect = {
+			create_country_leader = {# Rafael Miguel Pedrajo Barrios
+				name = "Rafael Miguel Pedrajo Barrios"
+				picture = "Portrait_Mexico_Rafael_Miguel_Pedrajo_Barrios.png"
+				expire = "1965.1.1"
+				ideology = social_democrat_subtype
+				traits = {}
+			}
+			create_country_leader = {# Adrián Aguirre Benavides
+				name = "Adrián Aguirre Benavides"
+				picture = "Portrait_Mexico_Adrian_Aguirre_Benavides.png"
+				expire = "1965.1.1"
+				ideology = social_liberal_subtype
+				traits = {}
+			}
+			create_country_leader = {# José Inocente Lugo
+				name = "José Inocente Lugo"
+				picture = "Portrait_Mexico_Jose_Inocente_Lugo.png"
+				expire = "1965.1.1"
+				ideology = market_liberal_subtype
+				traits = {}
+			}
+			create_country_leader = {# Raúl Madero González
+				name = "Raúl Madero González"
+				picture = "Portrait_Mexico_Raul_Madero_González.png"
+				expire = "1965.1.1"
+				ideology = social_conservative_subtype
+				traits = {}
+			}
+			create_country_leader = {# Melchor Ortega Camarena
+				name = "Melchor Ortega Camarena"
+				picture = "Portrait_Mexico_Melchor_Ortega_Camarena.png"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+				traits = {}
+			}
+			set_country_flag = MEX_the_1942_elections_happened
+		}
+	}
+
+	option = { # Current Party Wins
+		name = mexico.81.a
+		trigger = {
+			has_government = authoritarian_democrat
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.02
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = yes
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
+	}
+	option = { # Current Party Wins
+		name = mexico.81.b
+		trigger = {
+			has_government = social_conservative
+		}
+		hidden_effect = {
+			set_country_flag = MEX_the_1942_elections_happened
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.02
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_conservative
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_conservative
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_conservative
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
+		set_country_flag = MEX_true_democracy
+		remove_all_ministers = yes
+		add_ideas = {
+			MEX_Manuel_Gomez_Morin_hog_sco
+			MEX_Juan_Lascurian_for_sco
+			MEX_Luis_Montes_de_Oca_eco_sco
+			MEX_Efrain_Gonzalez_Luna_sec_sco
+		}
+	}
+	option = { # Current Party Wins
+		name = mexico.81.c
+		trigger = {
+			has_government = market_liberal
+		}
+		hidden_effect = {
+			set_country_flag = MEX_the_1942_elections_happened
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.02
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = market_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = market_liberal
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = market_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = market_liberal
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = market_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = market_liberal
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
+		set_country_flag = MEX_true_democracy
+		remove_all_ministers = yes
+		add_ideas = {
+			MEX_Miguel_Valdez_hog_mli
+			MEX_Jamie_Bodet_for_mli
+			MEX_Antonio_Martinez_Baez_eco_mli
+			MEX_Hector_Perez_Martinez_sec_mli
+		}
+	}
+	option = { # Current Party
+		name = mexico.81.od
+		trigger = {
+			has_government = social_liberal
+		}
+		trigger = {
+			NOT = {
+				has_country_flag = MEX_banned_socialist_parties
+			}
+		}
+		remove_all_ministers = yes
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.02
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
+		remove_all_ministers = yes
+		add_ideas = {
+			MEX_Manuel_Avila_Camacho_hog_sli
+			MEX_Francisco_Castillo_Najera_for_sli
+			MEX_Eduardo_Aranzolo_eco_sli
+			MEX_Primo_Villa_Michel_sec_sli
+		}
+	}
+
+	option = { # Current Party Wins
+		name = mexico.81.e
+		trigger = {
+			has_government = social_liberal
+		}
+		remove_all_ministers = yes
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.02
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
+		remove_all_ministers = yes
+		add_ideas = MEX_Lazaro_Cardenas_hog_sde
+		add_ideas = MEX_Isidro_Fabela_for_sde
+		add_ideas = MEX_Alberto_J_Pani_eco_sde
+		add_ideas = MEX_Miguel_Aleman_Valdes_sec_sde
+	}
+}
+country_event = { # Puppet Elections of 1942
+	id = mexico.820
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.820"}
+	title = mexico.820.t
+	desc = mexico.820.d
+
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	
+	immediate = {
+		hidden_effect = {
+			create_country_leader = {# Ignacio García Tellez
+				name = "Ignacio García Tellez"
+				picture = "Portrait_Mexico_Ignacio_García_Tellez.png"
+				expire = "1965.1.1"
+				ideology = social_democrat_subtype
+				traits = {}
+			}
+			create_country_leader = {# Eduardo Neri Reynoso
+				name = "Eduardo Neri Reynoso"
+				picture = "Portrait_Mexico_Eduardo_Neri_Reynoso.png"
+				expire = "1965.1.1"
+				ideology = social_liberal_subtype
+				traits = {}
+			}
+			create_country_leader = {# Juan Andreu Almazán
+				name = "Miguel Aleman Valdéz"
+				picture = "Portrait_Mexico_Miguel_Valdes.png"
+				expire = "1965.1.1"
+				ideology = market_liberal_subtype
+				traits = {}
+			}
+			create_country_leader = {# Juan Andreu Almazán
+				name = "Manuel Gomez Morín"
+				desc = "POLITICS_MORIN_DESC"
+				picture = "Portrait_Mexico_Manuel_Gomez_Morin.png"
+				expire = "1965.1.1"
+				ideology = social_conservative_subtype
+				traits = {}
+			}
+			create_country_leader = {# Gilberto Valenzuela
+				name = "Gilberto Valenzuela"
+				picture = "Portrait_Mexico_Gilberto_Valenzuela.png"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+				traits = {}
+			}
+		}
+	}
+
+	trigger = {
+		tag = MEX
+		has_country_flag = MEX_the_1937_elections_happened
+		NOT = {
+			has_country_flag = MEX_the_1942_elections_happened
+		}
+		has_country_flag = MEX_dominant_democracy
+		has_democratic_government = yes
+	}
+
+	option = { # Current Party Wins
+		name = mexico.81.a
+		trigger = {
+			has_government = authoritarian_democrat
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.02
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = yes
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
+	}
+	option = { # Current Party Wins
+		name = mexico.81.b
+		trigger = {
+			has_government = social_conservative
+		}
+		hidden_effect = {
+			set_country_flag = MEX_the_1942_elections_happened
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.02
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_conservative
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_conservative
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_conservative
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
+		set_country_flag = MEX_true_democracy
+		remove_all_ministers = yes
+		add_ideas = {
+			MEX_Manuel_Gomez_Morin_hog_sco
+			MEX_Juan_Lascurian_for_sco
+			MEX_Luis_Montes_de_Oca_eco_sco
+			MEX_Efrain_Gonzalez_Luna_sec_sco
+		}
+	}
+	option = { # Current Party Wins
+		name = mexico.81.c
+		trigger = {
+			has_government = market_liberal
+		}
+		hidden_effect = {
+			set_country_flag = MEX_the_1942_elections_happened
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.02
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = market_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = market_liberal
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = market_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = market_liberal
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = market_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = market_liberal
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
+		set_country_flag = MEX_true_democracy
+		remove_all_ministers = yes
+		add_ideas = {
+			MEX_Miguel_Valdez_hog_mli
+			MEX_Jamie_Bodet_for_mli
+			MEX_Antonio_Martinez_Baez_eco_mli
+			MEX_Hector_Perez_Martinez_sec_mli
+		}
+	}
+	option = { # Current Party
+		name = mexico.81.od
+		trigger = {
+			has_government = social_liberal
+		}
+		trigger = {
+			NOT = {
+				has_country_flag = MEX_banned_socialist_parties
+			}
+		}
+		remove_all_ministers = yes
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.02
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
+		remove_all_ministers = yes
+		add_ideas = {
+			MEX_Manuel_Avila_Camacho_hog_sli
+			MEX_Francisco_Castillo_Najera_for_sli
+			MEX_Eduardo_Aranzolo_eco_sli
+			MEX_Primo_Villa_Michel_sec_sli
+		}
+	}
+
+	option = { # Current Party Wins
+		name = mexico.81.e
+		trigger = {
+			has_government = social_liberal
+		}
+		remove_all_ministers = yes
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.02
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
+		remove_all_ministers = yes
+		add_ideas = MEX_Lazaro_Cardenas_hog_sde
+		add_ideas = MEX_Isidro_Fabela_for_sde
+		add_ideas = MEX_Alberto_J_Pani_eco_sde
+		add_ideas = MEX_Miguel_Aleman_Valdes_sec_sde
+	}
+}
+country_event = { # Elections of 1947
+	id = mexico.830
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.830"}
+	title = mexico.830.t
+	desc = mexico.830.d
+
+	picture = GFX_report_event_election_vote
+	
+	immediate = {
+		hidden_effect = {
+			create_country_leader = {# Francisco Javier Santamaría
+				name = "Francisco Javier Santamaría"
+				picture = "Portrait_Mexico_Francisco_Javier_Santamaría.png"
+				expire = "1965.1.1"
+				ideology = social_democrat_subtype
+				traits = {}
+			}
+			create_country_leader = {# Francisco Javier Santamaría
+				name = "Aquiles Elorduy García"
+				picture = "Portrait_Mexico_Aquiles_Elorduy_Garcia.png"
+				expire = "1965.1.1"
+				ideology = social_liberal_subtype
+				traits = {}
+			}
+			create_country_leader = {# Adolfo Ruiz Cortines
+				name = "Adolfo Ruiz Cortines"
+				picture = "Portrait_Mexico_Adolfo_Ruiz_Cortines.png"
+				expire = "1965.1.1"
+				ideology = market_liberal_subtype
+				traits = {}
+			}
+			create_country_leader = {# Efrain González Luna
+				name = "Efrain González Luna"
+				picture = "Portrait_Mexico_Efrain_Gonzalez_Luna.png"
+				expire = "1965.1.1"
+				ideology = social_conservative_subtype
+				traits = {}
+			}
+			create_country_leader = {# Luis L. León
+				name = "Luis L. León"
+				picture = "Portrait_Mexico_Luis_L_Leon.png"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+				traits = {}
+			}
+		}
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = MEX
+		has_country_flag = MEX_the_1937_elections_happened
+		NOT = {
+			has_country_flag = MEX_the_1942_elections_happened
+		}
+		has_country_flag = MEX_dominant_democracy
+		has_democratic_government = yes
+	}
+
+	option = { # Current Party Wins
+		name = mexico.81.a
+		trigger = {
+			has_government = authoritarian_democrat
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.02
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = yes
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = authoritarian_democrat
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
+	}
+	option = { # Current Party Wins
+		name = mexico.81.b
+		trigger = {
+			has_government = social_conservative
+		}
+		hidden_effect = {
+			set_country_flag = MEX_the_1942_elections_happened
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.02
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_conservative
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_conservative
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_conservative
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
+		set_country_flag = MEX_true_democracy
+		remove_all_ministers = yes
+		add_ideas = {
+			MEX_Manuel_Gomez_Morin_hog_sco
+			MEX_Juan_Lascurian_for_sco
+			MEX_Luis_Montes_de_Oca_eco_sco
+			MEX_Efrain_Gonzalez_Luna_sec_sco
+		}
+	}
+	option = { # Current Party Wins
+		name = mexico.81.c
+		trigger = {
+			has_government = market_liberal
+		}
+		hidden_effect = {
+			set_country_flag = MEX_the_1942_elections_happened
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.02
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = market_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = market_liberal
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = market_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = market_liberal
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = market_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = market_liberal
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
+		set_country_flag = MEX_true_democracy
+		remove_all_ministers = yes
+		add_ideas = {
+			MEX_Miguel_Valdez_hog_mli
+			MEX_Jamie_Bodet_for_mli
+			MEX_Antonio_Martinez_Baez_eco_mli
+			MEX_Hector_Perez_Martinez_sec_mli
+		}
+	}
+	option = { # Current Party
+		name = mexico.81.od
+		trigger = {
+			has_government = social_liberal
+		}
+		trigger = {
+			NOT = {
+				has_country_flag = MEX_banned_socialist_parties
+			}
+		}
+		remove_all_ministers = yes
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.02
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_4_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 55
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+					election_frequency = 55
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_5_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = elections_every_6_years
+			}
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_liberal
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 75
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+					election_frequency = 75
+				}
+			}
+		}
+		remove_all_ministers = yes
+		add_ideas = {
+			MEX_Manuel_Avila_Camacho_hog_sli
+			MEX_Francisco_Castillo_Najera_for_sli
+			MEX_Eduardo_Aranzolo_eco_sli
+			MEX_Primo_Villa_Michel_sec_sli
+		}
+	}
+
+	option = { # Current Party Wins
+		name = mexico.81.e
+		trigger = {
+			has_government = social_liberal
+		}
+		remove_all_ministers = yes
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.02
 		}
 		if = {
 			limit = {

@@ -12,8 +12,1949 @@ focus_tree = {
 		}
 	}
 	default = no
-	continuous_focus_position = { x = 0 y = 1 }
+	continuous_focus_position = { x = 0 y = 2000 }
 
+
+	################################
+	### Black Monday (Loyalists) ###
+	################################
+	
+	focus = {
+		id = FIU_crash_at_vienna
+		icon = GFX_goal_FIU_shockwave
+		x = 0
+		y = 0
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			always = no
+		}
+		completion_reward = {
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = FIU_port_austerity
+		icon = GFX_goal_FIU_port_austerity
+		x = 0
+		y = 1
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_crash_at_vienna
+		}
+		available = {
+			OR = {
+				has_idea = FIU_bm_1
+				has_idea = FIU_bm_2
+			}
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 1
+			}
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = FIU_call_the_HEP_group
+		icon = GFX_goal_FIU_HEP_group
+		x = 0
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_port_austerity
+		}
+		available = {
+			OR = {
+				has_idea = FIU_bm_1
+				has_idea = FIU_bm_2
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = electronics
+				uses = 1
+				bonus = 1
+			}
+			add_tech_bonus = {
+				category = industry
+				uses = 1
+				bonus = 1
+			}
+			add_political_power = 25
+		}
+	}
+	
+	focus = {
+		id = FIU_maintain_danubius
+		icon = GFX_goal_FIU_ganz_danubius
+		x = 0
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_call_the_HEP_group
+		}
+		prerequisite = {
+			focus = FIU_fiume_ravenna_route
+			focus = FIU_strabag_littoral_route
+		}
+		available = {
+			OR = {
+				has_idea = FIU_bm_1
+				has_idea = FIU_bm_2
+			}
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 1
+			}
+			add_tech_bonus = {
+				category = naval_equipment
+				uses = 1
+				bonus = 1
+			}
+			swap_ideas = {
+				add_idea = FIU_bm_2
+				remove_idea = FIU_bm_1
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_seek_new_routes
+		icon = GFX_goal_generic_mediterranean
+		x = -1
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_crash_at_vienna
+		}
+		available = {
+			OR = {
+				has_idea = FIU_bm_1
+				has_idea = FIU_bm_2
+			}
+		}
+		mutually_exclusive = {
+			focus = FIU_austrian_assistance
+		}
+		completion_reward = {
+			#Event here
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_fiume_ravenna_route
+		icon = GFX_goal_FIU_ravenna
+		x = -2
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_seek_new_routes
+		}
+		available = {
+			OR = {
+				has_idea = FIU_bm_1
+				has_idea = FIU_bm_2
+			}
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = -30
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+			random_owned_state = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+				add_resource = {
+					type = aluminium
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_incentivize_foreign_business
+		icon = GFX_goal_generic_foreign_investments
+		x = -2
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_fiume_ravenna_route
+		}
+		available = {
+			OR = {
+				has_idea = FIU_bm_1
+				has_idea = FIU_bm_2
+			}
+		}
+		completion_reward = {
+			add_political_power = 10
+			add_ideas = FIU_foreign_business
+		}
+	}
+	
+	focus = {
+		id = FIU_austrian_assistance
+		icon = GFX_goal_MAF_Bank
+		x = 1
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_crash_at_vienna
+		}
+		available = {
+			OR = {
+				has_idea = FIU_bm_1
+				has_idea = FIU_bm_2
+			}
+		}
+		mutually_exclusive = {
+			focus = FIU_seek_new_routes
+		}
+		completion_reward = {
+			#Event here
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 1
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 3000
+				producer = AUS
+			}
+			add_manpower = 10000
+		}
+	}
+	
+	focus = {
+		id = FIU_strabag_littoral_route #Strabag-Littoral Roadway
+		icon = GFX_goal_FIU_strabag_trieste
+		x = 2
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_austrian_assistance
+		}
+		available = {
+			OR = {
+				has_idea = FIU_bm_1
+				has_idea = FIU_bm_2
+			}
+		}
+		completion_reward = {
+			#Event here for Austria
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+			random_owned_state = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+				add_resource = {
+					type = tungsten
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_bailout_from_budapest
+		icon = GFX_goal_FIU_nemzeti_bank
+		x = 2
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_strabag_littoral_route
+		}
+		available = {
+			OR = {
+				has_idea = FIU_bm_1
+				has_idea = FIU_bm_2
+			}
+		}
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+			add_offsite_building = { type = arms_factory level = 1 }
+			add_political_power = -20
+			add_stability = -0.03
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.05
+			}
+			#Event here between asking for another loan or turning the Police Pirates official
+		}
+	}
+	
+	focus = {
+		id = FIU_official_police_pirates
+		icon = GFX_goal_FIU_pirates
+		x = 2
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_maintain_danubius
+		}
+		prerequisite = {
+			focus = FIU_bailout_from_budapest
+		}
+		available = {
+			OR = {
+				has_idea = FIU_bm_1
+				has_idea = FIU_bm_2
+			}
+		}
+		mutually_exclusive = {
+			focus = FIU_relax_tax
+			focus = FIU_expand_lazarus_port
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = FIU_police_pirates_official
+				remove_idea = FIU_police_pirates
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_relax_tax
+		icon = GFX_goal_bag_of_money
+		x = 0
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_maintain_danubius
+		}
+		prerequisite = {
+			focus = FIU_bailout_from_budapest
+			focus = FIU_incentivize_foreign_business
+		}
+		available = {
+			OR = {
+				has_idea = FIU_bm_1
+				has_idea = FIU_bm_2
+			}
+		}
+		mutually_exclusive = {
+			focus = FIU_expand_lazarus_port
+			focus = FIU_official_police_pirates
+		}
+		completion_reward = {
+			add_political_power = 30
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 2
+			}
+			add_manpower = 5000
+		}
+	}
+	
+	focus = {
+		id = FIU_expand_lazarus_port
+		icon = GFX_goal_FIU_lazarus
+		x = -2
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_maintain_danubius
+		}
+		prerequisite = {
+			focus = FIU_incentivize_foreign_business
+		}
+		available = {
+			OR = {
+				has_idea = FIU_bm_1
+				has_idea = FIU_bm_2
+			}
+		}
+		mutually_exclusive = {
+			focus = FIU_relax_tax
+			focus = FIU_official_police_pirates
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 2
+			}
+			add_ideas = FIU_lazarus_port
+			add_war_support = 0.05
+			add_manpower = 5000
+		}
+	}
+	
+	focus = {
+		id = FIU_flexible_economics
+		icon = GFX_goal_TEX_keynesian_economics
+		x = -1
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_expand_lazarus_port
+			focus = FIU_relax_tax
+		}
+		available = {
+			OR = {
+				has_idea = FIU_bm_1
+				has_idea = FIU_bm_2
+			}
+			has_completed_focus = FIU_incentivize_foreign_business
+		}
+		completion_reward = {
+			add_stability = 0.1
+			remove_ideas = FIU_bm_2
+		}
+	}
+	
+	focus = {
+		id = FIU_alternate_solutions
+		icon = GFX_goal_generic_seize_money
+		x = 1
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_official_police_pirates
+			focus = FIU_relax_tax
+		}
+		available = {
+			OR = {
+				has_idea = FIU_bm_1
+				has_idea = FIU_bm_2
+			}
+			has_completed_focus = FIU_bailout_from_budapest
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			remove_ideas = FIU_bm_2
+		}
+	}
+	
+	#############################
+	### Loyalists Party Fiume ###
+	#############################
+	
+	focus = {
+		id = FIU_age_of_new_stability
+		icon = GFX_goal_FIU_age_of_questions
+		x = 0
+		y = 8
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = FIU_loyalists_stay
+		}
+		completion_reward = {
+			add_stability = 0.03
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 1
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.03
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_empower_port_authorities
+		icon = GFX_goal_FIU_port_authorities
+		x = -1
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_age_of_new_stability
+		}
+		available = {
+			has_country_flag = FIU_loyalists_stay
+		}
+		mutually_exclusive = {
+			focus = FIU_a_free_state
+		}
+		completion_reward = {
+			add_political_power = 50
+			random_owned_state = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 1
+			}
+			navy_experience = 50
+		}
+	}
+	
+	focus = {
+		id = FIU_confirm_royal_academy_status
+		icon = GFX_goal_COR_University_System_of_America
+		x = -2
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_empower_port_authorities
+		}
+		available = {
+			has_country_flag = FIU_loyalists_stay
+		}
+		completion_reward = {
+			add_research_slot = 1
+			add_tech_bonus = {
+				category = infantry_weapons
+				uses = 1
+				bonus = 1
+			}
+			add_ideas = FIU_new_faculties
+		}
+	}
+	
+	focus = {
+		id = FIU_austrian_vitality
+		icon = GFX_goal_FIU_austrian_steel
+		x = -2
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_confirm_royal_academy_status
+		}
+		available = {
+			has_country_flag = FIU_loyalists_stay
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.075
+			add_war_support = 0.075
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
+			}
+			random_owned_state = {
+				add_resource = {
+					type = tungsten
+					amount = 8
+				}
+				add_resource = {
+					type = aluminium
+					amount = 8
+				}
+				add_resource = {
+					type = chromium
+					amount = 8
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_trieste_fiume_montenegro_port_cooperation
+		icon = GFX_goal_FIU_three_ports_accord
+		x = 0
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_empower_port_authorities
+			focus = FIU_a_free_state
+		}
+		available = {
+			has_country_flag = FIU_loyalists_stay
+		}
+		completion_reward = {
+			#Event to Montenegro
+			add_tech_bonus = {
+				category = naval_equipment
+				bonus = 1
+				uses = 1
+			}
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 50
+				producer = FIU
+			}
+			add_victory_points = {
+				province = 13826
+				value = 2
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_a_free_state
+		icon = GFX_goal_FIU_freestate
+		x = 1
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_age_of_new_stability
+		}
+		available = {
+			has_country_flag = FIU_loyalists_stay
+			is_in_faction_with = HUN
+		}
+		mutually_exclusive = {
+			focus = FIU_empower_port_authorities
+		}
+		completion_reward = {
+			set_cosmetic_tag = FIU_free_state
+			add_political_power = 30
+			add_stability = -0.1
+			#Event to HUN here
+			HUN = {
+				43 = {
+					add_resource = {
+						type = oil
+						amount = 12
+					}
+					add_resource = {
+						type = aluminium
+						amount = 12
+					}
+					add_resource = {
+						type = rubber
+						amount = 12
+					}
+					add_resource = {
+						type = tungsten
+						amount = 12
+					}
+					add_resource = {
+						type = steel
+						amount = 12
+					}
+					add_resource = {
+						type = chromium
+						amount = 12
+					}
+				}
+			}
+			OVERLORD = {
+				end_puppet = ROOT
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_expand_fiume_zadar_guard
+		icon = GFX_goal_CZE_mladi_husite
+		x = 2
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_a_free_state
+		}
+		available = {
+			has_country_flag = FIU_loyalists_stay
+		}
+		completion_reward = {
+			add_ideas = FIU_expanded_guard
+			add_manpower = 7500
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_lessons_on_entrepreneurship
+		icon = GFX_goal_capitalist_system
+		x = 2
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_expand_fiume_zadar_guard
+		}
+		available = {
+			has_country_flag = FIU_loyalists_stay
+		}
+		completion_reward = {
+			add_research_slot = 1
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_outlaw_irredentists
+		icon = GFX_goal_FIU_irredentist_crackdown
+		x = 0
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_expand_fiume_zadar_guard
+			focus = FIU_confirm_royal_academy_status
+		}
+		available = {
+			has_country_flag = FIU_loyalists_stay
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_tech_bonus = {
+				category = land_doctrine
+				uses = 1
+				bonus = 1
+			}
+			swap_ideas = {
+				remove_idea = FIU_italian_problem
+				add_idea = FIU_italian_problem_2
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_kick_out_italians
+		icon = GFX_goal_FIU_no_deal_italians
+		x = -1
+		y = 12
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_outlaw_irredentists
+		}
+		available = {
+			has_country_flag = FIU_loyalists_stay
+		}
+		mutually_exclusive = {
+			focus = FIU_dalmatian_deal
+		}
+		completion_reward = {
+			add_political_power = 60
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.1
+			}
+			remove_ideas = FIU_italian_problem_2
+		}
+	}
+	
+	focus = {
+		id = FIU_dalmatian_deal
+		icon = GFX_goal_FIU_dalmatian_deal
+		x = 1
+		y = 12
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_outlaw_irredentists
+		}
+		available = {
+			has_country_flag = FIU_loyalists_stay
+		}
+		mutually_exclusive = {
+			focus = FIU_kick_out_italians
+		}
+		completion_reward = {
+			add_political_power = 60
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.1
+			}
+			swap_ideas = {
+				remove_idea = FIU_italian_problem_2
+				add_idea = FIU_italian_problem_3
+			}
+		}
+	}
+	
+	##############################
+	### Fiume Autonomist Party ###
+	##############################
+
+	focus = {
+		id = FIU_a_fair_win
+		icon = GFX_goal_FIU_fair_victory
+		x = -7
+		y = 8
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = FIU_dalmatianist_party
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+			swap_ideas = {
+				remove_idea = FIU_italian_problem
+				add_idea = FIU_italian_problem_2
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_adriatic_network
+		icon = GFX_goal_FIU_adriatic
+		x = -7
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_a_fair_win
+		}
+		available = {
+			has_country_flag = FIU_dalmatianist_party
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 1
+			}
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 50
+				producer = FIU
+			}
+			random_owned_state = {
+				add_resource = {
+					type = chromium
+					amount = 16
+				}
+			}
+			navy_experience = 75
+		}
+	}
+	
+	focus = {
+		id = FIU_agreement_with_joseph_august
+		icon = GFX_goal_FIU_von_habsburg
+		x = -9
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_a_fair_win
+		}
+		available = {
+			has_country_flag = FIU_dalmatianist_party
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					is_subject = yes
+				}
+				OVERLORD = {
+					end_puppet = ROOT
+				}
+			}
+			add_stability = 0.05
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_rapprochement_with_illyrians
+		icon = GFX_goal_FIU_zadar
+		x = -8
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_agreement_with_joseph_august
+		}
+		available = {
+			has_country_flag = FIU_dalmatianist_party
+		}
+		completion_reward = {
+			add_political_power = 35
+			add_stability = 0.1
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.1
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_reaffirm_viennese_ties
+		icon = GFX_goal_AUS_federation
+		x = -9
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_agreement_with_joseph_august
+		}
+		available = {
+			has_country_flag = FIU_dalmatianist_party
+		}
+		mutually_exclusive = {
+			focus = FIU_subvert_vienna
+		}
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.05
+			add_manpower = 12000
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+			add_ideas = FIU_habsburg_ties_still
+		}
+	}
+	
+	focus = {
+		id = FIU_fate_of_irredentists
+		icon = GFX_goal_FIU_irredentist_crackdown
+		x = -5
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_a_fair_win
+		}
+		available = {
+			has_country_flag = FIU_dalmatianist_party
+		}
+		completion_reward = {
+			add_political_power = 30
+			random_owned_state = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 1
+			}
+			remove_ideas = FIU_italian_problem_2
+			#Event here
+		}
+	}
+	
+	focus = {
+		id = FIU_fund_italian_secondary_school
+		icon = GFX_goal_FIU_italian_school
+		x = -6
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_fate_of_irredentists
+		}
+		available = {
+			has_country_flag = FIU_dalmatianist_party
+		}
+		completion_reward = {
+			add_research_slot = 1
+			add_ideas = FIU_new_faculties
+		}
+	}
+	
+	focus = {
+		id = FIU_subvert_vienna
+		icon = GFX_goal_FIU_no_magyars
+		x = -5
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_fate_of_irredentists
+		}
+		available = {
+			has_country_flag = FIU_dalmatianist_party
+		}
+		mutually_exclusive = {
+			focus = FIU_reaffirm_viennese_ties
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					is_subject = yes
+				}
+				OVERLORD = {
+					end_puppet = ROOT
+				}
+			}
+			leave_faction = yes
+			add_war_support = 0.1
+			add_manpower = 5000
+		}
+	}
+	
+	focus = {
+		id = FIU_transfer_to_ferrovie_dello_stato
+		icon = GFX_goal_FIU_ferrovie_dello_stato
+		x = -7
+		y = 12
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_reaffirm_viennese_ties
+			focus = FIU_subvert_vienna
+		}
+		prerequisite = {
+			focus = FIU_fund_italian_secondary_school
+		}
+		prerequisite = {
+			focus = FIU_rapprochement_with_illyrians
+		}
+		available = {
+			has_country_flag = FIU_dalmatianist_party
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 1
+			}
+			add_ideas = FIU_ferrovie_dello_stato_power
+		}
+	}
+	
+	###############################
+	### Irredentist Party Fiume ###
+	###############################
+	
+	focus = {
+		id = FIU_forced_overturn
+		icon = GFX_goal_FIU_forced_overturn
+		x = 7
+		y = 8
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = FIU_irredentist_party
+		}
+		completion_reward = {
+			remove_ideas = FIU_italian_problem
+			add_political_power = -80
+			add_war_support = 0.1
+			if = {
+				limit = {
+					is_subject = yes
+				}
+				OVERLORD = {
+					end_puppet = ROOT
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_tails_between_their_legs
+		icon = GFX_goal_FIU_no_magyars
+		x = 7
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_forced_overturn
+		}
+		available = {
+			has_country_flag = FIU_irredentist_party
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.25
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_free_the_banca_di_credito_fiumano
+		icon = GFX_goal_FIU_bank
+		x = 9
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_forced_overturn
+		}
+		available = {
+			has_country_flag = FIU_irredentist_party
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 2
+			}
+			add_ideas = FIU_bank
+			add_manpower = 5000
+		}
+	}
+	
+	focus = {
+		id = FIU_restaff_the_guard
+		icon = GFX_HUN_unite_the_militias
+		x = 5
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_forced_overturn
+		}
+		available = {
+			has_country_flag = FIU_irredentist_party
+		}
+		completion_reward = {
+			add_manpower = -20000
+			add_ideas = FIU_new_guard
+			army_experience = 30
+		}
+	}
+	
+	focus = {
+		id = FIU_seize_MOL_oil_refinery
+		icon = GFX_goal_FIU_KGR_oil_refinery
+		x = 9
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_tails_between_their_legs
+		}
+		prerequisite = {
+			focus = FIU_free_the_banca_di_credito_fiumano
+		}
+		available = {
+			has_country_flag = FIU_irredentist_party
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_resource = {
+					type = oil
+					amount = 24
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_stricten_fiume_railway_controls
+		icon = GFX_goal_generic_seize_railway
+		x = 5
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_tails_between_their_legs
+		}
+		prerequisite = {
+			focus = FIU_restaff_the_guard
+		}
+		available = {
+			has_country_flag = FIU_irredentist_party
+		}
+		completion_reward = {
+			add_ideas = FIU_railway_control
+			add_political_power = 50
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_zadar_special_status
+		icon = GFX_goal_FIU_zadar
+		x = 7
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_tails_between_their_legs
+		}
+		prerequisite = {
+			focus = FIU_restaff_the_guard
+		}
+		available = {
+			has_country_flag = FIU_irredentist_party
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.1
+			}
+			add_ideas = FIU_zadar_special_status_idea
+		}
+	}
+	
+	focus = {
+		id = FIU_new_police_pirates
+		icon = GFX_goal_FIU_pirates
+		x = 6
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_stricten_fiume_railway_controls
+			focus = FIU_seize_MOL_oil_refinery
+		}
+		available = {
+			has_country_flag = FIU_irredentist_party
+		}
+		mutually_exclusive = {
+			focus = FIU_pirate_crackdown
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = FIU_police_pirates
+				}
+				swap_ideas = {
+					add_idea = FIU_police_pirates_official_irredentist
+					remove_idea = FIU_police_pirates
+				}
+			}
+			if = {
+				limit = {
+					has_idea = FIU_police_pirates_official
+				}
+				swap_ideas = {
+					add_idea = FIU_police_pirates_official_irredentist
+					remove_idea = FIU_police_pirates_official
+				}
+			}
+			add_political_power = 30
+			add_war_support = 0.03
+		}
+	}
+	
+	focus = {
+		id = FIU_pirate_crackdown
+		icon = GFX_goal_FIU_no_yarrharr
+		x = 8
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_stricten_fiume_railway_controls
+			focus = FIU_seize_MOL_oil_refinery
+		}
+		available = {
+			has_country_flag = FIU_irredentist_party
+		}
+		mutually_exclusive = {
+			focus = FIU_new_police_pirates
+		}
+		completion_reward = {
+			remove_ideas = FIU_police_pirates
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.1
+			}
+			add_stability = 0.05
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_anti_habsburg_modus_operandi
+		icon = GFX_goal_CRO_reclaim_lands
+		x = 7
+		y = 12
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = FIU_new_police_pirates
+			focus = FIU_pirate_crackdown
+		}
+		available = {
+			has_country_flag = FIU_irredentist_party
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 100
+				producer = FIU
+			}
+			navy_experience = 50
+			add_war_support = 0.05
+			add_research_slot = 1
+		}
+	}
+	
+	
+	############################
+	### Fiume Foreign Policy ###
+	############################
+	
+	focus = {
+		id = FIU_city_on_the_coast
+		icon = GFX_goal_anschluss
+		x = -7
+		y = 0
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			NOT = {
+				has_idea = FIU_italian_problem
+			}
+		}
+		completion_reward = {
+			add_political_power = 50
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}	
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_spare_from_raids
+		icon = GFX_goal_anschluss
+		x = -4
+		y = 1
+		cost = 5.8
+		ai_will_do = {
+			factor = 200
+		}
+		prerequisite = {
+			focus = FIU_city_on_the_coast
+		}
+		available = {
+			NOT = {
+				has_idea = FIU_italian_problem
+			}
+			is_in_faction = no
+		}
+		completion_reward = {
+			add_stability = 0.15
+			add_war_support = -0.15
+		}
+	}
+	
+	focus = {
+		id = FIU_dalmatian_idea
+		icon = GFX_goal_anschluss
+		x = -8
+		y = 1
+		cost = 5.8
+		ai_will_do = {
+			factor = 200
+		}
+		prerequisite = {
+			focus = FIU_city_on_the_coast
+		}
+		available = {
+			NOT = {
+				has_idea = FIU_italian_problem
+				has_completed_focus = FIU_spare_from_raids
+				is_in_faction_with = AUS
+			}
+		}
+		completion_reward = {
+			add_state_claim = 1100
+			add_state_claim = 1144
+			add_state_claim = 1105
+			add_state_claim = 103
+			add_state_claim = 1099
+			add_state_claim = 163
+			add_state_claim = 1098
+			add_manpower = 30000
+		}
+	}
+	
+	focus = {
+		id = FIU_demand_land_recognition
+		icon = GFX_goal_anschluss
+		x = -8
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 200
+		}
+		prerequisite = {
+			focus = FIU_dalmatian_idea
+		}
+		available = {
+			NOT = {
+				has_idea = FIU_italian_problem
+				has_completed_focus = FIU_spare_from_raids
+				is_in_faction_with = AUS
+			}
+		}
+		completion_reward = {
+			#Event to Austria and Illyria concerning Dalmatia
+			add_manpower = 30000
+			add_war_support = 0.05
+			add_state_core = 1100
+			add_state_core = 1144
+			add_state_core = 1105
+			add_state_core = 103
+			add_state_core = 1099
+			add_state_core = 163
+			add_state_core = 1098
+			add_political_power = 100
+			set_cosmetic_tag = FIU_dalmatian_republic_tag
+		}
+	}
+	
+	focus = {
+		id = FIU_most_serene_republic
+		icon = GFX_goal_anschluss
+		x = -8
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 200
+		}
+		prerequisite = {
+			focus = FIU_demand_land_recognition
+		}
+		available = {
+			NOT = {
+				has_idea = FIU_italian_problem
+				has_completed_focus = FIU_spare_from_raids
+				is_in_faction_with = AUS
+			}
+			has_country_flag = FIU_wants_venice
+		}
+		completion_reward = {
+			add_state_core = 160
+			add_state_core = 736
+			add_state_core = 758
+			add_state_core = 186
+			add_state_core = 939
+			add_state_core = 182
+			add_state_core = 183
+			add_state_core = 159
+			add_political_power = -100
+			add_stability = -0.1
+			#Unlock decisions to attack, change capital, and a union with Venice if it exists
+		}
+	}
+	
+	focus = {
+		id = FIU_new_risorgimento_competitor
+		icon = GFX_goal_anschluss
+		x = -6
+		y = 1
+		cost = 5.8
+		ai_will_do = {
+			factor = 200
+		}
+		prerequisite = {
+			focus = FIU_city_on_the_coast
+		}
+		available = {
+			NOT = {
+				has_idea = FIU_italian_problem
+				has_completed_focus = FIU_spare_from_raids
+				is_in_faction_with = AUS
+				is_in_faction_with = ITA
+			}
+		}
+		completion_reward = {
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = ITA
+						is_core_of = SRI
+					}
+				}
+				add_state_core = THIS
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_deal_with_dannunzio
+		icon = GFX_goal_anschluss
+		x = -4
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 200
+		}
+		prerequisite = {
+			focus = FIU_new_risorgimento_competitor
+		}
+		available = {
+			NOT = {
+				has_idea = FIU_italian_problem
+				has_completed_focus = FIU_spare_from_raids
+				is_in_faction_with = AUS
+				is_in_faction_with = ITA
+			}
+			ITA = {
+				has_government = national_populist
+			}
+		}
+		completion_reward = {
+			#Event here to unify and set D'Annunzio as leader
+		}
+	}
+	
+	focus = {
+		id = FIU_just_reclamation
+		icon = GFX_goal_anschluss
+		x = -6
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 200
+		}
+		prerequisite = {
+			focus = FIU_new_risorgimento_competitor
+		}
+		available = {
+			NOT = {
+				has_idea = FIU_italian_problem
+				has_completed_focus = FIU_spare_from_raids
+				is_in_faction_with = ITA
+			}
+			ITA = {
+				has_government = national_populist
+			}
+		}
+		bypass = {
+			NOT = {
+				country_exists = ITA
+			}
+		}
+		completion_reward = {
+			declare_war_on = {
+				target = ITA
+				type = annex_everything
+			}
+			add_war_support = 0.1
+			add_political_power = 30
+			add_manpower = 50000
+			#Unlock decisions to change capital
+		}
+	}
+	
+	focus = {
+		id = FIU_destroy_the_SRI
+		icon = GFX_goal_anschluss
+		x = -4
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 200
+		}
+		prerequisite = {
+			focus = FIU_just_reclamation
+		}
+		available = {
+			NOT = {
+				has_idea = FIU_italian_problem
+				has_completed_focus = FIU_spare_from_raids
+			}
+			has_war = no
+		}
+		completion_reward = {
+			declare_war_on = {
+				target = SRI
+				type = annex_everything
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_reassert_claims
+		icon = GFX_goal_anschluss
+		x = -6
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 200
+		}
+		prerequisite = {
+			focus = FIU_just_reclamation
+		}
+		available = {
+			NOT = {
+				has_idea = FIU_italian_problem
+				has_completed_focus = FIU_spare_from_raids
+			}
+			has_war = no
+		}
+		completion_reward = {
+			add_state_core = 448
+			add_state_core = 451
+			add_state_core = 450
+			add_state_core = 663
+			add_state_core = 273
+			add_state_core = 1009
+			add_state_core = 116
+			add_state_core = 761
+			add_state_core = 39
+			add_state_core = 783
+			add_state_core = 164
+			#Unlock decisions to attack & demand
+		}
+	}
+	
+	focus = {
+		id = FIU_fall_of_the_empire
+		icon = GFX_goal_anschluss
+		x = -10
+		y = 1
+		cost = 5.8
+		ai_will_do = {
+			factor = 200
+		}
+		prerequisite = {
+			focus = FIU_city_on_the_coast
+		}
+		available = {
+			NOT = {
+				OR = {
+					is_in_faction_with = HUN
+					country_exists = HUN
+				}
+			}
+			has_completed_focus = FIU_age_of_new_stability
+		}
+		completion_reward = {
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = HUN
+						is_core_of = SVK
+						is_core_of = TRS
+					}
+				}
+				add_state_core = THIS
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_take_hungarian_exiles
+		icon = GFX_goal_anschluss
+		x = -10
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 200
+		}
+		prerequisite = {
+			focus = FIU_fall_of_the_empire
+		}
+		available = {
+			NOT = {
+				OR = {
+					is_in_faction_with = HUN
+					country_exists = HUN
+				}
+			}
+			has_completed_focus = FIU_age_of_new_stability
+		}
+		completion_reward = {
+			add_manpower = 50000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 6000
+				producer = HUN
+			}
+		}
+	}
+	
+	focus = {
+		id = FIU_restore_habsburg_throne
+		icon = GFX_goal_anschluss
+		x = -10
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 200
+		}
+		prerequisite = {
+			focus = FIU_take_hungarian_exiles
+		}
+		available = {
+			NOT = {
+				OR = {
+					is_in_faction_with = HUN
+					country_exists = HUN
+				}
+			}
+			
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					is_in_faction_with = CRO
+					CRO = {
+						is_neighbor_of = HUN
+					}
+				}
+				declare_war_on = {
+					target = HUN
+					type = annex_everything
+				}
+				else_if = {
+					limit = {
+						NOT = {
+							is_in_faction_with = CRO
+							is_neighbor_of = HUN
+						}
+					}
+					declare_war_on = {
+						target = HUN
+						type = annex_everything
+					}
+					declare_war_on = {
+						target = CRO
+						type = annex_everything
+					}
+					else_if = {
+						limit = {
+							is_neighbor_of = HUN
+							NOT = {
+								is_in_faction_with = CRO
+							}
+						}
+						declare_war_on = {
+							target = HUN
+							type = annex_everything
+						}
+					}
+				}
+			}
+			#Unlock decisions to change capital, and attack Slovakia or Transylvania if they exist
+		}
+	}
+	
 	#############################
 	### Miklos Horthy's Fiume ###
 	#############################
@@ -26,6 +1967,9 @@ focus_tree = {
 		cost = 7.2
 		ai_will_do = {
 			factor = 100
+		}
+		available = {
+			has_country_flag = FIU_pirates
 		}
 		completion_reward = {
 			add_political_power = 100
@@ -46,6 +1990,9 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
+		available = {
+			has_country_flag = FIU_pirates
+		}
 		completion_reward = {
 			add_war_support = 0.1
 			navy_experience = 50
@@ -63,7 +2010,7 @@ focus_tree = {
 					type = naval_base
 					level = 10
 					instant_build = yes
-					province = 11564
+					province = 13826
 				}
 				add_extra_state_shared_building_slots = 4
 			}

@@ -1,0 +1,72 @@
+add_namespace = mnt
+
+country_event = { #debug
+	id = mnt.0
+	title = mnt.0.t
+	desc = mnt.0.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Egads!
+		name = mnt.0.a
+		add_ideas = FIU_port_city
+
+	}
+}
+
+country_event = { #Black Monday hits Montenegro!
+	id = mnt.1
+	title = mnt.1.t
+	desc = mnt.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Egads!
+		name = mnt.1.a
+		set_country_flag = MNT_black_monday
+		add_ideas = MNT_bm_1
+		
+		hidden_effect = { #EXPAND ME LATER!
+			country_event = {
+				id = mnt.2
+				days = 7
+			}
+		}
+	}
+}
+
+country_event = { #The King's Policy
+	id = mnt.2
+	title = mnt.2.t
+	desc = mnt.2.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #We cannot afford more damage, Status Quo
+		name = mnt.2.a
+		set_country_flag = MNT_statusquo
+	}
+	
+	option = { #Something must be done now, Pravasi
+		name = mnt.2.b
+		set_country_flag = MNT_pravasi
+	}
+	
+	option = { #More risky maneuvers have to be made, Klubasi
+		name = mnt.2.c
+		set_country_flag = MNT_klubasi
+	}
+	
+}

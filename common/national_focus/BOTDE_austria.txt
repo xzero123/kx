@@ -1,0 +1,4345 @@
+focus_tree = { #Reminder to add some extra stuff making Austria really seem like Austria-Hungary
+	id = austria_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 100
+			tag = AUS
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 4200 y = 3000 }
+
+	################################
+	### Austria and Black Monday ###
+	################################
+
+	focus = {
+		id = AUS_berlin_stock_market_crash
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 12
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			always = no
+		}
+		completion_reward = {
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	#### SDAPO ####
+	
+	focus = {
+		id = AUS_renner_sdapo_moment
+		icon = GFX_goal_ideology_social_democrat
+		x = -12
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_berlin_stock_market_crash
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			AUS_subtract_three_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_welfare_of_the_public
+		icon = GFX_goal_ideology_social_democrat
+		x = -16
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_renner_sdapo_moment
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			add_political_power = 25
+		}
+	}
+	
+	focus = {
+		id = AUS_trust_the_labour_movement
+		icon = GFX_goal_ideology_social_democrat
+		x = -15
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_welfare_of_the_public
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_tech_bonus = {
+				category = industry
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_encourage_reichsgewerkschaftskommission
+		icon = GFX_goal_ideology_social_democrat
+		x = -13
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_trust_the_labour_movement
+		}
+		completion_reward = {
+			add_ideas = AUS_reichsgewerkschaftskommission
+			add_political_power = 40
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+			add_tech_bonus = {
+				category = excavation_tech
+				bonus = 1
+				uses = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_expand_the_safety_nets
+		icon = GFX_goal_ideology_social_democrat
+		x = -14
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_encourage_reichsgewerkschaftskommission
+		}
+		completion_reward = {
+			add_stability = 0.1
+			AUS_subtract_five_collapse = yes
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_public_works
+		icon = GFX_goal_ideology_social_democrat
+		x = -15
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_trust_the_labour_movement
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_tech_bonus = {
+				category = electronics
+				bonus = 1
+				uses = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_economy_by_geography
+		icon = GFX_goal_ideology_social_democrat
+		x = -17
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_welfare_of_the_public
+		}
+		completion_reward = {
+			add_ideas = AUS_renner_plan
+			add_political_power = 30
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = AUS_mobilize_erzberg
+		icon = GFX_goal_ideology_social_democrat
+		x = -19
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		bypass = {
+			NOT = {
+				owns_state = 775
+			}
+		}
+		prerequisite = {
+			focus = AUS_economy_by_geography
+		}
+		completion_reward = {
+			775 = {
+				add_resource = {
+					type = steel
+					amount = 48
+				}
+			}
+			add_political_power = 15
+		}
+	}
+
+	focus = {
+		id = AUS_tyrolit_contracts
+		icon = GFX_goal_ideology_social_democrat
+		x = -18
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_mobilize_erzberg
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_resource = {
+					type = aluminium
+					amount = 16
+				}
+			}
+			random_owned_state = {
+				add_resource = {
+					type = tungsten
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_drive_demand
+		icon = GFX_goal_ideology_social_democrat
+		x = -18
+		y = 7
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_tyrolit_contracts
+		}
+		completion_reward = {
+			add_political_power = 25
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+			add_tech_bonus = {
+				category = synth_resources
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_imperial_restitution_plan
+		icon = GFX_goal_ideology_social_democrat
+		x = -17
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_economy_by_geography
+		}
+		completion_reward = {
+			AUS_subtract_three_collapse = yes
+			HUN_subtract_five_collapse = yes
+			CZE_subtract_five_collapse = yes
+			CRO_subtract_five_collapse = yes
+			GAL_subtract_five_collapse = yes
+			swap_ideas = {
+				add_idea = AUS_bm_2
+				remove_idea = AUS_bm_1
+			}
+		}
+	}
+
+	focus = {
+		id = AUS_coerce_private_sector
+		icon = GFX_goal_ideology_social_democrat
+		x = -17
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_imperial_restitution_plan
+		}
+		prerequisite = {
+			focus = AUS_tyrolit_contracts
+		}
+		completion_reward = {
+			add_political_power = 35
+			add_stability = 0.03
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			custom_effect_tooltip = AUS_improves_bm_situation
+			if = {
+				limit = {
+					has_idea = AUS_bm_2
+				}
+				swap_ideas = {
+					add_idea = AUS_bm_3
+					remove_idea = AUS_bm_2
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = AUS_subvert_class_struggle
+		icon = GFX_goal_ideology_social_democrat
+		x = -15
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_public_works
+		}
+		prerequisite = {
+			focus = AUS_expand_the_safety_nets
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
+			AUS_subtract_three_collapse = yes
+			random_owned_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			custom_effect_tooltip = AUS_improves_bm_situation
+			if = {
+				limit = {
+					has_idea = AUS_bm_2
+				}
+				swap_ideas = {
+					add_idea = AUS_bm_3
+					remove_idea = AUS_bm_2
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = AUS_wiener_lokomotivfabrik
+		icon = GFX_goal_ideology_social_democrat
+		x = -16
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_imperial_restitution_plan
+			focus = AUS_public_works
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+
+	focus = {
+		id = AUS_graf_and_stift
+		icon = GFX_goal_ideology_social_democrat
+		x = -16
+		y = 7
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_wiener_lokomotivfabrik
+		}
+		prerequisite = {
+			focus = AUS_coerce_private_sector
+			focus = AUS_subvert_class_struggle
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = motorized_equipment
+				uses = 1
+				bonus = 1
+			}
+			swap_ideas = {
+				add_idea = AUS_bm_4
+				remove_idea = AUS_bm_3
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_rein_in_unruly_capitalists
+		icon = GFX_goal_ideology_social_democrat
+		x = -14
+		y = 7
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_expand_the_safety_nets
+		}
+		completion_reward = {
+			AUS_subtract_five_collapse = yes
+			add_stability = 0.03
+			add_political_power = 50
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.025
+			}
+			swap_ideas = {
+				add_idea = AUS_bridled_capitalism
+				remove_idea = AUS_reichsgewerkschaftskommission
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_dawn_red_vienna
+		icon = GFX_goal_ideology_social_democrat
+		x = -16
+		y = 8
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+			has_country_flag = AUS_did_debts
+		}
+		prerequisite = {
+			focus = AUS_drive_demand
+		}
+		prerequisite = {
+			focus = AUS_graf_and_stift
+		}
+		prerequisite = {
+			focus = AUS_rein_in_unruly_capitalists
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_bm_5
+				remove_idea = AUS_bm_4
+			}
+			AUS_subtract_five_collapse = yes
+			HUN_subtract_five_collapse = yes
+			CZE_subtract_five_collapse = yes
+			CRO_subtract_five_collapse = yes
+			GAL_subtract_five_collapse = yes
+			add_stability = 0.1
+			if = {
+				limit = {
+					has_idea = AUS_german_debts_2
+				}
+				remove_ideas = AUS_german_debts_2
+				else_if = {
+					limit = {
+						has_idea = AUS_german_debts_2_alt
+					}
+					remove_ideas = AUS_german_debts_2_alt
+					else = {
+						remove_ideas = AUS_german_debts
+					}
+				}
+			}
+		}
+	}
+	
+	
+	
+	#### Ethnic Stabilization - SDAP ####
+	
+	
+
+	focus = {
+		id = AUS_foundation_of_political_climate
+		icon = GFX_goal_ideology_social_democrat
+		x = -8
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_renner_sdapo_moment
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			AUS_subtract_three_collapse = yes
+			add_war_support = 0.05
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = AUS_nationalist_enemy
+		icon = GFX_goal_ideology_social_democrat
+		x = -8
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_foundation_of_political_climate
+		}
+		completion_reward = {
+			add_war_support = 0.075
+			add_political_power = 60
+			AUS_subtract_five_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_cultural_unions
+		icon = GFX_goal_ideology_social_democrat
+		x = -10
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_foundation_of_political_climate
+		}
+		completion_reward = {
+			HUN_subtract_five_collapse = yes
+			CRO_subtract_five_collapse = yes
+			CZE_subtract_five_collapse = yes
+			GAL_subtract_five_collapse = yes
+			add_war_support = 0.03
+		}
+	}
+	
+	focus = {
+		id = AUS_reaffirm_vienna_international
+		icon = GFX_goal_ideology_social_democrat
+		x = -6
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_foundation_of_political_climate
+		}
+		completion_reward = {
+			#Events to constituents
+			add_ideas = AUS_vienna_internationale
+		}
+	}
+	
+	focus = {
+		id = AUS_vienna_education_expansion
+		icon = GFX_goal_ideology_social_democrat
+		x = -7
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_reaffirm_vienna_international
+		}
+		prerequisite = {
+			focus = AUS_nationalist_enemy
+		}
+		completion_reward = {
+			add_research_slot = 1
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_begin_national_personal_autonomy
+		icon = GFX_goal_ideology_social_democrat
+		x = -9
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_cultural_unions
+		}
+		prerequisite = {
+			focus = AUS_nationalist_enemy
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_unlearn_national_minorities
+		icon = GFX_goal_ideology_social_democrat
+		x = -8
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_begin_national_personal_autonomy
+			focus = AUS_vienna_education_expansion
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			AUS_add_three_collapse = yes
+			HUN_subtract_three_collapse = yes
+			CZE_subtract_three_collapse = yes
+			CRO_subtract_three_collapse = yes
+			GAL_subtract_three_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_impartial_judge_reform
+		icon = GFX_goal_ideology_social_democrat
+		x = -7
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_unlearn_national_minorities
+		}
+		prerequisite = {
+			focus = AUS_vienna_education_expansion
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_vienna_internationale_2
+				remove_idea = AUS_vienna_internationale
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_austromarxist_diet_reform
+		icon = GFX_goal_ideology_social_democrat
+		x = -9
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_unlearn_national_minorities
+		}
+		prerequisite = {
+			focus = AUS_begin_national_personal_autonomy
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_national_instability_2
+				remove_idea = AUS_national_instability
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_cultural_economic_enhancement
+		icon = GFX_goal_ideology_social_democrat
+		x = -8
+		y = 7
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_austromarxist_diet_reform
+		}
+		prerequisite = {
+			focus = AUS_impartial_judge_reform
+		}
+		completion_reward = {
+			add_political_power = 75
+			add_stability = 0.1
+			add_manpower = 50000
+		}
+	}
+	
+	focus = {
+		id = AUS_root_out_class_hatred
+		icon = GFX_goal_ideology_social_democrat
+		x = -8
+		y = 8
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_austromarxist_diet_reform
+		}
+		prerequisite = {
+			focus = AUS_impartial_judge_reform
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_national_instability_3
+				remove_idea = AUS_national_instability_2
+			}
+			AUS_subtract_five_collapse = yes
+			add_political_power = 50
+		}
+	}
+	
+	#### Kalergi ####
+	
+	focus = {
+		id = AUS_rise_of_bdp
+		icon = GFX_goal_ideology_social_liberal
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_berlin_stock_market_crash
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.05
+			}
+			AUS_subtract_three_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_first_test
+		icon = GFX_goal_ideology_social_liberal
+		x = 0
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_rise_of_bdp
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.035
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_imperial_symbiosis
+		icon = GFX_goal_ideology_social_liberal
+		x = 0
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_first_test
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			swap_ideas = {
+				add_idea = AUS_bm_2
+				remove_idea = AUS_bm_1
+			}
+			AUS_subtract_three_collapse = yes
+			HUN_subtract_three_collapse = yes
+			CRO_subtract_three_collapse = yes
+			CZE_subtract_three_collapse = yes
+			GAL_subtract_three_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_subsidize_sudbahn_gesellschaft
+		icon = GFX_goal_ideology_social_liberal
+		x = -2
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_first_test
+		}
+		completion_reward = {
+			add_ideas = AUS_sudbahn_gesellschaft
+			add_political_power = 50
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_extend_KFJB #(Kaiser-Franz-Josephs-Bahn)
+		icon = GFX_goal_ideology_social_liberal
+		x = -2
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		bypass = {
+			CZE = {
+				NOT = {
+					is_in_faction_with = AUS
+				}
+			}
+		}
+		prerequisite = {
+			focus = AUS_subsidize_sudbahn_gesellschaft
+			focus = AUS_motion_mannersdorf_cement
+		}
+		completion_reward = {
+			CZE_subtract_ten_collapse = yes
+			AUS_subtract_three_collapse = yes
+			add_offsite_building = { type = arms_factory level = 1 }
+			add_stability = 0.03
+		}
+	}
+	
+	focus = {
+		id = AUS_advantageous_manipulation
+		icon = GFX_goal_ideology_social_liberal
+		x = 2
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_first_test
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
+			add_political_power = -25
+			AUS_subtract_five_collapse = yes
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_tauernkraftwerk
+		icon = GFX_goal_ideology_social_liberal
+		x = 1
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_imperial_symbiosis
+		}
+		completion_reward = {
+			153 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			add_tech_bonus = {
+				category = excavation_tech
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_freedom_order_compromise
+		icon = GFX_goal_ideology_social_liberal
+		x = 2
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+			has_idea = AUS_bm_2
+		}
+		prerequisite = {
+			focus = AUS_tauernkraftwerk
+			focus = AUS_advantageous_manipulation
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_bm_3
+				remove_idea = AUS_bm_2
+			}
+			add_political_power = 20
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_motion_mannersdorf_cement
+		icon = GFX_goal_ideology_social_liberal
+		x = -1
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_imperial_symbiosis
+		}
+		completion_reward = {
+			153 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			add_tech_bonus = {
+				category = industry
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_semperit_synthetics
+		icon = GFX_goal_ideology_social_liberal
+		x = -1
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_motion_mannersdorf_cement
+		}
+		prerequisite = {
+			focus = AUS_extend_KFJB
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_tech_bonus = {
+				category = synth_resources
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_cultural_economics
+		icon = GFX_goal_ideology_social_liberal
+		x = 1
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_tauernkraftwerk
+		}
+		prerequisite = {
+			focus = AUS_freedom_order_compromise
+		}
+		completion_reward = {
+			AUS_subtract_five_collapse = yes
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.05
+			}
+			add_political_power = 60
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
+	}
+	
+	focus = {
+		id = AUS_kapsch_and_sohne
+		icon = GFX_goal_ideology_social_liberal
+		x = 0
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_motion_mannersdorf_cement
+		}
+		prerequisite = {
+			focus = AUS_tauernkraftwerk
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = electronics
+				uses = 1
+				bonus = 1
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_inter_imperial_economic_unions
+		icon = GFX_goal_ideology_social_liberal
+		x = -3
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_extend_KFJB
+		}
+		completion_reward = {
+			add_ideas = AUS_interimperial_unions
+			every_country = {
+				limit = {
+					has_idea = AUS_part_of_the_Empire
+				}
+				add_ideas = AUS_interimperial_unions
+			}
+			HUN_subtract_five_collapse = yes
+			CRO_subtract_five_collapse = yes
+			GAL_subtract_five_collapse = yes
+			CZE_subtract_five_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_dissuade_economic_nationalism #Promote cooperation and alliances, rather than Black Monday tearing apart the Empire
+		icon = GFX_goal_ideology_social_liberal
+		x = 3
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_freedom_order_compromise
+		}
+		completion_reward = {
+			AUS_subtract_ten_collapse = yes
+			HUN_subtract_two_collapse = yes
+			CRO_subtract_two_collapse = yes
+			GAL_subtract_two_collapse = yes
+			CZE_subtract_two_collapse = yes
+			swap_ideas = {
+				add_idea = AUS_bm_4
+				remove_idea = AUS_bm_3
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_associate_with_imperial_companies
+		icon = GFX_goal_ideology_social_liberal
+		x = 2
+		y = 7
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_cultural_economics
+		}
+		prerequisite = {
+			focus = AUS_dissuade_economic_nationalism
+		}
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+			add_offsite_building = { type = arms_factory level = 1 }
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_promote_vienna_insurance_group
+		icon = GFX_goal_ideology_social_liberal
+		x = -2
+		y = 7
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_inter_imperial_economic_unions
+		}
+		prerequisite = {
+			focus = AUS_semperit_synthetics
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = AUS_interimperial_unions
+				add_idea = AUS_vienna_insurance
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_first_step
+		icon = GFX_goal_ideology_social_liberal
+		x = 0
+		y = 8
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_promote_vienna_insurance_group
+		}
+		prerequisite = {
+			focus = AUS_kapsch_and_sohne
+		}
+		prerequisite = {
+			focus = AUS_associate_with_imperial_companies
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_bm_5
+				remove_idea = AUS_bm_4
+			}
+			AUS_subtract_five_collapse = yes
+			HUN_subtract_five_collapse = yes
+			CZE_subtract_five_collapse = yes
+			CRO_subtract_five_collapse = yes
+			GAL_subtract_five_collapse = yes
+			add_stability = 0.1
+			if = {
+				limit = {
+					has_idea = AUS_german_debts_2
+				}
+				remove_ideas = AUS_german_debts_2
+				else_if = {
+					limit = {
+						has_idea = AUS_german_debts_2_alt
+					}
+					remove_ideas = AUS_german_debts_2_alt
+					else = {
+						remove_ideas = AUS_german_debts
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_pandanubia_first
+		icon = GFX_goal_ideology_social_liberal
+		x = 8
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_rise_of_bdp
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.05
+			}
+			AUS_subtract_three_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_chaos_of_peoples_and_empires
+		icon = GFX_goal_ideology_social_liberal
+		x = 8
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_pandanubia_first
+		}
+		completion_reward = {
+			add_political_power = 40
+			add_stability = 0.03
+			add_manpower = 25000
+			ALL_subtract_five_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_christian_hellenic_religion
+		icon = GFX_goal_ideology_social_liberal
+		x = 7
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_chaos_of_peoples_and_empires
+		}
+		completion_reward = {
+			AUS_subtract_five_collapse = yes
+			ALL_subtract_three_collapse = yes
+			add_ideas = AUS_christian_hellenic_religion_idea
+		}
+	}
+	
+	focus = {
+		id = AUS_cast_out_syndie_blights
+		icon = GFX_goal_ideology_social_liberal
+		x = 6
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_christian_hellenic_religion
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.03
+			}
+			AUS_subtract_five_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_start_cultural_golden_age
+		icon = GFX_goal_ideology_social_liberal
+		x = 9
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_chaos_of_peoples_and_empires
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.05
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_binding_arbitration
+		icon = GFX_goal_ideology_social_liberal
+		x = 8
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_christian_hellenic_religion
+			focus = AUS_start_cultural_golden_age
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_national_instability_2
+				remove_idea = AUS_national_instability
+			}
+			add_political_power = 30
+		}
+	}
+	
+	focus = {
+		id = AUS_legacy_of_hre
+		icon = GFX_goal_ideology_social_liberal
+		x = 10
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_start_cultural_golden_age
+		}
+		completion_reward = {
+			add_ideas = AUS_legacy_of_hre_idea
+			add_war_support = 0.05
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = AUS_ethnic_lines
+		icon = GFX_goal_ideology_social_liberal
+		x = 8
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_binding_arbitration
+		}
+		completion_reward = {
+			HUN_add_five_collapse = yes
+			CZE_add_three_collapse = yes
+			CRO_add_three_collapse = yes
+			GAL_add_three_collapse = yes
+			AUS_subtract_five_collapse = yes
+			add_stability = 0.05
+			add_political_power = 30
+		}
+	}
+	
+	focus = {
+		id = AUS_start_donaukonferenzen
+		icon = GFX_goal_ideology_social_liberal
+		x = 7
+		y = 7
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_cast_out_syndie_blights
+		}
+		prerequisite = {
+			focus = AUS_ethnic_lines
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.075
+			}
+			add_political_power = 50
+			random_owned_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_cultural_conservatism
+		icon = GFX_goal_ideology_social_liberal
+		x = 9
+		y = 7
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_legacy_of_hre
+		}
+		prerequisite = {
+			focus = AUS_ethnic_lines
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.025
+			}
+			add_political_power = 45
+			add_war_support = 0.075
+			swap_ideas = {
+				remove_idea = AUS_legacy_of_hre_idea_2
+				add_idea = AUS_legacy_of_hre_idea
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_to_these_united_states
+		icon = GFX_goal_ideology_social_liberal
+		x = 8
+		y = 8
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_start_donaukonferenzen
+		}
+		prerequisite = {
+			focus = AUS_cultural_conservatism
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_national_instability_3
+				remove_idea = AUS_national_instability_2
+			}
+			AUS_subtract_five_collapse = yes
+			add_political_power = 50
+		}
+	}
+	
+	#### CS ####
+	
+	focus = {
+		id = AUS_cs_reign_continues
+		icon = GFX_goal_ideology_social_conservative
+		x = 20
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_berlin_stock_market_crash
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.05
+			}
+			AUS_subtract_three_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_rectifying_situation
+		icon = GFX_goal_ideology_social_conservative
+		x = 16
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_cs_reign_continues
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_political_power = 50
+		}
+	}
+	
+	focus = {
+		id = AUS_business_by_business
+		icon = GFX_goal_ideology_social_conservative
+		x = 14
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_rectifying_situation
+		}
+		completion_reward = {
+			add_ideas = AUS_business_by_business_idea
+			add_political_power = 25
+		}
+	}
+	
+	focus = {
+		id = AUS_motivate_steyr_daimler_puch
+		icon = GFX_goal_ideology_social_conservative
+		x = 13
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_business_by_business
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			swap_ideas = {
+				add_idea = AUS_bm_2
+				remove_idea = AUS_bm_1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_motivate_interimperial_trade
+		icon = GFX_goal_ideology_social_conservative
+		x = 16
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_rectifying_situation
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			ALL_subtract_five_collapse = yes
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.03
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_pressburger_bahn
+		icon = GFX_goal_ideology_social_conservative
+		x = 15
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_motivate_interimperial_trade
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			add_tech_bonus = {
+				category = electronics
+				uses = 1
+				bonus = 1
+			}
+			HUN_subtract_ten_collapse = yes
+			add_stability = 0.03
+		}
+	}
+	
+	focus = {
+		id = AUS_export_bohler_steel
+		icon = GFX_goal_ideology_social_conservative
+		x = 17
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_motivate_interimperial_trade
+		}
+		completion_reward = {
+			1137 = {
+				add_resource = {
+					type = steel
+					amount = 48
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_political_power = 25
+		}
+	}
+	
+	focus = {
+		id = AUS_new_catholic_unions
+		icon = GFX_goal_ideology_social_conservative
+		x = 18
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_rectifying_situation
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = industry
+				uses = 1
+				bonus = 1
+			}
+			ALL_subtract_three_collapse = yes
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_strategic_invesment
+		icon = GFX_goal_ideology_social_conservative
+		x = 19
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_new_catholic_unions
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_political_power = 30
+			add_war_support = 0.05
+		}
+	}
+	
+	focus = {
+		id = AUS_expand_mattigwerk
+		icon = GFX_goal_ideology_social_conservative
+		x = 18
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_export_bohler_steel
+		}
+		prerequisite = {
+			focus = AUS_strategic_invesment
+		}
+		completion_reward = {
+			152 = {
+				add_resource = {
+					type = aluminium
+					amount = 48
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_tech_bonus = {
+				category = excavation_tech
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_konjunkturbelebung
+		icon = GFX_goal_ideology_social_conservative
+		x = 14
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_motivate_steyr_daimler_puch
+		}
+		prerequisite = {
+			focus = AUS_pressburger_bahn
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_bm_3
+				remove_idea = AUS_bm_2
+			}
+			AUS_subtract_five_collapse = yes
+			ALL_subtract_three_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_support_mittelstand
+		icon = GFX_goal_ideology_social_conservative
+		x = 14
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_motivate_steyr_daimler_puch
+		}
+		prerequisite = {
+			focus = AUS_pressburger_bahn
+		}
+		completion_reward = {
+			add_political_power = 20
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.03
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			swap_ideas = {
+				add_idea = AUS_mittelstand
+				remove_idea = AUS_business_by_business_idea
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_burgertum
+		icon = GFX_goal_ideology_social_conservative
+		x = 16
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_konjunkturbelebung
+			focus = AUS_expand_mattigwerk
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = synth_resources
+				uses = 1
+				bonus = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			AUS_subtract_five_collapse = yes
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.03
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_free_competition
+		icon = GFX_goal_ideology_social_conservative
+		x = 18
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_motivate_steyr_daimler_puch
+		}
+		prerequisite = {
+			focus = AUS_pressburger_bahn
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = synth_resources
+				uses = 1
+				bonus = 1
+			}
+			AUS_subtract_five_collapse = yes
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.03
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_expand_wollersdorf_works
+		icon = GFX_goal_ideology_social_conservative
+		x = 17
+		y = 7
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_free_competition
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = infantry_weapons
+				uses = 1
+				bonus = 1
+			}
+			AUS_subtract_two_collapse = yes
+			4 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_unemployment_help
+		icon = GFX_goal_ideology_social_conservative
+		x = 15
+		y = 7
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_support_mittelstand
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_bm_4
+				remove_idea = AUS_bm_3
+			}
+			add_stability = 0.05
+			add_political_power = 30
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_return_of_old_order
+		icon = GFX_goal_ideology_social_conservative
+		x = 16
+		y = 8
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_unemployment_help
+		}
+		prerequisite = {
+			focus = AUS_burgertum
+		}
+		prerequisite = {
+			focus = AUS_expand_wollersdorf_works
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_bm_5
+				remove_idea = AUS_bm_4
+			}
+			AUS_subtract_five_collapse = yes
+			HUN_subtract_five_collapse = yes
+			CZE_subtract_five_collapse = yes
+			CRO_subtract_five_collapse = yes
+			GAL_subtract_five_collapse = yes
+			add_stability = 0.1
+			if = {
+				limit = {
+					has_idea = AUS_german_debts_2
+				}
+				remove_ideas = AUS_german_debts_2
+				else_if = {
+					limit = {
+						has_idea = AUS_german_debts_2_alt
+					}
+					remove_ideas = AUS_german_debts_2_alt
+					else = {
+						remove_ideas = AUS_german_debts
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_mass_politics
+		icon = GFX_goal_ideology_social_conservative
+		x = 24
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_cs_reign_continues
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.05
+			}
+			AUS_subtract_three_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_christians_at_heart
+		icon = GFX_goal_ideology_social_conservative
+		x = 23
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_mass_politics
+		}
+		completion_reward = {
+			add_ideas = AUS_christian_religion_idea
+		}
+	}
+	
+	focus = {
+		id = AUS_austro_hungarian_cooperation
+		icon = GFX_goal_ideology_social_conservative
+		x = 22
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		bypass = {
+			NOT = {
+				is_in_faction_with = HUN
+			}
+		}
+		prerequisite = {
+			focus = AUS_christians_at_heart
+		}
+		completion_reward = {
+			AUS_subtract_five_collapse = yes
+			HUN_subtract_five_collapse = yes
+			add_political_power = 30
+			add_war_support = 0.05
+			add_stability = 0.03
+			43 = {
+				add_extra_state_shared_building_slots = 2
+			}
+			1137 = {
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_middle_class_mind
+		icon = GFX_goal_ideology_social_conservative
+		x = 25
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_mass_politics
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_red_menace
+		icon = GFX_goal_ideology_social_conservative
+		x = 26
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_middle_class_mind
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.03
+			}
+			AUS_subtract_five_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_bureaucrat_efficiency
+		icon = GFX_goal_ideology_social_conservative
+		x = 24
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_christians_at_heart
+			focus = AUS_middle_class_mind
+		}
+		completion_reward = {
+			add_political_power = 40
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_democratic_populism
+		icon = GFX_goal_ideology_social_conservative
+		x = 24
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_bureaucrat_efficiency
+		}
+		prerequisite = {
+			focus = AUS_austro_hungarian_cooperation
+			focus = AUS_red_menace
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_national_instability_2
+				remove_idea = AUS_national_instability
+			}
+			add_stability = 0.03
+		}
+	}
+	
+	focus = {
+		id = AUS_traditionalism
+		icon = GFX_goal_ideology_social_conservative
+		x = 23
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_democratic_populism
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_traditionalism_idea
+				remove_idea = AUS_christian_religion_idea
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.03
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_win_the_teachers
+		icon = GFX_goal_ideology_social_conservative
+		x = 25
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_democratic_populism
+		}
+		completion_reward = {
+			add_research_slot = 1
+			AUS_subtract_three_collapse = yes
+			ALL_subtract_three_collapse = yes
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_old_ideas_reformed
+		icon = GFX_goal_ideology_social_conservative
+		x = 24
+		y = 7
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_traditionalism
+		}
+		prerequisite = {
+			focus = AUS_win_the_teachers
+		}
+		completion_reward = {
+			HUN_subtract_five_collapse = yes
+			add_stability = 0.03
+			swap_ideas = {
+				add_idea = AUS_traditionalism_idea_2
+				remove_idea = AUS_traditionalism_idea
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_test_of_time
+		icon = GFX_goal_ideology_social_conservative
+		x = 24
+		y = 8
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_old_ideas_reformed
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_national_instability_3
+				remove_idea = AUS_national_instability_2
+			}
+			AUS_subtract_five_collapse = yes
+			add_political_power = 50
+		}
+	}
+	
+	#### VF ####
+	
+	focus = {
+		id = AUS_vf_usurpation
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 36
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_berlin_stock_market_crash
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
+			}
+			AUS_subtract_three_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_farmer_worker
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 32
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_vf_usurpation
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_strong_farmer_class
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 31
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_farmer_worker
+		}
+		completion_reward = {
+			add_ideas = AUS_farmers_idea
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.03
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_restructure_trade_unions
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 33
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_farmer_worker
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = industry
+				uses = 1
+				bonus = 1
+			}
+			AUS_subtract_three_collapse = yes
+			add_political_power = 30
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = AUS_the_corporate_empire
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 32
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_strong_farmer_class
+			focus = AUS_restructure_trade_unions
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_bm_2
+				remove_idea = AUS_bm_1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_christianize_vienna_commission
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 34
+		y = 4
+		cost = 4
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_restructure_trade_unions
+		}
+		completion_reward = {
+			add_ideas = AUS_reichsgewerkschaftskommission
+			add_political_power = 25
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.15
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_revitalize_lokomotivfabrik_der_steg
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 35
+		y = 6
+		cost = 4
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_christianize_vienna_commission
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_first_corporations
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 33
+		y = 5
+		cost = 4
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_the_corporate_empire
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_bm_3
+				remove_idea = AUS_bm_2
+			}
+			AUS_subtract_five_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_voestalpine_steel
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 31
+		y = 5
+		cost = 4
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_the_corporate_empire
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_resource = {
+					type = steel
+					amount = 48
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_political_power = 25
+		}
+	}
+	
+	focus = {
+		id = AUS_open_mittersill_mine
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 31
+		y = 6
+		cost = 4
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_voestalpine_steel
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_resource = {
+					type = tungsten
+					amount = 48
+				}
+			}
+			add_tech_bonus = {
+				category = excavation_tech
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_imperial_corporatism
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 33
+		y = 6
+		cost = 4
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_first_corporations
+		}
+		completion_reward = {
+			ALL_subtract_five_collapse = yes
+			add_offsite_building = { type = arms_factory level = 1 }
+			add_offsite_building = { type = industrial_complex level = 1 }
+			add_tech_bonus = {
+				category = synth_resources
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_support_steyr_landmaschinentechnik
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 30
+		y = 4
+		cost = 4
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_strong_farmer_class
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = motorized_equipment
+				bonus = 1
+				uses = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_rural_roads_commission
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 29
+		y = 6
+		cost = 4
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_support_steyr_landmaschinentechnik
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = motorized_equipment
+				bonus = 1
+				uses = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_austro_daimler_investment
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 30
+		y = 7
+		cost = 4
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_rural_roads_commission
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			AUS_subtract_three_collapse = yes
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = AUS_cooperation_competition
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 32
+		y = 7
+		cost = 4
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_open_mittersill_mine
+		}
+		prerequisite = {
+			focus = AUS_imperial_corporatism
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_bm_4
+				remove_idea = AUS_bm_3
+			}
+			add_political_power = 50
+			add_stability = 0.03
+			AUS_subtract_two_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_worker_boss_harmony
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 34
+		y = 7
+		cost = 4
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_revitalize_lokomotivfabrik_der_steg
+		}
+		completion_reward = {
+			add_stability = 0.1
+			add_ideas = AUS_workerboss_harmony_idea
+		}
+	}
+	
+	focus = {
+		id = AUS_cementing_corporatism
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 32
+		y = 8
+		cost = 4
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_austro_daimler_investment
+		}
+		prerequisite = {
+			focus = AUS_cooperation_competition
+		}
+		prerequisite = {
+			focus = AUS_worker_boss_harmony
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_bm_5
+				remove_idea = AUS_bm_4
+			}
+			AUS_subtract_five_collapse = yes
+			HUN_subtract_five_collapse = yes
+			CZE_subtract_five_collapse = yes
+			CRO_subtract_five_collapse = yes
+			GAL_subtract_five_collapse = yes
+			add_stability = 0.1
+			if = {
+				limit = {
+					has_idea = AUS_german_debts_2
+				}
+				remove_ideas = AUS_german_debts_2
+				else_if = {
+					limit = {
+						has_idea = AUS_german_debts_2_alt
+					}
+					remove_ideas = AUS_german_debts_2_alt
+					else = {
+						remove_ideas = AUS_german_debts
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_religious_basis
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 40
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_vf_usurpation
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
+			}
+			AUS_subtract_three_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_religion_over_nation
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 39
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_religious_basis
+		}
+		completion_reward = {
+			AUS_subtract_three_collapse = yes
+			CZE_subtract_three_collapse = yes
+			CRO_add_two_collapes = yes
+			add_political_power = 30
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = AUS_quadragesimo_anno
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 41
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_religious_basis
+		}
+		completion_reward = {
+			add_ideas = AUS_quadragesimo_anno_idea
+			AUS_subtract_two_collapse = yes
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_justice_and_charity
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 40
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_religious_basis
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_political_power = 35
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.03
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_catholic_social_teaching
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 38
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_religion_over_nation
+			focus = AUS_justice_and_charity
+		}
+		completion_reward = {
+			add_research_slot = 1
+			add_stability = 0.05
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_what_others_can_do
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 40
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_justice_and_charity
+		}
+		completion_reward = {
+			AUS_subtract_five_collapse = yes
+			add_manpower = 30000
+			add_ideas = AUS_others_idea
+		}
+	}
+	
+	focus = {
+		id = AUS_you_can_do_too
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 40
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_what_others_can_do
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_others_idea_2
+				remove_idea = AUS_others_idea
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_interior_peace_harmony
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 39
+		y = 7
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_you_can_do_too
+		}
+		prerequisite = {
+			focus = AUS_catholic_social_teaching
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_national_instability_2
+				remove_idea = AUS_national_instability
+			}
+			AUS_subtract_five_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_empower_peasantry
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 41
+		y = 7
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_you_can_do_too
+		}
+		prerequisite = {
+			focus = AUS_socialist_crackdown
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_socialist_crackdown
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 42
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_quadragesimo_anno
+			focus = AUS_justice_and_charity
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.03
+			}
+			AUS_subtract_three_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_charity_and_unity
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 40
+		y = 8
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_interior_peace_harmony
+		}
+		prerequisite = {
+			focus = AUS_empower_peasantry
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = AUS_national_instability_3
+				remove_idea = AUS_national_instability_2
+			}
+			AUS_subtract_five_collapse = yes
+			add_political_power = 50
+		}
+	}
+	
+	
+	
+	####
+	#### Federalizing
+	####
+	
+	
+	focus = {
+		id = AUS_to_save_the_emprie
+		icon = GFX_goal_AUS_save_empire
+		x = 12
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_dawn_red_vienna
+			focus = AUS_first_step
+			focus = AUS_return_of_old_order
+			focus = AUS_cementing_corporatism
+		}
+		prerequisite = {
+			focus = AUS_root_out_class_hatred
+			focus = AUS_to_these_united_states
+			focus = AUS_test_of_time
+			focus = AUS_charity_and_unity
+		}
+		completion_reward = {
+			country_event = {
+				id = bdeausint.3
+				days = 7
+			}
+			AUS_subtract_five_collapse = yes
+			ALL_subtract_three_collapse = yes
+			add_political_power = 25
+			custom_effect_tooltip = AUS_unlock_armytree
+		}
+	}
+	
+	focus = {
+		id = AUS_imperial_rail_network # "Kaiserliche Schienennetz"
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 11
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_to_save_the_emprie
+		}
+		completion_reward = {
+			ALL_subtract_three_collapse = yes
+			every_country = {
+				limit = {
+					has_idea = AUS_part_of_the_Empire
+				}
+				random_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_ausgleich_to_heart
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 13
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_to_save_the_emprie
+		}
+		completion_reward = {
+			AUS_subtract_ten_collapse = yes
+			AUS_raise_govt_percentage_5 = yes
+			every_country = {
+				limit = {
+					has_idea = AUS_part_of_the_Empire
+				}
+				random_owned_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_under_the_habsburgs
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 12
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_imperial_rail_network
+		}
+		prerequisite = {
+			focus = AUS_ausgleich_to_heart
+		}
+		completion_reward = {
+			remove_ideas = AUS_bm_5
+			remove_ideas = AUS_national_instability_3
+			
+		}
+	}
+	
+	#### SDAPO ####
+	
+	focus = {
+		id = AUS_the_danubian_federation
+		icon = GFX_goal_ideology_social_democrat
+		x = 5
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_to_save_the_emprie
+		}
+		completion_reward = {
+			AUS_raise_govt_percentage_3 = yes
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_cross_national_borders
+		icon = GFX_goal_ideology_social_democrat
+		x = 4
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_the_danubian_federation
+		}
+		completion_reward = {
+			AUS_raise_govt_percentage_3 = yes
+			AUS_subtract_five_collapse = yes
+			HUN_add_five_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_law_of_your_man
+		icon = GFX_goal_ideology_social_democrat
+		x = 6
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = AUS_SDAPO_WON
+		}
+		prerequisite = {
+			focus = AUS_the_danubian_federation
+		}
+		completion_reward = {
+			AUS_raise_govt_percentage_3 = yes
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	#### Kalergi ####
+	
+	focus = {
+		id = AUS_united_states_of_austria
+		icon = GFX_goal_ideology_social_liberal
+		x = 9
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_to_save_the_emprie
+		}
+		completion_reward = {
+			AUS_raise_govt_percentage_3 = yes
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.03
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_economic_binding
+		icon = GFX_goal_ideology_social_liberal
+		x = 8
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_united_states_of_austria
+		}
+		completion_reward = {
+			AUS_raise_govt_percentage_3 = yes
+			ALL_subtract_five_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_danubian_culture
+		icon = GFX_goal_ideology_social_liberal
+		x = 10
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_liberal
+			has_country_flag = AUS_DBP_WON
+		}
+		prerequisite = {
+			focus = AUS_united_states_of_austria
+		}
+		completion_reward = {
+			AUS_subtract_ten_collapse = yes
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	#### CS ####
+	
+	focus = {
+		id = AUS_a_grander_compromise
+		icon = GFX_goal_ideology_social_conservative
+		x = 15
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_to_save_the_emprie
+		}
+		completion_reward = {
+			AUS_raise_govt_percentage_3 = yes
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_tradesmen_focus
+		icon = GFX_goal_ideology_social_conservative
+		x = 14
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_a_grander_compromise
+		}
+		completion_reward = {
+			AUS_raise_govt_percentage_3 = yes
+			AUS_subtract_five_collapse = yes
+			HUN_add_five_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_catholic_code
+		icon = GFX_goal_ideology_social_conservative
+		x = 16
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = AUS_CS_WON
+		}
+		prerequisite = {
+			focus = AUS_a_grander_compromise
+		}
+		completion_reward = {
+			AUS_raise_govt_percentage_3 = yes
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	#### VF ####
+	
+	focus = {
+		id = AUS_true_corporate_empire
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 19
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_to_save_the_emprie
+		}
+		completion_reward = {
+			AUS_raise_govt_percentage_3 = yes
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_tillers_of_fields
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 18
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_true_corporate_empire
+		}
+		completion_reward = {
+			AUS_raise_govt_percentage_3 = yes
+			AUS_subtract_five_collapse = yes
+			HUN_add_five_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = AUS_morals_of_god
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 20
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = paternal_autocrat
+			has_country_flag = AUS_VF_WON
+		}
+		prerequisite = {
+			focus = AUS_true_corporate_empire
+		}
+		completion_reward = {
+			AUS_raise_govt_percentage_3 = yes
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
+	}
+	
+	
+	#### Ackshual
+	
+	focus = {
+		id = AUS_unter_dem_doppeladler
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 12
+		y = 12
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = AUS_govt_ready
+				check_variable = {
+					var = government_percentage
+					value = 1
+					compare = equals
+				}
+			}
+		}
+		prerequisite = {
+			focus = AUS_cross_national_borders
+			focus = AUS_law_of_your_man
+			focus = AUS_economic_binding
+			focus = AUS_danubian_culture
+			focus = AUS_tradesmen_focus
+			focus = AUS_catholic_code
+			focus = AUS_tillers_of_fields
+			focus = AUS_morals_of_god
+		}
+		prerequisite = {
+			focus = AUS_under_the_habsburgs
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						HUN = {
+							is_puppet_of = AUS
+						}
+						HUN = {
+							has_idea = AUS_part_of_the_Empire
+						}
+					}
+				}
+				annex_country = {
+					target = HUN
+					transfer_troops = yes
+				}
+				HUN = {
+					every_state = {
+						limit = {
+							is_core_of = HUN
+						}
+						add_core_of = AUS
+					}
+					every_unit_leader = {
+						set_nationality = AUS
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						CZE = {
+							is_puppet_of = AUS
+						}
+						CZE = {
+							has_idea = AUS_part_of_the_Empire
+						}
+					}
+				}
+				annex_country = {
+					target = CZE
+					transfer_troops = yes
+				}
+				CZE = {
+					every_state = {
+						limit = {
+							is_core_of = CZE
+						}
+						add_core_of = AUS
+					}
+					every_unit_leader = {
+						set_nationality = AUS
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						GAL = {
+							is_puppet_of = AUS
+						}
+						GAL = {
+							has_idea = AUS_part_of_the_Empire
+						}
+					}
+				}
+				annex_country = {
+					target = GAL
+					transfer_troops = yes
+				}
+				GAL = {
+					every_state = {
+						limit = {
+							is_core_of = GAL
+						}
+						add_core_of = AUS
+					}
+					every_unit_leader = {
+						set_nationality = AUS
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						CRO = {
+							is_puppet_of = AUS
+						}
+						CRO = {
+							has_idea = AUS_part_of_the_Empire
+						}
+					}
+				}
+				annex_country = {
+					target = CRO
+					transfer_troops = yes
+				}
+				CRO = {
+					every_state = {
+						limit = {
+							is_core_of = CRO
+						}
+						add_core_of = AUS
+					}
+					every_unit_leader = {
+						set_nationality = AUS
+					}
+				}
+			}
+			set_cosmetic_tag = AUS_federalized_tag
+			set_global_flag = AUS_federalized
+			remove_ideas = AUS_federal_plan
+		}
+	}
+	
+	
+	
+	
+	
+	
+	#### Foreign Policy ####
+	
+	focus = {
+		id = AUS_foreign_policy
+		icon = GFX_goal_anschluss
+		x = 32
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_completed_focus = AUS_to_save_the_emprie
+		}
+		completion_reward = {
+			AUS_raise_govt_percentage_3 = yes
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
+	}
+	
+	#### Expand the Sphere ####
+	
+	focus = {
+		id = AUS_donau_adriabund
+		icon = GFX_goal_anschluss
+		x = 32
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_foreign_policy
+		}
+		completion_reward = {
+			set_faction_name = "Donau-Adriabund"
+			add_war_support = 0.05
+			add_political_power = 30
+		}
+	}
+	
+}

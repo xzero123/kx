@@ -1,0 +1,22 @@
+collapse_austria = {
+	icon = generic_propaganda
+	visible = {
+		OR = {
+			tag = SER
+			tag = ROM
+			tag = RRM
+			tag = ITA
+			tag = UKR
+			OR = {
+				tag = CRO
+				tag = SRC
+				tag = CRR
+			}
+		}
+		NOT = {
+			has_global_flag = AUS_collapsed
+			is_in_faction_with = AUS
+		}
+		is_puppet = no
+	}
+}

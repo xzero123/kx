@@ -1,0 +1,2222 @@
+#### Illyria by guneric
+focus_tree = {
+	id = illyria_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 100
+			#add = 0
+			tag = CRO
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 1500 y = 1800 }
+
+	####################
+	### Black Monday ###
+	####################
+
+	focus = {
+		id = CRO_final_pollings
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 12
+		y = 0
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 35
+			#Event here
+		}
+	}
+	
+	focus = {
+		id = CRO_prolong_the_council
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 14
+		y = 1
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_final_pollings
+		}
+		available = {
+			has_country_flag = CRO_bm_hit
+		}
+		mutually_exclusive = {
+			focus = CRO_election_now
+		}
+		completion_reward = {
+			add_political_power = -40
+			add_stability = 0.025
+			#Event here about quarrels between Bosnia and Croat politicians
+		}
+	}
+	
+	focus = {
+		id = CRO_election_now
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 10
+		y = 1
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_final_pollings
+		}
+		available = {
+			has_country_flag = CRO_bm_hit
+		}
+		mutually_exclusive = {
+			focus = CRO_prolong_the_council
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_stability = -0.035
+		}
+	}
+	
+	#Mutual#
+	
+	focus = {
+		id = CRO_soothe_alarmist_voices
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 12
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_election_now
+			focus = CRO_prolong_the_council
+		}
+		available = {
+			has_country_flag = CRO_bm_hit
+		}
+		completion_reward = {
+			add_stability = 0.025
+			add_political_power = 30
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_no_insurmountable_differences
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 11
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_soothe_alarmist_voices
+		}
+		available = {
+			has_country_flag = CRO_bm_hit
+		}
+		completion_reward = {
+			add_stability = 0.015
+			109 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			104 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			1141 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_not_just_croats
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 13
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_soothe_alarmist_voices
+		}
+		available = {
+			has_country_flag = CRO_bm_hit
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = ILL_croat_supremacism_2
+				remove_idea = ILL_croat_supremacism
+			}
+			add_war_support = 0.045
+		}
+	}
+	
+	#Council of the Illyrians continues...
+	
+	focus = {
+		id = CRO_make_a_consensus
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 17
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_prolong_the_council
+		}
+		completion_reward = {
+			#Event here...
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_bosnian_business_deals #Encourage Croat companies to spread into Bosnia with Bosnian workers
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 15
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_make_a_consensus
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_core_of = BOS
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = BOS
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_three_pillars_illyria #Bosnians, Croats, Serbs
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 17
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_make_a_consensus
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_unified_civil_works_authority
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 19
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_make_a_consensus
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = industry
+				bonus = 1
+				uses = 1
+			}
+			add_stability = 0.03
+			custom_effect_tooltip = ILL_bm_change
+			if = {
+				limit = {
+					has_idea = ILL_bm_2
+				}
+				swap_ideas = {
+					add_idea = ILL_bm_3
+					remove_idea = ILL_bm_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = ILL_bm_1
+				}
+				swap_ideas = {
+					add_idea = ILL_bm_2
+					remove_idea = ILL_bm_1
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_economic_council_session
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 18
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_three_pillars_illyria
+			focus = CRO_unified_civil_works_authority
+		}
+		completion_reward = {
+			add_stability = 0.075
+			add_political_power = 15
+			#Event here...
+		}
+	}
+	
+	focus = {
+		id = CRO_imperial_ports
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 20
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_unified_civil_works_authority
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_tech_bonus = {
+				category = naval_equipment
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_serbian_timber_industry
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 16
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_bosnian_business_deals
+			focus = CRO_three_pillars_illyria
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = excavation_tech
+				uses = 1
+				bonus = 1
+			}
+			custom_effect_tooltip = ILL_bm_change
+			if = {
+				limit = {
+					has_idea = ILL_bm_2
+				}
+				swap_ideas = {
+					add_idea = ILL_bm_3
+					remove_idea = ILL_bm_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = ILL_bm_1
+				}
+				swap_ideas = {
+					add_idea = ILL_bm_2
+					remove_idea = ILL_bm_1
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_electrify_rural_bosnia
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 14
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_bosnian_business_deals
+		}
+		prerequisite = {
+			focus = CRO_not_just_croats
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = electronics
+				uses = 2
+				bonus = 1
+			}
+			add_stability = 0.03
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.035
+			}
+			
+		}
+	}
+	
+	focus = {
+		id = CRO_convene_the_council
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 17
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_serbian_timber_industry
+		}
+		prerequisite = {
+			focus = CRO_economic_council_session
+		}
+		completion_reward = {
+			#Event here... choose between 2 mils, 2 civs, or 1 mil and 1 civ
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = CRO_logistical_bureau #Logistički ured Ilirije
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 20
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_imperial_ports
+		}
+		completion_reward = {
+			custom_effect_tooltip = ILL_bm_change
+			if = {
+				limit = {
+					has_idea = ILL_bm_2
+				}
+				swap_ideas = {
+					add_idea = ILL_bm_3
+					remove_idea = ILL_bm_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = ILL_bm_3
+				}
+				swap_ideas = {
+					add_idea = ILL_bm_4
+					remove_idea = ILL_bm_3
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_illyrianize_HEP_group
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 14
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_electrify_rural_bosnia
+		}
+		completion_reward = {
+			custom_effect_tooltip = ILL_bm_change
+			if = {
+				limit = {
+					has_idea = ILL_bm_2
+				}
+				swap_ideas = {
+					add_idea = ILL_bm_3
+					remove_idea = ILL_bm_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = ILL_bm_3
+				}
+				swap_ideas = {
+					add_idea = ILL_bm_4
+					remove_idea = ILL_bm_3
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = radar_station
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = radar_station
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = radar_station
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_resume_normal_procedures
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 17
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_illyrianize_HEP_group
+		}
+		prerequisite = {
+			focus = CRO_convene_the_council
+		}
+		prerequisite = {
+			focus = CRO_logistical_bureau
+		}
+		available = {
+			has_idea = ILL_bm_4
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = ILL_bm_5
+				remove_idea = ILL_bm_4
+			}
+				
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+	
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+
+		}
+	}
+	
+	
+	
+	
+	#Governor Stjepan Radic
+	
+	focus = {
+		id = CRO_governor_radic
+		icon = GFX_goal_ideology_market_liberal
+		x = 7
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_election_now
+		}
+		available = {
+			has_government = market_liberal
+			has_country_flag = ILL_marlib_win
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.03
+			}
+			add_political_power = 60
+			add_stability = 0.075
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_agricultural_industry
+		icon = GFX_goal_ideology_market_liberal
+		x = 8
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = market_liberal
+			has_country_flag = ILL_marlib_win
+		}
+		prerequisite = {
+			focus = CRO_governor_radic
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_maintain_pragmatic_policies
+		icon = GFX_goal_ideology_market_liberal
+		x = 6
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = market_liberal
+			has_country_flag = ILL_marlib_win
+		}
+		prerequisite = {
+			focus = CRO_governor_radic
+		}
+		completion_reward = {
+			add_popularity  = {
+				ideology = market_liberal
+				popularity = 0.03
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_ensure_no_clericalism
+		icon = GFX_goal_ideology_market_liberal
+		x = 6
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = market_liberal
+			has_country_flag = ILL_marlib_win
+		}
+		prerequisite = {
+			focus = CRO_maintain_pragmatic_policies
+		}
+		completion_reward = {
+			add_stability = 0.03
+			add_political_power = 60
+			#Flavor here...
+			
+		}
+	}
+	
+	focus = {
+		id = CRO_peasant_support_program
+		icon = GFX_goal_ideology_market_liberal
+		x = 8
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_agricultural_industry
+		}
+		available = {
+			has_government = market_liberal
+			has_country_flag = ILL_marlib_win
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = ILL_bm_2
+				remove_idea = ILL_bm_1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_tech_bonus = {
+				category = electronics
+				bonus = 1
+				uses = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_fund_education
+		icon = GFX_goal_ideology_market_liberal
+		x = 7
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = market_liberal
+			has_country_flag = ILL_marlib_win
+		}
+		prerequisite = {
+			focus = CRO_ensure_no_clericalism
+		}
+		prerequisite = {
+			focus = CRO_peasant_support_program
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.015
+			}
+			add_tech_bonus = {
+				category = industry
+				bonus = 1
+				uses = 1
+			}
+			add_research_slot = 1
+			swap_ideas = {
+				add_idea = ILL_bm_3
+				remove_idea = ILL_bm_2
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_compete_hungarian_ports
+		icon = GFX_goal_ideology_market_liberal
+		x = 6
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = market_liberal
+			has_country_flag = ILL_marlib_win
+		}
+		prerequisite = {
+			focus = CRO_ensure_no_clericalism
+			focus = CRO_peasant_support_program
+		}
+		mutually_exclusive = {
+			focus = CRO_work_with_magyar_porters
+		}
+		completion_reward = {
+			add_ideas = ILL_magyar_competition
+			random_owned_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_work_with_magyar_porters
+		icon = GFX_goal_ideology_market_liberal
+		x = 8
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = market_liberal
+			has_country_flag = ILL_marlib_win
+		}
+		prerequisite = {
+			focus = CRO_ensure_no_clericalism
+			focus = CRO_peasant_support_program
+		}
+		mutually_exclusive = {
+			focus = CRO_compete_hungarian_ports
+		}
+		completion_reward = {
+			add_ideas = ILL_magyar_compromise
+		}
+	}
+	
+	#Governor Pribicevic
+	
+	focus = {
+		id = CRO_governor_pribicevic
+		icon = GFX_goal_ideology_social_conservative
+		x = 3
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_election_now
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = ILL_soccon_win
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.03
+			}
+			add_political_power = 60
+			add_stability = 0.075
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_cementing_illyrianism
+		icon = GFX_goal_ideology_social_conservative
+		x = 4
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_governor_pribicevic
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = ILL_soccon_win
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_stability = 0.025
+		}
+	}
+	
+	focus = {
+		id = CRO_centralized_governance
+		icon = GFX_goal_ideology_social_conservative
+		x = 4
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_cementing_illyrianism
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = ILL_soccon_win
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_political_power = 60
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.03
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_equal_assistance
+		icon = GFX_goal_ideology_social_conservative
+		x = 2
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_governor_pribicevic
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = ILL_soccon_win
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_tech_bonus = {
+				category = electronics
+				bonus = 1
+				uses = 1
+			}
+			swap_ideas = {
+				add_idea = ILL_bm_2
+				remove_idea = ILL_bm_1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_open_internal_trade
+		icon = GFX_goal_ideology_social_conservative
+		x = 2
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_equal_assistance
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = ILL_soccon_win
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			swap_ideas = {
+				add_idea = ILL_bm_3
+				remove_idea = ILL_bm_2
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_opportunism_with_magyars
+		icon = GFX_goal_ideology_social_conservative
+		x = 3
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_open_internal_trade
+		}
+		prerequisite = {
+			focus = CRO_centralized_governance
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = ILL_soccon_win
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_tech_bonus = {
+				category = industry
+				bonus = 1
+				uses = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_youth_advancement
+		icon = GFX_goal_ideology_social_conservative
+		x = 3
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_opportunism_with_magyars
+		}
+		available = {
+			has_government = social_conservative
+			has_country_flag = ILL_soccon_win
+		}
+		completion_reward = {
+			add_research_slot = 1
+			add_political_power = 35
+			add_war_support = 0.03
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.025
+			}
+		}
+	}
+	
+	
+	
+	
+	#### Governor Vitomir Korac
+	
+	focus = {
+		id = CRO_governor_korac
+		icon = GFX_goal_ideology_social_democrat
+		x = -1
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_election_now
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = ILL_socdem_win
+		}
+		completion_reward = {
+			add_political_power = 35
+			add_war_support = 0.03
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.025
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_motivate_trade_unions
+		icon = GFX_goal_ideology_social_democrat
+		x = -2
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_governor_korac
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = ILL_socdem_win
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+			
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			
+			add_tech_bonus = {
+				category = industry
+				uses = 1
+				bonus = 1
+			}
+			
+			swap_ideas = {
+				add_idea = ILL_bm_2
+				remove_idea = ILL_bm_1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_local_governance
+		icon = GFX_goal_ideology_social_democrat
+		x = -2
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_motivate_trade_unions
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = ILL_socdem_win
+		}
+		completion_reward = {
+			add_stability = 0.035
+			
+			random_owned_state = {
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			swap_ideas = {
+				add_idea = ILL_bm_3
+				remove_idea = ILL_bm_2
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_rural_cooperatives
+		icon = GFX_goal_ideology_social_democrat
+		x = 0
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_governor_korac
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = ILL_socdem_win
+		}
+		completion_reward = {
+			add_political_power = 45
+			
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			
+			add_tech_bonus = {
+				category = electronics
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_independent_illyrian_judges
+		icon = GFX_goal_ideology_social_democrat
+		x = 0
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_rural_cooperatives
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = ILL_socdem_win
+		}
+		completion_reward = {
+			add_stability = 0.075
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_eight_hour_workweek
+		icon = GFX_goal_ideology_social_democrat
+		x = -1
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_local_governance
+		}
+		prerequisite = {
+			focus = CRO_independent_illyrian_judges
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = ILL_socdem_win
+		}
+		completion_reward = {
+			add_political_power = 75
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			add_ideas = CRO_eight_hour_workweek_idea
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = CRO_cement_our_influence
+		icon = GFX_goal_ideology_social_democrat
+		x = -1
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_eight_hour_workweek
+		}
+		available = {
+			has_government = social_democrat
+			has_country_flag = ILL_socdem_win
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.025
+			}
+			add_war_support = 0.1
+			#Event here
+		}
+	}
+	
+	focus = {
+		id = CRO_still_united
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 12
+		y = 7
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_resume_normal_procedures
+			focus = CRO_fund_education
+			focus = CRO_youth_advancement
+			focus = CRO_cement_our_influence
+		}
+		prerequisite = {
+			focus = CRO_no_insurmountable_differences
+		}
+		prerequisite = {
+			focus = CRO_not_just_croats
+		}
+		available = {
+			has_idea = ILL_bm_4
+		}
+		completion_reward = {
+			add_political_power = 75
+			add_stability = 0.05
+			if = {
+				limit = {
+					has_completed_focus = CRO_prolong_the_council
+				}
+				remove_ideas = ILL_bm_5
+				set_country_flag = CRO_bm_over
+				else = {
+					swap_ideas = {
+						add_idea = ILL_bm_4
+						remove_idea = ILL_bm_3
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_political_process_all
+		icon = GFX_goal_ideology_market_liberal
+		x = 7
+		y = 8
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_still_united
+		}
+		available = {
+			has_government = market_liberal
+			OR = {
+				has_country_flag = ILL_marlib_win
+				has_country_flag = ILL_marlib_win_council
+			}
+		}
+		completion_reward = {
+			add_political_power = 40
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+			swap_ideas = {
+				add_idea = ILL_agrarian_nation_2
+				remove_idea = ILL_agrarian_nation
+			}
+			#Event here...
+			#Stuff for minigame...
+		}
+	}
+	
+	focus = {
+		id = CRO_three_freedoms
+		icon = GFX_goal_ideology_market_liberal
+		x = 8
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_political_process_all
+		}
+		available = {
+			has_government = market_liberal
+			OR = {
+				has_country_flag = ILL_marlib_win
+				has_country_flag = ILL_marlib_win_council
+			}
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.025
+			}
+			add_ideas = CRO_three_freedoms_idea
+		}
+	}
+	
+	focus = {
+		id = CRO_federative_policies
+		icon = GFX_goal_ideology_market_liberal
+		x = 6
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_political_process_all
+		}
+		available = {
+			has_government = market_liberal
+			OR = {
+				has_country_flag = ILL_marlib_win
+				has_country_flag = ILL_marlib_win_council
+			}
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_stability = 0.03
+			remove_ideas = CRO_weak_executive
+			swap_ideas = {
+				add_idea = ILL_bm_5
+				remove_idea = ILL_bm_4
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_unify_serbs_croats
+		icon = GFX_goal_ideology_social_conservative
+		x = 3
+		y = 8
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_still_united
+		}
+		available = {
+			has_government = social_conservative
+			OR = {
+				has_country_flag = ILL_soccon_win
+				has_country_flag = ILL_soccon_win_council
+			}
+		}
+		completion_reward = {
+			add_political_power = 40
+			add_stability = 0.05
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_empower_the_executive
+		icon = GFX_goal_ideology_social_conservative
+		x = 4
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_unify_serbs_croats
+		}
+		available = {
+			has_government = social_conservative
+			OR = {
+				has_country_flag = ILL_soccon_win
+				has_country_flag = ILL_soccon_win_council
+			}
+		}
+		completion_reward = {
+			remove_ideas = CRO_weak_executive
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.025
+			}
+			add_war_support = 0.03
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_draw_together_worker_peasant
+		icon = GFX_goal_ideology_social_conservative
+		x = 2
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_unify_serbs_croats
+		}
+		available = {
+			has_government = social_conservative
+			OR = {
+				has_country_flag = ILL_soccon_win
+				has_country_flag = ILL_soccon_win_council
+			}
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			swap_ideas = {
+				add_idea = ILL_agrarian_nation_2
+				remove_idea = ILL_agrarian_nation
+			}
+			swap_ideas = {
+				add_idea = ILL_bm_5
+				remove_idea = ILL_bm_4
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_unitarian_doctrine
+		icon = GFX_goal_ideology_social_democrat
+		x = -1
+		y = 8
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_still_united
+		}
+		available = {
+			has_government = social_democrat
+			OR = {
+				has_country_flag = ILL_socdem_win
+				has_country_flag = ILL_socdem_win_council
+			}
+		}
+		completion_reward = {
+			remove_ideas = CRO_weak_executive
+			add_political_power = 30
+			add_stability = 0.025
+			add_manpower = 60000
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_agrarian_reform
+		icon = GFX_goal_ideology_social_democrat
+		x = 0
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_unitarian_doctrine
+		}
+		available = {
+			has_government = social_democrat
+			OR = {
+				has_country_flag = ILL_socdem_win
+				has_country_flag = ILL_socdem_win_council
+			}
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			swap_ideas = {
+				add_idea = ILL_bm_5
+				remove_idea = ILL_bm_4
+			}
+			swap_ideas = {
+				add_idea = ILL_agrarian_nation_2
+				remove_idea = ILL_agrarian_nation
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_social_reforms_getyear
+		icon = GFX_goal_ideology_social_democrat
+		x = -2
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_unitarian_doctrine
+		}
+		available = {
+			has_government = social_democrat
+			OR = {
+				has_country_flag = ILL_socdem_win
+				has_country_flag = ILL_socdem_win_council
+			}
+		}
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 20
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_equal_parts
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 3
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_three_freedoms
+			focus = CRO_empower_the_executive
+			focus = CRO_agrarian_reform
+		}
+		prerequisite = {
+			focus = CRO_federative_policies
+			focus = CRO_draw_together_worker_peasant
+			focus = CRO_social_reforms_getyear
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = ILL_croat_supremacism_2
+				add_idea = ILL_illyrian_supremacism
+			}
+			remove_ideas = ILL_bm_5
+			set_country_flag = CRO_bm_over
+		}
+	}
+	
+	focus = {
+		id = CRO_highway_unity
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 3
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_equal_parts
+		}
+		completion_reward = {
+			remove_ideas = ILL_agrarian_nation_2
+			#Event here...
+		}
+	}
+	
+	focus = {
+		id = CRO_status_within_austria
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 18
+		y = 8
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			NOT = {
+				has_idea = ILL_bm_1
+				has_idea = ILL_bm_2
+				has_idea = ILL_bm_3
+				has_idea = ILL_bm_4
+				has_idea = ILL_bm_5
+			}
+		}
+		prerequisite = {
+			focus = CRO_still_united
+		}
+		mutually_exclusive = {
+			focus = CRO_status_within_austria
+		}
+		completion_reward = {
+			add_political_power = 30
+			CRO_subtract_three_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = CRO_war_behind_us
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 18
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_status_within_austria
+		}
+		completion_reward = {
+			add_political_power = 15
+			CRO_subtract_three_collapse = yes
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = CRO_one_illyria_in_peace
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 18
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_war_behind_us
+		}
+		mutually_exclusive = {
+			focus = CRO_status_within_austria
+		}
+		completion_reward = {
+			add_stability = 0.15
+			CRO_subtract_ten_collapse = yes
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			set_global_flag = no_illyria_revolt
+		}
+	}
+	
+	focus = {
+		id = CRO_illyrian_right_selfdetermination
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 16
+		y = 8
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			NOT = {
+				has_idea = ILL_bm_1
+				has_idea = ILL_bm_2
+				has_idea = ILL_bm_3
+				has_idea = ILL_bm_4
+				has_idea = ILL_bm_5
+			}
+		}
+		prerequisite = {
+			focus = CRO_still_united
+		}
+		mutually_exclusive = {
+			focus = CRO_status_within_austria
+		}
+		completion_reward = {
+			add_political_power = 30
+			CRO_add_five_collapse = yes
+		}
+	}
+	
+	focus = {
+		id = CRO_set_new_policy_course
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 16
+		y = 9
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_illyrian_right_selfdetermination
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			CRO_add_five_collapse = yes
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			AUS = {
+				end_puppet = ROOT
+				#Event here...
+			}
+			leave_faction = yes
+		}
+	}
+	
+	focus = {
+		id = CRO_avenge_1928
+		icon = GFX_goal_ideology_authoritarian_democrat
+		x = 16
+		y = 10
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = CRO_set_new_policy_course
+		}
+		will_lead_to_war_with = AUS
+		completion_reward = {
+			add_political_power = 80
+			add_war_support = 0.12
+			declare_war_on = {
+				target = AUS
+				type = annex_everything
+			}
+			#Event here for war
+		}
+	}
+	
+}

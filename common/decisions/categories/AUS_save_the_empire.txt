@@ -1,0 +1,35 @@
+save_austria = {
+	icon = generic_propaganda
+	visible = {
+		OR = {
+			tag = AUS
+			tag = HUN
+			tag = CZE
+			tag = CRO
+			tag = GAL
+		}
+		NOT = {
+			has_global_flag = AUS_collapsed
+		}
+	}
+}
+
+help_austria = {
+	icon = generic_propaganda
+	visible = {
+		tag = AUS
+		has_country_flag = AUS_started_sgw
+		has_war_with = GAL
+	}
+}
+
+AUS_galician_plight = {
+	icon = generic_propaganda
+	visible = {
+		tag = AUS
+		has_country_flag = AUS_shall_assist_galicia_post_bm
+		GAL = {
+			is_in_faction_with = AUS
+		}
+	}
+}

@@ -1,0 +1,10264 @@
+﻿###########################
+# Austrian Ethnic Events
+###########################
+# By guneric
+###########################
+
+add_namespace = ethnic
+
+#add_namespace = ethnic_ger
+#add_namespace = ethnic_slo
+#add_namespace = ethnic_ita
+#add_namespace = ethnic_cro
+#add_namespace = ethnic_hun
+#add_namespace = ethnic_svk
+#add_namespace = ethnic_ser
+#add_namespace = ethnic_trs
+#add_namespace = ethnic_ban
+#add_namespace = ethnic_ukr
+#add_namespace = ethnic_bos
+#add_namespace = ethnic_mnt
+#add_namespace = ethnic_cze
+#add_namespace = ethnic_pol
+#add_namespace = ethnic_buk
+
+add_namespace = subject_hun
+add_namespace = subject_cro
+add_namespace = subject_cze
+add_namespace = subject_gal
+add_namespace = ethnic_picker
+add_namespace = revolt
+add_namespace = revolt_peace
+
+
+### Events that raise the Hungarian revolt level
+country_event = { #Austrian lawmaker proposes law against us!
+	id = subject_hun.1
+	title = subject_hun.1.t
+	desc = subject_hun.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Despicable.
+		name = subject_hun.1.a
+		add_stability = -0.03
+		custom_effect_tooltip = collapse_hungary_three
+		add_to_variable = {
+			var = HUN.subject_revolt_progress
+			value = 0.03
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Pro-Independence Party Rallies
+	id = subject_hun.2
+	title = subject_hun.2.t
+	desc = subject_hun.2.d
+	
+	picture = GFX_report_event_BAN_mass_gathering
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Arrest them
+		name = subject_hun.2.a
+		ai_chance = { factor = 1 }
+		add_stability = 0.03
+		custom_effect_tooltip = collapse_hungary_one
+		add_to_variable = {
+			var = HUN.subject_revolt_progress
+			value = 0.01
+		}
+	}
+	
+	option = { #They have a point
+		name = subject_hun.2.b
+		ai_chance = { factor = 3 }
+		add_stability = -0.03
+		custom_effect_tooltip = collapse_hungary_two
+		add_to_variable = {
+			var = HUN.subject_revolt_progress
+			value = 0.02
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Anti-Habsburg Bestseller
+	id = subject_hun.3
+	title = subject_hun.3.t
+	desc = subject_hun.3.d
+	
+	picture = GFX_report_event_generic_books
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Ban its publication.
+		name = subject_hun.3.a
+		ai_chance = { factor = 1 }
+		add_stability = 0.03
+		custom_effect_tooltip = collapse_hungary_three
+		add_to_variable = {
+			var = HUN.subject_revolt_progress
+			value = 0.03
+		}
+	}
+	
+	option = { #They have a point
+		name = subject_hun.3.b
+		ai_chance = { factor = 3 }
+		add_stability = -0.03
+		custom_effect_tooltip = collapse_hungary_five
+		add_to_variable = {
+			var = HUN.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Veterans Support the Crown
+	id = subject_hun.4
+	title = subject_hun.4.t
+	desc = subject_hun.4.d
+	
+	picture = GFX_report_event_BAN_marching
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #It would be a mistake to mess with them
+		name = subject_hun.4.a
+		ai_chance = { factor = 1 }
+		custom_effect_tooltip = collapse_hungary_three_minus
+		add_to_variable = {
+			var = HUN.subject_revolt_progress
+			value = -0.03
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Faceoff in the Legislation
+	id = subject_hun.5
+	title = subject_hun.5.t
+	desc = subject_hun.5.d
+	
+	picture = GFX_report_event_generic_conference2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_hun.5.a
+		ai_chance = { factor = 1 }
+		add_political_power = 50
+		
+		custom_effect_tooltip = collapse_hungary_five
+		add_to_variable = {
+			var = HUN.subject_revolt_progress
+			value = 0.05
+		}
+		
+		custom_effect_tooltip = collapse_five
+		add_to_variable = {
+			var = AUS.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Unjust Killing
+	id = subject_hun.6
+	title = subject_hun.6.t
+	desc = subject_hun.6.d
+	
+	picture = GFX_report_event_generic_scandal
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Really now?!
+		name = subject_hun.6.a
+		ai_chance = { factor = 1 }
+		custom_effect_tooltip = collapse_hungary_three
+		add_to_variable = {
+			var = HUN.subject_revolt_progress
+			value = 0.03
+		}
+		
+		custom_effect_tooltip = collapse_three
+		add_to_variable = {
+			var = AUS.subject_revolt_progress
+			value = 0.03
+		}
+	}
+}
+
+country_event = { #Leaflets
+	id = subject_hun.7
+	title = subject_hun.7.t
+	desc = subject_hun.7.d
+	
+	picture = GFX_report_event_generic_strike
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_hun.7.a
+		ai_chance = { factor = 1 }
+		custom_effect_tooltip = collapse_hungary_one
+		add_to_variable = {
+			var = HUN.subject_revolt_progress
+			value = 0.01
+		}
+	}
+}
+
+country_event = { #Factory strike!
+	id = subject_hun.8
+	title = subject_hun.8.t
+	desc = subject_hun.8.d
+	
+	picture = GFX_report_event_generic_strike
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_hun.8.a
+		ai_chance = { factor = 1 }
+		add_timed_idea = {
+			idea = BOTDE_strike
+			days = 90
+		}
+		custom_effect_tooltip = collapse_hungary_five
+		add_to_variable = {
+			var = HUN.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+country_event = { #Army mutiny!
+	id = subject_hun.9
+	title = subject_hun.9.t
+	desc = subject_hun.9.d
+	
+	picture = GFX_report_event_BAN_army_parade
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_hun.9.a
+		ai_chance = { factor = 1 }
+		add_timed_idea = {
+			idea = BOTDE_mutiny
+			days = 90
+		}
+		custom_effect_tooltip = collapse_hungary_five
+		add_to_variable = {
+			var = HUN.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+country_event = { #Political Brawling
+	id = subject_hun.10
+	title = subject_hun.10.t
+	desc = subject_hun.10.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_hun.10.a
+		ai_chance = { factor = 1 }
+		add_timed_idea = {
+			idea = BOTDE_bickering
+			days = 90
+		}
+		custom_effect_tooltip = collapse_hungary_five
+		add_to_variable = {
+			var = HUN.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+country_event = { #Hungary Picker
+	id = ethnic_picker.1
+	title = ethnic_picker.1.t
+	desc = ethnic_picker.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = ethnic_picker.1.a
+		ai_chance = { factor = 1 }
+		random_list = { #Select how long it will take for the events to fire
+			
+			30 = { #2 weeks
+				random_list = { #Select event
+					10 = {
+						country_event = {
+							id = subject_hun.1
+							days = 14
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_hun.2
+							days = 14
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_hun.3
+							days = 14
+						}
+					}
+					
+					15 = {
+						country_event = {
+							id = subject_hun.4
+							days = 14
+						}
+					}
+					
+					10 = {
+						country_event = {
+							id = subject_hun.5
+							days = 14
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_hun.6
+							days = 14
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_hun.7
+							days = 14
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_hun.8
+							days = 14
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_hun.9
+							days = 14
+						}
+					}
+					
+					5 = {
+						country_event = {
+							id = subject_hun.10
+							days = 14
+						}
+					}
+				}
+			}
+			
+			
+			
+			
+			
+			50 = { #3 weeks
+				random_list = { #Select event
+					10 = {
+						country_event = {
+							id = subject_hun.1
+							days = 21
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_hun.2
+							days = 21
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_hun.3
+							days = 21
+						}
+					}
+					
+					15 = {
+						country_event = {
+							id = subject_hun.4
+							days = 21
+						}
+					}
+					
+					10 = {
+						country_event = {
+							id = subject_hun.5
+							days = 21
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_hun.6
+							days = 21
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_hun.7
+							days = 21
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_hun.8
+							days = 21
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_hun.9
+							days = 21
+						}
+					}
+					
+					5 = {
+						country_event = {
+							id = subject_hun.10
+							days = 21
+						}
+					}
+				}
+			}
+			
+			
+			
+			
+			
+			20 = { #1 month
+				random_list = { #Select event
+					10 = {
+						country_event = {
+							id = subject_hun.1
+							days = 30
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_hun.2
+							days = 30
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_hun.3
+							days = 30
+						}
+					}
+					
+					15 = {
+						country_event = {
+							id = subject_hun.4
+							days = 30
+						}
+					}
+					
+					10 = {
+						country_event = {
+							id = subject_hun.5
+							days = 30
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_hun.6
+							days = 30
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_hun.7
+							days = 30
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_hun.8
+							days = 30
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_hun.9
+							days = 30
+						}
+					}
+					
+					5 = {
+						country_event = {
+							id = subject_hun.10
+							days = 30
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_global_flag = no_hungary_revolt
+				}
+				is_in_faction_with = AUS
+			}
+			random_list = {
+				20 = {
+					country_event = {
+						id = ethnic_picker.1
+						days = 14
+						random = 168
+					}
+				}
+				
+				20 = {
+					country_event = {
+						id = ethnic_picker.1
+						days = 21
+						random = 168
+					}
+				}
+				
+				20 = {
+					country_event = {
+						id = ethnic_picker.1
+						days = 28
+						random = 168
+					}
+				}
+				
+				20 = {
+					country_event = {
+						id = ethnic_picker.1
+						days = 35
+						random = 168
+					}
+				}
+				
+				20 = {
+					country_event = {
+						id = ethnic_picker.1
+						days = 42
+						random = 168
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Events that raise the Illyrian revolt level
+country_event = { #Austrian lawmaker proposes law against us!
+	id = subject_cro.1
+	title = subject_cro.1.t
+	desc = subject_cro.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Despicable.
+		name = subject_cro.1.a
+		add_stability = -0.03
+		custom_effect_tooltip = collapse_illyria_three
+		add_to_variable = {
+			var = CRO.subject_revolt_progress
+			value = 0.03
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Pro-Independence Party Rallies
+	id = subject_cro.2
+	title = subject_cro.2.t
+	desc = subject_cro.2.d
+	
+	picture = GFX_report_event_BAN_mass_gathering
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Arrest them
+		name = subject_cro.2.a
+		ai_chance = { factor = 1 }
+		add_stability = 0.03
+		custom_effect_tooltip = collapse_illyria_one
+		add_to_variable = {
+			var = CRO.subject_revolt_progress
+			value = 0.01
+		}
+	}
+	
+	option = { #They have a point
+		name = subject_cro.2.b
+		ai_chance = { factor = 3 }
+		add_stability = -0.03
+		custom_effect_tooltip = collapse_illyria_two
+		add_to_variable = {
+			var = CRO.subject_revolt_progress
+			value = 0.02
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Anti-Habsburg Bestseller
+	id = subject_cro.3
+	title = subject_cro.3.t
+	desc = subject_cro.3.d
+	
+	picture = GFX_report_event_generic_books
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Ban its publication.
+		name = subject_cro.3.a
+		ai_chance = { factor = 1 }
+		add_stability = 0.03
+		custom_effect_tooltip = collapse_illyria_three
+		add_to_variable = {
+			var = CRO.subject_revolt_progress
+			value = 0.03
+		}
+	}
+	
+	option = { #They have a point
+		name = subject_cro.3.b
+		ai_chance = { factor = 3 }
+		add_stability = -0.03
+		custom_effect_tooltip = collapse_illyria_five
+		add_to_variable = {
+			var = CRO.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Veterans Support the Crown
+	id = subject_cro.4
+	title = subject_cro.4.t
+	desc = subject_cro.4.d
+	
+	picture = GFX_report_event_BAN_marching
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #It would be a mistake to mess with them
+		name = subject_cro.4.a
+		ai_chance = { factor = 1 }
+		custom_effect_tooltip = collapse_illyria_three_minus
+		add_to_variable = {
+			var = CRO.subject_revolt_progress
+			value = -0.03
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Faceoff in the Legislation
+	id = subject_cro.5
+	title = subject_cro.5.t
+	desc = subject_cro.5.d
+	
+	picture = GFX_report_event_generic_conference2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_cro.5.a
+		ai_chance = { factor = 1 }
+		add_political_power = 50
+		
+		custom_effect_tooltip = collapse_illyria_five
+		add_to_variable = {
+			var = CRO.subject_revolt_progress
+			value = 0.05
+		}
+		
+		custom_effect_tooltip = collapse_five
+		add_to_variable = {
+			var = AUS.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Unjust Killing
+	id = subject_cro.6
+	title = subject_cro.6.t
+	desc = subject_cro.6.d
+	
+	picture = GFX_report_event_generic_scandal
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Really now?!
+		name = subject_cro.6.a
+		ai_chance = { factor = 1 }
+		custom_effect_tooltip = collapse_illyria_three
+		add_to_variable = {
+			var = CRO.subject_revolt_progress
+			value = 0.03
+		}
+		
+		custom_effect_tooltip = collapse_three
+		add_to_variable = {
+			var = AUS.subject_revolt_progress
+			value = 0.03
+		}
+	}
+}
+
+country_event = { #Leaflets
+	id = subject_cro.7
+	title = subject_cro.7.t
+	desc = subject_cro.7.d
+	
+	picture = GFX_report_event_generic_strike
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_cro.7.a
+		ai_chance = { factor = 1 }
+		custom_effect_tooltip = collapse_illyria_one
+		add_to_variable = {
+			var = CRO.subject_revolt_progress
+			value = 0.01
+		}
+	}
+}
+
+country_event = { #Factory strike!
+	id = subject_cro.8
+	title = subject_cro.8.t
+	desc = subject_cro.8.d
+	
+	picture = GFX_report_event_generic_strike
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_cro.8.a
+		ai_chance = { factor = 1 }
+		add_timed_idea = {
+			idea = BOTDE_strike
+			days = 90
+		}
+		custom_effect_tooltip = collapse_illyria_five
+		add_to_variable = {
+			var = CRO.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+country_event = { #Army mutiny!
+	id = subject_cro.9
+	title = subject_cro.9.t
+	desc = subject_cro.9.d
+	
+	picture = GFX_report_event_BAN_army_parade
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_cro.9.a
+		ai_chance = { factor = 1 }
+		add_timed_idea = {
+			idea = BOTDE_mutiny
+			days = 90
+		}
+		custom_effect_tooltip = collapse_illyria_five
+		add_to_variable = {
+			var = CRO.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+country_event = { #Political Brawling
+	id = subject_cro.10
+	title = subject_cro.10.t
+	desc = subject_cro.10.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_cro.10.a
+		ai_chance = { factor = 1 }
+		add_timed_idea = {
+			idea = BOTDE_bickering
+			days = 90
+		}
+		custom_effect_tooltip = collapse_illyria_five
+		add_to_variable = {
+			var = CRO.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+country_event = { #Illyria Picker
+	id = ethnic_picker.2
+	title = ethnic_picker.2.t
+	desc = ethnic_picker.2.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = ethnic_picker.2.a
+		ai_chance = { factor = 1 }
+		random_list = { #Select how long it will take for the events to fire
+			
+			30 = { #2 weeks
+				random_list = { #Select event
+					10 = {
+						country_event = {
+							id = subject_cro.1
+							days = 14
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_cro.2
+							days = 14
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_cro.3
+							days = 14
+						}
+					}
+					
+					15 = {
+						country_event = {
+							id = subject_cro.4
+							days = 14
+						}
+					}
+					
+					10 = {
+						country_event = {
+							id = subject_cro.5
+							days = 14
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_cro.6
+							days = 14
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_cro.7
+							days = 14
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_cro.8
+							days = 14
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_cro.9
+							days = 14
+						}
+					}
+					
+					5 = {
+						country_event = {
+							id = subject_cro.10
+							days = 14
+						}
+					}
+				}
+			}
+			
+			
+			
+			
+			
+			50 = { #3 weeks
+				random_list = { #Select event
+					10 = {
+						country_event = {
+							id = subject_cro.1
+							days = 21
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_cro.2
+							days = 21
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_cro.3
+							days = 21
+						}
+					}
+					
+					15 = {
+						country_event = {
+							id = subject_cro.4
+							days = 21
+						}
+					}
+					
+					10 = {
+						country_event = {
+							id = subject_cro.5
+							days = 21
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_cro.6
+							days = 21
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_cro.7
+							days = 21
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_cro.8
+							days = 21
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_cro.9
+							days = 21
+						}
+					}
+					
+					5 = {
+						country_event = {
+							id = subject_cro.10
+							days = 21
+						}
+					}
+				}
+			}
+			
+			
+			
+			
+			
+			20 = { #1 month
+				random_list = { #Select event
+					10 = {
+						country_event = {
+							id = subject_cro.1
+							days = 30
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_cro.2
+							days = 30
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_cro.3
+							days = 30
+						}
+					}
+					
+					25 = {
+						country_event = {
+							id = subject_cro.4
+							days = 30
+						}
+					}
+					
+					10 = {
+						country_event = {
+							id = subject_cro.5
+							days = 30
+						}
+					}
+					
+					13 = {
+						country_event = {
+							id = subject_cro.6
+							days = 30
+						}
+					}
+					
+					13 = {
+						country_event = {
+							id = subject_cro.7
+							days = 30
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_cro.8
+							days = 30
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_cro.9
+							days = 30
+						}
+					}
+					
+					5 = {
+						country_event = {
+							id = subject_cro.10
+							days = 30
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_global_flag = no_illyria_revolt
+				}
+				is_in_faction_with = AUS
+			}
+			random_list = {
+				20 = {
+					country_event = {
+						id = ethnic_picker.2
+						days = 14
+						random = 168
+					}
+				}
+				
+				20 = {
+					country_event = {
+						id = ethnic_picker.2
+						days = 21
+						random = 168
+					}
+				}
+				
+				20 = {
+					country_event = {
+						id = ethnic_picker.2
+						days = 28
+						random = 168
+					}
+				}
+				
+				20 = {
+					country_event = {
+						id = ethnic_picker.2
+						days = 35
+						random = 168
+					}
+				}
+				
+				20 = {
+					country_event = {
+						id = ethnic_picker.2
+						days = 42
+						random = 168
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+### Events that raise the Bohemian revolt level
+country_event = { #Austrian lawmaker proposes law against us!
+	id = subject_cze.1
+	title = subject_cze.1.t
+	desc = subject_cze.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Despicable.
+		name = subject_cze.1.a
+		add_stability = -0.03
+		custom_effect_tooltip = collapse_bohemia_three
+		add_to_variable = {
+			var = CZE.subject_revolt_progress
+			value = 0.03
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Pro-Independence Party Rallies
+	id = subject_cze.2
+	title = subject_cze.2.t
+	desc = subject_cze.2.d
+	
+	picture = GFX_report_event_BAN_mass_gathering
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Arrest them
+		name = subject_cze.2.a
+		ai_chance = { factor = 1 }
+		add_stability = 0.03
+		custom_effect_tooltip = collapse_bohemia_one
+		add_to_variable = {
+			var = CZE.subject_revolt_progress
+			value = 0.01
+		}
+	}
+	
+	option = { #They have a point
+		name = subject_cze.2.b
+		ai_chance = { factor = 3 }
+		add_stability = -0.03
+		custom_effect_tooltip = collapse_bohemia_two
+		add_to_variable = {
+			var = CZE.subject_revolt_progress
+			value = 0.02
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Anti-Habsburg Bestseller
+	id = subject_cze.3
+	title = subject_cze.3.t
+	desc = subject_cze.3.d
+	
+	picture = GFX_report_event_generic_books
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Ban its publication.
+		name = subject_cze.3.a
+		ai_chance = { factor = 1 }
+		add_stability = 0.03
+		custom_effect_tooltip = collapse_bohemia_three
+		add_to_variable = {
+			var = CZE.subject_revolt_progress
+			value = 0.03
+		}
+	}
+	
+	option = { #They have a point
+		name = subject_cze.3.b
+		ai_chance = { factor = 3 }
+		add_stability = -0.03
+		custom_effect_tooltip = collapse_bohemia_five
+		add_to_variable = {
+			var = CZE.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Veterans Support the Crown
+	id = subject_cze.4
+	title = subject_cze.4.t
+	desc = subject_cze.4.d
+	
+	picture = GFX_report_event_BAN_marching
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #It would be a mistake to mess with them
+		name = subject_cze.4.a
+		ai_chance = { factor = 1 }
+		custom_effect_tooltip = collapse_bohemia_three_minus
+		add_to_variable = {
+			var = CZE.subject_revolt_progress
+			value = -0.03
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Faceoff in the Legislation
+	id = subject_cze.5
+	title = subject_cze.5.t
+	desc = subject_cze.5.d
+	
+	picture = GFX_report_event_generic_conference2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_cze.5.a
+		ai_chance = { factor = 1 }
+		add_political_power = 50
+		
+		custom_effect_tooltip = collapse_bohemia_five
+		add_to_variable = {
+			var = CZE.subject_revolt_progress
+			value = 0.05
+		}
+		
+		custom_effect_tooltip = collapse_five
+		add_to_variable = {
+			var = AUS.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Unjust Killing
+	id = subject_cze.6
+	title = subject_cze.6.t
+	desc = subject_cze.6.d
+	
+	picture = GFX_report_event_generic_scandal
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Really now?!
+		name = subject_cze.6.a
+		ai_chance = { factor = 1 }
+		custom_effect_tooltip = collapse_bohemia_three
+		add_to_variable = {
+			var = CZE.subject_revolt_progress
+			value = 0.03
+		}
+		
+		custom_effect_tooltip = collapse_three
+		add_to_variable = {
+			var = AUS.subject_revolt_progress
+			value = 0.03
+		}
+	}
+}
+
+country_event = { #Leaflets
+	id = subject_cze.7
+	title = subject_cze.7.t
+	desc = subject_cze.7.d
+	
+	picture = GFX_report_event_generic_strike
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_cze.7.a
+		ai_chance = { factor = 1 }
+		custom_effect_tooltip = collapse_bohemia_one
+		add_to_variable = {
+			var = CZE.subject_revolt_progress
+			value = 0.01
+		}
+	}
+}
+
+country_event = { #Factory strike!
+	id = subject_cze.8
+	title = subject_cze.8.t
+	desc = subject_cze.8.d
+	
+	picture = GFX_report_event_generic_strike
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_cze.8.a
+		ai_chance = { factor = 1 }
+		add_timed_idea = {
+			idea = BOTDE_strike
+			days = 90
+		}
+		custom_effect_tooltip = collapse_bohemia_five
+		add_to_variable = {
+			var = CZE.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+country_event = { #Army mutiny!
+	id = subject_cze.9
+	title = subject_cze.9.t
+	desc = subject_cze.9.d
+	
+	picture = GFX_report_event_BAN_army_parade
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_cze.9.a
+		ai_chance = { factor = 1 }
+		add_timed_idea = {
+			idea = BOTDE_mutiny
+			days = 90
+		}
+		custom_effect_tooltip = collapse_bohemia_five
+		add_to_variable = {
+			var = CZE.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+country_event = { #Political Brawling
+	id = subject_cze.10
+	title = subject_cze.10.t
+	desc = subject_cze.10.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_cze.10.a
+		ai_chance = { factor = 1 }
+		add_timed_idea = {
+			idea = BOTDE_bickering
+			days = 90
+		}
+		custom_effect_tooltip = collapse_bohemia_five
+		add_to_variable = {
+			var = CZE.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+country_event = { #Bohemia Picker
+	id = ethnic_picker.3
+	title = ethnic_picker.3.t
+	desc = ethnic_picker.3.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = ethnic_picker.3.a
+		ai_chance = { factor = 1 }
+		random_list = { #Select how long it will take for the events to fire
+			
+			30 = { #2 weeks
+				random_list = { #Select event
+					10 = {
+						country_event = {
+							id = subject_cze.1
+							days = 14
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_cze.2
+							days = 14
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_cze.3
+							days = 14
+						}
+					}
+					
+					25 = {
+						country_event = {
+							id = subject_cze.4
+							days = 14
+						}
+					}
+					
+					10 = {
+						country_event = {
+							id = subject_cze.5
+							days = 14
+						}
+					}
+					
+					13 = {
+						country_event = {
+							id = subject_cze.6
+							days = 14
+						}
+					}
+					
+					13 = {
+						country_event = {
+							id = subject_cze.7
+							days = 14
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_cze.8
+							days = 14
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_cze.9
+							days = 14
+						}
+					}
+					
+					5 = {
+						country_event = {
+							id = subject_cze.10
+							days = 14
+						}
+					}
+				}
+			}
+			
+			
+			
+			
+			
+			50 = { #3 weeks
+				random_list = { #Select event
+					10 = {
+						country_event = {
+							id = subject_cze.1
+							days = 21
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_cze.2
+							days = 21
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_cze.3
+							days = 21
+						}
+					}
+					
+					15 = {
+						country_event = {
+							id = subject_cze.4
+							days = 21
+						}
+					}
+					
+					10 = {
+						country_event = {
+							id = subject_cze.5
+							days = 21
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_cze.6
+							days = 21
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_cze.7
+							days = 21
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_cze.8
+							days = 21
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_cze.9
+							days = 21
+						}
+					}
+					
+					5 = {
+						country_event = {
+							id = subject_cze.10
+							days = 21
+						}
+					}
+				}
+			}
+			
+			
+			
+			
+			
+			20 = { #1 month
+				random_list = { #Select event
+					10 = {
+						country_event = {
+							id = subject_cze.1
+							days = 30
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_cze.2
+							days = 30
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_cze.3
+							days = 30
+						}
+					}
+					
+					15 = {
+						country_event = {
+							id = subject_cze.4
+							days = 30
+						}
+					}
+					
+					10 = {
+						country_event = {
+							id = subject_cze.5
+							days = 30
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_cze.6
+							days = 30
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_cze.7
+							days = 30
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_cze.8
+							days = 30
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_cze.9
+							days = 30
+						}
+					}
+					
+					5 = {
+						country_event = {
+							id = subject_cze.10
+							days = 30
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_global_flag = no_bohemia_revolt
+				}
+				is_in_faction_with = AUS
+			}
+			random_list = {
+				20 = {
+					country_event = {
+						id = ethnic_picker.3
+						days = 14
+						random = 168
+					}
+				}
+				
+				20 = {
+					country_event = {
+						id = ethnic_picker.3
+						days = 21
+						random = 168
+					}
+				}
+				
+				20 = {
+					country_event = {
+						id = ethnic_picker.3
+						days = 28
+						random = 168
+					}
+				}
+				
+				20 = {
+					country_event = {
+						id = ethnic_picker.3
+						days = 35
+						random = 168
+					}
+				}
+				
+				20 = {
+					country_event = {
+						id = ethnic_picker.3
+						days = 42
+						random = 168
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Events that raise the Galician revolt level
+country_event = { #Austrian lawmaker proposes law against us!
+	id = subject_gal.1
+	title = subject_gal.1.t
+	desc = subject_gal.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Despicable.
+		name = subject_gal.1.a
+		add_stability = -0.03
+		custom_effect_tooltip = collapse_galicia_three
+		add_to_variable = {
+			var = GAL.subject_revolt_progress
+			value = 0.03
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Pro-Independence Party Rallies
+	id = subject_gal.2
+	title = subject_gal.2.t
+	desc = subject_gal.2.d
+	
+	picture = GFX_report_event_BAN_mass_gathering
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Arrest them
+		name = subject_gal.2.a
+		ai_chance = { factor = 1 }
+		add_stability = 0.03
+		custom_effect_tooltip = collapse_galicia_one
+		add_to_variable = {
+			var = GAL.subject_revolt_progress
+			value = 0.01
+		}
+	}
+	
+	option = { #They have a point
+		name = subject_gal.2.b
+		ai_chance = { factor = 3 }
+		add_stability = -0.03
+		custom_effect_tooltip = collapse_galicia_two
+		add_to_variable = {
+			var = GAL.subject_revolt_progress
+			value = 0.02
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Anti-Habsburg Bestseller
+	id = subject_gal.3
+	title = subject_gal.3.t
+	desc = subject_gal.3.d
+	
+	picture = GFX_report_event_generic_books
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Ban its publication.
+		name = subject_gal.3.a
+		ai_chance = { factor = 1 }
+		add_stability = 0.03
+		custom_effect_tooltip = collapse_galicia_three
+		add_to_variable = {
+			var = GAL.subject_revolt_progress
+			value = 0.03
+		}
+	}
+	
+	option = { #They have a point
+		name = subject_gal.3.b
+		ai_chance = { factor = 3 }
+		add_stability = -0.03
+		custom_effect_tooltip = collapse_galicia_five
+		add_to_variable = {
+			var = GAL.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Veterans Support the Crown
+	id = subject_gal.4
+	title = subject_gal.4.t
+	desc = subject_gal.4.d
+	
+	picture = GFX_report_event_BAN_marching
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #It would be a mistake to mess with them
+		name = subject_gal.4.a
+		ai_chance = { factor = 1 }
+		custom_effect_tooltip = collapse_galicia_three_minus
+		add_to_variable = {
+			var = GAL.subject_revolt_progress
+			value = -0.03
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Faceoff in the Legislation
+	id = subject_gal.5
+	title = subject_gal.5.t
+	desc = subject_gal.5.d
+	
+	picture = GFX_report_event_generic_conference2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_gal.5.a
+		ai_chance = { factor = 1 }
+		add_political_power = 50
+		
+		custom_effect_tooltip = collapse_galicia_five
+		add_to_variable = {
+			var = GAL.subject_revolt_progress
+			value = 0.05
+		}
+		
+		custom_effect_tooltip = collapse_five
+		add_to_variable = {
+			var = AUS.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Unjust Killing
+	id = subject_gal.6
+	title = subject_gal.6.t
+	desc = subject_gal.6.d
+	
+	picture = GFX_report_event_generic_scandal
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Really now?!
+		name = subject_gal.6.a
+		ai_chance = { factor = 1 }
+		custom_effect_tooltip = collapse_galicia_three
+		add_to_variable = {
+			var = GAL.subject_revolt_progress
+			value = 0.03
+		}
+		
+		custom_effect_tooltip = collapse_three
+		add_to_variable = {
+			var = AUS.subject_revolt_progress
+			value = 0.03
+		}
+	}
+}
+
+country_event = { #Leaflets
+	id = subject_gal.7
+	title = subject_gal.7.t
+	desc = subject_gal.7.d
+	
+	picture = GFX_report_event_generic_strike
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_gal.7.a
+		ai_chance = { factor = 1 }
+		custom_effect_tooltip = collapse_galicia_one
+		add_to_variable = {
+			var = GAL.subject_revolt_progress
+			value = 0.01
+		}
+	}
+}
+
+country_event = { #Factory strike!
+	id = subject_gal.8
+	title = subject_gal.8.t
+	desc = subject_gal.8.d
+	
+	picture = GFX_report_event_generic_strike
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_gal.8.a
+		ai_chance = { factor = 1 }
+		add_timed_idea = {
+			idea = BOTDE_strike
+			days = 90
+		}
+		custom_effect_tooltip = collapse_galicia_five
+		add_to_variable = {
+			var = GAL.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+country_event = { #Army mutiny!
+	id = subject_gal.9
+	title = subject_gal.9.t
+	desc = subject_gal.9.d
+	
+	picture = GFX_report_event_BAN_army_parade
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_gal.9.a
+		ai_chance = { factor = 1 }
+		add_timed_idea = {
+			idea = BOTDE_mutiny
+			days = 90
+		}
+		custom_effect_tooltip = collapse_galicia_five
+		add_to_variable = {
+			var = GAL.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+country_event = { #Political Brawling
+	id = subject_gal.10
+	title = subject_gal.10.t
+	desc = subject_gal.10.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = subject_gal.10.a
+		ai_chance = { factor = 1 }
+		add_timed_idea = {
+			idea = BOTDE_bickering
+			days = 90
+		}
+		custom_effect_tooltip = collapse_galicia_five
+		add_to_variable = {
+			var = GAL.subject_revolt_progress
+			value = 0.05
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+country_event = { #Galicia Picker
+	id = ethnic_picker.4
+	title = ethnic_picker.4.t
+	desc = ethnic_picker.4.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = { #Not good...
+		name = ethnic_picker.4.a
+		ai_chance = { factor = 1 }
+		random_list = { #Select how long it will take for the events to fire
+			
+			30 = { #2 weeks
+				random_list = { #Select event
+					10 = {
+						country_event = {
+							id = subject_gal.1
+							days = 14
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_gal.2
+							days = 14
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_gal.3
+							days = 14
+						}
+					}
+					
+					15 = {
+						country_event = {
+							id = subject_gal.4
+							days = 14
+						}
+					}
+					
+					10 = {
+						country_event = {
+							id = subject_gal.5
+							days = 14
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_gal.6
+							days = 14
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_gal.7
+							days = 14
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_gal.8
+							days = 14
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_gal.9
+							days = 14
+						}
+					}
+					
+					5 = {
+						country_event = {
+							id = subject_gal.10
+							days = 14
+						}
+					}
+				}
+			}
+			
+			
+			
+			
+			
+			50 = { #3 weeks
+				random_list = { #Select event
+					10 = {
+						country_event = {
+							id = subject_gal.1
+							days = 21
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_gal.2
+							days = 21
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_gal.3
+							days = 21
+						}
+					}
+					
+					15 = {
+						country_event = {
+							id = subject_gal.4
+							days = 21
+						}
+					}
+					
+					10 = {
+						country_event = {
+							id = subject_gal.5
+							days = 21
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_gal.6
+							days = 21
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_gal.7
+							days = 21
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_gal.8
+							days = 21
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_gal.9
+							days = 21
+						}
+					}
+					
+					5 = {
+						country_event = {
+							id = subject_gal.10
+							days = 21
+						}
+					}
+				}
+			}
+			
+			
+			
+			
+			
+			20 = { #1 month
+				random_list = { #Select event
+					10 = {
+						country_event = {
+							id = subject_gal.1
+							days = 30
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_gal.2
+							days = 30
+						}
+					}
+					
+					9 = {
+						country_event = {
+							id = subject_gal.3
+							days = 30
+						}
+					}
+					
+					15 = {
+						country_event = {
+							id = subject_gal.4
+							days = 30
+						}
+					}
+					
+					10 = {
+						country_event = {
+							id = subject_gal.5
+							days = 30
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_gal.6
+							days = 30
+						}
+					}
+					
+					18 = {
+						country_event = {
+							id = subject_gal.7
+							days = 30
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_gal.8
+							days = 30
+						}
+					}
+					
+					4 = {
+						country_event = {
+							id = subject_gal.9
+							days = 30
+						}
+					}
+					
+					5 = {
+						country_event = {
+							id = subject_gal.10
+							days = 30
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_global_flag = no_galicia_revolt
+				}
+				is_in_faction_with = AUS
+			}
+			random_list = {
+				20 = {
+					country_event = {
+						id = ethnic_picker.4
+						days = 14
+						random = 168
+					}
+				}
+				
+				20 = {
+					country_event = {
+						id = ethnic_picker.4
+						days = 21
+						random = 168
+					}
+				}
+				
+				20 = {
+					country_event = {
+						id = ethnic_picker.4
+						days = 28
+						random = 168
+					}
+				}
+				
+				20 = {
+					country_event = {
+						id = ethnic_picker.4
+						days = 35
+						random = 168
+					}
+				}
+				
+				20 = {
+					country_event = {
+						id = ethnic_picker.4
+						days = 42
+						random = 168
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+country_event = { #Hungarian Revolution!
+	id = revolt.1
+	title = revolt.1.t
+	desc = revolt.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+
+	is_triggered_only = no
+	
+	trigger = {
+		check_variable = {
+			var = HUN.subject_revolt_progress
+			value = 1
+			compare = greater_than_or_equals
+		}
+		NOT = {
+			has_country_flag = HUN_recent_revolt
+		}
+		has_country_flag = wants_to_revolt
+		tag = HUN
+	}
+
+	option = { #Freedom at last!
+		name = revolt.1.a
+
+		set_politics = {
+			ruling_party = social_conservative
+			last_election = "1888.6.15"
+			election_frequency = 48
+			elections_allowed = no
+		}
+
+		add_ideas = HUN_Zoltan_Tildy_hog_sco
+
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.2
+		}
+		AUS = {
+			end_puppet = HUN
+		}
+		AUS = {
+			country_event = {
+				id = revolt.5 #Notification
+			}
+		}
+		every_state = {
+			limit = {
+				is_core_of = HUN
+				is_owned_by = AUS
+				NOT = {
+					state = 784
+				}
+			}
+			HUN = {
+				transfer_state = PREV
+			}
+		}
+		leave_faction = yes
+		hidden_effect = {
+			retire_country_leader = yes
+			remove_ideas_with_trait = head_of_government
+			every_state = {
+				limit = {
+					is_core_of = HUN
+					is_owned_by = AUS
+				}
+				HUN = {
+					transfer_state = PREV
+				}
+			}
+			set_global_flag = HUN_recent_revolt
+			country_event = {
+				id = revolt.9 #Clear recent revolt flag
+				days = 720
+			}
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Illyrian Revolution!
+	id = revolt.2
+	title = revolt.2.t
+	desc = revolt.2.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+
+	is_triggered_only = no
+	
+	trigger = {
+		check_variable = {
+			var = CRO.subject_revolt_progress
+			value = 1
+			compare = greater_than_or_equals
+		}
+		NOT = {
+			has_country_flag = CRO_recent_revolt
+		}
+		has_country_flag = wants_to_revolt
+		tag = CRO
+	}
+
+	option = { #Freedom!
+		name = revolt.2.a
+		
+		AUS = {
+			end_puppet = CRO
+		}
+		leave_faction = yes
+		AUS = {
+			country_event = {
+				id = revolt.6 #Notification
+			}
+		}
+		every_state = {
+			limit = {
+				is_core_of = CRO
+				is_owned_by = AUS
+			}
+			CRO = {
+				transfer_state = PREV
+			}
+		}
+		leave_faction = yes
+		
+		hidden_effect = {
+			set_global_flag = CRO_recent_revolt
+			country_event = {
+				id = revolt.9 #Clear recent revolt flag
+				days = 720
+			}
+		}
+	}
+}
+
+country_event = { #Bohemian Revolution!
+	id = revolt.3
+	title = revolt.3.t
+	desc = revolt.3.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+
+	is_triggered_only = no
+	
+	trigger = {
+		check_variable = {
+			var = CZE.subject_revolt_progress
+			value = 1
+			compare = greater_than_or_equals
+		}
+		NOT = {
+			has_country_flag = CZE_recent_revolt
+		}
+		has_country_flag = wants_to_revolt
+		tag = CZE
+	}
+
+	option = { #Freedom!
+		name = revolt.3.a
+		
+		AUS = {
+			end_puppet = CZE
+		}
+		leave_faction = yes
+		AUS = {
+			country_event = {
+				id = revolt.7 #Notification
+			}
+		}
+		every_state = {
+			limit = {
+				is_core_of = CZE
+				is_owned_by = AUS
+			}
+			CZE = {
+				transfer_state = PREV
+			}
+		}
+		leave_faction = yes
+		
+		hidden_effect = {
+			set_global_flag = CZE_recent_revolt
+			country_event = {
+				id = revolt.9 #Clear recent revolt flag
+				days = 720
+			}
+		}
+	}
+}
+
+country_event = { #Galician Revolution!
+	id = revolt.4
+	title = revolt.4.t
+	desc = revolt.4.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+
+	is_triggered_only = no
+	
+	trigger = {
+		check_variable = {
+			var = GAL.subject_revolt_progress
+			value = 1
+			compare = greater_than_or_equals
+		}
+		NOT = {
+			has_country_flag = GAL_recent_revolt
+		}
+		has_country_flag = wants_to_revolt
+		tag = GAL
+	}
+	
+	mean_time_to_happen = { days = 1 }
+
+	option = { #Freedom!
+		name = revolt.4.a
+		
+		AUS = {
+			end_puppet = GAL
+		}
+		AUS = {
+			country_event = {
+				id = revolt.8 #Notification
+			}
+		}
+		every_state = {
+			limit = {
+				is_core_of = GAL
+				is_owned_by = AUS
+			}
+			GAL = {
+				transfer_state = PREV
+			}
+		}
+		leave_faction = yes
+		
+		hidden_effect = {
+			set_global_flag = GAL_recent_revolt
+			country_event = {
+				id = revolt.9 #Clear recent revolt flag
+				days = 720
+			}
+		}
+	}
+}
+
+
+
+
+
+
+country_event = { #AUS - Hungary has revolted!
+	id = revolt.5
+	title = revolt.5.t
+	desc = revolt.5.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #This will not be tolerated!
+		name = revolt.5.a
+		add_war_support = 0.15
+		add_political_power = 100
+		declare_war_on = {
+			target = HUN
+			type = annex_everything
+		}
+		custom_effect_tooltip = collapse_three
+		add_to_variable = {
+			var = AUS.subject_revolt_progress
+			value = 0.03
+		}
+		set_variable = {
+			var = HUN.subject_revolt_progress
+			value = 0.4
+		}
+		hidden_effect = {
+			country_event = {
+				id = revolt_peace.1
+				days = 120
+			}
+			HUN = {
+				add_ideas = AUS_fighting_for_the_people
+				#load_focus_tree = breakaway_tree
+			}
+		}
+	}
+	
+	option = { #We cannot afford war.
+		name = revolt.5.b
+		add_stability = -0.2
+		add_political_power = -100
+		custom_effect_tooltip = collapse_ten
+		add_to_variable = {
+			var = AUS.subject_revolt_progress
+			value = 0.1
+		}
+		HUN = {
+			set_country_flag = breakaway_free
+		}
+		hidden_effect = {
+			HUN = {
+				#load_focus_tree = breakaway_tree
+			}
+		}
+	}
+}
+
+country_event = { #AUS - Illyria has revolted!
+	id = revolt.6
+	title = revolt.6.t
+	desc = revolt.6.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #This will not be tolerated!
+		name = revolt.6.a
+		add_war_support = 0.15
+		add_political_power = 100
+		declare_war_on = {
+			target = CRO
+			type = annex_everything
+		}
+		custom_effect_tooltip = collapse_three
+		add_to_variable = {
+			var = AUS.subject_revolt_progress
+			value = 0.03
+		}
+		set_variable = {
+			var = CRO.subject_revolt_progress
+			value = 0.4
+		}
+		hidden_effect = {
+			country_event = {
+				id = revolt_peace.2
+				days = 120
+			}
+			CRO = {
+				add_ideas = AUS_fighting_for_the_people
+				#load_focus_tree = breakaway_tree
+			}
+		}
+	}
+	
+	option = { #We cannot afford war.
+		name = revolt.6.b
+		add_stability = -0.2
+		add_political_power = -100
+		custom_effect_tooltip = collapse_ten
+		add_to_variable = {
+			var = AUS.subject_revolt_progress
+			value = 0.1
+		}
+		CRO = {
+			set_country_flag = breakaway_free
+		}
+		hidden_effect = {
+			CRO = {
+				#load_focus_tree = breakaway_tree
+			}
+		}
+	}
+}
+
+country_event = { #AUS - Bohemia has revolted!
+	id = revolt.7
+	title = revolt.7.t
+	desc = revolt.7.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #This will not be tolerated!
+		name = revolt.7.a
+		add_war_support = 0.15
+		add_political_power = 100
+		declare_war_on = {
+			target = CZE
+			type = annex_everything
+		}
+		custom_effect_tooltip = collapse_three
+		add_to_variable = {
+			var = AUS.subject_revolt_progress
+			value = 0.03
+		}
+		set_variable = {
+			var = CZE.subject_revolt_progress
+			value = 0.4
+		}
+		hidden_effect = {
+			country_event = {
+				id = revolt_peace.3
+				days = 120
+			}
+			CZE = {
+				add_ideas = AUS_fighting_for_the_people
+				#load_focus_tree = breakaway_tree
+			}
+		}
+	}
+	
+	option = { #We cannot afford war.
+		name = revolt.7.b
+		add_stability = -0.2
+		add_political_power = -100
+		custom_effect_tooltip = collapse_ten
+		add_to_variable = {
+			var = AUS.subject_revolt_progress
+			value = 0.1
+		}
+		CZE = {
+			set_country_flag = breakaway_free
+		}
+		hidden_effect = {
+			CZE = {
+				#load_focus_tree = breakaway_tree
+			}
+		}
+	}
+}
+
+country_event = { #AUS - Galicia has revolted!
+	id = revolt.8
+	title = revolt.8.t
+	desc = revolt.8.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #This will not be tolerated!
+		name = revolt.8.a
+		add_war_support = 0.15
+		add_political_power = 100
+		declare_war_on = {
+			target = GAL
+			type = annex_everything
+		}
+		custom_effect_tooltip = collapse_three
+		add_to_variable = {
+			var = AUS.subject_revolt_progress
+			value = 0.03
+		}
+		set_variable = {
+			var = GAL.subject_revolt_progress
+			value = 0.4
+		}
+		hidden_effect = {
+			country_event = {
+				id = revolt_peace.4
+				days = 120
+			}
+			GAL = {
+				add_ideas = AUS_fighting_for_the_people
+				#load_focus_tree = breakaway_tree
+			}
+		}
+	}
+	
+	option = { #We cannot afford war.
+		name = revolt.8.b
+		add_stability = -0.2
+		add_political_power = -100
+		custom_effect_tooltip = collapse_ten
+		add_to_variable = {
+			var = AUS.subject_revolt_progress
+			value = 0.1
+		}
+		GAL = {
+			set_country_flag = breakaway_free
+		}
+		hidden_effect = {
+			GAL = {
+				#load_focus_tree = breakaway_tree
+			}
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Clear country flag
+	id = revolt.9
+	title = revolt.9.t
+	desc = revolt.9.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.9.a
+		clr_global_flag = HUN_recent_revolt
+		clr_global_flag = CRO_recent_revolt
+		clr_global_flag = CZE_recent_revolt
+		clr_global_flag = GAL_recent_revolt
+	}
+}
+
+####				  ####
+#### Minority Revolts ####
+####				  ####
+
+country_event = { #Slovene revolt
+	id = revolt.10
+	title = revolt.10.t
+	desc = revolt.10.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.10.a
+		if = {
+			limit = {
+				NOT = {
+					country_exists = SLO
+				}
+				1103 = {
+					is_owned_by = AUS
+				}
+			}
+		
+			SLO = {
+				transfer_state = 102
+				transfer_state = 1101
+				transfer_state = 1103
+				transfer_state = 1104
+				
+				add_state_claim = 102
+				add_state_claim = 1101
+				add_state_claim = 1103
+				add_state_claim = 1104
+				
+				declare_war_on = {
+					target = AUS
+					type = annex_everything
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					country_exists = SLO
+				}
+				1103 = {
+					is_owned_by = CRO
+				}
+			}
+		
+			SLO = {
+				transfer_state = 102
+				transfer_state = 1101
+				transfer_state = 1103
+				transfer_state = 1104
+				
+				add_state_claim = 102
+				add_state_claim = 1101
+				add_state_claim = 1103
+				add_state_claim = 1104
+				
+				declare_war_on = {
+					target = CRO
+					type = annex_everything
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				SLO = {
+					is_puppet = yes
+				}
+			}
+		
+			SLO = {
+				
+				transfer_state = 102
+				transfer_state = 1101
+				transfer_state = 1103
+				transfer_state = 1104
+				
+				add_state_claim = 102
+				add_state_claim = 1101
+				add_state_claim = 1103
+				add_state_claim = 1104
+				
+				OVERLORD = {
+					end_puppet = SLO
+					SLO = {
+						declare_war_on = {
+							target = PREV
+							type = annex_everything
+						}
+					}
+				}
+			}
+		}
+		
+		custom_effect_tooltip = 4_months_to_win
+		hidden_effect = {
+			
+			if = {
+				limit = {
+					1103 = {
+						is_owned_by = CRO
+					}
+				}
+				CRO = {
+					country_event = {
+						id = revolt_peace.12
+						days = 124
+					}
+				}
+			}
+			
+			if = {
+				limit = {
+					1103 = {
+						is_owned_by = AUS
+					}
+				}
+				AUS = {
+					country_event = {
+						id = revolt_peace.12
+						days = 124
+					}
+				}
+			}
+			
+			country_event = {
+				id = revolt_peace.12
+				days = 124
+			}
+			
+			country_event = {
+				id = revolt.200
+				days = 720
+			}
+			SLO = {
+				load_oob = SLO_collapse_oob
+			}
+			set_global_flag = recent_slovene_revolt
+		}
+	}
+}
+
+country_event = { #Slovak revolt
+	id = revolt.11
+	title = revolt.11.t
+	desc = revolt.11.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.11.a
+		if = {
+			limit = {
+				NOT = {
+					country_exists = SVK
+				}
+				1123 = {
+					is_owned_by = AUS
+				}
+			}
+		
+			SVK = {
+				transfer_state = 1123
+				transfer_state = 1135
+				transfer_state = 664
+				transfer_state = 70
+				transfer_state = 1120
+				transfer_state = 1121
+				
+				add_state_claim = 1123
+				add_state_claim = 1135
+				add_state_claim = 664
+				add_state_claim = 70
+				add_state_claim = 1120
+				add_state_claim = 1121
+				add_state_claim = 1122
+				add_state_claim = 1136
+				
+				declare_war_on = {
+					target = AUS
+					type = annex_everything
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					country_exists = SVK
+				}
+				1123 = {
+					is_owned_by = HUN
+				}
+			}
+		
+			SVK = {
+				transfer_state = 1123
+				transfer_state = 1135
+				transfer_state = 664
+				transfer_state = 70
+				transfer_state = 1120
+				transfer_state = 1121
+				
+				add_state_claim = 1123
+				add_state_claim = 1135
+				add_state_claim = 664
+				add_state_claim = 70
+				add_state_claim = 1120
+				add_state_claim = 1121
+				add_state_claim = 1122
+				add_state_claim = 1136
+				
+				declare_war_on = {
+					target = HUN
+					type = annex_everything
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					country_exists = SVK
+				}
+				1123 = {
+					is_owned_by = CZE
+				}
+			}
+		
+			SVK = {
+				transfer_state = 1123
+				transfer_state = 1135
+				transfer_state = 664
+				transfer_state = 70
+				transfer_state = 1120
+				transfer_state = 1121
+				
+				add_state_claim = 1123
+				add_state_claim = 1135
+				add_state_claim = 664
+				add_state_claim = 70
+				add_state_claim = 1120
+				add_state_claim = 1121
+				add_state_claim = 1122
+				add_state_claim = 1136
+				
+				declare_war_on = {
+					target = CZE
+					type = annex_everything
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				SVK = {
+					is_puppet = yes
+				}
+			}
+		
+			SVK = {
+				transfer_state = 1123
+				transfer_state = 1135
+				transfer_state = 664
+				transfer_state = 70
+				transfer_state = 1120
+				transfer_state = 1121
+				
+				add_state_claim = 1123
+				add_state_claim = 1135
+				add_state_claim = 664
+				add_state_claim = 70
+				add_state_claim = 1120
+				add_state_claim = 1121
+				add_state_claim = 1122
+				add_state_claim = 1136
+				
+				OVERLORD = {
+					end_puppet = SVK
+					SVK = {
+						declare_war_on = {
+							target = PREV
+							type = annex_everything
+						}
+					}
+				}
+			}
+		}
+		
+		custom_effect_tooltip = 5_months_to_win
+		hidden_effect = {
+			country_event = {
+				id = revolt.201
+				days = 720
+			}
+			
+			if = {
+				limit = {
+					NOT = {
+						country_exists = SVK
+					}
+					1123 = {
+						is_owned_by = AUS
+					}
+				}
+				AUS = {
+					country_event = {
+						id = revolt_peace.13
+						days = 124
+					}
+				}
+			}
+			
+			if = {
+				limit = {
+					NOT = {
+						country_exists = SVK
+					}
+					1123 = {
+						is_owned_by = HUN
+					}
+				}
+				HUN = {
+					country_event = {
+						id = revolt_peace.13
+						days = 124
+					}
+				}
+			}
+			
+			if = {
+				limit = {
+					NOT = {
+						country_exists = SVK
+					}
+					1123 = {
+						is_owned_by = CZE
+					}
+				}
+				CZE = {
+					country_event = {
+						id = revolt_peace.13
+						days = 124
+					}
+				}
+			}
+			
+			country_event = {
+				id = revolt_peace.13
+				days = 155
+			}
+			
+			
+			SVK = {
+				load_oob = SVK_collapse_oob
+			}
+			set_global_flag = recent_slovak_revolt
+		}
+	}
+}
+
+country_event = { #Transylvanian revolt
+	id = revolt.12
+	title = revolt.12.t
+	desc = revolt.12.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.12.a
+		if = {
+			limit = {
+				NOT = {
+					country_exists = TRS
+					ROM = {
+						owns_state = 84
+					}
+				}
+				84 = {
+					is_owned_by = AUS
+				}
+			}
+		
+			TRS = {
+				transfer_state = 84
+				transfer_state = 1116
+				transfer_state = 1113
+				transfer_state = 1115
+				transfer_state = 83
+				
+				if = {
+					limit = {
+						AUS = {
+							owns_state = 1112
+						}
+					}
+					random_list = {
+						50 = {
+							transfer_state = 1112
+							add_state_claim = 1112
+						}
+						50 = {
+						
+						}
+					}
+				}
+				
+				if = {
+					limit = {
+						AUS = {
+							owns_state = 76
+						}
+					}
+					random_list = {
+						50 = {
+							transfer_state = 76
+							add_state_claim = 76
+						}
+						50 = {
+						
+						}
+					}
+				}
+				
+				if = {
+					limit = {
+						AUS = {
+							owns_state = 1117
+						}
+					}
+					random_list = {
+						50 = {
+							transfer_state = 1117
+							add_state_claim = 1117
+						}
+						50 = {
+						
+						}
+					}
+				}
+				
+				if = {
+					limit = {
+						HUN = {
+							OR = {
+								owns_state = 789
+								owns_state = 76
+								owns_state = 1117
+								owns_state = 1118
+								owns_state = 1112
+								owns_state = 1114
+								owns_state = 82
+							}
+						}
+					}
+					declare_war_on = {
+						target = HUN
+						type = annex_everything
+					}
+				}
+				
+				add_state_claim = 84
+				add_state_claim = 1116
+				add_state_claim = 1113
+				add_state_claim = 1115
+				add_state_claim = 83
+				add_state_claim = 789
+				add_state_claim = 76
+				add_state_claim = 82
+				add_state_claim = 1117
+				add_state_claim = 1112
+				add_state_claim = 1118
+				add_state_claim = 1114
+				
+				
+				declare_war_on = {
+					target = AUS
+					type = annex_everything
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					country_exists = TRS
+				}
+				84 = {
+					is_owned_by = HUN
+				}
+			}
+		
+			TRS = {
+				transfer_state = 84
+				transfer_state = 1116
+				transfer_state = 1113
+				transfer_state = 1115
+				transfer_state = 83
+				
+				if = {
+					limit = {
+						HUN = {
+							owns_state = 1112
+						}
+					}
+					random_list = {
+						50 = {
+							transfer_state = 1112
+							add_state_claim = 1112
+						}
+						50 = {
+						
+						}
+					}
+				}
+				
+				if = {
+					limit = {
+						HUN = {
+							owns_state = 76
+						}
+					}
+					random_list = {
+						50 = {
+							transfer_state = 76
+							add_state_claim = 76
+						}
+						50 = {
+						
+						}
+					}
+				}
+				
+				if = {
+					limit = {
+						HUN = {
+							owns_state = 1117
+						}
+					}
+					random_list = {
+						50 = {
+							transfer_state = 1117
+							add_state_claim = 1117
+						}
+						50 = {
+						
+						}
+					}
+				}
+				
+				if = {
+					limit = {
+						AUS = {
+							OR = {
+								owns_state = 789
+								owns_state = 76
+								owns_state = 1117
+								owns_state = 1118
+								owns_state = 1112
+								owns_state = 1114
+								owns_state = 82
+							}
+						}
+					}
+					declare_war_on = {
+						target = AUS
+						type = annex_everything
+					}
+				}
+				
+				add_state_claim = 84
+				add_state_claim = 1116
+				add_state_claim = 1113
+				add_state_claim = 1115
+				add_state_claim = 83
+				add_state_claim = 789
+				add_state_claim = 76
+				add_state_claim = 82
+				add_state_claim = 1117
+				add_state_claim = 1112
+				add_state_claim = 1118
+				add_state_claim = 1114
+				
+				
+				declare_war_on = {
+					target = HUN
+					type = annex_everything
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				ROM = {
+					owns_state = 84
+				}
+			}
+			add_stability = -0.1
+			add_political_power = -100
+		}
+		
+		if = {
+			limit = {
+				OR = {
+					TRS = {
+						is_puppet_of = AUS
+						is_puppet_of = HUN
+					}
+				}
+			}
+			TRS = {
+				OVERLORD = {
+					end_puppet = TRS
+					TRS = {
+						declare_war_on = {
+							target = PREV
+							type = annex_everything
+						}
+					}
+				}
+			}
+		}
+		
+		custom_effect_tooltip = 6_months_to_win
+		hidden_effect = {
+			country_event = {
+				id = revolt_peace.14
+				days = 186
+			}
+			
+			country_event = {
+				id = revolt.202
+				days = 720
+			}
+			TRS = {
+				load_oob = TRS_collapse_oob
+			}
+			set_global_flag = recent_transylvanian_revolt
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Banatian revolt
+	id = revolt.13
+	title = revolt.13.t
+	desc = revolt.13.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.13.a
+		if = {
+			limit = {
+				NOT = {
+					country_exists = BAN
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 82
+				}
+				BAN = {
+					transfer_state = 82
+				}
+			}
+			
+			if = {
+				limit = {
+					owns_state = 1114
+				}
+				BAN = {
+					transfer_state = 1114
+				}
+			}
+			
+			if = {
+				limit = {
+					owns_state = 875
+				}
+				BAN = {
+					transfer_state = 875
+				}
+			}
+			BAN = {
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+			}
+		}
+		if = {
+			limit = {
+				BAN = {
+					is_puppet_of = ROOT
+				}
+			}
+			end_puppet = BAN
+			
+			if = {
+				limit = {
+					owns_state = 82
+				}
+				BAN = {
+					transfer_state = 82
+				}
+			}
+			
+			if = {
+				limit = {
+					owns_state = 1114
+				}
+				BAN = {
+					transfer_state = 1114
+				}
+			}
+			
+			if = {
+				limit = {
+					owns_state = 875
+				}
+				BAN = {
+					transfer_state = 875
+				}
+			}
+			BAN = {
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+			}
+		}
+		custom_effect_tooltip = 5_months_to_win
+		hidden_effect = {
+			BAN = {
+				load_oob = BAN_collapse_oob
+			}
+			country_event = {
+				id = revolt_peace.15
+				days = 155
+			}
+			
+			country_event = {
+				id = revolt.203
+				days = 720
+			}
+			set_global_flag = recent_banat_revolt
+		}
+	}
+}
+
+country_event = { #Bosnian revolt
+	id = revolt.14
+	title = revolt.14.t
+	desc = revolt.14.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.14.a
+		if = {
+			limit = {
+				NOT = {
+					country_exists = BOS
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 1142
+				}
+				BOS = {
+					transfer_state = 1142
+				}
+			}
+			
+			if = {
+				limit = {
+					owns_state = 1141
+				}
+				BOS = {
+					transfer_state = 1141
+				}
+			}
+			
+			if = {
+				limit = {
+					owns_state = 104
+				}
+				BOS = {
+					transfer_state = 104
+				}
+			}
+			
+			if = {
+				limit = {
+					owns_state = 1143
+				}
+				BOS = {
+					transfer_state = 1143
+				}
+			}
+			
+			if = {
+				limit = {
+					owns_state = 1145
+				}
+				BOS = {
+					transfer_state = 1145
+				}
+			}
+			BOS = {
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+			}
+		}
+		if = {
+			limit = {
+				BOS = {
+					is_puppet_of = ROOT
+				}
+			}
+			end_puppet = BOS
+			if = {
+				limit = {
+					owns_state = 1142
+				}
+				BOS = {
+					transfer_state = 1142
+				}
+			}
+			
+			if = {
+				limit = {
+					owns_state = 1141
+				}
+				BOS = {
+					transfer_state = 1141
+				}
+			}
+			
+			if = {
+				limit = {
+					owns_state = 104
+				}
+				BOS = {
+					transfer_state = 104
+				}
+			}
+			
+			if = {
+				limit = {
+					owns_state = 1143
+				}
+				BOS = {
+					transfer_state = 1143
+				}
+			}
+			
+			if = {
+				limit = {
+					owns_state = 1145
+				}
+				BOS = {
+					transfer_state = 1145
+				}
+			}
+			BOS = {
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+			}
+		}
+		custom_effect_tooltip = 4_months_to_win
+		hidden_effect = {
+			BOS = {
+				load_oob = BOS_collapse_oob
+			}
+			if = {
+				limit = {
+					NOT = {
+						country_exists = SKS
+					}
+				}
+				BOS = {
+					load_oob = BOS_collapse_oob
+				}
+			}
+			country_event = {
+				id = revolt_peace.16
+				days = 124
+			}
+			
+			country_event = {
+				id = revolt.204
+				days = 720
+			}
+			set_global_flag = recent_bosnian_revolt
+		}
+	}
+}
+
+country_event = { #Srpska revolt
+	id = revolt.15
+	title = revolt.15.t
+	desc = revolt.15.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.15.a
+		if = {
+			limit = {
+				NOT = {
+					country_exists = SKS
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 1128
+				}
+				SKS = {
+					transfer_state = 1128
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 1141
+				}
+				SKS = {
+					transfer_state = 1141
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 1142
+				}
+				SKS = {
+					transfer_state = 1142
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 1099
+				}
+				SKS = {
+					transfer_state = 1099
+				}
+			}
+			SKS = {
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+			}
+		}
+		if = {
+			limit = {
+				SKS = {
+					is_puppet_of = ROOT
+				}
+			}
+			end_puppet = SKS
+			if = {
+				limit = {
+					owns_state = 1128
+				}
+				SKS = {
+					transfer_state = 1128
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 1141
+				}
+				SKS = {
+					transfer_state = 1141
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 1142
+				}
+				SKS = {
+					transfer_state = 1142
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 1099
+				}
+				SKS = {
+					transfer_state = 1099
+				}
+			}
+			SKS = {
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+			}
+		}
+		custom_effect_tooltip = 4_months_to_win
+		hidden_effect = {
+			SKS = {
+				load_oob = SKS_collapse_oob
+			}
+			country_event = {
+				id = revolt_peace.17
+				days = 124
+			}
+			
+			country_event = {
+				id = revolt.205
+				days = 720
+			}
+			set_global_flag = recent_serb_revolt
+		}
+	}
+}
+
+country_event = { #Montenegro revolt
+	id = revolt.16
+	title = revolt.16.t
+	desc = revolt.16.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.16.a
+		if = {
+			limit = {
+				NOT = {
+					country_exists = MNT
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 105
+				}
+				MNT = {
+					transfer_state = 105
+					add_state_claim = 105
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 1097
+				}
+				MNT = {
+					transfer_state = 1097
+					add_state_claim = 1097
+				}
+			}
+			MNT = {
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+			}
+		}
+		if = {
+			limit = {
+				MNT = {
+					is_puppet_of = ROOT
+				}
+			}
+			end_puppet = MNT
+			if = {
+				limit = {
+					owns_state = 105
+				}
+				MNT = {
+					transfer_state = 105
+					add_state_claim = 105
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 1097
+				}
+				MNT = {
+					transfer_state = 1097
+					add_state_claim = 1097
+				}
+			}
+			MNT = {
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+			}
+		}
+		custom_effect_tooltip = 4_months_to_win
+		hidden_effect = {
+			MNT = {
+				load_oob = MNT_collapse_oob
+			}
+			country_event = {
+				id = revolt_peace.18
+				days = 124
+			}
+			
+			country_event = {
+				id = revolt.206
+				days = 720
+			}
+			set_global_flag = recent_montenegrin_revolt
+		}
+	}
+}
+
+country_event = { #Bukovina revolt
+	id = revolt.17
+	title = revolt.17.t
+	desc = revolt.17.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.17.a
+		if = {
+			limit = {
+				NOT = {
+					country_exists = BUK
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 713
+				}
+				BUK = {
+					transfer_state = 713
+					add_state_claim = 713
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 80
+				}
+				BUK = {
+					transfer_state = 80
+					add_state_claim = 80
+				}
+			}
+			BUK = {
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+			}
+		}
+		if = {
+			limit = {
+				BUK = {
+					is_puppet_of = ROOT
+				}
+			}
+			end_puppet = BUK
+			if = {
+				limit = {
+					owns_state = 713
+				}
+				BUK = {
+					transfer_state = 713
+					add_state_claim = 713
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 80
+				}
+				BUK = {
+					transfer_state = 80
+					add_state_claim = 80
+				}
+			}
+			BUK = {
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+			}
+		}
+		custom_effect_tooltip = 4_months_to_win
+		hidden_effect = {
+			BUK = {
+				load_oob = BUK_collapse_oob
+			}
+			country_event = {
+				id = revolt_peace.19
+				days = 124
+			}
+			
+			country_event = {
+				id = revolt.207
+				days = 720
+			}
+			set_global_flag = recent_bukovina_revolt
+		}
+	}
+}
+
+country_event = { #Carpatho-Ukraine revolt
+	id = revolt.18
+	title = revolt.18.t
+	desc = revolt.18.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.18.a
+		if = {
+			limit = {
+				NOT = {
+					country_exists = CPU
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 1119
+				}
+				CPU = {
+					transfer_state = 1119
+					add_state_claim = 1119
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 73
+				}
+				CPU = {
+					transfer_state = 73
+					add_state_claim = 73
+				}
+			}
+			CPU = {
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+			}
+		}
+		if = {
+			limit = {
+				CPU = {
+					is_puppet_of = ROOT
+				}
+			}
+			end_puppet = CPU
+			if = {
+				limit = {
+					owns_state = 1119
+				}
+				CPU = {
+					transfer_state = 1119
+					add_state_claim = 1119
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 73
+				}
+				CPU = {
+					transfer_state = 73
+					add_state_claim = 73
+				}
+			}
+			CPU = {
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+			}
+		}
+		custom_effect_tooltip = 4_months_to_win
+		hidden_effect = {
+			CPU = {
+				load_oob = CPU_collapse_oob
+			}
+			country_event = {
+				id = revolt_peace.20
+				days = 124
+			}
+			
+			country_event = {
+				id = revolt.208
+				days = 720
+			}
+			set_global_flag = recent_ruthenian_revolt
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+country_event = { #Srpska!
+	id = revolt.100
+	title = revolt.100.t
+	desc = revolt.100.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.100.a
+		SKS = {
+			transfer_state = 1141
+			transfer_state = 1142
+			declare_war_on = {
+				target = ROOT
+				type = annex_everything
+			}
+		}
+		SER = {
+			declare_war_on = {
+				target = ROOT
+				type = annex_everything
+			}
+			puppet = SKS
+			remove_state_claim = 1141
+			remove_state_claim = 1142
+		}
+		hidden_effect = {
+			SER = {
+				country_event = {
+					id = revolt_peace.8
+					days = 120
+				}
+			}
+			SKS = {
+				load_oob = SKS_collapse_oob
+				set_politics = {
+					ruling_party = paternal_autocrat
+				}
+
+				set_popularities = {
+					totalist = 4
+					radical_socialist = 0
+					syndicalist = 0
+					social_democrat = 4
+					social_liberal = 0
+					market_liberal = 4
+					social_conservative = 14
+					authoritarian_democrat = 19
+					paternal_autocrat = 45
+					national_populist = 10
+				}
+			}
+		}
+	}
+}
+
+country_event = { #West Ukraine
+	id = revolt.101
+	title = revolt.101.t
+	desc = revolt.101.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.101.a
+		WSU = {
+			transfer_state = 91
+			transfer_state = 1140
+			transfer_state = 1127
+			add_state_claim = 1126
+			add_state_claim = 89
+			declare_war_on = {
+				target = ROOT
+				type = annex_everything
+			}
+		}
+		UKR = {
+			declare_war_on = {
+				target = ROOT
+				type = annex_everything
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = revolt_peace.10
+				days = 90
+			}
+			WSU = {
+				load_oob = WSU_collapse_oob
+				
+				set_politics = {
+					ruling_party = paternal_autocrat
+				}
+				
+				set_popularities = {
+					totalist = 6
+					radical_socialist = 0
+					syndicalist = 0
+					social_democrat = 0
+					social_liberal = 5
+					market_liberal = 7
+					social_conservative = 23
+					authoritarian_democrat = 44
+					paternal_autocrat = 6
+					national_populist = 9
+				}
+			}
+		}
+	}
+}
+
+country_event = { #West Ukraine from decision
+	id = revolt.102
+	title = revolt.102.t
+	desc = revolt.102.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.102.a
+		WSU = {
+			transfer_state = 91
+			transfer_state = 1140
+			transfer_state = 1127
+			add_state_claim = 1126
+			add_state_claim = 89
+			declare_war_on = {
+				target = ROOT
+				type = annex_everything
+			}
+		}
+		UKR = {
+			declare_war_on = {
+				target = ROOT
+				type = annex_everything
+			}
+			puppet = WSU
+		}
+		hidden_effect = {
+			country_event = {
+				id = revolt_peace.10
+				days = 90
+			}
+			
+			WSU = {
+				load_oob = WSU_collapse_oob
+				
+				set_politics = {
+					ruling_party = paternal_autocrat
+				}
+				
+				set_popularities = {
+					totalist = 6
+					radical_socialist = 0
+					syndicalist = 0
+					social_democrat = 0
+					social_liberal = 5
+					market_liberal = 7
+					social_conservative = 23
+					authoritarian_democrat = 44
+					paternal_autocrat = 6
+					national_populist = 9
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Transylvania revolt from decision
+	id = revolt.103
+	title = revolt.103.t
+	desc = revolt.103.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.103.a
+		TRS = {
+			transfer_state = 1113
+			transfer_state = 83
+			transfer_state = 76
+			add_state_claim = 84
+			add_state_claim = 1116
+			add_state_claim = 789
+			add_state_claim = 76
+			add_state_claim = 1117
+			add_state_claim = 1112
+			add_state_claim = 1118
+			add_state_claim = 83
+			add_state_claim = 1114
+			add_state_claim = 1113
+			add_state_claim = 1115
+			add_state_claim = 82
+			declare_war_on = {
+				target = ROOT
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = {
+				country_exists = ROM
+			}
+			ROM = {
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+				puppet = TRS
+			}
+			else_if = {
+				limit = {
+					country_exists = RRM
+				}
+				RRM = {
+					declare_war_on = {
+						target = ROOT
+						type = annex_everything
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = revolt_peace.22
+				days = 90
+			}
+			
+			TRS = {
+				load_oob = TRS_collapse_oob
+				
+				set_politics = {
+					ruling_party = social_conservative
+				}
+				
+				set_popularities = {
+					totalist = 0
+					radical_socialist = 0
+					syndicalist = 0
+					social_democrat = 7
+					social_liberal = 8
+					market_liberal = 10
+					social_conservative = 60
+					authoritarian_democrat = 8
+					paternal_autocrat = 5
+					national_populist = 2
+				}
+			}
+		}
+	}
+}
+
+
+
+country_event = { #Remove recent slovene revolt
+	id = revolt.200
+	title = revolt.200.t
+	desc = revolt.200.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.200.a
+		clr_global_flag = recent_slovene_revolt
+	}
+}
+
+country_event = { #Remove recent slovak revolt
+	id = revolt.201
+	title = revolt.201.t
+	desc = revolt.201.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.201.a
+		clr_global_flag = recent_slovak_revolt
+	}
+}
+
+country_event = { #Remove recent transylvanian revolt
+	id = revolt.202
+	title = revolt.202.t
+	desc = revolt.202.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.202.a
+		clr_global_flag = recent_transylvanian_revolt
+	}
+}
+
+country_event = { #Remove recent banat revolt
+	id = revolt.203
+	title = revolt.203.t
+	desc = revolt.203.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.203.a
+		clr_global_flag = recent_banat_revolt
+	}
+}
+
+country_event = { #Remove recent bosnian revolt
+	id = revolt.204
+	title = revolt.204.t
+	desc = revolt.204.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.204.a
+		clr_global_flag = recent_bosnian_revolt
+	}
+}
+
+country_event = { #Remove recent serb revolt
+	id = revolt.205
+	title = revolt.205.t
+	desc = revolt.205.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.205.a
+		clr_global_flag = recent_serb_revolt
+	}
+}
+
+country_event = { #Remove recent montenegrin revolt
+	id = revolt.206
+	title = revolt.206.t
+	desc = revolt.206.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.206.a
+		clr_global_flag = recent_montenegrin_revolt
+	}
+}
+
+country_event = { #Remove recent bukovina revolt
+	id = revolt.207
+	title = revolt.207.t
+	desc = revolt.207.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.207.a
+		clr_global_flag = recent_bukovina_revolt
+	}
+}
+
+country_event = { #Remove recent ruthenian revolt
+	id = revolt.208
+	title = revolt.208.t
+	desc = revolt.208.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #coolio
+		name = revolt.208.a
+		clr_global_flag = recent_ruthenian_revolt
+	}
+}
+
+
+
+country_event = { #Surrender to Hungary
+	id = revolt_peace.1
+	title = revolt_peace.1.t
+	desc = revolt_peace.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Nooo!
+		name = revolt_peace.1.a
+		white_peace = HUN
+		HUN = {
+			set_country_flag = breakaway_free
+		}
+	}
+}
+
+country_event = { #Surrender to Illyria
+	id = revolt_peace.2
+	title = revolt_peace.2.t
+	desc = revolt_peace.2.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Nooo!
+		name = revolt_peace.2.a
+		white_peace = CRO
+		CRO = {
+			set_country_flag = breakaway_free
+		}
+	}
+}
+
+country_event = { #Surrender to Bohemia
+	id = revolt_peace.3
+	title = revolt_peace.3.t
+	desc = revolt_peace.3.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Nooo!
+		name = revolt_peace.3.a
+		white_peace = CZE
+		CZE = {
+			set_country_flag = breakaway_free
+		}
+	}
+}
+
+country_event = { #Surrender to Galicia
+	id = revolt_peace.4
+	title = revolt_peace.4.t
+	desc = revolt_peace.4.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Nooo!
+		name = revolt_peace.4.a
+		white_peace = GAL
+		GAL = {
+			set_country_flag = breakaway_free
+		}
+	}
+}
+
+
+
+country_event = { #End of the War
+	id = revolt_peace.5
+	title = revolt_peace.5.t
+	desc = revolt_peace.5.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Okay.
+		name = revolt_peace.5.a
+		if = {
+			limit = {
+				controls_state = 783
+			}
+			transfer_state = 783
+		}
+		if = {
+			limit = {
+				controls_state = 1100
+			}
+			transfer_state = 1100
+		}
+		if = {
+			limit = {
+				controls_state = 736
+			}
+			transfer_state = 736
+		}
+		if = {
+			limit = {
+				controls_state = 1144
+			}
+			transfer_state = 1144
+		}
+		white_peace = AUS
+		every_country = {
+			limit = {
+				is_in_faction_with = AUS
+				has_war_with = ITA
+			}
+			white_peace = ITA
+		}
+	}
+}
+
+country_event = { #End of the War
+	id = revolt_peace.6
+	title = revolt_peace.6.t
+	desc = revolt_peace.6.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Okay.
+		name = revolt_peace.6.a
+		if = {
+			limit = {
+				controls_state = 736
+			}
+			transfer_state = 736
+		}
+		if = {
+			limit = {
+				controls_state = 1144
+			}
+			transfer_state = 1144
+		}
+		if = {
+			limit = {
+				controls_state = 102
+			}
+			transfer_state = 102
+		}
+		if = {
+			limit = {
+				controls_state = 1101
+			}
+			transfer_state = 1101
+		}
+		if = {
+			limit = {
+				controls_state = 1103
+			}
+			transfer_state = 1103
+		}
+		if = {
+			limit = {
+				controls_state = 1104
+			}
+			transfer_state = 1104
+		}
+		white_peace = AUS
+		every_country = {
+			limit = {
+				is_in_faction_with = AUS
+				has_war_with = CRO
+			}
+			white_peace = CRO
+		}
+	}
+}
+
+country_event = { #End of the War
+	id = revolt_peace.7
+	title = revolt_peace.7.t
+	desc = revolt_peace.7.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Okay.
+		name = revolt_peace.7.a
+		if = {
+			limit = {
+				controls_state = 875
+			}
+			transfer_state = 875
+		}
+		if = {
+			limit = {
+				controls_state = 45
+			}
+			transfer_state = 45
+		}
+		white_peace = HUN
+		every_country = {
+			limit = {
+				is_in_faction_with = HUN
+				has_war_with = SER
+			}
+			white_peace = SER
+		}
+	}
+}
+
+country_event = { #End of the War
+	id = revolt_peace.8
+	title = revolt_peace.8.t
+	desc = revolt_peace.8.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Okay.
+		name = revolt_peace.8.a
+		if = {
+			limit = {
+				controls_state = 1097
+			}
+			transfer_state = 1097
+		}
+		if = {
+			limit = {
+				controls_state = 105
+			}
+			transfer_state = 105
+		}
+		if = {
+			limit = {
+				controls_state = 1128
+			}
+			transfer_state = 1128
+		}
+		
+		if = {
+			limit = {
+				OR = {
+					controls_state = 104
+					SKS = {
+						controls_state = 104
+					}
+				}
+			}
+			SKS = {
+				transfer_state = 104
+			}
+		}
+		
+		if = {
+			limit = {
+				OR = {
+					controls_state = 1145
+					SKS = {
+						controls_state = 1145
+					}
+				}
+			}
+			SKS = {
+				transfer_state = 1145
+			}
+		}
+		
+		if = {
+			limit = {
+				OR = {
+					controls_state = 1143
+					SKS = {
+						controls_state = 1143
+					}
+				}
+			}
+			SKS = {
+				transfer_state = 1143
+			}
+		}
+		
+		if = {
+			limit = {
+				SKS = {
+					has_capitulated = yes
+				}
+			}
+			if = {
+				limit = {
+					CRO = {
+						is_in_faction_with = AUS
+					}
+				}
+				CRO = {
+					transfer_state = 1141
+				}
+				else_if = {
+					limit = {
+						NOT = {
+							country_exists = CRO
+						}
+					}
+					AUS = {
+						transfer_state = 1141
+					}
+					else = {
+						any_country = {
+							limit = {
+								owns_state = 109
+							}
+							transfer_state = 1141
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				SKS = {
+					has_capitulated = yes
+				}
+			}
+			if = {
+				limit = {
+					CRO = {
+						is_in_faction_with = AUS
+					}
+				}
+				CRO = {
+					transfer_state = 1142
+				}
+				else_if = {
+					limit = {
+						NOT = {
+							country_exists = CRO
+						}
+					}
+					AUS = {
+						transfer_state = 1142
+					}
+					else = {
+						any_country = {
+							limit = {
+								owns_state = 109
+							}
+							transfer_state = 1142
+						}
+					}
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				OR = {
+					controls_state = 1143
+					SKS = {
+						controls_state = 1143
+					}
+				}
+			}
+			SKS = {
+				transfer_state = 1143
+			}
+		}
+		white_peace = CRO
+		every_country = {
+			limit = {
+				is_in_faction_with = CRO
+				has_war_with = SER
+			}
+			white_peace = SER
+		}
+		every_country = {
+			limit = {
+				is_in_faction_with = CRO
+				has_war_with = SKS
+			}
+			white_peace = SKS
+		}
+	}
+}
+
+country_event = { #End of the War
+	id = revolt_peace.9
+	title = revolt_peace.9.t
+	desc = revolt_peace.9.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Okay.
+		name = revolt_peace.9.a
+		if = {
+			limit = {
+				controls_state = 1097
+			}
+			transfer_state = 1097
+		}
+		if = {
+			limit = {
+				controls_state = 105
+			}
+			transfer_state = 105
+		}
+		if = {
+			limit = {
+				controls_state = 1128
+			}
+			transfer_state = 1128
+		}
+		if = {
+			limit = {
+				controls_state = 1141
+			}
+			transfer_state = 1141
+		}
+		if = {
+			limit = {
+				controls_state = 1142
+			}
+			transfer_state = 1142
+		}
+		if = {
+			limit = {
+				controls_state = 104
+			}
+			transfer_state = 104
+		}
+		if = {
+			limit = {
+				controls_state = 1145
+			}
+			transfer_state = 1145
+		}
+		if = {
+			limit = {
+				controls_state = 1143
+			}
+			transfer_state = 1143
+		}
+		white_peace = CRO
+		every_country = {
+			limit = {
+				is_in_faction_with = CRO
+				has_war_with = SER
+			}
+			white_peace = SER
+		}
+	}
+}
+
+country_event = { #End of the War
+	id = revolt_peace.10
+	title = revolt_peace.10.t
+	desc = revolt_peace.10.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Okay.
+		name = revolt_peace.10.a
+		if = {
+			limit = {
+				OR = {
+					controls_state = 1126
+					WSU = {
+						controls_state = 1126
+					}
+				}
+			}
+			WSU = {
+				transfer_state = 1126
+			}
+		}
+		
+		if = {
+			limit = {
+				OR = {
+					controls_state = 89
+					WSU = {
+						controls_state = 89
+					}
+				}
+			}
+			WSU = {
+				transfer_state = 89
+			}
+		}
+		
+		if = {
+			limit = {
+				OR = {
+					controls_state = 1119
+					WSU = {
+						controls_state = 1119
+					}
+				}
+			}
+			WSU = {
+				transfer_state = 1119
+			}
+		}
+		
+		if = {
+			limit = {
+				OR = {
+					controls_state = 73
+					WSU = {
+						controls_state = 73
+					}
+				}
+			}
+			WSU = {
+				transfer_state = 73
+			}
+		}
+		
+		if = {
+			limit = {
+				OR = {
+					controls_state = 80
+					WSU = {
+						controls_state = 80
+					}
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 713
+				}
+				ROM = {
+					transfer_state = 713
+				}
+			}
+			WSU = {
+				transfer_state = 80
+			}
+		}
+		white_peace = GAL
+		every_country = {
+			limit = {
+				is_in_faction_with = GAL
+				has_war_with = UKR
+			}
+			white_peace = UKR
+		}
+		every_country = {
+			limit = {
+				is_in_faction_with = GAL
+				has_war_with = WSU
+			}
+			white_peace = WSU
+		}
+	}
+}
+
+country_event = { #End of the War
+	id = revolt_peace.11
+	title = revolt_peace.11.t
+	desc = revolt_peace.11.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Okay.
+		name = revolt_peace.11.a
+		if = {
+			limit = {
+				controls_state = 1140
+			}
+			transfer_state = 1140
+		}
+		if = {
+			limit = {
+				controls_state = 91
+			}
+			transfer_state = 91
+		}
+		if = {
+			limit = {
+				controls_state = 1127
+			}
+			transfer_state = 1127
+		}
+		if = {
+			limit = {
+				controls_state = 1126
+			}
+			transfer_state = 1126
+		}
+		if = {
+			limit = {
+				controls_state = 89
+			}
+			transfer_state = 89
+		}
+		if = {
+			limit = {
+				controls_state = 80
+			}
+			if = {
+				limit = {
+					controls_state = 713
+				}
+				ROM = {
+					transfer_state = 713
+				}
+			}
+			transfer_state = 80
+		}
+		if = {
+			limit = {
+				controls_state = 1140
+			}
+			transfer_state = 1140
+		}
+		if = {
+			limit = {
+				controls_state = 1119
+			}
+			transfer_state = 1119
+		}
+		if = {
+			limit = {
+				controls_state = 73
+			}
+			transfer_state = 73
+		}
+		white_peace = GAL
+		every_country = {
+			limit = {
+				is_in_faction_with = GAL
+				has_war_with = UKR
+			}
+			white_peace = UKR
+		}
+	}
+}
+
+country_event = { #Surrender to Slovenia
+	id = revolt_peace.12
+	title = revolt_peace.12.t
+	desc = {
+		text = revolt_peace.12.d.surrender
+		trigger = {
+			country_exists = SLO
+			has_war_with = SLO
+			NOT = {
+				owns_state = 1103
+			}
+		}
+	}
+	desc = {
+		text = revolt_peace.12.d.victory
+		trigger = {
+			NOT = {
+				has_war_with = SLO
+			}
+			OR = {
+				SLO = {
+					OR = {
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+				NOT = {
+					country_exists = SLO
+				}
+			}
+		}
+	}
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Okay.
+		name = revolt_peace.12.a
+		if = {
+			limit = {
+				country_exists = SLO
+				has_war_with = SLO
+				NOT = {
+					owns_state = 1103
+				}
+			}
+			every_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					has_war_with = SLO
+				}
+				white_peace = SLO
+			}
+			white_peace = SLO
+			SLO = {
+				set_country_flag = BREAKAWAY_independent
+			}
+			add_political_power = -50
+			add_stability = -0.1
+			add_war_support = -0.1
+			set_global_flag = no_slovene_revolt
+			
+			custom_effect_tooltip = collapse_ten
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = 0.1
+			}
+			
+			custom_effect_tooltip = collapse_hungary_ten
+			add_to_variable = {
+				var = HUN.subject_revolt_progress
+				value = 0.1
+			}
+			
+			custom_effect_tooltip = collapse_illyria_ten
+			add_to_variable = {
+				var = CRO.subject_revolt_progress
+				value = 0.1
+			}
+			
+			custom_effect_tooltip = collapse_bohemia_ten
+			add_to_variable = {
+				var = CZE.subject_revolt_progress
+				value = 0.1
+			}
+			
+			custom_effect_tooltip = collapse_galicia_ten
+			add_to_variable = {
+				var = GAL.subject_revolt_progress
+				value = 0.1
+			}
+		}
+		
+		
+		
+		if = {
+			limit = {
+				NOT = {
+					has_war_with = SLO
+				}
+				OR = {
+					SLO = {
+						is_puppet_of = ROOT
+					}
+					NOT = {
+						country_exists = SLO
+					}
+				}
+			}
+			add_political_power = 50
+			add_stability = 0.05
+			add_war_support = -0.03
+			custom_effect_tooltip = collapse_slovenia_twenty_minus
+			add_to_variable = {
+				var = AUS.slovene_unrest
+				value = -3
+			}
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					country_exists = SLO
+				}
+				SLO = {
+					load_focus_tree = breakaway_tree
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+country_event = { #End of the Slovak Rebellion
+	id = revolt_peace.13
+	title = revolt_peace.13.t
+	desc = {
+		text = revolt_peace.13.d.surrender
+		trigger = {
+			country_exists = SVK
+			has_war_with = SVK
+			NOT = {
+				owns_state = 1123
+			}
+		}
+	}
+	desc = {
+		text = revolt_peace.13.d.victory
+		trigger = {
+			NOT = {
+				has_war_with = SVK
+			}
+			OR = {
+				SVK = {
+					OR = {
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+				NOT = {
+					country_exists = SVK
+				}
+			}
+		}
+	}
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Okay.
+		name = revolt_peace.13.a
+		if = {
+			limit = {
+				country_exists = SVK
+				has_war_with = SVK
+				NOT = {
+					owns_state = 1123
+				}
+			}
+			every_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					has_war_with = SVK
+				}
+				white_peace = SVK
+			}
+			white_peace = SVK
+			SVK = {
+				set_country_flag = BREAKAWAY_independent
+			}
+			add_political_power = -50
+			add_stability = -0.1
+			add_war_support = -0.1
+			set_global_flag = no_slovak_revolt
+			
+			custom_effect_tooltip = collapse_ten
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = 0.1
+			}
+			
+			custom_effect_tooltip = collapse_hungary_ten
+			add_to_variable = {
+				var = HUN.subject_revolt_progress
+				value = 0.1
+			}
+			
+			custom_effect_tooltip = collapse_illyria_ten
+			add_to_variable = {
+				var = CRO.subject_revolt_progress
+				value = 0.1
+			}
+			
+			custom_effect_tooltip = collapse_bohemia_ten
+			add_to_variable = {
+				var = CZE.subject_revolt_progress
+				value = 0.1
+			}
+			
+			custom_effect_tooltip = collapse_galicia_ten
+			add_to_variable = {
+				var = GAL.subject_revolt_progress
+				value = 0.1
+			}
+		}
+		
+		
+		
+		if = {
+			limit = {
+				NOT = {
+					has_war_with = SVK
+				}
+				OR = {
+					SVK = {
+						is_puppet_of = ROOT
+					}
+					NOT = {
+						country_exists = SVK
+					}
+				}
+			}
+			add_political_power = 50
+			add_stability = 0.05
+			add_war_support = -0.03
+			custom_effect_tooltip = collapse_slovakia_twenty_minus
+			add_to_variable = {
+				var = HUN.slovak_unrest
+				value = -3
+			}
+		}
+		if = {
+			limit = {
+				SVK = {
+					controls_state = 1136
+				}
+			}
+			SVK = {
+				transfer_state = 1136
+			}
+		}
+		if = {
+			limit = {
+				SVK = {
+					controls_state = 1122
+				}
+			}
+			SVK = {
+				transfer_state = 1122
+			}
+		}
+		if = {
+			limit = {
+				SVK = {
+					controls_state = 1119
+				}
+			}
+			SVK = {
+				transfer_state = 1119
+			}
+		}
+		if = {
+			limit = {
+				SVK = {
+					controls_state = 73
+				}
+			}
+			SVK = {
+				transfer_state = 73
+			}
+		}
+		
+		
+		hidden_effect = {
+			if = {
+				limit = {	
+					country_exists = SVK
+				}
+				SVK = {
+					load_focus_tree = breakaway_tree
+				}
+			}
+		}
+	}
+}
+
+country_event = { #End of the Transylvanian Rebellion
+	id = revolt_peace.14
+	title = revolt_peace.14.t
+	desc = {
+		text = revolt_peace.14.d.surrender
+		trigger = {
+			country_exists = TRS
+			has_war_with = TRS
+			NOT = {
+				owns_state = 84
+			}
+		}
+	}
+	desc = {
+		text = revolt_peace.14.d.victory
+		trigger = {
+			NOT = {
+				has_war_with = TRS
+			}
+			OR = {
+				TRS = {
+					OR = {
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+				NOT = {
+					country_exists = TRS
+				}
+			}
+		}
+	}
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Okay.
+		name = revolt_peace.13.a
+		if = {
+			limit = {
+				country_exists = TRS
+				has_war_with = TRS
+				NOT = {
+					owns_state = 84
+				}
+			}
+			every_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					has_war_with = TRS
+				}
+				white_peace = TRS
+			}
+			white_peace = TRS
+			TRS = {
+				set_country_flag = BREAKAWAY_independent
+				if = {
+					limit = {
+						NOT = {
+							TRS = { owns_state = 1114 }
+							country_exists = BAN
+							ROM = {
+								owns_state = 1114
+							}
+							BUL = {
+								owns_state = 1114
+							}
+							SER = {
+								owns_state = 1114
+							}
+						}
+					}
+					transfer_state = 1114
+					add_state_claim = 1114
+				}
+				
+				if = {
+					limit = {
+						NOT = {
+							TRS = { owns_state = 82 }
+							country_exists = BAN
+							ROM = {
+								owns_state = 82
+							}
+							BUL = {
+								owns_state = 82
+							}
+							SER = {
+								owns_state = 82
+							}
+						}
+					}
+					transfer_state = 82
+					add_state_claim = 82
+				}
+				
+				if = {
+					limit = {
+						TRS = { controls_state = 83 }
+					}
+					transfer_state = 83
+					add_state_claim = 83
+					add_to_variable = {
+						var = TRS_do_i_own
+						value = 1
+					}
+				}
+				
+				if = {
+					limit = {
+						TRS = {
+							controls_state = 1118
+							controls_state = 83
+						}
+					}
+					transfer_state = 1118
+					add_state_claim = 1118
+					add_to_variable = {
+						var = TRS_do_i_own #Checks if TRS owns states 1118 and 1117
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						TRS = {
+							controls_state = 1118
+							controls_state = 1117
+							controls_state = 83
+						}
+					}
+					transfer_state = 1117
+					add_state_claim = 1117
+					add_to_variable = {
+						var = TRS_do_i_own
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						TRS = {
+							check_variable = {
+								var = TRS_do_i_own
+								value = 3
+								compare = equals
+							}
+						}
+					}
+					transfer_state = 76
+					transfer_state = 789
+					transfer_state = 1112
+				}
+				else = {
+					if = {
+						limit = {
+							TRS = {
+								controls_state = 1112
+								controls_state = 1117
+							}
+						}
+						transfer_state = 1112
+						transfer_state = 1117
+						transfer_state = 76
+						transfer_state = 789
+						else = {
+							if = {
+								limit = {
+									TRS = {
+										controls_state = 76
+									}
+								}
+								transfer_state = 789
+								transfer_state = 76
+							}
+							else = {
+								if = {
+									limit = {
+										TRS = {
+											controls_state = 789
+										}
+									}
+									transfer_state = 789
+								}
+							}
+						}
+					}
+				}
+			}
+			add_political_power = -50
+			add_stability = -0.1
+			add_war_support = -0.1
+			set_global_flag = no_transylvanian_revolt
+			
+			custom_effect_tooltip = collapse_ten
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = 0.1
+			}
+			
+			custom_effect_tooltip = collapse_hungary_ten
+			add_to_variable = {
+				var = HUN.subject_revolt_progress
+				value = 0.1
+			}
+			
+			custom_effect_tooltip = collapse_illyria_ten
+			add_to_variable = {
+				var = CRO.subject_revolt_progress
+				value = 0.1
+			}
+			
+			custom_effect_tooltip = collapse_bohemia_ten
+			add_to_variable = {
+				var = CZE.subject_revolt_progress
+				value = 0.1
+			}
+			
+			custom_effect_tooltip = collapse_galicia_ten
+			add_to_variable = {
+				var = GAL.subject_revolt_progress
+				value = 0.1
+			}
+		}
+		
+		
+		
+		if = {
+			limit = {
+				NOT = {
+					has_war_with = TRS
+				}
+				OR = {
+					TRS = {
+						is_puppet_of = ROOT
+					}
+					NOT = {
+						country_exists = TRS
+					}
+				}
+			}
+			add_political_power = 50
+			add_stability = 0.05
+			add_war_support = -0.03
+			custom_effect_tooltip = collapse_transylvania_twenty_minus
+			add_to_variable = {
+				var = HUN.transylvanian_unrest
+				value = -3
+			}
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					country_exists = TRS
+				}
+				TRS = {
+					load_focus_tree = breakaway_tree
+				}
+			}
+		}
+	}
+}
+
+
+country_event = { #End of the Banat Rebellion
+	id = revolt_peace.15
+	title = revolt_peace.15.t
+	desc = {
+		text = revolt_peace.15.d.surrender
+		trigger = {
+			country_exists = BAN
+			has_war_with = BAN
+			BAN = {
+				owns_state = 1114
+			}
+		}
+	}
+	desc = {
+		text = revolt_peace.15.d.victory
+		trigger = {
+			NOT = {
+				has_war_with = BAN
+			}
+			OR = {
+				BAN = {
+					OR = {
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+				NOT = {
+					country_exists = BAN
+				}
+			}
+		}
+	}
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Okay.
+		name = revolt_peace.15.a
+		if = {
+			limit = {
+				country_exists = BAN
+				has_war_with = BAN
+				NOT = {
+					owns_state = 1114
+				}
+			}
+			every_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					has_war_with = BAN
+				}
+				white_peace = BAN
+			}
+			white_peace = BAN
+			BAN = {
+				set_country_flag = BREAKAWAY_independent
+			}
+			add_political_power = -50
+			add_stability = -0.1
+			add_war_support = -0.1
+			set_global_flag = no_banat_revolt
+			
+			custom_effect_tooltip = collapse_five
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_hungary_five
+			add_to_variable = {
+				var = HUN.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_illyria_five
+			add_to_variable = {
+				var = CRO.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_bohemia_five
+			add_to_variable = {
+				var = CZE.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_galicia_five
+			add_to_variable = {
+				var = GAL.subject_revolt_progress
+				value = 0.05
+			}
+		}
+		
+		
+		
+		if = {
+			limit = {
+				NOT = {
+					has_war_with = BAN
+				}
+				OR = {
+					BAN = {
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+					NOT = {
+						country_exists = BAN
+					}
+				}
+			}
+			add_political_power = 50
+			add_stability = 0.05
+			add_war_support = -0.03
+			custom_effect_tooltip = collapse_banat_twenty_minus
+			add_to_variable = {
+				var = HUN.banat_unrest
+				value = -3
+			}
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					country_exists = BAN
+				}
+				BAN = {
+					load_focus_tree = breakaway_tree
+				}
+			}
+		}
+	}
+}
+
+
+
+country_event = { #End of the Bosnian Rebellion
+	id = revolt_peace.16
+	title = revolt_peace.16.t
+	desc = {
+		text = revolt_peace.16.d.surrender
+		trigger = {
+			country_exists = BOS
+			has_war_with = BOS
+			BOS = {
+				owns_state = 104
+			}
+		}
+	}
+	desc = {
+		text = revolt_peace.16.d.victory
+		trigger = {
+			NOT = {
+				has_war_with = BOS
+			}
+			OR = {
+				BOS = {
+					OR = {
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+				NOT = {
+					country_exists = BOS
+				}
+			}
+		}
+	}
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Okay.
+		name = revolt_peace.16.a
+		if = {
+			limit = {
+				country_exists = BOS
+				has_war_with = BOS
+				NOT = {
+					owns_state = 104
+				}
+			}
+			every_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					has_war_with = BOS
+				}
+				white_peace = BOS
+			}
+			white_peace = BOS
+			BOS = {
+				set_country_flag = BREAKAWAY_independent
+			}
+			add_political_power = -50
+			add_stability = -0.1
+			add_war_support = -0.1
+			set_global_flag = no_bosnian_revolt
+			
+			custom_effect_tooltip = collapse_five
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_hungary_five
+			add_to_variable = {
+				var = HUN.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_illyria_five
+			add_to_variable = {
+				var = CRO.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_bohemia_five
+			add_to_variable = {
+				var = CZE.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_galicia_five
+			add_to_variable = {
+				var = GAL.subject_revolt_progress
+				value = 0.05
+			}
+		}
+		
+		
+		
+		if = {
+			limit = {
+				NOT = {
+					has_war_with = BOS
+				}
+				OR = {
+					BOS = {
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+					NOT = {
+						country_exists = BOS
+					}
+				}
+			}
+			add_political_power = 50
+			add_stability = 0.05
+			add_war_support = -0.03
+			custom_effect_tooltip = collapse_bosnia_twenty_minus
+			add_to_variable = {
+				var = CRO.bosnian_unrest
+				value = -3
+			}
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					country_exists = BOS
+				}
+				BOS = {
+					load_focus_tree = breakaway_tree
+				}
+			}
+		}
+	}
+}
+
+country_event = { #End of the Srpska Rebellion
+	id = revolt_peace.17
+	title = revolt_peace.17.t
+	desc = {
+		text = revolt_peace.17.d.surrender
+		trigger = {
+			country_exists = SKS
+			has_war_with = SKS
+			SKS = {
+				owns_state = 1141
+			}
+		}
+	}
+	desc = {
+		text = revolt_peace.17.d.victory
+		trigger = {
+			NOT = {
+				has_war_with = SKS
+			}
+			OR = {
+				SKS = {
+					OR = {
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+				NOT = {
+					country_exists = SKS
+				}
+			}
+		}
+	}
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Okay.
+		name = revolt_peace.17.a
+		if = {
+			limit = {
+				country_exists = SKS
+				has_war_with = SKS
+				NOT = {
+					owns_state = 1141
+				}
+			}
+			every_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					has_war_with = SKS
+				}
+				white_peace = SKS
+			}
+			white_peace = SKS
+			SKS = {
+				set_country_flag = BREAKAWAY_independent
+			}
+			
+			
+			
+			if = {
+				limit = {
+					owns_state = 104
+				}
+				SKS = {
+					transfer_state = 104
+					add_state_core = 104
+				}
+			}
+			
+			if = {
+				limit = {
+					owns_state = 794
+				}
+				SKS = {
+					transfer_state = 794
+					add_state_core = 794
+				}
+			}
+			
+			
+			
+			add_political_power = -50
+			add_stability = -0.1
+			add_war_support = -0.1
+			set_global_flag = no_serb_revolt
+			
+			custom_effect_tooltip = collapse_five
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_hungary_five
+			add_to_variable = {
+				var = HUN.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_illyria_five
+			add_to_variable = {
+				var = CRO.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_bohemia_five
+			add_to_variable = {
+				var = CZE.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_galicia_five
+			add_to_variable = {
+				var = GAL.subject_revolt_progress
+				value = 0.05
+			}
+		}
+		
+		
+		
+		if = {
+			limit = {
+				NOT = {
+					has_war_with = SKS
+				}
+				OR = {
+					SKS = {
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+					NOT = {
+						country_exists = SKS
+					}
+				}
+			}
+			add_political_power = 50
+			add_stability = 0.05
+			add_war_support = -0.03
+			custom_effect_tooltip = collapse_serbia_twenty_minus
+			add_to_variable = {
+				var = CRO.serb_unrest
+				value = -3
+			}
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					country_exists = SKS
+				}
+				SKS = {
+					load_focus_tree = breakaway_tree
+				}
+			}
+		}
+	}
+}
+
+country_event = { #End of the Montenegrin Rebellion
+	id = revolt_peace.18
+	title = revolt_peace.18.t
+	desc = {
+		text = revolt_peace.18.d.surrender
+		trigger = {
+			country_exists = MNT
+			has_war_with = MNT
+			MNT = {
+				owns_state = 105
+			}
+		}
+	}
+	desc = {
+		text = revolt_peace.18.d.victory
+		trigger = {
+			NOT = {
+				has_war_with = MNT
+			}
+			OR = {
+				MNT = {
+					OR = {
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+				NOT = {
+					country_exists = MNT
+				}
+			}
+		}
+	}
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Okay.
+		name = revolt_peace.18.a
+		if = {
+			limit = {
+				country_exists = MNT
+				has_war_with = MNT
+				NOT = {
+					owns_state = 105
+				}
+			}
+			every_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					has_war_with = MNT
+				}
+				white_peace = MNT
+			}
+			white_peace = MNT
+			MNT = {
+				set_country_flag = BREAKAWAY_independent
+			}
+			
+			
+			
+			add_political_power = -50
+			add_stability = -0.1
+			add_war_support = -0.1
+			set_global_flag = no_montenegrin_revolt
+			
+			custom_effect_tooltip = collapse_five
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_hungary_five
+			add_to_variable = {
+				var = HUN.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_illyria_five
+			add_to_variable = {
+				var = CRO.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_bohemia_five
+			add_to_variable = {
+				var = CZE.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_galicia_five
+			add_to_variable = {
+				var = GAL.subject_revolt_progress
+				value = 0.05
+			}
+		}
+		
+		
+		
+		if = {
+			limit = {
+				NOT = {
+					has_war_with = MNT
+				}
+				OR = {
+					MNT = {
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+					NOT = {
+						country_exists = MNT
+					}
+				}
+			}
+			add_political_power = 50
+			add_stability = 0.05
+			add_war_support = -0.03
+			custom_effect_tooltip = collapse_montenegro_twenty_minus
+			add_to_variable = {
+				var = CRO.montenegrin_unrest
+				value = -3
+			}
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					country_exists = MNT
+				}
+				MNT = {
+					load_focus_tree = breakaway_tree
+				}
+			}
+		}
+	}
+}
+
+country_event = { #End of the Bukovina Rebellion
+	id = revolt_peace.19
+	title = revolt_peace.19.t
+	desc = {
+		text = revolt_peace.19.d.surrender
+		trigger = {
+			country_exists = BUK
+			has_war_with = BUK
+			BUK = {
+				owns_state = 80
+			}
+		}
+	}
+	desc = {
+		text = revolt_peace.19.d.victory
+		trigger = {
+			NOT = {
+				has_war_with = BUK
+			}
+			OR = {
+				BUK = {
+					OR = {
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+				NOT = {
+					country_exists = BUK
+				}
+			}
+		}
+	}
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Okay.
+		name = revolt_peace.19.a
+		if = {
+			limit = {
+				country_exists = BUK
+				has_war_with = BUK
+				NOT = {
+					owns_state = 1141
+				}
+			}
+			every_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					has_war_with = BUK
+				}
+				white_peace = BUK
+			}
+			white_peace = BUK
+			BUK = {
+				set_country_flag = BREAKAWAY_independent
+			}
+			
+			
+			
+			add_political_power = -50
+			add_stability = -0.1
+			add_war_support = -0.1
+			set_global_flag = no_bukovina_revolt
+			
+			custom_effect_tooltip = collapse_five
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_hungary_five
+			add_to_variable = {
+				var = HUN.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_illyria_five
+			add_to_variable = {
+				var = CRO.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_bohemia_five
+			add_to_variable = {
+				var = CZE.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_galicia_five
+			add_to_variable = {
+				var = GAL.subject_revolt_progress
+				value = 0.05
+			}
+		}
+		
+		
+		
+		if = {
+			limit = {
+				NOT = {
+					has_war_with = BUK
+				}
+				OR = {
+					BUK = {
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+					NOT = {
+						country_exists = BUK
+					}
+				}
+			}
+			add_political_power = 50
+			add_stability = 0.05
+			add_war_support = -0.03
+			custom_effect_tooltip = collapse_bukovina_twenty_minus
+			add_to_variable = {
+				var = GAL.bukovina_unrest
+				value = -3
+			}
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					country_exists = BUK
+				}
+				BUK = {
+					load_focus_tree = breakaway_tree
+				}
+			}
+		}
+	}
+}
+
+country_event = { #End of the Ruthenian Rebellion
+	id = revolt_peace.20
+	title = revolt_peace.20.t
+	desc = {
+		text = revolt_peace.20.d.surrender
+		trigger = {
+			country_exists = CPU
+			has_war_with = CPU
+			CPU = {
+				owns_state = 80
+			}
+		}
+	}
+	desc = {
+		text = revolt_peace.20.d.victory
+		trigger = {
+			NOT = {
+				has_war_with = CPU
+			}
+			OR = {
+				CPU = {
+					OR = {
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+				NOT = {
+					country_exists = CPU
+				}
+			}
+		}
+	}
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Okay.
+		name = revolt_peace.20.a
+		if = {
+			limit = {
+				country_exists = CPU
+				has_war_with = CPU
+				NOT = {
+					owns_state = 1141
+				}
+			}
+			every_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					has_war_with = CPU
+				}
+				white_peace = CPU
+			}
+			white_peace = CPU
+			CPU = {
+				set_country_flag = BREAKAWAY_independent
+			}
+			
+			
+			
+			add_political_power = -50
+			add_stability = -0.1
+			add_war_support = -0.1
+			set_global_flag = no_bukovina_revolt
+			
+			custom_effect_tooltip = collapse_five
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_hungary_five
+			add_to_variable = {
+				var = HUN.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_illyria_five
+			add_to_variable = {
+				var = CRO.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_bohemia_five
+			add_to_variable = {
+				var = CZE.subject_revolt_progress
+				value = 0.05
+			}
+			
+			custom_effect_tooltip = collapse_galicia_five
+			add_to_variable = {
+				var = GAL.subject_revolt_progress
+				value = 0.05
+			}
+		}
+		
+		
+		
+		if = {
+			limit = {
+				NOT = {
+					has_war_with = CPU
+				}
+				OR = {
+					CPU = {
+						is_puppet_of = ROOT
+						is_in_faction_with = ROOT
+					}
+					NOT = {
+						country_exists = CPU
+					}
+				}
+			}
+			add_political_power = 50
+			add_stability = 0.05
+			add_war_support = -0.03
+			custom_effect_tooltip = collapse_bukovina_twenty_minus
+			add_to_variable = {
+				var = GAL.bukovina_unrest
+				value = -3
+			}
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					country_exists = CPU
+				}
+				CPU = {
+					load_focus_tree = breakaway_tree
+				}
+			}
+		}
+	}
+}
+
+country_event = { #End of the War
+	id = revolt_peace.21
+	title = revolt_peace.21.t
+	desc = revolt_peace.21.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Okay.
+		name = revolt_peace.21.a
+		if = {
+			limit = {
+				controls_state = 84
+			}
+			transfer_state = 84
+		}
+		if = {
+			limit = {
+				controls_state = 1116
+			}
+			transfer_state = 1116
+		}
+		
+		if = {
+			limit = {
+				controls_state = 789
+			}
+			transfer_state = 789
+		}
+		if = {
+			limit = {
+				controls_state = 76
+			}
+			transfer_state = 76
+		}
+		
+		if = {
+			limit = {
+				controls_state = 1117
+			}
+			transfer_state = 1117
+		}
+		if = {
+			limit = {
+				controls_state = 1112
+			}
+			transfer_state = 1112
+		}
+		
+		if = {
+			limit = {
+				controls_state = 1118
+			}
+			transfer_state = 1118
+		}
+		if = {
+			limit = {
+				controls_state = 83
+			}
+			transfer_state = 83
+		}
+		
+		if = {
+			limit = {
+				controls_state = 1114
+			}
+			transfer_state = 1114
+		}
+		if = {
+			limit = {
+				controls_state = 1113
+			}
+			transfer_state = 1113
+		}
+		
+		if = {
+			limit = {
+				controls_state = 1115
+			}
+			transfer_state = 1115
+		}
+		if = {
+			limit = {
+				controls_state = 82
+			}
+			transfer_state = 82
+		}
+		white_peace = HUN
+		every_country = {
+			limit = {
+				is_in_faction_with = HUN
+				OR = {
+					has_war_with = ROM
+					has_war_with = RRM
+				}
+			}
+			if = {
+				limit = {
+					country_exists = ROM
+				}
+				white_peace = ROM
+			}
+			if = {
+				limit = {
+					country_exists = RRM
+				}
+				white_peace = RRM
+			}
+		}
+	}
+}
+country_event = { #End of the Transylvanian War
+	id = revolt_peace.22
+	title = revolt_peace.22.t
+	desc = revolt_peace.22.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #Okay.
+		name = revolt_peace.22.a
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						TRS = {
+							controls_state = 1118
+						}
+						RRM = {
+							controls_state = 1118
+						}
+						ROM = {
+							controls_state = 1118
+						}
+					}
+					
+					OR = {
+						TRS = {
+							controls_state = 1117
+						}
+						RRM = {
+							controls_state = 1117
+						}
+						ROM = {
+							controls_state = 1117
+						}
+					}
+					
+					OR = {
+						TRS = {
+							controls_state = 1113
+						}
+						RRM = {
+							controls_state = 1113
+						}
+						ROM = {
+							controls_state = 1113
+						}
+						
+						TRS = {
+							controls_state = 82
+						}
+						RRM = {
+							controls_state = 82
+						}
+						ROM = {
+							controls_state = 82
+						}
+					}
+					
+					OR = {
+						TRS = {
+							controls_state = 83
+						}
+						RRM = {
+							controls_state = 83
+						}
+						ROM = {
+							controls_state = 83
+						}
+					}
+				}
+				NOT = {
+					country_exists = BAN
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						TRS = {
+							controls_state = 82
+						}
+						RRM = {
+							controls_state = 82
+						}
+						ROM = {
+							controls_state = 82
+						}
+					}
+				}
+				TRS = {
+					transfer_state = 82
+				}
+				if = {
+					limit = {
+						OR = {
+							TRS = {
+								controls_state = 1114
+							}
+							RRM = {
+								controls_state = 1114
+							}
+							ROM = {
+								controls_state = 1114
+							}
+						}
+					}
+					TRS = {
+						transfer_state = 1114
+					}
+				}
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						TRS = {
+							controls_state = 1113
+						}
+						RRM = {
+							controls_state = 1113
+						}
+						ROM = {
+							controls_state = 1113
+						}
+					}
+				}
+				TRS = {
+					transfer_state = 1113
+				}
+			}
+			TRS = {
+				transfer_state = 83
+				transfer_state = 1118
+				transfer_state = 1117
+				transfer_state = 76
+				transfer_state = 789
+				transfer_state = 1112
+				transfer_state = 1115
+				transfer_state = 84
+				transfer_state = 1116
+			}
+			else_if = {
+				limit = {
+					AND = {
+						OR = {
+							TRS = {
+								controls_state = 1112
+							}
+							RRM = {
+								controls_state = 1112
+							}
+							ROM = {
+								controls_state = 1112
+							}
+						}
+						
+						OR = {
+							TRS = {
+								controls_state = 76
+							}
+							RRM = {
+								controls_state = 76
+							}
+							ROM = {
+								controls_state = 76
+							}
+						}
+						
+						OR = {
+							TRS = {
+								controls_state = 1113
+							}
+							RRM = {
+								controls_state = 1113
+							}
+							ROM = {
+								controls_state = 1113
+							}
+						}
+						
+						OR = {
+							TRS = {
+								controls_state = 83
+							}
+							RRM = {
+								controls_state = 83
+							}
+							ROM = {
+								controls_state = 83
+							}
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						AND = {
+							OR = {
+								TRS = {
+									controls_state = 84
+								}
+								RRM = {
+									controls_state = 84
+								}
+								ROM = {
+									controls_state = 84
+								}
+							}
+							
+							OR = {
+								TRS = {
+									controls_state = 789
+								}
+								RRM = {
+									controls_state = 789
+								}
+								ROM = {
+									controls_state = 789
+								}
+							}
+						}
+					}
+					TRS = {
+						transfer_state = 789
+						transfer_state = 84
+						transfer_state = 1116
+					}
+					if = {
+						limit = {
+							OR = {
+								TRS = {
+									controls_state = 1113
+								}
+								RRM = {
+									controls_state = 1113
+								}
+								ROM = {
+									controls_state = 1113
+								}
+							}
+						}
+						TRS = {
+							transfer_state = 1113
+						}
+						if = {
+							limit = {
+								OR = {
+									TRS = {
+										controls_state = 82
+									}
+									RRM = {
+										controls_state = 82
+									}
+									ROM = {
+										controls_state = 82
+									}
+								}
+							}
+							TRS = {
+								transfer_state = 82
+							}
+							if = {
+								limit = {
+									OR = {
+										TRS = {
+											controls_state = 1114
+										}
+										RRM = {
+											controls_state = 1114
+										}
+										ROM = {
+											controls_state = 1114
+										}
+									}
+								}
+								TRS = {
+									transfer_state = 1114
+								}
+							}
+						}
+					}
+					
+					if = {
+						limit = {
+							OR = {
+								TRS = {
+									controls_state = 76
+								}
+								RRM = {
+									controls_state = 76
+								}
+								ROM = {
+									controls_state = 76
+								}
+							}
+						}
+						TRS = {
+							transfer_state = 76
+						}
+						if = {
+							limit = {
+								OR = {
+									TRS = {
+										controls_state = 1117
+									}
+									RRM = {
+										controls_state = 1117
+									}
+									ROM = {
+										controls_state = 1117
+									}
+								}
+							}
+							TRS = {
+								transfer_state = 1117
+							}
+						}
+					}
+					
+					if = {
+						limit = {
+							OR = {
+								TRS = {
+									controls_state = 1115
+								}
+								RRM = {
+									controls_state = 1115
+								}
+								ROM = {
+									controls_state = 1115
+								}
+							}
+						}
+						TRS = {
+							transfer_state = 1115
+						}
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							TRS = {
+								controls_state = 82
+							}
+							RRM = {
+								controls_state = 82
+							}
+							ROM = {
+								controls_state = 82
+							}
+						}
+					}
+					TRS = {
+						transfer_state = 82
+					}
+					if = {
+						limit = {
+							OR = {
+								TRS = {
+									controls_state = 1114
+								}
+								RRM = {
+									controls_state = 1114
+								}
+								ROM = {
+									controls_state = 1114
+								}
+							}
+						}
+						TRS = {
+							transfer_state = 1114
+						}
+					}
+				}
+				TRS = {
+					transfer_state = 76
+					transfer_state = 789
+					transfer_state = 1115	
+					transfer_state = 1113
+					transfer_state = 84
+					transfer_state = 1116
+				}
+				if = {
+					limit = {
+						OR = {
+							TRS = {
+								controls_state = 82
+							}
+							RRM = {
+								controls_state = 82
+							}
+							ROM = {
+								controls_state = 82
+							}
+						}
+					}
+					TRS = {
+						transfer_state = 82
+					}
+					if = {
+						limit = {
+							OR = {
+								TRS = {
+									controls_state = 1114
+								}
+								RRM = {
+									controls_state = 1114
+								}
+								ROM = {
+									controls_state = 1114
+								}
+							}
+						}
+						TRS = {
+							transfer_state = 1114
+						}
+					}
+				}
+				
+				if = {
+					limit = {
+						OR = {
+							TRS = {
+								controls_state = 83
+							}
+							RRM = {
+								controls_state = 83
+							}
+							ROM = {
+								controls_state = 83
+							}
+						}
+					}
+					TRS = {
+						transfer_state = 83
+					}
+				}
+				
+				if = {
+					limit = {
+						OR = {
+							TRS = {
+								controls_state = 1117
+							}
+							RRM = {
+								controls_state = 1117
+							}
+							ROM = {
+								controls_state = 1117
+							}
+						}
+					}
+					TRS = {
+						transfer_state = 1117
+					}
+				}
+				
+				if = {
+					limit = {
+						OR = {
+							TRS = {
+								controls_state = 1112
+							}
+							RRM = {
+								controls_state = 1112
+							}
+							ROM = {
+								controls_state = 1112
+							}
+						}
+					}
+					TRS = {
+						transfer_state = 1112
+					}
+					if = {
+						limit = {
+							OR = {
+								TRS = {
+									controls_state = 1118
+								}
+								RRM = {
+									controls_state = 1118
+								}
+								ROM = {
+									controls_state = 1118
+								}
+							}
+						}
+						TRS = {
+							transfer_state = 1118
+						}
+					}
+				}
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		white_peace = HUN
+		every_country = {
+			limit = {
+				is_in_faction_with = HUN
+				OR = {
+					has_war_with = ROM
+					has_war_with = RRM
+				}
+			}
+			if = {
+				limit = {
+					country_exists = ROM
+				}
+				white_peace = ROM
+			}
+			if = {
+				limit = {
+					country_exists = RRM
+				}
+				white_peace = RRM
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+country_event = { #Tick up Slovene counter by 0.1
+	id = ethnic.1
+	title = ethnic.1.t
+	desc = ethnic.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #k
+		name = ethnic.1.a
+		random_list = {
+			85 = {
+				add_to_variable = {
+					var = AUS.slovene_unrest
+					value = 0.1
+				}
+			}
+			15 = {
+				add_to_variable = {
+					var = AUS.slovene_unrest
+					value = -0.2
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						has_global_flag = no_slovene_revolt
+					}
+					NOT = {
+						country_exists = SLO
+					}
+				}
+				owns_state = 102
+			}
+			country_event = {
+				id = ethnic.1
+				days = 7
+				random = 336
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					var = AUS.slovene_unrest
+					value = 5
+					compare = greater_than_or_equals
+				}
+				NOT = {
+					has_global_flag = recent_slovene_revolt
+					has_global_flag = no_slovene_revolt
+					has_global_flag = no_more_collapse
+				}
+			}
+			if = {
+				limit = {
+					OR  = {
+						SLO = {
+							is_puppet_of = AUS
+						}
+						
+						SLO = {
+							is_puppet_of = CRO
+						}
+					}
+					SLO = {
+						OVERLORD = {
+							country_event = revolt.10 #Slovene Revolt
+						}
+					}
+				}
+				else = {
+					any_country = {
+						limit = {
+							OR = {
+								tag = AUS
+								tag = HUN
+								tag = CRO
+								tag = CZE
+								tag = GAL
+							}
+							owns_state = 1103
+							owns_state = 102
+						}
+						country_event = revolt.10
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Tick up Slovak counter by 0.1
+	id = ethnic.2
+	title = ethnic.2.t
+	desc = ethnic.2.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #k
+		name = ethnic.2.a
+		random_list = {
+			85 = {
+				add_to_variable = {
+					var = HUN.slovak_unrest
+					value = 0.1
+				}
+			}
+			15 = {
+				add_to_variable = {
+					var = HUN.slovak_unrest
+					value = -0.2
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						has_global_flag = no_slovak_revolt
+					}
+					NOT = {
+						country_exists = SVK
+					}
+				}
+				owns_state = 1123
+				owns_state = 1135
+			}
+			country_event = {
+				id = ethnic.2
+				days = 7
+				random = 336
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					var = HUN.slovak_unrest
+					value = 5
+					compare = greater_than_or_equals
+				}
+				NOT = {
+					has_global_flag = recent_slovak_revolt
+					has_global_flag = no_slovak_revolt
+					has_global_flag = no_more_collapse
+				}
+			}
+			if = {
+				limit = {
+					OR  = {
+						SVK = {
+							is_puppet_of = AUS
+						}
+						
+						SVK = {
+							is_puppet_of = HUN
+						}
+						
+						SVK = {
+							is_puppet_of = CZE
+						}
+					}
+					SVK = {
+						OVERLORD = {
+							country_event = revolt.11 #Transylvanian Revolt
+						}
+					}
+				}
+				else = {
+					any_country = {
+						limit = {
+							OR = {
+								tag = AUS
+								tag = HUN
+								tag = CRO
+								tag = CZE
+								tag = GAL
+							}
+							owns_state = 1123
+							owns_state = 1135
+						}
+						country_event = revolt.11
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Tick up Transylvanian counter by 0.1
+	id = ethnic.3
+	title = ethnic.3.t
+	desc = ethnic.3.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #k
+		name = ethnic.3.a
+		random_list = {
+			85 = {
+				add_to_variable = {
+					var = HUN.transylvanian_unrest
+					value = 0.1
+				}
+			}
+			15 = {
+				add_to_variable = {
+					var = HUN.transylvanian_unrest
+					value = -0.2
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						has_global_flag = no_transylvanian_revolt
+					}
+					NOT = {
+						country_exists = TRS
+					}
+				}
+				owns_state = 83
+				owns_state = 84
+			}
+			country_event = {
+				id = ethnic.3
+				days = 7
+				random = 336
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					var = HUN.transylvanian_unrest
+					value = 5
+					compare = greater_than_or_equals
+				}
+				NOT = {
+					has_global_flag = recent_transylvanian_revolt
+					has_global_flag = no_transylvanian_revolt
+					has_global_flag = no_more_collapse
+				}
+			}
+			if = {
+				limit = {
+					OR  = {
+						TRS = {
+							is_puppet_of = AUS
+						}
+						
+						TRS = {
+							is_puppet_of = HUN
+						}
+					}
+					TRS = {
+						OVERLORD = {
+							country_event = revolt.12 #Transylvanian Revolt
+						}
+					}
+				}
+				else = {
+					any_country = {
+						limit = {
+							OR = {
+								tag = AUS
+								tag = HUN
+								tag = CRO
+								tag = CZE
+								tag = GAL
+							}
+							owns_state = 84
+							owns_state = 76
+						}
+						country_event = revolt.12
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Tick up Banatian counter by 0.1
+	id = ethnic.4
+	title = ethnic.4.t
+	desc = ethnic.4.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #k
+		name = ethnic.4.a
+		random_list = {
+			85 = {
+				add_to_variable = {
+					var = HUN.banat_unrest
+					value = 0.1
+				}
+			}
+			15 = {
+				add_to_variable = {
+					var = HUN.banat_unrest
+					value = -0.2
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						has_global_flag = no_banat_revolt
+					}
+					NOT = {
+						country_exists = BAN
+					}
+				}
+				owns_state = 1114
+			}
+			country_event = {
+				id = ethnic.4
+				days = 7
+				random = 336
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					var = HUN.banat_unrest
+					value = 5
+					compare = greater_than_or_equals
+				}
+				NOT = {
+					has_global_flag = recent_banat_revolt
+					has_global_flag = no_banat_revolt
+					has_global_flag = no_more_collapse
+				}
+			}
+			country_event = revolt.13 #Banat Revolt
+			else_if = {
+				limit = {
+					OR  = {
+						BAN = {
+							is_puppet_of = AUS
+						}
+						
+						BAN = {
+							is_puppet_of = HUN
+						}
+					}
+					BAN = {
+						OVERLORD = {
+							country_event = revolt.13 #Transylvanian Revolt
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Tick up Bosnian counter by 0.1
+	id = ethnic.5
+	title = ethnic.5.t
+	desc = ethnic.5.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #k
+		name = ethnic.5.a
+		random_list = {
+			85 = {
+				add_to_variable = {
+					var = CRO.bosnian_unrest
+					value = 0.1
+				}
+			}
+			15 = {
+				add_to_variable = {
+					var = CRO.bosnian_unrest
+					value = -0.2
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						has_country_flag = no_bosnian_revolt
+					}
+					NOT = {
+						country_exists = BOS
+					}
+				}
+				owns_state = 104
+			}
+			country_event = {
+				id = ethnic.5
+				days = 7
+				random = 336
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					var = CRO.bosnian_unrest
+					value = 5
+					compare = greater_than_or_equals
+				}
+				NOT = {
+					has_global_flag = recent_bosnian_revolt
+					has_global_flag = no_bosnian_revolt
+					has_global_flag = no_more_collapse
+				}
+			}
+			country_event = revolt.14 #Bosnian Revolt
+			else_if = {
+				limit = {
+					OR  = {
+						BOS = {
+							is_puppet_of = AUS
+						}
+						
+						BOS = {
+							is_puppet_of = CRO
+						}
+					}
+					BOS = {
+						OVERLORD = {
+							country_event = revolt.14 #Transylvanian Revolt
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Tick up Serb counter by 0.1
+	id = ethnic.6
+	title = ethnic.6.t
+	desc = ethnic.6.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #k
+		name = ethnic.6.a
+		random_list = {
+			85 = {
+				add_to_variable = {
+					var = CRO.serb_unrest
+					value = 0.1
+				}
+			}
+			15 = {
+				add_to_variable = {
+					var = CRO.serb_unrest
+					value = -0.2
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						has_global_flag = no_serb_revolt
+					}
+					NOT = {
+						country_exists = SKS
+					}
+				}
+				owns_state = 1141
+				owns_state = 1142
+			}
+			country_event = {
+				id = ethnic.6
+				days = 7
+				random = 336
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					var = CRO.serb_unrest
+					value = 5
+					compare = greater_than_or_equals
+				}
+				NOT = {
+					has_global_flag = recent_serb_revolt
+					has_global_flag = no_serb_revolt
+					has_global_flag = no_more_collapse
+				}
+				NOT = {
+					country_exists = SKS
+				}
+			}
+			country_event = revolt.15 #Srpska Revolt
+			else_if = {
+				limit = {
+					OR  = {
+						SKS = {
+							is_puppet_of = AUS
+						}
+						
+						SKS = {
+							is_puppet_of = CRO
+						}
+					}
+					SKS = {
+						OVERLORD = {
+							country_event = revolt.15 #Srpska Revolt
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Tick up Montenegrin counter by 0.1
+	id = ethnic.7
+	title = ethnic.7.t
+	desc = ethnic.7.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #k
+		name = ethnic.7.a
+		random_list = {
+			85 = {
+				add_to_variable = {
+					var = CRO.montenegrin_unrest
+					value = 0.1
+				}
+			}
+			15 = {
+				add_to_variable = {
+					var = CRO.montenegrin_unrest
+					value = -0.2
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						has_global_flag = no_montenegrin_revolt
+					}
+					NOT = {
+						country_exists = MNT
+					}
+				}
+				owns_state = 105
+			}
+			country_event = {
+				id = ethnic.7
+				days = 7
+				random = 336
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					var = CRO.montenegrin_unrest
+					value = 5
+					compare = greater_than_or_equals
+				}
+				NOT = {
+					has_global_flag = recent_montenegrin_revolt
+					has_global_flag = no_montenegrin_revolt
+					has_global_flag = no_more_collapse
+				}
+			}
+			country_event = revolt.16 #Montenegrin Revolt
+			else_if = {
+				limit = {
+					OR  = {
+						MNT = {
+							is_puppet_of = AUS
+						}
+						
+						BOS = {
+							is_puppet_of = CRO
+						}
+					}
+					MNT = {
+						OVERLORD = {
+							country_event = revolt.16 #Transylvanian Revolt
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Tick up Bukovina counter by 0.1
+	id = ethnic.8
+	title = ethnic.8.t
+	desc = ethnic.8.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #k
+		name = ethnic.8.a
+		random_list = {
+			85 = {
+				add_to_variable = {
+					var = GAL.bukovina_unrest
+					value = 0.1
+				}
+			}
+			15 = {
+				add_to_variable = {
+					var = GAL.bukovina_unrest
+					value = -0.2
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						has_global_flag = no_bukovina_revolt
+					}
+					NOT = {
+						country_exists = BUK
+					}
+				}
+				owns_state = 105
+			}
+			country_event = {
+				id = ethnic.8
+				days = 7
+				random = 336
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					var = GAL.bukovina_unrest
+					value = 5
+					compare = greater_than_or_equals
+				}
+				NOT = {
+					has_global_flag = recent_bukovina_revolt
+					has_global_flag = no_bukovina_revolt
+					has_global_flag = no_more_collapse
+				}
+			}
+			country_event = revolt.17 #Bukovina Revolt
+			else_if = {
+				limit = {
+					OR  = {
+						BUK = {
+							is_puppet_of = AUS
+						}
+						
+						BUK = {
+							is_puppet_of = GAL
+						}
+					}
+					BUK = {
+						OVERLORD = {
+							country_event = revolt.17 #Transylvanian Revolt
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Tick up Germans in Austria counter by 0.1 if...
+	id = ethnic.9
+	title = ethnic.9.t
+	desc = ethnic.9.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #k
+		name = ethnic.9.a
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						has_country_flag = no_majority_revolt
+					}
+				}
+			}
+			country_event = {
+				id = ethnic.9
+				days = 7
+				random = 336
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = AUS.german_unrest
+					value = 4
+					compare = less_than
+				}
+			}
+			add_to_variable = {
+				var = AUS.german_unrest
+				value = -0.1
+			}
+			clamp_variable = {
+				var = AUS.german_unrest
+				min = 0
+				max = 8
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = AUS.german_unrest
+					value = 4
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = AUS.slovene_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = AUS.italian_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = AUS.croat_unrest
+				value = 0.05
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = AUS.german_unrest
+					value = 5
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = AUS.slovene_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = AUS.italian_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = AUS.croat_unrest
+				value = 0.05
+			}
+			
+			
+			
+			add_to_variable = {
+				var = HUN.hungarian_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = CRO.croat_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = CZE.czech_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = GAL.polish_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = GAL.ukrainian_unrest
+				value = 0.05
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = AUS.german_unrest
+					value = 6
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = 0.01
+			}
+			
+			add_to_variable = {
+				var = HUN.subject_revolt_progress
+				value = 0.01
+			}
+			
+			add_to_variable = {
+				var = CRO.subject_revolt_progress
+				value = 0.01
+			}
+			
+			add_to_variable = {
+				var = CZE.subject_revolt_progress
+				value = 0.01
+			}
+			
+			add_to_variable = {
+				var = GAL.subject_revolt_progress
+				value = 0.01
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = AUS.slovene_unrest
+					value = 4
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = AUS.german_unrest
+				value = 0.05
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = AUS.italian_unrest
+					value = 4
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = AUS.german_unrest
+				value = 0.05
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = AUS.croat_unrest
+					value = 4
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = AUS.german_unrest
+				value = 0.05
+			}
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Tick up Hungarians in Hungary counter by 0.1 if...
+	id = ethnic.10
+	title = ethnic.10.t
+	desc = ethnic.10.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #k
+		name = ethnic.10.a
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						has_country_flag = no_majority_revolt
+					}
+				}
+			}
+			country_event = {
+				id = ethnic.10
+				days = 7
+				random = 336
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = HUN.hungarian_unrest
+					value = 4
+					compare = less_than
+				}
+			}
+			add_to_variable = {
+				var = HUN.hungarian_unrest
+				value = -0.1
+			}
+			clamp_variable = {
+				var = HUN.hungarian_unrest
+				min = 0
+				max = 8
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = HUN.hungarian_unrest
+					value = 4
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = HUN.german_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = HUN.slovak_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = HUN.serb_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = HUN.transylvanian_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = HUN.banat_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = HUN.ukrainian_unrest
+				value = 0.05
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = HUN.hungarian_unrest
+					value = 5
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = HUN.german_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = HUN.slovak_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = HUN.serb_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = HUN.transylvanian_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = HUN.banat_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = HUN.ukrainian_unrest
+				value = 0.05
+			}
+			
+			
+			
+			add_to_variable = {
+				var = AUS.german_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = CRO.croat_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = CZE.czech_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = GAL.polish_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = GAL.ukrainian_unrest
+				value = 0.05
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = HUN.hungarian_unrest
+					value = 6
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = 0.03
+			}
+			
+			add_to_variable = {
+				var = HUN.subject_revolt_progress
+				value = 0.05
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = HUN.slovak_unrest
+					value = 4
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = HUN.hungarian_unrest
+				value = 0.02
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = HUN.transylvanian_unrest
+					value = 4
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = HUN.hungarian_unrest
+				value = 0.02
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = HUN.banat_unrest
+					value = 4
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = HUN.hungarian_unrest
+				value = 0.02
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = HUN.german_unrest
+					value = 4
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = HUN.hungarian_unrest
+				value = 0.02
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = HUN.serb_unrest
+					value = 4
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = HUN.hungarian_unrest
+				value = 0.02
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = HUN.ukrainian_unrest
+					value = 4
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = HUN.hungarian_unrest
+				value = 0.02
+			}
+		}
+	}
+}
+
+country_event = { #Tick up Croatians in Illyria counter by 0.1 if...
+	id = ethnic.11
+	title = ethnic.11.t
+	desc = ethnic.11.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #k
+		name = ethnic.11.a
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						has_country_flag = no_majority_revolt
+					}
+				}
+			}
+			country_event = {
+				id = ethnic.11
+				days = 7
+				random = 336
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = CRO.croat_unrest
+					value = 4
+					compare = less_than
+				}
+			}
+			add_to_variable = {
+				var = CRO.croat_unrest
+				value = -0.1
+			}
+			clamp_variable = {
+				var = CRO.croat_unrest
+				min = 0
+				max = 8
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = CRO.croat_unrest
+					value = 4
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = CRO.german_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = CRO.serb_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = CRO.montenegrin_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = CRO.bosnian_unrest
+				value = 0.05
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = CRO.croat_unrest
+					value = 5
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = CRO.german_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = CRO.serb_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = CRO.montenegrin_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = CRO.bosnian_unrest
+				value = 0.05
+			}
+			
+			
+			
+			add_to_variable = {
+				var = AUS.german_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = HUN.hungarian_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = CZE.czech_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = GAL.polish_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = GAL.ukrainian_unrest
+				value = 0.05
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = CRO.croat_unrest
+					value = 6
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = 0.03
+			}
+			
+			add_to_variable = {
+				var = CRO.subject_revolt_progress
+				value = 0.05
+			}
+		}
+	}
+}
+
+country_event = { #Tick up Czechs in Bohemia counter by 0.1 if...
+	id = ethnic.12
+	title = ethnic.12.t
+	desc = ethnic.12.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #k
+		name = ethnic.12.a
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						has_country_flag = no_majority_revolt
+					}
+				}
+			}
+			country_event = {
+				id = ethnic.12
+				days = 7
+				random = 336
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = CZE.czech_unrest
+					value = 4
+					compare = less_than
+				}
+			}
+			add_to_variable = {
+				var = CZE.czech_unrest
+				value = -0.1
+			}
+			clamp_variable = {
+				var = CZE.czech_unrest
+				min = 0
+				max = 8
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = CZE.czech_unrest
+					value = 4
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = CZE.german_unrest
+				value = 0.05
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = CZE.czech_unrest
+					value = 5
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = CZE.german_unrest
+				value = 0.05
+			}
+			
+			
+			
+			add_to_variable = {
+				var = AUS.german_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = CRO.croat_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = HUN.hungarian_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = GAL.polish_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = GAL.ukrainian_unrest
+				value = 0.05
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = CZE.czech_unrest
+					value = 6
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = 0.03
+			}
+			
+			add_to_variable = {
+				var = CZE.subject_revolt_progress
+				value = 0.05
+			}
+		}
+	}
+}
+
+country_event = { #Tick up Poles and Ukrainians in Galicia counter by 0.1 if...
+	id = ethnic.13
+	title = ethnic.13.t
+	desc = ethnic.13.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #k
+		name = ethnic.13.a
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						has_country_flag = no_majority_revolt
+					}
+				}
+			}
+			country_event = {
+				id = ethnic.13
+				days = 7
+				random = 336
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = GAL.polish_unrest
+					value = 4
+					compare = less_than
+				}
+			}
+			add_to_variable = {
+				var = GAL.polish_unrest
+				value = -0.1
+			}
+			clamp_variable = {
+				var = GAL.polish_unrest
+				min = 0
+				max = 8
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = GAL.ukrainian_unrest
+					value = 4
+					compare = less_than
+				}
+			}
+			add_to_variable = {
+				var = GAL.ukrainian_unrest
+				value = -0.1
+			}
+			clamp_variable = {
+				var = GAL.ukrainian_unrest
+				min = 0
+				max = 8
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = GAL.polish_unrest
+					value = 4
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = GAL.bukovina_unrest
+				value = 0.05
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = GAL.ukrainian_unrest
+					value = 4
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = GAL.bukovina_unrest
+				value = 0.05
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = GAL.polish_unrest
+					value = 4.5
+					compare = greater_than_or_equals
+				}
+				check_variable = {
+					var = GAL.ukrainian_unrest
+					value = 4.5
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = GAL.polish_unrest
+				value = 0.05
+			}
+			add_to_variable = {
+				var = GAL.ukrainian_unrest
+				value = 0.05
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = GAL.polish_unrest
+					value = 5
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = GAL.bukovina_unrest
+				value = 0.02
+			}
+			
+			
+			
+			add_to_variable = {
+				var = AUS.german_unrest
+				value = 0.02
+			}
+			add_to_variable = {
+				var = CRO.croat_unrest
+				value = 0.02
+			}
+			add_to_variable = {
+				var = HUN.hungarian_unrest
+				value = 0.02
+			}
+			add_to_variable = {
+				var = CZE.czech_unrest
+				value = 0.02
+			}
+			add_to_variable = {
+				var = GAL.ukrainian_unrest
+				value = 0.02
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = GAL.ukrainian_unrest
+					value = 5
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = GAL.bukovina_unrest
+				value = 0.02
+			}
+			
+			
+			
+			add_to_variable = {
+				var = AUS.german_unrest
+				value = 0.02
+			}
+			add_to_variable = {
+				var = CRO.croat_unrest
+				value = 0.02
+			}
+			add_to_variable = {
+				var = HUN.hungarian_unrest
+				value = 0.02
+			}
+			add_to_variable = {
+				var = GAL.polish_unrest
+				value = 0.02
+			}
+			add_to_variable = {
+				var = CZE.czech_unrest
+				value = 0.02
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = GAL.polish_unrest
+					value = 6
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = 0.01
+			}
+			
+			add_to_variable = {
+				var = GAL.subject_revolt_progress
+				value = 0.03
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = {
+					var = GAL.ukrainian_unrest
+					value = 6
+					compare = greater_than_or_equals
+				}
+			}
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = 0.01
+			}
+			
+			add_to_variable = {
+				var = GAL.subject_revolt_progress
+				value = 0.03
+			}
+		}
+	}
+}
+
+country_event = { #Tick up Ruthenian counter by 0.1
+	id = ethnic.14
+	title = ethnic.14.t
+	desc = ethnic.14.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = { #k
+		name = ethnic.14.a
+		random_list = {
+			75 = {
+				add_to_variable = {
+					var = HUN.ruthenian_unrest
+					value = 0.1
+				}
+			}
+			25 = {
+				add_to_variable = {
+					var = HUN.ruthenian_unrest
+					value = -0.2
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						has_global_flag = no_ruthenian_revolt
+					}
+					NOT = {
+						country_exists = CPU
+					}
+				}
+				owns_state = 1119
+				owns_state = 73
+			}
+			country_event = {
+				id = ethnic.14
+				days = 7
+				random = 336
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					var = HUN.ruthenian_unrest
+					value = 5
+					compare = greater_than_or_equals
+				}
+				NOT = {
+					has_global_flag = recent_ruthenian_revolt
+					has_global_flag = no_ruthenian_revolt
+					has_global_flag = no_more_collapse
+				}
+				OR = {
+					CPU = {
+						has_country_flag = wants_to_revolt
+					}
+					NOT = {
+						country_exists = CPU
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR  = {
+						CPU = {
+							is_puppet_of = AUS
+						}
+						
+						CPU = {
+							is_puppet_of = HUN
+						}
+					}
+					CPU = {
+						OVERLORD = {
+							country_event = revolt.18 #Ruthenian Revolt
+						}
+					}
+				}
+			}
+			else = {
+				every_country = {
+					limit = {
+						OR = {
+							tag = AUS
+							tag = HUN
+							tag = CRO
+							tag = CZE
+							tag = GAL
+						}
+						owns_state = 1119
+						owns_state = 73
+					}
+					country_event = revolt.18
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+#Edited Files:
+#decisions/categories/SER_ROM_collapse_austria
+#decisions/categories/AUS_save_the_empire
+#decisions/categories/FIU_pirating
+
+#decisions/FIU_pirating
+#decisions/AUS_save_empire
+#decisions/SER_ROM_Destabilize_Austria
+
+#ideas/FIU_ideas
+#ideas/AUS_collapse_ideas
+#ideas/AUS_part_of_the_empire_ideas
+
+#national_focus/Austria (DOLLFUSS TOO! THE FOCUS THAT IS EDITED FOR SURE IS "AUS_one_party_empire")
+#national_focus/Fiume
+
+#on_actions/BOTDE_on_actions_set_variables
+
+#scripted_effects/FIU_naval_variants
+#scripted_gui/Austrian_Subjects
+#scripted_localisation/AUS_subjects_scripted_localisation
+
+#events/Austria_Ethnic
+#events/Austrian_Empire
+#events/Fiume
+
+#gfx/flags/BSE, BUK, SKS, HNR, HSR, CPU, WSU, etc etc
+#Leaders for all tags (SVK, TRS, HNR, HSR, CPU, GAL, WSU etc etc)
+
+#gfx/super_events/Austrian Collapse
+
+#history/units/collapse OOBS (CRO HUN GAL CZE too!)
+#history/units/FIU stuff
+#history/states/4-163, 664, 736, 786, 789, 794, 1097-1145
+
+#map/buildings.txt and similar
+#map/supplyareas/all but 158
+#history/countries/all tags related just to be safe
+#interface/KX_goals.gfx (merge manually, add things myself)
+#interface/KX_goals_shine.gfx
+#interface/KX_ideas.gfx
+#interface/KX_ministers.gfx (probably later, not yet)
+#interface/auscol_austria_subjects.gui
+#interface/PB_super_events.gfx
+#interface/KX_eventpics.gfx (for Fiume rn)
+#localisation/auscol_subjects_text
+#localisation/BOTDE_ethnicities
+#localisation/KX_fiume
+#localisation/collapse_countries
+#localisation/KX_austria_is_fucked
+#localisation/KX_austria_is_fucked_NAZ_AWR
+#Event pictures/News events/Fiume (all 4 files)
+#Fiume goals GFX
+#Fiume ideas GFX
+#MINISTERS
+#FIUME MINISTERS
+#FIUME EVENT PICS
+#common/country_tags
+#common/colors
+#all tags leaders
+
+
+
+
+#Todo#
+
+
+#Localization for events and ideas
+#GFX for ideas
+#Austria events.
+#Event pictures.
+#Fix Banat
+#AUS_collapse_ideas implementation
+#History files for Austria.
+#Austria Collapse superevent picture
+#Populate states
+
+
+
+#### Part of fixing Banat - Be sure to fix "A Quality Army"'s Icon!
+#Fix economy laws for Fiume - do not allow them to change their law from Closed Economy
+
+####################################################################
+
+#Map files for the states.
+#State files.
+#Super events.
+#Decisions.
+#Interface - ideas. GUIs.
+#Fate of subjects decisions for Austria.
+
+
+
+
+#Super event for the Austrian collapse
+#Revolt events for ethnicities
+#Banat
+#Bosnian
+#Serb
+#Montenegrin
+#Bukovina
+
+
+#Peace events for ethnicities
+#Localization
+#GFX for ideas, events, and national focuses
+#Focus tree for collapse
+#Playtesting
+#Playtesting
+#Playtesting
+#Playtesting
+#Playtesting
+
+#my plan for the domino effect is that the ethnicities, if they revolt, will increase unrest in minorities and majorities of the same constituent
+#and if a majority (ie hungarians in hungary) gets 4 unrest (only put up by revolts of other ethnicities) it will tick up the unrest for ethnicities of the constituent
+#when the majority gets to 5, then the unrest will start ticking for majorities in other constituents, and then those majorities will be ticked up, resulting in them being ticked up to 4 and ticking up their ethnicities, then ticking up other majorities and so on
+#if a majority gets past 6, then it will start affecting revolt rate of the constituent very quickly
+#if that majority is the germans in austria, then it will feed all other subject's revolts + collapse
+
+
+#country_event = { #AUS - Ethnic Picker
+#	id = ethnic.1
+#	title = ethnic.1.t
+#	desc = ethnic.1.d
+#	
+#	picture = GFX_report_event_BAN_big_speech2
+#
+#	fire_only_once = no
+#	
+#	hidden = yes
+#	
+#	is_triggered_only = yes
+#
+#	option = { #Nooo!
+#		name = ethnic.1.a
+#		
+#		random_list = {
+#		
+#			10 = { #Germans
+#				random_list = {
+#					10 = {
+#						country_event = {
+#							id = ethnic_ger.1
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_ger.2
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_ger.3
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_ger.4
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_ger.5
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_ger.6
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_ger.7
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_ger.8
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_ger.9
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_ger.10
+#							days = 7
+#							random = 504
+#						}
+#					}
+#				}
+#			}
+#			
+#			
+#			
+#			40 = { #Slovenes
+#				random_list = {
+#					10 = {
+#						country_event = {
+#							id = ethnic_slo.1
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_slo.2
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_slo.3
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_slo.4
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_slo.5
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_slo.6
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_slo.7
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_slo.8
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_slo.9
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_slo.10
+#							days = 7
+#							random = 504
+#						}
+#					}
+#				}
+#			}
+#			
+#			
+#			
+#			35 = { #Italians
+#				random_list = {
+#					10 = {
+#						country_event = {
+#							id = ethnic_ita.1
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_ita.2
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_ita.3
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_ita.4
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_ita.5
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_ita.6
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_ita.7
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_ita.8
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_ita.9
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_ita.10
+#							days = 7
+#							random = 504
+#						}
+#					}
+#				}
+#			}
+#			
+#			
+#			
+#			15 = { #Croats
+#				random_list = {
+#					10 = {
+#						country_event = {
+#							id = ethnic_cro.1
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_cro.2
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_cro.3
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_cro.4
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_cro.5
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_cro.6
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_cro.7
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_cro.8
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_cro.9
+#							days = 7
+#							random = 504
+#						}
+#					}
+#					10 = {
+#						country_event = {
+#							id = ethnic_cro.10
+#							days = 7
+#							random = 504
+#						}
+#					}
+#				}
+#			}
+#		}
+#		country_event = {
+#			id = ethnic.1
+#			days = 14
+#			random = 672
+#		}
+#	}
+#}
+
+country_event = { #AI - collapse or nah
+	id = revolt.1000
+	title = revolt.1000.t
+	desc = revolt.1000.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+	
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = { #bye bye
+		name = revolt.1000.a
+		
+		if = {
+			limit = {
+				AUS = {
+					is_ai = yes
+				}
+				#HUN = {
+				#	is_ai = yes
+				#}
+				#CZE = {
+				#	is_ai = yes
+				#}
+				#CRO = {
+				#	is_ai = yes
+				#}
+				#GAL = {
+				#	is_ai = yes
+				#}
+			}
+			random_list = {
+				25 = {
+					
+				}
+				
+				35 = {
+					set_global_flag = no_more_collapse
+					set_global_flag = no_majority_revolt
+					set_global_flag = no_hungary_revolt
+					set_global_flag = no_bohemia_revolt
+					set_global_flag = no_illyria_revolt
+					set_global_flag = no_galicia_revolt
+					set_global_flag = no_slovene_revolt
+					set_global_flag = no_slovak_revolt
+					set_global_flag = no_transylvanian_revolt
+					set_global_flag = no_ruthenian_revolt
+					set_global_flag = no_banat_revolt
+					set_global_flag = no_bosnian_revolt
+					set_global_flag = no_serb_revolt
+					set_global_flag = no_slovak_revolt
+					set_global_flag = no_bukovina_revolt
+					set_global_flag = no_montenegrin_revolt
+					set_global_flag = no_backers_allowed
+					set_variable = {
+						var = AUS.subject_revolt_progress
+						value = 0
+					}
+					clamp_variable = {
+						var = AUS.subject_revolt_progress
+						min = 0
+						max = 0
+					}
+				}
+				
+				15 = {
+					set_global_flag = no_more_collapse
+					set_global_flag = no_majority_revolt
+					set_global_flag = no_hungary_revolt
+					set_global_flag = no_bohemia_revolt
+					set_global_flag = no_illyria_revolt
+					set_global_flag = no_galicia_revolt
+					set_global_flag = no_slovene_revolt
+					set_global_flag = no_slovak_revolt
+					set_global_flag = no_transylvanian_revolt
+					set_global_flag = no_ruthenian_revolt
+					set_global_flag = no_banat_revolt
+					set_global_flag = no_bosnian_revolt
+					set_global_flag = no_serb_revolt
+					set_global_flag = no_slovak_revolt
+					set_global_flag = no_bukovina_revolt
+					set_global_flag = no_montenegrin_revolt
+					set_global_flag = no_backers_allowed
+					set_variable = {
+						var = AUS.subject_revolt_progress
+						value = 0
+					}
+					clamp_variable = {
+						var = AUS.subject_revolt_progress
+						min = 0
+						max = 0
+					}
+					#country_event = {
+					#	id = constituents.1
+					#	days = 720
+					#	random = 360
+					#}
+				}
+				
+				15 = {
+					set_global_flag = no_more_collapse
+					set_global_flag = no_majority_revolt
+					set_global_flag = no_hungary_revolt
+					set_global_flag = no_bohemia_revolt
+					set_global_flag = no_illyria_revolt
+					set_global_flag = no_galicia_revolt
+					set_global_flag = no_slovene_revolt
+					set_global_flag = no_slovak_revolt
+					set_global_flag = no_transylvanian_revolt
+					set_global_flag = no_ruthenian_revolt
+					set_global_flag = no_banat_revolt
+					set_global_flag = no_bosnian_revolt
+					set_global_flag = no_serb_revolt
+					set_global_flag = no_slovak_revolt
+					set_global_flag = no_bukovina_revolt
+					set_global_flag = no_montenegrin_revolt
+					set_global_flag = no_backers_allowed
+					set_variable = {
+						var = AUS.subject_revolt_progress
+						value = 0
+					}
+					clamp_variable = {
+						var = AUS.subject_revolt_progress
+						min = 0
+						max = 0
+					}
+					#country_event = {
+					#	id = constituents.1
+					#	days = 1080
+					#	random = 360
+					#}
+				}
+				
+				15 = {
+					set_global_flag = no_more_collapse
+					set_global_flag = no_majority_revolt
+					set_global_flag = no_hungary_revolt
+					set_global_flag = no_bohemia_revolt
+					set_global_flag = no_illyria_revolt
+					set_global_flag = no_galicia_revolt
+					set_global_flag = no_slovene_revolt
+					set_global_flag = no_slovak_revolt
+					set_global_flag = no_transylvanian_revolt
+					set_global_flag = no_ruthenian_revolt
+					set_global_flag = no_banat_revolt
+					set_global_flag = no_bosnian_revolt
+					set_global_flag = no_serb_revolt
+					set_global_flag = no_slovak_revolt
+					set_global_flag = no_bukovina_revolt
+					set_global_flag = no_montenegrin_revolt
+					set_global_flag = no_backers_allowed
+					
+					set_variable = {
+						var = AUS.subject_revolt_progress
+						value = 0
+					}
+					clamp_variable = {
+						var = AUS.subject_revolt_progress
+						min = 0
+						max = 0
+					}
+					#country_event = {
+					#	id = constituents.1
+					#	days = 1440
+					#	random = 360
+					#}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Disable revolts for 2wk
+	id = revolt.2000
+	title = revolt.2000.t
+	desc = revolt.2000.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+		OR = {
+			has_war_with = GER
+			has_war_with = FRA
+		}
+	}
+
+	option = { #bye bye
+		name = revolt.2000.a
+		set_global_flag = no_more_collapse
+		set_global_flag = no_majority_revolt
+		set_global_flag = no_hungary_revolt
+		set_global_flag = no_bohemia_revolt
+		set_global_flag = no_illyria_revolt
+		set_global_flag = no_galicia_revolt
+		set_global_flag = no_slovene_revolt
+		set_global_flag = no_slovak_revolt
+		set_global_flag = no_transylvanian_revolt
+		set_global_flag = no_ruthenian_revolt
+		set_global_flag = no_banat_revolt
+		set_global_flag = no_bosnian_revolt
+		set_global_flag = no_serb_revolt
+		set_global_flag = no_slovak_revolt
+		set_global_flag = no_bukovina_revolt
+		set_global_flag = no_montenegrin_revolt
+	}
+}
+

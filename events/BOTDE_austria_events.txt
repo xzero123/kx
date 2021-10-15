@@ -1,0 +1,2992 @@
+add_namespace = bdeaus
+add_namespace = bdeausint
+add_namespace = bdeausgleich
+add_namespace = bdeauscs
+add_namespace = bdeausvf
+add_namespace = bdeaussdap
+add_namespace = bdeausfor #Foreign
+add_namespace = bdeausconst #Constituents
+add_namespace = bdeausel #Snap Election
+add_namespace = ausloop
+add_namespace = bdeausflavor
+add_namespace = bdeausdebug
+add_namespace = icodedfathergun
+
+country_event = { #intro 0
+	id = bdeausdebug.0
+	title = bdeausdebug.0.t
+	desc = bdeausdebug.0.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #k
+		name = bdeausdebug.0.a
+		if = {
+			limit = {
+				has_country_flag = CZE_monarchy_flag
+			}
+			add_political_power = 20
+		}
+	}
+}
+
+country_event = { #intro 1
+	id = austriaintro.1
+	title = austriaintro.1.t
+	desc = austriaintro.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #k
+		name = austriaintro.1.a
+		country_event = austriaintro.2
+	}
+}
+
+country_event = { #intro 2
+	id = austriaintro.2
+	title = austriaintro.2.t
+	desc = austriaintro.2.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #k
+		name = austriaintro.2.a
+	}
+}
+
+
+country_event = { #Debug fo now
+	id = bdeaus.0
+	title = bdeaus.0.t
+	desc = bdeaus.0.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #dn lol
+		name = bdeaus.0.a
+		
+	}
+}
+
+country_event = { #The Immediate Effects
+	id = bdeausel.0
+	title = bdeausel.0.t
+	desc = bdeausel.0.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Brace for impact!
+		name = bdeausel.0.a
+		add_stability = -0.05
+		hidden_effect = {
+			country_event = {
+				id = bdeausel.1
+				days = 5
+				random  = 48
+			}
+		}
+	}
+}
+
+country_event = { #Legislation proposes a vote of no confidence against Otto Ender
+	id = bdeausel.1
+	title = bdeausel.1.t
+	desc = bdeausel.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Let it happen, in March
+		name = bdeausel.1.a
+		add_stability = -0.05
+		hidden_effect = {
+			country_event = {
+				id = bdeausel.2
+				days = 4
+				random  = 48
+			}
+			country_event = {
+				id = bdeausel.3
+				days = 10
+				random  = 96
+			}
+		}
+	}
+}
+
+country_event = { #Engelbert Dollfuss Challenges Ender
+	id = bdeausel.2
+	title = bdeausel.2.t
+	desc = bdeausel.2.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #I say Dollfuss' got a point here
+		name = bdeausel.2.a
+		add_stability = -0.02
+		set_country_flag = AUS_go_dollfuss
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.15
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.15
+		}
+		set_politics = {
+			ruling_party = social_conservative
+		}
+		hidden_effect = {
+			country_event = {
+				id = bdeausel.6
+				days = 3
+			}
+		}
+	}
+	
+	option = { #Ender isn't that bad! Give him a break!
+		name = bdeausel.2.b
+		add_stability = -0.02
+		set_country_flag = AUS_keep_ender
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.2
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.1
+		}
+		set_politics = {
+			ruling_party = social_conservative
+		}
+	}
+}
+
+
+
+country_event = { #Election of 1936
+	id = bdeausel.3
+	title = bdeausel.3.t
+	desc = bdeausel.3.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Otto Ender is re-elected
+		name = bdeausel.3.a
+		trigger = {
+			has_country_flag = AUS_keep_ender
+		}
+		add_political_power = 100
+		add_stability = 0.1
+		set_politics = {
+			ruling_party = social_conservative
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.1
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.05
+		}
+		hidden_effect = {
+			country_event = {
+				id = bdeausel.4 #Dollfuss whines (Loser POV)
+				days = 3
+			}
+			set_country_flag = AUS_CS_victory_snap_election
+			set_country_flag = AUS_snap_election_complete
+			complete_national_focus = AUS_off_with_the_chancellor
+		}
+	}
+	
+	option = { #Dollfuss is elected
+		name = bdeausel.3.b
+		trigger = {
+			has_country_flag = AUS_go_dollfuss
+		}
+		add_political_power = 100
+		add_stability = 0.1
+		set_politics = {
+			ruling_party = paternal_autocrat
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.1
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.08
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.08
+		}
+		add_ideas = AUS_leftist_discontent
+		hidden_effect = {
+			country_event = {
+				id = bdeausel.5 #SDAP whines (Loser POV)
+				days = 3
+			}
+			set_country_flag = AUS_dollfuss_victory_snap_election
+			set_country_flag = AUS_snap_election_complete
+			complete_national_focus = AUS_off_with_the_chancellor
+		}
+	}
+	
+	option = { #Karl Renner is elected
+		name = bdeausel.3.c
+		add_political_power = 100
+		add_stability = 0.1
+		set_politics = {
+			ruling_party = social_democrat
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.12
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.05
+		}
+		add_ideas = AUS_rightwing_discontent
+		hidden_effect = {
+			country_event = {
+				id = bdeausel.4 #Dollfuss whines (Loser POV)
+				days = 3
+			}
+			if = {
+				limit = {
+					has_country_flag = AUS_go_dollfuss
+				}
+				country_event = {
+					id = icodedfathergun.1#dolfus allies with Starhemberg
+					days = 15
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = AUS_keep_ender
+				}
+				country_event = {
+					id = icodedfathergun.2#ender steps down
+					days = 15
+				}
+			}
+			set_country_flag = AUS_SDAP_victory_snap_election
+			set_country_flag = AUS_snap_election_complete
+			complete_national_focus = AUS_off_with_the_chancellor
+		}
+	}
+	
+}
+
+country_event = { #Loser POV: Dollfuss Denounces Winner
+	id = bdeausel.4
+	title = bdeausel.4.t
+	desc = bdeausel.4.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #You lost. Your opinion matters not.
+		name = bdeausel.4.a
+		AUS_add_five_collapse = yes
+		add_political_power = -20
+	}
+}
+
+country_event = { #Loser POV: SDAP Warns the Empire of Dollfuss
+	id = bdeausel.5
+	title = bdeausel.5.t
+	desc = bdeausel.5.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #You lost. Your opinion matters not.
+		name = bdeausel.5.a
+		AUS_add_five_collapse = yes
+		add_political_power = -20
+	}
+}
+
+
+country_event = { #Dollfuss forms a coalition with the Heimwehr
+	id = bdeausel.6
+	title = bdeausel.6.t
+	desc = bdeausel.6.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Interesting
+		name = bdeausel.6.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.03
+		}
+	}
+}
+
+country_event = { #checker 40
+	id = bdeausel.7
+	title = bdeausel.7.t
+	desc = bdeausel.7.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+	
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = { #Interesting
+		name = bdeausel.7.a
+		if = {
+			limit = {
+				is_puppet = no
+				NOT = {
+					has_government = national_populist
+				}
+			}
+			country_event = {
+				id = bdeausel.8
+				days = 4
+				random = 72
+			}
+			hidden_effect = {
+				set_country_flag = AUS_election_happened
+			}
+		}
+	}
+}
+
+country_event = { #Upcoming Election of 1940
+	id = bdeausel.8
+	title = bdeausel.8.t
+	desc = bdeausel.8.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Let the best candidate win
+		name = bdeausel.8.a
+		country_event = {
+			id = bdeausel.11
+			days = 7
+			random = 72
+		}
+	}
+}
+
+country_event = { #Nominations for the 1944 Election
+	id = bdeausel.9
+	title = bdeausel.9.t
+	desc = bdeausel.9.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Let the best candidate win
+		name = bdeausel.9.a
+		country_event = {
+			id = bdeausel.12
+			days = 7
+			random = 72
+		}
+	}
+}
+
+country_event = { #checker 44
+	id = bdeausel.10
+	title = bdeausel.10.t
+	desc = bdeausel.10.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+	
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = { #Interesting
+		name = bdeausel.10.a
+		if = {
+			limit = {
+				is_puppet = no
+				NOT = {
+					has_government = national_populist
+				}
+			}
+			country_event = {
+				id = bdeausel.9
+				days = 4
+				random = 72
+			}
+			hidden_effect = {
+				set_country_flag = AUS_election_happened_44
+			}
+		}
+	}
+}
+
+
+country_event = { #Election of 1940
+	id = bdeausel.11
+	title = bdeausel.11.t
+	desc = bdeausel.11.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Ludwig Draxler is elected
+		name = bdeausel.11.a
+		add_political_power = 50
+		add_stability = 0.05
+		retire_ideology_leader = social_conservative
+		set_politics = {
+			ruling_party = social_conservative
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.1
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.05
+		}
+		create_country_leader = {
+			name = "Ludwig Draxler"
+			desc = "AUS_POLITICS_Draxler_DESC"
+			picture = "AUS_BLANK.dds"
+			expire = "1965.1.1"
+			ideology = social_conservative_subtype
+			traits = {
+				
+			}
+		}
+		hidden_effect = {
+			set_country_flag = AUS_CS_victory_1940
+			set_country_flag = AUS_1940_election
+			if = {
+				limit = {
+					OR = {
+						has_idea = AUS_bm_1
+						has_idea = AUS_bm_2
+						has_idea = AUS_bm_3
+						has_idea = AUS_bm_4
+						has_idea = AUS_bm_5
+						has_idea = AUS_bm_6
+					}
+				}
+				remove_ideas = {
+					AUS_bm_1
+					AUS_bm_2
+					AUS_bm_3
+					AUS_bm_4
+					AUS_bm_5
+					AUS_bm_6
+				}
+			}
+		}
+	}
+	
+	option = { #Dollfuss is elected
+		name = bdeausel.11.b
+		trigger = {
+			has_country_flag = AUS_go_dollfuss
+		}
+		add_political_power = 50
+		add_stability = 0.05
+		set_politics = {
+			ruling_party = paternal_autocrat
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.1
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.08
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.08
+		}
+		set_party_name = { 
+			ideology = paternal_autocrat 
+			long_name = AUS_VF_NAME_LONG 
+			name = AUS_VF_NAME 
+		}
+		set_party_name = { 
+			ideology = national_populist 
+			long_name = AUS_VF_NAME_LONG 
+			name = AUS_VF_NAME 
+		}
+		create_country_leader = {
+			name = "Engelbert Dollfuss"
+			desc = "AUS_POLITICS_DOLLFUSS_DESC"
+			picture = "Portrait_AUS_dollfuss_older.dds"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+		}
+		hidden_effect = {
+			set_country_flag = AUS_VF_victory_1940
+			set_country_flag = AUS_1940_election
+			if = {
+				limit = {
+					OR = {
+						has_idea = AUS_bm_1
+						has_idea = AUS_bm_2
+						has_idea = AUS_bm_3
+						has_idea = AUS_bm_4
+						has_idea = AUS_bm_5
+						has_idea = AUS_bm_6
+					}
+				}
+				remove_ideas = {
+					AUS_bm_1
+					AUS_bm_2
+					AUS_bm_3
+					AUS_bm_4
+					AUS_bm_5
+					AUS_bm_6
+				}
+			}
+		}
+	}
+	
+	option = { #Otto Bauer is elected #### MAKE HIM A THING
+		name = bdeausel.11.c
+		add_political_power = 50
+		add_stability = 0.05
+		retire_ideology_leader = social_democrat
+		set_politics = {
+			ruling_party = social_democrat
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.12
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.05
+		}
+		create_country_leader = {
+			name = "Otto Bauer"
+			desc = "AUS_POLITICS_BAUER_DESC"
+			picture = "AUS_BLANK.dds"
+			expire = "1965.1.1"
+			ideology = social_democrat_subtype
+			traits = {
+				
+			}
+		}
+		hidden_effect = {
+			set_country_flag = AUS_SDAP_victory_1940
+			set_country_flag = AUS_1940_election
+			if = {
+				limit = {
+					OR = {
+						has_idea = AUS_bm_1
+						has_idea = AUS_bm_2
+						has_idea = AUS_bm_3
+						has_idea = AUS_bm_4
+						has_idea = AUS_bm_5
+						has_idea = AUS_bm_6
+					}
+				}
+				remove_ideas = {
+					AUS_bm_1
+					AUS_bm_2
+					AUS_bm_3
+					AUS_bm_4
+					AUS_bm_5
+					AUS_bm_6
+				}
+			}
+		}
+	}
+	
+}
+
+country_event = { #Election of 1944
+	id = bdeausel.12
+	title = bdeausel.12.t
+	desc = bdeausel.12.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Ludwig Draxler is elected
+		name = bdeausel.12.a
+		add_political_power = 50
+		add_stability = 0.05
+		retire_ideology_leader = social_conservative
+		set_politics = {
+			ruling_party = social_conservative
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.1
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.05
+		}
+		create_country_leader = {
+			name = "Ludwig Draxler"
+			desc = "AUS_POLITICS_DRAXLER_DESC"
+			picture = "AUS_BLANK.dds"
+			expire = "1965.1.1"
+			ideology = social_conservative_subtype
+			traits = {
+				
+			}
+		}
+		hidden_effect = {
+			set_country_flag = AUS_CS_victory_1944
+			set_country_flag = AUS_1944_election
+		}
+	}
+	
+	option = { #Dollfuss is elected
+		name = bdeausel.12.b
+		trigger = {
+			has_country_flag = AUS_go_dollfuss
+		}
+		add_political_power = 50
+		add_stability = 0.05
+		set_politics = {
+			ruling_party = paternal_autocrat
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.1
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.08
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.08
+		}
+		set_party_name = { 
+			ideology = paternal_autocrat 
+			long_name = AUS_VF_NAME_LONG 
+			name = AUS_VF_NAME 
+		}
+		set_party_name = { 
+			ideology = national_populist 
+			long_name = AUS_VF_NAME_LONG 
+			name = AUS_VF_NAME 
+		}
+		create_country_leader = {
+			name = "Engelbert Dollfuss"
+			desc = "AUS_POLITICS_DOLLFUSS_DESC"
+			picture = "Portrait_AUS_dollfuss_older.dds"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+		}
+		hidden_effect = {
+			set_country_flag = AUS_VF_victory_1944
+			set_country_flag = AUS_1944_election
+		}
+	}
+	
+	option = { #Otto Bauer is elected #### MAKE HIM A THING
+		name = bdeausel.12.c
+		add_political_power = 50
+		add_stability = 0.05
+		retire_ideology_leader = social_democrat
+		set_politics = {
+			ruling_party = social_democrat
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.12
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.05
+		}
+		create_country_leader = {
+			name = "Otto Bauer"
+			desc = "AUS_POLITICS_SCHARF_DESC"
+			picture = "AUS_BLANK.dds"
+			expire = "1965.1.1"
+			ideology = social_democrat_subtype
+			traits = {
+				
+			}
+		}
+		hidden_effect = {
+			set_country_flag = AUS_SDAP_victory_1944
+			set_country_flag = AUS_1944_election
+		}
+	}
+	
+}
+
+
+
+
+
+
+
+country_event = { #Ender's Promises
+	id = bdeauscs.1
+	title = bdeauscs.1.t
+	desc = bdeauscs.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Here's to prosperity!
+		name = bdeauscs.1.a
+		AUS_subtract_three_collapse = yes
+	}
+}
+
+country_event = { #Fiscal Redraw Act of GetYear
+	id = bdeauscs.2
+	title = bdeauscs.2.t
+	desc = bdeauscs.2.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Let's hope it works.
+		name = bdeauscs.2.a
+		swap_ideas = {
+			remove_idea = AUS_bm_1
+			add_idea = AUS_bm_2
+		}
+		set_country_flag = AUS_fiscal_redraw_passed
+	}
+}
+
+country_event = { #Welfare Law of GetYear Debate
+	id = bdeauscs.3
+	title = bdeauscs.3.t
+	desc = bdeauscs.3.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #What we have is enough.
+		name = bdeauscs.3.a
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.03
+		}
+		add_political_power = 30
+		AUS_add_one_collapse = yes
+	}
+	
+	option = { #I suppose we can do a little more.
+		name = bdeauscs.3.b
+		custom_effect_tooltip = AUS_sdap_compromise_tt
+		set_country_flag = AUS_allow_sdap_compromise
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		AUS_subtract_five_collapse = yes
+	}
+}
+
+country_event = { #Dollfuss' Inauguration
+	id = bdeausvf.1
+	title = bdeausvf.1.t
+	desc = bdeausvf.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Welcome, our Chancellor!
+		name = bdeausvf.1.a
+		AUS_subtract_three_collapse = yes
+		HUN_add_one_collapse = yes
+		CZE_add_one_collapse = yes
+		CRO_add_one_collapse = yes
+		GAL_add_one_collapse = yes
+	}
+
+}
+
+country_event = { #Renner's Inauguration
+	id = bdeaussdap.1
+	title = bdeaussdap.1.t
+	desc = bdeaussdap.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Welcome, our Chancellor!
+		name = bdeaussdap.1.a
+		AUS_subtract_three_collapse = yes
+		HUN_subtract_one_collapse = yes
+		CZE_subtract_one_collapse = yes
+		CRO_subtract_one_collapse = yes
+		GAL_subtract_one_collapse = yes
+	}
+
+}
+
+country_event = { #A Economic Gambit
+	id = bdeaussdap.2
+	title = bdeaussdap.2.t
+	desc = bdeaussdap.2.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #I promise you it'll work...
+		name = bdeaussdap.2.a
+		add_political_power = 15
+	}
+
+}
+
+country_event = { #Austria Pays Every Last Penny
+	id = bdeausfor.1
+	title = bdeausfor.1.t
+	desc = bdeausfor.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Wonderful!
+		name = bdeausfor.1.a
+		add_political_power = 50
+	}
+}
+
+country_event = { #Austria Proposes Alliance
+	id = bdeausfor.2
+	title = bdeausfor.2.t
+	desc = bdeausfor.2.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = { #This will benefit us.
+		name = bdeausfor.2.a
+		ai_chance = { factor = 1 }
+		FROM = {
+			add_to_faction = ROOT
+		}
+	}
+	
+	option = { #We have no need for this.
+		name = bdeausfor.2.b
+		ai_chance = { factor = 0 }
+		FROM = {
+			country_event = {
+				id = bdeausfor.3
+				days = 2
+			}
+		}
+	}
+	
+}
+
+country_event = { #FROM rejects alliance offer!
+	id = bdeausfor.3
+	title = bdeausfor.3.t
+	desc = bdeausfor.3.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = { #Too bad
+		name = bdeausfor.3.a
+		ai_chance = { factor = 1 }
+	}
+}
+
+country_event = { #Austria Proposes Crete Deal
+	id = bdeausfor.4
+	title = bdeausfor.4.t
+	desc = bdeausfor.4.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = { #Ok
+		name = bdeausfor.4.a
+		ai_chance = { factor = 1 }
+		add_timed_idea = {
+			idea = AUS_crete_purchase_other
+			days = 180
+		}
+		AUS = {
+			add_timed_idea = {
+				idea = AUS_crete_purchase_self
+				days = 180
+			}
+			transfer_state = 182
+		}
+	}
+	
+	option = { #No
+		name = bdeausfor.4.b
+		ai_chance = { factor = 0 }
+		AUS = {
+			country_event = bdeausfor.7
+		}
+	}
+	
+}
+
+
+
+country_event = { #Austria Proposes Alliance (but austria joins)
+	id = bdeausfor.5
+	title = bdeausfor.5.t
+	desc = bdeausfor.5.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = { #This will benefit us.
+		name = bdeausfor.5.a
+		ai_chance = { factor = 1 }
+		ROOT = {
+			add_to_faction = FROM
+		}
+	}
+	
+	option = { #We have no need for this.
+		name = bdeausfor.5.b
+		ai_chance = { factor = 0 }
+		FROM = {
+			country_event = {
+				id = bdeausfor.6
+				days = 2
+			}
+		}
+	}
+	
+}
+
+country_event = { #FROM denies our request
+	id = bdeausfor.6
+	title = bdeausfor.6.t
+	desc = bdeausfor.6.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = { #A shame
+		name = bdeausfor.6.a
+		ai_chance = { factor = 1 }
+	}
+}
+
+country_event = { #no crete
+	id = bdeausfor.7
+	title = bdeausfor.7.t
+	desc = bdeausfor.7.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = { #A shame
+		name = bdeausfor.7.a
+		ai_chance = { factor = 1 }
+		add_political_power = -30
+		add_stability = -0.03
+	}
+}
+
+country_event = { #Exercises with Austria
+	id = bdeausfor.8
+	title = bdeausfor.8.t
+	desc = bdeausfor.8.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = { #Ok
+		name = bdeausfor.8.a
+		ai_chance = { factor = 1 }
+		add_tech_bonus = {
+			uses = 1
+			bonus = 1
+			category = land_doctrine
+		}
+		army_experience = 25
+	}
+}
+
+country_event = { #Austria enacts new imperial trade policy
+	id = bdeausconst.1
+	title = bdeausconst.1.t
+	desc = bdeausconst.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Wonderful!
+		name = bdeausconst.1.a
+		add_political_power = 20
+		custom_effect_tooltip = AUSCONST_resources
+	}
+}
+
+country_event = { #Austria sends assistant workers
+	id = bdeausconst.2
+	title = bdeausconst.2.t
+	desc = bdeausconst.2.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Hmmm, for the people.
+		name = bdeausconst.2.a
+		add_political_power = 20
+		add_stability = 0.05
+		random_owned_state = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+	
+	option = { #Hmmm, the nation needs it.
+		name = bdeausconst.2.b
+		add_political_power = 20
+		add_war_support = 0.05
+		random_owned_state = {
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+}
+
+country_event = { #Austria sends assistant workers
+	id = bdeausconst.3
+	title = bdeausconst.3.t
+	desc = bdeausconst.3.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Oh, thanks.
+		name = bdeausconst.3.a
+		add_stability = 0.03
+		custom_effect_tooltip = CONST_expanded_arbeitsprogramme
+	}
+}
+
+country_event = { #The Budapest Conference
+	id = bdeausconst.4
+	title = bdeausconst.4.t
+	desc = bdeausconst.4.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #We'll be there!
+		name = bdeausconst.4.a
+		add_political_power = 50
+		AUS = {
+			country_event = {
+				id = bdeausconst.5
+				days = 4
+			}
+		}
+	}
+}
+
+country_event = { #The Budapest Conference Complete
+	id = bdeausconst.5
+	title = bdeausconst.5.t
+	desc = bdeausconst.5.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #We'll be there!
+		name = bdeausconst.5.a
+		HUN = {
+			transfer_state = 1105
+		}
+		CRO_add_ten_collapse = yes
+		CRO = {
+			country_event = {
+				id = bdeausconst.6
+				days = 2
+			}
+		}
+		set_global_flag = AUS_budapest_conference
+		hidden_effect = {
+			country_event = {
+				id = bdeausint.1
+				days = 12
+			}
+			HUN = {
+				country_event = {
+					id = bdeausint.1
+					days = 12
+				}
+			}
+			random_other_country = {
+				news_event = { id = bdeausnews.1 days = 1 }
+			}
+		}
+	}
+}
+
+country_event = { #The Budapest Conference Transfers Fiume to Hungary
+	id = bdeausconst.6
+	title = bdeausconst.6.t
+	desc = bdeausconst.6.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #You bastards!
+		name = bdeausconst.6.a
+		add_war_support = 0.1
+		set_country_flag = CRO_budapest_conference
+	}
+}
+
+country_event = { #Ausgleich check
+	id = bdeausgleich.0
+	title = bdeausgleich.0.t
+	desc = bdeausgleich.0.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = { #Ok
+		name = bdeausgleich.0.a
+		if = {
+			limit = {
+				has_country_flag = AUS_bm_over
+			}
+			country_event = bdeausgleich.1
+			else = {
+				country_event = {
+					id = bdeausgleich.0
+					days = 28
+					random = 192
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Plan for the Ausgleich
+	id = bdeausgleich.1
+	title = bdeausgleich.1.t
+	desc = bdeausgleich.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Discuss this with just the 5 constituents.
+		name = bdeausgleich.1.a
+		HUN = {
+			country_event = {
+				id = bdeausgleich.2
+				days = 7
+			}
+		}
+		CRO = {
+			country_event = {
+				id = bdeausgleich.2
+				days = 7
+			}
+		}
+		CZE = {
+			country_event = {
+				id = bdeausgleich.2
+				days = 7
+			}
+		}
+		GAL = {
+			country_event = {
+				id = bdeausgleich.2
+				days = 7
+			}
+		}
+		remove_ideas = AUS_approaching_ausgleich
+		set_global_flag = AUS_ausgleich_5_constituents
+		hidden_effect = {
+			country_event = {
+				id = bdeausgleich.3
+				days = 8
+				random = 72
+			}
+		}
+	}
+}
+
+country_event = { #CONSTS - Invitation to the Ausgleich
+	id = bdeausgleich.2
+	title = bdeausgleich.2.t
+	desc = bdeausgleich.2.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = { #Let's see what this is all about...
+		name = bdeausconst.2.a
+		set_country_flag = going_to_le_ausgleich
+		custom_effect_tooltip = ausgleich_in_gui
+	}
+}
+
+country_event = { #The Ausgleich Begins (Hidden)
+	id = bdeausgleich.3
+	title = bdeausgleich.3.t
+	desc = bdeausgleich.3.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+	
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = { #Let's see what this is all about...
+		name = bdeausconst.3.a
+		set_global_flag = AUS_ausgleich_begun
+		hidden_effect = {
+			AUS = {
+				country_event = bdeausgleich.4
+			}
+			HUN = {
+				country_event = bdeausgleich.4
+			}
+			CZE = {
+				country_event = bdeausgleich.4
+			}
+			CRO = {
+				country_event = bdeausgleich.4
+			}
+			GAL = {
+				country_event = bdeausgleich.4
+			}
+		}
+	}
+}
+
+country_event = { #The Ausgleich Begins
+	id = bdeausgleich.4
+	title = bdeausgleich.4.t
+	desc = bdeausgleich.4.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = no
+
+	is_triggered_only = yes
+
+	option = { #What will be discussed?
+		name = bdeausconst.4.a
+		trigger = {
+			NOT = {
+				tag = AUS
+			}
+		}
+	}
+	
+	option = { #Time to put forward our plan
+		name = bdeausconst.4.b
+		trigger = {
+			tag = AUS
+		}
+		country_event = {
+			id = bdeausgleich.5
+			days = 4
+			if = {
+				limit = {
+					has_government = national_populist
+				}
+				custom_effect_tooltip = AUS_gleich_dollfuss_plan
+				collapse_transylvania_two = yes
+				AUS_raise_transylvanians_2 = yes
+				AUS_raise_ukrainians_2 = yes
+				hidden_effect = {
+					HUN = {
+						country_event = {
+							id = bdeausgleich.5 #Hungarian response to Dollfuss
+							days = 5
+						}
+					}
+					CRO = {
+						country_event = {
+							id = bdeausgleich.5 #Bosnian response to Dollfuss (definite Bosnian revolt)
+							days = 5
+						}
+					}
+					CZE = {
+						country_event = {
+							id = bdeausgleich.5 #Bohemian response to Dollfuss
+							days = 5
+						}
+					}
+					GAL = {
+						country_event = {
+							id = bdeausgleich.5 #Galician response to Dollfuss
+							days = 5
+						}
+					}
+					country_event = {
+						id = bdeausgleich.8 #Reform plan passes!
+						days = 12
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_government = social_conservative
+				}
+				custom_effect_tooltip = AUS_gleich_ender_plan
+				AUS_raise_slovenians_2 = yes
+				CRO_add_ten_collapse = yes
+				CZE_add_five_collapse = yes
+				GAL_add_ten_collapse = yes
+				hidden_effect = {
+					HUN = {
+						country_event = {
+							id = bdeausgleich.6 #Hungarian response to Ender
+							days = 5
+						}
+					}
+					CRO = {
+						country_event = {
+							id = bdeausgleich.6 #Slavic unrest due to Ender
+							days = 5
+						}
+					}
+					CZE = {
+						country_event = {
+							id = bdeausgleich.6 #Slavic unrest due to Ender
+							days = 5
+						}
+					}
+					GAL = {
+						country_event = {
+							id = bdeausgleich.6 #Galician response to Ender (generic, like Hungary's)
+							days = 5
+						}
+					}
+					country_event = {
+						id = bdeausgleich.8 #Reform plan passes!
+						days = 8
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_government = social_democrat
+				}
+				custom_effect_tooltip = AUS_gleich_renner_plan
+				hidden_effect = {
+					HUN = {
+						country_event = {
+							id = bdeausgleich.7 #Hungarian response to Renner
+							days = 5
+						}
+					}
+					CRO = {
+						country_event = {
+							id = bdeausgleich.7 #Renner's plan (About the same)
+							days = 5
+						}
+					}
+					CZE = {
+						country_event = {
+							id = bdeausgleich.7
+							days = 5
+						}
+					}
+					GAL = {
+						country_event = {
+							id = bdeausgleich.7
+							days = 5
+						}
+					}
+					country_event = {
+						id = bdeausgleich.8 #Reform plan passes!
+						days = 8
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Dollfuss' Reform Plan
+	id = bdeausgleich.5
+	title = bdeausgleich.5.t
+	desc = bdeausgleich.5.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	is_triggered_only = yes
+
+	option = { #Good to hear!
+		trigger = {
+			tag = HUN
+		}
+		name = bdeausconst.5.a
+		add_political_power = 50
+		add_stability = 0.05
+	}
+	
+	option = { #I don't like this very much!
+		trigger = {
+			tag = CRO
+		}
+		name = bdeausconst.5.b
+		add_political_power = -20
+		add_stability = -0.03
+		hidden_effect = {
+			country_event = {
+				id = bdeausgleich.200
+				days = 31
+			}
+		}
+	}
+	
+	option = { #Good to hear.
+		trigger = {
+			tag = CZE
+		}
+		name = bdeausconst.5.c
+		add_political_power = 20
+		add_stability = 0.02
+	}
+	
+	option = { #I don't know...
+		trigger = {
+			tag = GAL
+		}
+		name = bdeausconst.5.e
+		add_political_power = 10
+		add_stability = 0.01
+	}
+	
+}
+
+country_event = { #Ender's Reform Plan
+	id = bdeausgleich.6
+	title = bdeausgleich.6.t
+	desc = bdeausgleich.6.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = { #Good to hear!
+		trigger = {
+			tag = HUN
+		}
+		name = bdeausconst.6.a
+		add_political_power = 50
+		add_stability = 0.05
+	}
+	
+	option = { #I don't like this very much!
+		trigger = {
+			tag = CRO
+		}
+		name = bdeausconst.6.b
+		add_political_power = -20
+		add_stability = -0.03
+	}
+	
+	option = { #Hmmmm, dunno...
+		trigger = {
+			tag = CZE
+		}
+		name = bdeausconst.6.c
+		add_political_power = 20
+		add_stability = 0.02
+	}
+	
+	option = { #I don't approve!
+		trigger = {
+			tag = GAL
+		}
+		name = bdeausconst.6.e
+		add_political_power = -20
+		add_stability = -0.03
+	}
+	
+}
+
+country_event = { #Ender's Reform Plan
+	id = bdeausgleich.7
+	title = bdeausgleich.7.t
+	desc = bdeausgleich.7.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = { #Don't you dare.
+		trigger = {
+			tag = HUN
+		}
+		name = bdeausconst.7.a
+		add_political_power = -30
+		add_stability = -0.05
+		hidden_effect = {
+			country_event = {
+				id = bdeausgleich.201 #Hungarian choice on revolt
+				days = 31
+			}
+		}
+	}
+	
+	option = { #I approve!
+		trigger = {
+			tag = CRO
+		}
+		name = bdeausconst.7.b
+		add_political_power = 20
+		add_stability = 0.03
+	}
+	
+	option = { #I approve!
+		trigger = {
+			tag = CZE
+		}
+		name = bdeausconst.7.c
+		add_political_power = 20
+		add_stability = 0.03
+	}
+	
+	option = { #I approve!
+		trigger = {
+			tag = GAL
+		}
+		name = bdeausconst.7.e
+		add_political_power = 20
+		add_stability = 0.03
+	}
+	
+}
+
+country_event = { #The Ausgleich is Finished
+	id = bdeausgleich.8
+	title = bdeausgleich.8.t
+	desc = bdeausgleich.8.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #You are all dismissed!
+		name = bdeausconst.8.a
+		add_political_power = 50
+		add_stability = 0.1
+		custom_effect_tooltip = unlocks_stabilization_focus
+		set_global_flag = AUS_ausgleich_finished
+		HUN = {
+			country_event = bdeausgleich.9
+		}
+		CZE = {
+			country_event = bdeausgleich.9
+		}
+		GAL = {
+			country_event = bdeausgleich.9
+		}
+		CRO = {
+			country_event = bdeausgleich.9
+		}
+	}
+}
+
+country_event = { #The Ausgleich is Finished
+	id = bdeausgleich.9
+	title = bdeausgleich.9.t
+	desc = bdeausgleich.9.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = { #Goodbye.
+		name = bdeausconst.9.a
+	}
+}
+
+country_event = { #Slovak Terrorist attacks Budapest
+	id = bdeausint.1
+	title = bdeausint.1.t
+	desc = bdeausint.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = { #This may be a warning of things to come
+		name = bdeausint.1.a
+		if = {
+			limit = {
+				tag = HUN
+			}
+			43 = {
+				damage_building = {
+					type = infrastructure
+					damage = 0.8
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Drafting the Federal Constitution
+	id = bdeausint.2
+	title = bdeausint.2.t
+	desc = bdeausint.2.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = { #Let's do this
+		name = bdeausint.2.a
+		custom_effect_tooltip = AUS_draft
+		hidden_effect = {
+			country_event = {
+				id = bdeausint.3
+				days = 31
+			}
+		}
+	}
+}
+
+country_event = { #Drafting the Federal Constitution
+	id = bdeausint.3
+	title = bdeausint.3.t
+	desc = bdeausint.3.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = { #Let's do this
+		name = bdeausint.3.a
+		custom_effect_tooltip = AUS_enable_new_govt_making
+		if = {
+			limit = {
+				has_completed_focus = AUS_satisfy_hungary
+			}
+			AUS_raise_govt_percentage_15 = yes
+		}
+		if = {
+			limit = {
+				has_completed_focus = AUS_meager_concessions
+			}
+			AUS_raise_govt_percentage_5 = yes
+		}
+		hidden_effect = {
+			country_event = {
+				id = bdeausint.4
+			}
+		}
+	}
+}
+
+country_event = { #HIDDEN - Govt percentage
+	id = bdeausint.4
+	title = bdeausint.4.t
+	desc = bdeausint.4.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = no
+	
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = { #Let's do this
+		name = bdeausint.4.a
+		AUS_raise_govt_percentage_1 = yes
+		if = {
+			limit = {
+				OR = {
+					check_variable = {
+						var = government_percentage
+						value = 1
+						compare = less_than
+					}
+					NOT  = {
+						has_completed_focus = AUS_a_new_path
+					}
+				}
+			}
+			country_event = {
+				id = bdeausint.4
+				days = 6
+				random = 36
+			}
+		}
+	}
+}
+
+country_event = { #Bomber in Vienna! (Bosnian)
+	id = bdeausint.5
+	title = bdeausint.5.t
+	desc = bdeausint.5.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Thank God history didn't repeat...
+		name = bdeausint.5.a
+		add_stability = -0.1
+		add_political_power = -20
+	}
+}
+
+country_event = { #Hungarian Riots in Slovakia & Transylvania
+	id = bdeausint.6
+	title = bdeausint.6.t
+	desc = bdeausint.6.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Pesky Magyars!
+		name = bdeausint.6.a
+		add_stability = -0.12
+		add_political_power = -50
+	}
+}
+
+country_event = { #Austrian politician shot in Venice!
+	id = bdeausint.7
+	title = bdeausint.7.t
+	desc = bdeausint.7.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Darn you!
+		name = bdeausint.7.a
+		add_political_power = -30
+	}	
+}
+
+country_event = { #Wir sind die Arbeiter von Wien!
+	id = bdeausint.8
+	title = bdeausint.8.t
+	desc = bdeausint.8.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Give them what they want
+		name = bdeausint.8.a
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.04
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.04
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.01
+		}
+		add_stability = 0.01
+	}
+	
+	option = { #Crack down on the demonstration
+		name = bdeausint.8.b
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.01
+		}
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.01
+		}
+		add_political_power = -20
+		set_country_flag = AUS_austrian_civil_war_gonna_happen_flag
+	}
+	
+}
+
+country_event = { #Wir sind das Bauvolk der kommenden Welt!
+	id = bdeausint.9
+	title = bdeausint.9.t
+	desc = bdeausint.9.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Send out the police!
+		name = bdeausint.9.a
+		add_stability = -0.1
+		AUS_add_three_collapse = yes
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.02
+		}
+	}
+	
+	option = { #This will blow over, right?
+		name = bdeausint.9.b
+		add_stability = -0.05
+		AUS_add_three_collapse = yes
+		hidden_effect = {
+			country_event = {
+				id = bdeausint.10
+				days = 5
+			}
+		}
+	}	
+}
+
+country_event = { #Open Arms Fire in Vienna!
+	id = bdeausint.10
+	title = bdeausint.10.t
+	desc = bdeausint.10.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Dollfuss is successfully evacuated!
+		name = bdeausint.10.a
+		add_political_power = -50
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.01
+		}
+		hidden_effect = {
+			country_event = {
+				id = bdeausint.11
+				days = 5
+			}
+		}
+	}
+	
+	option = { #The revolutionaries capture Dollfuss before he can escape!
+		name = bdeausint.10.b
+		add_political_power = -50
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.01
+		}
+		hidden_effect = {
+			country_event = {
+				id = bdeausint.13
+				days = 5
+			}
+		}
+	}	
+}
+
+country_event = { #The Armed Forces Mobilized
+	id = bdeausint.11
+	title = bdeausint.11.t
+	desc = bdeausint.11.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #We shouldn't need to do this anyway
+		name = bdeausint.11.a
+		add_political_power = -50
+		add_stability = 0.05
+		AUS_add_two_collapse = yes
+		hidden_effect = {
+			country_event = {
+				id = bdeausint.12
+				days = 10
+				random = 48
+			}
+		}
+	}
+}
+
+country_event = { #Revolution crushed!
+	id = bdeausint.12
+	title = bdeausint.12.t
+	desc = bdeausint.12.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Phew
+		name = bdeausint.12.a
+		add_political_power = 30
+		add_stability = 0.05
+		AUS_subtract_one_collapse = yes
+	}
+}
+
+country_event = { #Duel of the Revolutionaries
+	id = bdeausint.13
+	title = bdeausint.13.t
+	desc = bdeausint.13.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Drastic measures are taken...
+		name = bdeausint.13.a
+		add_political_power = -80
+		hidden_effect = {
+			country_event = {
+				id = bdeausint.16
+				days = 8
+				random = 56
+			}
+		}
+		
+	}
+	
+}
+
+country_event = { #Dollfuss Takes Over the CS
+	id = bdeausint.14
+	title = bdeausint.14.t
+	desc = bdeausint.14.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Ok
+		name = bdeausint.14.a
+	}
+}
+
+country_event = { #The Officer Debate
+	id = bdeausint.15
+	title = bdeausint.15.t
+	desc = bdeausint.15.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Meritocracy
+		name = bdeausint.15.a
+		add_political_power = 50
+	}
+	
+	option = { #Retain some aristocratic generals
+		name = bdeausint.15.b
+		add_stability = 0.05
+	}
+	
+}
+
+country_event = { #Political Brawling
+	id = bdeausint.16
+	title = bdeausint.16.t
+	desc = bdeausint.16.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #This isn't good
+		name = bdeausint.16.a
+		add_political_power = -50
+		hidden_effect = {
+			country_event = {
+				id = bdeausint.17
+				days = 3
+				random = 56
+			}
+		}
+	}
+}
+
+country_event = { #Election causes widespread discontent in constituents
+	id = bdeausint.17
+	title = bdeausint.17.t
+	desc = bdeausint.17.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #This isn't good
+		name = bdeausint.17.a
+		add_political_power = -50
+		hidden_effect = {
+			country_event = {
+				id = bdeausint.18
+				days = 8
+				random = 56
+			}
+		}
+	}
+}
+
+country_event = { #A Rapidly Deteriorating Situation
+	id = bdeausint.18
+	title = bdeausint.18.t
+	desc = bdeausint.18.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Is this our last breath?
+		name = bdeausint.18.a
+		add_political_power = -200
+		add_stability = -0.2
+		hidden_effect = {
+			set_variable = {
+				subject_revolt_progress = 1
+			}
+		}
+	}
+}
+
+#### CS Flavor
+
+country_event = { #A Busy Morning at the Vienna Stock Exchange
+	id = bdeausflavor.1
+	title = bdeausflavor.1.t
+	desc = bdeausflavor.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #???
+		name = bdeausflavor.1.a
+		
+	}
+}
+
+
+country_event = { #The Alpine Montangesellschaft Moves East
+	id = bdeausflavor.2
+	title = bdeausflavor.2.t
+	desc = bdeausflavor.2.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Profits to be reaped
+		name = bdeausflavor.2.a
+		GAL = {
+			add_political_power = 50
+		}
+	}
+}
+
+country_event = { #A Sausage Toast (Mutual)
+	id = bdeausflavor.3
+	title = bdeausflavor.3.t
+	desc = bdeausflavor.3.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Gourmet!
+		name = bdeausflavor.3.a
+		
+	}
+}
+
+country_event = { #A Visible Difference
+	id = bdeausflavor.4
+	title = bdeausflavor.4.t
+	desc = bdeausflavor.4.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Good signs!
+		name = bdeausflavor.4.a
+		
+	}
+}
+
+country_event = { #Thinking Aloud in Parliament (A Dollfuss supporter gets a little gamer towards the SDAP)
+	id = bdeausflavor.5
+	title = bdeausflavor.5.t
+	desc = bdeausflavor.5.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Rude!
+		name = bdeausflavor.5.a
+		add_stability = -0.01
+		add_political_power = -10
+	}
+}
+
+country_event = { #The Long Lines
+	id = bdeausflavor.6
+	title = bdeausflavor.6.t
+	desc = bdeausflavor.6.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #And this, folks, is how progress is made.
+		name = bdeausflavor.6.a
+		add_political_power = 30
+	}
+	
+	option = { #Patience is a virtue
+		name = bdeausflavor.6.a
+		add_stability = 0.03
+	}
+	
+	
+}
+
+country_event = { #A Judiciary Reform
+	id = bdeausflavor.7
+	title = bdeausflavor.7.t
+	desc = bdeausflavor.7.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Try them all!
+		name = bdeausflavor.7.a
+		add_political_power = 15
+	}
+}
+
+country_event = { #A Judiciary Reform
+	id = bdeausflavor.8
+	title = bdeausflavor.8.t
+	desc = bdeausflavor.8.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Try them all!
+		name = bdeausflavor.8.a
+		add_political_power = 15
+	}
+}
+
+country_event = { #SDAP Worrying
+	id = bdeausflavor.9
+	title = bdeausflavor.9.t
+	desc = bdeausflavor.9.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #They block our progress.
+		name = bdeausflavor.9.a
+	}
+}
+
+country_event = { #Expansion of Fine Wineries
+	id = bdeausflavor.10
+	title = bdeausflavor.10.t
+	desc = bdeausflavor.10.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Aged perfectly!
+		name = bdeausflavor.10.a
+		add_stability = 0.01
+	}
+}
+
+country_event = { #A Unified Parliament
+	id = bdeausflavor.11
+	title = bdeausflavor.11.t
+	desc = bdeausflavor.11.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Glad we can agree on something...
+		name = bdeausflavor.11.a
+		add_stability = 0.01
+		add_political_power = 10
+	}
+}
+
+country_event = { #dolfus and hemierhcwaratachahata guy ally 
+	id = icodedfathergun.1
+	title = icodedfathergun.1.t
+	desc = icodedfathergun.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #this could be bad
+		name = icodedfathergun.1.a
+		add_stability = -0.2
+		AUS_add_one_collapse = yes
+		hidden_effect = {
+			country_event = {
+				id = icodedfathergun.4
+				days = 60
+			}
+		}
+	}
+}
+country_event = { #otter steps down
+	id = icodedfathergun.2
+	title = icodedfathergun.2.t
+	desc = icodedfathergun.2.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #this could be bad
+		name = icodedfathergun.2.a
+		add_political_power = 50
+		hidden_effect = {
+			country_event = {
+				id = icodedfathergun.3
+				days = 5
+			}
+		}
+	}
+}
+country_event = { #Dolfus head of CS now
+	id = icodedfathergun.3
+	title = icodedfathergun.3.t
+	desc = icodedfathergun.3.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #this could be bad
+		name = icodedfathergun.3.a
+		add_stability = -0.2
+		AUS_add_one_collapse = yes
+		hidden_effect = {
+			country_event = {
+				id = icodedfathergun.4
+				days = 60
+			}
+		}
+	}
+}
+country_event = { #new face of the Austrian right
+	id = icodedfathergun.4
+	title = icodedfathergun.4.t
+	desc = icodedfathergun.4.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #this could be bad
+		name = icodedfathergun.4.a
+		AUS_add_one_collapse = yes
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.05
+		}
+		hidden_effect = {
+			country_event = {
+				id = icodedfathergun.5
+				days = 120
+			}
+		}
+	}
+}
+country_event = { #terrorism or some shit
+	id = icodedfathergun.5
+	title = icodedfathergun.5.t
+	desc = icodedfathergun.5.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #this could be bad
+		name = icodedfathergun.5.a
+		AUS_add_one_collapse = yes
+		hidden_effect = {
+			country_event = {
+				id = icodedfathergun.6
+				days = 120
+			}
+		}
+	}
+}
+country_event = { #terrorism or some shit
+	id = icodedfathergun.6
+	title = icodedfathergun.6.t
+	desc = icodedfathergun.6.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #this could be bad
+		name = icodedfathergun.6.a
+		AUS_add_one_collapse = yes
+		hidden_effect = {
+			country_event = {
+				id = icodedfathergun.7
+				days = 120
+			}
+		}
+	}
+}
+country_event = { #terrorism or some shit
+	id = icodedfathergun.7
+	title = icodedfathergun.7.t
+	desc = icodedfathergun.7.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #this could be bad
+		name = icodedfathergun.7.a
+		AUS_add_one_collapse = yes
+	}
+}
+
+country_event = { #pen is mighter then sword gang gang
+	id = icodedfathergun.8
+	title = icodedfathergun.8.t
+	desc = icodedfathergun.8.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #make a deal with the CS
+		name = icodedfathergun.8.a
+		hidden_effect = {
+			country_event = {
+				id = icodedfathergun.9
+				days = 15
+			}
+		}
+		
+	}
+	option = { #direct confrention
+		name = icodedfathergun.8.b
+		hidden_effect = {
+			country_event = {
+				id = icodedfathergun.12
+				days = 15
+			}
+		}
+		
+	}
+}
+country_event = { #dolfus didn't show
+	id = icodedfathergun.9
+	title = icodedfathergun.9.t
+	desc = icodedfathergun.9.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #this could be bad
+		name = icodedfathergun.9.a
+		country_event = {
+			id = icodedfathergun.10
+			days = 5
+		}
+	}
+}
+
+country_event = { #himmllarl'atmkaga moblizing
+	id = icodedfathergun.10
+	title = icodedfathergun.10.t
+	desc = icodedfathergun.10.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #this could be bad
+		name = icodedfathergun.10.a
+		country_event = {
+			id = icodedfathergun.11
+			days = 2
+		}
+	}
+}
+country_event = { #coup attempt
+	id = icodedfathergun.11
+	title = icodedfathergun.11.t
+	desc = icodedfathergun.11.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #this could be bad
+		name = icodedfathergun.11.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.15
+		}
+		set_politics = {
+			ruling_party = national_populist
+		}
+		hidden_effect = {
+			create_country_leader = {
+			name = "Ernst Rudiger von Starhemberg"
+			desc = "AUS_POLITICS_Starhemberg_DESC"
+			picture = "AUS_BLANK.dds"
+			expire = "1965.1.1"
+			ideology = national_populist_subtype
+			traits = {
+				
+			}
+		}
+		}
+		
+		
+	}
+}
+country_event = { #starting polorization stuff
+	id = icodedfathergun.12
+	title = icodedfathergun.12.t
+	desc = icodedfathergun.12.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #nice
+		name = icodedfathergun.12.a
+		country_event = {
+			id = icodedfathergun.13
+			days = 5
+		}
+	}
+}
+
+country_event = { #society is poplarized
+	id = icodedfathergun.13
+	title = icodedfathergun.13.t
+	desc = icodedfathergun.13.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #this could be bad
+		name = icodedfathergun.13.a
+		country_event = {
+			id = icodedfathergun.14
+			days = 2
+		}
+	}
+}
+country_event = { #failled assaionation attempt we did it
+	id = icodedfathergun.14
+	title = icodedfathergun.14.t
+	desc = icodedfathergun.14.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #this could be bad
+		name = icodedfathergun.14.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.15
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		set_global_flag = AUS_stabilization_crisis_resolved
+
+	}
+}
+
+country_event = { #miltary gang rise up
+	id = icodedfathergun.15
+	title = icodedfathergun.15.t
+	desc = icodedfathergun.15.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #use generic astriocrat
+		name = icodedfathergun.15.a
+		hidden_effect = {
+			country_event = {
+				id = icodedfathergun.16
+				days = 15
+			}
+		}
+		
+	}
+	option = { #use Julius Deutsch
+		name = icodedfathergun.8.b
+		hidden_effect = {
+			country_event = {
+				id = icodedfathergun.19
+				days = 15
+			}
+		}
+		
+	}
+}
+country_event = { #army moves against himmwlarc
+	id = icodedfathergun.16
+	title = icodedfathergun.16.t
+	desc = icodedfathergun.16.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #nice
+		name = icodedfathergun.16.a
+		country_event = {
+			id = icodedfathergun.17
+			days = 5
+		}
+	}
+}
+
+country_event = { #army defects
+	id = icodedfathergun.17
+	title = icodedfathergun.17.t
+	desc = icodedfathergun.17.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #this could be bad
+		name = icodedfathergun.17.a
+		country_event = {
+			id = icodedfathergun.18
+			days = 2
+		}
+	}
+}
+country_event = { #coup 
+	id = icodedfathergun.18
+	title = icodedfathergun.18.t
+	desc = icodedfathergun.18.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #this could be bad
+		name = icodedfathergun.18.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.15
+		}
+		set_politics = {
+			ruling_party = national_populist
+		}
+		hidden_effect = {
+			create_country_leader = {
+			name = "Ernst Rudiger von Starhemberg"
+			desc = "AUS_POLITICS_Starhemberg_DESC"
+			picture = "AUS_BLANK.dds"
+			expire = "1965.1.1"
+			ideology = national_populist_subtype
+			traits = {
+				
+			}
+		}
+		}
+		
+		
+	}
+}
+country_event = { #paralmiltars preparing
+	id = icodedfathergun.19
+	title = icodedfathergun.19.t
+	desc = icodedfathergun.19.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #nice
+		name = icodedfathergun.19.a
+		country_event = {
+			id = icodedfathergun.20
+			days = 5
+		}
+	}
+}
+
+country_event = { #riot/fight
+	id = icodedfathergun.20
+	title = icodedfathergun.20.t
+	desc = icodedfathergun.20.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #this could be bad
+		name = icodedfathergun.20.a
+		country_event = {
+			id = icodedfathergun.21
+			days = 2
+		}
+	}
+}
+country_event = { #they are ddead and arrested, we did it
+	id = icodedfathergun.21
+	title = icodedfathergun.21.t
+	desc = icodedfathergun.21.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #this could be bad
+		name = icodedfathergun.21.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.15
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.15
+		}
+		set_global_flag = AUS_stabilization_crisis_resolved
+
+	}
+}
+

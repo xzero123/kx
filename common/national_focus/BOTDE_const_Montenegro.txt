@@ -1,0 +1,2832 @@
+#### Illyria by guneric
+focus_tree = {
+	id = montenegro_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 100
+			#add = 0
+			tag = MNT
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 2500 y = 1800 }
+
+	###########################
+	### 1st Section Illyria ###
+	###########################
+
+	focus = {
+		id = MNT_the_great_balancing_act
+		icon = GFX_goal_generic_stable_government
+		x = 12
+		y = 0
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		completion_reward = {
+			add_political_power = 30
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_treading_carefully
+		icon = GFX_goal_MNT_tread_carefully
+		x = 8
+		y = 1
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		available = {
+			has_country_flag = MNT_black_monday
+			has_country_flag = MNT_klubasi
+		}
+		prerequisite = {
+			focus = MNT_the_great_balancing_act
+		}
+		mutually_exclusive = {
+			focus = MNT_independence_and_cordiality
+			focus = MNT_old_pravasi_friends
+		}
+		completion_reward = {
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.03
+			}
+			AUS = {
+				end_puppet = ROOT
+			}
+			leave_faction = yes
+			#Event here, BM gets worse due to new policy towards Vienna
+		}
+	}
+	
+	focus = {
+		id = MNT_set_boundaries
+		icon = GFX_goal_MNT_law_lines
+		x = 9
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		available = {
+			has_country_flag = MNT_black_monday
+		}
+		prerequisite = {
+			focus = MNT_treading_carefully
+		}
+		completion_reward = {
+			add_war_support = 0.05
+			add_political_power = 35
+			105 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_appeasing_northern_serbs
+		icon = GFX_goal_MNT_solve_northern_plight
+		x = 7
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		available = {
+			has_country_flag = MNT_black_monday
+		}
+		prerequisite = {
+			focus = MNT_treading_carefully
+		}
+		completion_reward = {
+			1097 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+				set_demilitarized_zone = no
+			}
+			add_stability = 0.03
+		}
+	}
+	
+	focus = {
+		id = MNT_adopt_the_dinar
+		icon = GFX_goal_MNT_serb_dinar
+		x = 7
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		available = {
+			has_country_flag = MNT_black_monday
+		}
+		prerequisite = {
+			focus = MNT_appeasing_northern_serbs
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = MNT_bm_2
+				remove_idea = MNT_bm_1
+			}
+			add_ideas = MNT_dinar
+		}
+	}
+	
+	focus = {
+		id = MNT_kick_out_austrians
+		icon = GFX_goal_MNT_greedy_jailors
+		x = 9
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		available = {
+			has_country_flag = MNT_black_monday
+		}
+		prerequisite = {
+			focus = MNT_set_boundaries
+		}
+		completion_reward = {
+			remove_ideas = MNT_shackled_economy
+			add_stability = -0.12
+			add_political_power = 50
+		}
+	}
+	
+	focus = {
+		id = MNT_the_only_impossibility
+		icon = GFX_goal_MNT_only_impossibility
+		x = 8
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		available = {
+			has_country_flag = MNT_black_monday
+		}
+		prerequisite = {
+			focus = MNT_adopt_the_dinar
+		}
+		prerequisite = {
+			focus = MNT_kick_out_austrians
+		}
+		mutually_exclusive = {
+			focus = MNT_some_necessity
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.03
+			}
+			105 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 3
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_some_necessity
+		icon = GFX_goal_MNT_evils_guaranteed
+		x = 6
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		available = {
+			has_country_flag = MNT_black_monday
+		}
+		prerequisite = {
+			focus = MNT_adopt_the_dinar
+		}
+		mutually_exclusive = {
+			focus = MNT_the_only_impossibility
+		}
+		completion_reward = {
+			105 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_stability = 0.015
+			add_political_power = -10
+		}
+	}
+	
+	focus = {
+		id = MNT_export_mineral_stashes
+		icon = GFX_HUN_export_economy
+		x = 5
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		available = {
+			has_country_flag = MNT_black_monday
+		}
+		prerequisite = {
+			focus = MNT_some_necessity
+		}
+		completion_reward = {
+			add_ideas = MNT_export_encouragement
+		}
+	}
+	
+	focus = {
+		id = MNT_focus_domestically
+		icon = GFX_goal_generic_banking_legislation
+		x = 6
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		available = {
+			has_country_flag = MNT_black_monday
+		}
+		prerequisite = {
+			focus = MNT_fund_new_ventures
+		}
+		completion_reward = {
+			add_ideas = MNT_domestic_focus
+			105 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_victory_points = {
+				province = 9809
+				value = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_gauge_resource_surplus
+		icon = GFX_goal_MNT_gauge_reserves
+		x = 8
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		available = {
+			has_country_flag = MNT_black_monday
+		}
+		prerequisite = {
+			focus = MNT_fund_new_ventures
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_resource = {
+					type = steel
+					amount = 20
+				}
+			}
+			random_owned_state = {
+				add_resource = {
+					type = aluminium
+					amount = 20
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_a_new_community
+		icon = GFX_goal_MNT_new_community
+		x = 7
+		y = 7
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		available = {
+			has_country_flag = MNT_black_monday
+		}
+		prerequisite = {
+			focus = MNT_focus_domestically
+		}
+		prerequisite = {
+			focus = MNT_gauge_resource_surplus
+		}
+		completion_reward = {
+			remove_ideas = MNT_bm_3
+			105 = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_victory_points = {
+				province = 9809
+				value = 2
+			}
+			add_victory_points = {
+				province = 6913
+				value = 1
+			}
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = MNT_fund_new_ventures
+		icon = GFX_goal_MNT_decade_to_prosperity
+		x = 7
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		available = {
+			has_country_flag = MNT_black_monday
+		}
+		prerequisite = {
+			focus = MNT_adopt_the_dinar
+		}
+		completion_reward = {
+			105 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			swap_ideas = {
+				add_idea = MNT_bm_3
+				remove_idea = MNT_bm_2
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_old_pravasi_friends
+		icon = GFX_goal_MNT_trust_pravasi
+		x = 16
+		y = 1
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		available = {
+			has_country_flag = MNT_black_monday
+			has_country_flag = MNT_pravasi
+		}
+		prerequisite = {
+			focus = MNT_the_great_balancing_act
+		}
+		mutually_exclusive = {
+			focus = MNT_treading_carefully
+			focus = MNT_independence_and_cordiality
+		}
+		completion_reward = {
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.03
+			}
+			AUS = {
+				end_puppet = ROOT
+			}
+			leave_faction = yes
+			#Event here, BM gets worse due to new policy towards Vienna
+		}
+	}
+	
+	focus = {
+		id = MNT_any_trade_partners
+		icon = GFX_goal_MNT_open_ports
+		x = 15
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_old_pravasi_friends
+		}
+		completion_reward = {
+			add_ideas = MNT_any_trade_idea
+			105 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 9809
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_prioritize_montenegrin_companies
+		icon = GFX_goal_MNT_domestic_business
+		x = 15
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_any_trade_partners
+		}
+		completion_reward = {
+			add_political_power = 60
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.03
+			}
+			105 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_tech_bonus = {
+				category = industry
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_defense_if_needed
+		icon = GFX_goal_MNT_armed_necessities
+		x = 17
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_old_pravasi_friends
+		}
+		completion_reward = {
+			105 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_tech_bonus = {
+				category = infantry_weapons
+				bonus = 1
+				uses = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_reintroduce_perper
+		icon = GFX_goal_MNT_perper
+		x = 17
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_defense_if_needed
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = MNT_bm_2
+				remove_idea = MNT_bm_1
+			}
+			add_political_power = 40
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = MNT_overwrite_austrian_companies
+		icon = GFX_goal_MNT_overwrite_austrian_barons
+		x = 16
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_prioritize_montenegrin_companies
+		}
+		prerequisite = {
+			focus = MNT_reintroduce_perper
+		}
+		mutually_exclusive = {
+			focus = MNT_foreign_investment
+		}
+		completion_reward = {
+			remove_ideas = MNT_shackled_economy
+			add_political_power = -30
+			add_stability = 0.05
+			add_war_support = 0.075
+			add_ideas = MNT_montenegro_industries
+		}
+	}
+	
+	focus = {
+		id = MNT_foreign_investment
+		icon = GFX_goal_MNT_niksic_saving_bank
+		x = 18
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_reintroduce_perper
+		}
+		mutually_exclusive = {
+			focus = MNT_overwrite_austrian_companies
+		}
+		completion_reward = {
+			remove_ideas = MNT_shackled_economy
+			add_stability = -0.05
+			add_political_power = -75
+			add_offsite_building = { type = industrial_complex level = 1 }
+			add_ideas = MNT_foreign_investment_idea
+		}
+	}
+	
+	focus = {
+		id = MNT_podgorica_seaport
+		icon = GFX_goal_MNT_podgorica
+		x = 19
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_foreign_investment
+		}
+		completion_reward = {
+			105 = {
+				add_building_construction = {
+					type = dockyard
+					level = 2
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			add_political_power = 35
+			add_manpower = 7500
+			add_victory_points = {
+				province = 9809
+				value = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_bribe_serbs
+		icon = GFX_goal_MNT_placate_klubasi
+		x = 17
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_prioritize_montenegrin_companies
+		}
+		prerequisite = {
+			focus = MNT_reintroduce_perper
+		}
+		completion_reward = {
+			1097 = {
+				set_demilitarized_zone = no
+			}
+			add_stability = 0.075
+			add_political_power = 40
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.03
+			}
+			add_ideas = MNT_buyoff_serbs
+		}
+	}
+	
+	focus = {
+		id = MNT_lead_and_zinc
+		icon = GFX_goal_MNT_brskovo
+		x = 16
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_bribe_serbs
+		}
+		completion_reward = {
+			105 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_tech_bonus = {
+				category = electronics
+				bonus = 1
+				uses = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_northeast_livestocks
+		icon = GFX_goal_MNT_berane_ranchers
+		x = 18
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_bribe_serbs
+		}
+		completion_reward = {
+			1097 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_stability = 0.03
+			add_manpower = 5000
+			swap_ideas = {
+				add_idea = MNT_bm_3
+				remove_idea = MNT_bm_2
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_business_of_balkans
+		icon = GFX_goal_MNT_balkan_business
+		x = 17
+		y = 7
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_lead_and_zinc
+		}
+		prerequisite = {
+			focus = MNT_northeast_livestocks
+		}
+		completion_reward = {
+			remove_ideas = MNT_bm_3
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_victory_points = {
+				province = 9809
+				value = 2
+			}
+			add_victory_points = {
+				province = 6913
+				value = 1
+			}
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = MNT_independence_and_cordiality
+		icon = GFX_goal_MNT_independence_cordiality
+		x = 12
+		y = 1
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		available = {
+			has_country_flag = MNT_black_monday
+			has_country_flag = MNT_statusquo
+		}
+		prerequisite = {
+			focus = MNT_the_great_balancing_act
+		}
+		mutually_exclusive = {
+			focus = MNT_treading_carefully
+			focus = MNT_old_pravasi_friends
+		}
+		completion_reward = {
+			AUS = {
+				end_puppet = ROOT
+			}
+			add_stability = 0.075
+			add_political_power = -25
+		}
+	}
+	
+	focus = {
+		id = MNT_export_bauxite_stash
+		icon = GFX_goal_MNT_red_bauxite
+		x = 11
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_independence_and_cordiality
+		}
+		completion_reward = {
+			add_ideas = MNT_bauxite_idea
+			add_resource = {
+				type = aluminium
+				amount = 24
+				state = 105
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_expand_the_sawmills
+		icon = GFX_goal_MNT_sawmill
+		x = 13
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_independence_and_cordiality
+		}
+		completion_reward = {
+			105 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_study_austrian_boats
+		icon = GFX_goal_AUS_kriegsmarine
+		x = 12
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_export_bauxite_stash
+			focus = MNT_expand_the_sawmills
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = naval_equipment
+				uses = 1
+				bonus = 1
+			}
+			105 = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_third_great_danubian_port
+		icon = GFX_goal_MNT_fourth_port
+		x = 12
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_study_austrian_boats
+		}
+		completion_reward = {
+			105 = {
+				add_building_construction = {
+					type = naval_base
+					level = 3
+					instant_build = yes
+					province = 9809
+				}
+			}
+			add_victory_points = {
+				province = 9809
+				value = 1
+			}
+			swap_ideas = {
+				add_idea = MNT_bm_2
+				remove_idea = MNT_bm_1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_nationalize_austrian_industries
+		icon = GFX_goal_MNT_nationalize_austrian_business
+		x = 10
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_export_bauxite_stash
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = MNT_shackled_economy_2
+				remove_idea = MNT_shackled_economy
+			}
+			105 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			add_tech_bonus = {
+				category = industry
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_mobilize_for_action
+		icon = GFX_goal_MNT_anti_terrorist
+		x = 14
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_expand_the_sawmills
+		}
+		completion_reward = {
+			add_political_power = 20
+			add_war_support = 0.075
+			army_experience = 15
+			add_manpower = 12000
+			105 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			#Unlocks army tree
+		}
+	}
+	
+	focus = {
+		id = MNT_trade_treaty_bulgaria
+		icon = GFX_goal_MNT_sofia
+		x = 15
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_third_great_danubian_port
+			focus = MNT_overwrite_austrian_companies
+		}
+		mutually_exclusive = {
+			focus = MNT_trade_treaty_serbia
+		}
+		completion_reward = {
+			#Event here
+		}
+	}
+	
+	focus = {
+		id = MNT_trade_treaty_serbia
+		icon = GFX_goal_MNT_belgrade
+		x = 9
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_third_great_danubian_port
+			focus = MNT_the_only_impossibility
+		}
+		mutually_exclusive = {
+			focus = MNT_trade_treaty_bulgaria
+		}
+		completion_reward = {
+			#Event here
+		}
+	}
+	
+	focus = {
+		id = MNT_prospect_for_coal
+		icon = GFX_goal_MNT_electricity
+		x = 12
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_trade_treaty_bulgaria
+			focus = MNT_trade_treaty_serbia
+		}
+		available = {
+			has_completed_focus = MNT_independence_and_cordiality
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = electronics
+				uses = 1
+				bonus = 1
+			}
+			add_resource = {
+				type = oil
+				amount = 30
+				state = 105
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = MNT_bm_3
+					}
+				}
+				swap_ideas = {
+					add_idea = MNT_bm_3
+					remove_idea = MNT_bm_2
+				}
+			}
+			add_ideas = MNT_montenegrin_energy_commission
+		}
+	}
+	
+	focus = {
+		id = MNT_montenegrin_domestic_minerals
+		icon = GFX_goal_MNT_mineral_extraction
+		x = 10
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_nationalize_austrian_industries
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = excavation_tech
+				uses = 1
+				bonus = 1
+			}
+			105 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_resource = {
+					type = steel
+					amount = 20
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = MNT_bm_3
+					}
+				}
+				swap_ideas = {
+					add_idea = MNT_bm_3
+					remove_idea = MNT_bm_2
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_macroeconomic_reform
+		icon = GFX_goal_MNT_macroeconomics
+		x = 14
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		prerequisite = {
+			focus = MNT_mobilize_for_action
+		}
+		completion_reward = {
+			add_ideas = MNT_electric_idea
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = MNT_bm_3
+					}
+				}
+				swap_ideas = {
+					add_idea = MNT_bm_3
+					remove_idea = MNT_bm_2
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_back_on_track
+		icon = GFX_goal_MNT_back_on_track
+		x = 12
+		y = 7
+		cost = 5.8
+		ai_will_do = {
+			factor = 250
+		}
+		available = {
+			has_completed_focus = MNT_independence_and_cordiality
+		}
+		prerequisite = {
+			focus = MNT_montenegrin_domestic_minerals
+			focus = MNT_prospect_for_coal
+			focus = MNT_macroeconomic_reform
+		}
+		completion_reward = {
+			remove_ideas = MNT_bm_3
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_victory_points = {
+				province = 9809
+				value = 2
+			}
+			add_victory_points = {
+				province = 6913
+				value = 1
+			}
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = MNT_royal_montenegrin_army
+		icon = GFX_goal_MNT_Army
+		x = 12
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_completed_focus = MNT_set_boundaries
+				has_completed_focus = MNT_mobilize_for_action
+				has_completed_focus = MNT_defense_if_needed
+			}
+		}
+		completion_reward = {
+			army_experience = 25
+			add_command_power = 15
+			add_manpower = 15000
+		}
+	}
+	
+	focus = {
+		id = MNT_bolster_the_police
+		icon = GFX_goal_enlist_the_police
+		x = 10
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_royal_montenegrin_army
+		}
+		completion_reward = {
+			add_stability = 0.075
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_reintroduce_conscription
+		icon = GFX_goal_generic_officer
+		x = 14
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_royal_montenegrin_army
+		}
+		completion_reward = {
+			add_stability = -0.03
+			add_ideas = MNT_new_conscriptions
+		}
+	}
+	
+	focus = {
+		id = MNT_pacify_serbs
+		icon = GFX_focus_generic_oppression
+		x = 12
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_bolster_the_police
+			focus = MNT_reintroduce_conscription
+		}
+		completion_reward = {
+			remove_ideas = MNT_serb_separatism
+			1097 = {
+				set_demilitarized_zone = no
+			}
+			add_manpower = -1000
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = MNT_reorganize_standing_army
+		icon = GFX_goal_generic_army_training
+		x = 12
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_royal_montenegrin_army
+		}
+		completion_reward = {
+			add_war_support = 0.075
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_tech_bonus = {
+				category = land_doctrine
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_royal_marines
+		icon = GFX_goal_generic_mediterranean
+		x = 11
+		y = 12
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_reorganize_standing_army
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = marine_tech
+				uses = 1
+				bonus = 1
+			}
+			add_tech_bonus = {
+				category = support_tech
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_rangers
+		icon = GFX_goal_generic_paramilitary
+		x = 10
+		y = 13
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_royal_marines
+		}
+		completion_reward = {
+			add_ideas = MNT_rangers_idea
+		}
+	}
+	
+	focus = {
+		id = MNT_adopt_standard_motorized
+		icon = GFX_goal_NEE_mechanical_cavalry
+		x = 13
+		y = 12
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_reorganize_standing_army
+		}
+		completion_reward = {
+			add_war_support = 0.075
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_tech_bonus = {
+				category = motorized_equipment
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_armor_works
+		icon = GFX_goal_generic_army_tanks2
+		x = 14
+		y = 13
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_adopt_standard_motorized
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = armor
+				uses = 2
+				bonus = 1.5
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_element_of_strength
+		icon = GFX_goal_generic_army_cooperation
+		x = 14
+		y = 14
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_armor_works
+		}
+		mutually_exclusive = {
+			focus = MNT_element_of_surprise
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = land_doctrine
+				uses = 2
+				bonus = 1
+			}
+			add_ideas = MNT_element_of_strength_idea
+		}
+	}
+	
+	focus = {
+		id = MNT_element_of_surprise
+		icon = GFX_goal_WCC_guerilla_tactic
+		x = 10
+		y = 14
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_rangers
+		}
+		mutually_exclusive = {
+			focus = MNT_element_of_strength
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = land_doctrine
+				uses = 2
+				bonus = 1
+			}
+			swap_ideas = {
+				add_idea = MNT_rangers_idea_2
+				remove_idea = MNT_rangers_idea
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_standard_weapons
+		icon = GFX_focus_generic_military_equipment
+		x = 12
+		y = 13
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_royal_marines
+			focus = MNT_adopt_standard_motorized
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = infantry_weapons
+				uses = 1
+				bonus = 1
+			}
+			army_experience = 25
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = MNT_modern_solutions
+		icon = GFX_goal_generic_army_high_command
+		x = 12
+		y = 15
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_standard_weapons
+		}
+		prerequisite = {
+			focus = MNT_element_of_surprise
+			focus = MNT_element_of_strength
+		}
+		completion_reward = {
+			army_experience = 15
+			add_command_power = 20
+			every_unit_leader = {
+				add_skill_level = 1
+				add_max_trait = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_crnogorska_navy
+		icon = GFX_goal_MNT_Navy
+		x = 7
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_completed_focus = MNT_kick_out_austrians
+				has_completed_focus = MNT_study_austrian_boats
+				has_completed_focus = MNT_prioritize_montenegrin_companies
+			}
+		}
+		completion_reward = {
+			navy_experience = 30
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = naval_equipment
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_surface_dwellings
+		icon = GFX_goal_generic_sea_focused_navy2
+		x = 6
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_crnogorska_navy
+		}
+		mutually_exclusive = {
+			focus = MNT_submarine_investiture
+		}
+		completion_reward = {
+			navy_experience = 10
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = dd_tech
+			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = cl_tech
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_defend_montenegrin_trade
+		icon = GFX_goal_generic_positive_trade_relations_gold
+		x = 6
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_surface_dwellings
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = dd_tech
+			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = fleet_in_being_tree
+			}
+			
+		}
+	}
+	
+	focus = {
+		id = MNT_adriatic_warships
+		icon = GFX_focus_generic_cruiser2
+		x = 5
+		y = 12
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_surface_dwellings
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = cl_tech
+			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = fleet_in_being_tree
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_submarine_investiture
+		icon = GFX_goal_generic_navy_submarine
+		x = 8
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_crnogorska_navy
+		}
+		mutually_exclusive = {
+			focus = MNT_surface_dwellings
+		}
+		completion_reward = {
+			navy_experience = 10
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = ss_tech
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_adriatic_sea_use
+		icon = GFX_focus_generic_navy_battleship3alt
+		x = 8
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_submarine_investiture
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = trade_interdiction_tree
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_purchase_uboat_models
+		icon = GFX_goal_generic_buy_ships
+		x = 9
+		y = 12
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_submarine_investiture
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = ss_tech
+			}
+			#Load oob
+		}
+	}
+	
+	focus = {
+		id = MNT_admiralty_schooling
+		icon = GFX_goal_generic_naval_command
+		x = 7
+		y = 12
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_surface_dwellings
+			focus = MNT_submarine_investiture
+		}
+		completion_reward = {
+			add_ideas = MNT_admiral_school
+		}
+	}
+	
+	focus = {
+		id = MNT_defense_of_coasts
+		icon = GFX_goal_generic_coastal_navy2
+		x = 7
+		y = 13
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_adriatic_warships
+			focus = MNT_purchase_uboat_models
+		}
+		completion_reward = {
+			105 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 5
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_coastal = yes
+					}
+				}
+			}
+			add_war_support = 0.05
+		}
+	}
+	
+	focus = {
+		id = MNT_crnogorska_airforce
+		icon = GFX_goal_MNT_Air_Force
+		x = 17
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_completed_focus = MNT_kick_out_austrians
+				has_completed_focus = MNT_study_austrian_boats
+				has_completed_focus = MNT_prioritize_montenegrin_companies
+			}
+		}
+		completion_reward = {
+			air_experience = 50
+			105 = {
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				category = air_equipment
+				bonus = 1
+				uses = 1
+			}
+			add_tech_bonus = {
+				category = air_doctrine
+				bonus = 1
+				uses = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_coastal_patrol_airforce
+		icon = GFX_goal_generic_air_naval_bomber_new
+		x = 18
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_crnogorska_airforce
+		}
+		mutually_exclusive = {
+			focus = MNT_support_our_army
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = naval_bomber
+				bonus = 1
+				uses = 1
+			}
+			air_experience = 25
+		}
+	}
+	
+	focus = {
+		id = MNT_support_our_army
+		icon = GFX_goal_generic_air_CAS_new
+		x = 16
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_crnogorska_airforce
+		}
+		mutually_exclusive = {
+			focus = MNT_coastal_patrol_airforce
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = cas_bomber
+				bonus = 1
+				uses = 1
+			}
+			air_experience = 25
+		}
+	}
+	
+	focus = {
+		id = MNT_lease_of_fighters
+		icon = GFX_goal_generic_air_fighter2_new
+		x = 17
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_support_our_army
+			focus = MNT_coastal_patrol_airforce
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = light_fighter
+				bonus = 1
+				uses = 1
+			}
+			105 = {
+				add_resource = {
+					type = aluminium
+					amount = 30
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = fighter_equipment
+				amount = 150
+				producer = MNT
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_defend_our_skies
+		icon = GFX_focus_generic_air_defense2
+		x = 17
+		y = 12
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_lease_of_fighters
+		}
+		completion_reward = {
+			105 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			1097 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_cas_doctrine
+		icon = GFX_goal_generic_air_doctrine
+		x = 15
+		y = 12
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_support_our_army
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = battlefield_support_tree
+				bonus = 1
+				uses = 1
+			}
+			add_tech_bonus = {
+				category = cas_bomber
+				bonus = 1
+				uses = 1
+				ahead_reduction = 1.5
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_nav_doctrine
+		icon = GFX_goal_generic_air_naval_bomber
+		x = 19
+		y = 12
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_coastal_patrol_airforce
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = operational_integrity_tree
+				bonus = 1
+				uses = 1
+			}
+			add_tech_bonus = {
+				category = naval_bomber
+				bonus = 1
+				uses = 1
+				ahead_reduction = 1.5
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_wings_of_montenegro
+		icon = GFX_goal_generic_build_airforce
+		x = 17
+		y = 13
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_cas_doctrine
+			focus = MNT_nav_doctrine
+		}
+		prerequisite = {
+			focus = MNT_defend_our_skies
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = air_doctrine
+				bonus = 1
+				uses = 1
+			}
+			air_experience = 100
+		}
+	}
+	
+	focus = {
+		id = MNT_foreign_policy
+		icon = GFX_goal_generic_join_faction
+		x = 0
+		y = 0
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_completed_focus = MNT_a_new_community
+				has_completed_focus = MNT_back_on_track
+				has_completed_focus = MNT_business_of_balkans
+			}
+		}
+		completion_reward = {
+			add_political_power = 100
+			add_war_support = 0.15
+			add_manpower = 10000
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.03
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_slavic_hegemon
+		icon = GFX_goal_russia
+		x = 2
+		y = 1
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_completed_focus = MNT_old_pravasi_friends
+			RUS = {
+				is_faction_leader = yes
+			}
+		}
+		prerequisite = {
+			focus = MNT_foreign_policy
+		}
+		mutually_exclusive = {
+			focus = MNT_the_belgrade_pact
+			focus = MNT_viennese_dealings
+		}
+		completion_reward = {
+			#event here
+		}
+	}
+	
+	focus = {
+		id = MNT_the_belgrade_pact
+		icon = GFX_goal_serbia
+		x = -2
+		y = 1
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_completed_focus = MNT_treading_carefully
+			SER = {
+				is_faction_leader = yes
+			}
+		}
+		prerequisite = {
+			focus = MNT_foreign_policy
+		}
+		mutually_exclusive = {
+			focus = MNT_slavic_hegemon
+			focus = MNT_viennese_dealings
+		}
+		completion_reward = {
+			#Event here
+		}
+	}
+	
+	focus = {
+		id = MNT_viennese_dealings
+		icon = GFX_goal_austria
+		x = 0
+		y = 1
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_completed_focus = MNT_independence_and_cordiality
+			is_in_faction_with = AUS
+		}
+		prerequisite = {
+			focus = MNT_foreign_policy
+		}
+		mutually_exclusive = {
+			focus = MNT_slavic_hegemon
+			focus = MNT_the_belgrade_pact
+		}
+		completion_reward = {
+			add_stability = 0.03
+			#Event here, bonuses
+		}
+	}
+	
+	focus = {
+		id = MNT_dukljan_question
+		icon = GFX_goal_anschluss
+		x = 0
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_the_belgrade_pact
+			focus = MNT_viennese_dealings
+			focus = MNT_slavic_hegemon
+		}
+		mutually_exclusive = {
+			focus = MNT_greater_montenegro
+			focus = MNT_suck_serb_cock
+		}
+		completion_reward = {
+			add_state_claim = 44
+			add_state_claim = 766
+			add_state_claim = 765
+			add_state_claim = 108
+			add_state_claim = 107
+			add_state_claim = 767
+			add_war_support = 0.025
+			#Event for AUS here if you are in the faction
+			if = {
+				limit = {
+					has_completed_focus = MNT_treading_carefully
+				}
+				set_cosmetic_tag = MNT_duklja
+				leave_faction = yes
+			}
+			
+			if = {
+				limit = {
+					has_completed_focus = MNT_independence_and_cordiality
+				}
+				set_cosmetic_tag = MNT_dioclea
+			}
+			
+			if = {
+				limit = {
+					has_completed_focus = MNT_old_pravasi_friends
+				}
+				set_cosmetic_tag = MNT_ardiaeia
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_annex_serbia
+		icon = GFX_goal_SER_union_war_preparations
+		x = 1
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_dukljan_question
+		}
+		will_lead_to_war_with = SER
+		completion_reward = {
+			declare_war_on = {
+				target = SER
+				type = annex_everything
+			}
+			add_state_core = 765
+			add_state_core = 108
+			add_state_core = 107
+			add_state_core = 767
+		}
+	}
+	
+	focus = {
+		id = MNT_annex_albania
+		icon = GFX_MNR_Mountain_Warfare
+		x = -1
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_dukljan_question
+		}
+		will_lead_to_war_with = ALB
+		completion_reward = {
+			declare_war_on = {
+				target = ALB
+				type = annex_everything
+			}
+			add_state_core = 44
+			add_state_core = 766
+			custom_effect_tooltip = MNT_puppet_albania_mayb
+		}
+	}
+	
+	focus = {
+		id = MNT_secure_allied_support
+		icon = GFX_goal_SWI_international_aid
+		x = 0
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = MNT_dukljan_question
+		}
+		completion_reward = {
+			add_stability = 0.06
+			add_war_support = 0.06
+			add_manpower = 75000
+		}
+	}
+	
+	focus = {
+		id = MNT_law_reform
+		icon = GFX_goal_generic_parliament
+		x = 0
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_cosmetic_tag = MNT_duklja
+				has_cosmetic_tag = MNT_dioclea
+				has_cosmetic_tag = MNT_ardiaeia
+			}
+			owns_state = 44
+			owns_state = 107
+		}
+		prerequisite = {
+			focus = MNT_annex_albania
+			focus = MNT_annex_serbia
+		}
+		completion_reward = {
+			remove_ideas = MNT_underprepared_laws
+			add_political_power = 30
+		}
+	}
+	
+	focus = {
+		id = MNT_greater_montenegro
+		icon = GFX_goal_generic_demand_territory
+		x = 2
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				is_in_faction_with = SER
+				is_in_faction_with = RUS
+			}
+		}
+		prerequisite = {
+			focus = MNT_the_belgrade_pact
+			focus = MNT_slavic_hegemon
+		}
+		mutually_exclusive = {
+			focus = MNT_dukljan_question
+			focus = MNT_suck_serb_cock
+		}
+		completion_reward = {
+			add_state_core = 1145
+		}
+	}
+	
+	focus = {
+		id = MNT_suck_serb_cock
+		icon = GFX_focus_CZE_german_puppet
+		x = -2
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			is_in_faction_with = SER
+		}
+		prerequisite = {
+			focus = MNT_the_belgrade_pact
+		}
+		mutually_exclusive = {
+			focus = MNT_dukljan_question
+			focus = MNT_greater_montenegro
+		}
+		completion_reward = {
+			#Event for SER
+		}
+	}
+	
+	
+	#### Gommietenegro ####
+	
+	focus = {
+		id = MNT_blazo_joganovic_putsch
+		icon = GFX_goal_MNT_Blazo_Jovanovic
+		x = 0
+		y = 10
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+			always = no
+		}
+		bypass = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+			has_country_flag = MNT_gommieputsch
+		}
+		completion_reward = {
+			custom_effect_tooltip = unlock_focuses
+		}
+	} #After this point, the "Purples" are formed (Like the Greens, except purple cuz monarchy)
+	
+	focus = {
+		id = MNT_take_the_reins
+		icon = GFX_goal_MNT_grasp_the_reins
+		x = 2
+		y = 11
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+		}
+		prerequisite = {
+			focus = MNT_blazo_joganovic_putsch
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = totalist
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.05
+			}
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = MNT_exile_the_purples
+		icon = GFX_goal_MNT_no_greens
+		x = 3
+		y = 12
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+		}
+		prerequisite = {
+			focus = MNT_blazo_joganovic_putsch
+		}
+		completion_reward = {
+			#Event, leads to countercoup
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_montenegrin_peoples_army
+		icon = GFX_goal_MNT_appoint_sava
+		x = 1
+		y = 12
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+		}
+		prerequisite = {
+			focus = MNT_blazo_joganovic_putsch
+		}
+		completion_reward = {
+			105 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			1097 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_dismantle_discriminatory_policy
+		icon = GFX_goal_MNT_discriminatory_law
+		x = 2
+		y = 13
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+		}
+		prerequisite = {
+			focus = MNT_take_the_reins
+		}
+		prerequisite = {
+			focus = MNT_montenegrin_peoples_army
+			focus = MNT_exile_the_purples
+		}
+		completion_reward = {
+			add_ideas = MNT_anti_discrimination
+		}
+	}
+	
+	focus = {
+		id = MNT_destroy_royal_loyalists
+		icon = GFX_goal_FRA_red_terror
+		x = 4
+		y = 14
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+		}
+		prerequisite = {
+			focus = MNT_exile_the_purples
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = MNT_purple_resistance_2
+				remove_idea = MNT_purple_resistance
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_new_montenegrin_syndicalism
+		icon = GFX_CAL_union_expansion
+		x = 2
+		y = 14
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+		}
+		prerequisite = {
+			focus = MNT_dismantle_discriminatory_policy
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.03
+			}
+			add_tech_bonus = {
+				category = industry
+				uses = 1
+				bonus = 1
+			}
+			add_tech_bonus = {
+				category = electronics
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_in_defense_of_the_republic
+		icon = GFX_goal_CZE_fortress_autocracy
+		x = 0
+		y = 14
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+		}
+		prerequisite = {
+			focus = MNT_montenegrin_peoples_army
+		}
+		completion_reward = {
+			add_ideas = MNT_in_defense_of_the_republic_idea
+			add_war_support = 0.1
+		}
+	}
+	
+	focus = {
+		id = MNT_allies_across
+		icon = GFX_goal_MNT_allies_across
+		x = -2
+		y = 11
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+		}
+		prerequisite = {
+			focus = MNT_blazo_joganovic_putsch
+		}
+		completion_reward = {
+			#Event here to join the TI
+			add_political_power = 20
+		}
+	}
+	
+	focus = {
+		id = MNT_stop_the_downturn
+		icon = GFX_goal_CSA_new_economic_planning
+		x = -3
+		y = 12
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+		}
+		prerequisite = {
+			focus = MNT_allies_across
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 1 }
+			add_offsite_building = { type = industrial_complex level = 1 }
+			add_popularity = {
+				ideology = totalist
+				popularity = 0.025
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_hire_franco_british_officers
+		icon = GFX_goal_MNT_franco_british_advisory
+		x = -1
+		y = 12
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+		}
+		prerequisite = {
+			focus = MNT_allies_across
+		}
+		completion_reward = {
+			army_experience = 30
+			add_war_support = 0.05
+		}
+	}
+	
+	focus = {
+		id = MNT_bulwark_against_austria
+		icon = GFX_goal_MNT_bulwark_against_austria
+		x = -2
+		y = 14
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+		}
+		prerequisite = {
+			focus = MNT_stop_the_downturn
+		}
+		prerequisite = {
+			focus = MNT_hire_franco_british_officers
+		}
+		completion_reward = {
+			105 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+			1097 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = MNT_peoples_defense_assembly
+		icon = GFX_goal_FRA_red_politburo
+		x = -1
+		y = 15
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+		}
+		prerequisite = {
+			focus = MNT_bulwark_against_austria
+		}
+		prerequisite = {
+			focus = MNT_in_defense_of_the_republic
+		}
+		prerequisite = {
+			focus = MNT_new_montenegrin_syndicalism
+		}
+		prerequisite = {
+			focus = MNT_destroy_royal_loyalists
+		}
+		mutually_exclusive = {
+			focus = MNT_western_republic
+		}
+		completion_reward = {
+			add_political_power = 20
+			add_popularity = {
+				ideology = totalist
+				popularity = 0.1
+			}
+			remove_ideas = MNT_purple_resistance_2
+		}
+	}
+	
+	focus = {
+		id = MNT_revolutionary_guard
+		icon = GFX_goal_CSA_professional_red_army
+		x = -1
+		y = 16
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = totalist
+		}
+		prerequisite = {
+			focus = MNT_peoples_defense_assembly
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			add_ideas = MNT_infantry_idea
+		}
+	}
+	
+	focus = {
+		id = MNT_western_republic
+		icon = GFX_goal_FRA_international_insurrection
+		x = 3
+		y = 15
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+		}
+		prerequisite = {
+			focus = MNT_bulwark_against_austria
+		}
+		prerequisite = {
+			focus = MNT_in_defense_of_the_republic
+		}
+		prerequisite = {
+			focus = MNT_new_montenegrin_syndicalism
+		}
+		prerequisite = {
+			focus = MNT_destroy_royal_loyalists
+		}
+		mutually_exclusive = {
+			focus = MNT_peoples_defense_assembly
+		}
+		completion_reward = {
+			add_political_power = 20
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.1
+			}
+			set_politics = {
+				ruling_party = syndicalist
+			}
+			remove_ideas = MNT_purple_resistance_2
+		}
+	}
+	
+	
+	focus = {
+		id = MNT_civilian_shift
+		icon = GFX_goal_MNT_Nikola_Kovacevic
+		x = 3
+		y = 16
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = syndicalist
+		}
+		prerequisite = {
+			focus = MNT_western_republic
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			add_ideas = MNT_construction_idea
+		}
+	}
+	
+	focus = {
+		id = MNT_montenegrin_mountain_roads
+		icon = GFX_goal_MNT_njegos_mausoleum
+		x = 1
+		y = 16
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+		}
+		prerequisite = {
+			focus = MNT_peoples_defense_assembly
+			focus = MNT_western_republic
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+}

@@ -1,4 +1,4 @@
-oob = "FIU_oob"
+﻿oob = "FIU_oob"
 set_naval_oob= "FIU_naval_oob"
 
 capital = 1206
@@ -24,39 +24,38 @@ if = {
 		has_dlc = "Man the Guns"
 	}
 	set_technology = {
-		early_ship_hull_light = 1
-		basic_ship_hull_light = 1
-		improved_ship_hull_light = 1
-		early_ship_hull_cruiser = 1
-		basic_ship_hull_cruiser = 1
-		improved_ship_hull_cruiser = 1
-		panzerschiffe = 1
-		early_ship_hull_submarine = 1
-		basic_ship_hull_submarine = 1
-		improved_ship_hull_submarine = 1
-		cruiser_submarines = 1
-		early_ship_hull_carrier = 1
-		basic_ship_hull_carrier = 1
-		improved_ship_hull_carrier = 1
-		early_ship_hull_heavy = 1
-		basic_ship_hull_heavy = 1
-		improved_ship_hull_heavy = 1
-		ship_hull_super_heavy = 1
-		
-		basic_naval_mines = 1
-		mtg_transport = 1
+        weltkrieg_light_ship_hull = 1        
+        contact_mine = 1        
+        light_ship_hull_1936 = 1        
+        weltkrieg_cruiser_hull = 1        
+        cruiser_hull_1936 = 1        
+        weltkrieg_submarine_hull = 1
+        submarine_hull_1936 = 1        
+        cruiser_submarine = 1        
+        carrier_conversion = 1 
+		carrier_hull_1940 = 1
+		carrier_hull_1936 = 1
+		submarine_hull_1940 = 1
+		cruiser_hull_1940 = 1
+		light_ship_hull_1940 = 1
+		heavy_ship_hull_1940 = 1
+        ship_hull_revived_ac = 1        
+        weltkrieg_heavy_ship_hull = 1        
+        heavy_ship_hull_1936 = 1  
 
 		## Modules##
-        basic_battery = 1
-		basic_light_battery = 1
-		basic_medium_battery = 1
-		basic_heavy_battery = 1
-		basic_secondary_battery = 1
-		basic_depth_charges = 1
-		basic_torpedo = 1
-		improved_ship_torpedo_launcher = 1
-		basic_cruiser_armor_scheme = 1
-		basic_heavy_armor_scheme = 1
+        early_torpedo = 1
+        weltkrieg_naval_gunnery = 1        
+        naval_ammo_one = 1        
+        light_battery_one = 1    
+        improved_ship_torpedo_launcher = 1   
+        basic_cruiser_armor_scheme = 1        
+        weltkrieg_naval_gunnery = 1        
+        naval_ammo_one = 1        
+        basic_heavy_armor_scheme = 1        
+        capital_gunnery_one = 1     
+        weltkrieg_naval_gunnery = 1        
+        naval_ammo_one = 1        
 	}
 }
 
@@ -69,38 +68,43 @@ if = {
 		}
 	}
 	set_technology = {
-		early_destroyer = 1
-		basic_destroyer = 1
-		early_light_cruiser = 1
-		basic_light_cruiser = 1
-		early_submarine = 1
-		basic_submarine = 1
-		early_heavy_cruiser = 1
-		basic_heavy_cruiser = 1
-		early_battlecruiser = 1
-		early_battleship = 1
-		basic_battleship = 1
-		heavy_battleship = 1    
+        weltkrieg_destroyer_nonmtg = 1        
+        interwar_destroyer_nonmtg = 1        
+        weltkrieg_cruiser_nonmtg = 1        
+        interwar_cruiser_nonmtg = 1        
+        weltkrieg_submarine_nonmtg = 1        
+        interwar_submarine_nonmtg = 1        
+        weltkrieg_armored_cruiser_nonmtg = 1        
+        interwar_armored_cruiser_nonmtg = 1        
+        weltkrieg_fast_battleship_nonmtg = 1        
+        interwar_fast_battleship_nonmtg = 1        
+        weltkrieg_dreadnought_nonmtg = 1        
+        super_heavy_dreadnought_nonmtg = 1        
 	}
 }
 
 add_ideas = {
-	FIU_Miklos_Horthy_hog_pau
-	FIU_vasarhelyi_miklos_for_pau
-	FIU_miklos_horthy_eco_pau
-	FIU_riccardo_zanella_sec_pau
+	FIU_Joseph_August_hog_pau
+	FIU_Szapary_Laszlo_for_pau
+	FIU_Fabinyi_Tihamer_eco_pau
+	FIU_Lajos_Csatay_sec_pau
 
-	FIU_pirates_of_the_mediterranean
-	FIU_sharpshooters
-	FIU_hired_help
+	#FIU_pirates_of_the_mediterranean
+	#FIU_sharpshooters
+	FIU_port_city
 	FIU_fortress_city
+	FIU_police_pirates
+	FIU_italian_problem
 }
 
 set_variable = {
 	ragusa_pirate_level = 0
 }
 
-set_war_support = 0.4
+set_war_support = 0.22
+set_stability = 0.74
+set_cosmetic_tag = FIU_hungarian_port
+add_manpower = 15000
 
 set_politics = {
 	ruling_party = paternal_autocrat
@@ -122,7 +126,7 @@ set_popularities = {
     national_populist = 10
 }
 
-set_convoys = 10
+set_convoys = 30
 
 create_country_leader = {
 	name = "Miklos Horthy"
@@ -130,15 +134,15 @@ create_country_leader = {
 	picture = "Portrait_HUN_Miklos_Horthy.png"
 	expire = "1965.1.1"
 	ideology = paternal_autocrat_subtype
-	traits = {
-		FIU_modern_blackbeard
-	}
+	#traits = {
+	#	FIU_modern_blackbeard
+	#}
 }
 
 create_country_leader = {
-	name = "Miklos Horthy"
-	desc = "FIU_HORTHY_DESC"
-	picture = "Portrait_HUN_Miklos_Horthy.png"
+	name = "Riccardo Zanella"
+	desc = "FIU_ZANELLA_DESC"
+	picture = "FIU_Riccardo_Zanella.png"
 	expire = "1965.1.1"
 	ideology = authoritarian_democrat_subtype
 	traits = {
@@ -146,9 +150,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Miklos Horthy"
-	desc = "FIU_HORTHY_DESC"
-	picture = "Portrait_HUN_Miklos_Horthy.png"
+	name = "Giovanni Giuriati"
+	desc = "FIU_GIURIATI_DESC"
+	picture = "FIU_GIOVANNI_GIURIATI.png"
 	expire = "1965.1.1"
 	ideology = national_populist_subtype
 	traits = {

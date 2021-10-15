@@ -1,0 +1,90 @@
+add_namespace = bdegal
+add_namespace = galloop
+
+
+country_event = {#Basic necessities from Austria
+	id = bdegal.1
+	title = bdegal.1.t
+	desc = bdeaus.1.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+`
+	is_triggered_only = yes
+
+	option = { #Great!
+		name = bdegal.1.a
+		add_political_power = 50
+	}
+}
+
+country_event = {#Basic subsidies from Austria
+	id = bdegal.2
+	title = bdegal.2.t
+	desc = bdeaus.2.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+`
+	is_triggered_only = yes
+
+	option = { #Great!
+		name = bdegal.2.a
+		add_political_power = 50
+	}
+}
+
+country_event = {#Austria completes its assistance plan
+	id = bdegal.2
+	title = bdegal.2.t
+	desc = bdeaus.2.d
+	
+	picture = GFX_report_event_BAN_big_speech2
+
+	fire_only_once = yes
+`
+	is_triggered_only = yes
+
+	option = { #Thanks for the help!
+		name = bdegal.2.a
+		add_political_power = 100
+		set_country_flag = GAL_austrian_assistance_done
+		random_owned_state = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		
+		random_owned_state = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		
+		random_owned_state = {
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+}

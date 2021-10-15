@@ -1,0 +1,1083 @@
+#####################
+# Bosnia Focus Tree #
+#####################
+
+focus_tree = {
+	id = srpska_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = SKS
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 0 y = 1 }
+
+	focus = {
+		id = SKS_split_course
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 12
+		y = 0
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			add_war_support = 0.05
+			add_political_power = 60
+			add_manpower = 2000
+		}
+	}
+	
+	focus = {
+		id = SKS_organize_serb_partisans
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 13
+		y = 1
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_split_course
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			add_manpower = 10000
+		}
+	}
+	
+	focus = {
+		id = SKS_solidify_serb_governorship
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 11
+		y = 1
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_split_course
+		}
+		completion_reward = {
+			add_political_power = 60
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.03
+			}
+		}
+	}
+	
+	focus = {
+		id = SKS_serbia_strong
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 12
+		y = 2
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_solidify_serb_governorship
+		}
+		prerequisite = {
+			focus = SKS_organize_serb_partisans
+		}
+		completion_reward = {
+			army_experience = 30
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	#Dobroslav Jevdevic
+	
+	focus = {
+		id = SKS_jevdevic_unitary_nation
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 16
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_serbia_strong
+		}
+		available = {
+			has_country_flag = SKS_pataut_start
+			has_government = paternal_autocrat
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.015
+			}
+			add_political_power = 60
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
+	}
+	
+	focus = {
+		id = SKS_chetnik_legionnaires
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 17
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_jevdevic_unitary_nation
+		}
+		available = {
+			has_country_flag = SKS_pataut_start
+			has_government = paternal_autocrat
+		}
+		completion_reward = {
+			army_experience = 30
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 3500
+				producer = SKS
+			}
+		}
+	}
+	
+	focus = {
+		id = SKS_subvert_zagreb
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 12
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_jevdevic_unitary_nation
+			focus = SKS_solidify_pacifist_front
+		}
+		available = {
+			has_country_flag = SKS_pataut_start
+			has_government = paternal_autocrat
+		}
+		completion_reward = {
+			add_political_power = 60
+			add_tech_bonus = {
+				category = infantry_weapons
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = SKS_subvert_muslims
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 12
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_subvert_zagreb
+		}
+		available = {
+			has_country_flag = SKS_pataut_start
+			has_government = paternal_autocrat
+		}
+		completion_reward = {
+			army_experience = 20
+			add_tech_bonus = {
+				category = land_doctrine
+				uses = 1
+				bonus = 1
+			}
+			add_war_support = 0.1
+		}
+	}
+	
+	focus = {
+		id = SKS_belief_or_punishment
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 15
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_jevdevic_unitary_nation
+		}
+		available = {
+			has_country_flag = SKS_pataut_start
+			has_government = paternal_autocrat
+		}
+		completion_reward = {
+			add_political_power = -20
+			add_stability = 0.05
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = SKS_override_illyrianism
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 14
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_belief_or_punishment
+		}
+		available = {
+			has_country_flag = SKS_pataut_start
+			has_government = paternal_autocrat
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_tech_bonus = {
+				category = industry
+				bonus = 1
+				uses = 1
+			}
+			add_political_power = 45
+		}
+	}
+	
+	focus = {
+		id = SKS_never_sinning_against_serbs
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 16
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_belief_or_punishment
+			focus = SKS_chetnik_legionnaires
+		}
+		available = {
+			has_country_flag = SKS_pataut_start
+			has_government = paternal_autocrat
+		}
+		completion_reward = {
+			add_stability = 0.075
+			add_war_support = 0.075
+			swap_ideas = {
+				add_idea = SKS_never_sin_against_serbia
+				remove_idea = SKS_militarized_populace
+			}
+			swap_ideas = {
+				add_idea = SKS_split_loyalties_2
+				remove_idea = SKS_split_loyalties
+			}
+		}
+	}
+	
+	focus = {
+		id = SKS_chetnik_dual_professions
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 18
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_chetnik_legionnaires
+		}
+		available = {
+			has_country_flag = SKS_pataut_start
+			has_government = paternal_autocrat
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = electronics
+				bonus = 1
+				uses = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = SKS_ban_syndicalism
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 17
+		y = 7
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_never_sinning_against_serbs
+		}
+		available = {
+			has_country_flag = SKS_pataut_start
+			has_government = paternal_autocrat
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = totalist
+				popularity = -1
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -1
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -1
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -1
+			}
+			add_stability = 0.1
+			custom_effect_tooltip = SKS_disable_leftiecoup
+		}
+	}
+	
+	focus = {
+		id = SKS_fearmongering
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 15
+		y = 7
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_never_sinning_against_serbs
+		}
+		available = {
+			has_country_flag = SKS_pataut_start
+			has_government = paternal_autocrat
+		}
+		completion_reward = {
+			add_war_support = 0.075
+			add_manpower = 12000
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = SKS_from_military_to_state
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 16
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_override_illyrianism
+			focus = SKS_chetnik_dual_professions
+		}
+		available = {
+			has_country_flag = SKS_pataut_start
+			has_government = paternal_autocrat
+		}
+		completion_reward = {
+			#Event here
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.03
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = SKS_loyal_srpska
+		icon = GFX_goal_ideology_paternal_autocrat
+		x = 16
+		y = 8
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_fearmongering
+			focus = SKS_ban_syndicalism
+		}
+		prerequisite = {
+			focus = SKS_from_military_to_state
+		}
+		available = {
+			has_country_flag = SKS_pataut_start
+			has_government = paternal_autocrat
+			has_idea = SKS_split_loyalties
+		}
+		completion_reward = {
+			remove_ideas = SKS_split_loyalties_2
+			add_political_power = 40
+			add_stability = 0.075
+			add_war_support = 0.05
+		}
+	}
+	
+	
+	#### Marlibs ####
+	
+	focus = {
+		id = SKS_solidify_pacifist_front
+		icon = GFX_goal_ideology_market_liberal
+		x = 8
+		y = 3
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_serbia_strong
+		}
+		available = {
+			has_country_flag = SKS_republican_start
+			OR = {
+				has_government = market_liberal
+				has_government = social_conservative
+				has_government = social_liberal
+				has_government = social_democrat
+			}
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.06
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.06
+			}
+		}
+	}
+	
+	focus = {
+		id = SKS_work_with_what_we_have
+		icon = GFX_goal_ideology_market_liberal
+		x = 9
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_solidify_pacifist_front
+		}
+		available = {
+			has_country_flag = SKS_republican_start
+			OR = {
+				has_government = market_liberal
+				has_government = social_conservative
+				has_government = social_liberal
+				has_government = social_democrat
+			}
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_stability = 0.03
+		}
+	}
+	
+	focus = {
+		id = SKS_democratize_srpska
+		icon = GFX_goal_ideology_market_liberal
+		x = 7
+		y = 4
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_solidify_pacifist_front
+		}
+		available = {
+			has_country_flag = SKS_republican_start
+			OR = {
+				has_government = market_liberal
+				has_government = social_conservative
+				has_government = social_liberal
+				has_government = social_democrat
+			}
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.03
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = SKS_mobilize_common_serb
+		icon = GFX_goal_ideology_market_liberal
+		x = 8
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_democratize_srpska
+			focus = SKS_work_with_what_we_have
+		}
+		available = {
+			has_country_flag = SKS_republican_start
+			OR = {
+				has_government = market_liberal
+				has_government = social_conservative
+				has_government = social_liberal
+				has_government = social_democrat
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = industry
+				bonus = 1
+				uses = 1
+			}
+			add_tech_bonus = {
+				category = electronics
+				bonus = 1
+				uses = 1
+			}
+			add_political_power = 60
+		}
+	}
+	
+	focus = {
+		id = SKS_celovic_economic_plan
+		icon = GFX_goal_ideology_market_liberal
+		x = 8
+		y = 6
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_unravel_illyrianism
+			focus = SKS_dukanovic_land_plan
+		}
+		available = {
+			has_country_flag = SKS_republican_start
+			OR = {
+				has_government = market_liberal
+				has_government = social_conservative
+				has_government = social_liberal
+				has_government = social_democrat
+			}
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_stability = 0.03
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.075
+			}
+			swap_ideas = {
+				add_idea = SKS_industrialized_populace
+				remove_idea = SKS_militarized_populace
+			}
+		}
+	}
+	
+	focus = {
+		id = SKS_unravel_illyrianism
+		icon = GFX_goal_ideology_market_liberal
+		x = 6
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_democratize_srpska
+		}
+		available = {
+			has_country_flag = SKS_republican_start
+			OR = {
+				has_government = market_liberal
+				has_government = social_conservative
+				has_government = social_liberal
+				has_government = social_democrat
+			}
+		}
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 30
+			swap_ideas = {
+				add_idea = SKS_split_loyalties_2
+				remove_idea = SKS_split_loyalties
+			}
+		}
+	}
+	
+	focus = {
+		id = SKS_dukanovic_land_plan
+		icon = GFX_goal_ideology_market_liberal
+		x = 10
+		y = 5
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_work_with_what_we_have
+		}
+		available = {
+			has_country_flag = SKS_republican_start
+			OR = {
+				has_government = market_liberal
+				has_government = social_conservative
+				has_government = social_liberal
+				has_government = social_democrat
+			}
+		}
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_political_power = 30
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = SKS_trials_of_traitors_letica
+		icon = GFX_goal_ideology_market_liberal
+		x = 9
+		y = 7
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_mobilize_common_serb
+		}
+		available = {
+			has_country_flag = SKS_republican_start
+			OR = {
+				has_government = market_liberal
+				has_government = social_conservative
+				has_government = social_liberal
+				has_government = social_democrat
+			}
+		}
+		completion_reward = {
+			#Event here
+			add_war_support = 0.035
+			add_stability = 0.035
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.025
+			}
+			add_manpower = 10000
+		}
+	}
+	
+	focus = {
+		id = SKS_reform_chetniks
+		icon = GFX_goal_ideology_market_liberal
+		x = 7
+		y = 7
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_mobilize_common_serb
+		}
+		available = {
+			has_country_flag = SKS_republican_start
+			OR = {
+				has_government = market_liberal
+				has_government = social_conservative
+				has_government = social_liberal
+				has_government = social_democrat
+			}
+		}
+		completion_reward = {
+			#Event here
+			army_experience = 50
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = SKS_mlada_srpska
+		icon = GFX_goal_ideology_market_liberal
+		x = 8
+		y = 8
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_mobilize_common_serb
+		}
+		prerequisite = {
+			focus = SKS_reform_chetniks
+			focus = SKS_trials_of_traitors_letica
+		}
+		available = {
+			has_country_flag = SKS_republican_start
+			OR = {
+				has_government = market_liberal
+				has_government = social_conservative
+				has_government = social_liberal
+				has_government = social_democrat
+			}
+			has_idea = SKS_split_loyalties
+		}
+		completion_reward = {
+			remove_ideas = SKS_split_loyalties_2
+			add_stability = 0.1
+			add_war_support = 0.1
+			add_manpower = 10000
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.075
+			}
+		}
+	}
+	
+	focus = {
+		id = SKS_yield_to_none
+		icon = GFX_goal_ideology_market_liberal
+		x = 12
+		y = 9
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_subvert_muslims
+		}
+		prerequisite = {
+			focus = SKS_mlada_srpska
+			focus = SKS_loyal_srpska
+		}
+		completion_reward = {
+			army_experience = 25
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = SKS_belgrade_pact
+		icon = GFX_goal_ideology_market_liberal
+		x = 11
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_yield_to_none
+		}
+		mutually_exclusive = {
+			focus = SKS_third_internationale
+			focus = SKS_moscow_accord
+			focus = SKS_impartial_germans
+		}
+		available = {
+			is_in_faction = no
+			SER = {
+				is_faction_leader = yes
+			}
+			NOT = {
+				has_war_with = SER
+			}
+		}
+		completion_reward = {
+			#Event here
+		}
+	}
+	
+	focus = {
+		id = SKS_moscow_accord
+		icon = GFX_goal_ideology_market_liberal
+		x = 13
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_yield_to_none
+		}
+		mutually_exclusive = {
+			focus = SKS_third_internationale
+			focus = SKS_belgrade_pact
+			focus = SKS_impartial_germans
+		}
+		available = {
+			is_in_faction = no
+			RUS = {
+				is_faction_leader = yes
+			}
+			NOT = {
+				has_war_with = RUS
+			}
+		}
+		completion_reward = {
+			#Event here
+		}
+	}
+	
+	focus = {
+		id = SKS_impartial_germans
+		icon = GFX_goal_ideology_market_liberal
+		x = 15
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_yield_to_none
+		}
+		mutually_exclusive = {
+			focus = SKS_third_internationale
+			focus = SKS_moscow_accord
+			focus = SKS_belgrade_pact
+		}
+		available = {
+			is_in_faction = no
+			GER = {
+				is_faction_leader = yes
+			}
+			NOT = {
+				has_war_with = GER
+			}
+		}
+		completion_reward = {
+			#Event here
+		}
+	}
+	
+	focus = {
+		id = SKS_third_internationale
+		icon = GFX_goal_ideology_market_liberal
+		x = 9
+		y = 10
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_yield_to_none
+		}
+		mutually_exclusive = {
+			focus = SKS_belgrade_pact
+			focus = SKS_moscow_accord
+			focus = SKS_impartial_germans
+		}
+		available = {
+			is_in_faction = no
+			FRA = {
+				is_faction_leader = yes
+			}
+			NOT = {
+				has_war_with = FRA
+			}
+		}
+		completion_reward = {
+			#Event here
+		}
+	}
+	
+	focus = {
+		id = SKS_greater_serbia
+		icon = GFX_goal_ideology_market_liberal
+		x = 12
+		y = 11
+		cost = 5.8
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = SKS_yield_to_none
+		}
+		available = {
+			NOT = {
+				1099 = {
+					owner = {
+						is_in_faction_with = SKS
+						tag = SER
+					}
+				}
+			}
+		}
+		completion_reward = {
+			add_state_core = 1099
+			add_state_core = 794
+			add_state_core = 1128
+			declare_war_on = {
+				target = 1099.owner
+				type = annex_everything
+			}
+		}
+	}
+	
+}

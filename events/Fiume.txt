@@ -3,7 +3,39 @@
 ###########################
 
 add_namespace = fiu
+add_namespace = nufiu
 add_namespace = fiunews
+
+country_event = { #Debug
+	id = nufiu.0
+	immediate = {log = "[GetDateText]: [Root.GetName]: event fiu.1"}
+	title = nufiu.0.t
+	desc = nufiu.0.d
+	picture = GFX_FIU_city_view
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #How annoying!
+		name = nufiu.0.a
+		add_ideas = FIU_police_pirates
+	}
+}
+
+country_event = { #Introduction
+	id = nufiu.1
+	immediate = {log = "[GetDateText]: [Root.GetName]: event fiu.1"}
+	title = nufiu.1.t
+	desc = nufiu.1.d
+	picture = GFX_FIU_city_view
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #
+		name = nufiu.1.a
+	}
+}
 
 country_event = { #Pirates!
 	id = fiu.1
@@ -19,8 +51,9 @@ country_event = { #Pirates!
 		name = fiu.1.a
 		add_stability = -0.05
 		add_political_power = -25
-		add_ideas = {
-			FIU_getting_pirated
+		add_timed_idea = {
+			idea = FIU_getting_pirated
+			days = 180
 		}
 	}
 }

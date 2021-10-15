@@ -1,0 +1,1184 @@
+############################
+# Small Austria Focus Tree #
+############################
+focus_tree = {
+	id = austria_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 0
+			tag = AUS
+		}
+	}
+	default = no
+	
+	#### Fall of the Empire ####
+	
+	focus = {
+		id = AUS_fall_of_the_empire
+		icon = GFX_goal_ideology_market_liberal
+		x = 12
+		y = 0
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			add_stability = 0.03
+			add_political_power = 35
+		}
+	}
+	
+	focus = {
+		id = AUS_a_proper_government
+		icon = GFX_goal_ideology_market_liberal
+		x = 12
+		y = 1
+		cost = 8.7
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_fall_of_the_empire
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = AUS_disorganized_govt
+				add_idea = AUS_disorganized_govt_2
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_retake_the_country
+		icon = GFX_goal_ideology_market_liberal
+		x = 13
+		y = 2
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_a_proper_government
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = AUS_for_the_fatherland
+				days = 180
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_maintain_home_front
+		icon = GFX_goal_ideology_market_liberal
+		x = 11
+		y = 2
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_a_proper_government
+		}
+		completion_reward = {
+			add_war_support = 0.075
+			add_manpower = 50000
+			add_political_power = 25
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_banate_of_leitha
+		icon = GFX_goal_ideology_market_liberal
+		x = 12
+		y = 3
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_retake_the_country
+			focus = AUS_maintain_home_front
+		}
+		bypass = {
+			NOT = {
+				country_exists = HNZ
+			}
+		}
+		completion_reward = {
+			#HNZ = {
+			#	country_event = {
+			#		id = miniausfor.1
+			#	}
+			#}
+		}
+	}
+	
+	focus = {
+		id = AUS_gather_our_bearings
+		icon = GFX_goal_ideology_market_liberal
+		x = 10
+		y = 3
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_maintain_home_front
+		}
+		completion_reward = {
+			add_stability = 0.08
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_discredit_rival_governments
+		icon = GFX_goal_ideology_market_liberal
+		x = 14
+		y = 3
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_retake_the_country
+		}
+		completion_reward = {
+			add_political_power = 15
+			add_war_support = 0.08
+			army_experience = 20
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_proud_new_people
+		icon = GFX_goal_ideology_market_liberal
+		x = 12
+		y = 4
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_gather_our_bearings
+		}
+		prerequisite = {
+			focus = AUS_discredit_rival_governments
+		}
+		completion_reward = {
+			add_political_power = 30
+			add_stability = 0.05
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			swap_ideas = {
+				add_idea = AUS_state_nobody_wanted_2
+				remove_idea = AUSAUS_state_nobody_wanted
+			}
+		}
+	}
+	
+	#### CS Initial Fall of the Empire ####
+	
+	focus = {
+		id = AUS_cs_from_ashes
+		icon = GFX_goal_ideology_social_conservative
+		x = 21
+		y = 1
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_fall_of_the_empire
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_conservative
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.08
+			}
+			add_stability = 0.05
+			add_political_power = 20
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_calm_the_storm
+		icon = GFX_goal_ideology_social_conservative
+		x = 22
+		y = 2
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_cs_from_ashes
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_conservative
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.02
+			}
+			add_timed_idea = {
+				idea = AUS_calm_the_storm_idea
+				days = 365
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_enlist_construction_companies
+		icon = GFX_goal_ideology_social_conservative
+		x = 24
+		y = 2
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_cs_from_ashes
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_conservative
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_political_power = -20
+			add_stability = 0.03
+		}
+	}
+	
+	focus = {
+		id = AUS_new_industrial_tools
+		icon = GFX_goal_ideology_social_conservative
+		x = 25
+		y = 3
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_enlist_construction_companies
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_conservative
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = electronics
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_secure_heimwehr_support
+		icon = GFX_goal_ideology_social_conservative
+		x = 20
+		y = 2
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_cs_from_ashes
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_conservative
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.03
+			}
+			army_experience = 20
+			add_manpower = 20000
+			remove_ideas = AUS_militant_rightwing_issue
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_trade_foundations
+		icon = GFX_goal_ideology_social_conservative
+		x = 18
+		y = 2
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_cs_from_ashes
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_conservative
+		}
+		completion_reward = {
+			add_stability = 0.03
+			add_political_power = 30
+			add_ideas = AUS_trade_idea
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_constitutional_tuning
+		icon = GFX_goal_ideology_social_conservative
+		x = 17
+		y = 3
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_trade_foundations
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_conservative
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.03
+			}
+			add_political_power = 80
+			remove_ideas = AUS_disorganized_govt_2
+		}
+	}
+	
+	focus = {
+		id = AUS_never_tire_with_steyr
+		icon = GFX_goal_ideology_social_conservative
+		x = 19
+		y = 3
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_trade_foundations
+		}
+		prerequisite = {
+			focus = AUS_secure_heimwehr_support
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_conservative
+		}
+		completion_reward = {
+			add_war_support = 0.05
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 3000
+				producer = AUS
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_transport_trucks
+		icon = GFX_goal_ideology_social_conservative
+		x = 19
+		y = 4
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_never_tire_with_steyr
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_conservative
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = motorized_equipment
+			}
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 400
+				producer = AUS
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_destroy_socialist_insurgents
+		icon = GFX_goal_ideology_social_conservative
+		x = 21
+		y = 4
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_never_tire_with_steyr
+			focus = AUS_traditional_images
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_conservative
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.03
+			add_manpower = -5000
+			remove_ideas = AUS_militant_socialist_issue
+		}
+	}
+	
+	focus = {
+		id = AUS_bureaucratic_reform
+		icon = GFX_goal_ideology_social_conservative
+		x = 21
+		y = 4
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_never_tire_with_steyr
+			focus = AUS_traditional_images
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_conservative
+		}
+		completion_reward = {
+			add_ideas = AUS_bureaucratic_reform_idea
+			add_political_power = 30
+			add_stability = 0.03
+		}
+	}
+	
+	focus = {
+		id = AUS_watchful_eye_forwards
+		icon = GFX_goal_ideology_social_conservative
+		x = 21
+		y = 5
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_bureaucratic_reform
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_conservative
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.03
+			}
+			add_war_support = 0.1
+		}
+	}
+	
+	focus = {
+		id = AUS_traditional_images
+		icon = GFX_goal_ideology_social_conservative
+		x = 23
+		y = 3
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_calm_the_storm
+		}
+		prerequisite = {
+			focus = AUS_enlist_construction_companies
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_conservative
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
+			add_political_power = 60
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.03
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_church_teachings
+		icon = GFX_goal_ideology_social_conservative
+		x = 23
+		y = 4
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_traditional_images
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_conservative
+		}
+		completion_reward = {
+			add_ideas = AUS_church_schooling_idea
+			add_political_power = 20
+			add_stability = 0.01
+		}
+	}
+	
+	#### SDAP Post-Empire ####
+	
+	focus = {
+		id = AUS_red_vienna
+		icon = GFX_goal_ideology_social_democrat
+		x = 3
+		y = 1
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_fall_of_the_empire
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_democrat
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 35
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.06
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_welfare_for_the_downtrodden
+		icon = GFX_goal_ideology_social_democrat
+		x = 3
+		y = 2
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_red_vienna
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_democrat
+		}
+		completion_reward = {
+			add_stability = 0.03
+			add_political_power = -10
+			add_ideas = AUS_protective_welfare
+		}
+	}
+	
+	focus = {
+		id = AUS_help_trade_unions
+		icon = GFX_goal_ideology_social_democrat
+		x = 2
+		y = 3
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_welfare_for_the_downtrodden
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_democrat
+		}
+		completion_reward = {
+			add_ideas = AUS_trade_union_idea
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_worker_fairness
+		icon = GFX_goal_ideology_social_democrat
+		x = 2
+		y = 4
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_help_trade_unions
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_democrat
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_political_power = 30
+		}
+	}
+	
+	focus = {
+		id = AUS_an_austrian_identity
+		icon = GFX_goal_ideology_social_democrat
+		x = 4
+		y = 3
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_welfare_for_the_downtrodden
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_democrat
+			has_idea = AUS_state_nobody_wanted_2
+		}
+		completion_reward = {
+			add_stability = 0.05
+			remove_ideas = AUS_state_nobody_wanted_2
+		}
+	}
+	
+	focus = {
+		id = AUS_ties_with_germany
+		icon = GFX_goal_ideology_social_democrat
+		x = 4
+		y = 4
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_an_austrian_identity
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_democrat
+		}
+		completion_reward = {
+			reverse_add_opinion_modifier = {
+				target = GER
+				modifier = KR_approves_of_govt
+			}
+			add_stability = 0.03
+			add_political_power = -20
+			add_ideas = AUS_german_ties
+		}
+	}
+	
+	focus = {
+		id = AUS_national_personal_autonomy_small
+		icon = GFX_goal_ideology_social_democrat
+		x = 5
+		y = 2
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_red_vienna
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_democrat
+		}
+		completion_reward = {
+			add_ideas = AUS_national_personal_autonomy_idea
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_low_taxes_for_hard_times
+		icon = GFX_goal_ideology_social_democrat
+		x = 6
+		y = 3
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_national_personal_autonomy_small
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_democrat
+		}
+		completion_reward = {
+			add_ideas = AUS_sdap_tax_act_idea
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_get_spending_going
+		icon = GFX_goal_ideology_social_democrat
+		x = 6
+		y = 4
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_low_taxes_for_hard_times
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_democrat
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = electronics
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_quell_heimwehr_units
+		icon = GFX_goal_ideology_social_democrat
+		x = 1
+		y = 2
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_red_vienna
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_democrat
+		}
+		completion_reward = {
+			remove_ideas = AUS_militant_rightwing_issue
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.05
+			}
+			add_stability = 0.05
+			add_manpower = -1500
+		}
+	}
+	
+	focus = { #Republikanischer Schutzbund is the SDAP paramilitary
+		id = AUS_informal_militias
+		icon = GFX_goal_ideology_social_democrat
+		x = 0
+		y = 3
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_quell_heimwehr_units
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_democrat
+		}
+		completion_reward = {
+			add_ideas = AUS_informal_militias_idea
+			add_political_power = -25
+			add_stability = 0.06
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_swat_foreign_influencers
+		icon = GFX_goal_ideology_social_democrat
+		x = 0
+		y = 4
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_informal_militias
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_democrat
+		}
+		completion_reward = {
+			add_war_support = 0.05
+			add_stability = 0.03
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_the_state_that_we_want
+		icon = GFX_goal_ideology_social_democrat
+		x = 3
+		y = 5
+		cost = 4.3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = AUS_worker_fairness
+		}
+		prerequisite = {
+			focus = AUS_ties_with_germany
+		}
+		available = {
+			NOT = {
+				country_exists = AWR
+				country_exists = NAZ
+			}
+			has_government = social_democrat
+		}
+		completion_reward = {
+			add_political_power = 80
+			add_stability = 0.1
+			add_war_support = 0.1
+		}
+	}
+	
+}

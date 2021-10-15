@@ -1,5 +1,5 @@
 ﻿capital = 105
-OOB = "empty"
+OOB = "MNT"
 set_research_slots = 3
 set_technology = {
 	### General ###
@@ -14,8 +14,6 @@ set_technology = {
 	early_fighter = 1
 }
 
-set_country_flag = KX_no_naval_tech_decision_enable
-
 set_politics = {
 	ruling_party = authoritarian_democrat
 	last_election = "1888.6.15"
@@ -24,24 +22,64 @@ set_politics = {
 }
 
 set_popularities = {
-    totalist = 1
+    totalist = 0
     radical_socialist = 0
     syndicalist = 0
-    social_democrat = 2
-    social_liberal = 12
-    market_liberal = 6
-    social_conservative = 22
-    authoritarian_democrat = 36
-    paternal_autocrat = 19
-    national_populist = 2
+    social_democrat = 0
+    social_liberal = 2
+    market_liberal = 8
+    social_conservative = 28
+    authoritarian_democrat = 27
+    paternal_autocrat = 22
+    national_populist = 13
 }
+
+add_ideas = {
+	MNT_dynastic_issues
+	MNT_serb_separatism
+	MNT_shackled_economy
+}
+add_manpower = 50000
 
 ### Leaders
 
+create_country_leader = {
+	name = "Michael I"
+	desc = "MNT_KING_MICHAEL_DESC"
+	picture = "MNT_king_michael.png"
+	expire = "1965.1.1"
+	ideology = authoritarian_democrat_subtype
+	#traits = {
+	#	
+	#}
+}
+
+create_country_leader = {
+	name = "Michael I"
+	desc = "MNT_KING_MICHAEL_DESC"
+	picture = "MNT_king_michael.png"
+	expire = "1965.1.1"
+	ideology = social_conservative_subtype
+	#traits = {
+	#	
+	#}
+}
+
+create_country_leader = {
+	name = "Michael I"
+	desc = "MNT_KING_MICHAEL_DESC"
+	picture = "MNT_king_michael.png"
+	expire = "1965.1.1"
+	ideology = paternal_autocrat_subtype
+	#traits = {
+	#	
+	#}
+}
+
 ### Field Marshals ###
 create_field_marshal = {
-	name = "Danilo Petrović-Njegoš"
-	portrait_path = "gfx/leaders/Generic/Portrait_Balkan_Generic_land_new_6.png"
+	name = "Michael I"
+	portrait_path = "gfx/leaders/MNT/MNT_king_michael.png"
 	traits = {
 		media_personality
 		inspirational_leader

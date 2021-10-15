@@ -97,9 +97,6 @@ country_event = {
 		JAP = {
 			country_event = { id = japdom.242 days = 7 }
 		}
-		COG = {
-			country_event = { id = conbel.9 days = 7 }
-		}
 		"LBA" = {
 			country_event = { id = libya.10 days = 5 }
 		}
@@ -110,7 +107,7 @@ country_event = {
 			country_event = { id = LIB.5 days = 12 }
 		}
 		LIT = {
-			country_event = { id = LIT.6 days = 3 }
+			country_event = { id = lithuania.5 days = 7 }
 		}
 		MAF = {
 			country_event = { id = mittel.108 days = 1 }
@@ -194,10 +191,13 @@ country_event = {
 			country_event = { id = ven.11 days = 7 }
 		}
 		WHR = {
-			country_event = { id = whiteruthenia.1000 days = 2 }
+			country_event = { id = whiteruthenia.30 days = 2 }
 		}
 		YEM = {
 			country_event = { id = yemen.2 days = 2 }
+		}
+		MNT = {
+			country_event = { id = mnt.1 days = 4 }
 		}
 		CZE = {
 			country_event = { id = bdeboh.6 days = 3 }
@@ -348,13 +348,6 @@ country_event = {
 		add_political_power = -100
 		add_stability = -0.15
 		hidden_effect = {
-			if = {
-				limit = {
-					is_ai = no
-				}
-				##RedDawn##
-			add_to_variable = { var = Willy_fucks_it_up value = -2 }
-			}
 			country_event = {
 				id = black.5
 				days = 5
@@ -374,13 +367,6 @@ country_event = {
 			days = 50
 		}
 		hidden_effect = {
-			if = {
-				limit = {
-					is_ai = no
-				}
-				##RedDawn##
-			add_to_variable = { var = Willy_fucks_it_up value = -1 }
-			}
 			country_event = {
 				id = black.5
 				days = 5
@@ -395,13 +381,6 @@ country_event = {
 		}
 		add_stability = -0.3
 		hidden_effect = {
-			if = {
-				limit = {
-					is_ai = no
-				}
-				##RedDawn##
-			add_to_variable = { var = Willy_fucks_it_up value = 2 }
-			}
 			country_event = {
 				id = black.5
 				days = 5
@@ -484,15 +463,6 @@ country_event = {
 				modifier = financial_help_granted
 			}
 		}
-		hidden_effect = {
-			if = {
-				limit = {
-					is_ai = no
-				}
-				##RedDawn##
-			add_to_variable = { var = Willy_fucks_it_up value = 2 }
-			}
-		}
 	}
 
 	option = {
@@ -523,15 +493,6 @@ country_event = {
 				modifier = financial_help_satisfactionary
 			}
 		}
-		hidden_effect = {
-			if = {
-				limit = {
-					is_ai = no
-				}
-				##RedDawn##
-			add_to_variable = { var = Willy_fucks_it_up value = 1 }
-			}
-		}
 	}
 
 	option = {
@@ -557,15 +518,6 @@ country_event = {
 			reverse_add_opinion_modifier = {
 				target = GEA
 				modifier = financial_help_denied
-			}
-		}
-		hidden_effect = {
-			if = {
-				limit = {
-					is_ai = no
-				}
-				##RedDawn##
-			add_to_variable = { var = Willy_fucks_it_up value = -1 }
 			}
 		}
 	}
@@ -828,7 +780,14 @@ country_event = {
 
 	option = {
 		name = black.200.a
-		add_ideas = AUS_black_monday
+		add_ideas = AUS_bm_1
+		hidden_effect = {
+			country_event = {
+				id = bdeausel.0
+				days = 3
+				hours = 12
+			}
+		}
 		if = { 
 			limit = { has_global_flag = ITA_ITALY_REPUBLIC }
 			hidden_effect = {

@@ -1,0 +1,127 @@
+scripted_gui = {
+
+	austria_open_subjects_view = {
+		context_type = player_context
+		parent_window_token = topbar
+		window_name = "austria_open_subjects_view_container"
+
+		ai_check = {
+			always = no
+		}
+
+		triggers = {
+			austria_open_click_enabled = {
+				NOT = { has_country_flag = subject_unrest_window_open }
+			}
+		}
+		
+		visible = {
+			OR = {
+				tag = AUS
+				tag = HUN
+				tag = CRO
+				tag = CZE
+				tag = GAL
+				tag = SVK
+				tag = SLO
+				tag = BOS
+				tag = SKS
+				tag = WSU
+				tag = BUK
+				tag = TRS
+				tag = BAN
+				tag = CPU
+				tag = HSR
+				tag = HNR
+				tag = AWR
+				tag = NAZ
+				tag = ITA
+				tag = SRI
+				tag = GER
+				tag = POL
+				tag = UKR
+				tag = FRA
+				tag = ENG
+				tag = RUS
+				tag = SOV
+				tag = BUL
+				tag = SER
+				tag = ROM
+				tag = SWI
+				tag = RRM
+				tag = GRE
+				tag = HNZ
+				tag = CRR
+				tag = SRC
+				tag = MNT
+			}
+		}
+
+		effects = {
+			austria_open_click = {
+				for_each_loop = {
+					array = global.constituents_array
+					var:v = {
+						if = {
+							limit = {
+								exists = yes
+								has_variable = subject_revolt_progress
+								OR = {
+									tag = AUS
+									is_in_faction_with = AUS
+								}
+							}
+							add_to_array = { ROOT.austria_subject_array = v }
+						}
+					}
+				}
+				set_country_flag = subject_unrest_window_open
+			}
+		}
+		
+		properties = {
+			austria_flag = {
+				image = "[AUS.GetFlag]"
+			}
+		}
+	}
+	
+	austrian_subjects = {
+		context_type = player_context
+		window_name = "austria_subjects_master"
+
+		visible = {
+			has_country_flag = subject_unrest_window_open
+		}
+
+		dynamic_lists = {
+			austrian_subjects_grid = {
+				array = austria_subject_array
+				change_scope = yes
+
+				entry_container = austrian_subject_entry
+			}
+		}
+
+		triggers = {
+			austrian_subject_entry_visible = {
+				country_exists = v
+			}
+		}
+		
+		effects = {
+			austria_close_click = {
+				clear_array = austria_subject_array
+				clr_country_flag = subject_unrest_window_open
+			}
+		}
+
+		properties = {
+			ausflag = {
+				image = "[THIS.GetFlag]"
+			}
+		}
+	}
+	
+	
+}

@@ -16,8 +16,6 @@ set_technology = {
 	early_bomber = 1
 }
 
-set_country_flag = KX_no_naval_tech_decision_enable
-
 set_war_support = 0.5
 
 country_event = { id = serbia.0 hours = 2 }
@@ -28,29 +26,31 @@ add_opinion_modifier = { target = BUL modifier = Balkans_hates_bulgaria }
 add_opinion_modifier = { target = OTT modifier = embargo }
 
 set_politics = {
-	ruling_party = authoritarian_democrat
+	ruling_party = national_populist
 	last_election = "1933.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	totalist = 0
+	totalist = 1
 	radical_socialist = 0
-	syndicalist = 0
+	syndicalist = 2
 	social_democrat = 0
 	social_liberal = 4
-	market_liberal = 13
-	social_conservative = 21
-	authoritarian_democrat = 41
-	paternal_autocrat = 18
-	national_populist = 3
+	market_liberal = 6
+	social_conservative = 11
+	authoritarian_democrat = 21
+	paternal_autocrat = 17
+	national_populist = 38
 }
 
 add_ideas = {
 	volunteer_only
-	SER_austrias_watchful_eye
-        SER_jingoism
+	SER_demilitarization_of_nis
+	SER_bulgarias_watchful_eye
+	SER_the_hands
+    SER_jingoism
 	SER_Dragisa_Cvetkovic_hog_ade
 	SER_Aleksandar_Cincar_Markovic_for_ade
 	SER_Milan_Stojadinovic_eco_ade
@@ -61,28 +61,28 @@ add_ideas = {
 ### Starting party leaders
 create_country_leader = {
 	name = "Petko Miletić"
-	picture = "Portrait_SER_Petko_Miletic.png"
+	picture = "gfx/leaders/Generic/Portrait_Europe_Generic_new_16.tga"
 	expire = "1965.1.1"
 	ideology = totalist_subtype
 }
 
 create_country_leader = {
 	name = "Sima Marković"
-	picture = "Portrait_SER_Sima_Markovic.png"
+	picture = "gfx/leaders/Generic/Portrait_Europe_Generic_new_9.tga"
 	expire = "1965.1.1"
 	ideology = syndicalist_subtype
 }
 
 create_country_leader = {
 	name = "Filip Filipović"
-	picture = "Portrait_SER_Filip_Filipovic.png"
+	picture = "gfx/leaders/Generic/Portrait_Europe_Generic_new_13.tga"
 	expire = "1965.1.1"
 	ideology = radical_socialist_subtype
 }
 
 create_country_leader = {
 	name = "Živko Topalović"
-	picture = "Portrait_SER_Zivko_Topalovic.png"
+	picture = "Portrait_SER_Zivko_Topalovic.tga"
 	expire = "1965.1.1"
 	ideology = social_democrat_subtype
 }
@@ -90,28 +90,28 @@ create_country_leader = {
 create_country_leader = {
 	name = "Slobodan Jovanović"
 	desc = "POLITICS_SLOBODAN_JOVANOVIC_DESC"
-	picture = "Portrait_SER_Slobodan_Jovanovic.png"
+	picture = "Portrait_SER_Slobodan_Jovanovic.tga"
 	expire = "1965.1.1"
 	ideology = social_liberal_subtype
 }
 
 create_country_leader = {
 	name = "Ljubomir Davidović"
-	picture = "Portrait_SER_Ljubomir_Davidovic.png"
+	picture = "Portrait_SER_Ljubomir_Davidovic.tga"
 	expire = "1965.1.1"
 	ideology = market_liberal_subtype
 }
 
 create_country_leader = {
 	name = "Nikola Uzunović"
-	picture = "Portrait_SER_Nikola_Uzunovic.png"
+	picture = "Portrait_SER_Nikola_Uzunovic.tga"
 	expire = "1965.1.1"
 	ideology = social_conservative_subtype
 }
 
 create_country_leader = {
 	name = "Milan Nedić"
-	picture = "Portrait_SER_Milan_Nedic.png"
+	picture = "Portrait_SER_Milan_Nedic.tga"
 	expire = "1965.1.1"
 	ideology = authoritarian_democrat_subtype
 }
@@ -119,14 +119,14 @@ create_country_leader = {
 create_country_leader = {
 	name = "Petar Bojović"
 	desc = "POLITICS_PETAR_BOJOVIC_DESC"
-	picture = "Portrait_SER_Petar_Bojovic.png"
+	picture = "Portrait_SER_Petar_Bojovic.tga"
 	expire = "1965.1.1"
 	ideology = authoritarian_democrat_subtype
 }
 
 create_country_leader = {
 	name = "Milan Nedić"
-	picture = "Portrait_SER_Milan_Nedic.png"
+	picture = "Portrait_SER_Milan_Nedic.tga"
 	expire = "1965.1.1"
 	ideology = paternal_autocrat_subtype
 }
@@ -134,22 +134,22 @@ create_country_leader = {
 create_country_leader = {
 	name = "Alexander II"
 	desc = "POLITICS_ALEXANDER_II_DESC"
-	picture = "Portrait_SER_Alexander_II.png"
+	picture = "Portrait_SER_Alexander_II.tga"
 	expire = "1965.1.1"
 	ideology = paternal_autocrat_subtype
 }
 
 create_country_leader = {
-	name = "Milan Nedić"
-	picture = "Portrait_SER_Milan_Nedic.png"
+	name = "Alexander II"
+	desc = "POLITICS_ALEXANDER_II_DESC"
+	picture = "Portrait_SER_Alexander_II.tga"
 	expire = "1965.1.1"
 	ideology = national_populist_subtype
 }
 
 create_country_leader = {
-	name = "Alexander II"
-	desc = "POLITICS_ALEXANDER_II_DESC"
-	picture = "Portrait_SER_Alexander_II.png"
+	name = "Dimitrije Ljotić"
+	picture = "Portrait_SER_Dimitrije_Ljotic.tga"
 	expire = "1965.1.1"
 	ideology = national_populist_subtype
 }
@@ -157,7 +157,7 @@ create_country_leader = {
 ### Army Leaders
 create_field_marshal = {
 	name = "Milan Nedić"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Milan_Nedic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Milan_Nedic.tga"
 	traits = {
 		old_guard
 		career_officer
@@ -171,7 +171,7 @@ create_field_marshal = {
 
 create_field_marshal = {
 	name = "Milorad Petrović"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Mirolad_Petrovic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Mirolad_Petrovic.tga"
 	traits = {
 		inflexible_strategist
 	}
@@ -184,7 +184,7 @@ create_field_marshal = {
 
 create_field_marshal = {
 	name = "Ljubomir Marić "
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Ljubomir_Maric.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Ljubomir_Maric.tga"
 	traits = {
 		skirmisher
 		career_officer
@@ -200,7 +200,7 @@ create_field_marshal = {
 
 create_corps_commander = {
 	name = "Draža Mihailović"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Draza_Mihailovic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Draza_Mihailovic.tga"
 	traits = {
 		career_officer
 		media_personality
@@ -217,7 +217,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Dragutin Gavrilovic"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Dragutin_Gavrilovic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Dragutin_Gavrilovic.tga"
 	traits = {
 		career_officer
 		trait_cautious
@@ -234,7 +234,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Dusan Simovic"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Dusan_Simovic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Dusan_Simovic.tga"
 	traits = {
 		career_officer
 		skirmisher
@@ -248,7 +248,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Milan St. Kostic"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Milan_St._Kostic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Milan_St._Kostic.tga"
 	traits = {
 		trickster
 		artillery_officer
@@ -262,7 +262,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Milo Kenjic"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Milo_Kenjic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Milo_Kenjic.tga"
 	traits = {
 		career_officer
 		commando
@@ -276,7 +276,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Petar Kosic"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Petar_Kosic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Petar_Kosic.tga"
 	traits = {
 		skirmisher
 		career_officer
@@ -290,7 +290,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Borivoje Josimovic"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Borivoje_Josimovic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Borivoje_Josimovic.tga"
 	traits = {
 		skirmisher
 		career_officer
@@ -307,7 +307,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Jovan Naumovic"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Jovan_Naumovic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Jovan_Naumovic.tga"
 	traits = {
 		career_officer
 		old_guard
@@ -321,7 +321,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Panta Draskic"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Panta_Draskic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Panta_Draskic.tga"
 	traits = {
 		skirmisher
 		career_officer
@@ -337,7 +337,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Petar Pesic"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Petar_Pesic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Petar_Pesic.tga"
 	traits = {
 		trickster
 		trait_cautious
@@ -352,7 +352,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Dragustin Keresovic"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Dragutin_Keserovic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Dragutin_Keserovic.tga"
 	traits = {
 		career_officer
 		trickster
@@ -367,7 +367,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Petar Živković"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Petar_Zivkovic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Petar_Zivkovic.tga"
 	traits = {
 		politically_connected
 	}
@@ -381,7 +381,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Milutin Nedić"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Milutin_Nedic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Milutin_Nedic.tga"
 	traits = {
 		career_officer
 		politically_connected
@@ -396,7 +396,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Dušan Trifunović"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Dusan_Trifunovic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Dusan_Trifunovic.tga"
 	traits = {
 		trait_mountaineer
 	}
@@ -409,7 +409,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Bogoljub Ilić"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Bogoljub_Ilic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Bogoljub_Ilic.tga"
 	traits = {
 		cavalry_officer
 		politically_connected
@@ -423,7 +423,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Petar Vukčević"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Petar_Vukcevic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Petar_Vukcevic.tga"
 	traits = {
 		old_guard
 	}
@@ -436,7 +436,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Branko Zivotic"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Branko_Zivotic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Branko_Zivotic.tga"
 	traits = {
 		career_officer
 	}
@@ -449,7 +449,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Ilija Trifunovic-Bircanin"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Ilija_Trifunovic-Bircanin.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Ilija_Trifunovic-Bircanin.tga"
 	traits = {
 		trickster
 	}
@@ -462,7 +462,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Joksim Gajic"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Joksim_Gajic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Joksim_Gajic.tga"
 	traits = {
 		infantry_officer
 	}
@@ -475,7 +475,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Kosta Musicki"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Kosta_Musicki.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Kosta_Musicki.tga"
 	traits = {
 		trickster
 		artillery_officer
@@ -489,7 +489,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Ljubomir Milic"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Ljubomir_Milic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Ljubomir_Milic.tga"
 	traits = {
 		infantry_officer
 		inflexible_strategist
@@ -503,7 +503,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Milos Crnjanski"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Milos_Crnjanski.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Milos_Crnjanski.tga"
 	traits = {
 	}
 	skill = 1
@@ -515,7 +515,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Vladimir Cukavac"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Vladimir_Cukavac.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Vladimir_Cukavac.tga"
 	traits = {
 		infantry_officer
 	}
@@ -528,7 +528,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Milunka Savić"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Milunka_Savic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Milunka_Savic.tga"
 	traits = {
 		career_officer
 	}
@@ -542,7 +542,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Momčilo Đujić"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Momcilo_Dujic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Momcilo_Dujic.tga"
 	traits = {
 		career_officer
 		trickster
@@ -556,8 +556,23 @@ create_corps_commander = {
 }
 
 create_corps_commander = {
+	name = "Ljubomir Marić"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Lubomir_Maric.tga"
+	traits = {
+		career_officer
+		old_guard
+		trickster
+	}
+	skill = 2
+	attack_skill = 1
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 2
+}
+
+create_corps_commander = {
 	name = "Petar Nedeljkovic"
-	portrait_path = "gfx/leaders/SER/Portrait_SER_Petar_Nedeljkovic.png"
+	portrait_path = "gfx/leaders/SER/Portrait_SER_Petar_Nedeljkovic.tga"
 	traits = {
 		trait_engineer
 		trait_cautious
@@ -572,7 +587,7 @@ create_corps_commander = {
 ###Admirals###
 create_navy_leader = {
 	name = "Aleksandar Beric"
-	picture = "gfx/leaders/SER/Portrait_SER_Aleksandar_Beric.png"
+	picture = "gfx/leaders/SER/Portrait_SER_Aleksandar_Beric.tga"
 	traits = { blockade_runner superior_tactician }
 	skill = 5
 	attack_skill = 4
@@ -583,7 +598,7 @@ create_navy_leader = {
 
 create_navy_leader = {
 	name = "Milan Spasic"
-	picture = "gfx/leaders/SER/Portrait_SER_Milan_Spasic.png"
+	picture = "gfx/leaders/SER/Portrait_SER_Milan_Spasic.tga"
 	traits = { ironside }
 	skill = 5
 	attack_skill = 4
@@ -594,7 +609,7 @@ create_navy_leader = {
 
 create_navy_leader = {
 	name = "Tadija Sondermajer"
-	picture = "gfx/leaders/SER/Portrait_SER_Tadija_Sondermajer.png"
+	picture = "gfx/leaders/SER/Portrait_SER_Tadija_Sondermajer.tga"
 	traits = { superior_tactician seawolf }
 	skill = 5
 	attack_skill = 4

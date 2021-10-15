@@ -1,0 +1,1318 @@
+save_austria = {
+
+	AUS_public_outing = {
+		cost = 20
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 25
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = karl_isnt_occupied
+				NOT = {
+					has_global_flag = AUS_karl_occupied
+				}
+			}
+		}
+		days_remove = 2
+		complete_effect = {
+			custom_effect_tooltip = AUS_karl_becomes_occupied_2
+			set_global_flag = AUS_karl_occupied
+		}
+		modifier = {
+			political_power_factor = -0.1
+		}
+		remove_effect = {
+			clr_global_flag = AUS_karl_occupied
+			add_stability = 0.02
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = -0.03
+			}
+			custom_effect_tooltip = AUS_karl_no_longer_occupied
+			custom_effect_tooltip = collapse_three_minus
+		}
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				tag = HUN
+			}
+			modifier = {
+				factor = 0
+				tag = GAL
+			}
+		}
+	}
+	
+	AUS_royal_appearance = {
+		cost = 35
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 30
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = karl_isnt_occupied
+				NOT = {
+					has_global_flag = AUS_karl_occupied
+				}
+			}
+		}
+		days_remove = 14
+		complete_effect = {
+			custom_effect_tooltip = AUS_karl_becomes_occupied_20
+			set_global_flag = AUS_karl_occupied
+		}
+		modifier = {
+			political_power_factor = -0.1
+		}
+		remove_effect = {
+			clr_global_flag = AUS_karl_occupied
+			add_stability = 0.05
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = -0.05
+			}
+			custom_effect_tooltip = AUS_karl_no_longer_occupied
+			custom_effect_tooltip = collapse_five_minus
+		}
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				tag = HUN
+			}
+			modifier = {
+				factor = 0
+				tag = GAL
+			}
+		}
+	}
+	
+	AUS_status_speech = {
+		cost = 75
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 50
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = karl_isnt_occupied
+				NOT = {
+					has_global_flag = AUS_karl_occupied
+				}
+			}
+		}
+		days_remove = 1
+		complete_effect = {
+			custom_effect_tooltip = AUS_karl_becomes_occupied_2
+			set_global_flag = AUS_karl_occupied
+		}
+		modifier = {
+			political_power_factor = -0.2
+		}
+		remove_effect = {
+			clr_global_flag = AUS_karl_occupied
+			add_stability = 0.1
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = -0.1
+			}
+			custom_effect_tooltip = AUS_karl_no_longer_occupied
+			custom_effect_tooltip = collapse_ten_minus
+		}
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				tag = HUN
+			}
+			modifier = {
+				factor = 0
+				tag = GAL
+			}
+		}
+	}
+	
+	AUS_fireside_chats = {
+		cost = 100
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 1
+		visible = {
+			NOT = {
+				has_idea = AUS_fireside_chats_idea
+			}
+			tag = AUS
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = AUS_no_fireside_chats
+				NOT = {
+					has_global_flag = AUS_fireside_chats
+				}
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = AUS_begins_broadcasts
+			set_global_flag = AUS_fireside_chats
+			add_ideas = AUS_fireside_chats_idea
+			add_to_variable = {
+				var = AUS.subject_revolt_progress
+				value = -0.1
+			}
+			custom_effect_tooltip = collapse_ten_minus
+		}
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				tag = HUN
+			}
+			modifier = {
+				factor = 0
+				tag = GAL
+			}
+		}
+	}
+	
+	AUS_end_fireside_chats = {
+		cost = 0
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 1
+		visible = {
+			has_idea = AUS_fireside_chats_idea
+			tag = AUS
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = AUS_currently_fireside_chats
+				has_global_flag = AUS_fireside_chats
+			}
+			has_idea = AUS_fireside_chats_idea
+		}
+		complete_effect = {
+			custom_effect_tooltip = AUS_ceases_broadcasts
+			clr_global_flag = AUS_fireside_chats
+			remove_ideas = AUS_fireside_chats_idea
+		}
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				tag = HUN
+			}
+			modifier = {
+				factor = 0
+				tag = GAL
+			}
+		}
+	}
+	
+	AUS_appease_hungarians = {
+		cost = 15
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 7
+		visible = {
+			tag = AUS
+			NOT = {
+				has_country_flag = no_hungary_revolt
+			}
+			HUN = {
+				is_in_faction_with = AUS
+			}
+		}
+		available = {
+			tag = AUS
+			NOT = {
+				has_country_flag = no_hungary_revolt
+			}
+			HUN = {
+				is_in_faction_with = AUS
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = collapse_hungary_three_minus
+			add_to_variable = {
+				var = HUN.subject_revolt_progress
+				value = -0.03
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	
+	AUS_appease_illyrians = {
+		cost = 15
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 7
+		visible = {
+			tag = AUS
+			NOT = {
+				has_country_flag = no_illyria_revolt
+			}
+			CRO = {
+				is_in_faction_with = AUS
+			}
+		}
+		available = {
+			tag = AUS
+			NOT = {
+				has_country_flag = no_illyria_revolt
+			}
+			CRO = {
+				is_in_faction_with = AUS
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = collapse_illyria_three_minus
+			add_to_variable = {
+				var = CRO.subject_revolt_progress
+				value = -0.03
+			}
+			custom_effect_tooltip = chance_anger_hungary
+			hidden_effect = {
+				random_list = {
+					66 = {}
+					34 = {
+						add_to_variable = {
+							var = HUN.subject_revolt_progress
+							value = 0.02
+						}
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	
+	AUS_appease_bohemians = {
+		cost = 15
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 7
+		visible = {
+			tag = AUS
+			NOT = {
+				has_country_flag = no_bohemia_revolt
+			}
+			CZE = {
+				is_in_faction_with = AUS
+			}
+		}
+		available = {
+			tag = AUS
+			NOT = {
+				has_country_flag = no_bohemia_revolt
+			}
+			CZE = {
+				is_in_faction_with = AUS
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = collapse_bohemia_three_minus
+			add_to_variable = {
+				var = CZE.subject_revolt_progress
+				value = -0.03
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	
+	AUS_appease_galicians = {
+		cost = 15
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 7
+		visible = {
+			tag = AUS
+			NOT = {
+				has_country_flag = no_galicia_revolt
+			}
+			GAL = {
+				is_in_faction_with = AUS
+			}
+		}
+		available = {
+			tag = AUS
+			NOT = {
+				has_country_flag = no_galicia_revolt
+			}
+			GAL = {
+				is_in_faction_with = AUS
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = collapse_galicia_three_minus
+			add_to_variable = {
+				var = GAL.subject_revolt_progress
+				value = -0.03
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	
+	AUS_want_to_revolt = {
+		cost = 0
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 60
+		visible = {
+			NOT = {
+				tag = AUS
+				has_country_flag = wants_to_revolt
+			}
+			OR = {
+				tag = HUN
+				tag = CRO
+				tag = CZE
+				tag = GAL
+			}
+		}
+		available = {
+			NOT = {
+				tag = AUS
+			}
+			OR = {
+				tag = HUN
+				tag = CRO
+				tag = CZE
+				tag = GAL
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = enables_revolt
+			set_country_flag = wants_to_revolt
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	
+	AUS_dont_want_to_revolt = {
+		cost = 0
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 60
+		visible = {
+			NOT = {
+				tag = AUS
+			}
+			OR = {
+				tag = HUN
+				tag = CRO
+				tag = CZE
+				tag = GAL
+			}
+			has_country_flag = wants_to_revolt
+		}
+		available = {
+			NOT = {
+				tag = AUS
+			}
+			OR = {
+				tag = HUN
+				tag = CRO
+				tag = CZE
+				tag = GAL
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = disables_revolt
+			clr_country_flag = wants_to_revolt
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	HUN_agitate_for_independence = {
+		cost = 30
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 20
+		visible = {
+			tag = HUN
+			has_country_flag = wants_to_revolt
+		}
+		available = {
+			tag = HUN
+			has_country_flag = wants_to_revolt
+		}
+		complete_effect = {
+			custom_effect_tooltip = collapse_hungary_five
+			add_to_variable = {
+				var = HUN.subject_revolt_progress
+				value = 0.05
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	
+	CRO_agitate_for_independence = {
+		cost = 30
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 20
+		visible = {
+			tag = CRO
+			has_country_flag = wants_to_revolt
+		}
+		available = {
+			tag = CRO
+			has_country_flag = wants_to_revolt
+		}
+		complete_effect = {
+			custom_effect_tooltip = collapse_illyria_five
+			add_to_variable = {
+				var = CRO.subject_revolt_progress
+				value = 0.05
+			}
+		}
+		ai_will_do = {
+			factor = 3
+		}
+	}
+	
+	CZE_agitate_for_independence = {
+		cost = 30
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 20
+		visible = {
+			tag = CZE
+			has_country_flag = wants_to_revolt
+		}
+		available = {
+			tag = CZE
+			has_country_flag = wants_to_revolt
+		}
+		complete_effect = {
+			custom_effect_tooltip = collapse_bohemia_five
+			add_to_variable = {
+				var = CZE.subject_revolt_progress
+				value = 0.05
+			}
+		}
+		ai_will_do = {
+			factor = 2
+		}
+	}
+	
+	GAL_agitate_for_independence = {
+		cost = 30
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 20
+		visible = {
+			tag = GAL
+			has_country_flag = wants_to_revolt
+		}
+		available = {
+			tag = GAL
+			has_country_flag = wants_to_revolt
+		}
+		complete_effect = {
+			custom_effect_tooltip = collapse_galicia_five
+			add_to_variable = {
+				var = GAL.subject_revolt_progress
+				value = 0.05
+			}
+		}
+		ai_will_do = {
+			factor = 4
+		}
+	}
+	
+	AUS_pacify_SLO = {
+		cost = 10
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 10
+		visible = {
+			tag = AUS
+			OR = {
+				AND = {
+					country_exists = SLO
+					SLO = {
+						is_in_faction_with = AUS
+					}
+					OR = {
+						SLO = {
+							is_puppet_of = AUS
+						}
+						SLO = {
+							is_puppet_of = HUN
+						}
+					}
+				}
+				NOT = {
+					country_exists = SLO
+				}
+			}
+			NOT = {
+				has_global_flag = no_slovene_revolt
+			}
+		}
+		available = {
+			tag = AUS
+			NOT = {
+				has_global_flag = no_slovene_revolt
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = collapse_minority_one_minus
+			add_to_variable = {
+				var = AUS.slovene_unrest
+				value = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	
+	
+	
+	
+	HUN_pacify_SVK = {
+		cost = 10
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 10
+		visible = {
+			OR = {
+				tag = AUS
+				tag = HUN
+			}
+			OR = {
+				AND = {
+					country_exists = SVK
+					SVK = {
+						is_in_faction_with = AUS
+					}
+					OR = {
+						SVK = {
+							is_puppet_of = AUS
+						}
+						SVK = {
+							is_puppet_of = HUN
+						}
+					}
+				}
+				NOT = {
+					country_exists = SVK
+				}
+			}
+			NOT = {
+				has_global_flag = no_slovak_revolt
+			}
+		}
+		available = {
+			OR = {
+				tag = AUS
+				tag = HUN
+			}
+			NOT = {
+				has_global_flag = no_slovak_revolt
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = collapse_minority_one_minus
+			add_to_variable = {
+				var = HUN.slovak_unrest
+				value = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	HUN_pacify_TRS = {
+		cost = 10
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 10
+		visible = {
+			OR = {
+				tag = AUS
+				tag = HUN
+			}
+			OR = {
+				AND = {
+					country_exists = TRS
+					TRS = {
+						is_in_faction_with = AUS
+					}
+					OR = {
+						TRS = {
+							is_puppet_of = AUS
+						}
+						TRS = {
+							is_puppet_of = HUN
+						}
+					}
+				}
+				NOT = {
+					country_exists = TRS
+				}
+			}
+			NOT = {
+				has_global_flag = no_transylvanian_revolt
+			}
+		}
+		available = {
+			OR = {
+				tag = AUS
+				tag = HUN
+			}
+			NOT = {
+				has_global_flag = no_transylvanian_revolt
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = collapse_minority_one_minus
+			add_to_variable = {
+				var = HUN.transylvanian_unrest
+				value = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	HUN_pacify_BAN = {
+		cost = 10
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 10
+		visible = {
+			OR = {
+				tag = AUS
+				tag = HUN
+			}
+			OR = {
+				AND = {
+					country_exists = BAN
+					BAN = {
+						is_in_faction_with = AUS
+					}
+					OR = {
+						BAN = {
+							is_puppet_of = AUS
+						}
+						BAN = {
+							is_puppet_of = HUN
+						}
+					}
+				}
+				NOT = {
+					country_exists = BAN
+				}
+			}
+			NOT = {
+				has_global_flag = no_banat_revolt
+			}
+		}
+		available = {
+			OR = {
+				tag = AUS
+				tag = HUN
+			}
+			NOT = {
+				has_global_flag = no_banat_revolt
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = collapse_minority_one_minus
+			add_to_variable = {
+				var = HUN.banat_unrest
+				value = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	HUN_pacify_CPU = {
+		cost = 10
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 10
+		visible = {
+			OR = {
+				tag = AUS
+				tag = HUN
+			}
+			OR = {
+				AND = {
+					country_exists = CPU
+					CPU = {
+						is_in_faction_with = AUS
+					}
+					OR = {
+						CPU = {
+							is_puppet_of = AUS
+						}
+						CPU = {
+							is_puppet_of = HUN
+						}
+					}
+				}
+				NOT = {
+					country_exists = CPU
+				}
+			}
+			NOT = {
+				has_global_flag = no_ruthenian_revolt
+			}
+		}
+		available = {
+			OR = {
+				tag = AUS
+				tag = HUN
+			}
+			NOT = {
+				has_global_flag = no_ruthenian_revolt
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = collapse_minority_one_minus
+			add_to_variable = {
+				var = HUN.ruthenian_unrest
+				value = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	CRO_pacify_BOS = {
+		cost = 10
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 10
+		visible = {
+			OR = {
+				tag = AUS
+				tag = CRO
+			}
+			OR = {
+				AND = {
+					country_exists = BOS
+					BOS = {
+						is_in_faction_with = AUS
+					}
+					OR = {
+						BOS = {
+							is_puppet_of = AUS
+						}
+						BOS = {
+							is_puppet_of = CRO
+						}
+					}
+				}
+				NOT = {
+					country_exists = BOS
+				}
+			}
+			NOT = {
+				has_global_flag = no_bosnian_revolt
+			}
+		}
+		available = {
+			OR = {
+				tag = AUS
+				tag = CRO
+			}
+			NOT = {
+				has_global_flag = no_bosnian_revolt
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = collapse_minority_one_minus
+			add_to_variable = {
+				var = CRO.bosnian_unrest
+				value = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	CRO_pacify_SKS = {
+		cost = 10
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 10
+		visible = {
+			OR = {
+				tag = AUS
+				tag = CRO
+			}
+			OR = {
+				AND = {
+					country_exists = SKS
+					SKS = {
+						is_in_faction_with = AUS
+					}
+					OR = {
+						SKS = {
+							is_puppet_of = AUS
+						}
+						SKS = {
+							is_puppet_of = CRO
+						}
+					}
+				}
+				NOT = {
+					country_exists = SKS
+				}
+			}
+			NOT = {
+				has_global_flag = no_serb_revolt
+			}
+		}
+		available = {
+			OR = {
+				tag = AUS
+				tag = CRO
+			}
+			NOT = {
+				has_global_flag = no_serb_revolt
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = collapse_minority_one_minus
+			add_to_variable = {
+				var = CRO.serb_unrest
+				value = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	CRO_pacify_MNT = {
+		cost = 10
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 10
+		visible = {
+			OR = {
+				tag = AUS
+				tag = CRO
+			}
+			OR = {
+				AND = {
+					country_exists = MNT
+					MNT = {
+						is_in_faction_with = AUS
+					}
+					OR = {
+						MNT = {
+							is_puppet_of = AUS
+						}
+						MNT = {
+							is_puppet_of = CRO
+						}
+					}
+				}
+				NOT = {
+					country_exists = MNT
+				}
+			}
+			NOT = {
+				has_global_flag = no_montenegrin_revolt
+			}
+		}
+		available = {
+			OR = {
+				tag = AUS
+				tag = CRO
+			}
+			NOT = {
+				has_global_flag = no_montenegrin_revolt
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = collapse_minority_one_minus
+			add_to_variable = {
+				var = CRO.montenegrin_unrest
+				value = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	GAL_pacify_BUK = {
+		cost = 10
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 10
+		visible = {
+			OR = {
+				tag = AUS
+				tag = CRO
+			}
+			OR = {
+				AND = {
+					country_exists = BUK
+					BUK = {
+						is_in_faction_with = AUS
+					}
+					OR = {
+						BUK = {
+							is_puppet_of = AUS
+						}
+						BUK = {
+							is_puppet_of = CRO
+						}
+					}
+				}
+				NOT = {
+					country_exists = BUK
+				}
+			}
+			NOT = {
+				has_global_flag = no_bukovina_revolt
+			}
+		}
+		available = {
+			OR = {
+				tag = AUS
+				tag = CRO
+			}
+			NOT = {
+				has_global_flag = no_bukovina_revolt
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = collapse_minority_one_minus
+			add_to_variable = {
+				var = GAL.bukovina_unrest
+				value = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	AUS_economic_progress = {
+		cost = 30
+		icon = GFX_decision_generic_nationalism
+		days_re_enable = 30
+		visible = {
+			tag = AUS
+			has_completed_focus = AUS_road_to_recovery
+		}
+		available = {
+			tag = AUS
+			has_completed_focus = AUS_road_to_recovery
+			any_owned_state = {
+				limit = {
+					industrial_complex > 1
+				}
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = AUS_recover_bm_progress
+			any_owned_state = {
+				limit = {
+					industrial_complex > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = AUS_bm_5_4
+				}
+				swap_ideas = {
+					add_idea = AUS_bm_6
+					remove_idea = AUS_bm_5_4
+				}
+			}
+			
+			if = {
+				limit = {
+					has_idea = AUS_bm_6
+				}
+				swap_ideas = {
+					add_idea = AUS_bm_7
+					remove_idea = AUS_bm_6
+				}
+			}
+			
+			if = {
+				limit = {
+					has_idea = AUS_bm_7
+				}
+				swap_ideas = {
+					add_idea = AUS_bm_8
+					remove_idea = AUS_bm_7
+				}
+			}
+			
+			if = {
+				limit = {
+					has_idea = AUS_bm_8
+				}
+				swap_ideas = {
+					add_idea = AUS_bm_9
+					remove_idea = AUS_bm_8
+				}
+			}
+			
+			if = {
+				limit = {
+					has_idea = AUS_bm_9
+				}
+				swap_ideas = {
+					add_idea = AUS_bm_10
+					remove_idea = AUS_bm_9
+				}
+			}
+			
+			if = {
+				limit = {
+					has_idea = AUS_bm_10
+				}
+				remove_ideas = AUS_bm_10
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
+help_austria = {
+	AUS_pull_out = {
+		cost = 100
+		icon = GFX_decision_generic_nationalism
+		fire_only_once = yes
+		available = {
+			has_war_with = GAL
+			has_country_flag = AUS_started_sgw
+		}
+		days_remove = 3
+		remove_effect = {
+			clr_global_flag = AUS_started_sgw
+			white_peace = GAL
+			if = {
+				limit = {
+					has_war_with = WSU
+				}
+				white_peace = WSU
+			}
+			if = {
+				limit = {
+					has_war_with = POL
+				}
+				white_peace = POL
+			}
+			set_country_flag = AUS_no_sgw
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+
+AUS_galician_plight = {
+	AUS_basic_needs_shipping = {
+		cost = 40
+		icon = GFX_decision_generic_nationalism
+		fire_only_once = yes
+		
+		days_remove = 7
+		remove_effect = {
+			#custom_effect_tooltip = AUS_direct_assistance
+			custom_effect_tooltip = AUS_ships_necessities
+			custom_effect_tooltip = AUS_finish_200_days
+			set_country_flag = AUS_basic_shipping
+			add_ideas = AUS_assisting_galicia
+			GAL_subtract_two_collapse = yes
+			GAL = {
+				add_ideas = GAL_basic_austrian_assistance
+			}
+			hidden_effect = {
+				country_event = {
+					id = bdeaus.20
+					days = 200
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	
+	AUS_basic_subsidies = {
+		cost = 40
+		icon = GFX_decision_generic_nationalism
+		fire_only_once = yes
+		
+		days_remove = 7
+		remove_effect = {
+			custom_effect_tooltip = AUS_gives_money
+			custom_effect_tooltip = AUS_finish_200_days
+			set_country_flag = AUS_basic_money
+			add_ideas = AUS_galician_subsidies
+			GAL_subtract_one_collapse = yes
+			GAL = {
+				add_ideas = GAL_basic_austrian_subsidies
+			}
+			hidden_effect = {
+				country_event = {
+					id = bdeaus.21
+					days = 200
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	
+	AUS_final_stimulus = {
+		cost = 50
+		icon = GFX_decision_generic_nationalism
+		fire_only_once = yes
+		visible = {
+			has_country_flag = AUS_necessities_timer_finished
+			has_country_flag = AUS_subsidies_timer_finished
+		}
+		complete_effect = {
+			remove_ideas = {
+				AUS_assisting_galicia
+				AUS_galician_subsidies
+			}
+			set_country_flag = AUS_final_stimulus_complete
+			add_political_power = 120
+			add_stability = 0.1
+			GAL_subtract_ten_collapse = yes
+			GAL = {
+				add_timed_idea = {
+					idea = GAL_austrian_assistance_effects
+					days = 180
+				}
+				remove_ideas = {
+					GAL_basic_austrian_assistance
+					GAL_basic_austrian_subsidies
+				}
+				country_event = {
+					id = bdegal.3
+					days = 1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	
+	AUS_disable_hungarian_revolt = {
+		cost = 100
+		icon = GFX_decision_generic_nationalism
+		fire_only_once = yes
+		visible = {
+			OR = {
+				has_completed_focus = AUS_suppress_nationalism
+			}
+			NOT = {
+				has_global_flag = no_hungary_revolt
+			}
+		}
+		complete_effect = {
+			set_global_flag = no_hungary_revolt
+			custom_effect_tooltip = AUS_no_more_hungarian_revolt
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	
+	AUS_disable_illyria_revolt = {
+		cost = 100
+		icon = GFX_decision_generic_nationalism
+		fire_only_once = yes
+		visible = {
+			OR = {
+				has_completed_focus = AUS_suppress_nationalism
+			}
+			NOT = {
+				has_global_flag = no_illyria_revolt
+			}
+		}
+		complete_effect = {
+			set_global_flag = no_illyria_revolt
+			custom_effect_tooltip = AUS_no_more_illyrian_revolt
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	
+	AUS_disable_bohemia_revolt = {
+		cost = 75
+		icon = GFX_decision_generic_nationalism
+		fire_only_once = yes
+		visible = {
+			OR = {
+				has_completed_focus = AUS_suppress_nationalism
+			}
+			NOT = {
+				has_global_flag = no_bohemia_revolt
+			}
+		}
+		complete_effect = {
+			set_global_flag = no_bohemia_revolt
+			custom_effect_tooltip = AUS_no_more_bohemian_revolt
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	
+	AUS_disable_galician_revolt = {
+		cost = 75
+		icon = GFX_decision_generic_nationalism
+		fire_only_once = yes
+		visible = {
+			OR = {
+				has_completed_focus = AUS_suppress_nationalism
+			}
+			NOT = {
+				has_global_flag = no_galicia_revolt
+			}
+		}
+		complete_effect = {
+			set_global_flag = no_galicia_revolt
+			custom_effect_tooltip = AUS_no_more_bohemian_revolt
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	
+}

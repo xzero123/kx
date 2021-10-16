@@ -604,10 +604,16 @@ focus_tree = {
 		relative_position_id = MEX_DL_dl_victorious
 		x = 0
 		y = 6
-		cost = 2
+		cost = 5
 		available_if_capitulated = yes
 		prerequisite = { 
 			focus = MEX_DL_democracy_secured
+		}
+		select_effect = {
+			country_event = {
+				id = mexicodemocratic.1
+				day = 25
+			}
 		}
 		prerequisite = { 
 			focus = MEX_DL_the_republic_of_mexico
@@ -622,11 +628,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_emergency_elections"
-			country_event = {
-				id = mexico.53
-				days = 2
-			}
+			custom_effect_tooltip = MEX_convention_tt
 			set_country_flag = MEX_restored_democracy
+			load_focus_tree = mexico_focus
 		}
 	}
 

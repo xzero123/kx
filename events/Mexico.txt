@@ -2612,6 +2612,12 @@ country_event = { # what do
 			ruling_party = authoritarian_democrat
 			elections_allowed = no
 		}
+		hidden_effect = {
+			country_event = {
+				id = mexico.53
+				days = 22
+			}
+		}
 		load_focus_tree = MEX_Democratc_Initial
 	}
 	option = { # the ASA
@@ -3590,14 +3596,26 @@ country_event = { # Elections of 1937
 	desc = mexico.53.d
 
 	picture = GFX_report_event_election_vote
+	
+	immediate = {
+		hidden_effect = {
+			set_party_name = {
+				name = MEX_authoritarian_democrat_party
+				long_name = MEX_authoritarian_democrat_party_long
+				ideology = authoritarian_democrat
+			}
+		}
+	}
 
 	is_triggered_only = yes
 	fire_only_once = yes
 
 	option = { # Authoritarian Democrat
 		name = mexico.53.a
-		hidden_effect = {
-			set_country_flag = MEX_the_1942_elections_happened
+		set_party_name = {
+			name = MEX_DL_unity_party
+			long_name = MEX_DL_unity_party_long
+			ideology = authoritarian_democrat
 		}
 		add_popularity = {
 			ideology = authoritarian_democrat
@@ -3618,8 +3636,10 @@ country_event = { # Elections of 1937
 	}
 	option = { # Social Conservative
 		name = mexico.53.b
-		hidden_effect = {
-			set_country_flag = MEX_the_1942_elections_happened
+		set_party_name = {
+			name = MEX_DL_unity_party
+			long_name = MEX_DL_unity_party_long
+			ideology = social_conservative
 		}
 		add_popularity = {
 			ideology = social_conservative
@@ -3648,8 +3668,10 @@ country_event = { # Elections of 1937
 	}
 	option = { # Market Liberal
 		name = mexico.53.c
-		hidden_effect = {
-			set_country_flag = MEX_the_1942_elections_happened
+		set_party_name = {
+			name = MEX_DL_unity_party
+			long_name = MEX_DL_unity_party_long
+			ideology = market_liberal
 		}
 		add_popularity = {
 			ideology = market_liberal
@@ -3678,6 +3700,11 @@ country_event = { # Elections of 1937
 	}
 	option = { # Social Liberal
 		name = mexico.53.e
+		set_party_name = {
+			name = MEX_DL_unity_party
+			long_name = MEX_DL_unity_party_long
+			ideology = social_liberal
+		}
 		remove_all_ministers = yes
 		add_popularity = {
 			ideology = social_liberal
@@ -3706,6 +3733,11 @@ country_event = { # Elections of 1937
 
 	option = { # Social Democrat
 		name = mexico.53.f
+		set_party_name = {
+			name = MEX_DL_unity_party
+			long_name = MEX_DL_unity_party_long
+			ideology = social_democrat
+		}
 		remove_all_ministers = yes
 		add_popularity = {
 			ideology = social_democrat

@@ -6089,14 +6089,13 @@ focus_tree = {
 		y = 14
 		cost = 8
 		available_if_capitulated = yes
-		select_effect = {
-			country_event = {
-				id = mexicodemocratic.1
-				day = 25
-			}
-		}
 		available = {
 			has_country_flag = MEX_restored_democracy
+		}
+		select_effect = {
+			country_event = { id = mexicodemocratic.16 days = 30 }
+			country_event = { id = mexicodemocratic.17 days = 30 }
+			country_event = { id = mexicodemocratic.18 days = 30 }
 		}
 		bypass = {
 			OR = {
@@ -6106,7 +6105,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_constitutional_convention"
-			custom_effect_tooltip = MEX_convention_tt
+			custom_effect_tooltip = MEX_elections_tt
 		}
 	}
 	

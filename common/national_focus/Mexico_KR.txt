@@ -7211,7 +7211,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_Embrace_Maderos_Image"
-		 	custom_effect_tooltip = unlock_focuses
+		 	swap_ideas = {
+				remove_idea = MEX_neoliberalism2
+				add_idea = MEX_neoliberalism3
+			}
 		}
 	}
 	
@@ -7236,7 +7239,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_Rebrand_Liberalism"
-		 	custom_effect_tooltip = unlock_focuses
+		 	add_ideas = MEX_Rebrand_Liberalism
 		}
 	}
 	
@@ -7290,10 +7293,21 @@ focus_tree = {
 			has_country_flag = MEX_second_elections
 			has_country_flag = MEX_PAN_term_2
 			has_government = social_conservative
+			has_idea = MEX_Christian_Democracy
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_Integrate_Catholic_Youth"
-		 	custom_effect_tooltip = unlock_focuses
+		 	add_manpower = 2500
+			add_stability = 0.02
+			add_popularity = {	
+				ideology = social_conservative
+				popularity = 0.02
+			}
+			add_command_power = 100
+			swap_ideas = {
+				remove_idea = MEX_Christian_Democracy
+				add_idea = MEX_Christian_Democracy2
+			}
 		}
 	}
 	
@@ -7318,7 +7332,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_Christian_Democracy"
-		 	custom_effect_tooltip = unlock_focuses
+		 	swap_ideas = {
+				remove_idea = MEX_catholic_identity
+				add_idea = MEX_Christian_Democracy
+			}
 		}
 	}
 	

@@ -730,26 +730,7 @@ ideas = {
 				for_apologetic_clerk
 			}
 		}
-		
-		CZE_Arnost_Heidrich_for_sde = {
-			allowed = { original_tag = CZE }
-			available = {
-				custom_trigger_tooltip = {
-					tooltip = minister_available
-					always = no
-				}
-			}
-			cancel_if_invalid = no
-			on_add = {
-				log = "[GetDatext]: [Root.GetName]: add idea CZE_Arnost_Heidrich_for_ade"
-			}
-			traits = {
-				foreign_minister
-				social_democrat
-				for_biased_intellectual
-			}
-		}
-		
+				
 		CZE_Jaroslav_Cermak_for_npo = {
 			allowed = { original_tag = CZE }
 			available = {
@@ -1676,6 +1657,24 @@ ideas = {
 				chief_of_army
 				CZE_louis_french_exile
 			}
+		}
+	}
+	
+	chief_of_navy = {
+		CZE_Zdenko_Hudecek_cnav = {
+			allowed = { original_tag = CZE }
+			available = { }
+			visible = {
+				NOT = { has_country_flag = CZE_Zdenko_Hudecek_cnav_dead }
+			}
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea CZE_Klement_Gottwald_cnav_tot"
+			}
+			traits = {
+				chief_of_navy
+				cnav_indirect_approach_doctrine
+			}
+			cancel_if_invalid = yes
 		}
 	}
 }

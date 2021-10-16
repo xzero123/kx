@@ -6094,8 +6094,6 @@ focus_tree = {
 		}
 		select_effect = {
 			country_event = { id = mexicodemocratic.16 days = 30 }
-			country_event = { id = mexicodemocratic.17 days = 30 }
-			country_event = { id = mexicodemocratic.18 days = 30 }
 		}
 		bypass = {
 			OR = {
@@ -7148,6 +7146,12 @@ focus_tree = {
 			factor = 1
 		}
 		available = {
+			custom_trigger_tooltip = {	
+				tooltip = MEX_second_elections
+				always = no
+			}
+		}
+		bypass = {
 			has_country_flag = MEX_second_elections
 		}
 		completion_reward = {
@@ -7171,6 +7175,11 @@ focus_tree = {
 			factor = 1
 		}
 		available = {
+			has_country_flag = MEX_second_elections
+			has_country_flag = MEX_PLC_term_2
+			has_government = market_liberal
+		}
+		bypass = {
 			has_country_flag = MEX_second_elections
 			has_country_flag = MEX_PLC_term_2
 			has_government = market_liberal
@@ -7249,6 +7258,13 @@ focus_tree = {
 		}
 		available = {
 			has_country_flag = MEX_second_elections
+			has_country_flag = MEX_PAN_term_2
+			has_government = social_conservative
+		}
+		bypass = {
+			has_country_flag = MEX_second_elections
+			has_country_flag = MEX_PAN_term_2
+			has_government = social_conservative
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PAN_second_term"
@@ -7324,6 +7340,13 @@ focus_tree = {
 		}
 		available = {
 			has_country_flag = MEX_second_elections
+			has_country_flag = MEX_PRUN_term_2
+			has_government = authoritarian_democrat
+		}
+		bypass = {
+			has_country_flag = MEX_second_elections
+			has_country_flag = MEX_PRUN_term_2
+			has_government = authoritarian_democrat
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PRUN_second_term"
@@ -7347,12 +7370,32 @@ focus_tree = {
 		}
 		available = {
 			has_country_flag = MEX_second_elections
-			has_country_flag = MEX_PAN_term_2
+			has_country_flag = MEX_PRUN_term_2
 			has_government = authoritarian_democrat
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_Integrate_PARM"
-		 	custom_effect_tooltip = unlock_focuses
+		 	add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
+			}
+			set_party_name = {
+				ideology = paternal_autocrat
+				name = MEX_DL_authoritarian_democrat_party
+				long_name = MEX_DL_authoritarian_democrat_party_long
+			}
+			create_country_leader = {# Juan Andreu Almazán
+				name = "Juan Andreu Almazán"
+				desc = "POLITICS_JUAN_ALMAZAN_DESC"
+				picture = "Portrait_Mexico_Juan_Almazan.png"
+				expire = "1965.1.1"
+				ideology = paternal_autocrat_subtype
+				traits = {}
+			}
 		}
 	}
 	
@@ -7372,12 +7415,15 @@ focus_tree = {
 		}
 		available = {
 			has_country_flag = MEX_second_elections
-			has_country_flag = MEX_PAN_term_2
+			has_country_flag = MEX_PRUN_term_2
 			has_government = authoritarian_democrat
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_Almazans_Populism"
-		 	custom_effect_tooltip = unlock_focuses
+			swap_ideas = {
+				remove_idea = MEX_propaganda_campaign
+				add_idea = MEX_Almazans_Populism
+			}
 		}
 	}
 	
@@ -7397,7 +7443,12 @@ focus_tree = {
 		}
 		available = {
 			has_country_flag = MEX_second_elections
-			has_country_flag = MEX_PAN_term_2
+			has_country_flag = MEX_PCP_term_2
+			has_government = social_liberal
+		}
+		bypass = {
+			has_country_flag = MEX_second_elections
+			has_country_flag = MEX_PCP_term_2
 			has_government = social_liberal
 		}
 		completion_reward = {
@@ -7422,12 +7473,15 @@ focus_tree = {
 		}
 		available = {
 			has_country_flag = MEX_second_elections
-			has_country_flag = MEX_PAN_term_2
+			has_country_flag = MEX_PCP_term_2
 			has_government = social_liberal
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_The_Revolution_Fulfilled"
-		 	custom_effect_tooltip = unlock_focuses
+		 	swap_ideas = {
+				remove_idea = MEX_civil_liberties
+				add_idea = MEX_The_Revolution_Fulfilled
+			}
 		}
 	}
 	
@@ -7447,12 +7501,12 @@ focus_tree = {
 		}
 		available = {
 			has_country_flag = MEX_second_elections
-			has_country_flag = MEX_PAN_term_2
+			has_country_flag = MEX_PCP_term_2
 			has_government = social_liberal
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_The_Peoples_Liberalism"
-		 	custom_effect_tooltip = unlock_focuses
+		 	add_ideas = MEX_The_Peoples_Liberalism
 		}
 	}
 	
@@ -7472,7 +7526,12 @@ focus_tree = {
 		}
 		available = {
 			has_country_flag = MEX_second_elections
-			has_country_flag = MEX_PAN_term_2
+			has_country_flag = MEX_PLM_term_2
+			has_government = social_democrat
+		}
+		bypass = {
+			has_country_flag = MEX_second_elections
+			has_country_flag = MEX_PLM_term_2
 			has_government = social_democrat
 		}
 		completion_reward = {
@@ -7502,7 +7561,43 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_Integrate_the_Red_Militias"
-		 	custom_effect_tooltip = unlock_focuses
+		 	add_war_support = -0.02
+			add_stability = 0.02
+			add_command_power = 100
+			army_experience = 20
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = totalist
+				popularity = 0.02
+			}
+			division_template = {
+				name = "Workers Militia"
+				regiments = {
+					militia = { x = 0 y = 0 }
+					militia = { x = 0 y = 1 }
+					militia = { x = 0 y = 2 }
+					militia = { x = 1 y = 0 }
+				}
+			}
+			
+			random_owned_state = {
+				create_unit = { 
+					division = "name = \"Patriotic Infantry\" division_template = \"Patriotic Infantry\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+				
+				create_unit = { 
+					division = "name = \"Patriotic Infantry\" division_template = \"Patriotic Infantry\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+			}
 		}
 	}
 	
@@ -7527,7 +7622,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_Mexican_Laborism"
-		 	custom_effect_tooltip = unlock_focuses
+		 	swap_ideas = {
+				remove_idea = MEX_moderate_the_left
+				add_idea = MEX_Mexican_Laborism
+			}
 		}
 	}
 	
@@ -7723,6 +7821,16 @@ focus_tree = {
 				custom_effect_tooltip = MEX_soccon_only_tt
 				add_popularity = {
 					ideology = social_conservative
+					popularity = 0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = authoritarian_democrat
+				}
+				custom_effect_tooltip = MEX_authdem_only_tt
+				add_popularity = {
+					ideology = authoritarian_democrat
 					popularity = 0.1
 				}
 			}

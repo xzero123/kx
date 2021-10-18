@@ -5247,7 +5247,7 @@ country_event = { #election violence!
 }
 country_event = { #military countercoup
 	id = inskx.5
-	immediate = { log = "[GetDateText]: [Root.GetName]: event inskx.4" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event inskx.6" }
 	title = inskx.5.t
 	desc = inskx.5.d
 
@@ -5263,14 +5263,14 @@ country_event = { #military countercoup
 		ruling_party = paternal_autocrat
 		elections_allowed = no
 		}
-		set_party_name {
+		set_party_name = {
 			ideology = paternal_autocrat
 			name = INS_military_junta
 			long_name = INS_military_junta_long
 		}
 		create_country_leader = {
 			name = "Military Junta"
-			picture = "Portrait_Indonesia_Sudirman.png"
+			picture = "Portrait_Indonesia_Suharto.png"
 			expire = "1950.1.29"
 			ideology = paternal_autocrat_subtype
 			}
@@ -5289,7 +5289,7 @@ country_event = { #military countercoup
 }
 country_event = { #military power struggle
 	id = inskx.6
-	immediate = { log = "[GetDateText]: [Root.GetName]: event inskx.4" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event inskx.6" }
 	title = inskx.6.t
 	desc = inskx.6.d
 
@@ -5317,6 +5317,21 @@ country_event = { #military power struggle
 		ideology = paternal_autocrat_subtype
 		}
 		}
+}
+country_event = { #"""syndicalist""" takeover
+	id = inskx.7
+	immediate = { log = "[GetDateText]: [Root.GetName]: event inskx.4" }
+	title = inskx.7.t
+	desc = inskx.7.d
+
+	is_triggered_only = yes
+	picture = GFX_report_event_INS_independence_rally
+
+
+	option = { #oh no how sad
+		name = inskx.7.a
+    add_manpower = -7
+	}
 }
 country_event = { #mud hut
 	id = inskx.999

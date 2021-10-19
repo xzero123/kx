@@ -273,7 +273,7 @@ add_namespace = germans
 		add_stability = -0.05
 		create_country_leader = {
 			name = "Andrey Vlasov"
-			picture = "gfx/leaders/RUS/Portrait_RUS_Andrey_Vlasov.png"
+			picture = "gfx/leaders/DKB/Portrait_DKB_Andrey_Vlasov.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 			traits = {}
@@ -298,7 +298,6 @@ add_namespace = germans
         }
 		unlock_national_focus = DKB_after
 		unlock_national_focus = DKB_KONR_in_Power
-		custom_effect_tooltip = unfinshed_tooltip_DKB
 		hidden_effect = {
 		create_country_leader = {
 			name = "Bronislav Kaminski"
@@ -576,21 +575,48 @@ country_event = { #vlasov ded
 	option = {
 		name = germans.2.a
 		add_stability = 0.10
-		create_country_leader = {
+		if = {
+			limit = {
+					NOT = {
+					has_global_flag = wilhelmiided
+					}
+				}				
+			create_country_leader = {
 			name = "Vilgelm I"
 			picture = "gfx/leaders/DKB/Portrait_DKB_Vilgelm_I.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 			traits = {}
 			}
-			hidden_effect = {
 			create_country_leader = {
 			name = "Vilgelm I"
 			picture = "gfx/leaders/DKB/Portrait_DKB_Vilgelm_I.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 			traits = {}
+		  }
 		 }
+		if = {
+			limit = {
+					has_global_flag = wilhelmiided
+				}				
+			create_country_leader = {
+			name = "Vilgelm I"
+			picture = "gfx/leaders/GER/Portrait_Germany_Wilhelm_III_field_marshall.png"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+			traits = {}
+			}
+			create_country_leader = {
+			name = "Vilgelm I"
+			picture = "gfx/leaders/GER/Portrait_Germany_Wilhelm_III_field_marshall.png"
+			expire = "1965.1.1"
+			ideology = authoritarian_democrat_subtype
+			traits = {}
+		  }
+		  set_country_flag = DKB_willy_2
+		}
+		
 		 add_ideas = {
 	     DKB_Pannwitz_hog_sde
 	     DKB_Weizsacker_for_mli
@@ -600,8 +626,7 @@ country_event = { #vlasov ded
 		 set_country_flag = RUS_monarchy
 		 set_country_flag = RUS_monarchy_restored
 		 }
-	  }
-	}
+		}
 	
 	country_event = { #rekom
     id = germans.3
@@ -1135,7 +1160,6 @@ country_event = { #vlasov ded
 	
 	country_event = { # the, the death of vighelm
 	id = germans.23
-	immediate = {log = "[GetDateText]: [Root.GetName]: event aogdeathevent.1"}
 	title = germans.23.t
 	desc = germans.23.d
 
@@ -1148,6 +1172,9 @@ country_event = { #vlasov ded
         ruling_only = yes
         }     
 		has_global_flag = wilhelmiided
+		NOT = {
+		has_country_flag = DKB_willy_2
+		}
 	}
 
 
@@ -1353,8 +1380,27 @@ country_event = { #vlasov ded
 		add_political_power = -25
 	  }
 	  option = { #Inprsion more 
-		name = vlasov.9.a
+		name = vlasov.9.b
 		add_stability = -0.05
+		add_political_power = 25
+	  }
+	  
+    }
+	
+	country_event = { #A New Revolution?
+    id = vlasov.14
+	title = vlasov.14.t
+	desc = vlasov.14.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { #Only inprison schizos
+		name = vlasov.14.a
+		add_political_power = 100
+	  }
+	  option = { #Inprsion more 
+		name = vlasov.14.b
+		add_stability = 0.05
 		add_political_power = 25
 	  }
 	  
@@ -1465,6 +1511,7 @@ country_event = { #vlasov ded
 	
 	option = { #Kaminski Rises
 		name = vlasov.13.a
+		set_cosmetic_tag = DKB_jesse_RUS
 		add_stability = -0.05
 		add_political_power = 150
 		add_popularity = {
@@ -1480,6 +1527,7 @@ country_event = { #vlasov ded
 	option = { #Sheifton
 		name = vlasov.13.b
 		add_stability = 0.10
+		set_cosmetic_tag = DKB_shteifon_RUS
 		add_popularity = {
              ideology = paternal_autocrat
              popularity = 0.05
@@ -1493,7 +1541,7 @@ country_event = { #vlasov ded
 		option = { #Bunya
 		name = vlasov.13.c
 			add_stability = 0.05
-			set_country_flag = DKB_Bunyachenko_in_power
+			set_country_flag = DKB_Bunyachenko_in_Power
 			create_country_leader = {
 				name = "Sergei Bunyachenko"
 				picture = "gfx/leaders/DKB/Portrait_DKB_Sergei_Bunyachenko.png"

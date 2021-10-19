@@ -8643,7 +8643,7 @@ focus = {
 			}
 			create_field_marshal = {
 				name = "Andrey Vlasov"
-				portrait_path = "gfx/leaders/RUS/Portrait_RUS_Andrey_Vlasov.png"
+				portrait_path = "gfx/leaders/DKB/Portrait_DKB_Andrey_Vlasov.png"
 				traits = {
 		        organisational_leader
 				politically_connected 
@@ -9760,7 +9760,7 @@ focus = {
 		x = 0
 		y = 3
 		completion_reward = {
-		 
+		 country_event = vlasov.10
 		 swap_ideas = {
 			remove_idea = DKB_aftermath_uch_economic_idea_1
 			add_idea = DKB_aftermath_uch_economic_idea_2
@@ -9769,7 +9769,6 @@ focus = {
 			remove_idea = DKB_aftermath_uch_idea_2
 			add_idea = DKB_aftermath_uch_idea_3
 			}
-			country_event = vlasov.10
 		}
 	}
 	
@@ -9783,6 +9782,9 @@ focus = {
 		available = {
 		has_country_flag = DKB_Vlasovtsy_Remain_flag
 		}
+		bypass = {
+		has_country_flag = DKB_Vlasovtsy_Remain_flag
+		}
         relative_position_id = DKB_A_Calm_Morning
 		prerequisite = {
 			focus = DKB_A_Calm_Morning
@@ -9794,4 +9796,729 @@ focus = {
 	    }
 	
     }
+	
+	focus = {
+		id = DKB_Ally_the_Veterans 
+		icon = GFX_TRM_former_allies
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		mutually_exclusive = {
+			focus = DKB_Ally_the_Solidarists
+		}
+		mutually_exclusive = {
+			focus = DKB_Ally_the_People
+		}
+		prerequisite = {
+			focus = DKB_Vlasovsty_Remain
+		}
+		
+		x = 0
+		y = 1
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Strengthen_United_Russia
+		icon = GFX_goal_MAF_7_11_b
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Ally_the_People
+			focus = DKB_Ally_the_Veterans
+			focus = DKB_Ally_the_Solidarists
+		}
+		
+		x = 0
+		y = 2
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Ban_RNNS
+		icon = GFX_focus_generic_ban_right_wing
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Strengthen_United_Russia
+		}
+		
+		x = -1
+		y = 3
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Ensure_Safe_Elections
+		icon = GFX_goal_KIV_ensure_constant_elecotral_sucsess
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Ban_RNNS
+		}
+		
+		x = -1
+		y = 4
+		completion_reward = {
+	    }
+	
+    }
+	
+	
+	focus = {
+		id = DKB_Aid_the_Minorities
+		icon = GFX_TRM_Minorities_Government
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Strengthen_United_Russia
+		}
+		
+		x = 1
+		y = 3
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Implement_the_Federal_System
+		icon = GFX_goal_NGR_federalism
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Aid_the_Minorities
+		}
+		
+		x = 1
+		y = 4
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Vlasovsty_Poltical_Machine
+		icon = GFX_HUN_bethlen_machine
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Implement_the_Federal_System
+		}
+		prerequisite = {
+			focus = DKB_Ensure_Safe_Elections
+		}
+		
+		x = 0
+		y = 5
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Vlasov_Cult
+		icon = GFX_goal_DKB_vlasov_wins
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Vlasovsty_Poltical_Machine
+		}
+		
+		x = 0
+		y = 6
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Ally_the_Solidarists
+		icon = GFX_focus_rus_ally_solidarists
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		mutually_exclusive = {
+			focus = DKB_Ally_the_Veterans
+		}
+		mutually_exclusive = {
+			focus = DKB_Ally_the_People
+		}
+		prerequisite = {
+			focus = DKB_Vlasovsty_Remain
+		}
+		
+		x = 2
+		y = 1
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Russian_Christian_Democracy
+		icon = GFX_goal_generic_orthodox_defense
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		mutually_exclusive = {
+			focus = DKB_True_Right_Syndicalism
+		}
+		prerequisite = {
+			focus = DKB_Ally_the_Solidarists
+			focus = DKB_Ally_the_Veterans
+		}
+		
+		x = 2
+		y = 2
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Social_Justice
+		icon = GFX_goal_TEX_social_just
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Russian_Christian_Democracy
+		}
+		
+		x = 3
+		y = 3
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Orthodox_Welfare_State
+		icon = GFX_GRU_welfare-3978
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Social_Justice
+		}
+		
+		x = 3
+		y = 4
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Christian_Unions
+		icon = GFX_goal_NFA_cargolic_unions
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Orthodox_Welfare_State
+		}
+		
+		x = 2
+		y = 5
+		completion_reward = {
+	    }
+	
+    }
+	
+	
+	focus = {
+		id = DKB_True_Right_Syndicalism
+		icon = GFX_focus_rus_right_syndicalism
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		mutually_exclusive = {
+			focus = DKB_Russian_Christian_Democracy
+		}
+		prerequisite = {
+			focus = DKB_Ally_the_Solidarists
+		}
+		
+		x = 4
+		y = 2
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Enforce_Class_Cooperation
+		icon = GFX_RUS_new_social_class
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_True_Right_Syndicalism
+		}
+		
+		x = 5
+		y = 3
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Perestroika
+		icon = GFX_goal_social_reforms
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Enforce_Class_Cooperation
+		}
+		
+		x = 5
+		y = 4
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Loyal_Unions
+		icon = GFX_CAL_national_unions
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Perestroika
+		}
+		
+		x = 4
+		y = 5
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Party_of_Unity
+		icon = GFX_goal_RUS_flag
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Christian_Unions
+			focus = DKB_Loyal_Unions
+		}
+		
+		x = 3
+		y = 6
+		completion_reward = {
+	    }
+	
+    }
+	
+	
+	
+	
+	focus = {
+		id = DKB_Ally_the_People
+		icon = GFX_TRM_Appease_Workers
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		mutually_exclusive = {
+			focus = DKB_Ally_the_Veterans
+		}
+		mutually_exclusive = {
+			focus = DKB_Ally_the_Solidarists
+		}
+		prerequisite = {
+			focus = DKB_Vlasovsty_Remain
+		}
+		
+		x = -2
+		y = 1
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Enbrace_Free_Market_Economics
+		icon = GFX_goal_capitalist_system
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		mutually_exclusive = {
+			focus = DKB_Welfare_for_the_People
+		}
+		prerequisite = {
+			focus = DKB_Ally_the_People
+			focus = DKB_Ally_the_Veterans
+		}
+		
+		x = -2
+		y = 2
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Funding_Frenzy
+		icon = GFX_goal_bag_of_money
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Enbrace_Free_Market_Economics
+		}
+		
+		x = -3
+		y = 3
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Privatization_Effort
+		icon = GFX_goal_generic_privatization
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Funding_Frenzy
+		}
+		
+		x = -3
+		y = 4
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Kadet_Legacy
+		icon = GFX_goal_RUS_party
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Privatization_Effort
+		}
+		
+		x = -2
+		y = 5
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Welfare_for_the_People
+		icon = GFX_goal_USA_By_the_People_For_the_People
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		mutually_exclusive = {
+			focus = DKB_Enbrace_Free_Market_Economics
+		}
+		prerequisite = {
+			focus = DKB_Ally_the_People
+		}
+		
+		x = -4
+		y = 2
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Relief_at_any_Cost
+		icon = GFX_CAL_workers_compensation_act
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Welfare_for_the_People
+		}
+		
+		x = -5
+		y = 3
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Sweeping_Reforms
+		icon = GFX_goal_ZAM_reforms_support
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Relief_at_any_Cost
+		}
+		
+		x = -5
+		y = 4
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Is_This_Social_Democracy
+		icon = GFX_goal_FRA_popularfront
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Sweeping_Reforms
+		}
+		
+		x = -4
+		y = 5
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Party_of_the_People
+		icon = GFX_goal_liberty
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Is_This_Social_Democracy
+			focus = DKB_Kadet_Legacy
+		}
+		
+		x = -3
+		y = 6
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Birth_of_the_Federation
+		icon = GFX_DKB_restore_democracy
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Party_of_the_People
+		}
+		prerequisite = {
+			focus = DKB_Vlasov_Cult
+		}
+		mutually_exclusive = {
+			focus = DKB_Declare_Vlasov_Supreme_Ruler
+		}
+		mutually_exclusive = {
+			focus = DKB_The_Blue_Vozhd
+		}
+		
+		x = -2
+		y = 7
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Declare_Vlasov_Supreme_Ruler
+		icon = GFX_TRM_The_Only_Supreme_Ruler
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Party_of_the_People
+			focus = DKB_Party_of_Unity
+		}
+		prerequisite = {
+			focus = DKB_Vlasov_Cult
+		}
+		mutually_exclusive = {
+			focus = DKB_Birth_of_the_Federation
+		}
+		mutually_exclusive = {
+			focus = DKB_The_Blue_Vozhd
+		}
+		
+		x = 0
+		y = 7
+		completion_reward = {
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_The_Blue_Vozhd
+		icon = GFX_goal_RUS_new_russia
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = DKB_Vlasovsty_Remain
+		available = {
+		}
+		prerequisite = {
+			focus = DKB_Vlasov_Cult
+		}
+		prerequisite = {
+			focus = DKB_Party_of_Unity
+		}
+		mutually_exclusive = {
+			focus = DKB_Declare_Vlasov_Supreme_Ruler
+		}
+		mutually_exclusive = {
+			focus = DKB_Birth_of_the_Federation
+		}
+		
+		x = 2
+		y = 7
+		completion_reward = {
+	    }
+	
+    }
+	
+	
 }

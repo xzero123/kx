@@ -6403,6 +6403,41 @@ country_event = { # battle for mexico city, maria wins
 			set_nationality = XXA
 		}
 		load_focus_tree = mexican_focus
+		news_event = mexico.1731
+	}
+}
+
+country_event = { # Maria News 
+	id = mexico.1731
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.173"}
+	title = mexico.1731.t
+	desc = mexico.1731.d
+	picture = GFX_report_event_MEX_santa_muerte_news
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #
+		name = mexico.1731.a
+		trigger = {
+			tag = MEX
+		}
+	}
+	option = { #
+		name = mexico.1731.b
+		trigger = {
+			is_american_tag = yes
+		}
+	}
+	option = { #
+		name = mexico.1731.c
+		trigger = {
+			is_american_tag = no
+			NOT = {
+				tag = MEX
+			}
+		}
 	}
 }
 

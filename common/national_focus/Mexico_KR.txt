@@ -3503,12 +3503,17 @@ focus_tree = {
 			has_country_flag = MEX_synarchists_in_charge
 			has_country_flag = MEX_IntegroSynarchist_Republic
 		}
+		bypass = {
+			has_country_flag = MEX_synarchists_in_charge
+			has_country_flag = MEX_IntegroSynarchist_Republic
+		}
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_synarchist_republic"
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	
@@ -3527,6 +3532,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_the_young_autocrat"
+			add_country_leader_trait = ROM_autocrat
 		}
 	}
 	
@@ -3545,6 +3551,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_our_holy_republic"
+			add_country_leader_trait = MEX_REP_our_holy_republic
 		}
 	}
 	
@@ -3563,6 +3570,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_talks_with_integralists"
+			swap_ideas = {
+				remove_idea = MEX_REP_our_holy_republic
+				add_idea = MEX_REP_our_holy_republic2
+			}
 		}
 	}
 	
@@ -3581,6 +3592,24 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_overturn_socialist_economics"
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic
+				add_idea = MEX_revolution_economic2
+			}
+			277 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = { type = arms_factory level = 1	instant_build = yes }
+				}
+			}
+			478 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = { type = arms_factory level = 1	instant_build = yes }
+				}
+			}
 		}
 	}
 	
@@ -3599,6 +3628,28 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_state_corporatism"
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic2
+				add_idea = MEX_corportism_idea
+			}
+			277 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
+			477 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
+			485 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
 		}
 	}
 	
@@ -3617,6 +3668,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_new_labor_laws"
+			swap_ideas = {
+				remove_idea = MEX_corportism_idea
+				add_idea = MEX_corportism_idea2
+			}
+			add_political_power = 100
+			add_stability = 0.04
 		}
 	}
 	
@@ -3646,6 +3703,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_synarchisms_entrenched"
+			swap_ideas = {
+				remove_idea = MEX_REP_our_holy_republic2
+				add_idea = MEX_synarchismo_idea
+			}
 		}
 	}
 	
@@ -3667,6 +3728,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_chase_them"
+			MEX_socialist_resistance_decrease = yes
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.2
+			}
 		}
 	}
 	
@@ -3685,6 +3751,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_catch_them"
+			MEX_socialist_resistance_decrease = yes
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.2
+			}
 		}
 	}
 	
@@ -3703,6 +3774,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_no_where_to_hide"
+			MEX_socialist_resistance_decrease = yes
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.2
+			}
 		}
 	}
 	
@@ -3724,6 +3800,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_befriend_the_church"
+			swap_ideas = {
+				remove_idea = MEX_church_question
+				add_idea = MEX_church_question2
+			}
 		}
 	}
 	
@@ -3742,6 +3822,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_establish_state_catholicism"
+			swap_ideas = {
+				remove_idea = MEX_church_question2
+				add_idea = MEX_REP_establish_state_catholicism
+			}
 		}
 	}
 
@@ -3760,6 +3844,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_improve_workers_rights"
+			swap_ideas = {
+				remove_idea = MEX_REP_establish_state_catholicism
+				add_idea = MEX_REP_establish_state_catholicism2
+			}
 		}
 	}
 	
@@ -3775,12 +3863,17 @@ focus_tree = {
 			has_country_flag = MEX_integralists_in_charge
 			has_country_flag = MEX_IntegroSynarchist_Republic
 		}
+		bypass = {
+			has_country_flag = MEX_integralists_in_charge
+			has_country_flag = MEX_IntegroSynarchist_Republic
+		}
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_integralist_republic"
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	
@@ -3799,24 +3892,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_agrarian_reforms"
-		}
-	}
-
-	#Focus for Destroy Ejidos
-	focus = {
-		id = MEX_REP_destroy_ejidos
-		icon = GFX_goal_GEO_Colectivize_the_farms
-		relative_position_id = MEX_REP_integralist_republic
-		x = 0
-		y = 2
-		cost = 6
-		available_if_capitulated = yes
-		prerequisite = { focus = MEX_REP_agrarian_reforms }
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_destroy_ejidos"
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic
+				add_idea = MEX_revolution_economic2
+			}
 		}
 	}
 
@@ -3829,12 +3908,66 @@ focus_tree = {
 		y = 3
 		cost = 6
 		available_if_capitulated = yes
-		prerequisite = { focus = MEX_REP_destroy_ejidos }
+		prerequisite = { focus = MEX_REP_agrarian_reforms }
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_organic_corporatism"
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic2
+				add_idea = MEX_corportism_idea
+			}
+			277 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = { type = arms_factory level = 1	instant_build = yes }
+				}
+			}
+			478 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = { type = arms_factory level = 1	instant_build = yes }
+				}
+			}
+		}
+	}
+
+	#Focus for Destroy Ejidos
+	focus = {
+		id = MEX_REP_destroy_ejidos
+		icon = GFX_goal_GEO_Colectivize_the_farms
+		relative_position_id = MEX_REP_integralist_republic
+		x = 0
+		y = 3
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = MEX_REP_organic_corporatism }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_destroy_ejidos"
+			swap_ideas = {
+				remove_idea = MEX_corportism_idea
+				add_idea = MEX_corportism_idea2
+			}
+			277 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = { type = industrial_complex level = 1	instant_build = yes }
+				}
+			}
+			478 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = { type = industrial_complex level = 1	instant_build = yes }
+				}
+			}
 		}
 	}
 
@@ -3853,6 +3986,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_archduke_vasconcelos"
+			add_country_leader_trait = archduke
 		}
 	}
 	
@@ -3871,6 +4005,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_republic_in_name_only"
+			add_ideas = MEX_REP_republic_in_name_only
 		}
 	}
 	
@@ -3889,6 +4024,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_an_eventual_restoration"
+			swap_ideas = {
+				remove_idea = MEX_REP_republic_in_name_only
+				add_idea = MEX_REP_republic_in_name_only2
+			}
 		}
 	}
 
@@ -3908,7 +4047,7 @@ focus_tree = {
 			focus = MEX_REP_give_a_position_to_the_archbishop 
 		}
 		prerequisite = { 
-			focus = MEX_REP_organic_corporatism 
+			focus = MEX_REP_destroy_ejidos
 		}
 		prerequisite = { 
 			focus = MEX_REP_an_eventual_restoration 
@@ -3918,6 +4057,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_REP_the_regency"
+			swap_ideas = {
+				remove_idea = MEX_REP_republic_in_name_only2
+				add_idea = MEX_REP_the_regency
+			}
 		}
 	}
 	

@@ -179,6 +179,7 @@ ideas = {
 				political_power_gain = -0.25
 				conscription_factor = -0.10
 				stability_factor = -0.20
+				national_populist_drift = 0.03
 			}
 			picture = chi_war_of_resistance3
 		}
@@ -189,6 +190,7 @@ ideas = {
 				political_power_gain = -0.2
 				conscription_factor = -0.05
 				stability_factor = -0.15
+				national_populist_drift = 0.02
 			}
 			picture = chi_war_of_resistance3
 		}
@@ -199,6 +201,7 @@ ideas = {
 				political_power_gain = -0.15
 				conscription_factor = -0.02
 				stability_factor = -0.1
+				national_populist_drift = 0.01
 			}
 			picture = chi_war_of_resistance3
 		}
@@ -939,6 +942,9 @@ ideas = {
 				political_power_gain = -0.25
 				conscription_factor = -0.10
 				stability_factor = -0.20
+				radical_socialist_drift = 0.03
+				syndicalist_drift = 0.03
+				totalist_drift = 0.03
 			}
 			picture = chi_war_of_resistance3
 		}
@@ -949,6 +955,9 @@ ideas = {
 				political_power_gain = -0.2
 				conscription_factor = -0.05
 				stability_factor = -0.15
+				radical_socialist_drift = 0.02
+				syndicalist_drift = 0.02
+				totalist_drift = 0.02
 			}
 			picture = chi_war_of_resistance3
 		}
@@ -959,6 +968,9 @@ ideas = {
 				political_power_gain = -0.15
 				conscription_factor = -0.02
 				stability_factor = -0.1
+				radical_socialist_drift = 0.01
+				syndicalist_drift = 0.01
+				totalist_drift = 0.01
 			}
 			picture = chi_war_of_resistance3
 		}
@@ -1623,21 +1635,23 @@ ideas = {
 		
 		
 		### Sinarquistias ###
-		MEX_corportism_idea = {
-			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_corportism_idea"}
-			available = { has_government = national_populist }
-			picture = can_wartime_prices_and_trade_board
-			modifier = {
-				political_power_gain = 0.10
-				consumer_goods_factor = -0.03
-				production_factory_max_efficiency_factor = 0.10
-				industrial_capacity_factory = 0.10
-			}
-		}
-		MEX_goldshirts_idea = {
-			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_goldshirts_idea"}
+		MEX_REP_our_holy_republic = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_REP_our_holy_republic"}
 			available = { has_government = national_populist }
 			picture = chi_army_corruption2
+			modifier = {
+				political_power_gain = 0.05
+				war_support_factor = 0.05
+				conscription = 0.05
+				army_morale_factor = 0.02
+			}
+		}
+		
+		MEX_REP_our_holy_republic2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_REP_our_holy_republic2"}
+			available = { has_government = national_populist }
+			picture = chi_army_corruption2
+			name = MEX_REP_our_holy_republic
 			modifier = {
 				political_power_gain = 0.10
 				war_support_factor = 0.10
@@ -1645,14 +1659,106 @@ ideas = {
 				army_morale_factor = 0.04
 			}
 		}
+		
+		MEX_corportism_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_corportism_idea"}
+			available = { has_government = national_populist }
+			picture = can_wartime_prices_and_trade_board
+			modifier = {
+				political_power_gain = 0.05
+				consumer_goods_factor = -0.03
+				production_factory_max_efficiency_factor = 0.05
+				industrial_capacity_factory = 0.05
+			}
+		}
+		
+		MEX_corportism_idea2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_corportism_idea"}
+			available = { has_government = national_populist }
+			picture = can_wartime_prices_and_trade_board
+			name = MEX_corportism_idea
+			modifier = {
+				political_power_gain = 0.10
+				consumer_goods_factor = -0.03
+				production_factory_max_efficiency_factor = 0.10
+				industrial_capacity_factory = 0.10
+			}
+		}
+		
 		MEX_synarchismo_idea = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_synarchismo_idea"}
 			available = { has_government = national_populist }
 			picture = generic_army_war_college
 			modifier = {
+				political_power_gain = 0.15
+				war_support_factor = 0.10
+				conscription = 0.02
+				army_morale_factor = 0.04
 				research_speed_factor = 0.05
 			}
 		}
+		
+		### Integralists ###
+		MEX_REP_establish_state_catholicism = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_REP_establish_state_catholicism"}
+			picture = X
+			name = MEX_MEK_state_catholicism
+			modifier = {
+				stability_factor = 0.02
+				war_support_factor = 0.02
+			}
+		}
+		
+		MEX_REP_establish_state_catholicism2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_REP_establish_state_catholicism2"}
+			picture = X
+			name = MEX_MEK_state_catholicism
+			modifier = {
+				stability_factor = 0.02
+				war_support_factor = 0.02
+				industrial_capacity_factory = 0.05
+				conscription_factor = 0.02
+			}
+		}
+		
+		MEX_REP_republic_in_name_only = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_REP_republic_in_name_only"}
+			available = { has_government = national_populist }
+			picture = chi_army_corruption2
+			modifier = {
+				political_power_gain = 0.05
+				war_support_factor = 0.05
+				conscription = 0.05
+				army_morale_factor = 0.02
+			}
+		}
+		
+		MEX_REP_republic_in_name_only2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_REP_republic_in_name_only"}
+			available = { has_government = national_populist }
+			picture = chi_army_corruption2
+			name = MEX_REP_republic_in_name_only
+			modifier = {
+				political_power_gain = 0.10
+				war_support_factor = 0.10
+				conscription = 0.02
+				army_morale_factor = 0.04
+			}
+		}
+		
+		MEX_REP_the_regency = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_REP_the_regency"}
+			available = { has_government = national_populist }
+			picture = generic_army_war_college
+			modifier = {
+				political_power_gain = 0.15
+				war_support_factor = 0.10
+				conscription = 0.02
+				army_morale_factor = 0.04
+				army_core_defence_factor = 0.05
+			}
+		}
+		
 		### Military Ideas ###
 		MEX_night_warfare = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_night_warfare"}

@@ -304,9 +304,39 @@ ideas = {
 		MEX_limited_liberties = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_limited_liberties"}
 			picture = generic_pp_unity_bonus
+			available = {
+				has_government = authoritarian_democrat
+			}
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.05
+			}
+		}
+		MEX_electoring_monitoring = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_electoring_monitoring"}
+			picture = generic_pp_unity_bonus
+			available = {
+				has_government = authoritarian_democrat
+			}
 			modifier = {
 				stability_factor = 0.05
 				political_power_gain = 0.10
+				drift_defence_factor = 0.05
+			}
+		}
+		MEX_electoring_monitoring2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_electoring_monitoring2"}
+			picture = generic_pp_unity_bonus
+			name = MEX_electoring_monitoring
+			available = {
+				has_government = authoritarian_democrat
+			}
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.10
+				drift_defence_factor = 0.05
+				authoritarian_democrat_drift = 0.02
+				paternal_autocrat_drift = 0.02
 			}
 		}
 		MEX_reactionary_thought = { #Reactionary Thought
@@ -318,6 +348,9 @@ ideas = {
 				consumer_goods_factor = -0.01
 				research_speed_factor = 0.03
 				party_popularity_stability_factor = 0.05
+			}
+			available = {
+				has_government = authoritarian_democrat
 			}
 			removal_cost = -1
 			picture = BBR_free_thought_societies
@@ -334,6 +367,9 @@ ideas = {
 				research_speed_factor = 0.03
 				party_popularity_stability_factor = 0.1
 			}
+			available = {
+				has_government = authoritarian_democrat
+			}
 			removal_cost = -1
 			picture = BBR_free_thought_societies
 		}
@@ -348,6 +384,9 @@ ideas = {
 				research_speed_factor = 0.05
 				local_factories	= 0.1
 			}
+			available = {
+				has_government = authoritarian_democrat
+			}
 		}
 		
 		MEX_Almazans_Populism = { #Reactionary Thought
@@ -361,6 +400,9 @@ ideas = {
 				party_popularity_stability_factor = 0.05
 				authoritarian_democrat_drift = 0.02
 			}
+			available = {
+				has_government = authoritarian_democrat
+			}
 			removal_cost = -1
 			picture = BBR_free_thought_societies
 		}	
@@ -373,6 +415,9 @@ ideas = {
 				stability_factor = 0.02
 				war_support_factor = 0.02
 			}
+			available = {
+				has_government = social_conservative
+			}
 		}
 		
 		MEX_catholic_identity = {
@@ -384,6 +429,9 @@ ideas = {
 				army_attack_factor = 0.05
 				army_org_factor = 0.05
 				industrial_capacity_factory = 0.05
+			}
+			available = {
+				has_government = social_conservative
 			}
 		}
 		
@@ -398,6 +446,9 @@ ideas = {
 				local_resources_factor = 0.05
 				trade_opinion_factor = -0.1
 			}
+			available = {
+				has_government = social_conservative
+			}
 		}
 		
 		MEX_Christian_Democracy = {
@@ -410,6 +461,9 @@ ideas = {
 				army_org_factor = 0.05
 				industrial_capacity_factory = 0.05
 				social_conservative_drift = 0.02
+			}
+			available = {
+				has_government = social_conservative
 			}
 		}
 		
@@ -426,6 +480,9 @@ ideas = {
 				social_conservative_drift = 0.02
 				research_speed_factor = 0.03
 			}
+			available = {
+				has_government = social_conservative
+			}
 		}
 		
 		### Democratic - Market Liberal ###
@@ -439,6 +496,9 @@ ideas = {
 				army_defence_factor = 0.10
 				production_factory_max_efficiency_factor = 0.02
 			}
+			available = {
+				has_government = market_liberal
+			}
 			picture = generic_democratic_drift_bonus
 		}
 		
@@ -450,6 +510,9 @@ ideas = {
 				war_support_factor = 0.1
 				army_defence_factor = 0.10
 				production_factory_max_efficiency_factor = 0.02
+			}
+			available = {
+				has_government = market_liberal
 			}
 			picture = generic_democratic_drift_bonus
 		}
@@ -466,6 +529,9 @@ ideas = {
 				trade_opinion_factor = 0.1
 				line_change_production_efficiency_factor = 0.05
 			}
+			available = {
+				has_government = market_liberal
+			}
 		}
 		
 		MEX_mexico_industrialized = {
@@ -477,6 +543,9 @@ ideas = {
 			}
 			research_bonus = {
 				industry = 0.1
+			}
+			available = {
+				has_government = market_liberal
 			}
 		}
 		
@@ -492,6 +561,9 @@ ideas = {
 				army_core_defence_factor = 0.05
 			}
 			picture = generic_democratic_drift_bonus
+			available = {
+				has_government = market_liberal
+			}
 		}
 		
 		MEX_Rebrand_Liberalism = {
@@ -500,6 +572,9 @@ ideas = {
 				stability_factor = 0.02
 				war_support_factor = 0.02
 				market_liberal_drift = 0.02
+			}
+			available = {
+				has_government = market_liberal
 			}
 			picture = generic_democratic_drift_bonus
 		}
@@ -512,6 +587,9 @@ ideas = {
 			modifier = {
 				research_speed_factor = 0.03
 			}
+			available = {
+				has_government = social_liberal
+			}
 		}
 		
 		MEX_civil_liberties = {
@@ -521,6 +599,9 @@ ideas = {
 				research_speed_factor = 0.03
 				stability_factor = 0.02
 				war_support_factor = 0.02
+			}
+			available = {
+				has_government = social_liberal
 			}
 		}
 		
@@ -534,6 +615,9 @@ ideas = {
 				research_speed_factor = 0.05
 				local_resources_factor = 0.05
 				industrial_capacity_factory = 0.05
+			}
+			available = {
+				has_government = social_liberal
 			}
 		}
 		
@@ -549,6 +633,9 @@ ideas = {
 				production_factory_efficiency_gain_factor = -0.04
 				consumer_goods_factor = -0.04
 			}
+			available = {
+				has_government = social_liberal
+			}
 		}
 		
 		MEX_The_Revolution_Fulfilled = {
@@ -562,6 +649,9 @@ ideas = {
 				political_power_gain = 0.02
 				monthly_population = 0.02
 			}
+			available = {
+				has_government = social_liberal
+			}
 		}
 		
 		MEX_The_Peoples_Liberalism = {
@@ -571,6 +661,9 @@ ideas = {
 				stability_factor = 0.02
 				political_power_cost = -0.05
 				social_liberal_drift = 0.02
+			}
+			available = {
+				has_government = social_liberal
 			}
 		}
 		
@@ -582,6 +675,9 @@ ideas = {
 			modifier = {
 				stability_factor = 0.02
 				war_support_factor = 0.02
+			}
+			available = {
+				has_government = social_democrat
 			}
 		}
 		
@@ -595,6 +691,9 @@ ideas = {
 				production_speed_infrastructure_factor = 0.05
 				surrender_limit = 0.05
 			}
+			available = {
+				has_government = social_democrat
+			}
 		}
 		
 		MEX_moderate_socialist_economy = {
@@ -607,6 +706,9 @@ ideas = {
 				research_speed_factor = 0.02
 				local_resources_factor = 0.02
 				industrial_capacity_factory = 0.02
+			}
+			available = {
+				has_government = social_democrat
 			}
 		}
 		
@@ -622,6 +724,9 @@ ideas = {
 				production_speed_buildings_factor = 0.05
 				out_of_supply_factor = -0.15
 				social_democrat_drift = 0.02
+			}
+			available = {
+				has_government = social_democrat
 			}
 		}
 		

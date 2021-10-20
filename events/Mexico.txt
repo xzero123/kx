@@ -427,6 +427,7 @@ country_event = { # Elections of 1937
 	id = mexico.4
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.4"}
 	title = mexico.4.t
+
 	desc = { # Zapata is alive
 		text = mexico.4.d.zapata_alive
 		trigger = {
@@ -466,6 +467,9 @@ country_event = { # Elections of 1937
 
 	immediate = {
 		remove_all_ministers = yes
+		hidden_effect = {
+			load_focus_tree = mexican_focus
+		}
 	}
 
 	option = { # Calles

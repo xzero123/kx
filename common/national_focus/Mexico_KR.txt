@@ -3048,6 +3048,9 @@ focus_tree = {
 		available = {
 			has_country_flag = MEX_SynarchoIntegralist_Monarchy
 		}
+		bypass = {
+			has_country_flag = MEX_SynarchoIntegralist_Monarchy
+		}
 		cost = 6
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -3055,6 +3058,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_the_new_monarchy"
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	
@@ -3077,6 +3081,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_a_nationalist_monarchy"
+			add_ideas = MEX_ITG_a_nationalist_monarchy
 		}
 	}
 	
@@ -3095,6 +3100,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_military_support"
+			add_command_power = 100
+			add_war_support = 0.07
+			army_experience = 100
 		}
 	}
 	
@@ -3113,6 +3121,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_our_own_democracy"
+			swap_ideas = {
+				remove_idea = MEX_ITG_a_nationalist_monarchy
+				add_idea = MEX_ITG_our_own_democracy
+			}
 		}
 	}
 	
@@ -3131,6 +3143,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_the_true_hero"
+			swap_ideas = {
+				remove_idea = MEX_ITG_our_own_democracy
+				add_idea = MEX_ITG_our_own_democracy2
+			}
 		}
 	}
 	
@@ -3149,6 +3165,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_maintain_labor_laws"
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic
+				add_idea = MEX_revolution_economic2
+			}
+			add_political_power = -50
+			add_stability = 0.05
 		}
 	}
 	
@@ -3167,6 +3189,24 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_a_mixed_economy"
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic2
+				add_idea = MEX_ITG_a_mixed_economy
+			}
+			277 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = { type = industrial_complex level = 1	instant_build = yes }
+				}
+			}
+			478 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = { type = industrial_complex level = 1	instant_build = yes }
+				}
+			}
 		}
 	}
 	
@@ -3185,6 +3225,28 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_recovered_from_the_depression"
+			swap_ideas = {
+				remove_idea = MEX_ITG_a_mixed_economy
+				add_idea = MEX_ITG_a_mixed_economy2
+			}
+			277 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
+			477 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
+			485 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
 		}
 	}
 	
@@ -3214,6 +3276,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_our_synarchist_empire"
+			swap_ideas = {
+				remove_idea = MEX_ITG_our_own_democracy2
+				add_idea = MEX_ITG_our_synarchist_empire
+			}
 		}
 	}
 	
@@ -3235,6 +3301,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_start_with_the_extremists"
+			MEX_socialist_resistance_decrease = yes
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.2
+			}
 		}
 	}
 
@@ -3253,6 +3324,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_continue_with_the_tyrants"
+			MEX_socialist_resistance_decrease = yes
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.2
+			}
 		}
 	}
 	
@@ -3269,8 +3345,27 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
+		available = {
+			country_exists = YUC
+		}
+		bypass = {
+			NOT = {
+				country_exists = YUC
+			}
+		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_offer_them_autonomy"
+			MEX_socialist_resistance_decrease = yes
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.2
+			}
+			YUC = {
+				country_event = {
+					id = mexico.68
+					days = 10
+				}
+			}
 		}
 	}
 	
@@ -3292,6 +3387,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_establish_state_catholicism"
+			swap_ideas = {
+				remove_idea = MEX_church_question
+				add_idea = MEX_church_question2
+			}
 		}
 	}
 	
@@ -3310,6 +3409,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_monarchist_catholicism"
+			swap_ideas = {
+				remove_idea = MEX_church_question
+				add_idea = MEX_church_question2
+			}
 		}
 	}
 	
@@ -3328,6 +3431,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_complete_cooperation"
+			swap_ideas = {
+				remove_idea = MEX_church_question2
+				add_idea = MEX_ITG_complete_cooperation
+			}
 		}
 	}
 	
@@ -3350,6 +3457,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_tempered_monarchy"
+			add_ideas = MEX_ITG_tempered_monarchy
 		}
 	}
 	
@@ -3368,6 +3476,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_make_the_plans"
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic
+				add_idea = MEX_revolution_economic2
+			}
+			add_political_power = 100
 		}
 	}
 	
@@ -3386,6 +3499,24 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_distributism"
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic2
+				add_idea = MEX_ITG_distributism
+			}
+			277 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = { type = industrial_complex level = 1	instant_build = yes }
+				}
+			}
+			478 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = { type = industrial_complex level = 1	instant_build = yes }
+				}
+			}
 		}
 	}
 	
@@ -3404,6 +3535,28 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_corporatist_economy"
+			swap_ideas = {
+				remove_idea = MEX_ITG_distributism
+				add_idea = MEX_corportism_idea2
+			}
+			277 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
+			477 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
+			485 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
 		}
 	}
 	
@@ -3422,6 +3575,14 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_a_true_mexican_aristocracy"
+			swap_ideas = {
+				remove_idea = MEX_ITG_tempered_monarchy
+				add_idea = MEX_ITG_a_true_mexican_aristocracy
+			}
+			country_event = {
+				id = mexico.109
+				days = 2
+			}
 		}
 	}
 	
@@ -3440,6 +3601,30 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_oppose_corrupt_democracy"
+			swap_ideas = {
+				remove_idea = MEX_ITG_a_true_mexican_aristocracy
+				add_idea = MEX_ITG_a_true_mexican_aristocracy2
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.2
+			}
 		}
 	}
 
@@ -3458,6 +3643,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_remember_the_virgen_de_guadalupe"
+			add_political_power = 100
+			add_stability = 0.05
 		}
 	}
 
@@ -3487,6 +3674,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_organic_empire"
+			swap_ideas = {
+				remove_idea = MEX_ITG_a_true_mexican_aristocracy2
+				add_idea = MEX_ITG_organic_empire
+			}
 		}
 	}
 	

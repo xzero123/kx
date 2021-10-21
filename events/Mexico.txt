@@ -5435,6 +5435,33 @@ country_event = { # republic or monarchy
 	}
 }
 
+country_event = { # Garza Given Noble Title
+	id = mexico.109
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.109"}
+	title = mexico.109.t
+	desc = mexico.109.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { # yay
+		name = mexico.109.a
+		if = {
+			limit = { MEX = { has_unit_leader = 93731 } }
+			every_unit_leader = {
+				limit = { has_id = 93731 }
+				set_leader_portrait = GFX_Portrait_Mexico_Garza_Archduke
+			}
+		}
+		add_political_power = 100
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.02
+		}
+	}
+}
+
 
 ### Flavor Events 125 - 199 ###
 country_event = { # Here's the Point is released

@@ -1660,6 +1660,19 @@ ideas = {
 			}
 		}
 		
+		MEX_synarchismo_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_synarchismo_idea"}
+			available = { has_government = national_populist }
+			picture = generic_army_war_college
+			modifier = {
+				political_power_gain = 0.15
+				war_support_factor = 0.10
+				conscription = 0.02
+				army_morale_factor = 0.04
+				research_speed_factor = 0.05
+			}
+		}
+		
 		MEX_corportism_idea = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_corportism_idea"}
 			available = { has_government = national_populist }
@@ -1669,6 +1682,7 @@ ideas = {
 				consumer_goods_factor = -0.03
 				production_factory_max_efficiency_factor = 0.05
 				industrial_capacity_factory = 0.05
+				production_speed_buildings_factor = 0.05
 			}
 		}
 		
@@ -1682,19 +1696,110 @@ ideas = {
 				consumer_goods_factor = -0.03
 				production_factory_max_efficiency_factor = 0.10
 				industrial_capacity_factory = 0.10
+				production_speed_buildings_factor = 0.10
 			}
 		}
 		
-		MEX_synarchismo_idea = {
-			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_synarchismo_idea"}
+		MEX_ITG_a_mixed_economy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_ITG_a_mixed_economy"}
+			available = { has_government = national_populist }
+			picture = can_wartime_prices_and_trade_board
+			modifier = {
+				political_power_gain = 0.05
+				consumer_goods_factor = -0.03
+				production_factory_max_efficiency_factor = 0.05
+				industrial_capacity_factory = 0.05
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		
+		MEX_ITG_a_mixed_economy2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_ITG_a_mixed_economy"}
+			available = { has_government = national_populist }
+			picture = can_wartime_prices_and_trade_board
+			name = MEX_ITG_a_mixed_economy
+			modifier = {
+				political_power_gain = 0.10
+				consumer_goods_factor = -0.03
+				production_factory_max_efficiency_factor = 0.10
+				industrial_capacity_factory = 0.10
+			}
+		}
+		
+		## Synarchist Monarchy ##
+		
+		MEX_ITG_a_nationalist_monarchy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_ITG_a_nationalist_monarchy"}
+			available = { has_government = national_populist }
+			picture = chi_army_corruption2
+			modifier = {
+				political_power_gain = 0.02
+				war_support_factor = 0.02
+			}
+		}
+		
+		MEX_ITG_our_own_democracy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_ITG_our_own_democracy"}
+			available = { has_government = national_populist }
+			picture = chi_army_corruption2
+			modifier = {
+				political_power_gain = 0.05
+				war_support_factor = 0.05
+				conscription = 0.05
+				army_morale_factor = 0.02
+			}
+		}
+		
+		MEX_ITG_our_own_democracy2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_ITG_our_own_democracy2"}
+			available = { has_government = national_populist }
+			picture = chi_army_corruption2
+			name = MEX_ITG_our_own_democracy
+			modifier = {
+				political_power_gain = 0.10
+				war_support_factor = 0.10
+				conscription = 0.02
+				army_morale_factor = 0.04
+			}
+		}
+		
+		MEX_ITG_our_synarchist_empire = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_ITG_our_synarchist_empire"}
 			available = { has_government = national_populist }
 			picture = generic_army_war_college
 			modifier = {
 				political_power_gain = 0.15
 				war_support_factor = 0.10
 				conscription = 0.02
-				army_morale_factor = 0.04
-				research_speed_factor = 0.05
+				non_core_manpower = 0.01
+				mobilization_speed = 0.1
+			}
+		}
+		
+		## Shared Monarchy Ideas ##
+		
+		MEX_ITG_distributism = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_ITG_distributism"}
+			available = { has_government = national_populist }
+			picture = can_wartime_prices_and_trade_board
+			modifier = {
+				political_power_gain = 0.05
+				consumer_goods_factor = -0.03
+				production_factory_max_efficiency_factor = 0.05
+				industrial_capacity_factory = 0.05
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		
+		MEX_ITG_complete_cooperation = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_ITG_complete_cooperation"}
+			picture = X
+			modifier = {
+				stability_factor = 0.02
+				war_support_factor = 0.02
+				political_power_gain = 0.02
+				industrial_capacity_factory = 0.02
+				conscription_factor = 0.02
 			}
 		}
 		
@@ -1717,7 +1822,7 @@ ideas = {
 				stability_factor = 0.02
 				war_support_factor = 0.02
 				industrial_capacity_factory = 0.05
-				conscription_factor = 0.02
+				conscription_factor = 0.05
 			}
 		}
 		
@@ -1756,6 +1861,56 @@ ideas = {
 				conscription = 0.02
 				army_morale_factor = 0.04
 				army_core_defence_factor = 0.05
+			}
+		}
+		
+		## Monarchist Integralists ##
+		
+		MEX_ITG_tempered_monarchy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_ITG_tempered_monarchy"}
+			available = { has_government = national_populist }
+			picture = chi_army_corruption2
+			modifier = {
+				political_power_gain = 0.02
+				war_support_factor = 0.02
+			}
+		}
+		
+		MEX_ITG_a_true_mexican_aristocracy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_ITG_a_true_mexican_aristocracy"}
+			available = { has_government = national_populist }
+			picture = chi_army_corruption2
+			modifier = {
+				political_power_gain = 0.05
+				war_support_factor = 0.05
+				conscription = 0.05
+				army_morale_factor = 0.02
+			}
+		}
+		
+		MEX_ITG_a_true_mexican_aristocracy2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_ITG_a_true_mexican_aristocracy2"}
+			available = { has_government = national_populist }
+			picture = chi_army_corruption2
+			name = MEX_ITG_a_true_mexican_aristocracy
+			modifier = {
+				political_power_gain = 0.10
+				war_support_factor = 0.10
+				conscription = 0.02
+				army_morale_factor = 0.04
+			}
+		}
+		
+		MEX_ITG_organic_empire = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_ITG_organic_empire"}
+			available = { has_government = national_populist }
+			picture = generic_army_war_college
+			modifier = {
+				political_power_gain = 0.15
+				war_support_factor = 0.10
+				conscription = 0.02
+				army_morale_factor = 0.04
+				army_org_factor = 0.05
 			}
 		}
 		

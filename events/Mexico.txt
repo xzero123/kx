@@ -5222,60 +5222,7 @@ country_event = { # military question
 }
 
 ### National Populist 100 - 124 ###
-country_event = { # Patria vs La Raza
-	id = mexico.100
-	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.100"}
-	title = mexico.100.t
-	desc = mexico.100.d
 
-	fire_only_once = yes
-
-	is_triggered_only = yes
-
-	trigger = {
-		has_government = national_populist
-	}
-
-	option = { # We must appease these dissidents
-		name = mexico.100.a
-		add_political_power = -10
-		add_popularity = {
-			ideology = national_populist
-			popularity = 0.03
-		}
-	}
-	option = { # They have no choice, ignore their demands
-		name = mexico.100.b
-		add_popularity = {
-			ideology = national_populist
-			popularity = -0.03
-		}
-		add_political_power = 10
-	}
-}
-country_event = { # Head of the Revolutionary Action Mexicanista
-	id = mexico.101
-	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.101"}
-	title = mexico.101.t
-	desc = mexico.101.d
-
-	fire_only_once = yes
-
-	is_triggered_only = yes
-
-	option = { # the Secret Police Chief
-		name = mexico.101.a
-		add_ideas = MEX_Daniel_Cosio_Villegas_sec_npo
-	}
-	option = { # name
-		name = mexico.101.b
-		add_ideas = MEX_Jose_de_Leon_Toral_sec_npo
-	}
-	option = { # name
-		name = mexico.101.c
-		add_ideas = MEX_Victoriano_Ramirez_sec_npo
-	}
-}
 country_event = { # Renaming Texas
 	id = mexico.102
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.102"}
@@ -5290,11 +5237,7 @@ country_event = { # Renaming Texas
 		controls_state = 375
 		controls_state = 833
 	}
-
-	mean_time_to_happen = {
-		months = 3
-	}
-
+	
 	option = { # Tejas it is!
 		name = mexico.102.a
 		375 = {
@@ -5319,10 +5262,6 @@ country_event = { # Renaming New Mexico
 		tag = MEX
 		has_government = national_populist
 		controls_state = 376
-	}
-
-	mean_time_to_happen = {
-		months = 3
 	}
 
 	option = { # Nuevo Mexico

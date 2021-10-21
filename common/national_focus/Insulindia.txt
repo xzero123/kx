@@ -17,7 +17,7 @@ focus_tree = {
 	}
 
 	default = no
-	continuous_focus_position = { x = 500 y = 2000 }
+	continuous_focus_position = { x = 2200 y = 1000 }
 
 	focus = {
 		id = INS_merdeka
@@ -40,7 +40,6 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus INS_merdeka"
 			add_political_power = 50
-			#remove_ideas = INS_idea_insulindian_national_revolution
 			hidden_effect = {
 				country_event = ins.4
 			}
@@ -2703,6 +2702,85 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus INS_the_great_push"
 			custom_effect_tooltip = ins_custom_greatpush
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	#army tree
+	focus = {
+		id = INS_abi
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 5
+		available = {
+			NOT = {
+				has_idea = INS_idea_insulindian_national_revolution
+			}
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		x = 55
+		y = 6
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_abi"
+			army_experience = 20
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_tni_ad
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 5
+		prerequisite = {
+			focus = INS_abi
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		x = 55
+		y = 8
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_tni_ad"
+			army_experience = 20
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_tni_al
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 5
+		prerequisite = {
+			focus = INS_abi
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		x = 50
+		y = 8
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_tni_ad"
+			army_experience = 20
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = INS_tni_au
+		icon = GFX_goal_INS_focus_merdeka
+		cost = 5
+		prerequisite = {
+			focus = INS_abi
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		x = 60
+		y = 8
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus INS_tni_ad"
+			army_experience = 20
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}

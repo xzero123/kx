@@ -278,6 +278,9 @@
 					days = 7 id = mexico_req.54
 				}
 			}
+			375 = { add_resistance = -10 }
+			388 = { add_resistance = -10 }
+			1166 = { add_resistance = -10 }
 		}
 	}
 
@@ -473,6 +476,14 @@
 				load_oob = MEX_POL
 			}
 			add_political_power = 150
+			every_owned_state = {
+				limit = {
+					NOT = {
+						is_core_of = MEX
+					}
+				}
+				add_resistance = -10 
+			}
 		}
 	}
 
@@ -516,6 +527,14 @@
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_Vigilantees"
 			add_political_power = 250
+			every_owned_state = {
+				limit = {
+					NOT = {
+						is_core_of = MEX
+					}
+				}
+				add_resistance = -10 
+			}
 		}
 	}
 
@@ -548,6 +567,7 @@
 					days = 7 id = mexico_req.59
 				}
 			}
+			remove_ideas = MEX_anglo_rebel
 		}
 	}
 	### Army Path ###

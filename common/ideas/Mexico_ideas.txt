@@ -1914,6 +1914,42 @@ ideas = {
 			}
 		}
 		
+		### Reconquista Ideas ###
+		MEX_Womans = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea MEX_Womans"}
+			picture = generic_morale_bonus
+			modifier = {
+				industrial_capacity_factory = 0.05
+			}
+		}
+		MEX_Propoganda = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea MEX_Propoganda"}
+			picture = FRA_national_mobilization_focus
+			modifier = {
+				political_power_cost = -0.05
+			}
+		}
+		MEX_Relig = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea MEX_Relig"}
+			picture = FRA_scw_intervention_nationalists_focus
+			modifier = {
+				political_power_cost = -0.15
+			}
+		}
+		
+		MEX_anglo_rebel = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea MEX_anglo_rebel"}
+			picture = FRA_scw_intervention_nationalists_focus
+			modifier = {
+				political_power_gain = -0.15
+				resistance_growth_on_our_occupied_states = 0.15
+				root_out_resistance_effectiveness_factor = 0.05
+				resistance_activity	= 0.05
+				resistance_damage_to_garrison = 0.25
+				custom_modifier_tooltip = MEX_dont_let_resistance_get_too_high_tt
+			}
+		}
+		
 		### Military Ideas ###
 		MEX_night_warfare = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_night_warfare"}

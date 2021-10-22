@@ -1595,7 +1595,7 @@ country_event = { # Cristero War - victory for the Criesteros
 		set_politics = {
 			ruling_party = national_populist
 		}
-		create_country_leader = {# Jose Antonio Urquiza
+		create_country_leader = {# José Vasconcelos
 			name = "José Vasconcelos"
 			desc = "POLITICS_VASCONCELOS_DESC"
 			picture = "Portrait_jose_vasconcelos.png"
@@ -5354,6 +5354,14 @@ country_event = { # republic or monarchy
 
 	option = { # maintain the republic
 		name = mexico.106.a
+		trigger = {
+			NOT = {
+				has_country_leader = {
+					name = "Salvador Abascal"
+					ruling_only = yes
+				}
+			}
+		}
 		add_popularity = {
 			ideology = national_populist
 			popularity = 0.03

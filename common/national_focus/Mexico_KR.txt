@@ -1777,13 +1777,18 @@ focus_tree = {
 				has_government = totalist
 			}
 		}
-		cost = 6
+		cost = 2
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PCM_the_lenin_of_the_west"
+			add_political_power = 100
+			add_popularity = {
+				ideology = totalist
+				popularity = 0.08
+			}
 		}
 	}
 
@@ -1802,6 +1807,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PCM_si_comandante"
+			add_command_power = 100
+			add_war_support = 0.05
+			army_experience = 100
 		}
 	}
 	
@@ -1820,6 +1828,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PCM_out_of_the_mud"
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic
+				add_idea = MEX_revolution_economic2
+			}
 		}
 	}
 
@@ -1838,6 +1850,34 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PCM_a_road_paved_in_tombstones"
+			277 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
+			477 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
+			485 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
+			add_tech_bonus = {
+				name = MEX_PCM_a_road_paved_in_tombstones
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic2
+				add_idea = MEX_planned_economy1
+			}
 		}
 	}
 
@@ -1856,6 +1896,31 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PCM_smoke_over_sonora"
+			277 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = { type = industrial_complex level = 1	instant_build = yes }
+				}
+			}
+			478 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = { type = industrial_complex level = 1	instant_build = yes }
+				}
+			}
+			478 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = { type = arms_factory level = 1	instant_build = yes }
+				}
+			}
+			swap_ideas = {
+				remove_idea = MEX_planned_economy1
+				add_idea = MEX_planned_economy2
+			}
 		}
 	}
 	
@@ -1874,6 +1939,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PCM_red_cathedrals"
+			add_popularity = {
+				ideology = totalist
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = -0.2
+			}
+			swap_ideas = {
+				remove_idea = MEX_church_question
+				add_idea = MEX_church_question2
+			}
 		}
 	}
 
@@ -1892,6 +1969,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PCM_a_clergy_in_chains"
+			swap_ideas = {
+				remove_idea = MEX_church_question2
+				add_idea = MEX_PCM_a_clergy_in_chains
+			}
 		}
 	}
 
@@ -1910,6 +1991,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PCM_bood_flesh_clay_and_hatred"
+			swap_ideas = {
+				remove_idea = MEX_PCM_a_clergy_in_chains
+				add_idea = MEX_PCM_bood_flesh_clay_and_hatred
+			}
+			add_research_slot = 1
 		}
 	}
 
@@ -1928,6 +2014,15 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PCM_the_end_of_el_jefe"
+			swap_ideas = {
+				remove_idea = MEX_socialist_democratic_resistance_idea3
+				add_idea = MEX_socialist_democratic_resistance_idea4
+			}
+			add_popularity = {
+				ideology = totalist
+				popularity = 0.08
+			}
+			remove_unit_leader = 9374
 		}
 	}
 
@@ -1946,6 +2041,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PCM_true_communist_orthodoxy"
+			swap_ideas = {
+				remove_idea = MEX_socialist_democratic_resistance_idea4
+				add_idea = MEX_PCM_true_communist_orthodoxy
+			}
 		}
 	}
 
@@ -1964,6 +2063,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PCM_the_red_velvet_glove"
+			swap_ideas = {
+				remove_idea = MEX_PCM_true_communist_orthodoxy
+				add_idea = MEX_PCM_true_communist_orthodoxy2
+			}
 		}
 	}
 	
@@ -1982,6 +2085,19 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PCM_demonize_the_right_wing"
+			MEX_decrease_asa_resistance = yes
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.3
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = -0.3
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.3
+			}
 		}
 	}
 	
@@ -2000,6 +2116,15 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PCM_divide_and_destroy"
+			MEX_decrease_asa_resistance = yes
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.3
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.3
+			}
 		}
 	}
 	
@@ -2018,6 +2143,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PCM_liquidate_the_gold_shirts"
+			MEX_decrease_asa_resistance = yes
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.3
+			}
 		}
 	}
 	
@@ -2036,6 +2166,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PCM_offer_them_mercy"
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.3
+			}
+			swap_ideas = {
+				remove_idea = MEX_dl_opposition
+				add_idea = MEX_dl_opposition2
+			}
 		}
 	}
 	
@@ -2054,6 +2196,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PCM__an_grant_them_none"
+			remove_ideas = MEX_dl_opposition2
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.3
+			}
 		}
 	}
 	
@@ -2072,6 +2219,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PCM_draconian_revisionism"
+			add_ideas = MEX_PCM_draconian_revisionism
 		}
 	}
 
@@ -2104,6 +2252,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_PCM_the_heir_to_karl_marx"
+			add_political_power = 100
+			add_war_support = 0.05
+			swap_ideas = {
+				remove_idea = MEX_PCM_true_communist_orthodoxy2
+				add_idea = MEX_PCM_true_communist_orthodoxy3
+			}
 		}
 	}
 	
@@ -2190,6 +2344,7 @@ focus_tree = {
 			add_political_power = 100
 			add_stability = 0.05
 			add_war_support = 0.05
+			add_research_slot = 1
 		}
 	}
 	
@@ -2406,6 +2561,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_martyrise_pablo"
 			add_ideas = MEX_martyrise_pablo
+			add_research_slot = 1
 		}
 	}
 
@@ -3265,6 +3421,7 @@ focus_tree = {
 				remove_idea = MEX_ITG_our_own_democracy
 				add_idea = MEX_ITG_our_own_democracy2
 			}
+			add_research_slot = 1
 		}
 	}
 	
@@ -3763,6 +3920,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_ITG_remember_the_virgen_de_guadalupe"
 			add_political_power = 100
 			add_stability = 0.05
+			add_research_slot = 1
 		}
 	}
 
@@ -4113,6 +4271,7 @@ focus_tree = {
 				remove_idea = MEX_church_question
 				add_idea = MEX_church_question2
 			}
+			add_research_slot = 1
 		}
 	}
 	

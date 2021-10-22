@@ -47,6 +47,14 @@ ideas = {
 				war_support_factor = -0.15
 			}
 		}
+		MEX_dl_opposition2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_dl_opposition"}
+			name = MEX_dl_opposition
+			picture = MEX_Democratic_League_Opposition
+			modifier = {
+				war_support_factor = -0.08
+			}
+		}
 		MEX_church_question = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_church_question"}
 			picture = MEX_Church_Question
@@ -171,48 +179,149 @@ ideas = {
 			}
 		}
 		
+		### Toledano ###
+		MEX_planned_economy1 = { 
+			picture = man_five_year_plan_industry
+			modifier = {
+				global_building_slots_factor = 0.10
+				production_factory_max_efficiency_factor = 0.15
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.1
+			}
+		}
+		MEX_planned_economy2 = { 
+			picture = man_five_year_plan_industry
+			name = MEX_planned_economy1
+			modifier = {
+				global_building_slots_factor = 0.10
+				production_factory_max_efficiency_factor = 0.15
+				consumer_goods_factor = -0.05
+				conversion_cost_civ_to_mil_factor = 0.25
+				industrial_capacity_factory = 0.3
+			}
+		}
+		
+		MEX_PCM_a_clergy_in_chains = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_PCM_a_clergy_in_chains"}
+			picture = MEX_Church_Question
+			modifier = {
+				stability_factor = 0.02
+				war_support_factor = 0.02
+			}
+		}
+		
+		MEX_PCM_bood_flesh_clay_and_hatred = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_PCM_bood_flesh_clay_and_hatred"}
+			picture = MEX_Church_Question
+			modifier = {
+				stability_factor = 0.05
+				war_support_factor = 0.05
+				political_power_gain = 0.02
+				research_speed_factor = 0.02
+			}
+		}
+		
+		MEX_PCM_true_communist_orthodoxy = { #
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_PCM_true_communist_orthodoxy"}
+			allowed = { always = no }
+			name = MEX_PCM_true_communist_orthodoxy
+			picture = generic_communist_army
+			modifier = {
+				war_support_factor = 0.2
+				stability_factor = -0.1
+				army_morale_factor = 0.1
+			}
+		}
+		MEX_PCM_true_communist_orthodoxy2 = { #
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_PCM_true_communist_orthodoxy2"}
+			allowed = { always = no }
+			name = MEX_PCM_true_communist_orthodoxy
+			picture = generic_communist_army
+			modifier = {
+				war_support_factor = 0.2
+				stability_factor = -0.1
+				army_morale_factor = 0.1
+				production_speed_buildings_factor = 0.15
+			}
+		}
+		
+		MEX_PCM_true_communist_orthodoxy3 = { #
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_PCM_true_communist_orthodoxy2"}
+			allowed = { always = no }
+			name = MEX_PCM_true_communist_orthodoxy
+			picture = generic_communist_army
+			modifier = {
+				war_support_factor = 0.2
+				industrial_capacity_factory = 0.1
+				local_resources_factor = 0.2
+				political_power_gain = -0.3
+				production_speed_arms_factory_factor = 0.10
+				stability_factor = -0.1
+			}
+		}
+		
+		MEX_PCM_draconian_revisionism = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_PCM_draconian_revisionism"}
+			picture = X
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.05
+				training_time_army_factor = -0.15
+				army_org_Factor = 0.05
+			}
+			targeted_modifier = {
+				tag = HUN
+				attack_bonus_against = 0.075
+				defense_bonus_against = 0.075
+			}
+		}
+		
 		### Democratic ###
 		
 		MEX_asa_resistance_idea = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_anti_asa_resistance_idea"}
+			name = MEX_asa_rebellion
 			modifier = {
 				political_power_gain = -0.25
 				conscription_factor = -0.10
 				stability_factor = -0.20
 				national_populist_drift = 0.03
 			}
-			picture = chi_war_of_resistance3
+			picture = MEX_Anti_Socialist_Alliance_Rebellion
 		}
 		
 		MEX_asa_resistance_idea2 = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_anti_asa_resistance_idea2"}
+			name = MEX_asa_rebellion
 			modifier = {
 				political_power_gain = -0.2
 				conscription_factor = -0.05
 				stability_factor = -0.15
 				national_populist_drift = 0.02
 			}
-			picture = chi_war_of_resistance3
+			picture = MEX_Anti_Socialist_Alliance_Rebellion
 		}
 		
 		MEX_asa_resistance_idea3 = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_anti_asa_resistance_idea3"}
+			name = MEX_asa_rebellion
 			modifier = {
 				political_power_gain = -0.15
 				conscription_factor = -0.02
 				stability_factor = -0.1
 				national_populist_drift = 0.01
 			}
-			picture = chi_war_of_resistance3
+			picture = MEX_Anti_Socialist_Alliance_Rebellion
 		}
 		
 		MEX_asa_resistance_idea4 = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_anti_asa_resistance_idea4"}
+			name = MEX_asa_rebellion
 			modifier = {
 				political_power_gain = -0.1
 				stability_factor = -0.05
 			}
-			picture = chi_war_of_resistance3
+			picture = MEX_Anti_Socialist_Alliance_Rebellion
 		}
 		
 		MEX_DL_constitutional_monarchy = {

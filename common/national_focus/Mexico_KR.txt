@@ -2126,6 +2126,13 @@ focus_tree = {
 			}
 			has_country_flag = MEX_Junta_Stays
 		}
+		bypass = {
+			has_country_leader = {
+				name = "Felix Diaz Prieto"
+				ruling_only = yes
+			}
+			has_country_flag = MEX_Junta_Stays
+		}
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = MEX_juan_barragan }
 		ai_will_do = {
@@ -2133,6 +2140,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_felix_diaz"
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	
@@ -2151,6 +2159,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_legacy_of_the_porfiriato"
+			add_ideas = MEX_legacy_of_the_porfiriato
 		}
 	}
 	
@@ -2169,6 +2178,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_madero_was_wrong"
+			increase_ruling_party_popularity_by_5 = yes
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.3
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.3
+			}
+			add_political_power = 100
+			add_stability = 0.05
+			add_war_support = 0.05
 		}
 	}
 	
@@ -2187,6 +2208,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_revive_the_porfiriato"
+			swap_ideas = {
+				remove_idea = MEX_legacy_of_the_porfiriato
+				add_idea = MEX_legacy_of_the_porfiriato2
+			}
+			add_country_leader_trait = new_diaz
 		}
 	}
 	
@@ -2208,6 +2234,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_secularization"
+			swap_ideas = {
+				remove_idea = MEX_church_question
+				add_idea = MEX_church_question2
+			}
 		}
 	}
 
@@ -2226,6 +2256,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_secular_government"
+			swap_ideas = {
+				remove_idea = MEX_church_question2
+				add_idea = MEX_secular_government
+			}
 		}
 	}
 
@@ -2244,6 +2278,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_friendship_with_the_church"
+			swap_ideas = {
+				remove_idea = MEX_secular_government
+				add_idea = MEX_friendship_with_the_church
+			}
 		}
 	}
 	
@@ -2262,6 +2300,13 @@ focus_tree = {
 			}
 			has_country_flag = MEX_Junta_Stays
 		}
+		bypass = {
+			has_country_leader = {
+				name = "Juan Barragán Rodríguez"
+				ruling_only = yes
+			}
+			has_country_flag = MEX_Junta_Stays
+		}
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = MEX_felix_diaz }
 		ai_will_do = {
@@ -2269,6 +2314,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_juan_barragan"
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	
@@ -2290,6 +2336,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_persecute_rebels"
+			MEX_socialist_resistance_decrease = yes
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.2
+			}
 		}
 	}
 
@@ -2308,6 +2359,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_dont_stop"
+			MEX_socialist_resistance_decrease = yes
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.2
+			}
 		}
 	}
 	
@@ -2326,6 +2382,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_until_theyre_all_gone"
+			MEX_socialist_resistance_decrease = yes
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.2
+			}
 		}
 	}
 	
@@ -2344,6 +2405,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_martyrise_pablo"
+			add_ideas = MEX_martyrise_pablo
 		}
 	}
 
@@ -2362,6 +2424,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_heir_of_the_marshall"
+			swap_ideas = {
+				remove_idea = MEX_martyrise_pablo
+				add_idea = MEX_martyrise_pablo2
+			}
 		}
 	}
 
@@ -2380,6 +2446,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_generallisimo_barragan"
+			add_country_leader_trait = generallisimo
 		}
 	}
 	
@@ -2401,6 +2468,28 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_compromise_with_businessmen"
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic
+				add_idea = MEX_revolution_economic2
+			}
+			277 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
+			477 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
+			485 = {
+				if = {
+					limit = { is_owned_by = MEX	}
+					add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				}
+			}
 		}
 	}
 
@@ -2419,6 +2508,23 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_open_trade_agreements"
+			swap_ideas = {
+				remove_idea = MEX_revolution_economic2
+				add_idea = MEX_open_trade_agreements
+			}
+			add_offsite_building = {
+				type = industrial_complex
+				level = 2
+			}
+			add_ideas = free_trade
+			add_opinion_modifier = {
+				target = ENT
+				modifier = KR_trade_agreement
+			}
+			add_opinion_modifier = {
+				target = GER
+				modifier = KR_trade_agreement
+			}
 		}
 	}
 
@@ -2437,6 +2543,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_succesfull_economy"
+			swap_ideas = {
+				remove_idea = MEX_open_trade_agreements
+				add_idea = MEX_succesfull_economy
+			}
 		}
 	}
 	
@@ -2465,6 +2575,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_a_new_mexico"
+			add_political_power = 100
+			add_stability = 0.05
+			add_command_power = 100
+			army_experience = 100
+			add_ideas = MEX_a_new_mexico
 		}
 	}
 	

@@ -1655,6 +1655,12 @@ country_event = { # Calles is dead!
 	fire_only_once = yes
 
 	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = MEX_calles_dead
+		}
+	}
 
 	trigger = {
 		OR = {
@@ -1665,16 +1671,10 @@ country_event = { # Calles is dead!
 
 	option = { # Cardenas takes over
 		name = mexico.24.a
-		set_country_flag = MEX_Lazaro_Cardenas_hog_tot
+		set_country_flag = MEX_cardenas_succedes_calles
 		if = {
 			limit = { has_government = totalist }
-			add_ideas = MEX_Abelardo_L_Rodriguez_hog_tot
-			hidden_effect = {
-				country_event = {
-					id = mexico.25
-					days = 4
-				}
-			}
+			add_ideas = MEX_Lazaro_Cardenas_hog_tot
 		}
 		create_country_leader = { # Lazaro Cardenas
 			name = "Lázaro Cárdenas"
@@ -1701,17 +1701,17 @@ country_event = { # Calles is dead!
 			traits = {}
 		}
 	}
-	option = { # Abelardo L. Rodríguez
+	option = { # Manuel Perez Treviño
 		name = mexico.24.c
-		set_country_flag = MEX_rodriguez_succedes_calles
+		set_country_flag = MEX_trevino_succedes_calles
 		if = {
 			limit = { has_government = totalist }
 			add_ideas = MEX_Abelardo_L_Rodriguez_hog_tot
 		}
-		create_country_leader = { # Abelardo L. Rodríguez
-			name = "Abelardo L. Rodríguez"
+		create_country_leader = { # Manuel Perez Treviño
+			name = "Manuel Perez Treviño"
 			desc = "POLITICS_ABELARDO_RODRIGUEZ"
-			picture = "Portrait_MEX_Pablo_Abelardo_Rodriguez.png"
+			picture = "Portrait_Manuel_Trevibno.png"
 			expire = "1965.1.1"
 			ideology = totalist_subtype
 			traits = {}
@@ -1726,10 +1726,6 @@ country_event = { # Cardenas and the Maximato
 
 	is_triggered_only = yes
 
-	option = { # Cardenas supports the Maximato
-		name = mexico.25.a
-		add_stability = 0.1
-	}
 	option = { # Cardenas turns against the Maximato
 		name = mexico.25.b
 		add_political_power = 100
@@ -2614,7 +2610,7 @@ country_event = { # what do
 	}
 	
 	option = { # nobody
-		name = mexico.43.b
+		name = mexico.43.c
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -2795,6 +2791,7 @@ country_event = { # Sinarquista Coup
 		}
 		set_cosmetic_tag = MEX_synarchist
 		set_country_flag = MEX_synarchists_in_charge
+		set_country_flag = MEX_Urquiza_leadership
 	}
 	option = {
 		name = mexico.450.b
@@ -2835,10 +2832,12 @@ country_event = { # integralist leadership
 	
 	option = { #keep Vasconcelos
 		name = mexico.4501.a
-		
+		set_country_flag = MEX_Vasconelos_leadership
+		add_ideas = MEX_Jose_Vasconcelos_hog_npo
 	}
 	option = { #Abascal
 		name = mexico.45.b
+		set_country_flag = MEX_Abascal_leadership
 		add_ideas = MEX_Salvador_Abascal_Infante_hog_npo
 		create_country_leader = {
 			name = "Salvador Abascal"

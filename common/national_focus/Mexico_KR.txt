@@ -373,6 +373,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_lead_the_pnr"
 			add_political_power = 50
 			add_stability = 0.1
+			add_ideas = MEX_lead_the_pnr
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 	}
@@ -394,6 +395,10 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_political_commisars"
 			add_political_power = 50
 			add_war_support = 0.1
+			swap_ideas = {
+				remove_idea = MEX_lead_the_pnr
+				add_idea = MEX_lead_the_pnr2
+			}
 		}
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
 	}
@@ -415,6 +420,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_control_congress"
 			add_political_power = 100
 			add_popularity = { ideology = totalist popularity = 0.05 }
+			add_country_leader_trait = dictator
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -442,6 +448,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_cult_of_personality"
 			add_stability = 0.05
 			add_popularity = { ideology = totalist popularity = 0.05 }
+			add_ideas = MEX_cult_of_personality
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
 	}
@@ -494,6 +501,10 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_perfect_dictatorship"
 			add_political_power = 200
+			swap_ideas = {
+				remove_idea = MEX_cult_of_personality
+				add_idea = MEX_perfect_dictatorship
+			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -519,7 +530,12 @@ focus_tree = {
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_death_of_calles"
-			
+			add_political_power = -50
+			add_stability = -0.05
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.05
+			}
 		}
 	}
 	
@@ -528,6 +544,14 @@ focus_tree = {
 		icon = GFX_goal_MEX_President_Cardenas
 		cost = 8.00
 		available = { 
+			has_government = totalist 
+			has_country_leader = {
+				name = "Lázaro Cárdenas"
+				ruling_only = yes
+			}
+			has_country_flag = MEX_cardenas_succedes_calles
+		}
+		bypass = { 
 			has_government = totalist 
 			has_country_leader = {
 				name = "Lázaro Cárdenas"
@@ -550,13 +574,13 @@ focus_tree = {
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_President_Cardenas"
-			
+			custom_effect_tooltip = MEX_cardenas_succedes_calles
 		}
 	}
 	
 	focus = {# 
 		id = MEX_Dissolve_Congress
-		icon = X
+		icon = GFX_goal_generic_parliament2
 		cost = 8.00
 		available = { 
 			has_government = totalist 
@@ -594,6 +618,13 @@ focus_tree = {
 				ruling_only = yes
 			}
 		}
+		bypass = { 
+			has_government = totalist 
+			has_country_leader = {
+				name = "Emilio Portes Gil"
+				ruling_only = yes
+			}
+		}
 		mutually_exclusive = {
 			focus = MEX_President_Cardenas
 			focus = MEX_President_Trevino
@@ -609,7 +640,7 @@ focus_tree = {
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_President_Gil"
-			
+			custom_effect_tooltip = MEX_gil_succedes_calles
 		}
 	}
 	
@@ -636,13 +667,17 @@ focus_tree = {
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_An_idealized_Calles"
-			
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = totalist
+				popularity = 0.05
+			}
 		}
 	}
 	
 	focus = {# 
 		id = MEX_Expand_the_Senates_Power
-		icon = X
+		icon = GFX_goal_NFA_empower_parliament
 		cost = 8.00
 		available = { 
 			has_government = totalist 
@@ -662,13 +697,18 @@ focus_tree = {
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_Expand_the_Senates_Power"
-			
+			add_political_power = 100
+			add_stability = 0.05
+			swap_ideas = {
+				remove_idea = MEX_perfect_dictatorship
+				add_idea = MEX_perfect_dictatorship2
+			}
 		}
 	}
 	
 	focus = {# 
 		id = MEX_All_under_the_Party
-		icon = X
+		icon = GFX_goal_CSA_american_guildism
 		cost = 8.00
 		available = { 
 			has_government = totalist 
@@ -691,7 +731,10 @@ focus_tree = {
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_All_under_the_Party"
-			
+			swap_ideas = {
+				remove_idea = MEX_perfect_dictatorship2
+				add_idea = MEX_All_under_the_Party
+			}
 		}
 	}
 	
@@ -722,7 +765,7 @@ focus_tree = {
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_President_Trevino"
-			
+			custom_effect_tooltip = MEX_trevino_succedes_calles
 		}
 	}
 	
@@ -748,13 +791,14 @@ focus_tree = {
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_Our_Martyr"
-			
+			add_political_power = 100
+			add_stability = 0.05
 		}
 	}
 	
 	focus = {# 
 		id = MEX_Curtail_the_Senates_Power
-		icon = X
+		icon = GFX_goal_NFA_end_parliamentarism
 		cost = 8.00
 		available = { 
 			has_government = totalist 
@@ -774,13 +818,17 @@ focus_tree = {
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_Curtail_the_Senates_Power"
-			
+			add_country_leader_trait = dictator
+			add_popularity = {
+				ideology = totalist
+				popularity = 0.05
+			}
 		}
 	}
 	
 	focus = {# 
 		id = MEX_A_Supreme_Leader
-		icon = X
+		icon = GFX_goal_MEX_presidential_republic
 		cost = 8.00
 		available = { 
 			has_government = totalist 
@@ -803,7 +851,10 @@ focus_tree = {
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_A_Supreme_Leader"
-			
+			swap_ideas = {
+				remove_idea = MEX_perfect_dictatorship
+				add_idea = MEX_A_Supreme_Leader
+			}
 		}
 	}
 	

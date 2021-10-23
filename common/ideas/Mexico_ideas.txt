@@ -97,7 +97,12 @@ ideas = {
 		
 		MEX_cult_of_personality = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_cult_of_personality"}
-			available = { has_government = totalist }
+			available = { 
+				OR = {
+					has_government = totalist 
+					has_government = national_populist 
+				}
+			}
 			picture = generic_iron_fist
 			modifier = {
 				stability_factor = 0.05
@@ -2218,6 +2223,20 @@ ideas = {
 			}
 		}
 		
+		MEX_First_of_its_Kind = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_First_of_its_Kind"}
+			available = { has_government = national_populist }
+			picture = generic_iron_fist
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.1
+				industrial_capacity_factory = 0.075
+				production_speed_buildings_factor = 0.075
+				local_supplies = 0.05
+				local_resources = 0.03
+			}
+		}		
+		
 		## Synarchist Monarchy ##
 		
 		MEX_ITG_a_nationalist_monarchy = {
@@ -2355,6 +2374,46 @@ ideas = {
 				army_morale_factor = 0.04
 				army_core_defence_factor = 0.05
 			}
+		}
+		
+		MEX_meritocratic_society = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_meritocratic_society"}
+			allowed = { always = no }
+			removal_cost = -1
+			picture = state_economy
+			modifier = {
+				research_speed_factor = 0.02
+				monthly_population = 0.10
+				stability_factor = 0.05
+				production_factory_start_efficiency_factor = 0.02
+				production_lack_of_resource_penalty_factor = -0.05
+				max_planning = 0.05
+				conscription = 0.02
+			}
+		}
+		
+		MEX_organic = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_organic"}
+			modifier = { 
+				conscription = 0.010 
+				army_morale_factor = 0.05 
+				production_speed_buildings_factor = 0.02
+				industrial_capacity_factory = 0.04
+			}
+			picture = triumphant_will
+		}
+		
+		MEX_A_Catholic_Nation = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_A_Catholic_Nation"}
+			modifier = { 
+				conscription = 0.010 
+				army_morale_factor = 0.05 
+				production_speed_buildings_factor = 0.02
+				industrial_capacity_factory = 0.04
+				political_power_cost = -0.05
+				stability_factor = 0.05
+			}
+			picture = triumphant_will
 		}
 		
 		## Monarchist Integralists ##

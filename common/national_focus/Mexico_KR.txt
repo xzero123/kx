@@ -4377,9 +4377,13 @@ focus_tree = {
 	### Synarchist/Integralist Shared Stuff ###
 	focus = {# 
 		id = MEX_SynarchoIntegralist_Leadership
-		icon = X
+		icon = GFX_goal_MEX_Choose_the_Leader_of_the_Coalition
 		cost = 8.00
 		available = { 
+			has_government = national_populist 
+			has_completed_focus = MEX_ASA_coup_stopped
+		}
+		bypass = { 
 			has_government = national_populist 
 			has_completed_focus = MEX_ASA_coup_stopped
 		}
@@ -4398,9 +4402,23 @@ focus_tree = {
 	
 	focus = {# 
 		id = MEX_The_Student
-		icon = X
+		icon = GFX_goal_MEX_abascal
 		cost = 8.00
 		available = { 
+			has_government = national_populist
+			custom_trigger_tooltip = {
+				has_country_flag = MEX_Abascal_leadership
+				tooltip = MEX_Abascal_leadership
+				OR = {
+					has_idea = MEX_Salvador_Abascal_Infante_hog_npo
+					has_country_leader = {
+						name = "Salvador Abascal"
+						ruling_only = yes
+					}
+				}
+			}
+		}
+		bypass = { 
 			has_government = national_populist
 			custom_trigger_tooltip = {
 				has_country_flag = MEX_Abascal_leadership
@@ -4428,14 +4446,14 @@ focus_tree = {
 		relative_position_id = MEX_SynarchoIntegralist_Leadership
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_perfect_dictatorship"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_The_Student"
+			custom_effect_tooltip = MEX_Abascal_leadership
 		}
 	}
 	
 	focus = {# 
 		id = MEX_Balance_the_Movements
-		icon = X
+		icon = GFX_goal_generic_stable_government
 		cost = 8.00
 		available = { 
 			has_government = national_populist
@@ -4461,14 +4479,19 @@ focus_tree = {
 		relative_position_id = MEX_The_Student
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_perfect_dictatorship"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_Balance_the_Movements"
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.08
+			}
+			add_political_power = 50
+			add_stability = 0.02
 		}
 	}
 	
 	focus = {# 
 		id = MEX_Dissolve_the_Parties
-		icon = X
+		icon = GFX_goal_NGR_at_dissent
 		cost = 8.00
 		available = { 
 			has_government = national_populist
@@ -4494,14 +4517,34 @@ focus_tree = {
 		relative_position_id = MEX_The_Student
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_perfect_dictatorship"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_Dissolve_the_Parties"
+			add_ideas = MEX_organic
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.02
+			}
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.02
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.02
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.02
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.02
+			}
 		}
 	}
 	
 	focus = {# 
 		id = MEX_A_Catholic_Nation
-		icon = X
+		icon = GFX_goal_MEX_state_catholicism
 		cost = 8.00
 		available = { 
 			has_government = national_populist
@@ -4530,8 +4573,11 @@ focus_tree = {
 		relative_position_id = MEX_The_Student
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_perfect_dictatorship"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_A_Catholic_Nation"
+			swap_ideas = {
+				remove_idea = MEX_organic
+				add_idea = MEX_A_Catholic_Nation
+			}
 		}
 	}
 	
@@ -4539,9 +4585,23 @@ focus_tree = {
 	
 	focus = {# 
 		id = MEX_The_Teacher
-		icon = X
+		icon = GFX_goal_MEX_vasconelos
 		cost = 8.00
 		available = { 
+			has_government = national_populist
+			custom_trigger_tooltip = {
+				tooltip = MEX_Vasconelos_leadership
+				has_country_flag = MEX_Vasconelos_leadership
+				OR = {
+					has_idea = MEX_Jose_Vasconcelos_hog_npo
+					has_country_leader = {
+						name = "José Vasconcelos"
+						ruling_only = yes
+					}
+				}
+			}
+		}
+		bypass = { 
 			has_government = national_populist
 			custom_trigger_tooltip = {
 				tooltip = MEX_Vasconelos_leadership
@@ -4569,14 +4629,15 @@ focus_tree = {
 		relative_position_id = MEX_SynarchoIntegralist_Leadership
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_perfect_dictatorship"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_The_Teacher"
+			custom_effect_tooltip = MEX_Vasconelos_leadership
 		}
 	}
 	
 	focus = {# 
 		id = MEX_Entrench_Integralist_Thought
-		icon = X
+		icon = GFX_goal_MEX_catholic_monarch
+		cost = 8.00
 		available = { 
 			has_government = national_populist
 			custom_trigger_tooltip = {
@@ -4602,13 +4663,17 @@ focus_tree = {
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_Entrench_Integralist_Thought"
-			
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.05
+			}
+			add_political_power = 100
 		}
 	}
 	
 	focus = {# 
 		id = MEX_Old_Friends_in_High_Places
-		icon = X
+		icon = GFX_TRM_Minorities_Government
 		cost = 8.00
 		available = { 
 			has_government = national_populist
@@ -4635,13 +4700,14 @@ focus_tree = {
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_Old_Friends_in_High_Places"
-			
+			army_experience = 100
+			add_stability = 0.1
 		}
 	}
 	
 	focus = {# 
 		id = MEX_An_Educated_Government
-		icon = X
+		icon = GFX_goal_COR_christian_education
 		cost = 8.00
 		available = { 
 			has_government = national_populist
@@ -4670,8 +4736,8 @@ focus_tree = {
 		relative_position_id = MEX_The_Teacher
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_perfect_dictatorship"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_An_Educated_Government"
+			add_ideas = MEX_meritocratic_society
 		}
 	}
 	
@@ -4679,9 +4745,23 @@ focus_tree = {
 	
 	focus = {# 
 		id = MEX_The_Firebrand
-		icon = X
+		icon = GFX_goal_MEX_young_autocrat
 		cost = 8.00
 		available = { 
+			has_government = national_populist
+			custom_trigger_tooltip = {
+				has_country_flag = MEX_Urquiza_leadership
+				tooltip = MEX_Urquiza_leadership
+				OR = {
+					has_idea = MEX_Jose_Antonio_Urquiza_hog_npo
+					has_country_leader = {
+						name = "Jose Antonio Urquiza"
+						ruling_only = yes
+					}
+				}
+			}
+		}
+		bypass = { 
 			has_government = national_populist
 			custom_trigger_tooltip = {
 				has_country_flag = MEX_Urquiza_leadership
@@ -4709,14 +4789,14 @@ focus_tree = {
 		relative_position_id = MEX_SynarchoIntegralist_Leadership
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_perfect_dictatorship"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_The_Firebrand"
+			custom_effect_tooltip = MEX_Urquiza_leadership
 		}
 	}
 	
 	focus = {# 
 		id = MEX_Our_Hero
-		icon = X
+		icon = GFX_goal_NFA_heroic_dynamism
 		cost = 8.00
 		available = { 
 			has_government = national_populist
@@ -4742,14 +4822,14 @@ focus_tree = {
 		relative_position_id = MEX_The_Firebrand
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_perfect_dictatorship"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_Our_Hero"
+			add_ideas = MEX_cult_of_personality
 		}
 	}
 	
 	focus = {# 
 		id = MEX_Renewed_Synarchism
-		icon = X
+		icon = GFX_goal_MEX_synarchism
 		cost = 8.00
 		available = { 
 			has_government = national_populist
@@ -4775,14 +4855,18 @@ focus_tree = {
 		relative_position_id = MEX_The_Firebrand
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_perfect_dictatorship"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_Renewed_Synarchism"
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.05
+			}
+			add_war_support = 0.1
 		}
 	}
 	
 	focus = {# 
 		id = MEX_First_of_its_Kind
-		icon = X
+		icon = goal_MEX_synarchism_entrenched
 		cost = 8.00
 		available = { 
 			has_government = national_populist
@@ -4811,8 +4895,11 @@ focus_tree = {
 		relative_position_id = MEX_The_Firebrand
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_perfect_dictatorship"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_First_of_its_Kind"
+			swap_ideas = {
+				remove_idea = MEX_cult_of_personality
+				add_idea = MEX_First_of_its_Kind
+			}
 		}
 	}
 	

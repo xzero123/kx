@@ -84,28 +84,12 @@ ideas = {
 				political_power_gain = 0.05
 			}
 		}
-		YUC_maya_tax_breaks_idea = {
-			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_maya_tax_breaks_idea"}
-			picture = capital_outflow
-			modifier = {
-				stability_factor = 0.05
-				local_resources_factor = 0.05
-			}
-		}
 		YUC_economic_interventionism_idea = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_economic_interventionism_idea"}
 			picture = economic_control_icon
 			modifier = {
 				production_speed_buildings_factor = 0.03
 				production_factory_max_efficiency_factor = 0.03
-			}
-		}
-		YUC_social_welfare_idea = {
-			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_social_welfare_idea"}
-			picture = generic_goods_red_bonus
-			modifier = {
-				line_change_production_efficiency_factor = 0.03
-				production_factory_efficiency_gain_factor = 0.03
 			}
 		}
 		YUC_agricultural_unions_idea = {
@@ -139,6 +123,141 @@ ideas = {
 				stability_factor = -0.2
 			}
 		}
+		YUC_division = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_division"}
+			picture = generic_radical_socialist_revolution
+			modifier = {
+				stability_factor = -0.2
+			}
+		}
+		YUC_unclear_identity = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_division"}
+			picture = generic_radical_socialist_revolution
+			modifier = {
+				political_power_cost = 0.25
+			}
+		}
+		YUC_unclear_economy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_division"}
+			picture = generic_radical_socialist_revolution
+			modifier = {
+				production_factory_max_efficiency_factor = -0.10
+				industrial_capacity_factory = -0.10
+				production_speed_buildings_factor = -0.10
+			}
+		}
+		
+		### Political Ideas ###
+		
+		##Social Democrats ##
+		YUC_public_spending_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_social_welfare_idea"}
+			picture = generic_goods_red_bonus
+			modifier = {
+				line_change_production_efficiency_factor = 0.03
+				production_factory_efficiency_gain_factor = 0.03
+				political_power_cost = 0.02
+			}
+		}
+		
+		YUC_social_welfare_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_social_welfare_idea"}
+			picture = generic_goods_red_bonus
+			modifier = {
+				line_change_production_efficiency_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.05
+				political_power_cost = 0.05
+				stability_factor = 0.02
+			}
+		}
+		
+		YUC_Labour_Economy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_Labour_Economy"}
+			picture = generic_goods_red_bonus
+			modifier = {
+				industrial_capacity_factory = 0.02
+				production_speed_buildings_factor = 0.02
+				global_building_slots_factor = 0.02
+				stability_factor = -0.02
+			}
+		}
+		
+		##Social Liberal ##
+		
+		YUC_liberty_or_death = { #never surrender
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_liberty_or_death" }
+			picture = MEX_politicised_army_2
+			modifier = {
+				resistance_target_on_our_occupied_states = 0.02
+				army_core_defence_factor = 0.02
+				conscription = 0.02
+				equipment_capture = 0.02
+				attrition = -0.02
+				surrender_limit = 0.15
+			}
+		}
+		
+		YUC_Yucatec_Square_Deal = { 
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_Yucatec_Square_Deal" }
+			picture = MEX_politicised_army_2
+			modifier = {
+				production_factory_max_efficiency_factor = 0.02
+				industrial_capacity_factory = 0.02
+				production_speed_buildings_factor = 0.02
+			}
+		}
+		
+		YUC_constitutional_review = { 
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_constitutional_review" }
+			picture = MEX_politicised_army_2
+			modifier = {
+				political_power_cost = -0.05
+				stability_factor = 0.02
+				social_liberal_drift = 0.02
+			}
+		}
+		
+		YUC_maya_tax_breaks_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_maya_tax_breaks_idea"}
+			picture = capital_outflow
+			modifier = {
+				stability_factor = 0.05
+				local_resources_factor = 0.05
+				political_power_cost = -0.05
+				social_liberal_drift = 0.02
+			}
+		}
+		##Market Liberal ##
+		
+		YUC_fiscal_reform = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_fiscal_reform"}
+			picture = generic_scales
+			modifier = {
+				production_factory_max_efficiency_factor = 0.1
+			}
+		}
+		YUC_responsible_budget = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_responsible_budget"}
+			picture = generic_scales
+			modifier = {
+				production_factory_max_efficiency_factor = 0.1
+				consumer_goods_factor = -0.05
+			}
+		}
+		
+		##Social Conservative ##
+		YUC_Church_Support = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_Church_Support"}
+			available = { has_government = authoritarian_democrat }
+			picture = SHX_christian_statism
+			modifier = {
+				conscription = 0.01
+				land_reinforce_rate = 0.05
+				army_morale_factor = 0.05
+			}
+		}
+			
+		## Totalist ##
 		YUC_Anti_Catholic_Laws = {
 			picture = X
 			modifier = {

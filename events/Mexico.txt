@@ -4010,6 +4010,44 @@ country_event = { # Yucatan manages to survive
 		increase_ruling_party_popularity_by_5 = yes
 		add_political_power = 50
 		set_country_flag = YUC_indepedence_war_over
+		YUC = {
+			if = {
+				limit = {
+					has_country_flag = YUC_redshirt_alliance_flag
+				}
+				country_event = {
+					id = yucatan.6
+					days = 23
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = YUC_maya_alliance_flag
+				}
+				country_event = {
+					id = yucatan.8
+					days = 23
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = YUC_maya_and_redshirt_alliance_flag
+				}
+				country_event = {
+					id = yucatan.9
+					days = 23
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = YUC_no_ally_flag
+				}
+				country_event = {
+					id = yucatan.7
+					days = 23
+				}
+			}
+		}
 	}
 }
 country_event = { # the Yucatan is pacified

@@ -139,5 +139,47 @@ ideas = {
 				stability_factor = -0.2
 			}
 		}
+		YUC_Anti_Catholic_Laws = {
+			picture = X
+			modifier = {
+				consumer_goods_factor = -0.05
+				stability_factor = 0.05
+				political_power_cost = -0.1
+			}
+		}
+		
+		YUC_State_Atheism = {
+			picture = X
+			modifier = {
+				consumer_goods_factor = -0.05
+				stability_factor = 0.1
+				political_power_cost = -0.15
+			}
+		}
+		
+		YUC_one_party_state = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_one_party_state"}
+			picture = state_economy
+			modifier = {
+				stability_factor = -0.10
+				command_power_gain = 1
+				political_power_factor = 0.1
+			}
+		}
+		
+		YUC_one_party_state2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_one_party_state"}
+			picture = state_economy
+			name = YUC_one_party_state
+			modifier = {
+				stability_factor = -0.10
+				command_power_gain = 1
+				political_power_factor = 0.1
+				conscription_factor = 0.01
+				political_power_gain = 0.05
+				max_command_power = 50
+				production_speed_buildings_factor = 0.05
+			}
+		}
 	}
 }

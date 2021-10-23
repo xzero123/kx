@@ -646,7 +646,7 @@ focus_tree = {
 	
 	focus = {# 
 		id = MEX_An_idealized_Calles
-		icon = X
+		icon = GFX_goal_MEX_idealized_calles
 		cost = 8.00
 		available = { 
 			has_government = totalist 
@@ -771,7 +771,7 @@ focus_tree = {
 	
 	focus = {# 
 		id = MEX_Our_Martyr
-		icon = X
+		icon = GFX_goal_MEX_martyr
 		cost = 8.00
 		available = { 
 			has_government = totalist 
@@ -4397,23 +4397,26 @@ focus_tree = {
 	## Salvador Abascal ##
 	
 	focus = {# 
-		id = MEX_Abascal_leadership
+		id = MEX_The_Student
 		icon = X
 		cost = 8.00
 		available = { 
-			has_country_flag = MEX_Abascal_leadership
 			has_government = national_populist
-			OR = {
-				has_idea = MEX_Salvador_Abascal_Infante_hog_npo
-				has_country_leader = {
-					name = "Salvador Abascal"
-					ruling_only = yes
+			custom_trigger_tooltip = {
+				has_country_flag = MEX_Abascal_leadership
+				tooltip = MEX_Abascal_leadership
+				OR = {
+					has_idea = MEX_Salvador_Abascal_Infante_hog_npo
+					has_country_leader = {
+						name = "Salvador Abascal"
+						ruling_only = yes
+					}
 				}
 			}
 		}
 		mutually_exclusive = {
-			focus = MEX_Urquiza_leadership
-			focus = MEX_Vasconelos_leadership
+			focus = MEX_The_Firebrand
+			focus = MEX_The_Teacher
 		}
 		available_if_capitulated = no
 		cancel_if_invalid = yes
@@ -4435,17 +4438,27 @@ focus_tree = {
 		icon = X
 		cost = 8.00
 		available = { 
-			has_country_flag = MEX_Abascal_leadership
 			has_government = national_populist
+			custom_trigger_tooltip = {
+				has_country_flag = MEX_Abascal_leadership
+				tooltip = MEX_Abascal_leadership
+				OR = {
+					has_idea = MEX_Salvador_Abascal_Infante_hog_npo
+					has_country_leader = {
+						name = "Salvador Abascal"
+						ruling_only = yes
+					}
+				}
+			}
 		}
 		available_if_capitulated = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = MEX_Abascal_leadership
+			focus = MEX_The_Student
 		}
 		x = -1
 		y = 1
-		relative_position_id = MEX_Abascal_leadership
+		relative_position_id = MEX_The_Student
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_perfect_dictatorship"
@@ -4458,17 +4471,27 @@ focus_tree = {
 		icon = X
 		cost = 8.00
 		available = { 
-			has_country_flag = MEX_Abascal_leadership
 			has_government = national_populist
+			custom_trigger_tooltip = {
+				has_country_flag = MEX_Abascal_leadership
+				tooltip = MEX_Abascal_leadership
+				OR = {
+					has_idea = MEX_Salvador_Abascal_Infante_hog_npo
+					has_country_leader = {
+						name = "Salvador Abascal"
+						ruling_only = yes
+					}
+				}
+			}
 		}
 		available_if_capitulated = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = MEX_Abascal_leadership
+			focus = MEX_The_Student
 		}
 		x = 1
 		y = 1
-		relative_position_id = MEX_Abascal_leadership
+		relative_position_id = MEX_The_Student
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_perfect_dictatorship"
@@ -4481,8 +4504,18 @@ focus_tree = {
 		icon = X
 		cost = 8.00
 		available = { 
-			has_country_flag = MEX_Abascal_leadership
 			has_government = national_populist
+			custom_trigger_tooltip = {
+				has_country_flag = MEX_Abascal_leadership
+				tooltip = MEX_Abascal_leadership
+				OR = {
+					has_idea = MEX_Salvador_Abascal_Infante_hog_npo
+					has_country_leader = {
+						name = "Salvador Abascal"
+						ruling_only = yes
+					}
+				}
+			}
 		}
 		available_if_capitulated = no
 		cancel_if_invalid = yes
@@ -4494,7 +4527,7 @@ focus_tree = {
 		}
 		x = 0
 		y = 2
-		relative_position_id = MEX_Abascal_leadership
+		relative_position_id = MEX_The_Student
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_perfect_dictatorship"
@@ -4505,23 +4538,26 @@ focus_tree = {
 	## Jose Vasconcelos ##
 	
 	focus = {# 
-		id = MEX_Vasconelos
+		id = MEX_The_Teacher
 		icon = X
 		cost = 8.00
 		available = { 
-			has_country_flag = MEX_Vasconelos_leadership
 			has_government = national_populist
-			OR = {
-				has_idea = MEX_Jose_Vasconcelos_hog_npo
-				has_country_leader = {
-					name = "José Vasconcelos"
-					ruling_only = yes
+			custom_trigger_tooltip = {
+				tooltip = MEX_Vasconelos_leadership
+				has_country_flag = MEX_Vasconelos_leadership
+				OR = {
+					has_idea = MEX_Jose_Vasconcelos_hog_npo
+					has_country_leader = {
+						name = "José Vasconcelos"
+						ruling_only = yes
+					}
 				}
 			}
 		}
 		mutually_exclusive = {
 			focus = MEX_Urquiza_leadership
-			focus = MEX_Abascal_leadership
+			focus = MEX_The_Student
 		}
 		available_if_capitulated = no
 		cancel_if_invalid = yes
@@ -4542,24 +4578,27 @@ focus_tree = {
 		id = MEX_Entrench_Integralist_Thought
 		icon = X
 		available = { 
-			has_country_flag = MEX_Vasconelos_leadership
 			has_government = national_populist
-			OR = {
-				has_idea = MEX_Jose_Vasconcelos_hog_npo
-				has_country_leader = {
-					name = "José Vasconcelos"
-					ruling_only = yes
+			custom_trigger_tooltip = {
+				tooltip = MEX_Vasconelos_leadership
+				has_country_flag = MEX_Vasconelos_leadership
+				OR = {
+					has_idea = MEX_Jose_Vasconcelos_hog_npo
+					has_country_leader = {
+						name = "José Vasconcelos"
+						ruling_only = yes
+					}
 				}
 			}
 		}
 		available_if_capitulated = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = MEX_Vasconelos
+			focus = MEX_The_Teacher
 		}
 		x = -1
 		y = 1
-		relative_position_id = MEX_Vasconelos
+		relative_position_id = MEX_The_Teacher
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_Entrench_Integralist_Thought"
@@ -4572,24 +4611,27 @@ focus_tree = {
 		icon = X
 		cost = 8.00
 		available = { 
-			has_country_flag = MEX_Vasconelos_leadership
 			has_government = national_populist
-			OR = {
-				has_idea = MEX_Jose_Vasconcelos_hog_npo
-				has_country_leader = {
-					name = "José Vasconcelos"
-					ruling_only = yes
+			custom_trigger_tooltip = {
+				tooltip = MEX_Vasconelos_leadership
+				has_country_flag = MEX_Vasconelos_leadership
+				OR = {
+					has_idea = MEX_Jose_Vasconcelos_hog_npo
+					has_country_leader = {
+						name = "José Vasconcelos"
+						ruling_only = yes
+					}
 				}
 			}
 		}
 		available_if_capitulated = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = MEX_Vasconelos
+			focus = MEX_The_Teacher
 		}
 		x = 1
 		y = 1
-		relative_position_id = MEX_Vasconelos
+		relative_position_id = MEX_The_Teacher
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_Old_Friends_in_High_Places"
@@ -4602,13 +4644,16 @@ focus_tree = {
 		icon = X
 		cost = 8.00
 		available = { 
-			has_country_flag = MEX_Vasconelos_leadership
 			has_government = national_populist
-			OR = {
-				has_idea = MEX_Jose_Vasconcelos_hog_npo
-				has_country_leader = {
-					name = "José Vasconcelos"
-					ruling_only = yes
+			custom_trigger_tooltip = {
+				tooltip = MEX_Vasconelos_leadership
+				has_country_flag = MEX_Vasconelos_leadership
+				OR = {
+					has_idea = MEX_Jose_Vasconcelos_hog_npo
+					has_country_leader = {
+						name = "José Vasconcelos"
+						ruling_only = yes
+					}
 				}
 			}
 		}
@@ -4622,7 +4667,7 @@ focus_tree = {
 		}
 		x = 0
 		y = 2
-		relative_position_id = MEX_Vasconelos
+		relative_position_id = MEX_The_Teacher
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_perfect_dictatorship"
@@ -4633,23 +4678,26 @@ focus_tree = {
 	## Jose Antonio Uzriquia ##
 	
 	focus = {# 
-		id = MEX_Uzriqua
+		id = MEX_The_Firebrand
 		icon = X
 		cost = 8.00
 		available = { 
-			has_country_flag = MEX_Urquiza_leadership
 			has_government = national_populist
-			OR = {
-				has_idea = MEX_Jose_Antonio_Urquiza_hog_npo
-				has_country_leader = {
-					name = "Jose Antonio Urquiza"
-					ruling_only = yes
+			custom_trigger_tooltip = {
+				has_country_flag = MEX_Urquiza_leadership
+				tooltip = MEX_Urquiza_leadership
+				OR = {
+					has_idea = MEX_Jose_Antonio_Urquiza_hog_npo
+					has_country_leader = {
+						name = "Jose Antonio Urquiza"
+						ruling_only = yes
+					}
 				}
 			}
 		}
 		mutually_exclusive = {
-			focus = MEX_Abascal_leadership
-			focus = MEX_Vasconelos_leadership
+			focus = MEX_The_Student
+			focus = MEX_The_Teacher
 		}
 		available_if_capitulated = no
 		cancel_if_invalid = yes
@@ -4671,17 +4719,27 @@ focus_tree = {
 		icon = X
 		cost = 8.00
 		available = { 
-			has_country_flag = MEX_Urquiza_leadership
 			has_government = national_populist
+			custom_trigger_tooltip = {
+				has_country_flag = MEX_Urquiza_leadership
+				tooltip = MEX_Urquiza_leadership
+				OR = {
+					has_idea = MEX_Jose_Antonio_Urquiza_hog_npo
+					has_country_leader = {
+						name = "Jose Antonio Urquiza"
+						ruling_only = yes
+					}
+				}
+			}
 		}
 		available_if_capitulated = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = MEX_Uzriqua
+			focus = MEX_The_Firebrand
 		}
 		x = -1
 		y = 1
-		relative_position_id = MEX_Uzriqua
+		relative_position_id = MEX_The_Firebrand
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_perfect_dictatorship"
@@ -4694,17 +4752,27 @@ focus_tree = {
 		icon = X
 		cost = 8.00
 		available = { 
-			has_country_flag = MEX_Urquiza_leadership
 			has_government = national_populist
+			custom_trigger_tooltip = {
+				has_country_flag = MEX_Urquiza_leadership
+				tooltip = MEX_Urquiza_leadership
+				OR = {
+					has_idea = MEX_Jose_Antonio_Urquiza_hog_npo
+					has_country_leader = {
+						name = "Jose Antonio Urquiza"
+						ruling_only = yes
+					}
+				}
+			}
 		}
 		available_if_capitulated = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = MEX_Uzriqua
+			focus = MEX_The_Firebrand
 		}
 		x = 1
 		y = 1
-		relative_position_id = MEX_Uzriqua
+		relative_position_id = MEX_The_Firebrand
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_perfect_dictatorship"
@@ -4717,8 +4785,18 @@ focus_tree = {
 		icon = X
 		cost = 8.00
 		available = { 
-			has_country_flag = MEX_Urquiza_leadership
 			has_government = national_populist
+			custom_trigger_tooltip = {
+				has_country_flag = MEX_Urquiza_leadership
+				tooltip = MEX_Urquiza_leadership
+				OR = {
+					has_idea = MEX_Jose_Antonio_Urquiza_hog_npo
+					has_country_leader = {
+						name = "Jose Antonio Urquiza"
+						ruling_only = yes
+					}
+				}
+			}
 		}
 		available_if_capitulated = no
 		cancel_if_invalid = yes
@@ -4730,7 +4808,7 @@ focus_tree = {
 		}
 		x = 0
 		y = 2
-		relative_position_id = MEX_Uzriqua
+		relative_position_id = MEX_The_Firebrand
 		ai_will_do = {	factor = 50	}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_perfect_dictatorship"

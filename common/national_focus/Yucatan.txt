@@ -709,6 +709,7 @@ focus_tree = {
 				ideology = national_populist
 				popularity = -0.5
 			}
+			remove_idea = YUC_unclear_identity
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -736,6 +737,10 @@ focus_tree = {
 						instant_build = yes
 					}
 				}
+			}
+			swap_ideas = {
+				remove_idea = YUC_unclear_economy
+				add_idea = YUC_2_Year_Plan
 			}
 		}
 	}
@@ -784,6 +789,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_State_Economy"
 			add_country_leader_trait = YUC_supreme_leader
+			remove_ideas = YUC_division
 		}
 	}
 	
@@ -804,9 +810,9 @@ focus_tree = {
 		}
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
-		x = 3
+		x = -3
 		y = 1
-		relative_position_id = YUC_syndicalists
+		relative_position_id = YUC_totalists
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_Anti_Catholic_Laws"
 			add_ideas = YUC_Anti_Catholic_Laws
@@ -828,9 +834,9 @@ focus_tree = {
 		}
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
-		x = 3
+		x = -3
 		y = 2
-		relative_position_id = YUC_syndicalists
+		relative_position_id = YUC_totalists
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_no_more_caste_war"
 			increase_ruling_party_popularity_by_5 = yes
@@ -855,9 +861,9 @@ focus_tree = {
 		}
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
-		x = 3
+		x = -3
 		y = 3
-		relative_position_id = YUC_syndicalists
+		relative_position_id = YUC_totalists
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_no_more_caste_war"
 			swap_ideas = {
@@ -890,7 +896,7 @@ focus_tree = {
 	}
 	focus = {#
 		id = YUC_Industrialization
-		icon = X
+		icon = GFX_goal_CSA_industrial_unionism
 		cost = 7
 		prerequisite = {
 			focus = YUC_syndicalists
@@ -921,7 +927,7 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_Expand_Urban_Centers
-		icon = X
+		icon = GFX_BBR_urbanization
 		cost = 7
 		prerequisite = {
 			focus = YUC_Industrialization
@@ -955,7 +961,7 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_Yucatec_Unionism
-		icon = X
+		icon = GFX_CAL_union_expansion
 		cost = 7
 		prerequisite = {
 			focus = YUC_Expand_Urban_Centers
@@ -977,7 +983,7 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_Start_Talks
-		icon = X
+		icon = GFX_talktotheisldadoo
 		cost = 7
 		prerequisite = {
 			focus = YUC_syndicalists
@@ -1009,7 +1015,7 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_Socialist_Unity
-		icon = X
+		icon = GFX_BBR_approach_local_socialists
 		cost = 7
 		prerequisite = {
 			focus = YUC_Start_Talks
@@ -1040,7 +1046,7 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_Red_Nation
-		icon = X
+		icon = GFX_BBR_socialist_civi_identity
 		cost = 7
 		prerequisite = {
 			focus = YUC_Socialist_Unity
@@ -1093,7 +1099,7 @@ focus_tree = {
 	## Syndicalists and Radical Socialist ###
 	focus = {# 
 		id = YUC_Purge_The_Red_Shirts
-		icon = X
+		icon = GFX_CSA_finish_centralism
 		cost = 7
 		prerequisite = {
 			focus = YUC_syndicalists
@@ -1123,7 +1129,7 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_Secularization
-		icon = X
+		icon = GFX_goal_MEX_secular_mexico
 		cost = 7
 		prerequisite = {
 			focus = YUC_Purge_The_Red_Shirts
@@ -1199,7 +1205,7 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_Agrarian_Economics
-		icon = GFX_goal_commune_politics
+		icon = GFX_goal_agrarian_socialism
 		cost = 7
 		prerequisite = {
 			focus = YUC_collectivize_mexican_property
@@ -1241,7 +1247,7 @@ focus_tree = {
 	}
 	focus = {# Memory of Cruzoob
 		id = YUC_memory_of_cruzoob
-		icon = GFX_goal_red_star_green_wreath
+		icon = YUC_memories_of_cruzoob
 		cost = 7
 		prerequisite = {
 			focus = YUC_radical_socialists
@@ -1260,7 +1266,7 @@ focus_tree = {
 	}
 	focus = {# People's revolution
 		id = YUC_peoples_revolution
-		icon = GFX_goal_volunteer_alliance
+		icon = GFX_goal_CSA_revolution_at_homee
 		cost = 7
 		prerequisite = {
 			focus = YUC_memory_of_cruzoob
@@ -1285,7 +1291,7 @@ focus_tree = {
 	}
 	focus = {# Central American Overtures
 		id = YUC_Red_Apostle
-		icon = GFX_goal_centroamerica
+		icon = GFX_goal_CZE_radical_changes
 		cost = 10.00
 		available = {
 			has_government = radical_socialist
@@ -1304,7 +1310,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_Red_Apostle"
 			swap_ideas = {
-				add_idea = YUC_cruzoob_idea
+				remove_idea = YUC_cruzoob_idea
 				add_idea = YUC_Red_Apostle
 			}
 		}
@@ -1312,7 +1318,7 @@ focus_tree = {
 	
 	focus = {# Central American Overtures
 		id = YUC_Full_Centralization
-		icon = GFX_goal_centroamerica
+		icon = X
 		cost = 10.00
 		available = {
 			has_government = radical_socialist
@@ -1343,7 +1349,7 @@ focus_tree = {
 	## Social Dem and Radical Socialist ###
 	focus = {# Equal Republic
 		id = YUC_equal_republic
-		icon = GFX_goal_generic_national_unity
+		icon = GFX_goal_CSA_equality
 		cost = 7
 		prerequisite = {
 			focus = YUC_social_democrats
@@ -1415,7 +1421,7 @@ focus_tree = {
 	
 	focus = {# Increase Public spending
 		id = YUC_increase_public_spending
-		icon = GFX_goal_gold_up
+		icon = GFX_goal_CZE_public_amenities
 		cost = 7
 		prerequisite = {
 			focus = YUC_social_democrats
@@ -1436,7 +1442,7 @@ focus_tree = {
 	
 	focus = {# social Welfare
 		id = YUC_social_welfare
-		icon = GFX_goal_socialist_infrastructure
+		icon = GFX_goal_CSA_social_dividends
 		cost = 7
 		prerequisite = {
 			focus = YUC_increase_public_spending
@@ -1458,7 +1464,7 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_Seperate_From_Radicalism
-		icon = X
+		icon = VNC_no_liberty_to_the_enemies_of_liberty
 		cost = 7
 		prerequisite = {
 			focus = YUC_social_welfare
@@ -1477,7 +1483,7 @@ focus_tree = {
 	}
 	focus = {# Improve Rural Workers
 		id = YUC_improve_rural_workers
-		icon = GFX_goal_tblra_union_agreement
+		icon = GFX_goal_CZE_worker_justice
 		cost = 7
 		prerequisite = {
 			focus = YUC_social_democrats
@@ -1505,7 +1511,7 @@ focus_tree = {
 	}
 	focus = {# Rural Peace
 		id = YUC_rural_peace
-		icon = GFX_goal_coffee_boom
+		icon = GFX_goal_CSA_peaceful_revolution
 		cost = 7
 		prerequisite = {
 			focus = YUC_improve_rural_workers
@@ -1534,7 +1540,7 @@ focus_tree = {
 	
 	focus = {# Labour Economy
 		id = YUC_Labour_Economy
-		icon = X
+		icon = GFX_goal_TEX_labor_economics
 		cost = 7
 		prerequisite = {
 			focus = YUC_rural_peace
@@ -1583,7 +1589,7 @@ focus_tree = {
 	### Social dems and social liberals
 	focus = {# Industrialization Import
 		id = YUC_industralization_import
-		icon = GFX_goal_generic_production2
+		icon = GFX_goal_CZE_export_work
 		cost = 7
 		prerequisite = {
 			focus = YUC_social_liberals
@@ -1614,7 +1620,7 @@ focus_tree = {
 	
 	focus = {# Economic Interventionism
 		id = YUC_economic_interventionism
-		icon = GFX_goal_economic_control
+		icon = GFX_HUN_economic_stimulus
 		cost = 7
 		prerequisite = {
 			focus = YUC_industralization_import
@@ -1659,7 +1665,7 @@ focus_tree = {
 	}
 	focus = {# Build Democracy
 		id = YUC_build_democracy
-		icon = GFX_goal_production
+		icon = GFX_goal_FRA_internal_democracy
 		cost = 7
 		prerequisite = {
 			focus = YUC_social_liberals
@@ -1681,7 +1687,7 @@ focus_tree = {
 	}
 	focus = {# Agricultural Aid
 		id = YUC_agricultural_aid
-		icon = GFX_goal_agrarian_reform
+		icon = GFX_goal_CSA_agricultural_revolution
 		cost = 7
 		prerequisite = {
 			focus = YUC_build_democracy
@@ -1710,7 +1716,7 @@ focus_tree = {
 	
 	focus = {# Square Deal
 		id = YUC_Yucatec_Square_Deal
-		icon = X
+		icon = GFX_goal_generic_deals
 		cost = 7
 		prerequisite = {
 			focus = YUC_agricultural_aid
@@ -1733,7 +1739,7 @@ focus_tree = {
 	
 	focus = {# Constitutional Review
 		id = YUC_constitutional_review
-		icon = GFX_goal_new_treaty
+		icon = GFX_goal_MEX_rewrite_constitution
 		cost = 7
 		prerequisite = {
 			focus = YUC_social_liberals
@@ -1753,7 +1759,7 @@ focus_tree = {
 	}
 	focus = {# Maya Tax Breaks
 		id = YUC_maya_tax_breaks
-		icon = GFX_focus_generic_concessions
+		icon = GRU_CONS_TAX_CUT
 		cost = 7
 		prerequisite = {
 			focus = YUC_constitutional_review
@@ -1776,7 +1782,7 @@ focus_tree = {
 	
 	focus = {# 
 		id = YUC_New_Republicanism
-		icon = X
+		icon = VNC_model_of_modern_republicanism
 		cost = 7
 		prerequisite = {
 			focus = YUC_maya_tax_breaks
@@ -1823,7 +1829,7 @@ focus_tree = {
 	### Market and Social Liberals ###
 	focus = {# Press Freedom
 		id = YUC_press_freedom
-		icon = GFX_goal_big_news
+		icon = GFX_goal_CSA_democratic_press
 		cost = 7
 		prerequisite = {
 			focus = YUC_market_liberals
@@ -1849,7 +1855,7 @@ focus_tree = {
 	
 	focus = {# Liberty or Death
 		id = YUC_liberty_or_death
-		icon = GFX_goal_authority
+		icon = GFX_ITA_power_people
 		cost = 7
 		prerequisite = {
 			focus = YUC_press_freedom
@@ -1894,7 +1900,7 @@ focus_tree = {
 	}
 	focus = {# Fair and Free Market
 		id = YUC_fair_and_free_market
-		icon = GFX_goal_generic_positive_trade_relations
+		icon = GFX_goal_AST_new_markets
 		cost = 7
 		prerequisite = {
 			focus = YUC_market_liberals
@@ -1916,7 +1922,7 @@ focus_tree = {
 	}
 	focus = {#
 		id = YUC_Curtail_Alvarado
-		icon = GFX_goal_generic_improve_relations
+		icon = GFX_goal_MEX_control_countryside
 		cost = 7
 		prerequisite = {
 			focus = YUC_fair_and_free_market
@@ -1938,7 +1944,7 @@ focus_tree = {
 	}
 	focus = {# Foreign Investment
 		id = YUC_foreign_investment
-		icon = GFX_goal_generic_consumer_goods
+		icon = GFX_goal_CSA_capital_investments
 		cost = 7
 		prerequisite = {
 			focus = YUC_Curtail_Alvarado
@@ -1962,7 +1968,7 @@ focus_tree = {
 	}
 	focus = {# Fiscal Reform
 		id = YUC_fiscal_reform
-		icon = GFX_goal_government_icon
+		icon = GFX_goal_CAL_money
 		cost = 7
 		prerequisite = {
 			focus = YUC_market_liberals
@@ -1981,7 +1987,7 @@ focus_tree = {
 	}
 	focus = {# Responsible Budget
 		id = YUC_responsible_budget
-		icon = GFX_goal_gold_reserve
+		icon = GFX_goal_generic_balanced_budget
 		cost = 7
 		prerequisite = {
 			focus = YUC_fiscal_reform
@@ -2004,7 +2010,7 @@ focus_tree = {
 	}
 	focus = {# Building Grants
 		id = YUC_business_grants
-		icon = GFX_goal_construction_engineering
+		icon = GFX_goal_NFA_industrial_push_command
 		cost = 7
 		prerequisite = {
 			focus = YUC_responsible_budget
@@ -2055,9 +2061,9 @@ focus_tree = {
 	}
 	
 	### Marlib/SocCon ###
-	focus = {# Press Freedom
+	focus = {# 
 		id = YUC_Staunch_Constitutionalism
-		icon = X
+		icon = GFX_goal_NFA_rewrite_constitution
 		cost = 7
 		prerequisite = {
 			focus = YUC_social_conservatives
@@ -2102,9 +2108,9 @@ focus_tree = {
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 	}
-	focus = {# Liberty or Death
+	focus = {# 
 		id = YUC_Church_Support
-		icon = X
+		icon = GFX_goal_MEX_friendship_with_church
 		cost = 7
 		prerequisite = {
 			focus = YUC_Staunch_Constitutionalism
@@ -2150,7 +2156,7 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_Defense_Against_Radicals
-		icon = X
+		icon = GRU_CONS_SIDELINE_RADICALS
 		cost = 7
 		prerequisite = {
 			focus = YUC_social_conservatives
@@ -2186,7 +2192,7 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_Yucatec_Independence
-		icon = X
+		icon = GFX_BBR_radicalized_unions
 		cost = 7
 		prerequisite = {
 			focus = YUC_Defense_Against_Radicals
@@ -2195,7 +2201,7 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
 		x = -1
-		y = 1
+		y = 2
 		relative_position_id = YUC_social_conservatives
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_Yucatec_Independence"
@@ -2211,7 +2217,7 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_Economic_Protectionism
-		icon = X
+		icon = GFX_BBR_paternalistic_economy
 		cost = 7
 		prerequisite = {
 			focus = YUC_social_conservatives
@@ -2220,7 +2226,7 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
 		x = -1
-		y = 1
+		y = 3
 		relative_position_id = YUC_social_conservatives
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_Economic_Protectionism"
@@ -2233,7 +2239,7 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_Shining_Democracy
-		icon = X
+		icon = GFX_ITA_democracy
 		cost = 7
 		prerequisite = {
 			focus = YUC_social_conservatives
@@ -2253,7 +2259,7 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_Reward_Fighters
-		icon = X
+		icon = GFX_goal_TEX_veteran_benefits
 		cost = 7
 		prerequisite = {
 			focus = YUC_Shining_Democracy
@@ -2276,7 +2282,7 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_Support_Maya
-		icon = X
+		icon = GFX_goal_goal_NGR_native_rights
 		cost = 7
 		prerequisite = {
 			focus = YUC_Reward_Fighters
@@ -2300,7 +2306,7 @@ focus_tree = {
 		icon = X
 		cost = 7
 		prerequisite = {
-			focus = YUC_Defense_Against_Radicals
+			focus = YUC_Economic_Protectionism
 		}
 		prerequisite = {
 			focus = YUC_Support_Maya
@@ -2316,14 +2322,14 @@ focus_tree = {
 			add_war_support = -0.02
 			add_stability = 0.1
 			add_political_power = -20
-			remove_idea = YUC_division
+			remove_ideas = YUC_division
 		}
 	}
 	
 	### SocCon/Authdem ###
 	focus = {#
 		id = YUC_Prohibition
-		icon = X
+		icon = GFX_CAL_prohibition
 		cost = 7
 		prerequisite = {
 			focus = YUC_authoritarian_democrats
@@ -2338,9 +2344,9 @@ focus_tree = {
 		}
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
-		x = -3
+		x = 3
 		y = 1
-		relative_position_id = YUC_social_conservatives
+		relative_position_id = YUC_authoritarian_democrats
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_Prohibition"
 			add_ideas = YUC_Prohibition
@@ -2349,7 +2355,7 @@ focus_tree = {
 	}
 	focus = {#
 		id = YUC_Exert_Control
-		icon = X
+		icon = GRU_CONTROL_ELECTION
 		cost = 7
 		prerequisite = {
 			focus = YUC_Prohibition
@@ -2363,9 +2369,9 @@ focus_tree = {
 		}
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
-		x = -3
+		x = 3
 		y = 2
-		relative_position_id = YUC_social_conservatives
+		relative_position_id = YUC_authoritarian_democrats
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_Exert_Control"
 			increase_ruling_party_popularity_by_5 = yes
@@ -2398,7 +2404,7 @@ focus_tree = {
 	}
 	focus = {#
 		id = YUC_Agrarianism
-		icon = X
+		icon = GFX_goal_SRI_agrarian_power
 		cost = 7
 		prerequisite = {
 			focus = YUC_authoritarian_democrats
@@ -2418,7 +2424,7 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_Labor_Economics
-		icon = X
+		icon = GFX_goal_Workers_Paradise
 		cost = 7
 		prerequisite = {
 			focus = YUC_authoritarian_democrats
@@ -2440,7 +2446,7 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_Education_Reform
-		icon = X
+		icon = GFX_NEE_education_spending
 		cost = 7
 		prerequisite = {
 			focus = YUC_Agrarianism
@@ -2469,7 +2475,7 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_SocDem_Junta
-		icon = X
+		icon = GFX_goal_ZIM_labour_centrists
 		cost = 7
 		prerequisite = {
 			focus = YUC_authoritarian_democrats
@@ -2529,7 +2535,7 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_Control_The_State
-		icon = X
+		icon = GFX_BBR_party_with_a_state
 		cost = 7
 		prerequisite = {
 			focus = YUC_SocDem_Junta
@@ -2558,10 +2564,10 @@ focus_tree = {
 	}
 	focus = {# 
 		id = YUC_Curtail_Fanaticism
-		icon = X
+		icon = GFX_goal_MEX_begin_secularization2
 		cost = 7
 		prerequisite = {
-			focus = YUC_SocDem_Junta
+			focus = YUC_Control_The_State
 		}
 		available = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 		ai_will_do = { factor = 5 }

@@ -592,145 +592,1284 @@ focus_tree = {
 		}
 	}
 	
-	###Cruzoob###
-	focus = {# Radical Socialist
-		id = YUC_restore_cruzoob
-		icon = YUC_memories_of_cruzoob
+	## Totalists ##
+	focus = {#
+		id = YUC_totalists
+		icon = GFX_goal_ideology_totalist
 		cost = 7
 		prerequisite = {
 			focus = YUC_yucatec_democracy
 		}
-		available = { has_government = national_populist }
-		bypass = { has_government = national_populist }
+		available = { has_government = totalist }
+		bypass = { has_government = totalist }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
-		relative_position_id = YUC_yucatec_democracy
-		x = -25
+		x = 21
 		y = 1
+		relative_position_id = YUC_yucatec_democracy
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_restore_cruzoob"
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_totalists"
 			custom_effect_tooltip = unlock_focuses
 		}
 	}
-	focus = {# Radical Socialist
-		id = YUC_ode_to_sacrafice
-		icon = YUC_ode_to_sacrifice
+	focus = {#
+		id = YUC_We_Are_All_Socialists
+		icon = GFX_goal_CSA_Socialism_first
 		cost = 7
 		prerequisite = {
-			focus = YUC_restore_cruzoob
+			focus = YUC_totalists
 		}
-		available = { has_government = national_populist }
+		available = { has_government = totalist }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
 		x = -1
 		y = 1
-		relative_position_id = YUC_restore_cruzoob
+		relative_position_id = YUC_totalists
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_radical_socialists"
-			add_stability = 0.20
-			add_manpower = -500
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_We_Are_All_Socialists"
+			add_ideas = YUC_one_party_state
 		}
-		search_filters = { FOCUS_FILTER_STABILITY }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 	}
-	focus = {# Radical Socialist
-		id = YUC_revive_mayan_language
-		icon = YUC_restore_mayan_culture
+	focus = {#
+		id = YUC_Racism_Is_A_Crime
+		icon = GFX_focus_generic_ban_right_wing
 		cost = 7
 		prerequisite = {
-			focus = YUC_ode_to_sacrafice
+			focus = YUC_We_Are_All_Socialists
 		}
-		available = { has_government = national_populist }
+		available = { has_government = totalist }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
 		x = -1
 		y = 2
-		relative_position_id = YUC_restore_cruzoob
+		relative_position_id = YUC_totalists
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_revive_mayan_language"
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Racism_Is_A_Crime"
+			swap_ideas = {
+				add_idea = YUC_one_party_state2
+				remove_idea = YUC_one_party_state
+			}
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+	focus = {#
+		id = YUC_All_Crimes_Have_the_Same_Punishment
+		icon = GFX_goal_MEX_firing_squads
+		cost = 7
+		prerequisite = {
+			focus = YUC_Racism_Is_A_Crime
+		}
+		available = { has_government = totalist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -1
+		y = 3
+		relative_position_id = YUC_totalists
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_All_Crimes_Have_the_Same_Punishment"
+			add_popularity = {
+				ideology = totalist
+				popularity = 0.05
+			}
+			add_stability = 0.06
 			add_political_power = 100
-			add_stability = 0.12
-			add_popularity = { ideology = national_populist popularity = 0.05 }
+			add_manpower = -500
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+	focus = {# 
+		id = YUC_Purge_Opposition
+		icon = GFX_goal_DSR_Purge
+		cost = 7
+		prerequisite = {
+			focus = YUC_totalists
+		}
+		available = { has_government = totalist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 1
+		y = 1
+		relative_position_id = YUC_totalists
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Purge_Opposition"
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.5
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.5
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.5
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.5
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {# 
+		id = YUC_2_Year_Plan
+		icon = GFX_goal_CSA_great_sprint
+		cost = 7
+		prerequisite = {
+			focus = YUC_Purge_Opposition
+		}
+		available = { has_government = totalist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 1
+		y = 2
+		relative_position_id = YUC_totalists
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_2_Year_Plan"
+			474 = {
+				if = {
+					limit = { is_owned_by = YUC }
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {# 
+		id = YUC_State_Economy
+		icon = GFX_goal_state_economy
+		cost = 7
+		prerequisite = {
+			focus = YUC_2_Year_Plan
+		}
+		available = { has_government = totalist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 1
+		y = 3
+		relative_position_id = YUC_totalists
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_State_Economy"
+			474 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {# 
+		id = YUC_Supreme_Leader
+		icon = GFX_goal_FRA_popular_combat_front
+		cost = 7
+		prerequisite = {
+			focus = YUC_All_Crimes_Have_the_Same_Punishment
+		}
+		prerequisite = {
+			focus = YUC_State_Economy
+		}
+		available = { has_government = totalist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 0
+		y = 4
+		relative_position_id = YUC_totalists
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_State_Economy"
+			add_country_leader_trait = YUC_supreme_leader
+		}
+	}
+	
+	## Syndicalists and Totalist ###
+	focus = {
+		id = YUC_Anti_Catholic_Laws
+		icon = GFX_goal_MEX_destroy_catholic
+		cost = 7
+		prerequisite = {
+			focus = YUC_syndicalists
+			focus = YUC_totalists
+		}
+		available = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+		}
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 3
+		y = 1
+		relative_position_id = YUC_syndicalists
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Anti_Catholic_Laws"
+			add_ideas = YUC_Anti_Catholic_Laws
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {
+		id = YUC_Persecute_Preists
+		icon = GFX_goal_YUC_preists
+		cost = 7
+		prerequisite = {
+			focus = YUC_Anti_Catholic_Laws
+		}
+		available = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+		}
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 3
+		y = 2
+		relative_position_id = YUC_syndicalists
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_no_more_caste_war"
+			increase_ruling_party_popularity_by_5 = yes
+			add_political_power = 100
+			add_stability = 0.05
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	
+	focus = {
+		id = YUC_State_Atheism
+		icon = GFX_goal_MEX_atheism
+		cost = 7
+		prerequisite = {
+			focus = YUC_Persecute_Preists
+		}
+		available = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+			}
+		}
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 3
+		y = 3
+		relative_position_id = YUC_syndicalists
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_no_more_caste_war"
+			swap_ideas = {
+				remove_idea = YUC_Anti_Catholic_Laws
+				add_idea = YUC_State_Atheism
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	
+	## Syndicalists ##
+	focus = {# Syndicalists
+		id = YUC_syndicalists
+		icon = GFX_goal_ideology_syndicalist
+		cost = 7
+		prerequisite = {
+			focus = YUC_yucatec_democracy
+		}
+		available = { has_government = syndicalist }
+		bypass = { has_government = syndicalist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 15
+		y = 1
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_syndicalists"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {#
+		id = YUC_Industrialization
+		icon = X
+		cost = 7
+		prerequisite = {
+			focus = YUC_syndicalists
+		}
+		available = { has_government = syndicalist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -1
+		y = 1
+		relative_position_id = YUC_syndicalists
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Industrialization"
+			474 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_political_power = 50
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.05
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+	focus = {# 
+		id = YUC_Expand_Urban_Centers
+		icon = X
+		cost = 7
+		prerequisite = {
+			focus = YUC_Industrialization
+		}
+		available = { has_government = syndicalist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -1
+		y = 2
+		relative_position_id = YUC_syndicalists
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Expand_Urban_Centers"
+			474 = {
+				if = {
+					limit = { is_owned_by = YUC }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.05
+			}
+			add_research_slot = 1
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+	focus = {# 
+		id = YUC_Yucatec_Unionism
+		icon = X
+		cost = 7
+		prerequisite = {
+			focus = YUC_Expand_Urban_Centers
+		}
+		available = { has_government = syndicalist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -1
+		y = 3
+		relative_position_id = YUC_syndicalists
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Yucatec_Unionism"
+			swap_ideas = {
+				remove_idea = YUC_unclear_economy
+				add_idea = YUC_Yucatec_Unionism
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+	focus = {# 
+		id = YUC_Start_Talks
+		icon = X
+		cost = 7
+		prerequisite = {
+			focus = YUC_syndicalists
+		}
+		available = { has_government = syndicalist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 1
+		y = 1
+		relative_position_id = YUC_syndicalists
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Start_Talks"
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
+			}
+			add_stability = 0.05
+			add_political_power = 100
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {# 
+		id = YUC_Socialist_Unity
+		icon = X
+		cost = 7
+		prerequisite = {
+			focus = YUC_Start_Talks
+		}
+		available = { has_government = syndicalist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 1
+		y = 2
+		relative_position_id = YUC_syndicalists
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Socialist_Unity"
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
+			}
+			add_ideas = YUC_Socialist_Unity
+		}
+
+	}
+	focus = {# 
+		id = YUC_Red_Nation
+		icon = X
+		cost = 7
+		prerequisite = {
+			focus = YUC_Socialist_Unity
+		}
+		available = { has_government = syndicalist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 1
+		y = 3
+		relative_position_id = YUC_syndicalists
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Red_Nation"
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.05
+			}
+			remove_ideas = YUC_unclear_identity
+		}
+	}
+	
+	focus = {# 
+		id = YUC_Centralized_Syndicalist_Yucatan
+		icon = X
+		cost = 7
+		prerequisite = {
+			focus = YUC_Red_Nation
+		}
+		prerequisite = {
+			focus = YUC_Yucatec_Unionism
+		}
+		available = { has_government = syndicalist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 0
+		y = 4
+		relative_position_id = YUC_syndicalists
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Red_Nation"
+			add_political_power = 150
+			add_stability = -0.05
+			remove_ideas = YUC_division
+		}
+	}
+	
+	## Syndicalists and Radical Socialist ###
+	focus = {# 
+		id = YUC_Purge_The_Red_Shirts
+		icon = X
+		cost = 7
+		prerequisite = {
+			focus = YUC_syndicalists
+			focus = YUC_radical_socialists
+		}
+		available = {
+			OR = {
+				has_government = radical_socialist
+				has_government = syndicalist
+			}
+		}
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -3
+		y = 1
+		relative_position_id = YUC_syndicalists
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Purge_The_Red_Shirts"
+			add_political_power = 100
+			add_stability = 0.05
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.5
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {# 
+		id = YUC_Secularization
+		icon = X
+		cost = 7
+		prerequisite = {
+			focus = YUC_Purge_The_Red_Shirts
+		}
+		available = {
+			OR = {
+				has_government = radical_socialist
+				has_government = social_democrat
+			}
+		}
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -3
+		y = 2
+		relative_position_id = YUC_syndicalists
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Secularization"
+			add_ideas = YUC_Secularization
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	
+	### Radical Socialist ###
+	focus = {# Radical Socialist
+		id = YUC_radical_socialists
+		icon = GFX_goal_ideology_radical_socialist
+		cost = 7
+		prerequisite = {
+			focus = YUC_yucatec_democracy
+		}
+		available = { has_government = radical_socialist }
+		bypass = { has_government = radical_socialist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 9
+		y = 1
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_radical_socialists"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {# Land Collectivization
+		id = YUC_collectivize_mexican_property
+		icon = GFX_focus_prc_agrarian_socialism
+		cost = 7
+		prerequisite = {
+			focus = YUC_radical_socialists
+		}
+		available = { has_government = radical_socialist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 8
+		y = 2
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_collectivize_mexican_property"
+			add_stability = 0.05
+			add_popularity = { ideology = radical_socialist popularity = 0.05 }
+			474 = {
+				if = {
+					limit = { is_owned_by = YUC }
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			add_research_slot = 1
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+	focus = {# 
+		id = YUC_Agrarian_Economics
+		icon = GFX_goal_commune_politics
+		cost = 7
+		prerequisite = {
+			focus = YUC_collectivize_mexican_property
+		}
+		available = { has_government = radical_socialist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 8
+		y = 3
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Agrarian_Economics"
+			swap_ideas = {
+				remove_idea = YUC_unclear_economy
+				add_idea = YUC_Agrarian_Economics
+			}
+			add_stability = 0.05
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {# Agricultural Unions
+		id = YUC_agricultural_unions
+		icon = GFX_goal_agrarian_reform
+		cost = 7
+		prerequisite = {
+			focus = YUC_Agrarian_Economics
+		}
+		available = { has_government = radical_socialist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 8
+		y = 4
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_agricultural_unions"
+			add_ideas = YUC_agricultural_unions_idea
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+	focus = {# Memory of Cruzoob
+		id = YUC_memory_of_cruzoob
+		icon = GFX_goal_red_star_green_wreath
+		cost = 7
+		prerequisite = {
+			focus = YUC_radical_socialists
+		}
+		available = { has_government = radical_socialist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 10
+		y = 2
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_memory_of_cruzoob"
+			add_ideas = YUC_cruzoob_idea
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	}
+	focus = {# People's revolution
+		id = YUC_peoples_revolution
+		icon = GFX_goal_volunteer_alliance
+		cost = 7
+		prerequisite = {
+			focus = YUC_memory_of_cruzoob
+		}
+		available = { has_government = radical_socialist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 10
+		y = 3
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_peoples_revolution"
+			add_war_support = 0.1
+			add_political_power = 50
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.05
+			}
+			remove_ideas = YUC_unclear_identity
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	}
+	focus = {# Central American Overtures
+		id = YUC_Red_Apostle
+		icon = GFX_goal_centroamerica
+		cost = 10.00
+		available = {
+			has_government = radical_socialist
+			is_subject = no
+		}
+		cost = 7
+		prerequisite = {
+			focus = YUC_peoples_revolution
+		}
+		available = { has_government = radical_socialist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 10
+		y = 4
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Red_Apostle"
+			swap_ideas = {
+				add_idea = YUC_cruzoob_idea
+				add_idea = YUC_Red_Apostle
+			}
+		}
+	}
+	
+	focus = {# Central American Overtures
+		id = YUC_Full_Centralization
+		icon = GFX_goal_centroamerica
+		cost = 10.00
+		available = {
+			has_government = radical_socialist
+			is_subject = no
+		}
+		cost = 7
+		prerequisite = {
+			focus = YUC_Red_Apostle
+		}
+		prerequisite = {
+			focus = YUC_agricultural_unions
+		}
+		available = { has_government = radical_socialist }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 0
+		y = 4
+		relative_position_id = YUC_radical_socialists
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Full_Centralization"
+			add_stability = 0.15
+			add_political_power = -50
+			remove_ideas = YUC_division
+		}
+	}
+	
+	
+	## Social Dem and Radical Socialist ###
+	focus = {# Equal Republic
+		id = YUC_equal_republic
+		icon = GFX_goal_generic_national_unity
+		cost = 7
+		prerequisite = {
+			focus = YUC_social_democrats
+			focus = YUC_radical_socialists
+		}
+		available = {
+			OR = {
+				has_government = radical_socialist
+				has_government = social_democrat
+			}
+		}
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 6
+		y = 2
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_equal_republic"
+			add_ideas = YUC_equal_republic
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {# No more Caste War
+		id = YUC_no_more_caste_war
+		icon = GFX_goal_red_star_dove
+		cost = 7
+		prerequisite = {
+			focus = YUC_equal_republic
+		}
+		available = {
+			OR = {
+				has_government = radical_socialist
+				has_government = social_democrat
+			}
+		}
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 6
+		y = 3
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_no_more_caste_war"
+			add_political_power = 50
+			add_stability = 0.05
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	
+	### Social Democrats ##
+	focus = {# Social Democrats
+		id = YUC_social_democrats
+		icon = GFX_goal_ideology_social_democrat
+		cost = 7
+		prerequisite = {
+			focus = YUC_yucatec_democracy
+		}
+		available = { has_government = social_democrat }
+		bypass = { has_government = social_democrat }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 3
+		y = 1
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_social_democrats"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {# Increase Public spending
+		id = YUC_increase_public_spending
+		icon = GFX_goal_gold_up
+		cost = 7
+		prerequisite = {
+			focus = YUC_social_democrats
+		}
+		available = { has_government = social_democrat }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 2
+		y = 2
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_increase_public_spending"
+			add_ideas = YUC_public_spending_idea
 			add_research_slot = 1
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
-	focus = {# Radical Socialist
-		id = YUC_reclaim_the_empire
-		icon = YUC_mayan_restoration
+	
+	focus = {# social Welfare
+		id = YUC_social_welfare
+		icon = GFX_goal_socialist_infrastructure
 		cost = 7
 		prerequisite = {
-			focus = YUC_restore_cruzoob
+			focus = YUC_increase_public_spending
 		}
-		available = { has_government = national_populist }
+		available = { has_government = social_democrat }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
-		x = 1
-		y = 1
-		relative_position_id = YUC_restore_cruzoob
+		x = 2
+		y = 3
+		relative_position_id = YUC_yucatec_democracy
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
-			YUC = {
-				transfer_state = 475
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = GUA
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_social_welfare"
+			swap_ideas = {
+				remove_idea = YUC_public_spending_idea
+				add_idea = YUC_social_welfare_idea
 			}
 		}
-		search_filters = { FOCUS_FILTER_ANNEXATION }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 	}
-	focus = {# Radical Socialist
-		id = YUC_reintergrate_the_empire
-		icon = YUC_intergrate_the_empire
+	focus = {# 
+		id = YUC_Seperate_From_Radicalism
+		icon = X
 		cost = 7
 		prerequisite = {
-			focus = YUC_reclaim_the_empire
+			focus = YUC_social_welfare
 		}
-		available = { 
-			has_government = national_populist
-			owns_state = 311
-			owns_state = 313
-		}
+		available = { has_government = social_democrat }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
-		x = 1
+		x = 2
+		y = 4
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_social_welfare"
+			add_ideas = YUC_social_welfare_idea
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+	focus = {# Improve Rural Workers
+		id = YUC_improve_rural_workers
+		icon = GFX_goal_tblra_union_agreement
+		cost = 7
+		prerequisite = {
+			focus = YUC_social_democrats
+		}
+		available = { has_government = social_democrat }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 4
 		y = 2
-		relative_position_id = YUC_restore_cruzoob
+		relative_position_id = YUC_yucatec_democracy
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
-			YUC = {
-				add_state_core = 311
-				add_state_core = 313
-				add_state_core = 475
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_improve_rural_workers"
+			add_popularity = { ideology = social_democrat popularity = 0.05 }
+			add_political_power = 50
+			474 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
-	focus = {# Radical Socialist
-		id = YUC_the_empire_breathes_again
-		icon = YUC_the_empire_breathes_again
+	focus = {# Rural Peace
+		id = YUC_rural_peace
+		icon = GFX_goal_coffee_boom
 		cost = 7
-		prerequisite = {focus = YUC_revive_mayan_language}
-		prerequisite = {focus = YUC_reintergrate_the_empire}
-		available = { has_government = national_populist }
+		prerequisite = {
+			focus = YUC_improve_rural_workers
+		}
+		available = { has_government = social_democrat }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 4
+		y = 3
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_rural_peace"
+			474 = {
+				if = {
+					limit = { is_owned_by = YUC }
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+	
+	focus = {# Labour Economy
+		id = YUC_Labour_Economy
+		icon = X
+		cost = 7
+		prerequisite = {
+			focus = YUC_rural_peace
+		}
+		available = { has_government = social_democrat }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 4
+		y = 4
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Labour_Economy"
+			swap_ideas = {
+				remove_idea = YUC_unclear_economy
+				add_idea = YUC_Labour_Economy
+			}
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+	
+	focus = {#
+		id = YUC_Centralization_Middle_Ground
+		icon = X
+		cost = 7
+		prerequisite = {
+			focus = YUC_Labour_Economy
+		}
+		prerequisite = {
+			focus = YUC_Seperate_From_Radicalism
+		}
+		available = { has_government = social_democrat }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 0
+		y = 4
+		relative_position_id = YUC_social_democrats
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Labour_Economy"
+			add_stability = 0.02
+			add_political_power = 50
+			remove_idea = YUC_division
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+	
+	### Social dems and social liberals
+	focus = {# Industrialization Import
+		id = YUC_industralization_import
+		icon = GFX_goal_generic_production2
+		cost = 7
+		prerequisite = {
+			focus = YUC_social_liberals
+			focus = YUC_social_democrats
+		}
+		available = {
+			OR = {
+				has_government = social_liberal
+				has_government = social_democrat
+			}
+		}
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 0
+		y = 2
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_industralization_import"
+			add_tech_bonus = {
+				name = YUC_industralization_import
+				bonus = 1
+				uses = 2
+				category = industry
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+	
+	focus = {# Economic Interventionism
+		id = YUC_economic_interventionism
+		icon = GFX_goal_economic_control
+		cost = 7
+		prerequisite = {
+			focus = YUC_industralization_import
+		}
+		available = {
+			OR = {
+				has_government = social_liberal
+				has_government = social_democrat
+			}
+		}
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
 		x = 0
 		y = 3
-		relative_position_id = YUC_restore_cruzoob
+		relative_position_id = YUC_yucatec_democracy
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_the_empire_breathes_again"
-			set_cosmetic_tag = YUC_MAY
-			hidden_effect = {	
-				create_country_leader = {# Gustavo Arce Correa
-					name = "Pakal II"
-					desc = "POLITICS_FRANSCISO_MAY_DESC"
-					picture = "Portrait_YUC_Pakal_II.png"
-					expire = "1965.1.1"
-					ideology = national_populist_subtype
-					traits = {}
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_economic_interventionism"
+			add_ideas = YUC_economic_interventionism_idea
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+	
+	### Social Liberals ###
+	focus = {# Social Liberals
+		id = YUC_social_liberals
+		icon = GFX_goal_ideology_social_liberal
+		cost = 7
+		prerequisite = {
+			focus = YUC_yucatec_democracy
+		}
+		available = { has_government = social_liberal }
+		bypass = { has_government = social_liberal }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -3
+		y = 1
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_social_liberals"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {# Build Democracy
+		id = YUC_build_democracy
+		icon = GFX_goal_production
+		cost = 7
+		prerequisite = {
+			focus = YUC_social_liberals
+		}
+		available = { has_government = social_liberal }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -4
+		y = 2
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_build_democracy"
+			add_political_power = 100
+			add_stability = 0.05
+			increase_ruling_party_popularity_by_5 = yes
+			add_war_support = 0.05
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	focus = {# Agricultural Aid
+		id = YUC_agricultural_aid
+		icon = GFX_goal_agrarian_reform
+		cost = 7
+		prerequisite = {
+			focus = YUC_build_democracy
+		}
+		available = { has_government = social_liberal }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -4
+		y = 3
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_agricultural_aid"
+			474 = {
+				if = {
+					limit = { is_owned_by = YUC }
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
 				}
 			}
 		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+	
+	focus = {# Square Deal
+		id = YUC_Yucatec_Square_Deal
+		icon = X
+		cost = 7
+		prerequisite = {
+			focus = YUC_agricultural_aid
+		}
+		available = { has_government = social_liberal }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -4
+		y = 4
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_agricultural_aid"
+			swap_ideas = {
+				remove_idea = YUC_unclear_economy
+				add_idea = YUC_Yucatec_Square_Deal
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+	
+	focus = {# Constitutional Review
+		id = YUC_constitutional_review
+		icon = GFX_goal_new_treaty
+		cost = 7
+		prerequisite = {
+			focus = YUC_social_liberals
+		}
+		available = { has_government = social_liberal }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -2
+		y = 2
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_constitutional_review"
+			add_ideas = YUC_constitutional_review
+			add_research_slot = 1
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+	focus = {# Maya Tax Breaks
+		id = YUC_maya_tax_breaks
+		icon = GFX_focus_generic_concessions
+		cost = 7
+		prerequisite = {
+			focus = YUC_constitutional_review
+		}
+		available = { has_government = social_liberal }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -2
+		y = 3
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_maya_tax_breaks"
+			swap_ideas = {
+				remove_idea = YUC_constitutional_review
+				add_idea = YUC_maya_tax_breaks_idea
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
+	}
+	
+	focus = {# 
+		id = YUC_New_Republicanism
+		icon = X
+		cost = 7
+		prerequisite = {
+			focus = YUC_maya_tax_breaks
+		}
+		available = { has_government = social_liberal }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -2
+		y = 4
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_maya_tax_breaks"
+			remove_ideas = YUC_unclear_identity
+			add_stability = 0.05
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
+	}
+	
+	focus = {# 
+		id = YUC_Semi_Centralized_State
+		icon = X
+		cost = 7
+		prerequisite = {
+			focus = YUC_New_Republicanism
+		}
+		prerequisite = {
+			focus = YUC_Yucatec_Square_Deal
+		}
+		available = { has_government = social_liberal }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 0
+		y = 4
+		relative_position_id = YUC_social_liberals
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_maya_tax_breaks"
+			remove_ideas = YUC_division
+			add_political_power = 100
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
+	}
+	
+	
+	### Market and Social Liberals ###
+	focus = {# Press Freedom
+		id = YUC_press_freedom
+		icon = GFX_goal_big_news
+		cost = 7
+		prerequisite = {
+			focus = YUC_market_liberals
+			focus = YUC_social_liberals
+		}
+		available = {
+			OR = {
+				has_government = market_liberal
+				has_government = social_liberal
+			}
+		}
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -6
+		y = 2
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_press_freedom"
+			add_ideas = YUC_press_freedom_idea
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+	
+	focus = {# Liberty or Death
+		id = YUC_liberty_or_death
+		icon = GFX_goal_authority
+		cost = 7
+		prerequisite = {
+			focus = YUC_press_freedom
+		}
+		available = {
+			OR = {
+				has_government = market_liberal
+				has_government = social_liberal
+			}
+		}
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -6
+		y = 3
+		relative_position_id = YUC_yucatec_democracy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_liberty_or_death"
+			add_ideas = YUC_liberty_or_death
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
 	}
 	
 	### Market Liberals ###
@@ -1010,6 +2149,67 @@ focus_tree = {
 		}
 	}
 	focus = {# 
+		id = YUC_Defense_Against_Radicals
+		icon = X
+		cost = 7
+		prerequisite = {
+			focus = YUC_social_conservatives
+		}
+		available = { has_government = social_conservative }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -1
+		y = 1
+		relative_position_id = YUC_social_conservatives
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Defense_Against_Radicals"
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.2
+			}
+			add_political_power = 100
+			add_stability = 0.05
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+	focus = {# 
+		id = YUC_Yucatec_Independence
+		icon = X
+		cost = 7
+		prerequisite = {
+			focus = YUC_Defense_Against_Radicals
+		}
+		available = { has_government = social_conservative }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -1
+		y = 1
+		relative_position_id = YUC_social_conservatives
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Yucatec_Independence"
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.05
+			}
+			add_political_power = 100
+			add_stability = 0.05
+			remove_ideas = YUC_unclear_identity
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+	focus = {# 
 		id = YUC_Economic_Protectionism
 		icon = X
 		cost = 7
@@ -1024,48 +2224,12 @@ focus_tree = {
 		relative_position_id = YUC_social_conservatives
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_Economic_Protectionism"
-			
+			swap_ideas = {
+				remove_idea = YUC_unclear_economy
+				add_idea = YUC_Economic_Protectionism
+			}
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
-	}
-	focus = {# 
-		id = YUC_Yucatec_Independence
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_Economic_Protectionism
-		}
-		available = { has_government = social_conservative }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = -1
-		y = 2
-		relative_position_id = YUC_social_conservatives
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Yucatec_Independence"
-			
-		}
-		search_filters = { FOCUS_FILTER_STABILITY }
-	}
-	focus = {# 
-		id = YUC_Defense_Against_Radicals
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_Yucatec_Independence
-		}
-		available = { has_government = social_conservative }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = -1
-		y = 3
-		relative_position_id = YUC_social_conservatives
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Defense_Against_Radicals"
-			
-			
-		}
-		search_filters = { FOCUS_FILTER_RESEARCH }
 	}
 	focus = {# 
 		id = YUC_Shining_Democracy
@@ -1082,7 +2246,8 @@ focus_tree = {
 		relative_position_id = YUC_social_conservatives
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_Shining_Democracy"
-			
+			add_ideas = YUC_Shining_Democracy
+			add_war_support = 0.06
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -1101,7 +2266,11 @@ focus_tree = {
 		relative_position_id = YUC_social_conservatives
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_Reward_Fighters"
-			
+			swap_ideas = {
+				remove_idea = YUC_Shining_Democracy
+				add_idea = YUC_Shining_Democracy2
+			}
+			add_manpower = 1000
 		}
 
 	}
@@ -1121,6 +2290,8 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_Support_Maya"
 			add_research_slot = 1
+			add_political_power = 100
+			add_stability = 0.05
 		}
 	}
 	
@@ -1142,7 +2313,10 @@ focus_tree = {
 		relative_position_id = YUC_social_conservatives
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_Support_Maya"
-			
+			add_war_support = -0.02
+			add_stability = 0.1
+			add_political_power = -20
+			remove_idea = YUC_division
 		}
 	}
 	
@@ -1169,7 +2343,7 @@ focus_tree = {
 		relative_position_id = YUC_social_conservatives
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_Prohibition"
-			
+			add_ideas = YUC_Prohibition
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 	}
@@ -1194,7 +2368,9 @@ focus_tree = {
 		relative_position_id = YUC_social_conservatives
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_Exert_Control"
-			
+			increase_ruling_party_popularity_by_5 = yes
+			add_political_power = 100
+			add_stability = 0.05
 		}
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
 	}
@@ -1208,8 +2384,8 @@ focus_tree = {
 		prerequisite = {
 			focus = YUC_yucatec_democracy
 		}
-		available = { has_government = authoritarian_democrat }
-		bypass = { has_government = authoritarian_democrat }
+		available = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } has_government = paternal_autocrat } 
+		bypass = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
 		x = -21
@@ -1220,6 +2396,26 @@ focus_tree = {
 			custom_effect_tooltip = unlock_focuses
 		}
 	}
+	focus = {#
+		id = YUC_Agrarianism
+		icon = X
+		cost = 7
+		prerequisite = {
+			focus = YUC_authoritarian_democrats
+		}
+		available = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -1
+		y = 1
+		relative_position_id = YUC_authoritarian_democrats
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Agrarianism"
+			add_ideas = YUC_agricultural_unions_idea
+			add_stability = 0.05
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
 	focus = {# 
 		id = YUC_Labor_Economics
 		icon = X
@@ -1227,36 +2423,20 @@ focus_tree = {
 		prerequisite = {
 			focus = YUC_authoritarian_democrats
 		}
-		available = { has_government = authoritarian_democrat }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = -1
-		y = 1
-		relative_position_id = YUC_authoritarian_democrats
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Labor_Economics"
-			
-		}
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-	}
-	focus = {#
-		id = YUC_Agrarianism
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_Labor_Economics
-		}
-		available = { has_government = authoritarian_democrat }
+		available = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
 		x = -1
 		y = 2
 		relative_position_id = YUC_authoritarian_democrats
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Agrarianism"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Labor_Economics"
+			swap_ideas = {
+				remove_idea = YUC_unclear_economy
+				add_idea = YUC_Labour_Economy
+			}
 		}
-		search_filters = { FOCUS_FILTER_STABILITY }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 	}
 	focus = {# 
 		id = YUC_Education_Reform
@@ -1265,7 +2445,7 @@ focus_tree = {
 		prerequisite = {
 			focus = YUC_Agrarianism
 		}
-		available = { has_government = authoritarian_democrat }
+		available = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
 		x = -1
@@ -1274,47 +2454,107 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_Education_Reform"
 			add_research_slot = 1
-			
+			add_political_power = 100
+			add_stability = 0.05
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
 		}
 		search_filters = { FOCUS_FILTER_RESEARCH }
-	}
-	focus = {# 
-		id = YUC_Control_The_State
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_authoritarian_democrats
-		}
-		available = { has_government = authoritarian_democrat }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 1
-		y = 1
-		relative_position_id = YUC_authoritarian_democrats
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Control_The_State"
-			
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	focus = {# 
 		id = YUC_SocDem_Junta
 		icon = X
 		cost = 7
 		prerequisite = {
-			focus = YUC_Control_The_State
+			focus = YUC_authoritarian_democrats
 		}
-		available = { has_government = authoritarian_democrat }
+		available = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 1
+		y = 1
+		relative_position_id = YUC_authoritarian_democrats
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_SocDem_Junta"
+			add_ideas = YUC_SocDem_Junta
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+			create_country_leader = {# Salvador Alvarado
+				name = "Salvador Alvarado"
+				desc = "POLITICS_ALVORADO_DESC"
+				picture = "Portrait_Salvador_Alvarado.png"
+				expire = "1965.1.1"
+				ideology = radical_socialist_subtype
+				traits = {}
+			}
+			create_country_leader = {# Salvador Alvarado
+				name = "Salvador Alvarado"
+				desc = "POLITICS_ALVORADO_DESC"
+				picture = "Portrait_Salvador_Alvarado.png"
+				expire = "1965.1.1"
+				ideology = social_democrat_subtype
+				traits = {}
+			}
+			set_party_name = {
+				ideology = social_democrat
+				name = YUC_paternal_autocrat_party
+				long_name = YUC_paternal_autocrat_party_long
+			}
+			set_party_name = {
+				ideology = radical_socialist
+				name = YUC_paternal_autocrat_party
+				long_name = YUC_paternal_autocrat_party_long
+			}
+		}
+	}
+	focus = {# 
+		id = YUC_Control_The_State
+		icon = X
+		cost = 7
+		prerequisite = {
+			focus = YUC_SocDem_Junta
+		}
+		available = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
 		x = 1
 		y = 2
 		relative_position_id = YUC_authoritarian_democrats
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_SocDem_Junta"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Control_The_State"
+			add_political_power = 100
+			add_stability = 0.05
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+			remove_ideas = YUC_unclear_identity
 		}
-
+		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	focus = {# 
 		id = YUC_Curtail_Fanaticism
@@ -1323,7 +2563,7 @@ focus_tree = {
 		prerequisite = {
 			focus = YUC_SocDem_Junta
 		}
-		available = { has_government = authoritarian_democrat }
+		available = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
 		x = 1
@@ -1331,7 +2571,11 @@ focus_tree = {
 		relative_position_id = YUC_authoritarian_democrats
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_Curtail_Fanaticism"
-			
+			swap_ideas = {
+				remove_idea = YUC_SocDem_Junta2
+				add_idea = YUC_SocDem_Junta3
+			}
+			add_political_power = 100
 		}
 	}
 	
@@ -1345,7 +2589,7 @@ focus_tree = {
 		prerequisite = {
 			focus = YUC_Education_Reform
 		}
-		available = { has_government = authoritarian_democrat }
+		available = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
 		x = 0
@@ -1353,1285 +2597,152 @@ focus_tree = {
 		relative_position_id = YUC_authoritarian_democrats
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_Curtail_Fanaticism"
-			
-		}
-	}
-	
-	### Market and Social Liberals ###
-	focus = {# Press Freedom
-		id = YUC_press_freedom
-		icon = GFX_goal_big_news
-		cost = 7
-		prerequisite = {
-			focus = YUC_market_liberals
-			focus = YUC_social_liberals
-		}
-		available = {
-			OR = {
-				has_government = market_liberal
-				has_government = social_liberal
-			}
-		}
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = -6
-		y = 2
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_press_freedom"
-			add_ideas = YUC_press_freedom_idea
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-	}
-	
-	focus = {# Liberty or Death
-		id = YUC_liberty_or_death
-		icon = GFX_goal_authority
-		cost = 7
-		prerequisite = {
-			focus = YUC_press_freedom
-		}
-		available = {
-			OR = {
-				has_government = market_liberal
-				has_government = social_liberal
-			}
-		}
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = -6
-		y = 3
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_liberty_or_death"
-			add_ideas = YUC_liberty_or_death
-		}
-		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
-	}
-	
-	### Social Liberals ###
-	focus = {# Social Liberals
-		id = YUC_social_liberals
-		icon = GFX_goal_ideology_social_liberal
-		cost = 7
-		prerequisite = {
-			focus = YUC_yucatec_democracy
-		}
-		available = { has_government = social_liberal }
-		bypass = { has_government = social_liberal }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = -3
-		y = 1
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_social_liberals"
-			custom_effect_tooltip = unlock_focuses
-		}
-	}
-	focus = {# Build Democracy
-		id = YUC_build_democracy
-		icon = GFX_goal_production
-		cost = 7
-		prerequisite = {
-			focus = YUC_social_liberals
-		}
-		available = { has_government = social_liberal }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = -4
-		y = 2
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_build_democracy"
-			add_political_power = 100
-			add_stability = 0.05
-			increase_ruling_party_popularity_by_5 = yes
-			add_war_support = 0.05
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-	}
-	focus = {# Agricultural Aid
-		id = YUC_agricultural_aid
-		icon = GFX_goal_agrarian_reform
-		cost = 7
-		prerequisite = {
-			focus = YUC_build_democracy
-		}
-		available = { has_government = social_liberal }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = -4
-		y = 3
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_agricultural_aid"
-			474 = {
-				if = {
-					limit = { is_owned_by = YUC }
-					add_building_construction = {
-						type = infrastructure
-						level = 2
-						instant_build = yes
-					}
-				}
-			}
-		}
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-	}
-	
-	focus = {# Square Deal
-		id = YUC_Yucatec_Square_Deal
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_agricultural_aid
-		}
-		available = { has_government = social_liberal }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = -4
-		y = 4
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_agricultural_aid"
-			swap_ideas = {
-				remove_idea = YUC_unclear_economy
-				add_idea = YUC_Yucatec_Square_Deal
-			}
-		}
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-	}
-	
-	focus = {# Constitutional Review
-		id = YUC_constitutional_review
-		icon = GFX_goal_new_treaty
-		cost = 7
-		prerequisite = {
-			focus = YUC_social_liberals
-		}
-		available = { has_government = social_liberal }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = -2
-		y = 2
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_constitutional_review"
-			add_ideas = YUC_constitutional_review
-			add_research_slot = 1
-		}
-		search_filters = { FOCUS_FILTER_STABILITY }
-	}
-	focus = {# Maya Tax Breaks
-		id = YUC_maya_tax_breaks
-		icon = GFX_focus_generic_concessions
-		cost = 7
-		prerequisite = {
-			focus = YUC_constitutional_review
-		}
-		available = { has_government = social_liberal }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = -2
-		y = 3
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_maya_tax_breaks"
-			swap_ideas = {
-				remove_idea = YUC_constitutional_review
-				add_idea = YUC_maya_tax_breaks_idea
-			}
-		}
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
-	}
-	
-	focus = {# 
-		id = YUC_New_Republicanism
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_maya_tax_breaks
-		}
-		available = { has_government = social_liberal }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = -2
-		y = 4
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_maya_tax_breaks"
-			remove_ideas = YUC_unclear_identity
-			add_stability = 0.05
-		}
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
-	}
-	
-	focus = {# 
-		id = YUC_Semi_Centralized_State
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_New_Republicanism
-		}
-		prerequisite = {
-			focus = YUC_Yucatec_Square_Deal
-		}
-		available = { has_government = social_liberal }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 0
-		y = 4
-		relative_position_id = YUC_social_liberals
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_maya_tax_breaks"
-			remove_ideas = YUC_division
-			add_political_power = 100
-		}
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
-	}
-	
-	### Social dems and social liberals
-	focus = {# Industrialization Import
-		id = YUC_industralization_import
-		icon = GFX_goal_generic_production2
-		cost = 7
-		prerequisite = {
-			focus = YUC_social_liberals
-			focus = YUC_social_democrats
-		}
-		available = {
-			OR = {
-				has_government = social_liberal
-				has_government = social_democrat
-			}
-		}
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 0
-		y = 2
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_industralization_import"
-			add_tech_bonus = {
-				name = YUC_industralization_import
-				bonus = 1
-				uses = 2
-				category = industry
-			}
-		}
-		search_filters = { FOCUS_FILTER_RESEARCH }
-	}
-	
-	focus = {# Economic Interventionism
-		id = YUC_economic_interventionism
-		icon = GFX_goal_economic_control
-		cost = 7
-		prerequisite = {
-			focus = YUC_industralization_import
-		}
-		available = {
-			OR = {
-				has_government = social_liberal
-				has_government = social_democrat
-			}
-		}
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 0
-		y = 3
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_economic_interventionism"
-			add_ideas = YUC_economic_interventionism_idea
-		}
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-	}
-	
-	### Social Democrats ##
-	focus = {# Social Democrats
-		id = YUC_social_democrats
-		icon = GFX_goal_ideology_social_democrat
-		cost = 7
-		prerequisite = {
-			focus = YUC_yucatec_democracy
-		}
-		available = { has_government = social_democrat }
-		bypass = { has_government = social_democrat }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 3
-		y = 1
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_social_democrats"
-			custom_effect_tooltip = unlock_focuses
-		}
-	}
-	
-	focus = {# Increase Public spending
-		id = YUC_increase_public_spending
-		icon = GFX_goal_gold_up
-		cost = 7
-		prerequisite = {
-			focus = YUC_social_democrats
-		}
-		available = { has_government = social_democrat }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 2
-		y = 2
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_increase_public_spending"
-			add_ideas = YUC_public_spending_idea
-			add_research_slot = 1
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL }
-	}
-	
-	focus = {# social Welfare
-		id = YUC_social_welfare
-		icon = GFX_goal_socialist_infrastructure
-		cost = 7
-		prerequisite = {
-			focus = YUC_increase_public_spending
-		}
-		available = { has_government = social_democrat }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 2
-		y = 3
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_social_welfare"
-			swap_ideas = {
-				remove_idea = YUC_public_spending_idea
-				add_idea = YUC_social_welfare_idea
-			}
-		}
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-	}
-	focus = {# 
-		id = YUC_Seperate_From_Radicalism
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_social_welfare
-		}
-		available = { has_government = social_democrat }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 2
-		y = 4
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_social_welfare"
-			add_ideas = YUC_social_welfare_idea
-		}
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-	}
-	focus = {# Improve Rural Workers
-		id = YUC_improve_rural_workers
-		icon = GFX_goal_tblra_union_agreement
-		cost = 7
-		prerequisite = {
-			focus = YUC_social_democrats
-		}
-		available = { has_government = social_democrat }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 4
-		y = 2
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_improve_rural_workers"
-			add_popularity = { ideology = social_democrat popularity = 0.05 }
-			add_political_power = 50
-			474 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL }
-	}
-	focus = {# Rural Peace
-		id = YUC_rural_peace
-		icon = GFX_goal_coffee_boom
-		cost = 7
-		prerequisite = {
-			focus = YUC_improve_rural_workers
-		}
-		available = { has_government = social_democrat }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 4
-		y = 3
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_rural_peace"
-			474 = {
-				if = {
-					limit = { is_owned_by = YUC }
-					add_building_construction = {
-						type = infrastructure
-						level = 2
-						instant_build = yes
-					}
-				}
-			}
-		}
-		search_filters = { FOCUS_FILTER_STABILITY }
-	}
-	
-	focus = {# Labour Economy
-		id = YUC_Labour_Economy
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_rural_peace
-		}
-		available = { has_government = social_democrat }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 4
-		y = 4
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Labour_Economy"
-			swap_ideas = {
-				remove_idea = YUC_unclear_economy
-				add_idea = YUC_Labour_Economy
-			}
-		}
-		search_filters = { FOCUS_FILTER_STABILITY }
-	}
-	
-	focus = {#
-		id = YUC_Centralization_Middle_Ground
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_Labour_Economy
-		}
-		prerequisite = {
-			focus = YUC_Seperate_From_Radicalism
-		}
-		available = { has_government = social_democrat }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 0
-		y = 4
-		relative_position_id = YUC_social_democrats
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Labour_Economy"
-			add_stability = 0.02
-			add_political_power = 50
-			remove_idea = YUC_division
-		}
-		search_filters = { FOCUS_FILTER_STABILITY }
-	}
-	
-	## Social Dem and Radical Socialist ###
-	focus = {# Equal Republic
-		id = YUC_equal_republic
-		icon = GFX_goal_generic_national_unity
-		cost = 7
-		prerequisite = {
-			focus = YUC_social_democrats
-			focus = YUC_radical_socialists
-		}
-		available = {
-			OR = {
-				has_government = radical_socialist
-				has_government = social_democrat
-			}
-		}
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 6
-		y = 2
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_equal_republic"
-			add_ideas = YUC_equal_republic
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-	}
-	focus = {# No more Caste War
-		id = YUC_no_more_caste_war
-		icon = GFX_goal_red_star_dove
-		cost = 7
-		prerequisite = {
-			focus = YUC_equal_republic
-		}
-		available = {
-			OR = {
-				has_government = radical_socialist
-				has_government = social_democrat
-			}
-		}
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 6
-		y = 3
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_no_more_caste_war"
-			add_political_power = 50
-			add_stability = 0.05
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-	}
-	
-	### Radical Socialist ###
-	focus = {# Radical Socialist
-		id = YUC_radical_socialists
-		icon = GFX_goal_ideology_radical_socialist
-		cost = 7
-		prerequisite = {
-			focus = YUC_yucatec_democracy
-		}
-		available = { has_government = radical_socialist }
-		bypass = { has_government = radical_socialist }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 9
-		y = 1
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_radical_socialists"
-			custom_effect_tooltip = unlock_focuses
-		}
-	}
-	focus = {# Land Collectivization
-		id = YUC_collectivize_mexican_property
-		icon = GFX_focus_prc_agrarian_socialism
-		cost = 7
-		prerequisite = {
-			focus = YUC_radical_socialists
-		}
-		available = { has_government = radical_socialist }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 8
-		y = 2
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_collectivize_mexican_property"
-			add_stability = 0.05
-			add_popularity = { ideology = radical_socialist popularity = 0.05 }
-			474 = {
-				if = {
-					limit = { is_owned_by = YUC }
-					add_building_construction = {
-						type = infrastructure
-						level = 2
-						instant_build = yes
-					}
-				}
-			}
-			add_research_slot = 1
-		}
-		search_filters = { FOCUS_FILTER_STABILITY }
-	}
-	focus = {# 
-		id = YUC_Agrarian_Economics
-		icon = GFX_goal_commune_politics
-		cost = 7
-		prerequisite = {
-			focus = YUC_collectivize_mexican_property
-		}
-		available = { has_government = radical_socialist }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 8
-		y = 3
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Agrarian_Economics"
-			swap_ideas = {
-				remove_idea = YUC_unclear_economy
-				add_idea = YUC_Agrarian_Economics
-			}
-			add_stability = 0.05
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL }
-	}
-	focus = {# Agricultural Unions
-		id = YUC_agricultural_unions
-		icon = GFX_goal_agrarian_reform
-		cost = 7
-		prerequisite = {
-			focus = YUC_Agrarian_Economics
-		}
-		available = { has_government = radical_socialist }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 8
-		y = 4
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_agricultural_unions"
-			add_ideas = YUC_agricultural_unions_idea
-		}
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-	}
-	focus = {# Memory of Cruzoob
-		id = YUC_memory_of_cruzoob
-		icon = GFX_goal_red_star_green_wreath
-		cost = 7
-		prerequisite = {
-			focus = YUC_radical_socialists
-		}
-		available = { has_government = radical_socialist }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 10
-		y = 2
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_memory_of_cruzoob"
-			add_ideas = YUC_cruzoob_idea
-		}
-		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
-	}
-	focus = {# People's revolution
-		id = YUC_peoples_revolution
-		icon = GFX_goal_volunteer_alliance
-		cost = 7
-		prerequisite = {
-			focus = YUC_memory_of_cruzoob
-		}
-		available = { has_government = radical_socialist }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 10
-		y = 3
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_peoples_revolution"
-			add_war_support = 0.1
-			add_political_power = 50
-			add_popularity = {
-				ideology = radical_socialist
-				popularity = 0.05
-			}
-			remove_ideas = YUC_unclear_identity
-		}
-		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
-	}
-	focus = {# Central American Overtures
-		id = YUC_Red_Apostle
-		icon = GFX_goal_centroamerica
-		cost = 10.00
-		available = {
-			has_government = radical_socialist
-			is_subject = no
-		}
-		cost = 7
-		prerequisite = {
-			focus = YUC_peoples_revolution
-		}
-		available = { has_government = radical_socialist }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 10
-		y = 4
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Red_Apostle"
-			swap_ideas = {
-				add_idea = YUC_cruzoob_idea
-				add_idea = YUC_Red_Apostle
-			}
-		}
-	}
-	
-	focus = {# Central American Overtures
-		id = YUC_Full_Centralization
-		icon = GFX_goal_centroamerica
-		cost = 10.00
-		available = {
-			has_government = radical_socialist
-			is_subject = no
-		}
-		cost = 7
-		prerequisite = {
-			focus = YUC_Red_Apostle
-		}
-		prerequisite = {
-			focus = YUC_agricultural_unions
-		}
-		available = { has_government = radical_socialist }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 0
-		y = 4
-		relative_position_id = YUC_radical_socialists
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Red_Apostle"
-			add_stability = 0.15
-			add_political_power = -50
-			remove_ideas = YUC_division
-		}
-	}
-	
-	## Syndicalists and Radical Socialist ###
-	focus = {# 
-		id = YUC_Purge_The_Red_Shirts
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_syndicalists
-			focus = YUC_radical_socialists
-		}
-		available = {
-			OR = {
-				has_government = radical_socialist
-				has_government = syndicalist
-			}
-		}
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = -3
-		y = 1
-		relative_position_id = YUC_syndicalists
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Purge_The_Red_Shirts"
-			add_political_power = 100
-			add_stability = 0.05
-			add_popularity = {
-				ideology = totalist
-				popularity = -0.5
-			}
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-	}
-	focus = {# 
-		id = YUC_Secularization
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_Purge_The_Red_Shirts
-		}
-		available = {
-			OR = {
-				has_government = radical_socialist
-				has_government = social_democrat
-			}
-		}
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = -3
-		y = 2
-		relative_position_id = YUC_syndicalists
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Secularization"
-			add_ideas = YUC_Secularization
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-	}
-	
-	## Syndicalists ##
-	focus = {# Syndicalists
-		id = YUC_syndicalists
-		icon = GFX_goal_ideology_syndicalist
-		cost = 7
-		prerequisite = {
-			focus = YUC_yucatec_democracy
-		}
-		available = { has_government = syndicalist }
-		bypass = { has_government = syndicalist }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 15
-		y = 1
-		relative_position_id = YUC_yucatec_democracy
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_syndicalists"
-			custom_effect_tooltip = unlock_focuses
-		}
-	}
-	focus = {#
-		id = YUC_Industrialization
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_syndicalists
-		}
-		available = { has_government = syndicalist }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = -1
-		y = 1
-		relative_position_id = YUC_syndicalists
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Industrialization"
-			474 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			add_political_power = 50
-			add_popularity = {
-				ideology = syndicalist
-				popularity = 0.05
-			}
-		}
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-	}
-	focus = {# 
-		id = YUC_Expand_Urban_Centers
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_Industrialization
-		}
-		available = { has_government = syndicalist }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = -1
-		y = 2
-		relative_position_id = YUC_syndicalists
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Expand_Urban_Centers"
-			474 = {
-				if = {
-					limit = { is_owned_by = YUC }
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = infrastructure
-						level = 2
-						instant_build = yes
-					}
-				}
-			}
-			add_popularity = {
-				ideology = syndicalist
-				popularity = 0.05
-			}
-			add_research_slot = 1
-		}
-		search_filters = { FOCUS_FILTER_STABILITY }
-	}
-	focus = {# 
-		id = YUC_Yucatec_Unionism
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_Expand_Urban_Centers
-		}
-		available = { has_government = syndicalist }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = -1
-		y = 3
-		relative_position_id = YUC_syndicalists
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Yucatec_Unionism"
-			swap_ideas = {
-				remove_idea = YUC_unclear_economy
-				add_idea = YUC_Yucatec_Unionism
-			}
-		}
-		search_filters = { FOCUS_FILTER_RESEARCH }
-	}
-	focus = {# 
-		id = YUC_Start_Talks
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_syndicalists
-		}
-		available = { has_government = syndicalist }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 1
-		y = 1
-		relative_position_id = YUC_syndicalists
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Start_Talks"
-			add_popularity = {
-				ideology = syndicalist
-				popularity = 0.05
-			}
-			add_popularity = {
-				ideology = radical_socialist
-				popularity = 0.05
-			}
-			add_popularity = {
-				ideology = paternal_autocrat
-				popularity = 0.05
-			}
-			add_stability = 0.05
-			add_political_power = 100
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL }
-	}
-	focus = {# 
-		id = YUC_Socialist_Unity
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_Start_Talks
-		}
-		available = { has_government = syndicalist }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 1
-		y = 2
-		relative_position_id = YUC_syndicalists
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Socialist_Unity"
-			add_popularity = {
-				ideology = syndicalist
-				popularity = 0.05
-			}
-			add_popularity = {
-				ideology = radical_socialist
-				popularity = 0.05
-			}
-			add_popularity = {
-				ideology = paternal_autocrat
-				popularity = 0.05
-			}
-			add_ideas = YUC_Socialist_Unity
-		}
-
-	}
-	focus = {# 
-		id = YUC_Red_Nation
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_Socialist_Unity
-		}
-		available = { has_government = syndicalist }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 1
-		y = 3
-		relative_position_id = YUC_syndicalists
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Red_Nation"
-			add_war_support = 0.05
-			add_popularity = {
-				ideology = syndicalist
-				popularity = 0.05
-			}
-			add_popularity = {
-				ideology = radical_socialist
-				popularity = 0.05
-			}
-			remove_ideas = YUC_unclear_identity
-		}
-	}
-	
-	focus = {# 
-		id = YUC_Centralized_Syndicalist_Yucatan
-		icon = X
-		cost = 7
-		prerequisite = {
-			focus = YUC_Red_Nation
-		}
-		prerequisite = {
-			focus = YUC_Yucatec_Unionism
-		}
-		available = { has_government = syndicalist }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 0
-		y = 4
-		relative_position_id = YUC_syndicalists
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Red_Nation"
-			add_political_power = 150
+			add_command_power = 100
+			army_experience = 100
 			add_stability = -0.05
 			remove_ideas = YUC_division
 		}
 	}
 	
-	## Syndicalists and Totalist ###
-	focus = {
-		id = YUC_Anti_Catholic_Laws
-		icon = GFX_goal_MEX_destroy_catholic
-		cost = 7
-		prerequisite = {
-			focus = YUC_syndicalists
-			focus = YUC_totalists
-		}
-		available = {
-			OR = {
-				has_government = totalist
-				has_government = syndicalist
-			}
-		}
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 3
-		y = 1
-		relative_position_id = YUC_syndicalists
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Anti_Catholic_Laws"
-			add_ideas = YUC_Anti_Catholic_Laws
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-	}
-	focus = {
-		id = YUC_Persecute_Preists
-		icon = GFX_goal_YUC_preists
-		cost = 7
-		prerequisite = {
-			focus = YUC_Anti_Catholic_Laws
-		}
-		available = {
-			OR = {
-				has_government = totalist
-				has_government = syndicalist
-			}
-		}
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 3
-		y = 2
-		relative_position_id = YUC_syndicalists
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_no_more_caste_war"
-			increase_ruling_party_popularity_by_5 = yes
-			add_political_power = 100
-			add_stability = 0.05
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-	}
-	
-	focus = {
-		id = YUC_State_Atheism
-		icon = GFX_goal_MEX_atheism
-		cost = 7
-		prerequisite = {
-			focus = YUC_Persecute_Preists
-		}
-		available = {
-			OR = {
-				has_government = totalist
-				has_government = syndicalist
-			}
-		}
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 3
-		y = 3
-		relative_position_id = YUC_syndicalists
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_no_more_caste_war"
-			swap_ideas = {
-				remove_idea = YUC_Anti_Catholic_Laws
-				add_idea = YUC_State_Atheism
-			}
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-	}
-	
-	## Totalists ##
-	focus = {#
-		id = YUC_totalists
-		icon = GFX_goal_ideology_totalist
+		
+	###Cruzoob###
+	focus = {# Radical Socialist
+		id = YUC_restore_cruzoob
+		icon = YUC_memories_of_cruzoob
 		cost = 7
 		prerequisite = {
 			focus = YUC_yucatec_democracy
 		}
-		available = { has_government = totalist }
-		bypass = { has_government = totalist }
+		available = { has_government = national_populist }
+		bypass = { has_government = national_populist }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
-		x = 21
-		y = 1
 		relative_position_id = YUC_yucatec_democracy
+		x = -25
+		y = 1
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_totalists"
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_restore_cruzoob"
 			custom_effect_tooltip = unlock_focuses
 		}
 	}
-	focus = {#
-		id = YUC_We_Are_All_Socialists
-		icon = GFX_goal_CSA_Socialism_first
+	focus = {# Radical Socialist
+		id = YUC_ode_to_sacrafice
+		icon = YUC_ode_to_sacrifice
 		cost = 7
 		prerequisite = {
-			focus = YUC_totalists
+			focus = YUC_restore_cruzoob
 		}
-		available = { has_government = totalist }
+		available = { has_government = national_populist }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
 		x = -1
 		y = 1
-		relative_position_id = YUC_totalists
+		relative_position_id = YUC_restore_cruzoob
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_We_Are_All_Socialists"
-			add_ideas = YUC_one_party_state
-		}
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-	}
-	focus = {#
-		id = YUC_Racism_Is_A_Crime
-		icon = GFX_focus_generic_ban_right_wing
-		cost = 7
-		prerequisite = {
-			focus = YUC_We_Are_All_Socialists
-		}
-		available = { has_government = totalist }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = -1
-		y = 2
-		relative_position_id = YUC_totalists
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Racism_Is_A_Crime"
-			swap_ideas = {
-				add_idea = YUC_one_party_state2
-				remove_idea = YUC_one_party_state
-			}
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_radical_socialists"
+			add_stability = 0.20
+			add_manpower = -500
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
 	}
-	focus = {#
-		id = YUC_All_Crimes_Have_the_Same_Punishment
-		icon = GFX_goal_MEX_firing_squads
+	focus = {# Radical Socialist
+		id = YUC_revive_mayan_language
+		icon = YUC_restore_mayan_culture
 		cost = 7
 		prerequisite = {
-			focus = YUC_Racism_Is_A_Crime
+			focus = YUC_ode_to_sacrafice
 		}
-		available = { has_government = totalist }
+		available = { has_government = national_populist }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
 		x = -1
-		y = 3
-		relative_position_id = YUC_totalists
+		y = 2
+		relative_position_id = YUC_restore_cruzoob
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_All_Crimes_Have_the_Same_Punishment"
-			add_popularity = {
-				ideology = totalist
-				popularity = 0.05
-			}
-			add_stability = 0.06
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_revive_mayan_language"
 			add_political_power = 100
-			add_manpower = -500
+			add_stability = 0.12
+			add_popularity = { ideology = national_populist popularity = 0.05 }
+			add_research_slot = 1
 		}
-		search_filters = { FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
-	focus = {# 
-		id = YUC_Purge_Opposition
-		icon = GFX_goal_DSR_Purge
+	focus = {# Radical Socialist
+		id = YUC_reclaim_the_empire
+		icon = YUC_mayan_restoration
 		cost = 7
 		prerequisite = {
-			focus = YUC_totalists
+			focus = YUC_restore_cruzoob
 		}
-		available = { has_government = totalist }
+		available = { has_government = national_populist }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
 		x = 1
 		y = 1
-		relative_position_id = YUC_totalists
+		relative_position_id = YUC_restore_cruzoob
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Purge_Opposition"
-			add_popularity = {
-				ideology = paternal_autocrat
-				popularity = -0.5
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
+			YUC = {
+				transfer_state = 475
 			}
-			add_popularity = {
-				ideology = social_democrat
-				popularity = -0.5
-			}
-			add_popularity = {
-				ideology = social_liberal
-				popularity = -0.5
-			}
-			add_popularity = {
-				ideology = national_populist
-				popularity = -0.5
+			create_wargoal = {
+				type = annex_everything
+				target = GUA
 			}
 		}
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_ANNEXATION }
 	}
-	focus = {# 
-		id = YUC_2_Year_Plan
-		icon = GFX_goal_CSA_great_sprint
+	focus = {# Radical Socialist
+		id = YUC_reintergrate_the_empire
+		icon = YUC_intergrate_the_empire
 		cost = 7
 		prerequisite = {
-			focus = YUC_Purge_Opposition
+			focus = YUC_reclaim_the_empire
 		}
-		available = { has_government = totalist }
+		available = { 
+			has_government = national_populist
+			owns_state = 311
+			owns_state = 313
+		}
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
 		x = 1
 		y = 2
-		relative_position_id = YUC_totalists
+		relative_position_id = YUC_restore_cruzoob
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_2_Year_Plan"
-			474 = {
-				if = {
-					limit = { is_owned_by = YUC }
-					add_building_construction = {
-						type = infrastructure
-						level = 2
-						instant_build = yes
-					}
-				}
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
+			YUC = {
+				add_state_core = 311
+				add_state_core = 313
+				add_state_core = 475
 			}
 		}
 	}
-	focus = {# 
-		id = YUC_State_Economy
-		icon = GFX_goal_state_economy
+	focus = {# Radical Socialist
+		id = YUC_the_empire_breathes_again
+		icon = YUC_the_empire_breathes_again
 		cost = 7
-		prerequisite = {
-			focus = YUC_2_Year_Plan
-		}
-		available = { has_government = totalist }
-		ai_will_do = { factor = 5 }
-		available_if_capitulated = yes
-		x = 1
-		y = 3
-		relative_position_id = YUC_totalists
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_State_Economy"
-			474 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-	
-	focus = {# 
-		id = YUC_Supreme_Leader
-		icon = GFX_goal_FRA_popular_combat_front
-		cost = 7
-		prerequisite = {
-			focus = YUC_All_Crimes_Have_the_Same_Punishment
-		}
-		prerequisite = {
-			focus = YUC_State_Economy
-		}
-		available = { has_government = totalist }
+		prerequisite = {focus = YUC_revive_mayan_language}
+		prerequisite = {focus = YUC_reintergrate_the_empire}
+		available = { has_government = national_populist }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
 		x = 0
-		y = 4
-		relative_position_id = YUC_totalists
+		y = 3
+		relative_position_id = YUC_restore_cruzoob
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_State_Economy"
-			add_country_leader_trait = YUC_supreme_leader
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_the_empire_breathes_again"
+			set_cosmetic_tag = YUC_MAY
+			hidden_effect = {	
+				create_country_leader = {# Gustavo Arce Correa
+					name = "Pakal II"
+					desc = "POLITICS_FRANSCISO_MAY_DESC"
+					picture = "Portrait_YUC_Pakal_II.png"
+					expire = "1965.1.1"
+					ideology = national_populist_subtype
+					traits = {}
+				}
+			}
 		}
 	}
 	

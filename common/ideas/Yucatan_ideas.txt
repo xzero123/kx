@@ -149,6 +149,50 @@ ideas = {
 		
 		### Political Ideas ###
 		
+		## Totalist ##
+		YUC_Anti_Catholic_Laws = {
+			picture = X
+			modifier = {
+				consumer_goods_factor = -0.05
+				stability_factor = 0.05
+				political_power_cost = -0.1
+			}
+		}
+		
+		YUC_State_Atheism = {
+			picture = X
+			modifier = {
+				consumer_goods_factor = -0.05
+				stability_factor = 0.1
+				political_power_cost = -0.15
+			}
+		}
+		
+		YUC_one_party_state = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_one_party_state"}
+			picture = state_economy
+			modifier = {
+				stability_factor = -0.10
+				command_power_gain = 1
+				political_power_factor = 0.1
+			}
+		}
+		
+		YUC_one_party_state2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_one_party_state"}
+			picture = state_economy
+			name = YUC_one_party_state
+			modifier = {
+				stability_factor = -0.10
+				command_power_gain = 1
+				political_power_factor = 0.1
+				conscription_factor = 0.01
+				political_power_gain = 0.05
+				max_command_power = 50
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		
 		## Syndicalists ##
 		YUC_Yucatec_Unionism = {
 			picture = generic_syndicalist_medal
@@ -327,49 +371,79 @@ ideas = {
 				army_morale_factor = 0.05
 			}
 		}
-			
-		## Totalist ##
-		YUC_Anti_Catholic_Laws = {
-			picture = X
+		
+		YUC_Economic_Protectionism = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_Economic_Protectionism"}
+			picture = generic_agrarian_reform
 			modifier = {
-				consumer_goods_factor = -0.05
-				stability_factor = 0.05
-				political_power_cost = -0.1
+				consumer_goods_factor = -0.03
+				production_factory_max_efficiency_factor = 0.03
+				production_factory_start_efficiency_factor = 0.03
+				research_speed_factor = 0.05
+				local_resources_factor = 0.05
+				trade_opinion_factor = -0.1
 			}
 		}
 		
-		YUC_State_Atheism = {
-			picture = X
+		YUC_Shining_Democracy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_Shining_Democracy"}
+			picture = generic_victors_of_ww1
 			modifier = {
-				consumer_goods_factor = -0.05
-				stability_factor = 0.1
-				political_power_cost = -0.15
-			}
-		}
-		
-		YUC_one_party_state = {
-			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_one_party_state"}
-			picture = state_economy
-			modifier = {
-				stability_factor = -0.10
-				command_power_gain = 1
-				political_power_factor = 0.1
-			}
-		}
-		
-		YUC_one_party_state2 = {
-			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_one_party_state"}
-			picture = state_economy
-			name = YUC_one_party_state
-			modifier = {
-				stability_factor = -0.10
-				command_power_gain = 1
-				political_power_factor = 0.1
-				conscription_factor = 0.01
-				political_power_gain = 0.05
-				max_command_power = 50
 				production_speed_buildings_factor = 0.05
+				political_power_gain = 0.05
+				army_core_defence_factor = 0.02
 			}
 		}
+			
+		YUC_Shining_Democracy2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_Shining_Democracy"}
+			picture = generic_victors_of_ww1
+			name = YUC_Shining_Democracy
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				political_power_gain = 0.05
+				army_core_defence_factor = 0.05
+				conscription_factor = 0.05
+			}
+		}
+		
+		YUC_Prohibition = { #
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_Prohibition"}
+			allowed = { always = no }
+			removal_cost = -1
+			picture = generic_constitutional_guarantees
+			modifier = {
+				political_power_cost = 0.02
+				training_time_army_factor = 0.02
+				army_morale_factor = 0.02
+			}
+		}
+		
+		## Paternal Autocrat ##
+		YUC_SocDem_Junta = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_SocDem_Junta"}
+			picture = generic_victors_of_ww1
+			modifier = {
+				political_power_gain = 0.02
+				stability_factor = 0.02
+				conscription_factor = 0.02
+				war_support_factor = 0.02
+			}
+		}
+		
+		YUC_SocDem_Junta2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_SocDem_Junta"}
+			picture = generic_victors_of_ww1
+			name = YUC_SocDem_Junta
+			modifier = {
+				political_power_gain = 0.05
+				stability_factor = 0.05
+				conscription_factor = 0.05
+				war_support_factor = 0.05
+				paternal_autocrat_drift = 0.02
+				authoritarian_democrat_drift = 0.02
+			}
+		}
+
 	}
 }

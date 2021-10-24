@@ -149,6 +149,66 @@ ideas = {
 		
 		### Political Ideas ###
 		
+		## Syndicalists ##
+		YUC_Yucatec_Unionism = {
+			picture = generic_syndicalist_medal
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.05
+				production_factory_max_efficiency_factor = 0.05
+				local_resources_factor = 0.05
+			}
+		}
+		
+		YUC_Socialist_Unity = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_Socialist_Unity"}
+			picture = X
+			modifier = {
+				conscription_factor = 0.05
+				army_morale_factor = 0.05
+				army_org_factor = 0.05
+			}
+		}	
+		
+		## Radical Socialists ##
+		YUC_Agrarian_Economics = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_Agrarian_Economics"}
+			picture = generic_local_self_management
+			modifier = {
+				stability_factor = 0.15
+				political_power_gain = 0.15
+				consumer_goods_factor = -0.03
+				local_resources_factor = 0.10
+			}
+		}
+		
+		YUC_cruzoob_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_cruzoob_idea"}
+			picture = generic_radical_socialist_revolution
+			modifier = {
+				war_support_factor = 0.05
+				political_power_gain = 0.05
+			}
+		}
+		
+		YUC_Red_Apostle = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_Red_Apostle"}
+			picture = generic_radical_socialist_revolution
+			modifier = {
+				war_support_factor = 0.1
+				political_power_gain = 0.1
+				stability_factor = 0.05
+			}
+		}
+		
+		YUC_Secularization = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_Secularization"}
+			picture = GRU_FDP_secular_state
+			modifier = {
+				political_power_gain = 0.05
+				stability_weekly = 0.01
+			}
+		}
+		
 		##Social Democrats ##
 		YUC_public_spending_idea = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_social_welfare_idea"}
@@ -179,6 +239,17 @@ ideas = {
 				production_speed_buildings_factor = 0.02
 				global_building_slots_factor = 0.02
 				stability_factor = -0.02
+			}
+		}
+		
+		YUC_equal_republic = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_equal_republic"}
+			picture = X
+			modifier = { 
+				political_power_gain = 0.05
+				stability_factor = 0.05
+				war_support_factor = -0.05
+				army_org_factor = 0.05
 			}
 		}
 		

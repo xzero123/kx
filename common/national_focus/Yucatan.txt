@@ -3367,7 +3367,7 @@ focus_tree = {
 		available = { has_government = national_populist }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
-		x = -2
+		x = 2
 		y = 3
 		relative_position_id = YUC_march_to_reclaim_our_people
 		completion_reward = {
@@ -3401,7 +3401,7 @@ focus_tree = {
 		available = { has_government = national_populist }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
-		x = 2
+		x = -2
 		y = 3
 		relative_position_id = YUC_march_to_reclaim_our_people
 		completion_reward = {
@@ -3528,7 +3528,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = YUC_join_int
+		id = YUC_our_own_socialist_CA
 		icon = X
 		cost = 8
 		prerequisite = {
@@ -3544,7 +3544,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = YUC_socialist_fp
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_join_int"
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_our_own_socialist_CA"
 			
 		}
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
@@ -3555,7 +3555,7 @@ focus_tree = {
 		icon = X
 		cost = 8
 		prerequisite = {
-			focus = YUC_join_int
+			focus = YUC_our_own_socialist_CA
 			focus = YUC_indepedence_secured
 			focus = YUC_black_spot
 		}
@@ -3570,7 +3570,30 @@ focus_tree = {
 		y = 3
 		relative_position_id = YUC_socialist_fp
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_join_int"
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_our_own_socialist_CA"
+			
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+	
+	focus = {
+		id = YUC_join_int
+		icon = X
+		cost = 8
+		prerequisite = {
+			focus = YUC_our_own_socialist_CA
+		}
+		available = {
+			has_socialist_government = yes
+			has_war = no
+		}
+		ai_will_do = { factor = 20 }
+		available_if_capitulated = yes
+		x = 2
+		y = 3
+		relative_position_id = YUC_socialist_fp
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_our_own_socialist_CA"
 			
 		}
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
@@ -3673,10 +3696,7 @@ focus_tree = {
 		}
 		available = { 
 			NOT = {
-				OR = {
-					has_socialist_government = yes 
-					has_government = national_populist
-				}
+				has_government = totalist
 			}
 		}
 		ai_will_do = { factor = 5 }

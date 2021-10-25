@@ -473,6 +473,48 @@ ideas = {
 				army_morale_factor = 0.02
 			}
 		}
-
+		## National Populist ##
+		YUC_anti_european_trade = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_anti_european_trade"}
+			picture = generic_local_self_management
+			modifier = {
+				stability_factor = 0.15
+				political_power_gain = 0.15
+				consumer_goods_factor = -0.03
+				local_resources_factor = 0.10
+				trade_opinion_factor = 0.1
+			}
+			targeted_modifier = {
+				tag = JAP
+				trade_cost_for_target_factor = -0.5
+			}
+		}
+		YUC_ode_to_sacrafice = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_ode_to_sacrafice"}
+			picture = triumphant_will
+			modifier = {
+				conscription = 0.007
+				army_morale_factor = 0.02
+				army_core_attack_factor = 0.02
+				army_core_defence_factor = 0.02
+			}
+		}
+		
+		YUC_ode_to_sacrafice2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea YUC_ode_to_sacrafice"}
+			picture = triumphant_will
+			name = YUC_ode_to_sacrafice
+			modifier = {
+				conscription = 0.007
+				army_morale_factor = 0.05
+				army_core_attack_factor = 0.05
+				army_core_defence_factor = 0.05
+			}
+			targeted_modifier = {
+				tag = MEX
+				attack_bonus_against = 0.075
+				defense_bonus_against = 0.075
+			}
+		}
 	}
 }

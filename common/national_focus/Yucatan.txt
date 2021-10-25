@@ -613,7 +613,7 @@ focus_tree = {
 	## Totalists ##
 	focus = {#
 		id = YUC_totalists
-		icon = GFX_goal_ideology_totalist
+		icon = GFX_goal_YUC_tot_party
 		cost = 7
 		prerequisite = {
 			focus = YUC_yucatec_democracy
@@ -2748,11 +2748,11 @@ focus_tree = {
 	### Natpop/PatAut ###
 	focus = {# 
 		id = YUC_Purge_Red_Shirts
-		icon = X
+		icon = GFX_CSA_finish_centralism
 		cost = 7
 		prerequisite = {
 			focus = YUC_authoritarian_democrats
-			focus = YUC_restore_cruzoob
+			focus = YUC_maya_victory
 		}
 		available = {
 			OR = {
@@ -2767,14 +2767,19 @@ focus_tree = {
 		y = 1
 		relative_position_id = YUC_authoritarian_democrats
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_Staunch_Constitutionalism"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_Purge_Red_Shirts"
+			add_political_power = 100
+			add_stability = 0.05
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.5
+			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 	}
 	focus = {# 
 		id = YUC_Fortify_Yucatan
-		icon = X
+		icon = GFX_goal_skull_fortification
 		cost = 7
 		prerequisite = {
 			focus = YUC_Purge_Red_Shirts
@@ -2793,15 +2798,25 @@ focus_tree = {
 		relative_position_id = YUC_authoritarian_democrats
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_Church_Support"
-			
+			474 = {
+				add_building_construction = { type = bunker province = 4904 level = 1 instant_build = yes }
+				add_building_construction = { type = bunker province = 13457 level = 1 instant_build = yes }
+				add_building_construction = { type = bunker province = 13455 level = 1 instant_build = yes }
+				add_building_construction = { type = bunker province = 13460 level = 1 instant_build = yes }
+				add_building_construction = { type = bunker province = 4965 level = 1 instant_build = yes }
+				add_building_construction = { type = bunker province = 13465 level = 1 instant_build = yes }
+				add_building_construction = { type = bunker province = 13464 level = 1 instant_build = yes }
+				add_building_construction = { type = bunker province = 13462 level = 1 instant_build = yes }
+				add_building_construction = { type = bunker province = 12715 level = 1 instant_build = yes }
+			}
 		}
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
 	}
 	
 	###Cruzoob###
 	focus = {# 
-		id = YUC_restore_cruzoob
-		icon = X
+		id = YUC_maya_victory
+		icon = GFX_goal_YUC_Chichen_Itza
 		cost = 7
 		prerequisite = {
 			focus = YUC_yucatec_democracy
@@ -2814,7 +2829,7 @@ focus_tree = {
 		x = -29
 		y = 1
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_restore_cruzoob"
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_maya_victory"
 			custom_effect_tooltip = unlock_focuses
 		}
 	}
@@ -2823,24 +2838,25 @@ focus_tree = {
 		icon = YUC_ode_to_sacrifice
 		cost = 7
 		prerequisite = {
-			focus = YUC_restore_cruzoob
+			focus = YUC_maya_victory
 		}
 		available = { has_government = national_populist }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
 		x = -3
 		y = 1
-		relative_position_id = YUC_restore_cruzoob
+		relative_position_id = YUC_maya_victory
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_radical_socialists"
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_ode_to_sacrafice"
 			add_stability = 0.20
 			add_manpower = -500
+			add_ideas = YUC_ode_to_sacrafice
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
 	}
 	focus = {# 
 		id = YUC_remember_the_castle_war
-		icon = X
+		icon = GFX_goal_YUC_Remember_the_Caste_War
 		cost = 7
 		prerequisite = {
 			focus = YUC_ode_to_sacrafice
@@ -2850,19 +2866,18 @@ focus_tree = {
 		available_if_capitulated = yes
 		x = -3
 		y = 2
-		relative_position_id = YUC_restore_cruzoob
+		relative_position_id = YUC_maya_victory
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_remember_the_castle_war"
 			add_political_power = 100
 			add_stability = 0.12
 			add_popularity = { ideology = national_populist popularity = 0.05 }
-			add_research_slot = 1
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	focus = {# 
 		id = YUC_death_to_european_mexico
-		icon = X
+		icon = GFX_goal_YUC_Death_to_European_Mexico
 		cost = 7
 		prerequisite = {
 			focus = YUC_remember_the_castle_war
@@ -2872,23 +2887,37 @@ focus_tree = {
 		available_if_capitulated = yes
 		x = -3
 		y = 3
-		relative_position_id = YUC_restore_cruzoob
+		relative_position_id = YUC_maya_victory
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_remember_the_castle_war"
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_death_to_european_mexico"
+			remove_ideas = YUC_unclear_identity
+			reverse_add_opinion_modifier = {
+				target = MEX
+				modifier = KR_hates_govt
+			}
+			add_opinion_modifier = {
+				target = MEX
+				modifier = KR_hates_govt
+			}
+			swap_ideas = {
+				remove_idea = YUC_ode_to_sacrafice
+				add_idea = YUC_ode_to_sacrafice2
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.05
+			}
 			add_political_power = 100
-			add_stability = 0.12
-			add_popularity = { ideology = national_populist popularity = 0.05 }
-			add_research_slot = 1
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	
 	focus = {# #Cruzoob
 		id = YUC_chan_santa_cruz
-		icon = X
+		icon = YUC_memories_of_cruzoob
 		cost = 7
 		prerequisite = {
-			focus = YUC_restore_cruzoob
+			focus = YUC_maya_victory
 		}
 		mutually_exclusive = {
 			focus = YUC_new_ajaw
@@ -2898,9 +2927,9 @@ focus_tree = {
 		available_if_capitulated = yes
 		x = -1
 		y = 1
-		relative_position_id = YUC_restore_cruzoob
+		relative_position_id = YUC_maya_victory
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_radical_socialists"
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_chan_santa_cruz"
 			
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
@@ -2908,7 +2937,7 @@ focus_tree = {
 	
 	focus = {#
 		id = YUC_cruzoob_faith
-		icon = X
+		icon = GFX_goal_YUC_Cruzoob_Faith
 		cost = 7
 		prerequisite = {
 			focus = YUC_chan_santa_cruz
@@ -2918,9 +2947,9 @@ focus_tree = {
 		available_if_capitulated = yes
 		x = -1
 		y = 2
-		relative_position_id = YUC_restore_cruzoob
+		relative_position_id = YUC_maya_victory
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_radical_socialists"
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_cruzoob_faith"
 		
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
@@ -2928,7 +2957,7 @@ focus_tree = {
 	
 	focus = {#
 		id = YUC_mayan_catholicism
-		icon = X
+		icon = GFX_goal_YUC_Mayan_Catholicism
 		cost = 7
 		prerequisite = {
 			focus = YUC_cruzoob_faith
@@ -2938,9 +2967,9 @@ focus_tree = {
 		available_if_capitulated = yes
 		x = -1
 		y = 3
-		relative_position_id = YUC_restore_cruzoob
+		relative_position_id = YUC_maya_victory
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_radical_socialists"
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_mayan_catholicism"
 			
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
@@ -2948,10 +2977,10 @@ focus_tree = {
 	
 	focus = {# New Maya
 		id = YUC_new_ajaw
-		icon = X
+		icon = GFX_goal_YUC_Crown_Ajaw
 		cost = 7
 		prerequisite = {
-			focus = YUC_restore_cruzoob
+			focus = YUC_maya_victory
 		}
 		mutually_exclusive = {
 			focus = YUC_chan_santa_cruz
@@ -2961,9 +2990,9 @@ focus_tree = {
 		available_if_capitulated = yes
 		x = 1
 		y = 1
-		relative_position_id = YUC_restore_cruzoob
+		relative_position_id = YUC_maya_victory
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_radical_socialists"
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_new_ajaw"
 			
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
@@ -2971,7 +3000,7 @@ focus_tree = {
 	
 	focus = {#
 		id = YUC_mayan_pantheon
-		icon = X
+		icon = GFX_goal_YUC_Venerate_Mayan_Pantheon
 		cost = 7
 		prerequisite = {
 			focus = YUC_new_ajaw
@@ -2981,9 +3010,9 @@ focus_tree = {
 		available_if_capitulated = yes
 		x = 1
 		y = 2
-		relative_position_id = YUC_restore_cruzoob
+		relative_position_id = YUC_maya_victory
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_radical_socialists"
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_mayan_pantheon"
 		
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
@@ -3001,9 +3030,9 @@ focus_tree = {
 		available_if_capitulated = yes
 		x = 1
 		y = 3
-		relative_position_id = YUC_restore_cruzoob
+		relative_position_id = YUC_maya_victory
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_radical_socialists"
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_revive_mayan_language"
 			add_political_power = 100
 			add_stability = 0.12
 			add_popularity = { ideology = national_populist popularity = 0.05 }
@@ -3014,27 +3043,37 @@ focus_tree = {
 	
 	focus = {#
 		id = YUC_primitive_land
-		icon = X
+		icon = GFX_goal_YUC_Primitive_Land
 		cost = 7
 		prerequisite = {
-			focus = YUC_restore_cruzoob
+			focus = YUC_maya_victory
 		}
 		available = { has_government = national_populist }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
 		x = 3
 		y = 1
-		relative_position_id = YUC_restore_cruzoob
+		relative_position_id = YUC_maya_victory
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_radical_socialists"
-		
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_primitive_land"
+			474 = {
+				if = {
+					limit = { is_owned_by = YUC }
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			add_stability = 0.05
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
 	}
 	
 	focus = {#
 		id = YUC_agrarian_economics_natpop
-		icon = X
+		icon = GFX_goal_YUC_Mayan_Agrarian_Economics
 		cost = 7
 		prerequisite = {
 			focus = YUC_primitive_land
@@ -3044,17 +3083,21 @@ focus_tree = {
 		available_if_capitulated = yes
 		x = 3
 		y = 2
-		relative_position_id = YUC_restore_cruzoob
+		relative_position_id = YUC_maya_victory
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_radical_socialists"
-		
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_agrarian_economics_natpop"
+			swap_ideas = {
+				remove_idea = YUC_unclear_economy
+				add_idea = YUC_Agrarian_Economics
+			}
+			add_stability = 0.05
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
 	}
 	
 	focus = {#
 		id = YUC_anti_european_trade
-		icon = X
+		icon = GFX_goal_YUC_Anti-European_Trade
 		cost = 7
 		prerequisite = {
 			focus = YUC_agrarian_economics_natpop
@@ -3064,17 +3107,28 @@ focus_tree = {
 		available_if_capitulated = yes
 		x = 3
 		y = 3
-		relative_position_id = YUC_restore_cruzoob
+		relative_position_id = YUC_maya_victory
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_radical_socialists"
-	
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_anti_european_trade"
+			swap_ideas = {
+				remove_idea = YUC_Agrarian_Economics
+				add_idea = YUC_anti_european_trade
+			}
+			add_opinion_modifier = {
+				target = JAP
+				modifier = KR_approves_of_govt
+			}
+			reverse_add_opinion_modifier = {
+				target = JAP
+				modifier = KR_approves_of_govt
+			}
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
 	}
 	
 	focus = {#
 		id = YUC_state_of_the_cross
-		icon = X
+		icon = GFX_goal_YUC_State_Cross
 		cost = 7
 		prerequisite = {
 			focus = YUC_mayan_catholicism
@@ -3090,7 +3144,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		x = -1
 		y = 4
-		relative_position_id = YUC_restore_cruzoob
+		relative_position_id = YUC_maya_victory
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_radical_socialists"
 			
@@ -3100,7 +3154,7 @@ focus_tree = {
 	
 	focus = {#
 		id = YUC_neo_maya
-		icon = X
+		icon = GFX_goal_YUC_Maya_Clubs
 		cost = 7
 		prerequisite = {
 			focus = YUC_revive_mayan_language
@@ -3116,7 +3170,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		x = 1
 		y = 4
-		relative_position_id = YUC_restore_cruzoob
+		relative_position_id = YUC_maya_victory
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_radical_socialists"
 			
@@ -3129,14 +3183,14 @@ focus_tree = {
 		# icon = YUC_mayan_restoration
 		# cost = 7
 		# prerequisite = {
-			# focus = YUC_restore_cruzoob
+			# focus = YUC_maya_victory
 		# }
 		# available = { has_government = national_populist }
 		# ai_will_do = { factor = 5 }
 		# available_if_capitulated = yes
 		# x = 1
 		# y = 1
-		# relative_position_id = YUC_restore_cruzoob
+		# relative_position_id = YUC_maya_victory
 		# completion_reward = {
 			# log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
 			# YUC = {
@@ -3165,7 +3219,7 @@ focus_tree = {
 		# available_if_capitulated = yes
 		# x = 1
 		# y = 2
-		# relative_position_id = YUC_restore_cruzoob
+		# relative_position_id = YUC_maya_victory
 		# completion_reward = {
 			# log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
 			# YUC = {
@@ -3186,7 +3240,7 @@ focus_tree = {
 		# available_if_capitulated = yes
 		# x = 0
 		# y = 4
-		# relative_position_id = YUC_restore_cruzoob
+		# relative_position_id = YUC_maya_victory
 		# completion_reward = {
 			# log = "[GetDateText]: [Root.GetName]: Focus YUC_the_empire_breathes_again"
 			# set_cosmetic_tag = YUC_MAY

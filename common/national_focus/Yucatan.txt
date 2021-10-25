@@ -2835,7 +2835,7 @@ focus_tree = {
 	}
 	focus = {#
 		id = YUC_ode_to_sacrafice
-		icon = YUC_ode_to_sacrifice
+		icon = GFX_goal_YUC_Anti-Hispanicism
 		cost = 7
 		prerequisite = {
 			focus = YUC_maya_victory
@@ -2890,7 +2890,7 @@ focus_tree = {
 		relative_position_id = YUC_maya_victory
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_death_to_european_mexico"
-			remove_ideas = YUC_unclear_identity
+			remove_ideas = YUC_division
 			reverse_add_opinion_modifier = {
 				target = MEX
 				modifier = KR_hates_govt
@@ -2930,7 +2930,10 @@ focus_tree = {
 		relative_position_id = YUC_maya_victory
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_chan_santa_cruz"
-			
+			add_ideas = YUC_chan_santa_cruz
+			add_political_power = -100
+			add_stability = -0.05
+			set_cosmetic_tag = YUC_CRUZOOB
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
 	}
@@ -2950,7 +2953,13 @@ focus_tree = {
 		relative_position_id = YUC_maya_victory
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_cruzoob_faith"
-		
+			swap_ideas = {
+				remove_idea = YUC_chan_santa_cruz
+				add_idea = YUC_chan_santa_cruz2
+			}
+			remove_ideas = YUC_unclear_identity
+			add_war_support = 0.05
+			add_research_slot = 1
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
 	}
@@ -2970,7 +2979,14 @@ focus_tree = {
 		relative_position_id = YUC_maya_victory
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_mayan_catholicism"
-			
+			swap_ideas = {
+				remove_idea = YUC_chan_santa_cruz2
+				add_idea = YUC_mayan_catholicism
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.05
+			}
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
 	}
@@ -2993,7 +3009,10 @@ focus_tree = {
 		relative_position_id = YUC_maya_victory
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_new_ajaw"
-			
+			set_cosmetic_tag = YUC_MAYA
+			add_political_power = 100
+			add_stability = -0.05
+			add_ideas = YUC_new_ajaw
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
 	}
@@ -3013,14 +3032,20 @@ focus_tree = {
 		relative_position_id = YUC_maya_victory
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_mayan_pantheon"
-		
+			add_stability = 0.05
+			swap_ideas = {
+				remove_idea = YUC_new_ajaw
+				add_idea = YUC_mayan_pantheon
+			}
+			add_stability = 0.12
+			add_popularity = { ideology = national_populist popularity = 0.05 }
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
 	}
 	
 	focus = {#
 		id = YUC_revive_mayan_language
-		icon = YUC_restore_mayan_culture
+		icon = GFX_goal_YUC_Language
 		cost = 7
 		prerequisite = {
 			focus = YUC_mayan_pantheon
@@ -3034,9 +3059,11 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_revive_mayan_language"
 			add_political_power = 100
-			add_stability = 0.12
-			add_popularity = { ideology = national_populist popularity = 0.05 }
 			add_research_slot = 1
+			swap_ideas = {
+				remove_idea = YUC_mayan_pantheon
+				add_idea = YUC_mayan_pantheon2
+			}
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
 	}

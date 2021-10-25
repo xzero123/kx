@@ -157,16 +157,16 @@ country_event = { # Pataut or Authdem
 
 	is_triggered_only = yes
 
-	option = { # coup suceeds
+	option = { #
 		name = yucatan.7.a
 		set_politics = {
 			ruling_party = authoritarian_democrat
-			elections_allowed = no
+			elections_allowed = yes
 		}
 	}
-	option = { # pushed back
+	option = { # 
 		name = yucatan.7.b
-
+		
 	}
 	option = { # restore democracy
 		name = yucatan.7.c
@@ -195,7 +195,12 @@ country_event = { # maya attempt a coup
 	}
 	option = { # pushed back
 		name = yucatan.8.b
-
+		hidden_effect = {
+			country_event = {
+				id = yucatan.7
+				days = 10
+			}
+		}
 	}
 }
 
@@ -225,20 +230,20 @@ country_event = { # both sides attempt coup
 }
 
 country_event = { # coup
-	id = yucatan.9
-	immediate = {log = "[GetDateText]: [Root.GetName]: event yucatan.9"}
-	title = yucatan.9.t
-	desc = yucatan.9.d
+	id = yucatan.10
+	immediate = {log = "[GetDateText]: [Root.GetName]: event yucatan.10"}
+	title = yucatan.10.t
+	desc = yucatan.10.d
 	picture = GFX_report_event_diplomacy2
 
 	is_triggered_only = yes
 
 	option = { # well shit
-		name = yucatan.9.a
+		name = yucatan.10.a
 		add_ideas = YUC_shits_on_fire
 		hidden_effect = {
 			country_event = {
-				id = yucatan.10
+				id = yucatan.9
 				days = 10
 			}
 		}

@@ -3556,11 +3556,12 @@ focus_tree = {
 		cost = 8
 		prerequisite = {
 			focus = YUC_join_int
+			focus = YUC_indepedence_secured
+			focus = YUC_black_spot
 		}
 		available = {
-			has_socialist_government = yes
 			MEX = {
-				has_socialist_government = no
+				exists = yes
 			}
 		}
 		ai_will_do = { factor = 20 }
@@ -3642,13 +3643,11 @@ focus_tree = {
 		prerequisite = {
 			focus = YUC_develop_inward
 		}
+		mutually_exclusive = {
+			focus = YUC_indepedence_secured
+		}
 		available = { 
-			NOT = {
-				OR = {
-					has_socialist_government = yes 
-					has_government = national_populist
-				}
-			}
+			has_government = totalist
 		}
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
@@ -3669,6 +3668,9 @@ focus_tree = {
 		prerequisite = {
 			focus = YUC_develop_inward
 		}
+		mutually_exclusive = {
+			focus = YUC_black_spot
+		}
 		available = { 
 			NOT = {
 				OR = {
@@ -3681,6 +3683,35 @@ focus_tree = {
 		available_if_capitulated = yes
 		x = -1
 		y = 3
+		relative_position_id = YUC_foreign_policy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
+			
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+	
+	focus = {# 
+		id = YUC_secure_ca
+		icon = GFX_goal_YUC_Mayan_warrior
+		cost = 7
+		prerequisite = {
+			focus = YUC_indepedence_secured
+			focus = YUC_black_spot
+		}
+		available = { 
+			NOT = {
+				OR = {
+					has_socialist_government = yes 
+					has_government = national_populist
+				}
+			}
+			country_exists = MEX
+		}
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 1
+		y = 4
 		relative_position_id = YUC_foreign_policy
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"

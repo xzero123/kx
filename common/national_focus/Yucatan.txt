@@ -2508,7 +2508,7 @@ focus_tree = {
 	
 	focus = {# 
 		id = YUC_authoritarian_democrats
-		icon = GFX_goal_ideology_authoritarian_democrat
+		icon = GFX_goal_YUC_alvarado
 		cost = 7
 		prerequisite = {
 			focus = YUC_yucatec_democracy
@@ -2628,22 +2628,6 @@ focus_tree = {
 				ideology = authoritarian_democrat
 				popularity = 0.05
 			}
-			create_country_leader = {# Salvador Alvarado
-				name = "Salvador Alvarado"
-				desc = "POLITICS_ALVORADO_DESC"
-				picture = "Portrait_Salvador_Alvarado.png"
-				expire = "1965.1.1"
-				ideology = radical_socialist_subtype
-				traits = {}
-			}
-			create_country_leader = {# Salvador Alvarado
-				name = "Salvador Alvarado"
-				desc = "POLITICS_ALVORADO_DESC"
-				picture = "Portrait_Salvador_Alvarado.png"
-				expire = "1965.1.1"
-				ideology = social_democrat_subtype
-				traits = {}
-			}
 			if = {
 				limit = {
 					has_government = paternal_autocrat
@@ -2657,6 +2641,22 @@ focus_tree = {
 					ideology = radical_socialist
 					name = YUC_paternal_autocrat_party
 					long_name = YUC_paternal_autocrat_party_long
+				}
+				create_country_leader = {# Salvador Alvarado
+					name = "Salvador Alvarado"
+					desc = "POLITICS_ALVORADO_DESC"
+					picture = "Portrait_Salvador_Alvarado.png"
+					expire = "1965.1.1"
+					ideology = radical_socialist_subtype
+					traits = {}
+				}
+				create_country_leader = {# Salvador Alvarado
+					name = "Salvador Alvarado"
+					desc = "POLITICS_ALVORADO_DESC"
+					picture = "Portrait_Salvador_Alvarado.png"
+					expire = "1965.1.1"
+					ideology = social_democrat_subtype
+					traits = {}
 				}
 			}
 			if = {
@@ -2672,6 +2672,22 @@ focus_tree = {
 					ideology = radical_socialist
 					name = YUC_authoritarian_democrat_party
 					long_name = YUC_authoritarian_democrat_party_long
+				}
+				create_country_leader = {# Salvador Alvarado
+					name = "Salvador Alvarado"
+					desc = "POLITICS_ALVORADO_DESC"
+					picture = "Portrait_Salvador_Alvarado_President.png"
+					expire = "1965.1.1"
+					ideology = radical_socialist_subtype
+					traits = {}
+				}
+				create_country_leader = {# Salvador Alvarado
+					name = "Salvador Alvarado"
+					desc = "POLITICS_ALVORADO_DESC"
+					picture = "Portrait_Salvador_Alvarado_President.png"
+					expire = "1965.1.1"
+					ideology = social_democrat_subtype
+					traits = {}
 				}
 			}
 		}
@@ -3234,7 +3250,7 @@ focus_tree = {
 ### FP Section ###
 	focus = {#
 		id = YUC_foreign_policy
-		icon = GFX_goal_YUC_X
+		icon = GFX_goal_YUC_fp
 		cost = 7
 		
 		ai_will_do = { factor = 5 }
@@ -3371,8 +3387,11 @@ focus_tree = {
 		y = 3
 		relative_position_id = YUC_march_to_reclaim_our_people
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_the_empire_breathes_again"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_wipe_out_european_mexico"
+			create_wargoal = {
+				type = annex_everything
+				target = GUA
+			}
 		}
 	}
 	
@@ -3388,8 +3407,27 @@ focus_tree = {
 		y = 3
 		relative_position_id = YUC_march_to_reclaim_our_people
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_the_empire_breathes_again"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_flower_wars"
+			create_wargoal = {
+				type = annex_everything
+				target = CEN
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = ELS
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = HON
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = NIC
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = COS
+			}
 		}
 	}
 	
@@ -3405,8 +3443,10 @@ focus_tree = {
 		y = 3
 		relative_position_id = YUC_march_to_reclaim_our_people
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_the_empire_breathes_again"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_join_co_prosperity_sphere"
+			JAP = {
+				add_to_faction = YUC
+			}
 		}
 	}
 	
@@ -3414,7 +3454,7 @@ focus_tree = {
 	
 	focus = {# 
 		id = YUC_socialist_fp
-		icon = GFX_goal_YUC_Mayan_warrior
+		icon = GFX_goal_CSA_Socialism_first
 		cost = 7
 		prerequisite = {
 			focus = YUC_foreign_policy
@@ -3435,8 +3475,16 @@ focus_tree = {
 		y = 1
 		relative_position_id = YUC_foreign_policy
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_socialist_fp"
+			increase_ruling_party_popularity_by_5 = yes
+			add_opinion_modifier = {
+				target = INT
+				modifier = KR_approves_of_govt
+			}
+			reverse_add_opinion_modifier = {
+				target = INT
+				modifier = KR_approves_of_govt
+			}
 		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 	}
@@ -3473,11 +3521,6 @@ focus_tree = {
 					has_socialist_government = no
 				}
 			}
-			842 = {
-				owner = {
-					has_socialist_government = no
-				}
-			}
 		}
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
@@ -3485,8 +3528,31 @@ focus_tree = {
 		y = 1
 		relative_position_id = YUC_socialist_fp
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_take_over_CA"
+			create_wargoal = {
+				type = annex_everything
+				target = CEN
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = ELS
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = GUA
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = HON
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = NIC
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = COS
+			}
 		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 	}
@@ -3537,6 +3603,10 @@ focus_tree = {
 		}
 		available = {
 			has_socialist_government = yes
+			owns_state = 313
+			owns_state = 314
+			owns_state = 317
+			owns_state = 842
 		}
 		ai_will_do = { factor = 20 }
 		available_if_capitulated = yes
@@ -3545,14 +3615,18 @@ focus_tree = {
 		relative_position_id = YUC_socialist_fp
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_our_own_socialist_CA"
-			
+			set_cosmetic_tag = CEN
+			add_state_core = 313
+			add_state_core = 314
+			add_state_core = 317
+			add_state_core = 842
 		}
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 	}
 	
 	focus = {
 		id = YUC_take_out_mexico
-		icon = X
+		icon = GFX_focus_mex_jefe_maximo
 		cost = 8
 		prerequisite = {
 			focus = YUC_our_own_socialist_CA
@@ -3570,15 +3644,18 @@ focus_tree = {
 		y = 3
 		relative_position_id = YUC_socialist_fp
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_our_own_socialist_CA"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_take_out_mexico"
+			create_wargoal = {
+				type = annex_everything
+				target = MEX
+			}
 		}
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 	}
 	
 	focus = {
 		id = YUC_join_int
-		icon = X
+		icon = GFX_BBR_internationale_collaboration
 		cost = 8
 		prerequisite = {
 			focus = YUC_our_own_socialist_CA
@@ -3593,8 +3670,10 @@ focus_tree = {
 		y = 3
 		relative_position_id = YUC_socialist_fp
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_our_own_socialist_CA"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_join_int"
+			INT = {
+				add_to_faction = YUC
+			}
 		}
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 	}
@@ -3603,7 +3682,7 @@ focus_tree = {
 	
 	focus = {# 
 		id = YUC_neutral_fp
-		icon = GFX_goal_YUC_Mayan_warrior
+		icon = GFX_goal_TEX_ideoloical_neutrality
 		cost = 7
 		prerequisite = {
 			focus = YUC_foreign_policy
@@ -3626,15 +3705,15 @@ focus_tree = {
 		y = 1
 		relative_position_id = YUC_foreign_policy
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_neutral_fp"
+			add_ideas = YUC_neutral_fp
 		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 	}
 	
 	focus = {# 
 		id = YUC_develop_inward
-		icon = GFX_goal_YUC_Mayan_warrior
+		icon = GFX_goal_generic_industrial_planning
 		cost = 7
 		prerequisite = {
 			focus = YUC_neutral_fp
@@ -3653,15 +3732,22 @@ focus_tree = {
 		y = 2
 		relative_position_id = YUC_foreign_policy
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_develop_inward"
+			474 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 	}
 	
 	focus = {# 
 		id = YUC_black_spot
-		icon = GFX_goal_YUC_Mayan_warrior
+		icon = GFX_goal_YUC_black_spot
 		cost = 7
 		prerequisite = {
 			focus = YUC_develop_inward
@@ -3678,15 +3764,42 @@ focus_tree = {
 		y = 3
 		relative_position_id = YUC_foreign_policy
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_black_spot"
+			474 = {
+				add_building_construction = { type = bunker province = 4904 level = 1 instant_build = yes }
+				add_building_construction = { type = bunker province = 13457 level = 1 instant_build = yes }
+				add_building_construction = { type = bunker province = 13455 level = 1 instant_build = yes }
+			}
+			swap_ideas = {
+				remove_idea = YUC_neutral_fp
+				add_idea = YUC_black_spot
+			}
+			every_country = {	
+				limit = {
+					OR = {
+						tag = MEX
+						tag = YUC
+						tag = GUA
+						tag = ELS
+						tag = HON
+						tag = NIC
+						tag = COS
+						tag = PAN
+						tag = CEN
+					}
+				}
+				reverse_add_opinion_modifier = {
+					target = YUC
+					modifier = embargo
+				}
+			}
 		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 	}
 	
 	focus = {# 
 		id = YUC_indepedence_secured
-		icon = GFX_goal_YUC_Mayan_warrior
+		icon = X
 		cost = 7
 		prerequisite = {
 			focus = YUC_develop_inward
@@ -3705,15 +3818,20 @@ focus_tree = {
 		y = 3
 		relative_position_id = YUC_foreign_policy
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_indepedence_secured"
+			swap_ideas = {
+				remove_idea = YUC_neutral_fp
+				add_idea = YUC_neutral_fp3
+			}
+			add_political_power = 100
+			add_stability = 0.05
 		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 	}
 	
 	focus = {# 
 		id = YUC_secure_ca
-		icon = GFX_goal_YUC_Mayan_warrior
+		icon = X
 		cost = 7
 		prerequisite = {
 			focus = YUC_indepedence_secured
@@ -3734,8 +3852,31 @@ focus_tree = {
 		y = 4
 		relative_position_id = YUC_foreign_policy
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_secure_ca"
+			create_wargoal = {
+				type = annex_everything
+				target = CEN
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = GUA
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = ELS
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = HON
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = NIC
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = COS
+			}
 		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 	}

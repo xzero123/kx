@@ -3249,6 +3249,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_STABILITY }
 	}
 	
+	## Mayan FP ##
+	
 	focus = {# 
 		id = YUC_march_to_reclaim_our_people
 		icon = GFX_goal_YUC_Mayan_warrior
@@ -3256,10 +3258,14 @@ focus_tree = {
 		prerequisite = {
 			focus = YUC_foreign_policy
 		}
+		mutually_exclusive = {
+			focus = YUC_socialist_fp
+			focus = YUC_neutral_fp
+		}
 		available = { has_government = national_populist }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
-		x = -4
+		x = -3
 		y = 1
 		relative_position_id = YUC_foreign_policy
 		completion_reward = {
@@ -3358,7 +3364,6 @@ focus_tree = {
 		icon = YUC_the_empire_breathes_again
 		cost = 7
 		prerequisite = {focus = YUC_the_empire_breathes_again}
-		mutually_exclusive = {focus = YUC_flower_wars}
 		available = { has_government = national_populist }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
@@ -3376,7 +3381,6 @@ focus_tree = {
 		icon = YUC_the_empire_breathes_again
 		cost = 7
 		prerequisite = {focus = YUC_the_empire_breathes_again}
-		mutually_exclusive = {focus = YUC_wipe_out_european_mexico}
 		available = { has_government = national_populist }
 		ai_will_do = { factor = 5 }
 		available_if_capitulated = yes
@@ -3404,6 +3408,285 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_the_empire_breathes_again"
 			
 		}
+	}
+	
+	## Socialist FP ##
+	
+	focus = {# 
+		id = YUC_socialist_fp
+		icon = GFX_goal_YUC_Mayan_warrior
+		cost = 7
+		prerequisite = {
+			focus = YUC_foreign_policy
+		}
+		mutually_exclusive = {
+			focus = YUC_neutral_fp
+			focus = YUC_march_to_reclaim_our_people
+		}
+		available = { 
+			has_socialist_government = yes 
+			NOT = {
+				has_government = totalist
+			}
+		}
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 3
+		y = 1
+		relative_position_id = YUC_foreign_policy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
+			
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+	
+	focus = {# 
+		id = YUC_take_over_CA
+		icon = GFX_goal_YUC_Mayan_warrior
+		cost = 7
+		prerequisite = {
+			focus = YUC_socialist_fp
+		}
+		mutually_exclusive = {
+			focus = YUC_central_american_overtures
+		}
+		available = { 
+			has_socialist_government = yes
+			313 = {
+				owner = {
+					has_socialist_government = no
+				}
+			}
+			314 = {
+				owner = {
+					has_socialist_government = no
+				}
+			}
+			317 = {
+				owner = {
+					has_socialist_government = no
+				}
+			}
+			842 = {
+				owner = {
+					has_socialist_government = no
+				}
+			}
+			842 = {
+				owner = {
+					has_socialist_government = no
+				}
+			}
+		}
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -1
+		y = 1
+		relative_position_id = YUC_socialist_fp
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
+			
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+	
+	focus = {# Central American Overtures
+		id = YUC_central_american_overtures
+		icon = GFX_goal_centroamerica
+		cost = 8
+		prerequisite = {
+			focus = YUC_socialist_fp
+		}
+		mutually_exclusive = {
+			focus = YUC_take_over_CA
+		}
+		available = {
+			has_socialist_government = yes
+			is_subject = no
+			CEN = {
+				exists = yes
+				is_subject = no
+				has_socialist_government = yes
+			}
+		}
+		ai_will_do = { factor = 20 }
+		available_if_capitulated = yes
+		x = 1
+		y = 1
+		relative_position_id = YUC_socialist_fp
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_central_american_overtures"
+			CEN = {
+				country_event = {
+					id = yucatan.28
+					days = 1
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+	
+	focus = {
+		id = YUC_join_int
+		icon = X
+		cost = 8
+		prerequisite = {
+			focus = YUC_central_american_overtures
+			focus = YUC_take_over_CA
+		}
+		available = {
+			has_socialist_government = yes
+		}
+		ai_will_do = { factor = 20 }
+		available_if_capitulated = yes
+		x = 0
+		y = 2
+		relative_position_id = YUC_socialist_fp
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_join_int"
+			
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+	
+	focus = {
+		id = YUC_take_out_mexico
+		icon = X
+		cost = 8
+		prerequisite = {
+			focus = YUC_join_int
+		}
+		available = {
+			has_socialist_government = yes
+			MEX = {
+				has_socialist_government = no
+			}
+		}
+		ai_will_do = { factor = 20 }
+		available_if_capitulated = yes
+		x = 0
+		y = 3
+		relative_position_id = YUC_socialist_fp
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_join_int"
+			
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+	
+	## Neutral FP ##
+	
+	focus = {# 
+		id = YUC_neutral_fp
+		icon = GFX_goal_YUC_Mayan_warrior
+		cost = 7
+		prerequisite = {
+			focus = YUC_foreign_policy
+		}
+		mutually_exclusive = {
+			focus = YUC_socialist_fp
+			focus = YUC_march_to_reclaim_our_people
+		}
+		available = { 
+			NOT = {
+				OR = {
+					has_socialist_government = yes 
+					has_government = national_populist
+				}
+			}
+		}
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 0
+		y = 1
+		relative_position_id = YUC_foreign_policy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
+			
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+	
+	focus = {# 
+		id = YUC_develop_inward
+		icon = GFX_goal_YUC_Mayan_warrior
+		cost = 7
+		prerequisite = {
+			focus = YUC_neutral_fp
+		}
+		available = { 
+			NOT = {
+				OR = {
+					has_socialist_government = yes 
+					has_government = national_populist
+				}
+			}
+		}
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 0
+		y = 2
+		relative_position_id = YUC_foreign_policy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
+			
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+	
+	focus = {# 
+		id = YUC_black_spot
+		icon = GFX_goal_YUC_Mayan_warrior
+		cost = 7
+		prerequisite = {
+			focus = YUC_develop_inward
+		}
+		available = { 
+			NOT = {
+				OR = {
+					has_socialist_government = yes 
+					has_government = national_populist
+				}
+			}
+		}
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = 1
+		y = 3
+		relative_position_id = YUC_foreign_policy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
+			
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+	
+	focus = {# 
+		id = YUC_indepedence_secured
+		icon = GFX_goal_YUC_Mayan_warrior
+		cost = 7
+		prerequisite = {
+			focus = YUC_develop_inward
+		}
+		available = { 
+			NOT = {
+				OR = {
+					has_socialist_government = yes 
+					has_government = national_populist
+				}
+			}
+		}
+		ai_will_do = { factor = 5 }
+		available_if_capitulated = yes
+		x = -1
+		y = 3
+		relative_position_id = YUC_foreign_policy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus YUC_reintergrate_the_empire"
+			
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
 	}
 	
 ### Economic Section ###

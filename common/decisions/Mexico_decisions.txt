@@ -298,6 +298,77 @@ MEX_central_american_intervention = {# dealing with central America
 		}
 	}
 	### Sinarquista stuff ###
+	
+	MEX_invade_yucatan = {# Retake the yucatano
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		available = {
+			NOT = {
+				has_elected_government = yes
+			}
+		}
+		visible = {
+			has_country_flag = MEX_can_invade_yuc
+		}
+		days_remove = 20
+		fire_only_once = yes
+		cost = 50
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_invade_yucatan"
+			YUC = {
+				country_event = {
+					id = mexico.640
+					days = 1
+				}
+			}
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_invade_yucatan"
+			activate_mission = MEX_retake_yucatan_mission
+			declare_war_on = {
+				tag = YUC
+				type = annex_everything
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	
+	MEX_negotiate_with_yucatan = {# Retake the yucatano
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		available = {
+			
+		}
+		visible = {
+			has_country_flag = MEX_can_negotiate_with_yuc
+			NOT = {
+				has_war_with = YUC
+			}
+		}
+		days_remove = 20
+		fire_only_once = yes
+		cost = 50
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_invade_yucatan"
+			
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_invade_yucatan"
+			activate_mission = MEX_retake_yucatan_mission
+			YUC = {
+				country_event = {
+					id = mexico.68
+					days = 1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	
 	MEX_retake_yucatan_mission = {# Retake the yucatan
 		icon = generic_prepare_civil_war
 
@@ -316,7 +387,7 @@ MEX_central_american_intervention = {# dealing with central America
 
 		is_good = no
 		fire_only_once = yes
-		days_mission_timeout = 365
+		days_mission_timeout = 80
 
 		timeout_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision timeout MEX_retake_yucatan_mission"

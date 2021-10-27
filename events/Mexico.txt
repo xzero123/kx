@@ -1664,10 +1664,7 @@ country_event = { # Calles is dead!
 	}
 
 	trigger = {
-		OR = {
-			has_government = totalist
-			has_socialist_government = no
-		}
+		has_government = totalist
 	}
 
 	option = { # Cardenas takes over
@@ -3915,9 +3912,6 @@ country_event = { # anti-Zapata laws
 	option = {
 		name = mexico.63.a
 		set_country_flag = MEX_native_law_repealled
-		hidden_effect = {
-			country_event = { id = mexico.64 days = 60 random_days = 60 }
-		}
 	}
 	option = {
 		name = mexico.63.b
@@ -3929,6 +3923,113 @@ country_event = { # anti-Zapata laws
 		add_political_power = -100
 	}
 }
+
+##################################
+#### Yucatan War Event Chain  ####
+##################################
+
+country_event = { # Calles Killed
+	id = mexico.6301
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.6301"}
+	title = mexico.6301.t
+	desc = mexico.6301.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	
+	option = {
+		name = mexico.6301.a
+		create_country_leader = { # Emilio Portes Gil
+			name = "Emilio Portes Gil"
+			desc = "POLITICS_EMILIO_GIL_DESC"
+			picture = "Portrait_Mexico_Emilio_Gil.png"
+			expire = "1965.1.1"
+			ideology = totalist_subtype
+			traits = {}
+		}
+		hidden_effect = {
+			country_event = {
+				id = mexico.6302
+				days = 11 #Canabal Resists Reactionary Forces
+			}
+		}
+	}
+}
+
+country_event = { # Canabal Resists
+	id = mexico.6302
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.6302"}
+	title = mexico.6302.t
+	desc = mexico.6302.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	
+	option = {
+		name = mexico.6302.a
+		add_stability = -0.05
+		hidden_effect = {
+			country_event = {
+				id = mexico.6303
+				days = 11 #Goldshirts Clash with the Mayans Resists Socialist Forces
+			}
+		}
+	}
+}
+
+country_event = { # Pech Resists
+	id = mexico.6303
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.6303"}
+	title = mexico.6303.t
+	desc = mexico.6303.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	
+	option = {
+		name = mexico.6303.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.04
+		}
+		hidden_effect = {
+			country_event = {
+				id = mexico.6304
+				days = 11 #Goldshirts Clash with the Mayans Resists Socialist Forces
+			}
+		}
+	}
+}
+
+country_event = { # Alvarado Resists
+	id = mexico.6304
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.6304"}
+	title = mexico.6304.t
+	desc = mexico.6304.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	
+	option = {
+		name = mexico.6304.a
+		remove_state_core = 474
+		hidden_effect = {
+			country_event = {
+				id = mexico.64
+				days = 11 #Yucatan Revolt
+			}
+		}
+	}
+}
+
 country_event = { # The Yucatan revolt
 	id = mexico.64
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.64"}
@@ -3936,10 +4037,11 @@ country_event = { # The Yucatan revolt
 	desc = mexico.64.d
 
 	is_triggered_only = yes
-
-	trigger = {
-		has_authoritarian_government = yes
-		is_subject = no
+	
+	immediate = {
+		hidden_effect = {
+			MEX_spawn_yucatan = yes
+		}
 	}
 
 	option = { # Bring order to the Yucatan
@@ -3948,39 +4050,43 @@ country_event = { # The Yucatan revolt
 			factor = 100
 		}
 		add_political_power = -130
-		activate_mission = MEX_retake_yucatan_mission
-		YUC = {
-			transfer_technology = yes
-			transfer_state = 474
-			add_state_core = 474
-			load_oob = "YUC"
-		}
-		declare_war_on = {
-			target = YUC
-			type = annex_everything
-		}
 	}
 	option = { # Fight for our Freedom(play as Yucatan)
 		name = mexico.64.b
 		ai_chance = {
 			factor = 0
 		}
-		activate_mission = MEX_retake_yucatan_mission
 		YUC = {
 			add_stability = 0.3
 			add_war_support = 0.3
-			transfer_technology = yes
-			transfer_state = 474
-			add_state_core = 474
-			load_oob = "YUC"
 			change_tag_from = MEX
-		}
-		declare_war_on = {
-			target = YUC
-			type = annex_everything
 		}
 	}
 }
+
+country_event = { # The Yucatan revolt
+	id = mexico.640
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.640"}
+	title = mexico.640.t
+	desc = mexico.640.d
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			MEX_spawn_yucatan = yes
+		}
+	}
+
+	option = { # Bring order to the Yucatan
+		name = mexico.640.a
+		ai_chance = {
+			factor = 100
+		}
+
+	}
+}
+
 country_event = { # Failed to take Yucatan from decision
 	id = mexico.65
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.65"}
@@ -4082,14 +4188,12 @@ country_event = { # Rejoin Mexico?
 	desc = mexico.68.d
 	picture = GFX_report_event_generic_diplomacy2
 
-	fire_only_once = yes
-
 	is_triggered_only = yes
 
 	option = { # Rejoin mexico(Game over)
 		name = mexico.68.a
 		ai_chance = {
-			factor = 99
+			factor = 50
 		}
 		if = {
 			limit = {
@@ -4106,6 +4210,9 @@ country_event = { # Rejoin Mexico?
 	}
 	option = { # We shall fight on anyways
 		name = mexico.68.b
+		ai_chance = {
+			factor = 50
+		}
 		add_political_power = 50
 		increase_ruling_party_popularity_by_5 = yes
 		MEX = {
@@ -4148,9 +4255,25 @@ country_event = { # the Yucatan continues to fight
 
 	is_triggered_only = yes
 
-	option = {
+	option = { #Invade them
 		name = mexico.70.a
+		declare_war_on = {
+			tag = YUC
+			type = annex_everything
+		}
+	}
+	
+	option = { #Two State Solution
+		name = mexico.70.b
 		add_war_support = 0.02
+		YUC = {
+			if = {
+				limit = {
+					has_war_with = MEX
+				}
+				white_peace = MEX
+			}
+		}
 	}
 }
 ### Military Democracy 81 - 99 ###

@@ -847,6 +847,14 @@ country_event = { # Cristero War begins
 	trigger = {
 		has_government = totalist
 	}
+	
+	immediate = {
+		hidden_effect = {
+			MEX = {
+				clear_global_event_target = Jesus_Mexico
+			}
+		}
+	}
 
 	option = {
 		name = mexico.12.a
@@ -2417,7 +2425,7 @@ country_event = { # tolenado removed
 			desc = "POLITICS_VELASQUEZ_DESC"
 			picture = "Portrait_MEX_Fidel_Velasquez.png"
 			expire = "1965.1.1"
-			ideology = totalist_subtype
+			ideology = syndicalist_subtype
 			traits = {}
 		}
 	}
@@ -4276,6 +4284,147 @@ country_event = { # the Yucatan continues to fight
 		}
 	}
 }
+
+country_event = { # Yucatan Wins war with Mexico
+	id = mexico.700
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.70"}
+	title = mexico.700.t
+	desc = mexico.700.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = { #Restore Socialist Mexico
+		name = mexico.700.a
+		hidden_effect = {
+			XXA = {
+				every_unit_leader = {
+					limit = {
+						has_unit_leader_flag = MEX_rev_leader
+					}
+					set_nationality = MEX
+				}
+			}
+			every_unit_leader = {
+				limit = {
+					OR = {
+						has_trait = mex_counter_revolutionary
+						has_trait = mex_gold_shirt
+					}
+				}
+				set_nationality = XXA
+			}
+			YUC = {
+				every_unit_leader = {
+					set_nationality = MEX
+				}
+				annex_country = {
+					tag = MEX
+					transfer_troops = yes
+				}
+			}
+			MEX = {
+				create_country_leader = {# Salvador Alvarado
+					name = "Salvador Alvarado"
+					desc = "POLITICS_ALVORADO_DESC"
+					picture = "Portrait_Salvador_Alvarado.png"
+					expire = "1965.1.1"
+					ideology = radical_socialist_subtype
+					traits = {}
+				}
+				meta_effect = {
+					text = {
+						set_politics = {
+							ruling_party = radical_socialist
+							last_election = "[CURRENT_DATE]"
+							election_frequency = 60
+							elections_allowed = yes
+						}
+					}
+					CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+				}
+				effect_tooltip = {
+					set_politics = {
+						ruling_party = radical_socialist
+						elections_allowed = yes
+						election_frequency = 60
+					}
+				}
+				change_tag_from = YUC
+			}	
+		}
+	}
+	
+	option = { #Dissolve the Mexican Government
+		name = mexico.700.b
+		add_war_support = 0.02
+		YUC = {
+			if = {
+				limit = {
+					has_war_with = MEX
+				}
+				white_peace = MEX
+			}
+		}
+		country_event = {
+			id = mexico.701
+			days = 5
+		}
+	}
+}
+
+country_event = { # the Yucatan continues to fight
+	id = mexico.701
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.701"}
+	title = mexico.701.t
+	desc = mexico.701.d
+	picture = GFX_report_event_generic_diplomacy2
+	
+	immediate = {
+		hidden_effect = {
+			MEX = {
+				clear_global_event_target = Jesus_Mexico
+				clear_global_event_target = Rio_Grande_Owner
+				clear_global_event_target = Veracruz_Owner
+				clear_global_event_target = Baja_Owner
+				clear_global_event_target = Oaxaca
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { #Mexico goes Radsoc
+		name = mexico.701.a
+		MEX = {
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = radical_socialist
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 60
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+			effect_tooltip = {
+				set_politics = {
+					ruling_party = radical_socialist
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+		}
+	}
+	
+	option = { #Two State Solution
+		name = mexico.701.b
+		MEX_fuck_the_shit_out_of_mexico = yes
+	}
+}
+
+
 ### Military Democracy 81 - 99 ###
 country_event = { # Elections of 1937
 	id = mexico.81

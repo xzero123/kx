@@ -529,6 +529,22 @@ MEX_military_coup_occurs = {
 		ideology = social_democrat_subtype
 		traits = {}
 	}
+	create_country_leader = { # Antonio Díaz Soto y Gama
+		name = "Antonio Díaz Soto y Gama"
+		desc = "POLITICS_SOTO_Y_GAMA_DESC"
+		picture = "Portrait_Mexico_Antonio_Diaz_Soto_y_Gama.png"
+		expire = "1965.1.1"
+		ideology = radical_socialist_subtype
+		traits = {}
+	}
+	create_country_leader = {# Fidel Velasquez
+		name = "Fidel Velasquez"
+		desc = "POLITICS_VELASQUEZ_DESC"
+		picture = "Portrait_MEX_Fidel_Velasquez.png"
+		expire = "1965.1.1"
+		ideology = syndicalist_subtype
+		traits = {}
+	}
 	clr_country_flag = soc_dems_are_socialists
 	hidden_effect = {
 		set_country_flag = Genovevo_de_la_O_dead
@@ -1036,7 +1052,7 @@ MEX_set_2nd_cycle_leaders = {
 MEX_set_3rd_cycle_leaders = {
 	create_country_leader = {# Francisco Javier Santamaría
 		name = "Francisco Javier Santamaría"
-		picture = "Portrait_Mexico_Francisco_Javier_Santamaría.png"
+		picture = "Portrait_Mexico_Francisco_Javier_Santamaria.png"
 		expire = "1965.1.1"
 		ideology = social_democrat_subtype
 		traits = {}
@@ -1070,3 +1086,537 @@ MEX_set_3rd_cycle_leaders = {
 		traits = {}
 	}
 }
+
+MEX_fuck_the_shit_out_of_mexico = {
+	create_dynamic_country = {	#Jesus Mexico
+		original_tag = MEX
+		copy_tag = MEX
+
+		#State
+		transfer_state = 478
+		add_state_core = 478
+			
+		save_global_event_target_as = Jesus_Mexico
+				
+		### Leader
+		create_country_leader = { # Enrique Gorostieta
+			name = "Enrique Gorostieta"
+			desc = "POLITICS_GOROSTIETA_DESC"
+			picture = "gfx/leaders/MEX/Portrait_Enrique_Gorostieta.png"
+			expire = "1965.1.1"
+			ideology = authoritarian_democrat_subtype
+			traits = {}
+		}
+			
+		MEX_create_christero_generals = yes
+				
+		### Politics
+		set_popularities = {
+			totalist = 0
+			radical_socialist = 0
+			syndicalist = 0
+			social_democrat = 10
+			social_liberal = 0
+			market_liberal = 10
+			social_conservative = 20
+			authoritarian_democrat = 40
+			paternal_autocrat = 10
+			national_populist = 10
+		}
+		set_party_name = {
+			ideology = authoritarian_democrat
+			name = MEX_jesus_authoritarian_democrat_party
+			long_name = MEX_jesus_authoritarian_democrat_party_long
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = no
+		}
+		set_cosmetic_tag = MEX_JESUS
+
+		#Units
+		division_template = {
+			name = "Christian Division"
+			division_names_group = MEX_INF_01
+
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+			}
+			priority = 0
+		}
+			
+		478 = {
+			create_unit = {
+				division = "division_template = \"Christian Division\" start_experience_factor = 0.1"
+				owner = event_target:Jesus_Mexico
+			}
+			create_unit = {
+				division = "division_template = \"Christian Division\" start_experience_factor = 0.1"
+				owner = event_target:Jesus_Mexico
+			}
+		}
+		485 = {
+			create_unit = {
+				division = "division_template = \"Christian Division\" start_experience_factor = 0.1"
+				owner = event_target:Jesus_Mexico
+			}
+			create_unit = {
+				division = "division_template = \"Christian Division\" start_experience_factor = 0.1"
+				owner = event_target:Jesus_Mexico
+			}
+		}
+	}
+	
+	create_dynamic_country = {	#Rio Grande
+		original_tag = MEX
+		copy_tag = MEX
+
+		#State
+		transfer_state = 480
+		add_state_core = 480
+		transfer_state = 481
+		add_state_core = 481
+		transfer_state = 482
+		add_state_core = 482
+		transfer_state = 483
+		add_state_core = 483	
+		transfer_state = 479
+		add_state_core = 479
+			
+		save_global_event_target_as = Rio_Grande_Owner
+				
+		### Leader
+		create_country_leader = { # Antonio Irineo Villarreal
+			name = "Antonio Irineo Villarreal"
+			picture = "gfx/leaders/MEX/Portrait_Mexico_Antonio_Villarreal.png"
+			expire = "1965.1.1"
+			ideology = radical_socialist_subtype
+		}
+		create_country_leader = { # Bonifacio Salinas Leal
+			name = "Bonifacio Salinas Leal"
+			picture = "gfx/leaders/MEX/Portrait_Bonifacio_Salinas_Leal.png"
+			expire = "1965.1.1"
+			ideology = social_conservative_subtype
+			traits = {}
+		}
+		create_country_leader = { # César López de Lara
+			name = "César López de Lara"
+			picture = "gfx/leaders/MEX/Portrait_Cesar_Lopez_de_Lara.png"
+			expire = "1965.1.1"
+			ideology = authoritarian_democrat_subtype
+			traits = {}
+		}
+		create_country_leader = { # Manuel Perez Treviño
+			name = "Manuel Perez Treviño"
+			desc = "POLITICS_ABELARDO_RODRIGUEZ"
+			picture = "gfx/leaders/MEX/Portrait_Manuel_Trevibno.png"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+			traits = {}
+		}
+		create_country_leader = { # Saturnino Cedillo
+			name = "Saturnino Cedillo"
+			picture = "gfx/leaders/MEX/Portrait_Saturnino_Cedillo.png"
+			expire = "1965.1.1"
+			ideology = national_populist_subtype
+			traits = {}
+		}
+				
+		### Politics
+		set_popularities = {
+			totalist = 0
+			radical_socialist = 8
+			syndicalist = 0
+			social_democrat = 0
+			social_liberal = 0
+			market_liberal = 0
+			social_conservative = 9
+			authoritarian_democrat = 7
+			paternal_autocrat = 51
+			national_populist = 25
+		}
+		set_party_name = {
+			ideology = radical_socialist
+			name = "EdAV"
+			long_name = "Ejercito de Antonio Villarreal"
+		}
+		set_party_name = {
+			ideology = social_conservative
+			name = "EdAS"
+			long_name = "Ejercito de Bonifacio Salinas Leal"
+		}
+		set_party_name = {
+			ideology = authoritarian_democrat
+			name = "EdAS"
+			long_name = "Ejercito de Aaron Saenz"
+		}
+		set_party_name = {
+			ideology = paternal_autocrat
+			name = "EdMPT"
+			long_name = "Ejercito de Manuel Perez Treviño"
+		}
+		set_party_name = {
+			ideology = national_populist
+			name = "EdSC"
+			long_name = "Ejercito de Saturnino Cedillo"
+		}
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+		set_cosmetic_tag = RGR
+
+		#Units
+		division_template = {
+			name = "Rio Grande Division"
+			division_names_group = MEX_INF_01
+
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+			}
+			priority = 0
+		}
+			
+		random_owned_state = {
+			create_unit = {
+				division = "division_template = \"Rio Grande Division\" start_experience_factor = 0.1"
+				owner = event_target:Rio_Grande_Owner
+			}
+			create_unit = {
+				division = "division_template = \"Rio Grande Division\" start_experience_factor = 0.1"
+				owner = event_target:Rio_Grande_Owner
+			}
+		}
+		random_owned_state = {
+			create_unit = {
+				division = "division_template = \"Rio Grande Division\" start_experience_factor = 0.1"
+				owner = event_target:Rio_Grande_Owner
+			}
+			create_unit = {
+				division = "division_template = \"Rio Grande Division\" start_experience_factor = 0.1"
+				owner = event_target:Rio_Grande_Owner
+			}
+		}
+	}
+	
+	create_dynamic_country = {	#Veracruz
+		original_tag = MEX
+		copy_tag = MEX
+
+		#State
+		transfer_state = 477
+		add_state_core = 477
+			
+		save_global_event_target_as = Veracruz_Owner
+				
+		### Leader
+		
+		create_country_leader = { # Jonas H. Ingram
+			name = "Jonas H. Ingram"
+			picture = "gfx/leaders/MEX/Portrait_Jonas_Ingram.png"
+			expire = "1965.1.1"
+			ideology = authoritarian_democrat_subtype
+			traits = {}
+		}
+			
+		### Politics
+		set_popularities = {
+			totalist = 0
+			radical_socialist = 0
+			syndicalist = 0
+			social_democrat = 0
+			social_liberal = 0
+			market_liberal = 0
+			social_conservative = 0
+			authoritarian_democrat = 47
+			paternal_autocrat = 53
+			national_populist = 0
+		}
+	
+		set_party_name = {
+			ideology = authoritarian_democrat
+			name = "A4thF"
+			long_name = "American 4th Fleet"
+		}
+		set_party_name = {
+			ideology = paternal_autocrat
+			name = "EMdV"
+			long_name = "Ejercito Mexicano de Veracruz"
+		}
+	
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = no
+		}
+		set_cosmetic_tag = VRC
+
+		#Units
+		division_template = {
+			name = "Veracruz Division"
+			division_names_group = MEX_INF_01
+
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+			}
+			priority = 0
+		}
+			
+		random_owned_state = {
+			create_unit = {
+				division = "division_template = \"Veracruz Division\" start_experience_factor = 0.1"
+				owner = event_target:Veracruz_Owner
+			}
+			create_unit = {
+				division = "division_template = \"Veracruz Division\" start_experience_factor = 0.1"
+				owner = event_target:Veracruz_Owner
+			}
+		}
+		random_owned_state = {
+			create_unit = {
+				division = "division_template = \"Veracruz Division\" start_experience_factor = 0.1"
+				owner = event_target:Veracruz_Owner
+			}
+			create_unit = {
+				division = "division_template = \"Veracruz Division\" start_experience_factor = 0.1"
+				owner = event_target:Veracruz_Owner
+			}
+		}
+	}
+	
+	create_dynamic_country = {	#Baja
+		original_tag = MEX
+		copy_tag = MEX
+
+		#State
+		transfer_state = 484
+		add_state_core = 484
+			
+		save_global_event_target_as = Baja_Owner
+				
+		### Leader
+		
+		create_country_leader = { # Enrique Magon
+			name = "Enrique Magon"
+			picture = "gfx/leaders/MEX/Portrait_Enrique_Magon.png"
+			expire = "1965.1.1"
+			ideology = totalist_subtype
+			traits = {}
+		}
+		create_country_leader = { # Enrique Magon
+			name = "Enrique Magon"
+			picture = "gfx/leaders/MEX/Portrait_Enrique_Magon.png"
+			expire = "1965.1.1"
+			ideology = syndicalist_subtype
+			traits = {}
+		}
+		create_country_leader = { # Enrique Magon
+			name = "Enrique Magon"
+			picture = "gfx/leaders/MEX/Portrait_Enrique_Magon.png"
+			expire = "1965.1.1"
+			ideology = radical_socialist_subtype
+			traits = {}
+		}
+			
+		### Politics
+		set_popularities = {
+			totalist = 9
+			radical_socialist = 48
+			syndicalist = 43
+			social_democrat = 0
+			social_liberal = 0
+			market_liberal = 0
+			social_conservative = 0
+			authoritarian_democrat = 0
+			paternal_autocrat = 0
+			national_populist = 0
+		}
+	
+		set_party_name = {
+			ideology = totalist
+			name = "EM"
+			long_name = "Ejército Magonista"
+		}
+		
+		set_party_name = {
+			ideology = syndicalist
+			name = "PL(NG)"
+			long_name = "Partido Liberal (Nueva Generación)"
+		}
+		
+		set_party_name = {
+			ideology = radical_socialist
+			name = "PL(VG)"
+			long_name = "Partido Liberal (Vieja Guardia)"
+		}
+		
+		set_politics = {
+			ruling_party = radical_socialist
+			elections_allowed = no
+		}
+	
+		set_cosmetic_tag = BAJ
+
+		#Units
+		division_template = {
+			name = "Baja Division"
+			division_names_group = MEX_INF_01
+
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+			}
+			priority = 0
+		}
+			
+		random_owned_state = {
+			create_unit = {
+				division = "division_template = \"Baja Division\" start_experience_factor = 0.1"
+				owner = event_target:Baja_Owner
+			}
+			create_unit = {
+				division = "division_template = \"Baja Division\" start_experience_factor = 0.1"
+				owner = event_target:Baja_Owner
+			}
+		}
+		random_owned_state = {
+			create_unit = {
+				division = "division_template = \"Baja Division\" start_experience_factor = 0.1"
+				owner = event_target:Baja_Owner
+			}
+			create_unit = {
+				division = "division_template = \"Baja Division\" start_experience_factor = 0.1"
+				owner = event_target:Baja_Owner
+			}
+		}
+	}
+	
+	create_dynamic_country = {	#Oaxaca
+		original_tag = MEX
+		copy_tag = MEX
+
+		#State
+		transfer_state = 485
+		add_state_core = 485	
+		transfer_state = 476
+		add_state_core = 476	
+		transfer_state = 475
+		add_state_core = 475
+			
+		save_global_event_target_as = Oaxaca_Owner
+				
+		### Leader
+		
+		create_country_leader = { # Genovevo de la O
+			name = "Genovevo de la O"
+			picture = "gfx/leaders/MEX/Portrait_Genovevo_O.png"
+			expire = "1965.1.1"
+			ideology = radical_socialist_subtype
+			traits = {}
+		}
+			
+		### Politics
+		set_popularities = {
+			totalist = 13
+			radical_socialist = 78
+			syndicalist = 9
+			social_democrat = 0
+			social_liberal = 0
+			market_liberal = 0
+			social_conservative = 0
+			authoritarian_democrat = 0
+			paternal_autocrat = 0
+			national_populist = 0
+		}
+	
+		set_party_name = {
+			ideology = totalist
+			name = "EZ"
+			long_name = "Ejército Zapatista"
+		}
+		
+		set_party_name = {
+			ideology = syndicalist
+			name = "CNT"
+			long_name = "Confederación Nacional de TraOaxacadores"
+		}
+		
+		set_politics = {
+			ruling_party = radical_socialist
+			elections_allowed = no
+		}
+	
+		set_cosmetic_tag = OXA
+
+		#Units
+		division_template = {
+			name = "Oaxaca Division"
+			division_names_group = MEX_INF_01
+
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+			}
+			priority = 0
+		}
+			
+		random_owned_state = {
+			create_unit = {
+				division = "division_template = \"Oaxaca Division\" start_experience_factor = 0.1"
+				owner = event_target:Oaxaca_Owner
+			}
+			create_unit = {
+				division = "division_template = \"Oaxaca Division\" start_experience_factor = 0.1"
+				owner = event_target:Oaxaca_Owner
+			}
+		}
+		random_owned_state = {
+			create_unit = {
+				division = "division_template = \"Oaxaca Division\" start_experience_factor = 0.1"
+				owner = event_target:Oaxaca_Owner
+			}
+			create_unit = {
+				division = "division_template = \"Oaxaca Division\" start_experience_factor = 0.1"
+				owner = event_target:Oaxaca_Owner
+			}
+		}
+	}
+	MEX = {
+		load_focus_tree = generic_focus
+		set_cosmetic_tag = MEX_ARMY
+		create_country_leader = {# Eduardo Neri Reynoso
+			name = "Eduardo Neri Reynoso"
+			picture = "Portrait_Mexico_Eduardo_Neri_Reynoso.png"
+			expire = "1965.1.1"
+			ideology = social_liberal_subtype
+			traits = {}
+		}
+		set_politics = {
+			ruling_party = social_liberal
+			elections_allowed = no
+		}
+	}
+}
+			

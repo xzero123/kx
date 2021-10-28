@@ -179,6 +179,10 @@ country_event = { # What does Eufemio do?
 				ideology = totalist_subtype
 				traits = {}
 			}
+			country_event = {
+				id = mexico.302
+				days = 34
+			}
 		}
 		hidden_effect = {
 			add_ideas = MEX_Plutarco_Elias_Calles_hog_tot
@@ -1468,6 +1472,7 @@ country_event = { # Cristero War - they win
 		MCS = {
 			controls_state = 277
 		}
+		has_country_flag = MEX_rebellion
 	}
 
 	option = { # Mexican victory
@@ -1477,6 +1482,7 @@ country_event = { # Cristero War - they win
 		}
 		annex_country = {
 			target = MCS
+			transfer_troops = yes
 		}
 		add_ideas = MEX_cristero_war_idea
 	}
@@ -1501,7 +1507,7 @@ country_event = { # Cristero War - they loose
 	option = { # Mexican victory
 		name = mexico.21.a
 		set_variable = {
-			MEX_cristero_power = -5
+			MEX_cristero_power = -50
 		}
 		add_ideas = MEX_cristero_war_idea
 	}
@@ -1571,6 +1577,12 @@ country_event = { # Cristero War - victory for the Criesteros
 	title = mexico.2200.t
 	desc = mexico.2200.d
 	picture = GFX_report_event_generic_diplomacy2
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = elections_every_6_years
+		}
+	}
 
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -1582,14 +1594,7 @@ country_event = { # Cristero War - victory for the Criesteros
 		add_war_support = 0.05
 		add_stability = 0.1
 		army_experience = 25
-		add_popularity = {
-			ideology = social_conservative
-			popularity = 0.1
-		}
-		set_politics = {
-			ruling_party = social_conservative
-			elections_allowed = yes
-		}
+		MEX_social_conservatives_win = yes
 		set_country_flag = MEX_christero_appointed_soccon
 	}
 	option = { # Become Nat-Pop
@@ -3169,6 +3174,12 @@ country_event = {
 	desc = mexico.361.d
 	fire_only_once = yes
 	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = elections_every_6_years
+		}
+	}
 
 	option = { #keep junta
 		name = mexico.361.a
@@ -3186,10 +3197,7 @@ country_event = {
 			ideology = authoritarian_democrat
 			popularity = 0.10
 		}
-		set_politics = {
-			ruling_party = authoritarian_democrat
-			elections_allowed = yes
-		}
+		MEX_authoritarian_democrats_win = yes
 		create_country_leader = {# Juan Andreu Almazán
 			name = "Juan Andreu Almazán"
 			desc = "POLITICS_JUAN_ALMAZAN_DESC"

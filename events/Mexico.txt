@@ -4388,18 +4388,6 @@ country_event = { # the Yucatan continues to fight
 	title = mexico.701.t
 	desc = mexico.701.d
 	picture = GFX_report_event_generic_diplomacy2
-	
-	immediate = {
-		hidden_effect = {
-			MEX = {
-				clear_global_event_target = Jesus_Mexico
-				clear_global_event_target = Rio_Grande_Owner
-				clear_global_event_target = Veracruz_Owner
-				clear_global_event_target = Baja_Owner
-				clear_global_event_target = Oaxaca
-			}
-		}
-	}
 
 	is_triggered_only = yes
 
@@ -4429,7 +4417,32 @@ country_event = { # the Yucatan continues to fight
 	
 	option = { #Two State Solution
 		name = mexico.701.b
-		MEX_fuck_the_shit_out_of_mexico = yes
+		hidden_effect = {
+			MEX = {
+				clear_global_event_target = Jesus_Mexico
+				clear_global_event_target = Rio_Grande_Owner
+				clear_global_event_target = Veracruz_Owner
+				clear_global_event_target = Baja_Owner
+				clear_global_event_target = Oaxaca
+			}
+			country_event = mexico.702
+		}
+	}
+}
+
+
+country_event = { # Mexico dies
+	id = mexico.702
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.701"}
+	title = mexico.702.t
+	desc = mexico.702.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = { #Mexico goes Radsoc
+		name = mexico.702.a
+		MEX_fuck_the_shit_out_of_mexico = yes 
 	}
 }
 

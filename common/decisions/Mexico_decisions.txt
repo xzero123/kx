@@ -44,6 +44,223 @@ political_actions = {
 			}
 		}
 	}
+	
+	MEX_destroy_asa_1 = {# deal with ASA
+		icon = generic_nationalism
+
+		allowed = { tag = MEX }
+
+		available = {
+			has_idea = MEX_asa_rebellion
+			has_socialist_government = yes
+			NOT = {
+				has_country_flag = MEX_taking_decision
+			}
+		}
+
+		visible = {
+			has_idea = MEX_asa_rebellion
+			has_country_flag = MEX_the_1937_elections_happened
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 50
+
+		ai_will_do = {
+			factor = 50
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_destroy_asa_2"
+			set_country_flag = MEX_taking_decision
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_destroy_asa_1"
+			swap_ideas = {
+				remove_idea = MEX_asa_rebellion
+				add_idea = MEX_asa_rebellion2
+			}
+			clr_country_flag = MEX_taking_decision
+		}
+	}
+	
+	MEX_destroy_asa_2 = {# deal with ASA
+		icon = generic_nationalism
+
+		allowed = { tag = MEX }
+
+		available = {
+			has_idea = MEX_asa_rebellion2
+			has_socialist_government = yes
+			NOT = {
+				has_country_flag = MEX_taking_decision
+			}
+		}
+
+		visible = {
+			has_idea = MEX_asa_rebellion2
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 50
+		
+		ai_will_do = {
+			factor = 50
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_destroy_asa_2"
+			set_country_flag = MEX_taking_decision
+		}
+		
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_destroy_asa_2"
+			remove_ideas = MEX_asa_rebellion2
+			clr_country_flag = MEX_taking_decision
+		}
+	}
+	
+	MEX_destroy_dl_1 = {# deal with DL
+		icon = generic_nationalism
+
+		allowed = { tag = MEX }
+
+		available = {
+			has_idea = MEX_dl_opposition
+			OR = {	
+				has_government = radical_socialist
+				has_government = syndicalist
+			}
+			NOT = {
+				has_country_flag = MEX_taking_decision
+			}
+		}
+
+		visible = {
+			has_idea = MEX_dl_opposition
+			NOT = {
+				has_completed_focus = MEX_negotiate_DL
+			}
+			has_country_flag = MEX_the_1937_elections_happened
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 50
+
+		ai_will_do = {
+			factor = 50
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_destroy_asa_2"
+			set_country_flag = MEX_taking_decision
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_destroy_asa_1"
+			swap_ideas = {
+				remove_idea = MEX_dl_opposition
+				add_idea = MEX_dl_opposition2
+			}
+			clr_country_flag = MEX_taking_decision
+		}
+	}
+	
+	MEX_destroy_dl_2 = {# deal with DL
+		icon = generic_nationalism
+
+		allowed = { tag = MEX }
+
+		available = {
+			has_idea = MEX_dl_opposition2
+			OR = {	
+				has_government = radical_socialist
+				has_government = syndicalist
+			}
+			NOT = {
+				has_country_flag = MEX_taking_decision
+			}
+		}
+
+		visible = {
+			has_idea = MEX_dl_opposition2
+			NOT = {
+				has_completed_focus = MEX_negotiate_DL
+			}
+			has_country_flag = MEX_the_1937_elections_happened
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 50
+		
+		ai_will_do = {
+			factor = 50
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_destroy_asa_2"
+			set_country_flag = MEX_taking_decision
+		}
+		
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_destroy_asa_2"
+			remove_ideas = MEX_dl_opposition2
+			clr_country_flag = MEX_taking_decision
+		}
+	}
+	
+	MEX_negotiate_DL = {# deal with DL
+		icon = generic_nationalism
+
+		allowed = { tag = MEX }
+
+		available = {
+			has_idea = MEX_dl_opposition2
+			OR = {	
+				has_government = radical_socialist
+				has_government = syndicalist
+			}
+			NOT = {
+				has_country_flag = MEX_taking_decision
+			}
+		}
+
+		visible = {
+			has_idea = MEX_dl_opposition2
+			NOT = {
+				has_completed_focus = MEX_negotiate_DL
+			}
+			has_country_flag = MEX_the_1937_elections_happened
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 50
+		
+		ai_will_do = {
+			factor = 50
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_destroy_asa_2"
+			set_country_flag = MEX_taking_decision
+			set_country_flag = MEX_negotiate_DL
+		}
+		
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_destroy_asa_2"
+			country_event = {
+				id = mexico.9
+				days = 4
+			}
+			clr_country_flag = MEX_taking_decision
+		}
+	}
 }
 
 foreign_politics = {# Foreign Policy

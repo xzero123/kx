@@ -793,6 +793,31 @@ country_event = { # Funeral for Zapata
 		add_stability = 0.05
 	}
 }
+
+country_event = { # Negotiating with the DL
+	id = mexico.9
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.9"}
+	title = mexico.9.t
+	desc = mexico.9.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		name = mexico.9.a
+		remove_ideas = MEX_dl_opposition
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.05
+		}
+		add_political_power = -100
+		add_stability = 0.02
+	}
+}
 ### Calles Events 10 - 25 ###
 country_event = { # Calles Laws
 	id = mexico.10

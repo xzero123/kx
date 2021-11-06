@@ -579,7 +579,7 @@
 		icon = GFX_NEE_reintergrate_america
 		relative_position_id = MEX_Reconquista
 		x = 0
-		y = 5
+		y = 6
 
 		ai_will_do = {
 			factor = 30
@@ -592,6 +592,79 @@
 			unlock_decision_tooltip = MEX_claim_central_america
 			unlock_decision_tooltip = MEX_claim_carribean
 			unlock_decision_tooltip = MEX_claim_philippines
+			
+		}
+	}
+	
+	shared_focus = {
+		id = MEX_Push_Our_Broader_Claims
+		prerequisite = {
+			focus = MEX_Beyond_Reconquista
+		}
+		icon = GFX_NEE_reintergrate_america
+		relative_position_id = MEX_Reconquista
+		x = 0
+		y = 8
+
+		ai_will_do = {
+			factor = 30
+		}
+		cost = 20
+		cancel_if_invalid = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_Beyond_Reconquista"
+			unlock_decision_tooltip = MEX_claim_oregon
+			unlock_decision_tooltip = MEX_claim_alaska
+			unlock_decision_tooltip = MEX_claim_florida
+			unlock_decision_tooltip = MEX_claim_gran_colombia
+			
+		}
+	}
+	
+	shared_focus = {
+		id = MEX_Unite_Cosmic_Race
+		prerequisite = {
+			focus = MEX_Beyond_Reconquista
+		}
+		available = {
+			MEX_has_vasconcelos = yes
+		}
+		icon = GFX_NEE_reintergrate_america
+		relative_position_id = MEX_Reconquista
+		x = -1
+		y = 7
+
+		ai_will_do = {
+			factor = 30
+		}
+		cost = 20
+		cancel_if_invalid = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_Beyond_Reconquista"
+			custom_effect_tooltip = MEX_unite_cosmic_race_tt
+		}
+	}
+	
+	shared_focus = {
+		id = MEX_Destiny_of_Latin_America
+		prerequisite = {
+			focus = MEX_Beyond_Reconquista
+		}
+		icon = GFX_NEE_reintergrate_america
+		relative_position_id = MEX_Reconquista
+		x = 1
+		y = 7
+
+		ai_will_do = {
+			factor = 30
+		}
+		cost = 20
+		cancel_if_invalid = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_Beyond_Reconquista"
 			
 		}
 	}

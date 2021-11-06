@@ -701,7 +701,8 @@ MEX_central_american_intervention = {# dealing with central America
 		}
 		fire_only_once = yes
 		cost = 50
-		complete_effect = {
+		days_remove = 30
+		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision MEX_claim_central_america"
 			hidden_effect = { set_country_flag = MEX_claims_central_america }
 			add_state_claim = 313
@@ -754,6 +755,54 @@ MEX_central_american_intervention = {# dealing with central America
 			factor = 50
 		}
 	}
+	MEX_core_central_america = {# Core the land for Mexico
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		visible = {
+			has_country_flag = MEX_claims_central_america
+			owns_state = 313
+			owns_state = 311
+			owns_state = 314
+			owns_state = 842
+			owns_state = 312
+			owns_state = 317
+			owns_state = 1071
+			owns_state = 316
+			owns_state = 1070
+			NOT = {
+				country_exists = GUA
+				country_exists = ELS
+				country_exists = HON
+				country_exists = NIC
+				country_exists = COS
+				country_exists = PAN
+			}
+		}
+		fire_only_once = yes
+		cost = 50
+		days_remove = 200
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_core_central_america"
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = GUA
+						is_core_of = ELS
+						is_core_of = HON
+						is_core_of = NIC
+						is_core_of = COS
+						is_core_of = PAN
+					}
+				}
+				MEX = {
+					add_state_core = PREV
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
 	MEX_fight_guatemala = {# fight Guatemala
 		icon = generic_prepare_civil_war
 		allowed = { original_tag = MEX }
@@ -761,6 +810,10 @@ MEX_central_american_intervention = {# dealing with central America
 			OR = {
 				has_global_flag = USA_civil_war_begun_flag
 				date > 1939.6.1
+			}
+			has_war = no
+			NOT = {
+				has_country_flag = MEX_taking_decision
 			}
 		}
 		visible = {
@@ -788,10 +841,12 @@ MEX_central_american_intervention = {# dealing with central America
 		}
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision MEX_fight_guatemala"
+			set_country_flag = MEX_taking_decision
 		}
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_fight_guatemala"
 			declare_war_on = { target = GUA	type = annex_everything }
+			clr_country_flag = MEX_taking_decision
 		}
 	}
 	MEX_fight_el_salvador = {# fight El Salvador
@@ -802,9 +857,14 @@ MEX_central_american_intervention = {# dealing with central America
 				has_global_flag = USA_civil_war_begun_flag
 				date > 1939.6.1
 			}
+			has_war = no
+			NOT = {
+				has_country_flag = MEX_taking_decision
+			}
 		}
 		visible = {
 			country_exists = ELS
+			is_neighbor_of = ELS
 			has_country_flag = MEX_claims_central_america
 		}
 		fire_only_once = yes
@@ -828,10 +888,12 @@ MEX_central_american_intervention = {# dealing with central America
 		}
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision MEX_fight_el_salvador"
+			set_country_flag = MEX_taking_decision
 		}
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_fight_el_salvador"
 			declare_war_on = { target = ELS	type = annex_everything }
+			clr_country_flag = MEX_taking_decision
 		}
 	}
 	MEX_fight_honduras = {# fight Honduras
@@ -842,9 +904,14 @@ MEX_central_american_intervention = {# dealing with central America
 				has_global_flag = USA_civil_war_begun_flag
 				date > 1939.6.1
 			}
+			has_war = no
+			NOT = {
+				has_country_flag = MEX_taking_decision
+			}
 		}
 		visible = {
 			country_exists = HON
+			is_neighbor_of = NIC
 			has_country_flag = MEX_claims_central_america
 		}
 		fire_only_once = yes
@@ -868,10 +935,12 @@ MEX_central_american_intervention = {# dealing with central America
 		}
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision MEX_fight_honduras"
+			set_country_flag = MEX_taking_decision
 		}
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_fight_honduras"
 			declare_war_on = { target = HON	type = annex_everything }
+			clr_country_flag = MEX_taking_decision
 		}
 	}
 	MEX_fight_nicaragua = {# fight Nicaragua
@@ -882,9 +951,14 @@ MEX_central_american_intervention = {# dealing with central America
 				has_global_flag = USA_civil_war_begun_flag
 				date > 1939.6.1
 			}
+			has_war = no
+			NOT = {
+				has_country_flag = MEX_taking_decision
+			}
 		}
 		visible = {
 			country_exists = NIC
+			is_neighbor_of = NIC
 			has_country_flag = MEX_claims_central_america
 		}
 		fire_only_once = yes
@@ -908,10 +982,12 @@ MEX_central_american_intervention = {# dealing with central America
 		}
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision MEX_fight_nicaragua"
+			set_country_flag = MEX_taking_decision
 		}
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_fight_nicaragua"
 			declare_war_on = { target = NIC	type = annex_everything }
+			clr_country_flag = MEX_taking_decision
 		}
 	}
 	MEX_fight_costa_rica = {# fight Costa Rica
@@ -922,9 +998,14 @@ MEX_central_american_intervention = {# dealing with central America
 				has_global_flag = USA_civil_war_begun_flag
 				date > 1939.6.1
 			}
+			has_war = no
+			NOT = {
+				has_country_flag = MEX_taking_decision
+			}
 		}
 		visible = {
 			country_exists = COS
+			is_neighbor_of = COS
 			has_country_flag = MEX_claims_central_america
 		}
 		fire_only_once = yes
@@ -948,10 +1029,12 @@ MEX_central_american_intervention = {# dealing with central America
 		}
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision MEX_fight_costa_rica"
+			set_country_flag = MEX_taking_decision
 		}
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_fight_costa_rica"
 			declare_war_on = { target = COS	type = annex_everything }
+			clr_country_flag = MEX_taking_decision
 		}
 	}
 	MEX_fight_panama = {# fight Panama
@@ -962,9 +1045,14 @@ MEX_central_american_intervention = {# dealing with central America
 				has_global_flag = USA_civil_war_begun_flag
 				date > 1939.6.1
 			}
+			has_war = no
+			NOT = {
+				has_country_flag = MEX_taking_decision
+			}
 		}
 		visible = {
 			country_exists = PAN
+			is_neighbor_of = PAN
 			has_country_flag = MEX_claims_central_america
 		}
 		fire_only_once = yes
@@ -988,10 +1076,12 @@ MEX_central_american_intervention = {# dealing with central America
 		}
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision MEX_fight_panama"
+			set_country_flag = MEX_taking_decision
 		}
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_fight_panama"
 			declare_war_on = { target = PAN	type = annex_everything }
+			clr_country_flag = MEX_taking_decision
 		}
 	}
 	MEX_fight_central_america = {# fight Central America
@@ -1006,6 +1096,10 @@ MEX_central_american_intervention = {# dealing with central America
 						is_subject = yes
 					}
 				}
+			}
+			has_war = no
+			NOT = {
+				has_country_flag = MEX_taking_decision
 			}
 		}
 		visible = {
@@ -1040,6 +1134,7 @@ MEX_central_american_intervention = {# dealing with central America
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_fight_central_america"
 			declare_war_on = { target = CEN	type = annex_everything }
+			clr_country_flag = MEX_taking_decision
 		}
 	}
 	
@@ -1051,8 +1146,9 @@ MEX_central_american_intervention = {# dealing with central America
 		}
 		fire_only_once = yes
 		cost = 50
-		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision MEX_claim_central_america"
+		days_remove = 20
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_claim_carribean"
 			hidden_effect = { set_country_flag = MEX_claims_carribean }
 			CUB = {
 				every_owned_state = {
@@ -1111,6 +1207,46 @@ MEX_central_american_intervention = {# dealing with central America
 			factor = 50
 		}
 	}
+	
+	MEX_core_carribean = {# Core the land for Mexico
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		visible = {
+			has_country_flag = MEX_claims_carribean
+			NOT = {
+				country_exists = HAI
+				country_exists = DOM
+				country_exists = CUB
+				country_exists = CAF
+			}
+			owns_state = 315
+			owns_state = 318
+			owns_state = 319
+			owns_state = 689
+		}
+		fire_only_once = yes
+		cost = 50
+		days_remove = 140
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_core_carribean"
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = CUB
+						is_core_of = HAI
+						is_core_of = DOM
+						is_core_of = CAF
+					}
+				}
+				MEX = {
+					add_state_core = PREV
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
 	MEX_fight_cuba = {# fight Cuba
 		icon = generic_prepare_civil_war
 		allowed = { original_tag = MEX }
@@ -1119,13 +1255,17 @@ MEX_central_american_intervention = {# dealing with central America
 				has_global_flag = USA_civil_war_begun_flag
 				date > 1939.6.1
 			}
+			has_war = no
+			NOT = {
+				has_country_flag = MEX_taking_decision
+			}
 		}
 		visible = {
 			country_exists = CUB
 			has_country_flag = MEX_claims_carribean
 		}
 		fire_only_once = yes
-		cost = CUB
+		cost = 50
 		days_remove = 14
 		war_with_on_remove = CUB
 		ai_will_do = {
@@ -1145,10 +1285,12 @@ MEX_central_american_intervention = {# dealing with central America
 		}
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision MEX_fight_cuba"
+			set_country_flag = MEX_taking_decision
 		}
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_fight_cuba"
 			declare_war_on = { target = CUB	type = annex_everything }
+			clr_country_flag = MEX_taking_decision
 		}
 	}
 	MEX_fight_haiti = {# fight Haiti
@@ -1158,6 +1300,10 @@ MEX_central_american_intervention = {# dealing with central America
 			OR = {
 				has_global_flag = USA_civil_war_begun_flag
 				date > 1939.6.1
+			}
+			has_war = no
+			NOT = {
+				has_country_flag = MEX_taking_decision
 			}
 		}
 		visible = {
@@ -1185,10 +1331,12 @@ MEX_central_american_intervention = {# dealing with central America
 		}
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision MEX_fight_haiti"
+			set_country_flag = MEX_taking_decision
 		}
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_fight_haiti"
 			declare_war_on = { target = HAI	type = annex_everything }
+			clr_country_flag = MEX_taking_decision
 		}
 	}
 	MEX_fight_dominican = {# fight Domincan Rep
@@ -1198,6 +1346,10 @@ MEX_central_american_intervention = {# dealing with central America
 			OR = {
 				has_global_flag = USA_civil_war_begun_flag
 				date > 1939.6.1
+			}
+			has_war = no
+			NOT = {
+				has_country_flag = MEX_taking_decision
 			}
 		}
 		visible = {
@@ -1225,10 +1377,12 @@ MEX_central_american_intervention = {# dealing with central America
 		}
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision MEX_fight_dominican"
+			set_country_flag = MEX_taking_decision
 		}
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_fight_dominican"
 			declare_war_on = { target = DOM	type = annex_everything }
+			clr_country_flag = MEX_taking_decision
 		}
 	}
 	MEX_fight_carribean = {# fight West Indies
@@ -1238,6 +1392,10 @@ MEX_central_american_intervention = {# dealing with central America
 			OR = {
 				has_global_flag = USA_civil_war_begun_flag
 				date > 1939.6.1
+			}
+			has_war = no
+			NOT = {
+				has_country_flag = MEX_taking_decision
 			}
 		}
 		visible = {
@@ -1265,10 +1423,12 @@ MEX_central_american_intervention = {# dealing with central America
 		}
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision MEX_fight_carribean"
+			set_country_flag = MEX_taking_decision
 		}
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_fight_carribean"
 			declare_war_on = { target = CAF	type = annex_everything }
+			clr_country_flag = MEX_taking_decision
 		}
 	}
 	
@@ -1280,7 +1440,8 @@ MEX_central_american_intervention = {# dealing with central America
 		}
 		fire_only_once = yes
 		cost = 50
-		complete_effect = {
+		days_remove 20
+		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision MEX_claim_central_america"
 			hidden_effect = { set_country_flag = MEX_claims_philippines  }
 			PHI = {
@@ -1301,6 +1462,34 @@ MEX_central_american_intervention = {# dealing with central America
 			factor = 50
 		}
 	}
+	MEX_core_philippines = {# Core the land for Mexico
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		visible = {
+			has_country_flag = MEX_claims_philippines
+			NOT = {
+				country_exists = PHI
+			}
+			owns_state = 327
+		}
+		fire_only_once = yes
+		cost = 50
+		days_remove 150
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_claim_central_america"
+			every_state = {
+				limit = {
+					is_core_of = PHI
+				}
+				MEX = {
+					add_state_core = PREV
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
 	MEX_fight_philipines = {# fight Philipines
 		icon = generic_prepare_civil_war
 		allowed = { original_tag = MEX }
@@ -1309,13 +1498,17 @@ MEX_central_american_intervention = {# dealing with central America
 				has_global_flag = USA_civil_war_begun_flag
 				date > 1939.6.1
 			}
+			has_war = no
+			NOT = {
+				has_country_flag = MEX_taking_decision
+			}
 		}
 		visible = {
 			country_exists = PHI
 			has_country_flag = MEX_claims_philippines
 		}
 		fire_only_once = yes
-		cost = PHI
+		cost = 50
 		days_remove = 14
 		war_with_on_remove = PHI
 		ai_will_do = {
@@ -1335,10 +1528,727 @@ MEX_central_american_intervention = {# dealing with central America
 		}
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision MEX_fight_philipines"
+			set_country_flag = MEX_taking_decision
 		}
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_fight_philipines"
 			declare_war_on = { target = PHI	type = annex_everything }
+			clr_country_flag = MEX_taking_decision
+		}
+	}
+	
+	MEX_claim_gran_colombia = {# Claim the land for Mexico
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		visible = {
+			has_completed_focus = MEX_Beyond_Reconquista
+		}
+		fire_only_once = yes
+		cost = 50
+		days_remove = 20
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_claim_gran_colombia"
+			hidden_effect = { set_country_flag = MEX_claims_gran_colombia }
+			VEN = {
+				every_owned_state = {
+					MEX = {
+						add_state_claim = PREV
+					}
+				}
+			}
+			COL = {
+				every_owned_state = {
+					MEX = {
+						add_state_claim = PREV
+					}
+				}
+			}
+			ECU = {
+				every_owned_state = {
+					MEX = {
+						add_state_claim = PREV
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = VEN
+				}
+				VEN = { country_event = mexico.212 }
+			}
+			if = {
+				limit = {
+					country_exists = COL
+				}
+				COL = { country_event = mexico.212 }
+			}
+			if = {
+				limit = {
+					country_exists = ECU
+				}
+				ECU = { country_event = mexico.212 }
+			}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	
+	MEX_core_gran_colombia = {# Core the land for Mexico
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		visible = {
+			has_country_flag = MEX_claims_gran_colombia
+			NOT = {
+				country_exists = ECU
+				country_exists = COL
+				country_exists = VEN
+			}
+			owns_state = 306
+			owns_state = 849
+			owns_state = 305
+		}
+		fire_only_once = yes
+		cost = 50
+		days_remove = 200
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_core_gran_colombia"
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = ECU
+						is_core_of = COL
+						is_core_of = VEN
+					}
+				}
+				MEX = {
+					add_state_core = PREV
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	MEX_fight_colombia = {# fight Colombia
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		available = {
+			OR = {
+				has_global_flag = USA_civil_war_begun_flag
+				date > 1939.6.1
+			}
+			has_war = no
+			NOT = {
+				has_country_flag = MEX_taking_decision
+			}
+		}
+		visible = {
+			country_exists = COL
+			is_neighbor_of = COL
+			has_country_flag = MEX_claims_gran_colombia
+		}
+		fire_only_once = yes
+		cost = 50
+		days_remove = 14
+		war_with_on_remove = COL
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_idea = 	MEX_revolution_economic
+			}
+			modifier = {
+				factor = 0
+				has_idea = 	MEX_revolution_military
+			}
+			modifier = {
+				factor = 0
+				any_enemy_country = { is_actual_major = yes }
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_fight_cuba"
+			set_country_flag = MEX_taking_decision
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_fight_cuba"
+			declare_war_on = { target = COL	type = annex_everything }
+			clr_country_flag = MEX_taking_decision
+		}
+	}
+	MEX_fight_venezuela = {# fight Haiti
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		available = {
+			OR = {
+				has_global_flag = USA_civil_war_begun_flag
+				date > 1939.6.1
+			}
+			has_war = no
+			NOT = {
+				has_country_flag = MEX_taking_decision
+			}
+		}
+		visible = {
+			country_exists = VEN
+			is_neighbor_of = VEN
+			has_country_flag = MEX_claims_gran_colombia
+		}
+		fire_only_once = yes
+		cost = 50
+		days_remove = 14
+		war_with_on_remove = VEN
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_idea = 	MEX_revolution_economic
+			}
+			modifier = {
+				factor = 0
+				has_idea = 	MEX_revolution_military
+			}
+			modifier = {
+				factor = 0
+				any_enemy_country = { is_actual_major = yes }
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_fight_haiti"
+			set_country_flag = MEX_taking_decision
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_fight_haiti"
+			declare_war_on = { target = VEN	type = annex_everything }
+			clr_country_flag = MEX_taking_decision
+		}
+	}
+	MEX_fight_ecuador = {# fight Domincan Rep
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		available = {
+			OR = {
+				has_global_flag = USA_civil_war_begun_flag
+				date > 1939.6.1
+			}
+			has_war = no
+			NOT = {
+				has_country_flag = MEX_taking_decision
+			}
+		}
+		visible = {
+			country_exists = ECU
+			is_neighbor_of = ECU
+			has_country_flag = MEX_claims_gran_colombia
+		}
+		fire_only_once = yes
+		cost = 50
+		days_remove = 14
+		war_with_on_remove = ECU
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_idea = 	MEX_revolution_economic
+			}
+			modifier = {
+				factor = 0
+				has_idea = 	MEX_revolution_military
+			}
+			modifier = {
+				factor = 0
+				any_enemy_country = { is_actual_major = yes }
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_fight_ecuador"
+			set_country_flag = MEX_taking_decision
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_fight_ecuador"
+			declare_war_on = { target = ECU	type = annex_everything }
+			clr_country_flag = MEX_taking_decision
+		}
+	}
+	
+	MEX_claim_florida = {# claim Florida
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		available = {
+			OR = {
+				has_global_flag = USA_civil_war_begun_flag
+				date > 1939.6.1
+			}
+		}
+		visible = {
+			has_completed_focus = MEX_Push_Our_Broader_Claims
+		}
+		fire_only_once = yes
+		cost = 50
+		days_remove = 14
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_idea = 	MEX_revolution_economic
+			}
+			modifier = {
+				factor = 0
+				has_idea = 	MEX_revolution_military
+			}
+			modifier = {
+				factor = 0
+				any_enemy_country = { is_actual_major = yes }
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_claim_florida"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_claim_florida"
+			add_state_claim = 1171
+			add_state_claim = 366
+			add_state_claim = 1172
+			set_country_flag = MEX_claims_florida
+		}
+	}
+	
+	MEX_core_florida = {# core florida
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		available = {
+			OR = {
+				has_global_flag = USA_civil_war_begun_flag
+				date > 1939.6.1
+			}
+		}
+		visible = {
+			has_completed_focus = MEX_Push_Our_Broader_Claims
+			owns_state = 1171
+			owns_state = 366
+			owns_state = 1172
+			has_country_flag = MEX_claims_florida
+		}
+		fire_only_once = yes
+		cost = 50
+		days_remove = 90
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_core_florida"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_core_florida"
+			add_state_core = 1171
+			add_state_core = 366
+			add_state_core = 1172
+		}
+	}
+	
+	MEX_claim_oregon = {# claim Oregon
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		available = {
+			OR = {
+				has_global_flag = USA_civil_war_begun_flag
+				date > 1939.6.1
+			}
+		}
+		visible = {
+			has_completed_focus = MEX_Push_Our_Broader_Claims
+		}
+		fire_only_once = yes
+		cost = 50
+		days_remove = 14
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_idea = 	MEX_revolution_economic
+			}
+			modifier = {
+				factor = 0
+				has_idea = 	MEX_revolution_military
+			}
+			modifier = {
+				factor = 0
+				any_enemy_country = { is_actual_major = yes }
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_claim_oregon"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_claim_oregon"
+			add_state_claim = 385
+			add_state_claim = 386
+			add_state_claim = 387
+			add_state_claim = 473
+			add_state_claim = 740
+			set_country_flag = MEX_claims_oregon
+		}
+	}
+	
+	MEX_core_oregon = {# core florida
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		available = {
+			OR = {
+				has_global_flag = USA_civil_war_begun_flag
+				date > 1939.6.1
+			}
+		}
+		visible = {
+			has_completed_focus = MEX_Push_Our_Broader_Claims
+			owns_state = 385
+			owns_state = 386
+			owns_state = 387
+			owns_state = 473
+			owns_state = 740
+			has_country_flag = MEX_claims_oregon
+		}
+		fire_only_once = yes
+		cost = 50
+		days_remove = 120
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_core_oregon"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_core_oregon"
+			add_state_core = 385
+			add_state_core = 386
+			add_state_core = 387
+			add_state_core = 473
+			add_state_core = 740
+		}
+	}
+	
+	MEX_claim_alaska = {# claim Alaska
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		available = {
+			OR = {
+				has_global_flag = USA_civil_war_begun_flag
+				date > 1939.6.1
+			}
+		}
+		visible = {
+			has_completed_focus = MEX_Push_Our_Broader_Claims
+		}
+		fire_only_once = yes
+		cost = 50
+		days_remove = 14
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_idea = 	MEX_revolution_economic
+			}
+			modifier = {
+				factor = 0
+				has_idea = 	MEX_revolution_military
+			}
+			modifier = {
+				factor = 0
+				any_enemy_country = { is_actual_major = yes }
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_claim_alaska"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_claim_alaska"
+			add_state_claim = 463
+			if = {
+				limit = {
+					country_exists = ALA
+				}
+				declare_war_on = { target = ALA	type = annex_everything }
+			}
+			set_country_flag = MEX_claims_alaska
+		}
+	}
+	
+	MEX_core_alaska = {# core Alaska
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		available = {
+			OR = {
+				has_global_flag = USA_civil_war_begun_flag
+				date > 1939.6.1
+			}
+		}
+		visible = {
+			has_completed_focus = MEX_Push_Our_Broader_Claims
+			owns_state = 463
+			has_country_flag = MEX_claims_alaska
+		}
+		fire_only_once = yes
+		cost = 50
+		days_remove = 50
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_core_oregon"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_core_oregon"
+			add_state_core = 463
+		}
+	}
+	
+	MEX_invade_hawaii = {# invade Hawaii
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		available = {
+			OR = {
+				has_global_flag = USA_civil_war_begun_flag
+				date > 1939.6.1
+			}
+		}
+		visible = {
+			has_country_flag = MEX_claims_philippines
+		}
+		fire_only_once = yes
+		cost = 50
+		days_remove = 14
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_idea = 	MEX_revolution_economic
+			}
+			modifier = {
+				factor = 0
+				has_idea = 	MEX_revolution_military
+			}
+			modifier = {
+				factor = 0
+				any_enemy_country = { is_actual_major = yes }
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_invade_hawaii"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_invade_hawaii"
+			add_state_claim = 629
+			add_state_claim = 632
+			add_state_claim = 631
+			add_state_claim = 642
+			add_state_claim = 630
+			add_state_claim = 726
+			add_state_claim = 727
+			if = {
+				limit = {
+					country_exists = HAW
+				}
+				declare_war_on = { target = ALA	type = annex_everything }
+			}
+			set_country_flag = MEX_claims_hawaii
+		}
+	}
+	
+	MEX_core_hawaii = {# core Hawaii
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		available = {
+			OR = {
+				has_global_flag = USA_civil_war_begun_flag
+				date > 1939.6.1
+			}
+		}
+		visible = {
+			has_completed_focus = MEX_Push_Our_Broader_Claims
+			owns_state = 463
+			has_country_flag = MEX_claims_hawaii
+		}
+		fire_only_once = yes
+		cost = 50
+		days_remove = 50
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_core_oregon"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove MEX_core_oregon"
+			add_state_core = 629
+			add_state_core = 632
+			add_state_core = 631
+			add_state_core = 642
+			add_state_core = 630
+			add_state_core = 726
+			add_state_core = 727
+		}
+	}
+	
+	### Uniting the Cosmic Race ###
+	MEX_invade_latin_america = { #catch all decision for invading Latin America
+		icon = generic_prepare_civil_war
+
+		visible = {
+			has_completed_focus = MEX_Unite_Cosmic_Race
+			FROM = {
+				exists = yes
+				NOT = { is_subject_of = ROOT }
+				any_neighbor_country = {
+					OR = {
+						tag = MEX
+						is_subject_of = MEX
+						is_in_faction_with = MEX
+					}
+				}
+			}
+		}
+		target_root_trigger = {
+			has_completed_focus = MEX_Unite_Cosmic_Race
+			NOT = { is_in_faction_with = FROM }
+			NOT = { has_war_with = FROM }
+			NOT = { is_subject_of = FROM }
+		}
+		target_trigger = {
+			can_declare_war_on = FROM
+			FROM = {
+				exists = yes
+				NOT = { is_subject_of = ROOT }
+				any_neighbor_country = {
+					OR = {
+						tag = MEX
+						is_subject_of = MEX
+						is_in_faction_with = MEX
+					}
+				}
+				OR = {
+					tag = GUA
+					tag = ELS
+					tag = HON
+					tag = NIC
+					tag = COS
+					tag = PAN
+					tag = CUB
+					tag = DOM
+					tag = COL
+					tag = VEN
+					tag = ECU
+					tag = PRU
+					tag = BOL
+					tag = CHL
+					tag = ARG
+					tag = FOP
+					tag = PAR
+					tag = URG
+					tag = BRA
+				}
+			}
+		}
+
+		cost = 50
+		days_remove = 20
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.7
+				}
+			}
+		}
+
+		remove_effect = {
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+	
+	MEX_form_universopolis = {# Core the land for Mexico
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = MEX }
+		visible = {
+			has_country_flag = MEX_claims_gran_colombia
+			NOT = {
+				country_exists = GUA
+				country_exists = ELS
+				country_exists = HON
+				country_exists = NIC
+				country_exists = COS
+				country_exists = PAN
+				country_exists = CUB
+				country_exists = DOM
+				country_exists = COL
+				country_exists = VEN
+				country_exists = ECU
+				country_exists = PRU
+				country_exists = BOL
+				country_exists = CHL
+				country_exists = ARG
+				country_exists = FOP
+				country_exists = PAR
+				country_exists = URG
+				country_exists = BRA
+			}
+			owns_state = 313
+			owns_state = 311
+			owns_state = 314
+			owns_state = 842
+			owns_state = 312
+			owns_state = 317
+			owns_state = 1071
+			owns_state = 316
+			owns_state = 1070
+			owns_state = 306
+			owns_state = 849
+			owns_state = 305
+			owns_state = 303
+			owns_state = 279
+			owns_state = 278
+			owns_state = 512
+			owns_state = 300
+			owns_state = 301
+			owns_state = 500
+			has_completed_focus = MEX_Unite_Cosmic_Race
+			MEX_has_vasconcelos = yes
+		}
+		fire_only_once = yes
+		cost = 50
+		days_remove = 200
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_core_gran_colombia"
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = GUA
+						is_core_of = ELS
+						is_core_of = HON
+						is_core_of = NIC
+						is_core_of = COS
+						is_core_of = PAN
+						is_core_of = CUB
+						is_core_of = DOM
+						is_core_of = COL
+						is_core_of = VEN
+						is_core_of = ECU
+						is_core_of = PRU
+						is_core_of = BOL
+						is_core_of = CHL
+						is_core_of = ARG
+						is_core_of = FOP
+						is_core_of = PAR
+						is_core_of = URG
+						is_core_of = BRA
+					}
+				}
+				MEX = {
+					add_state_core = PREV
+				}
+			}
+			set_cosmetic_tag = MEX_UNIVERSOPILIS
+		}
+		ai_will_do = {
+			factor = 50
 		}
 	}
 }

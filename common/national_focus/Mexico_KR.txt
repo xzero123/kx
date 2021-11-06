@@ -316,6 +316,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_term_limits_rewrite"
 			add_political_power = 100
 			add_popularity = { ideology = totalist popularity = 0.05 }
+			add_country_leader_trait = president_for_life
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -337,6 +338,42 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_loyal_military"
 			add_popularity = { ideology = totalist popularity = 0.05 }
 			add_war_support = 0.05
+			remove_unit_leader = 9972
+			remove_unit_leader = 9373
+			random_unit_leader = {
+				limit = {
+					has_id = 9374
+				}
+				promote_leader = yes
+			}
+			create_corps_commander = {# Manuel Perez Treviño
+				name = "Manuel Perez Treviño"
+				portrait_path = "gfx/leaders/MEX/Portrait_Manuel_Trevibno.png"
+				traits = {
+					old_guard
+					politically_connected
+					war_hero
+					artillery_officer
+				}
+				skill = 2
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 2
+			}
+			create_corps_commander = {
+				name = "Lázaro Cárdenas"
+				portrait_path = "gfx/leaders/MEX/Portrait_MEX_Lazaro_Cardenas_General.png"
+				traits = {
+					politically_connected
+					career_officer
+				}
+				skill = 2
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 3
+			}
 		}
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 	}

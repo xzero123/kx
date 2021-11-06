@@ -501,6 +501,11 @@ country_event = { # Elections of 1937
 				}
 		  }
 		}
+		trigger = {
+			NOT = {
+				has_country_flag = MEX_calles_purged
+			}
+		}
 		hidden_effect = {
 			set_country_flag = MEX_the_1937_elections_happened
 		}
@@ -719,10 +724,7 @@ country_event = { # Finding the Assassin
 		hidden_effect = {
 			if = {
 				limit = {
-					OR = {
-						has_country_flag = MEX_zapata_is_alvie_flag
-						has_country_flag = MEX_calles_has_power
-					}
+					has_country_flag = MEX_calles_has_power
 				}
 				MEX = {
 					country_event = {
@@ -733,7 +735,10 @@ country_event = { # Finding the Assassin
 			}
 			if = {
 				limit = {
-					has_country_flag = MEX_military_coup_has_occured_flag
+					OR = {
+						has_country_flag = MEX_military_coup_has_occured_flag
+						has_country_flag = MEX_zapata_is_alvie_flag
+					}
 				}
 				MEX = {
 					country_event = {
@@ -745,7 +750,7 @@ country_event = { # Finding the Assassin
 		}
 	}
 }
-country_event = { # Assassin cell 'found' - socialist
+country_event = { # Assassin cell 'found' - Garza Responsible
 	id = mexico.6
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.6"}
 	title = mexico.6.t
@@ -757,9 +762,10 @@ country_event = { # Assassin cell 'found' - socialist
 	option = {
 		name = mexico.6.a
 		add_political_power = 20
+		remove_unit_leader = 93731
 	}
 }
-country_event = { # Assassin cell 'found' - junta
+country_event = { # Assassin cell 'found' - Calles Responsible
 	id = mexico.7
 	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.7"}
 	title = mexico.7.t
@@ -777,6 +783,7 @@ country_event = { # Assassin cell 'found' - junta
 			}
 			remove_unit_leader = 9374
 		}
+		set_country_flag = MEX_calles_purged
 	}
 }
 country_event = { # Funeral for Zapata

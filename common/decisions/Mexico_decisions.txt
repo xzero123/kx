@@ -697,7 +697,7 @@ MEX_central_american_intervention = {# dealing with central America
 		icon = generic_prepare_civil_war
 		allowed = { original_tag = MEX }
 		visible = {
-			has_completed_focus = MEX_Beyond_Reconquista
+			has_completed_focus = MEX_Looking_Outwards
 		}
 		fire_only_once = yes
 		cost = 50
@@ -1142,7 +1142,7 @@ MEX_central_american_intervention = {# dealing with central America
 		icon = generic_prepare_civil_war
 		allowed = { original_tag = MEX }
 		visible = {
-			has_completed_focus = MEX_Beyond_Reconquista
+			has_completed_focus = MEX_Looking_Outwards
 		}
 		fire_only_once = yes
 		cost = 50
@@ -1436,7 +1436,7 @@ MEX_central_american_intervention = {# dealing with central America
 		icon = generic_prepare_civil_war
 		allowed = { original_tag = MEX }
 		visible = {
-			has_completed_focus = MEX_Beyond_Reconquista
+			has_completed_focus = MEX_Looking_Outwards
 		}
 		fire_only_once = yes
 		cost = 50
@@ -1541,7 +1541,7 @@ MEX_central_american_intervention = {# dealing with central America
 		icon = generic_prepare_civil_war
 		allowed = { original_tag = MEX }
 		visible = {
-			has_completed_focus = MEX_Beyond_Reconquista
+			has_completed_focus = MEX_Looking_Outwards
 		}
 		fire_only_once = yes
 		cost = 50
@@ -2251,6 +2251,79 @@ MEX_central_american_intervention = {# dealing with central America
 			factor = 50
 		}
 	}
+	
+	### Uniting North America ###
+	MEX_pacify_north_america = { #catch all decision for invading North America
+		icon = generic_prepare_civil_war
+
+		visible = {
+			has_completed_focus = MEX_Destiny_of_Latin_America
+			FROM = {
+				exists = yes
+				NOT = { is_subject_of = ROOT }
+				any_neighbor_country = {
+					OR = {
+						tag = MEX
+						is_subject_of = MEX
+						is_in_faction_with = MEX
+					}
+				}
+			}
+		}
+		target_root_trigger = {
+			has_completed_focus = MEX_Unite_Cosmic_Race
+			NOT = { is_in_faction_with = FROM }
+			NOT = { has_war_with = FROM }
+			NOT = { is_subject_of = FROM }
+		}
+		target_trigger = {
+			can_declare_war_on = FROM
+			FROM = {
+				exists = yes
+				NOT = { is_subject_of = ROOT }
+				any_neighbor_country = {
+					OR = {
+						tag = MEX
+						is_subject_of = MEX
+						is_in_faction_with = MEX
+					}
+				}
+				OR = {
+					tag = WCC
+					tag = CAL
+					tag = TEX
+					tag = CSA
+					tag = COR
+					tag = USA
+					tag = NEE
+					tag = ALA
+					tag = CAN
+				}
+			}
+		}
+
+		cost = 50
+		days_remove = 20
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.7
+				}
+			}
+		}
+
+		remove_effect = {
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+	
 }
 MEX_american_civil_war_intervention_decisions = {# Intervening in the Civil War
 	MEX_support_usa = {# recognize the USA

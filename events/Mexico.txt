@@ -2582,7 +2582,7 @@ country_event = { # what do
 				days = 5
 			}
 			XXA = {
-				every_unit_leader = {
+				every_army_leader = {
 					limit = {
 						has_unit_leader_flag = MEX_rev_leader
 					}
@@ -3590,14 +3590,14 @@ country_event = { # Campesinos War - victory for the campesinos
 	immediate = {
 		hidden_effect = {
 			XXA = {
-				every_unit_leader = {
+				every_army_leader = {
 					limit = {
 						has_unit_leader_flag = MEX_rev_leader
 					}
 					set_nationality = MEX
 				}
 			}
-			every_unit_leader = {
+			every_army_leader = {
 				limit = {
 					has_trait = mex_counter_revolutionary
 				}
@@ -4339,14 +4339,14 @@ country_event = { # Yucatan Wins war with Mexico
 		name = mexico.700.a
 		hidden_effect = {
 			XXA = {
-				every_unit_leader = {
+				every_army_leader = {
 					limit = {
 						has_unit_leader_flag = MEX_rev_leader
 					}
 					set_nationality = MEX
 				}
 			}
-			every_unit_leader = {
+			every_army_leader = {
 				limit = {
 					OR = {
 						has_trait = mex_counter_revolutionary
@@ -4356,7 +4356,7 @@ country_event = { # Yucatan Wins war with Mexico
 				set_nationality = XXA
 			}
 			YUC = {
-				every_unit_leader = {
+				every_army_leader = {
 					set_nationality = MEX
 				}
 				annex_country = {
@@ -5785,7 +5785,7 @@ country_event = { # Garza Given Noble Title
 		name = mexico.109.a
 		if = {
 			limit = { MEX = { has_unit_leader = 93731 } }
-			every_unit_leader = {
+			every_army_leader = {
 				limit = { has_id = 93731 }
 				set_leader_portrait = GFX_Portrait_Mexico_Garza_Archduke
 			}
@@ -6833,7 +6833,7 @@ country_event = { # battle for mexico city, maria wins
 			logistics_skill = 2
 		}
 		MEX_socialist_resistance_decrease = yes
-		every_unit_leader = {
+		every_army_leader = {
 			limit = {
 				has_trait = mex_gold_shirt
 			}
@@ -6928,11 +6928,11 @@ country_event = { #aztec empire restored
 		hidden_effect = {
 			if = {
 				limit = { MEX = { has_unit_leader = 120108 } }
-				every_unit_leader = {
+				every_army_leader = {
 					limit = { has_id = 120108 }
 					set_leader_portrait = GFX_Portrait_Itzcoatl_II_Militar
 				}
-				every_unit_leader = {
+				every_army_leader = {
 					limit = { has_id = 120108 }
 					set_leader_name = "Itzcoatl II"
 				}
@@ -6951,34 +6951,6 @@ country_event = { #aztec empire restored
 		set_province_name = { id = 1965 name = "Mēxihco Tenōchtitlan"}
 		set_province_name = { id = 13451 name = "Huaxyacac"}
 		set_province_name = { id = 13457 name = "Ah Kin Pech"}
-		# set_province_name = { id = 12753 name = "Tuchtlan"}
-		# set_province_name = { id = 2077 name = "Belix"}
-		# set_province_name = { id = 10842 name = "Xelajú"}
-		# set_province_name = { id = 10886 name = "Cuauhtēmallān"}
-		# set_province_name = { id = 13693 name = "Xicaque"}
-		# set_province_name = { id = 13696 name = "Cholōltēcah"}
-		# set_province_name = { id = 13207 name = "Taguz-galpa"}
-		# set_province_name = { id = 12738 name = "Xolotlán"}
-		# set_province_name = { id = 13688 name = "Maika-Calpul"}
-		# set_province_name = { id = 13437 name = "Mana-ahuac"}
-		# set_province_name = { id = 13087 name = "Cabécar"}
-		# set_province_name = { id = 12878 name = "Boruca"}
-		# set_province_name = { id = 13683 name = "Ngäbe"}
-		# set_province_name = { id = 13681 name = "Bannaba"}
-		# set_province_name = { id = 7617 name = "Buglé"}
-		# set_province_name = { id = 13607 name = "Ba-Ha-Ma"}
-		# set_province_name = { id = 7622 name = "Coabana"}
-		# set_province_name = { id = 1550 name = "Cubao"}
-		# set_province_name = { id = 12304 name = "Xaymaca"}
-		#set_province_name = { id = 4598 name = "Maguá"}
-		#set_province_name = { id = 4641 name = "Ha-yi-ti"}
-		#set_province_name = { id = 7660 name = "Higüey"}
-		#set_province_name = { id = 13501 name = "Borikén"}
-		#set_province_name = { id = 3284 name = "Cumucurapo"}
-		#set_province_name = { id = 153 name = "Curaçao"}
-		#set_province_name = { id = 12823 name = "Cuscatlan"}
-		#set_province_name = { id = 13697 name = "Izcuinapan"}
-		#set_province_name = { id = 4982 name = "Guiana"}
 	}
 	
 	option = { # meh
@@ -7880,46 +7852,7 @@ country_event = {
 		name = mexicodemocratic.12.a
 		ai_chance = { factor = 1}
 		hidden_effect = {
-			create_country_leader = { # Lazaro Cardenas
-				name = "Lázaro Cárdenas"
-				desc = "POLITICS_LAZARO_CARDENAS_DESC"
-				picture = "Portrait_MEX_Lazaro_Cardenas.png"
-				expire = "1965.1.1"
-				ideology = social_democrat_subtype
-				traits = {}
-			}
-			create_country_leader = {# 
-				name = "Manuel Avila Camacho"
-				desc = "POLITICS_AVILLA_DESC"
-				picture = "Portrait_Mexico_Manuel_Avila_Camacho.png"
-				expire = "1965.1.1"
-				ideology = social_liberal_subtype
-				traits = {}
-			}	
-			create_country_leader = {# Juan Andreu Almazán
-				name = "Miguel Aleman Valdéz"
-				desc = "POLITICS_Valdez_DESC"
-				picture = "Portrait_Mexico_Miguel_Valdes.png"
-				expire = "1965.1.1"
-				ideology = market_liberal_subtype
-				traits = {}
-			}
-			create_country_leader = {# Juan Andreu Almazán
-				name = "Manuel Gomez Morín"
-				desc = "POLITICS_MORIN_DESC"
-				picture = "Portrait_Mexico_Manuel_Gomez_Morin.png"
-				expire = "1965.1.1"
-				ideology = social_conservative_subtype
-				traits = {}
-			}
-			create_country_leader = {# Juan Andreu Almazán
-				name = "Juan Andreu Almazán"
-				desc = "POLITICS_JUAN_ALMAZAN_DESC"
-				picture = "Portrait_Mexico_Juan_Almazan.png"
-				expire = "1965.1.1"
-				ideology = authoritarian_democrat_subtype
-				traits = {}
-			}
+			MEX_set_democratic_leaders = yes
 		}
 	}
 }
@@ -7942,46 +7875,7 @@ country_event = {
 		name = mexicodemocratic.13.a
 		ai_chance = { factor = 1}
 		hidden_effect = {
-			create_country_leader = { # Lazaro Cardenas
-				name = "Lázaro Cárdenas"
-				desc = "POLITICS_LAZARO_CARDENAS_DESC"
-				picture = "Portrait_MEX_Lazaro_Cardenas.png"
-				expire = "1965.1.1"
-				ideology = social_democrat_subtype
-				traits = {}
-			}
-			create_country_leader = {# 
-				name = "Manuel Avila Camacho"
-				desc = "POLITICS_AVILLA_DESC"
-				picture = "Portrait_Mexico_Manuel_Avila_Camacho.png"
-				expire = "1965.1.1"
-				ideology = social_liberal_subtype
-				traits = {}
-			}	
-			create_country_leader = {# Juan Andreu Almazán
-				name = "Miguel Aleman Valdéz"
-				desc = "POLITICS_Valdez_DESC"
-				picture = "Portrait_Mexico_Miguel_Valdes.png"
-				expire = "1965.1.1"
-				ideology = market_liberal_subtype
-				traits = {}
-			}
-			create_country_leader = {# Juan Andreu Almazán
-				name = "Manuel Gomez Morín"
-				desc = "POLITICS_MORIN_DESC"
-				picture = "Portrait_Mexico_Manuel_Gomez_Morin.png"
-				expire = "1965.1.1"
-				ideology = social_conservative_subtype
-				traits = {}
-			}
-			create_country_leader = {# Juan Andreu Almazán
-				name = "Juan Andreu Almazán"
-				desc = "POLITICS_JUAN_ALMAZAN_DESC"
-				picture = "Portrait_Mexico_Juan_Almazan.png"
-				expire = "1965.1.1"
-				ideology = authoritarian_democrat_subtype
-				traits = {}
-			}
+			MEX_set_democratic_leaders = yes
 		}
 	}
 }
@@ -8003,90 +7897,12 @@ country_event = {
 	option = {
 		name = mexicodemocratic.14.a
 		ai_chance = { factor = 1}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
-			traits = {}
-		}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = social_conservative_subtype
-			traits = {}
-		}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = market_liberal_subtype
-			traits = {}
-		}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = social_liberal_subtype
-			traits = {}
-		}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = social_democrat_subtype
-			traits = {}
-		}
+		MEX_create_constitutional_monarchy = yes
 		set_cosmetic_tag = MEK
 	}
 	option = {
 		name = mexicodemocratic.14.b
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
-			traits = {}
-		}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = social_conservative_subtype
-			traits = {}
-		}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = market_liberal_subtype
-			traits = {}
-		}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = social_liberal_subtype
-			traits = {}
-		}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = social_democrat_subtype
-			traits = {}
-		}
+		MEX_create_constitutional_monarchy = yes
 		set_cosmetic_tag = MEE
 	}
 }
@@ -8103,91 +7919,13 @@ country_event = {
 	option = {
 		name = mexicodemocratic.15.a
 		ai_chance = { factor = 1}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
-			traits = {}
-		}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = social_conservative_subtype
-			traits = {}
-		}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = market_liberal_subtype
-			traits = {}
-		}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = social_liberal_subtype
-			traits = {}
-		}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = social_democrat_subtype
-			traits = {}
-		}
+		MEX_create_constitutional_monarchy = yes
 		set_cosmetic_tag = MEK
 	}
 	option = {
 		name = mexicodemocratic.15.b
 		ai_chance = { factor = 1}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
-			traits = {}
-		}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = social_conservative_subtype
-			traits = {}
-		}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = market_liberal_subtype
-			traits = {}
-		}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = social_liberal_subtype
-			traits = {}
-		}
-		create_country_leader = {
-			name = "María Josephia Sophia I"
-			desc = "POLITICS_DONA_ITURBIDE_DESC"
-			picture = "Portrait_Mexico_Maria.png"
-			expire = "1965.1.1"
-			ideology = social_democrat_subtype
-			traits = {}
-		}
+		MEX_create_constitutional_monarchy = yes
 		set_cosmetic_tag = MEE
 	}
 }
@@ -8205,76 +7943,7 @@ country_event = {
 	option = {
 		name = mexicodemocratic.16.a
 		ai_chance = { factor = 1}
-		if = {
-			limit = {
-				has_country_flag = elections_every_4_years
-			}
-			meta_effect = {
-				text = {
-					set_politics = {
-						ruling_party = authoritarian_democrat
-						last_election = "[CURRENT_DATE]"
-						election_frequency = 55
-						elections_allowed = yes
-					}
-				}
-				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
-			}
-			effect_tooltip = {
-				set_politics = {
-					ruling_party = authoritarian_democrat
-					elections_allowed = yes
-					election_frequency = 55
-				}
-			}
-		}
-		if = {
-			limit = {
-				has_country_flag = elections_every_5_years
-			}
-			meta_effect = {
-				text = {
-					set_politics = {
-						ruling_party = authoritarian_democrat
-						last_election = "[CURRENT_DATE]"
-						election_frequency = 60
-						elections_allowed = yes
-					}
-				}
-				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
-			}
-			effect_tooltip = {
-				set_politics = {
-					ruling_party = authoritarian_democrat
-					elections_allowed = yes
-					election_frequency = 60
-				}
-			}
-		}
-		if = {
-			limit = {
-				has_country_flag = elections_every_6_years
-			}
-			meta_effect = {
-				text = {
-					set_politics = {
-						ruling_party = authoritarian_democrat
-						last_election = "[CURRENT_DATE]"
-						election_frequency = 75
-						elections_allowed = yes
-					}
-				}
-				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
-			}
-			effect_tooltip = {
-				set_politics = {
-					ruling_party = authoritarian_democrat
-					elections_allowed = yes
-					election_frequency = 75
-				}
-			}
-		}
-		hidden_effect = { country_event = { days = 1460 id = mexico.81} }
+		MEX_authoritarian_democrats_win = yes
 		add_ideas = MEX_Juan_Andreu_Almazan_hog_ade
 		add_ideas = MEX_Victorino_Barcenas_for_ade
 		add_ideas = MEX_Pastor_Castro_Tinoco_eco_ade
@@ -8285,76 +7954,7 @@ country_event = {
 	option = {
 		name = mexicodemocratic.16.b
 		ai_chance = { factor = 1}
-		if = {
-			limit = {
-				has_country_flag = elections_every_4_years
-			}
-			meta_effect = {
-				text = {
-					set_politics = {
-						ruling_party = social_conservative
-						last_election = "[CURRENT_DATE]"
-						election_frequency = 55
-						elections_allowed = yes
-					}
-				}
-				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
-			}
-			effect_tooltip = {
-				set_politics = {
-					ruling_party = social_conservative
-					elections_allowed = yes
-					election_frequency = 55
-				}
-			}
-		}
-		if = {
-			limit = {
-				has_country_flag = elections_every_5_years
-			}
-			meta_effect = {
-				text = {
-					set_politics = {
-						ruling_party = social_conservative
-						last_election = "[CURRENT_DATE]"
-						election_frequency = 60
-						elections_allowed = yes
-					}
-				}
-				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
-			}
-			effect_tooltip = {
-				set_politics = {
-					ruling_party = social_conservative
-					elections_allowed = yes
-					election_frequency = 60
-				}
-			}
-		}
-		if = {
-			limit = {
-				has_country_flag = elections_every_6_years
-			}
-			meta_effect = {
-				text = {
-					set_politics = {
-						ruling_party = social_conservative
-						last_election = "[CURRENT_DATE]"
-						election_frequency = 75
-						elections_allowed = yes
-					}
-				}
-				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
-			}
-			effect_tooltip = {
-				set_politics = {
-					ruling_party = social_conservative
-					elections_allowed = yes
-					election_frequency = 75
-				}
-			}
-		}
-		hidden_effect = { country_event = { days = 1460 id = mexico.81} }
+		MEX_social_conservatives_win = yes
 		remove_all_ministers = yes
 		add_ideas = {
 			MEX_Manuel_Gomez_Morin_hog_sco
@@ -8368,76 +7968,7 @@ country_event = {
 	option = {
 		name = mexicodemocratic.16.c
 		ai_chance = { factor = 1}
-		if = {
-			limit = {
-				has_country_flag = elections_every_4_years
-			}
-			meta_effect = {
-				text = {
-					set_politics = {
-						ruling_party = market_liberal
-						last_election = "[CURRENT_DATE]"
-						election_frequency = 55
-						elections_allowed = yes
-					}
-				}
-				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
-			}
-			effect_tooltip = {
-				set_politics = {
-					ruling_party = market_liberal
-					elections_allowed = yes
-					election_frequency = 55
-				}
-			}
-		}
-		if = {
-			limit = {
-				has_country_flag = elections_every_5_years
-			}
-			meta_effect = {
-				text = {
-					set_politics = {
-						ruling_party = market_liberal
-						last_election = "[CURRENT_DATE]"
-						election_frequency = 60
-						elections_allowed = yes
-					}
-				}
-				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
-			}
-			effect_tooltip = {
-				set_politics = {
-					ruling_party = market_liberal
-					elections_allowed = yes
-					election_frequency = 60
-				}
-			}
-		}
-		if = {
-			limit = {
-				has_country_flag = elections_every_6_years
-			}
-			meta_effect = {
-				text = {
-					set_politics = {
-						ruling_party = market_liberal
-						last_election = "[CURRENT_DATE]"
-						election_frequency = 75
-						elections_allowed = yes
-					}
-				}
-				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
-			}
-			effect_tooltip = {
-				set_politics = {
-					ruling_party = market_liberal
-					elections_allowed = yes
-					election_frequency = 75
-				}
-			}
-		}
-		hidden_effect = { country_event = { days = 1460 id = mexico.81} }
+		MEX_market_liberals_win = yes
 		remove_all_ministers = yes
 		add_ideas = {
 			MEX_Miguel_Valdez_hog_mli
@@ -8451,76 +7982,7 @@ country_event = {
 	option = {
 		name = mexicodemocratic.16.d
 		ai_chance = { factor = 1}
-		if = {
-			limit = {
-				has_country_flag = elections_every_4_years
-			}
-			meta_effect = {
-				text = {
-					set_politics = {
-						ruling_party = social_liberal
-						last_election = "[CURRENT_DATE]"
-						election_frequency = 55
-						elections_allowed = yes
-					}
-				}
-				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
-			}
-			effect_tooltip = {
-				set_politics = {
-					ruling_party = social_liberal
-					elections_allowed = yes
-					election_frequency = 55
-				}
-			}
-		}
-		if = {
-			limit = {
-				has_country_flag = elections_every_5_years
-			}
-			meta_effect = {
-				text = {
-					set_politics = {
-						ruling_party = social_liberal
-						last_election = "[CURRENT_DATE]"
-						election_frequency = 60
-						elections_allowed = yes
-					}
-				}
-				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
-			}
-			effect_tooltip = {
-				set_politics = {
-					ruling_party = social_liberal
-					elections_allowed = yes
-					election_frequency = 60
-				}
-			}
-		}
-		if = {
-			limit = {
-				has_country_flag = elections_every_6_years
-			}
-			meta_effect = {
-				text = {
-					set_politics = {
-						ruling_party = social_liberal
-						last_election = "[CURRENT_DATE]"
-						election_frequency = 75
-						elections_allowed = yes
-					}
-				}
-				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
-			}
-			effect_tooltip = {
-				set_politics = {
-					ruling_party = social_liberal
-					elections_allowed = yes
-					election_frequency = 75
-				}
-			}
-		}
-		hidden_effect = { country_event = { days = 1460 id = mexico.81} }
+		MEX_social_liberals_win = yes
 		remove_all_ministers = yes
 		add_ideas = {
 			MEX_Manuel_Avila_Camacho_hog_sli
@@ -8534,76 +7996,7 @@ country_event = {
 	option = {
 		name = mexicodemocratic.16.e
 		ai_chance = { factor = 1}
-		if = {
-			limit = {
-				has_country_flag = elections_every_4_years
-			}
-			meta_effect = {
-				text = {
-					set_politics = {
-						ruling_party = social_democrat
-						last_election = "[CURRENT_DATE]"
-						election_frequency = 55
-						elections_allowed = yes
-					}
-				}
-				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
-			}
-			effect_tooltip = {
-				set_politics = {
-					ruling_party = social_democrat
-					elections_allowed = yes
-					election_frequency = 55
-				}
-			}
-		}
-		if = {
-			limit = {
-				has_country_flag = elections_every_5_years
-			}
-			meta_effect = {
-				text = {
-					set_politics = {
-						ruling_party = social_democrat
-						last_election = "[CURRENT_DATE]"
-						election_frequency = 60
-						elections_allowed = yes
-					}
-				}
-				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
-			}
-			effect_tooltip = {
-				set_politics = {
-					ruling_party = social_democrat
-					elections_allowed = yes
-					election_frequency = 60
-				}
-			}
-		}
-		if = {
-			limit = {
-				has_country_flag = elections_every_6_years
-			}
-			meta_effect = {
-				text = {
-					set_politics = {
-						ruling_party = social_democrat
-						last_election = "[CURRENT_DATE]"
-						election_frequency = 75
-						elections_allowed = yes
-					}
-				}
-				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
-			}
-			effect_tooltip = {
-				set_politics = {
-					ruling_party = social_democrat
-					elections_allowed = yes
-					election_frequency = 75
-				}
-			}
-		}
-		hidden_effect = { country_event = { days = 1460 id = mexico.81} }
+		MEX_social_democrats_win = yes
 		remove_all_ministers = yes
 		add_ideas = MEX_Lazaro_Cardenas_hog_sde
 		add_ideas = MEX_Isidro_Fabela_for_sde

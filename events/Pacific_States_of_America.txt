@@ -221,6 +221,11 @@ country_event = { # 1937 Republican Primary
 	}
 	option = { # Howard Hughes
 		name = pacificstates.4.c
+		trigger = {
+			NOT = {
+				has_country_flag = CAL_hughes_in_power_flag
+			}
+		}
 		ai_chance = {
 			factor = 25
 		}
@@ -338,6 +343,11 @@ country_event = { # 1937 Democrat Primary
 	
 	option = { # Walt Disney
 		name = pacificstates.5.c
+		trigger = {
+			NOT = {
+				has_country_flag = Walt_Disney_dead
+			}
+		}
 		add_political_power = -10
 		hidden_effect = {
 			set_country_flag = PSA_1937_democratic_primary_disney
@@ -414,7 +424,6 @@ country_event = { # 1937 Election
 
 	trigger = {
 		tag = CAL
-		has_elected_government = yes
 		NOT = {
 			has_country_flag = PSA_had_1937_election
 		}
@@ -7677,6 +7686,7 @@ country_event = {# Commando Duck vs the Klan
 	picture = GFX_CAL_movies
 
 	trigger = {
+	tag = CAL
 	COR = {
 	exists = yes
 	}
@@ -11323,6 +11333,7 @@ country_event = {
 			}
 		}
 		set_country_flag = Walt_Disney_dead
+		set_country_flag = CAL_hughes_in_power_flag
 	}
 }
 
@@ -11676,7 +11687,7 @@ country_event = {
 			has_global_flag = CAL_confederate_legit_pres
 		}
 	}
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -11918,6 +11929,39 @@ country_event = {
 					id = pacificstates.9
 					days = 1290
 				}
+			}
+		}
+	}
+	option = {
+		name = KX_california.12.f
+		hidden_effect = {
+			set_politics = {
+	ruling_party = social_conservative
+	last_election = "1936.11.08"
+	election_frequency = 48
+	elections_allowed = yes
+}
+			create_country_leader = {# Pacific Congress
+	name = "Pacific Congress"
+	desc = "POLITICS_PACIFIC_CONGRESS_DESC"
+	picture = "gfx/leaders/CAL/CAL_pacific_congress.png"
+	expire = "1965.1.1"
+	ideology = social_conservative_subtype
+	traits = { provisional_congress }
+}
+			set_party_name = {
+				ideology = market_liberal
+				long_name = CAL_market_liberal_party_long
+				name = CAL_market_liberal_party
+			}
+			set_party_name = {
+				ideology = social_liberal
+				long_name = CAL_social_liberal_party_long
+				name = CAL_social_liberal_party
+			}
+			country_event = {
+				id = pacificstates.2050
+				days = 5
 			}
 		}
 	}

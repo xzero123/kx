@@ -704,7 +704,7 @@ country_event = { # Independent Uighuria
 		create_country_leader = {
 			name = "Hoja Niyaz Haji"
 			desc = "HOJA_NIYAZ_HAJI_DESC"
-			picture = "gfx/country_leaders/Portrait_TAN_Hoja_Niyaz_Haji.png"
+			picture = "Portrait_TAN_Hoja_Niyaz_Haji.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 			traits = {}
@@ -1504,6 +1504,7 @@ country_event = { # A New Mongolian Empire?
 
 		reverse_add_opinion_modifier = { target = JAP modifier = Mongolian_Empire_Funded } # -50
 		reverse_add_opinion_modifier = { target = RUS modifier = Mongolian_Empire_Funded } # -50
+		reverse_add_opinion_modifier = { target = SOV modifier = Mongolian_Empire_Funded } # -50
 		reverse_add_opinion_modifier = { target = MAN modifier = Mongolian_Empire_Funded } # -50
 		reverse_add_opinion_modifier = { target = QIE modifier = Mongolian_Empire_Funded } # -50
 		reverse_add_opinion_modifier = { target = SIB modifier = Mongolian_Empire_Funded } # -50
@@ -1895,9 +1896,9 @@ country_event = { # Death of Genghis Khan II
 		create_country_leader = {
 			name = "Tribal Council"
 			desc = "POLITICS_TRIBAL_COUNCIL_DESC"
-			picture = "gfx/country_leaders/Portrait_MON_Regency_council_1.png"
+			picture = "Portrait_MON_Regency_council_1.png"
 			expire = "1965.1.1"
-			ideology = absolute_monarchy_subtype
+			ideology = paternal_autocrat_subtype
 		}
 
 		hidden_effect = {
@@ -2302,7 +2303,7 @@ country_event = { # Puppet Yunnan
 		create_country_leader = {
 			name = "Long Yun"
 			desc = ""
-			picture = "gfx/country_leaders/Portrait_Yunnan_Long_Yun.png"
+			picture = "Portrait_Yunnan_Long_Yun.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 			traits = {}
@@ -2524,7 +2525,7 @@ country_event = {
 		}
 		NOT = {
 			country_exists = RUS
-			soviets_exist = yes
+			country_exists = SOV
 		}
 		OR = {
 			NOT = { country_exists = TRM }
@@ -2576,18 +2577,21 @@ country_event = {
 			add_core_of = MON
 		}
 		
-		set_capital = { state = 219 }
+		set_capital = 219
 		annex_country = {
 			target = TRM
 			transfer_troops = yes
 		}
-		if = {	
-			limit = { has_country_leader = { name = "Roman von Ungern-Sternberg" ruling_only = yes } }
-			set_country_leader_portrait = {
-				portrait = "gfx/leaders/MON/Portrait_MON_Sternberg_Regent.png"
+		create_country_leader = {
+			name = "Roman von Ungern-Sternberg"
+			desc = "POLITICS_STERNBERG_DESC"
+			picture = "Portrait_MON_Sternberg_Regent.png"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+			traits = {
+				MON_the_mad_baron
 			}
 		}
-		set_country_leader_ideology = absolute_monarchy_subtype
 		set_country_flag = TRM_become_russia
 		set_global_flag = MON_Sternberg_russian_empire
 		set_country_flag = RUS_can_integrate
@@ -2790,9 +2794,9 @@ country_event = {
 				create_country_leader = {
 					name = "Bogd Khan"
 					desc = "POLITICS_BOGD_KHAN_DESC"
-					picture = "gfx/country_leaders/Portrait_MON_Bogd_Khan.png"
+					picture = "Portrait_MON_Bogd_Khan.png"
 					expire = "1965.1.1"
-					ideology = absolute_monarchy_subtype
+					ideology = paternal_autocrat_subtype
 					traits = {
 						MON_buddhist_figurehead
 					}
@@ -2963,9 +2967,9 @@ country_event = {
 				create_country_leader = {
 					name = "Bogd Khan"
 					desc = "POLITICS_BOGD_KHAN_DESC"
-					picture = "gfx/country_leaders/Portrait_MON_Bogd_Khan.png"
+					picture = "Portrait_MON_Bogd_Khan.png"
 					expire = "1965.1.1"
-					ideology = absolute_monarchy_subtype
+					ideology = paternal_autocrat_subtype
 					traits = {
 						MON_buddhist_figurehead
 					}
@@ -3132,9 +3136,9 @@ country_event = {
 				create_country_leader = {
 					name = "Bogd Khan"
 					desc = "POLITICS_BOGD_KHAN_DESC"
-					picture = "gfx/country_leaders/Portrait_MON_Bogd_Khan.png"
+					picture = "Portrait_MON_Bogd_Khan.png"
 					expire = "1965.1.1"
-					ideology = absolute_monarchy_subtype
+					ideology = paternal_autocrat_subtype
 					traits = {
 						MON_buddhist_figurehead
 					}
@@ -3387,9 +3391,9 @@ country_event = { #GIII wins
 		create_country_leader = {
 			name = "Regency Council"
 			desc = ""
-			picture = "gfx/country_leaders/Portrait_MON_Regency_council_1.png"
+			picture = "Portrait_MON_Regency_council_1.png"
 			expire = "1965.1.1"
-			ideology = absolute_monarchy_subtype
+			ideology = paternal_autocrat_subtype
 			traits = {
 
 			}
@@ -3426,9 +3430,9 @@ country_event = { #GIII wins
 		create_country_leader = {
 			name = "Regency Council"
 			desc = ""
-			picture = "gfx/country_leaders/Portrait_MON_Regency_council_2.png"
+			picture = "Portrait_MON_Regency_council_2.png"
 			expire = "1965.1.1"
-			ideology = absolute_monarchy_subtype
+			ideology = paternal_autocrat_subtype
 			traits = {
 
 			}
@@ -3516,9 +3520,9 @@ country_event = { #ja lama dies
 			create_country_leader = {
 			name = "Amursana"
 			desc = ""
-			picture = "gfx/country_leaders/Portrait_MON_Ja_Lama_II.png"
+			picture = "Portrait_MON_Ja_Lama_II.png"
 			expire = "1965.1.1"
-			ideology = occultism_subtype
+			ideology = national_populist_subtype
 			traits = {
 
 			}
@@ -3558,9 +3562,9 @@ country_event = { #ja lama dies
 			create_country_leader = {
 			name = "Amursana"
 			desc = ""
-			picture = "gfx/country_leaders/Portrait_MON_Ja_Lama_II.png"
+			picture = "Portrait_MON_Ja_Lama_II.png"
 			expire = "1965.1.1"
-			ideology = occultism_subtype
+			ideology = national_populist_subtype
 			traits = {
 
 			}
@@ -3592,9 +3596,9 @@ country_event = { #ja lama dies
 		create_country_leader = {
 			name = "Amursana"
 			desc = ""
-			picture = "gfx/country_leaders/Portrait_MON_Ja_Lama_II.png"
+			picture = "Portrait_MON_Ja_Lama_II.png"
 			expire = "1965.1.1"
-			ideology = occultism_subtype
+			ideology = national_populist_subtype
 			traits = {
 
 			}
@@ -3610,9 +3614,9 @@ country_event = { #ja lama dies
 		create_country_leader = {
 			name = "Khorloogiin Choibalsan"
 			desc = ""
-			picture = "gfx/country_leaders/Portrait_MON_Khorloogiin_Choibalsan.png"
+			picture = "Portrait_MON_Khorloogiin_Choibalsan.png"
 			expire = "1965.1.1"
-			ideology = militarism_subtype
+			ideology = national_populist_subtype
 			traits = {
 
 			}
@@ -4510,7 +4514,7 @@ country_event = { #empire time
 			}
 		}
 		name = mongolia.155.a
-		set_capital = { state = 608 }
+		set_capital = 608
 		set_cosmetic_tag = MON_CHINA_ROC
 		every_owned_state = {
 			limit = {
@@ -4546,9 +4550,9 @@ country_event = { #empire time
 				create_country_leader = {
 				name = "Bogd Khan"
 				desc = "POLITICS_BOGD_KHAN_DESC"
-				picture = "gfx/country_leaders/Portrait_MON_Bogd_Khan.png"
+				picture = "Portrait_MON_Bogd_Khan.png"
 				expire = "1965.1.1"
-				ideology = absolute_monarchy_subtype
+				ideology = paternal_autocrat_subtype
 				traits = {
 				MON_buddhist_figurehead
 				}
@@ -4613,13 +4617,13 @@ country_event = { #empire time
 			}
 		}
 		name = mongolia.155.b
-		set_capital = { state = 608 }
+		set_capital = 608
 		create_country_leader = {
 			name = "Yuan Keding"
 			desc = "POLITICS_YUAN_KEDING_DESC"
-			picture = "gfx/country_leaders/Portrait_MON_Yuan_Keding.png"
+			picture = "Portrait_MON_Yuan_Keding.png"
 			expire = "1965.1.1"
-			ideology = absolute_monarchy_subtype
+			ideology = paternal_autocrat_subtype
 		}
 		set_cosmetic_tag = MON_CHINA_EMPIRE
 		every_owned_state = {
@@ -4656,9 +4660,9 @@ country_event = { #empire time
 				create_country_leader = {
 					name = "Bogd Khan"
 					desc = "POLITICS_BOGD_KHAN_DESC"
-					picture = "gfx/country_leaders/Portrait_MON_Bogd_Khan.png"
+					picture = "Portrait_MON_Bogd_Khan.png"
 					expire = "1965.1.1"
-					ideology = absolute_monarchy_subtype
+					ideology = paternal_autocrat_subtype
 					traits = {
 						MON_buddhist_figurehead
 					}
@@ -4739,9 +4743,9 @@ country_event = { #ungern is dead press f
 		create_country_leader = {
 			name = "Rolf von Ungern Sternberg"
 			desc = "POLITICS_ROLF_STERNBERG_DESC"
-			picture = "gfx/country_leaders/Portrait_MON_Rolf_von_Ungern_Sternberg.png"
+			picture = "Portrait_MON_Rolf_von_Ungern_Sternberg.png"
 			expire = "1965.1.1"
-			ideology = junta_subtype
+			ideology = paternal_autocrat_subtype
 		}
 		hidden_effect = {
 			country_event = {
@@ -4784,9 +4788,9 @@ country_event = { #empire time?????
 		create_country_leader = {
 			name = "Genghis Khan III"
 			desc = "POLITICS_ROLF_STERNBERG_DESC"
-			picture = "gfx/country_leaders/Portrait_MON_Rolf_von_Ungern_Sternberg_Khan.png"
+			picture = "Portrait_MON_Rolf_von_Ungern_Sternberg_Khan.png"
 			expire = "1965.1.1"
-			ideology = absolute_monarchy_subtype
+			ideology = paternal_autocrat_subtype
 		}
 		create_field_marshal = { 
 			name = "Genghis Khan III"
@@ -4840,9 +4844,9 @@ country_event = { #empire time?????
 		create_country_leader = {
 			name = "7th Changkya Khutukhtu"
 			desc = "POLITICS_7TH_CHANGKYA_KHUTUKHTU_DESC"
-			picture = "gfx/country_leaders/Portrait_MON_7th_Changkya_Khutukhtu.png"
+			picture = "Portrait_MON_7th_Changkya_Khutukhtu.png"
 			expire = "1965.1.1"
-			ideology = theocracy_subtype
+			ideology = paternal_autocrat_subtype
 			traits = {
 				MON_buddhist_figurehead
 			}
@@ -4870,9 +4874,9 @@ country_event = { #empire time?????
 		create_country_leader = {
 			name = "Genghis Khan III"
 			desc = "POLITICS_ROLF_STERNBERG_DESC"
-			picture = "gfx/country_leaders/Portrait_MON_Sternberg_Kid.png"
+			picture = "Portrait_MON_Sternberg_Kid.png"
 			expire = "1965.1.1"
-			ideology = absolute_monarchy_subtype
+			ideology = paternal_autocrat_subtype
 		}
 		create_field_marshal = { 
 			name = "Rolf von Ungern Sternberg"
@@ -4932,9 +4936,9 @@ country_event = { #bogd khan dies
 			create_country_leader = {
 				name = "9th Jebtsundamba Khutughtu"
 				desc = "POLITICS_9TH_DESC"
-				picture = "gfx/country_leaders/Portrait_MON_9th_Jebtsundamba_Khutughtu.png"
+				picture = "Portrait_MON_9th_Jebtsundamba_Khutughtu.png"
 				expire = "1965.1.1"
-				ideology = theocracy_subtype
+				ideology = paternal_autocrat_subtype
 				traits = {
 					MON_buddhist_figurehead
 				}
@@ -5019,9 +5023,9 @@ country_event = { #tsar
 		add_stability = -0.02
 		create_country_leader = {
 			name = "Mikhail II"
-			picture = "gfx/country_leaders/Portrait_MON_Mikhail_II.png"
+			picture = "Portrait_MON_Mikhail_II.png"
 			expire = "1965.1.1"
-			ideology = absolute_monarchy_subtype
+			ideology = paternal_autocrat_subtype
 			traits = {
 				
 			}
@@ -5101,7 +5105,7 @@ country_event = { #picking a tsar
 				desc = "POLITICS_PYOTR_VRANGEL_DESC"
 				picture = "gfx/leaders/RUS/Portrait_RUS_Pyotr_Wrangel_Tsar.png"
 				expire = "1965.1.1"
-				ideology = absolute_monarchy_subtype
+				ideology = paternal_autocrat_subtype
 				traits = { RUS_black_baron }
 			}
 		hidden_effect = {
@@ -5117,7 +5121,7 @@ country_event = { #picking a tsar
 				name = "Felix I"
 				picture = "gfx/leaders/RUS/Portrait_RUS_Felix_Yusupov_Drip.png"
 				expire = "1965.1.1"
-				ideology = absolute_monarchy_subtype
+				ideology = paternal_autocrat_subtype
 				traits = {  }
 			}
 	}
@@ -5127,7 +5131,7 @@ country_event = { #picking a tsar
 				name = "Mikhail II"
 				picture = "gfx/leaders/MON/Portrait_Mikhail_II_Drozdovsky.png"
 				expire = "1965.1.1"
-				ideology = absolute_monarchy_subtype
+				ideology = paternal_autocrat_subtype
 				traits = {  }
 			}
 	}
@@ -5140,9 +5144,9 @@ country_event = { #picking a tsar
 		create_country_leader = {
 			name = "Roman I"
 			desc = "POLITICS_STERNBERG_DESC"
-			picture = "gfx/country_leaders/Portrait_MON_Tsar_Sternberg.png"
+			picture = "Portrait_MON_Tsar_Sternberg.png"
 			expire = "1965.1.1"
-			ideology = absolute_monarchy_subtype
+			ideology = paternal_autocrat_subtype
 			traits = {
 				MON_the_mad_baron
 			}
@@ -5166,7 +5170,7 @@ country_event = { #romanov tsar picking gang
 				desc = "POLITICS_ANDREI_ROMANOV_DESC"
 				picture = "gfx/leaders/RUS/Portrait_RUS_Andrei_Romanov.png"
 				expire = "1965.1.1"
-				ideology = absolute_monarchy_subtype
+				ideology = paternal_autocrat_subtype
 				traits = { RUS_black_baron }
 			}
 	}
@@ -5177,7 +5181,7 @@ country_event = { #romanov tsar picking gang
 		desc = "POLITICS_VLADIMIR_ROMANOV_CON_DESC"
 		picture = "gfx/leaders/RUS/Portrait_RUS_Vladimir_Romanov.png"
 		expire = "1965.1.1"
-		ideology = absolute_monarchy_subtype
+		ideology = paternal_autocrat_subtype
 	}
 	}
 	option = {
@@ -5187,7 +5191,7 @@ country_event = { #romanov tsar picking gang
 		desc = "POLITICS_DMITRI_ROMANOV_TSAR_DESC"
 		picture = "gfx/leaders/RUS/Portrait_RUS_Dmitri_Romanov_Tsar.png"
 		expire = "1965.1.1"
-		ideology = absolute_monarchy_subtype
+		ideology = paternal_autocrat_subtype
 	}
 		
 	}
@@ -5195,9 +5199,9 @@ country_event = { #romanov tsar picking gang
 		name = mongolia.165.e #romanovs
 		create_country_leader = {
 			name = "Mikhail II"
-			picture = "gfx/country_leaders/Portrait_MON_Mikhail_II.png"
+			picture = "Portrait_MON_Mikhail_II.png"
 			expire = "1965.1.1"
-			ideology = absolute_monarchy_subtype
+			ideology = paternal_autocrat_subtype
 			traits = {
 				
 			}
@@ -5222,10 +5226,10 @@ country_event = { #romanov tsar picking gang
 	option = {
         name = mongolia.166.a #romanovs
         create_country_leader = {
-            name = "Alexander IV "
+            name = "Alexander IV"
             desc = "POLITICS_ALEXANDER_ROMANOV_DESC"
             picture = "gfx/leaders/TRM/Portrait_TRM_Alexander_Romanov_Blue.png"
-            ideology = absolute_monarchy_subtype
+            ideology = paternal_autocrat_subtype
             traits = {
                 
             }
@@ -5239,7 +5243,7 @@ country_event = { #romanov tsar picking gang
         desc = "POLITICS_PAVEL_II_DESC"
         picture = "gfx/leaders/RUS/Portrait_RUS_Pavel_Romanov.png"
         expire = "1965.1.1"
-        ideology = absolute_monarchy_subtype
+        ideology = paternal_autocrat_subtype
         }
     }
     option = {
@@ -5248,7 +5252,7 @@ country_event = { #romanov tsar picking gang
         name = "Boris I"
         picture = "gfx/leaders/RUS/Portrait_RUS_Boris_I.png"
         expire = "1965.1.1"
-        ideology = absolute_monarchy_subtype
+        ideology = paternal_autocrat_subtype
         }
     }
     option = {
@@ -5257,7 +5261,7 @@ country_event = { #romanov tsar picking gang
         name = "Roman I"
         picture = "gfx/leaders/RUS/Portrait_RUS_Roman_I.png"
         expire = "1965.1.1"
-        ideology = absolute_monarchy_subtype
+        ideology = paternal_autocrat_subtype
         }
     }
 
@@ -5267,7 +5271,7 @@ country_event = { #romanov tsar picking gang
         name = "Vsevolod I"
         picture = "gfx/leaders/MON/Portrait_Vsevolod_Ivanovich.png"
         expire = "1965.1.1"
-        ideology = absolute_monarchy_subtype
+        ideology = paternal_autocrat_subtype
         }
 	}
 		
@@ -5297,9 +5301,9 @@ country_event = {#
         create_country_leader = {
 			name = "Genghis Khan II"
 			desc = "POLITICS_KHAN_DESC"
-			picture = "gfx/country_leaders/Portrait_MON_Genghis_Khan_II.png"
+			picture = "Portrait_MON_Genghis_Khan_II.png"
 			expire = "1965.1.1"
-			ideology = occultism_subtype
+			ideology = national_populist_subtype
 	        traits = {
 		        MON_spirit_of_genghis
 	        }
@@ -5539,7 +5543,7 @@ country_event = {#release rebellious FNG
 					desc = "POLITICS_YANG_YUTING_ARMY_DESC"
 					picture = "gfx/leaders/FNG/Portrait_FNG_Tang_Shaoyi.png"
 					expire = "1965.1.1"
-					ideology = marlib_warlordism_subtype
+					ideology = market_liberal_subtype
 				}
 				set_politics = {
 					ruling_party = market_liberal
@@ -6304,17 +6308,17 @@ country_event = {#Japanese monarch for Fengtian
 			}
 			create_country_leader = {
 				name = "Hirohito"
-				picture = "gfx/country_leaders/Portrait_FNG_Hirohito.png"
+				picture = "Portrait_FNG_Hirohito.png"
 				expire = "1965.1.1"
-				ideology = marlib_warlordism_subtype
+				ideology = market_liberal_subtype
 			}
 			else = {
 				FNG = {
 					create_country_leader = {
 						name = "Hirohito"
-						picture = "gfx/country_leaders/Portrait_FNG_Hirohito.png"
+						picture = "Portrait_FNG_Hirohito.png"
 						expire = "1965.1.1"
-						ideology = marlib_warlordism_subtype
+						ideology = market_liberal_subtype
 					}
 				}
 			}
@@ -6332,17 +6336,17 @@ country_event = {#Japanese monarch for Fengtian
 			}
 			create_country_leader = {
 				name = "Kan'in Kotohito"
-				picture = "gfx/country_leaders/Portrait_FNG_Kanin_Kotohito.png"
+				picture = "Portrait_FNG_Kanin_Kotohito.png"
 				expire = "1965.1.1"
-				ideology = marlib_warlordism_subtype
+				ideology = market_liberal_subtype
 			}
 			else = {
 				FNG = {
 					create_country_leader = {
 						name = "Kan'in Kotohito"
-						picture = "gfx/country_leaders/Portrait_FNG_Kanin_Kotohito.png"
+						picture = "Portrait_FNG_Kanin_Kotohito.png"
 						expire = "1965.1.1"
-						ideology = marlib_warlordism_subtype
+						ideology = market_liberal_subtype
 					}
 				}
 			}
@@ -6368,17 +6372,17 @@ country_event = {#Japanese monarch for Fengtian
 			}
 			create_country_leader = {
 				name = "Yasuhito"
-				picture = "gfx/country_leaders/Portrait_FNG_Yasuhito.png"
+				picture = "Portrait_FNG_Yasuhito.png"
 				expire = "1965.1.1"
-				ideology = marlib_warlordism_subtype
+				ideology = market_liberal_subtype
 			}
 			else = {
 				FNG = {
 					create_country_leader = {
 						name = "Yasuhito"
-						picture = "gfx/country_leaders/Portrait_FNG_Yasuhito.png"
+						picture = "Portrait_FNG_Yasuhito.png"
 						expire = "1965.1.1"
-						ideology = marlib_warlordism_subtype
+						ideology = market_liberal_subtype
 					}
 				}
 			}
@@ -6406,17 +6410,17 @@ country_event = {#Japanese monarch for Fengtian
 			}
 			create_country_leader = {
 				name = "Yasuhito"
-				picture = "gfx/country_leaders/Portrait_FNG_Yasuhito.png"
+				picture = "Portrait_FNG_Yasuhito.png"
 				expire = "1965.1.1"
-				ideology = marlib_warlordism_subtype
+				ideology = market_liberal_subtype
 			}
 			else = {
 				FNG = {
 					create_country_leader = {
 						name = "Yasuhito"
-						picture = "gfx/country_leaders/Portrait_FNG_Yasuhito.png"
+						picture = "Portrait_FNG_Yasuhito.png"
 						expire = "1965.1.1"
-						ideology = marlib_warlordism_subtype
+						ideology = market_liberal_subtype
 					}
 				}
 			}
@@ -6468,7 +6472,7 @@ country_event = {#epic mongol monarch event
 			name = "Bogd Khan"
             picture = "gfx/leaders/MON/Portrait_MON_Bogd_Khan.png"
             expire = "1965.1.1"
-            ideology = marlib_warlordism_subtype
+            ideology = market_liberal_subtype
 		} 
 		set_cosmetic_tag = MON_YUA  
 	}
@@ -6482,7 +6486,7 @@ country_event = {#epic mongol monarch event
 			name = "Genghis Khan II"
             picture = "gfx/leaders/MON/Portrait_MON_Genghis_Khan_II.png"
             expire = "1965.1.1"
-            ideology = marlib_warlordism_subtype
+            ideology = market_liberal_subtype
 		}   
 		set_cosmetic_tag = MON_YUA
 	}
@@ -6496,7 +6500,7 @@ country_event = {#epic mongol monarch event
 			name = "The 14th Dalai Lama"
             picture = "gfx/leaders/TIB/Portrait_TIB_Dalai_Lama.png"
             expire = "1965.1.1"
-            ideology = marlib_warlordism_subtype
+            ideology = market_liberal_subtype
 		} 
 		set_cosmetic_tag = MON_YUA
 		hidden_effect = {
@@ -6540,7 +6544,7 @@ country_event = {#epic mongol monarch event
 			name = "Jigme"
             picture = "gfx/leaders/BHU/Portrait_BHU_Jigme_Wangchuck.png"
             expire = "1965.1.1"
-            ideology = marlib_warlordism_subtype
+            ideology = market_liberal_subtype
 		} 
 		set_cosmetic_tag = FNG_THUNDER_DRAGON
 		hidden_effect = {
@@ -6619,9 +6623,9 @@ country_event = {#chinese monarch
 				set_cosmetic_tag = LEC_MING
 				create_country_leader = {
 					name = "Hóngwu"
-					picture = "gfx/country_leaders/Portrait_QIE_Hongwu.png"
+					picture = "Portrait_QIE_Hongwu.png"
 					expire = "2165.1.1"
-					ideology = absolute_monarchy_subtype
+					ideology = paternal_autocrat_subtype
 				}
 			}
 		}
@@ -6631,18 +6635,18 @@ country_event = {#chinese monarch
 			}
 			create_country_leader = {
 				name = "Hóngwu"
-				picture = "gfx/country_leaders/Portrait_FNG_Hongwu.png"
+				picture = "Portrait_FNG_Hongwu.png"
 				expire = "2165.1.1"
-				ideology = marlib_warlordism_subtype
+				ideology = market_liberal_subtype
 			}
 			set_cosmetic_tag = LEC_MING
 			else = {
 				FNG = {
 					create_country_leader = {
 						name = "Hóngwu"
-						picture = "gfx/country_leaders/Portrait_FNG_Hongwu.png"
+						picture = "Portrait_FNG_Hongwu.png"
 						expire = "2165.1.1"
-						ideology = marlib_warlordism_subtype
+						ideology = market_liberal_subtype
 					}
 					set_cosmetic_tag = LEC_MING
 				}
@@ -6658,17 +6662,17 @@ country_event = {#chinese monarch
 ###}
 ###create_country_leader = {
 ####name = "Kong Lingyi"
-####picture = "gfx/country_leaders/Portrait_FNG_Kong_Lingyi.png"
+####picture = "Portrait_FNG_Kong_Lingyi.png"
 ####expire = "2165.1.1"
-####ideology = marlib_warlordism_subtype
+####ideology = market_liberal_subtype
 ###}
 ###else = {
 ####FNG = {
 #####create_country_leader = {
 ######name = "Kong Lingyi"
-######picture = "gfx/country_leaders/Portrait_FNG_Kong_Lingyi.png"
+######picture = "Portrait_FNG_Kong_Lingyi.png"
 ######expire = "2165.1.1"
-######ideology = marlib_warlordism_subtype
+######ideology = market_liberal_subtype
 #####}
 ####}
 ###}
@@ -8281,9 +8285,9 @@ country_event = { # Ungern Charges
 		create_country_leader = {
 			name = "Tribal Council"
 			desc = "POLITICS_TRIBAL_COUNCIL_DESC"
-			picture = "gfx/country_leaders/Portrait_MON_Regency_council_1.png"
+			picture = "Portrait_MON_Regency_council_1.png"
 			expire = "1965.1.1"
-			ideology = absolute_monarchy_subtype
+			ideology = paternal_autocrat_subtype
 		}
 
 		hidden_effect = {
@@ -8617,9 +8621,9 @@ country_event = { # natpops take power
 		create_country_leader = {
 			name = "7th Changkya Khutukhtu"
 			desc = "POLITICS_7TH_CHANGKYA_KHUTUKHTU_DESC"
-			picture = "gfx/country_leaders/Portrait_MON_7th_Changkya_Khutukhtu.png"
+			picture = "Portrait_MON_7th_Changkya_Khutukhtu.png"
 			expire = "1965.1.1"
-			ideology = theocracy_subtype
+			ideology = paternal_autocrat_subtype
 			traits = {
 				MON_buddhist_figurehead
 			}
@@ -8669,9 +8673,9 @@ country_event = { # natpops take power
 		create_country_leader = {
 			name = "Bogd Khan"
 			desc = "POLITICS_BOGD_KHAN_DESC"
-			picture = "gfx/country_leaders/Portrait_MON_Bogd_Khan.png"
+			picture = "Portrait_MON_Bogd_Khan.png"
 			expire = "1965.1.1"
-			ideology = theocracy_subtype
+			ideology = paternal_autocrat_subtype
 			traits = {
 				MON_buddhist_figurehead
 			}
@@ -8915,9 +8919,9 @@ country_event = { # natpops take power
 		create_country_leader = {
 			name = "Ja Lama"
 			desc = "POLITICS_JA_LAMA_DESC"
-			picture = "gfx/country_leaders/Portrait_MON_Ja_Lama.png"
+			picture = "Portrait_MON_Ja_Lama.png"
 			expire = "1965.1.1"
-			ideology = occultism_subtype
+			ideology = national_populist_subtype
 			traits = {}
 		}
 		create_field_marshal = {
@@ -9074,9 +9078,9 @@ country_event = { # foreigners take power
 		create_country_leader = {
 			name = "Xu Shuzheng"
 			desc = "POLITICS_XU_SHUZHENG_DESC"
-			picture = "gfx/country_leaders/Portrait_MON_Xu_Shuzheng.png"
+			picture = "Portrait_MON_Xu_Shuzheng.png"
 			expire = "1965.1.1"
-			ideology = pataut_warlordism_subtype
+			ideology = paternal_autocrat_subtype
 		}
 		every_state = {
 			limit = {
@@ -9169,9 +9173,9 @@ country_event = { # foreigners take power
 		create_country_leader = {
 			name = "Boris Rezukhin"
 			desc = "POLITICS_REZUKHIN_LEADER_DESC"
-			picture = "gfx/country_leaders/Portrait_MON_Boris_Rezukhin.png"
+			picture = "Portrait_MON_Boris_Rezukhin.png"
 			expire = "1965.1.1"
-			ideology = junta_subtype
+			ideology = paternal_autocrat_subtype
 		}
 		remove_all_ministers = yes
 		add_ideas = {
@@ -9356,7 +9360,7 @@ country_event = { # MON_status_of_prince_de event
 		create_country_leader = {
 			name = "Demchugdongrub"
 			desc = "POLITICS_DEMCHUGDONGRUB_DEMOCRATIC_DESC"
-			picture = "gfx/country_leaders/Portrait_MON_Demchugdongrub.png"
+			picture = "Portrait_MON_Demchugdongrub.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 			traits = {
@@ -10149,7 +10153,7 @@ country_event = { # event for Transamaur
 #		create_country_leader = {
 #			name = "Boris Rezukhin"
 #			desc = "POLITICS_REZUKHIN_LEADER_DESC"
-#			picture = "gfx/country_leaders/Portrait_MON_Boris_Rezukhin.png"
+#			picture = "Portrait_MON_Boris_Rezukhin.png"
 #			expire = "1965.1.1"
 #			ideology = paternal_autocrat_subtype
 #		}
@@ -10293,7 +10297,7 @@ country_event = { # Ünenbayan creates right-wing party
 #		create_country_leader = {
 #			name = "Dansranbilegiin Dogsom"
 #			desc = "POLITICS_DOGSOM_DESC"
-#			picture = "gfx/country_leaders/Portrait_MON_Dansranbilegiin_Dogsom.png"
+#			picture = "Portrait_MON_Dansranbilegiin_Dogsom.png"
 #			expire = "1965.1.1"
 #			ideology = social_democrat_subtype
 #			traits = {

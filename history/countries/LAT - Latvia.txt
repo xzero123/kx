@@ -2,25 +2,11 @@
 
 BAT_start_naval_variant = yes
 
-if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	set_technology = {
-		gwtank = 1
-		basic_light_tank = 1
-	}
-}
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	set_technology = {
-		gwtank_chassis = 1
-		basic_light_tank_chassis = 1
-	}
-}
 set_technology = {
+	### Tanks ###
+	gwtank = 1
+	basic_light_tank = 1
+
 	### Infantry ###
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -81,9 +67,9 @@ set_politics = {
 }
 
 set_popularities = {
-    totalist = 25
-    radical_socialist = 0
-    syndicalist = 2
+    totalist = 2
+    radical_socialist = 25
+    syndicalist = 0
     social_democrat = 15
     social_liberal = 8
     market_liberal = 7
@@ -125,7 +111,7 @@ create_country_leader = {
 	name = "Jānis Kurelis"
 	picture = "gfx/leaders/LAT/Portrait_LAT_Janis_Kurelis.png"
 	expire = "1965.1.1"
-	ideology = junta_subtype
+	ideology = paternal_autocrat_subtype
 }
 
 create_country_leader = {
@@ -139,7 +125,7 @@ create_country_leader = {
 	name = "Jānis Kurelis"
 	picture = "gfx/leaders/LAT/Portrait_LAT_Janis_Kurelis.png"
 	expire = "1965.1.1"
-	ideology = authdem_junta_subtype
+	ideology = authoritarian_democrat_subtype
 }
 
 create_country_leader = {
@@ -195,7 +181,7 @@ create_country_leader = {
 	name = "Jēkabs Peterss"
 	picture = "gfx/leaders/LAT/Portrait_LAT_Jekabs_Peterss.png"
 	expire = "1965.1.1"
-	ideology = authcom_subtype
+	ideology = totalist_subtype
 }
 
 ### Field Marshals ###

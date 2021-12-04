@@ -34,7 +34,8 @@ set_technology = {
 	tech_mountaineers = 1
 	motorised_infantry = 1
 	gw_artillery = 1
-	
+	gwtank = 1
+
 	#air
 	early_fighter = 1
 	early_bomber = 1
@@ -42,22 +43,7 @@ set_technology = {
 	tactical_bomber1 = 1
 	CAS1 = 1
 }
-if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	set_technology = {
-		gwtank = 1
-	}
-}
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	set_technology = {
-		gwtank_chassis = 1
-	}
-}
+
 ### Navy - MtG ###
 
 if = {
@@ -149,43 +135,43 @@ set_popularities = {
 create_country_leader = {
 	name = "Carol II"
 	desc = "POLITICS_CAROL_II_DESC"
-	picture = "gfx/country_leaders/Portrait_ROM_Carol_II.png"
+	picture = "Portrait_ROM_Carol_II.png"
 	expire = "1965.1.1"
-	ideology = legionarism_subtype
+	ideology = national_populist_subtype
 	traits = { ROM_autocrat }
 }
 
 create_country_leader = {
 	name = "Carol II"
 	desc = "POLITICS_CAROL_II_DESC"
-	picture = "gfx/country_leaders/Portrait_ROM_Carol_II.png"
+	picture = "Portrait_ROM_Carol_II.png"
 	expire = "1965.1.1"
-	ideology = absolute_monarchy_subtype
+	ideology = paternal_autocrat_subtype
 	traits = { ROM_autocrat }
 }
 
 create_country_leader = {
 	name = "Michael I"
 	desc = "POLITICS_MICHAEL_I_DESC"
-	picture = "gfx/country_leaders/Portrait_ROM_Michael_I.png"
+	picture = "Portrait_ROM_Michael_I.png"
 	expire = "1965.1.1"
-	ideology = authdem_junta_subtype
+	ideology = authoritarian_democrat_subtype
 	traits = { ROM_protector_of_democracy }
 }
 
 create_country_leader = {
 	name = "Michael I"
 	desc = "POLITICS_MICHAEL_I_DESC"
-	picture = "gfx/country_leaders/Portrait_ROM_Michael_I.png"
+	picture = "Portrait_ROM_Michael_I.png"
 	expire = "1965.1.1"
-	ideology = liberal_conservative_subtype
+	ideology = market_liberal_subtype
 	traits = { ROM_protector_of_democracy }
 }
 
 create_country_leader = {
 	name = "Michael I"
 	desc = "POLITICS_MICHAEL_I_DESC"
-	picture = "gfx/country_leaders/Portrait_ROM_Michael_I.png"
+	picture = "Portrait_ROM_Michael_I.png"
 	expire = "1965.1.1"
 	ideology = social_democrat_subtype
 	traits = { ROM_protector_of_democracy }
@@ -194,38 +180,38 @@ create_country_leader = {
 create_country_leader = {
 	name = "Michael I"
 	desc = "POLITICS_MICHAEL_I_DESC"
-	picture = "gfx/country_leaders/Portrait_ROM_Michael_I.png"
+	picture = "Portrait_ROM_Michael_I.png"
 	expire = "1965.1.1"
-	ideology = soccon_agrarianism_subtype
+	ideology = social_conservative_subtype
 	traits = { ROM_protector_of_democracy }
 }
 
 create_country_leader = {
 	name = "Michael I"
 	desc = "POLITICS_MICHAEL_I_DESC"
-	picture = "gfx/country_leaders/Portrait_ROM_Michael_I.png"
+	picture = "Portrait_ROM_Michael_I.png"
 	expire = "1965.1.1"
-	ideology = soclib_agrarianism_subtype
+	ideology = social_liberal_subtype
 	traits = { ROM_protector_of_democracy }
 }
 
 create_country_leader = {
 	name = "Cristian Racovski"
-	picture = "gfx/country_leaders/Portrait_ROM_Cristian_Racovski.png"
+	picture = "Portrait_ROM_Cristian_Racovski.png"
 	expire = "1965.1.1"
 	ideology = totalist_subtype
 }
 
 create_country_leader = {
 	name = "Barbu Lazareanu"
-	picture = "gfx/country_leaders/Portrait_ROM_Barbu_Lazareanu.png"
+	picture = "Portrait_ROM_Barbu_Lazareanu.png"
 	expire = "1965.1.1"
 	ideology = radical_socialist_subtype
 }
 
 create_country_leader = {
 	name = "Lucretiu Patrascanu"
-	picture = "gfx/country_leaders/Portrait_ROM_Lucretiu_Patrascanu.png"
+	picture = "Portrait_ROM_Lucretiu_Patrascanu.png"
 	expire = "1965.1.1"
 	ideology = syndicalist_subtype
 }
@@ -462,7 +448,7 @@ create_corps_commander = { #retired, should be removed?
 ### Navy Leader
 create_navy_leader = {
 	name = "Horia Macellariu"
-	picture = "gfx/country_leaders/Portrait_ROM_Horia_Macellariu.png"
+	picture = "Portrait_ROM_Horia_Macellariu.png"
 	traits = { blockade_runner }
 	skill = 1
 	attack_skill = 1

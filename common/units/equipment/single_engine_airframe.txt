@@ -3,10 +3,6 @@ equipments = {
 	fighter_equipment = {
 		year = 1933
 
-		can_be_produced = {
-			NOT = { has_country_flag = cannot_produce_aircraft }
-		}
-
 		is_archetype = yes
 		is_convertable = yes
 		picture = archetype_fighter_equipment
@@ -51,10 +47,6 @@ equipments = {
 
 	cv_fighter_equipment = {
 		year = 1933
-
-		can_be_produced = {
-			NOT = { has_country_flag = cannot_produce_aircraft }
-		}
 
 		is_archetype = yes
 		is_convertable = yes
@@ -103,10 +95,6 @@ equipments = {
 	CAS_equipment = {
 		year = 1933
 
-		can_be_produced = {
-			NOT = { has_country_flag = cannot_produce_aircraft }
-		}
-
 		is_archetype = yes
 		is_convertable = yes
 		picture = archetype_CAS_equipment
@@ -151,10 +139,6 @@ equipments = {
 
 	cv_CAS_equipment = {
 		year = 1933
-
-		can_be_produced = {
-			NOT = { has_country_flag = cannot_produce_aircraft }
-		}
 
 		is_archetype = yes
 		is_convertable = yes
@@ -202,10 +186,6 @@ equipments = {
 	nav_bomber_equipment = {
 		year = 1933
 
-		can_be_produced = {
-			NOT = { has_country_flag = cannot_produce_aircraft }
-		}
-
 		is_archetype = yes
 		is_convertable = yes
 		picture = archetype_heavy_fighter_equipment
@@ -247,10 +227,6 @@ equipments = {
 
 	cv_nav_bomber_equipment = {
 		year = 1933
-
-		can_be_produced = {
-			NOT = { has_country_flag = cannot_produce_aircraft }
-		}
 
 		is_archetype = yes
 		is_convertable = yes
@@ -295,10 +271,6 @@ equipments = {
 
 	jet_fighter_equipment = {
 		year = 1933
-
-		can_be_produced = {
-			NOT = { has_country_flag = cannot_produce_aircraft }
-		}
 
 		is_archetype = yes
 		is_convertable = yes
@@ -356,7 +328,6 @@ equipments = {
 		naval_strike_attack = 1
 		naval_strike_targetting = 10
 
-		is_convertable = yes
 	}
 
 	# Basic Fighter
@@ -367,10 +338,6 @@ equipments = {
 		parent = fighter_equipment_0
 		priority = 10
 
-		is_convertable = yes
-		can_convert_from = {
-			fighter_equipment_0
-		}
 		air_range = 700
 		maximum_speed = 500
 		air_agility = 50
@@ -397,12 +364,6 @@ equipments = {
 		parent = fighter_equipment_1
 		priority = 10
 
-		is_convertable = yes
-		can_convert_from = {
-			fighter_equipment_0
-			fighter_equipment_1
-		}
-
 		air_range = 1000
 		maximum_speed = 650
 		air_agility = 65
@@ -428,13 +389,6 @@ equipments = {
 		archetype = fighter_equipment
 		parent = fighter_equipment_2
 		priority = 10
-
-		is_convertable = yes
-		can_convert_from = {
-			fighter_equipment_0
-			fighter_equipment_1
-			fighter_equipment_2
-		}
 
 		air_range = 1200
 		maximum_speed = 720
@@ -467,7 +421,6 @@ equipments = {
 		air_agility = 72
 		air_attack = 36
 		air_defence = 15
-		is_convertable = yes
 
 	}
 
@@ -478,11 +431,6 @@ equipments = {
 		archetype = jet_fighter_equipment
 		parent = jet_fighter_equipment_1
 		priority = 20
-
-		is_convertable = yes
-		can_convert_from = {
-			jet_fighter_equipment_1
-		}
 
 		air_range = 2200
 		maximum_speed = 1100
@@ -506,11 +454,6 @@ equipments = {
 		carrier_capable = yes
 		priority = 30
 
-		is_convertable = yes
-		can_convert_from = {
-			fighter_equipment_0
-		}
-
 		air_range = 456
 		maximum_speed = 297 #CV planes have less speed than their land based counterparts
 		air_agility = 45
@@ -530,11 +473,6 @@ equipments = {
 		parent = cv_fighter_equipment_0
 		carrier_capable = yes
 		priority = 30
-
-		is_convertable = yes
-		can_convert_from = {
-			cv_fighter_equipment_0
-		}
 
 		air_range = 560
 		maximum_speed =	450
@@ -561,11 +499,6 @@ equipments = {
 		carrier_capable = yes
 		priority = 30
 
-		is_convertable = yes
-		can_convert_from = {
-			cv_fighter_equipment_1
-		}
-
 		air_range = 800
 		maximum_speed =	585
 		air_agility = 65
@@ -589,11 +522,6 @@ equipments = {
 		parent = cv_fighter_equipment_2
 		carrier_capable = yes
 		priority = 30
-
-		can_convert_from = {
-			cv_fighter_equipment_1
-			cv_fighter_equipment_2
-		}
 
 		air_range = 960
 		maximum_speed =	648
@@ -628,8 +556,6 @@ equipments = {
 
 		naval_strike_attack = 3
 		naval_strike_targetting = 10
-
-		is_convertable = yes
 	}
 
 	# Improved CAS
@@ -639,11 +565,6 @@ equipments = {
 		archetype = CAS_equipment
 		parent = CAS_equipment_1
 		priority = 40
-
-		is_convertable = yes
-		can_convert_from = {
-			CAS_equipment_1
-		}
 
 		air_range = 1000
 		maximum_speed = 450
@@ -670,12 +591,6 @@ equipments = {
 		archetype = CAS_equipment
 		parent = CAS_equipment_2
 		priority = 40
-
-		is_convertable = yes
-		can_convert_from = {
-			CAS_equipment_1
-			CAS_equipment_2
-		}
 
 		air_range = 1200
 		maximum_speed = 550
@@ -724,11 +639,6 @@ equipments = {
 		carrier_capable = yes
 		priority = 50
 
-		is_convertable = yes
-		can_convert_from = {
-			cv_CAS_equipment_1
-		}
-
 		air_range = 640
 		maximum_speed =	405
 		air_agility = 39
@@ -755,11 +665,6 @@ equipments = {
 		carrier_capable = yes
 		priority = 50
 
-		is_convertable = yes
-		can_convert_from = {
-			cv_CAS_equipment_1
-			cv_CAS_equipment_2
-		}
 		air_range = 800
 		maximum_speed =	495
 		air_agility = 44
@@ -790,7 +695,6 @@ equipments = {
 		air_agility = 30
 		air_attack = 6
 		air_defence = 12
-		is_convertable = yes
 
 	}
 	# Improved nav_bomber
@@ -800,11 +704,6 @@ equipments = {
 		archetype = nav_bomber_equipment
 		parent = nav_bomber_equipment_1
 		priority = 60
-
-		is_convertable = yes
-		can_convert_from = {
-			nav_bomber_equipment_1
-		}
 
 		air_range = 930
 		maximum_speed = 300
@@ -829,12 +728,6 @@ equipments = {
 		archetype = nav_bomber_equipment
 		parent = nav_bomber_equipment_2
 		priority = 60
-
-		is_convertable = yes
-		can_convert_from = {
-			nav_bomber_equipment_1
-			nav_bomber_equipment_2
-		}
 
 		air_range = 1100
 		maximum_speed = 400
@@ -867,7 +760,6 @@ equipments = {
 		air_defence = 13
 
 		build_cost_ic = 31.2 # cv_version costs 20% more of base archetype
-		is_convertable = yes
 	}
 	# Improved Carrier nav_bomber
 	cv_nav_bomber_equipment_2 = {
@@ -877,11 +769,6 @@ equipments = {
 		parent = cv_nav_bomber_equipment_1
 		carrier_capable = yes
 		priority = 70
-
-		is_convertable = yes
-		can_convert_from = {
-			cv_nav_bomber_equipment_1
-		}
 
 		air_range = 744
 		maximum_speed =	270
@@ -906,12 +793,6 @@ equipments = {
 		carrier_capable = yes
 		priority = 70
 
-		is_convertable = yes
-		can_convert_from = {
-			cv_nav_bomber_equipment_1
-			cv_nav_bomber_equipment_2
-		}
-
 		air_range = 880
 		maximum_speed =	360
 		air_agility = 40
@@ -930,10 +811,6 @@ equipments = {
 	# ROCKET INTERCEPTORS ###############
 	rocket_interceptor_equipment = {
 		year = 1936
-
-		can_be_produced = {
-			NOT = { has_country_flag = cannot_produce_aircraft }
-		}
 
 		is_archetype = yes
 		is_convertable = yes
@@ -988,7 +865,6 @@ equipments = {
 			tungsten = 2
 			rubber = 1
 		}
-		is_convertable = yes
 	}
 
 	# Improved Rocket Interceptor
@@ -998,11 +874,6 @@ equipments = {
 		archetype = rocket_interceptor_equipment
 		parent = rocket_interceptor_equipment_1
 		priority = 80
-
-		is_convertable = yes
-		can_convert_from = {
-			rocket_interceptor_equipment_1
-		}
 
 		air_range = 300
 		maximum_speed = 1100
@@ -1026,11 +897,6 @@ equipments = {
 		parent = rocket_interceptor_equipment_2
 		priority = 80
 
-		is_convertable = yes
-		can_convert_from = {
-			rocket_interceptor_equipment_2
-		}
-
 		air_range = 500
 		maximum_speed = 1150
 		air_agility = 60
@@ -1049,10 +915,6 @@ equipments = {
 	# ROCKET INTERCEPTORS ###############
 	suicide_craft_equipment = {
 		year = 1936
-
-		can_be_produced = {
-			NOT = { has_country_flag = cannot_produce_aircraft }
-		}
 
 		is_archetype = yes
 		is_convertable = no
@@ -1099,4 +961,3 @@ equipments = {
 	}
 
 }
-

@@ -184,14 +184,16 @@ country_event = { #End of the Bush War
         }
 		KIK = {
 			hidden_effect = {	
-				if = {	
-					limit = { has_country_leader = { name = "Mzee Onyango Obama" ruling_only = yes } }
-					set_country_leader_portrait = {
-						portrait = "gfx/leaders/KIK/KIK_Punished_Obama.png"
+				create_country_leader = {
+						name = "Mzee Onyango Obama"
+						desc = "POLITICS_PUNISHED_OBAMA_DESC"
+						picture = "KIK_Punished_Obama.png"
+						expire = "1965.1.1"
+						ideology = totalist_subtype
+						traits = {}
 					}
 				}
 			}
-		}
 	}
 }
 country_event = { #The Great Battle but Kenya
@@ -494,7 +496,7 @@ country_event = { #United Kenya
 			SOM = {
 				transfer_state = 892
 			}
-			set_capital = { state = 547 }
+			set_capital = 547
 		}
 	}
 }
@@ -567,9 +569,9 @@ country_event = { #Post Obama
 		create_country_leader = {
 			name = "Dedan Kimathi"
 			desc = "POLITICS_DEDAN_KIMATHI_DESC"
-			picture = "gfx/country_leaders/KIK_Dedan_Kimathi.png"
+			picture = "KIK_Dedan_Kimathi.png"
 			expire = "1965.1.1"
-			ideology = radsoc_left_panafricanism_subtype 
+			ideology = radical_socialist_subtype
 		}
 		set_politics = {
 			ruling_party = radical_socialist
@@ -589,9 +591,9 @@ country_event = { #Post Obama
 		create_country_leader = {
 			name = "Stanley Mathenge"
 			desc = "POLITICS_STANLEY_MATHENGE_DESC"
-			picture = "gfx/country_leaders/KIK_Mathenge.png"
+			picture = "KIK_Mathenge.png"
 			expire = "1965.1.1"
-			ideology = natpop_right_panafricanism_subtype
+			ideology = national_populist_subtype
 		}
 		set_politics = {
 			ruling_party = national_populist
@@ -743,14 +745,15 @@ country_event = { #purging none bantu
 	option = {
 		name = redkenya.15.a #war never changes
 		set_cosmetic_tag = KIK_OBAMA_AFRICA
-		add_country_leader_trait = avatar_of_ghost_goat
 		hidden_effect = {
-			if = {	
-				limit = { has_country_leader = { name = "Mzee Onyango Obama" ruling_only = yes } }
-				set_country_leader_portrait = {
-					portrait = "gfx/leaders/KIK/KIK_Based_Obama.png"
-				}
-			}
+			create_country_leader = {
+				name = "Mzee Onyango Obama"
+				desc = "POLITICS_PUNISHED_OBAMA_DESC"
+				picture = "KIK_Based_Obama.png"
+				expire = "1965.1.1"
+				ideology = totalist_subtype
+				traits = { avatar_of_ghost_goat }
+			}	
 		}
 		
 	}
@@ -989,9 +992,9 @@ country_event = { #
 		create_country_leader = {
 			name = "Barack Obama"
 			desc = "POLITICS_BABY_OBAMA_DESC"
-			picture = "gfx/country_leaders/KIK_Baby_Obama.png"
+			picture = "KIK_Baby_Obama.png"
 			expire = "1965.1.1"
-			ideology = radsoc_left_panafricanism_subtype 
+			ideology = radical_socialist_subtype
 		}
 		hidden_effect = {
 			country_event = {
@@ -1043,18 +1046,18 @@ country_event = { #
 		name = redkenya.26.a
 		create_country_leader = {
 			name = "Barack Obama Jr"
-			picture = "gfx/country_leaders/KIK_Babier_Obama.png"
+			picture = "KIK_Babier_Obama.png"
 			expire = "2009.1.1"
-			ideology = radsoc_left_panafricanism_subtype 
+			ideology = radical_socialist_subtype
 		}
 	}
 	option = {
 		name = redkenya.26.b
 		create_country_leader = {
 			name = "Barack Obama Jr"
-			picture = "gfx/country_leaders/KIK_Babier_Obama.png"
+			picture = "KIK_Babier_Obama.png"
 			expire = "2009.1.1"
-			ideology = radsoc_left_panafricanism_subtype 
+			ideology = radical_socialist_subtype
 		}
 	}
 }

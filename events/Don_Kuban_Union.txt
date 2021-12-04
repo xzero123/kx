@@ -193,7 +193,6 @@ add_namespace = germans
 		name = dkb.210.a
 		add_stability = 0.05
 		set_country_flag = DKB_russophiles_win
-		set_cosmetic_tag = DKB_bog
 		ai_chance = {
 			factor = 33
 			modifier = {
@@ -271,12 +270,6 @@ add_namespace = germans
 	}
 	option = { #Vlasov wins
 		name = dkb.210.c
-		ai_chance = {
-			factor = 0
-		}
-		trigger = {
-			is_ai = no
-		}
 		add_stability = -0.05
 		create_country_leader = {
 			name = "Andrey Vlasov"
@@ -402,19 +395,6 @@ add_namespace = germans
 		name = dkb.211.a
 
 		set_capital = 219
-		
-		set_province_name = {
-			id = 6380
-			name = "Moskau"
-		}
-		
-		hidden_effect = {
-		
-		set_province_name = {
-			id = 6174
-			name = "St. Petersburg"
-		}
-		}
 
 		add_political_power = 100
 
@@ -437,18 +417,6 @@ add_namespace = germans
         
 		set_capital = 195
 		
-		set_province_name = {
-			id = 6174
-			name = "St. Petersburg"
-		}
-		
-		hidden_effect = {
-		
-		set_province_name = {
-			id = 6380
-			name = "Moskau"
-		}
-		}
 
 		add_political_power = 100
 
@@ -703,7 +671,7 @@ country_event = { #vlasov ded
 		name = germans.21.a
 		create_country_leader = {
 			name = "Otto Strasser"
-			picture = "gfx/leaders/GRU/Portrait_Germany_Gregor_Strasser.png"
+			picture = "gfx/leaders/DKB/Portrait_Otto_Strasser.png"
 			expire = "1965.1.1"
 			ideology = totalist_subtype
 			traits = {}
@@ -1133,7 +1101,7 @@ country_event = { #vlasov ded
 		name = germans.18.b
 		create_country_leader = {
 			name = "Roman I"
-			picture = "gfx/leaders/RUS/Portrait_RUS_Roman_I.png"
+			picture = "gfx/leaders/RUS/Portrait_Russia_Roman_I.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 			traits = {}
@@ -1141,7 +1109,7 @@ country_event = { #vlasov ded
 		 hidden_effect = {
 		 create_country_leader = {
 			name = "Roman I"
-			picture = "gfx/leaders/RUS/Portrait_RUS_Roman_I.png"
+			picture = "gfx/leaders/RUS/Portrait_Russia_Roman_I.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 			traits = {}
@@ -1508,6 +1476,7 @@ country_event = { #vlasov ded
 			popularity = -0.10
 		}
 		set_country_flag = DKB_Vlasovtsy_Remain_flag
+		unlock_national_focus = DKB_Vlasovsty_Remain
 		
 	  }
 	option = { #Vlasov dies in the chaos!
@@ -1529,6 +1498,11 @@ country_event = { #vlasov ded
           id = vlasov.13
           days = 3
           }
+          random_other_country = {
+				news_event = {
+					id = worldnews.1249
+				}
+			}
 		}
 	  }
 	  
@@ -1584,6 +1558,320 @@ country_event = { #vlasov ded
 		
 	  
     }
+	
+	country_event = { #Federation
+    id = vlasov.15
+	title = vlasov.15.t
+	desc = vlasov.15.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { #A Bright Future awaits!
+		name = vlasov.15.a
+		trigger = {
+			has_completed_focus = DKB_Welfare_for_the_People
+			NOT = {
+			has_completed_focus = DKB_Enbrace_Free_Market_Economics
+			}
+		}
+		custom_effect_tooltip = DKB_United_Russia_will_move_socdem
+		add_country_leader_trait = president_of_russian_fed
+		add_stability = 0.10
+		add_political_power = 150
+		hidden_effect = {
+		add_popularity = {
+             ideology = social_democrat
+             popularity = 0.40
+            }
+		add_popularity = {
+             ideology = authoritarian_democrat
+             popularity = -0.20
+            }	
+		set_politics = {
+			ruling_party = social_democrat
+				elections_allowed = no
+			}
+		set_party_name = { 
+            ideology = social_democrat
+            long_name = DKB_united_russia_party_long
+            name = DKB_united_russia_party
+	     }
+		 create_country_leader = {
+				name = "Andrey Vlasov"
+				picture = "gfx/leaders/DKB/Portrait_DKB_Andrey_Vlasov_suit.png"
+				expire = "1965.1.1"
+				ideology = social_democrat_subtype
+			 }
+	      country_event = {
+          id = vlasov.16
+          days = 3
+          }
+		 }
+	  }
+	  
+	  option = { #A Bright Future awaits!
+		name = vlasov.15.b
+		trigger = {
+			has_completed_focus = DKB_Enbrace_Free_Market_Economics
+			NOT = {
+			has_completed_focus = DKB_Welfare_for_the_People
+			}
+		}
+		custom_effect_tooltip = DKB_United_Russia_will_move_soccon
+		add_country_leader_trait = president_of_russian_fed
+		add_stability = 0.10
+		add_political_power = 150
+		hidden_effect = {
+		add_popularity = {
+             ideology = social_conservative
+             popularity = 0.40
+            }
+		add_popularity = {
+             ideology = authoritarian_democrat
+             popularity = -0.20
+            }
+		set_politics = {
+			ruling_party = social_conservative
+				elections_allowed = no
+			}
+		set_party_name = { 
+            ideology = social_conservative
+            long_name = DKB_united_russia_party_long
+            name = DKB_united_russia_party
+	     }
+		 create_country_leader = {
+				name = "Andrey Vlasov"
+				picture = "gfx/leaders/DKB/Portrait_DKB_Andrey_Vlasov_suit.png"
+				expire = "1965.1.1"
+				ideology = social_conservative_subtype
+			 }
+		 
+		 country_event = {
+          id = vlasov.16
+          days = 3
+          }
+		 }
+	  }
+	  
+    }
+	
+	country_event = { #flag picker
+    id = vlasov.16
+	title = vlasov.16.t
+	desc = vlasov.16.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { #keep old flag
+		name = vlasov.16.a
+	  }
+	option = { #remove Eagle
+		name = vlasov.16.b
+		set_cosmetic_tag = DKB_vlasov_RUS_alt2
+	  }
+	option = { #United Russia party flag
+		name = vlasov.16.c
+		set_cosmetic_tag = DKB_vlasov_RUS_alt1
+		
+	  }
+	 }
+	 
+	 country_event = { #Blue Vozhd
+    id = vlasov.17
+	title = vlasov.17.t
+	desc = vlasov.17.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { #A Bright Future awaits!
+		name = vlasov.17.a
+		trigger = {
+			has_completed_focus = DKB_Russian_Christian_Democracy
+			NOT = {
+			has_completed_focus = DKB_True_Right_Syndicalism
+			}
+		}
+		add_country_leader_trait = vozhd_of_all_russia_vlasov
+		custom_effect_tooltip = DKB_United_Russia_will_move_pataut
+		add_stability = -0.05
+		add_political_power = 150
+		hidden_effect = {
+		add_popularity = {
+             ideology = paternal_autocrat
+             popularity = 0.20
+            }
+		add_popularity = {
+             ideology = authoritarian_democrat
+             popularity = -0.20
+            }
+		set_politics = {
+			ruling_party = paternal_autocrat
+				elections_allowed = no
+			}
+		set_party_name = { 
+            ideology = paternal_autocrat
+            long_name = DKB_united_russia_party_long
+            name = DKB_united_russia_party
+	     }
+		 create_country_leader = {
+				name = "Andrey Vlasov"
+				picture = "gfx/leaders/DKB/Portrait_DKB_Andrey_Vlasov.png"
+				expire = "1965.1.1"
+				ideology = paternal_autocrat_subtype
+			 }
+		 }
+	  }
+	  
+	  option = { #A Bright Future awaits!
+		name = vlasov.17.b
+		trigger = {
+			has_completed_focus = DKB_True_Right_Syndicalism
+			NOT = {
+			has_completed_focus = DKB_Russian_Christian_Democracy
+			}
+		}
+		add_country_leader_trait = vozhd_of_all_russia_vlasov
+		custom_effect_tooltip = DKB_United_Russia_will_move_natpop
+		add_stability = -0.10
+		add_political_power = 150
+		hidden_effect = {
+		add_popularity = {
+             ideology = national_populist
+             popularity = 0.35
+            }
+		add_popularity = {
+             ideology = authoritarian_democrat
+             popularity = -0.20
+            }
+		set_politics = {
+			ruling_party = national_populist
+				elections_allowed = no
+			}
+		set_party_name = { 
+            ideology = national_populist
+            long_name = DKB_united_russia_party_long
+            name = DKB_united_russia_party
+	     }
+		 create_country_leader = {
+				name = "Andrey Vlasov"
+				picture = "gfx/leaders/DKB/Portrait_DKB_Andrey_Vlasov.png"
+				expire = "1965.1.1"
+				ideology = national_populist_subtype
+			 }
+		
+		 }
+	  }
+	  
+    }
+	
+	country_event = { #Supreme Ruler
+    id = vlasov.18
+	title = vlasov.18.t
+	desc = vlasov.18.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { #A Bright Future awaits!
+		name = vlasov.18.a
+		add_stability = 0.05
+		add_political_power = 150
+		add_country_leader_trait = supreme_ruler
+	  }
+	 }
+	 
+	country_event = { #ally veterns
+    id = vlasov.19
+	title = vlasov.19.t
+	desc = vlasov.19.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { 
+		name = vlasov.19.a
+		add_political_power = 75
+		add_popularity = {
+             ideology = authoritarian_democrat
+             popularity = 0.05
+          }
+	   }
+	 }
+	 
+	 country_event = { #ally people
+    id = vlasov.20
+	title = vlasov.20.t
+	desc = vlasov.20.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { 
+		name = vlasov.20.a
+		add_stability = 0.05
+		add_popularity = {
+             ideology = social_democrat
+             popularity = 0.05
+          }
+		  add_popularity = {
+             ideology = social_conservative
+             popularity = 0.05
+          }
+	   }
+	 }
+	 
+	country_event = { #ally soldarists
+    id = vlasov.21
+	title = vlasov.21.t
+	desc = vlasov.21.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { 
+		name = vlasov.21.a
+		add_political_power = 125
+		add_stability - 0.05
+		add_popularity = {
+             ideology = paternal_autocrat
+             popularity = 0.05
+          }
+	   }
+	 }
+	 
+	country_event = { #birth of LDPR
+    id = vlasov.22
+	title = vlasov.22.t
+	desc = vlasov.22.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { 
+		name = vlasov.21.a
+		add_political_power = -25
+		add_popularity = {
+             ideology = national_populist
+             popularity = 0.05
+          }
+		set_party_name = { 
+            ideology = national_populist
+            long_name = DKB_LDPR_party_long
+            name = DKB_LDPR_party
+	     }
+	   }
+	   option = { #ban them
+		name = vlasov.21.b
+		add_stability = -0.05
+		
+		add_popularity = {
+             ideology = national_populist
+             popularity = -0.05
+          }
+		  set_party_name = { 
+            ideology = national_populist
+            long_name = DKB_LDPR_party_long
+            name = DKB_LDPR_party
+	     }
+	   }
+	 }
+	 
+	 
 	
 #demand shit
 country_event = { #The East Bank
@@ -3745,7 +4033,7 @@ country_event = { #chance for democracy
 		create_country_leader = {
 			name = "Nikolai Trubetzkoy"
 			desc = "POLITICS_NIKOLAI_TRUBETSKOY_DESC"
-			picture = "gfx/leaders/RUS/Portrait_RUS_Nikolay_Trubetskoy.png"
+			picture = "gfx/leaders/RUS/Portrait_Soviet_Nikolai_Trubetskoy.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 			traits = { RUS_eurasianist_ideologue }
@@ -3839,7 +4127,7 @@ country_event = { #chance for democracy
 			create_country_leader = {
 				name = "Aleksandr Kolchak"
 				desc = "POLITICS_ALEXANDR_KOLCHAK_DESC"
-				picture = "gfx/leaders/TRM/Portrait_TRM_Aleksandr_Kolchak.png"
+				picture = "gfx/leaders/RUS/Portrait_Transamur_Alexandr_Kolchak.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 				traits = { admiral_dictator }
@@ -3865,7 +4153,7 @@ country_event = { #chance for democracy
 			create_country_leader = {
 				name = "Aleksandr Kolchak"
 				desc = "POLITICS_ALEXANDR_KOLCHAK_DESC"
-				picture = "gfx/leaders/TRM/Portrait_TRM_Aleksandr_Kolchak.png"
+				picture = "gfx/leaders/RUS/Portrait_Transamur_Alexandr_Kolchak.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 				traits = { admiral_dictator }

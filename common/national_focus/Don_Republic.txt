@@ -958,10 +958,10 @@ focus_tree = {
 			232 = { owner = { tag = ROOT } }
 			233 = { owner = { tag = ROOT } }
 			137 = { owner = { tag = ROOT } }
+			227 = { owner = { tag = ROOT } }
+			228 = { owner = { tag = ROOT } }
 			1221 = { owner = { tag = ROOT } }
 			1220 = { owner = { tag = ROOT } }
-			227 = { owner = { tag = ROOT } }
-			228 = { owner = { tag = ROOT } } 
 		}
 		prerequisite = {
 			focus = DKB_claim_donbass
@@ -6219,6 +6219,11 @@ focus = {
 				popularity = 20
 			}
 			hidden_effect = {
+			random_other_country = {
+				news_event = {
+					id = worldnews.1248
+				}
+			}
 			set_party_name = { 
             ideology = social_liberal
             long_name = DKB_non_simps_long
@@ -6262,7 +6267,7 @@ focus = {
 		  }
 		  create_country_leader = {
 			name = "Vasily Maklakov"
-			picture = "gfx/leaders/RUS/Portrait_RUS_Vasily_Maklakov.png"
+            picture = "gfx/leaders/RUS/Portrait_RUS_Vasily_Maklakov.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 			traits = {}
@@ -6697,7 +6702,7 @@ focus = {
 	
 	focus = {
 		id = DKB_Reassure_the_people
-		icon = GFX_TTR_Reassure_Nobility
+		icon = GFX_RUS_sobornost
 		cost = 5
 		prerequisite = {
 			focus = DKB_The_Federal_Model
@@ -8547,7 +8552,7 @@ focus = {
 			has_completed_focus = DKB_Rostov_Manifesto
 		}
 		
-		x = -44
+		x = -50
 		y = 0
 		completion_reward = {
 	    army_experience = 50
@@ -9010,7 +9015,7 @@ focus = {
 		bypass = {
 			has_country_flag = DKB_vlasov_coup
 		}
-		x = -52
+		x = -58
 		y = 0
 		completion_reward = {
 	    custom_effect_tooltip = unlock_focuses
@@ -9617,6 +9622,11 @@ focus = {
 			remove_ideas = DKB_All_For_The_Liberation
 			remove_ideas = DKB_Rostov_Manifesto_2
 			remove_ideas = DKB_Cossack_Autonomy
+			random_other_country = {
+				news_event = {
+					id = worldnews.1247
+				}
+			}
 			}
 		}
 	}
@@ -9718,6 +9728,7 @@ focus = {
 			remove_idea = DKB_aftermath_uch_idea_1
 			add_idea = DKB_aftermath_uch_idea_2
 			}
+			country_event = vlasov.14
 		}
 	}
 	
@@ -9748,7 +9759,7 @@ focus = {
 	
 	focus = {
 		id = DKB_A_Calm_Morning
-		icon = GFX_goal_generic_stable_government
+		icon = GFX_focus_rus_dawn
 		cost = 5
 		ai_will_do = {
 			factor = 50
@@ -9797,6 +9808,7 @@ focus = {
 		x = 0
 		y = 1
 		completion_reward = {
+		custom_effect_tooltip = unlock_focuses
 	    }
 	
     }
@@ -9824,6 +9836,7 @@ focus = {
 		x = 0
 		y = 1
 		completion_reward = {
+		country_event = vlasov.19
 	    }
 	
     }
@@ -9847,6 +9860,12 @@ focus = {
 		x = 0
 		y = 2
 		completion_reward = {
+		add_popularity = {
+             ideology = authoritarian_democrat
+             popularity = 0.05
+          }
+		  add_stability = 0.05
+		  add_political_power = 50
 	    }
 	
     }
@@ -9868,6 +9887,17 @@ focus = {
 		x = -1
 		y = 3
 		completion_reward = {
+		add_popularity = {
+             ideology = national_populist
+             popularity = -0.25
+          }
+		  add_political_power = 150
+		  hidden_effect = {
+		  country_event = {
+          id = vlasov.22
+          days = 25
+          }
+		 }
 	    }
 	
     }
@@ -9932,6 +9962,7 @@ focus = {
 		x = 1
 		y = 4
 		completion_reward = {
+		add_ideas = DKB_Federal_Monarchy
 	    }
 	
     }
@@ -9961,27 +9992,6 @@ focus = {
     }
 	
 	focus = {
-		id = DKB_Vlasov_Cult
-		icon = GFX_goal_DKB_vlasov_wins
-		cost = 5
-		ai_will_do = {
-			factor = 50
-		}
-		relative_position_id = DKB_Vlasovsty_Remain
-		available = {
-		}
-		prerequisite = {
-			focus = DKB_Vlasovsty_Poltical_Machine
-		}
-		
-		x = 0
-		y = 6
-		completion_reward = {
-	    }
-	
-    }
-	
-	focus = {
 		id = DKB_Ally_the_Solidarists
 		icon = GFX_focus_rus_ally_solidarists
 		cost = 5
@@ -10004,6 +10014,7 @@ focus = {
 		x = 2
 		y = 1
 		completion_reward = {
+		country_event = vlasov.21
 	    }
 	
     }
@@ -10071,6 +10082,7 @@ focus = {
 		x = 3
 		y = 4
 		completion_reward = {
+		unlock_decision_category_tooltip = RUS_Economy_decisions 
 	    }
 	
     }
@@ -10159,6 +10171,7 @@ focus = {
 		x = 5
 		y = 4
 		completion_reward = {
+		unlock_decision_category_tooltip = RUS_Economy_decisions 
 	    }
 	
     }
@@ -10183,31 +10196,7 @@ focus = {
 	    }
 	
     }
-	
-	focus = {
-		id = DKB_Party_of_Unity
-		icon = GFX_goal_RUS_flag
-		cost = 5
-		ai_will_do = {
-			factor = 50
-		}
-		relative_position_id = DKB_Vlasovsty_Remain
-		available = {
-		}
-		prerequisite = {
-			focus = DKB_Christian_Unions
-			focus = DKB_Loyal_Unions
-		}
 		
-		x = 3
-		y = 6
-		completion_reward = {
-	    }
-	
-    }
-	
-	
-	
 	
 	focus = {
 		id = DKB_Ally_the_People
@@ -10232,6 +10221,7 @@ focus = {
 		x = -2
 		y = 1
 		completion_reward = {
+		country_event = vlasov.20
 	    }
 	
     }
@@ -10299,6 +10289,7 @@ focus = {
 		x = -3
 		y = 4
 		completion_reward = {
+		unlock_decision_category_tooltip = RUS_Economy_decisions 
 	    }
 	
     }
@@ -10386,6 +10377,7 @@ focus = {
 		x = -5
 		y = 4
 		completion_reward = {
+		unlock_decision_category_tooltip = RUS_Economy_decisions 
 	    }
 	
     }
@@ -10411,27 +10403,6 @@ focus = {
 	
     }
 	
-	focus = {
-		id = DKB_Party_of_the_People
-		icon = GFX_goal_liberty
-		cost = 5
-		ai_will_do = {
-			factor = 50
-		}
-		relative_position_id = DKB_Vlasovsty_Remain
-		available = {
-		}
-		prerequisite = {
-			focus = DKB_Is_This_Social_Democracy
-			focus = DKB_Kadet_Legacy
-		}
-		
-		x = -3
-		y = 6
-		completion_reward = {
-	    }
-	
-    }
 	
 	focus = {
 		id = DKB_Birth_of_the_Federation
@@ -10444,10 +10415,11 @@ focus = {
 		available = {
 		}
 		prerequisite = {
-			focus = DKB_Party_of_the_People
+			focus = DKB_Is_This_Social_Democracy
+			focus = DKB_Kadet_Legacy
 		}
 		prerequisite = {
-			focus = DKB_Vlasov_Cult
+			focus = DKB_Vlasovsty_Poltical_Machine
 		}
 		mutually_exclusive = {
 			focus = DKB_Declare_Vlasov_Supreme_Ruler
@@ -10456,9 +10428,10 @@ focus = {
 			focus = DKB_The_Blue_Vozhd
 		}
 		
-		x = -2
-		y = 7
+		x = -3
+		y = 6
 		completion_reward = {
+		country_event = vlasov.15
 	    }
 	
     }
@@ -10474,11 +10447,11 @@ focus = {
 		available = {
 		}
 		prerequisite = {
-			focus = DKB_Party_of_the_People
-			focus = DKB_Party_of_Unity
+			focus = DKB_Kadet_Legacy
+			focus = DKB_Christian_Unions
 		}
 		prerequisite = {
-			focus = DKB_Vlasov_Cult
+			focus = DKB_Vlasovsty_Poltical_Machine
 		}
 		mutually_exclusive = {
 			focus = DKB_Birth_of_the_Federation
@@ -10488,8 +10461,9 @@ focus = {
 		}
 		
 		x = 0
-		y = 7
+		y = 6
 		completion_reward = {
+		country_event = vlasov.18
 	    }
 	
     }
@@ -10505,10 +10479,11 @@ focus = {
 		available = {
 		}
 		prerequisite = {
-			focus = DKB_Vlasov_Cult
+			focus = DKB_Vlasovsty_Poltical_Machine
 		}
 		prerequisite = {
-			focus = DKB_Party_of_Unity
+			focus = DKB_Christian_Unions
+			focus = DKB_Loyal_Unions
 		}
 		mutually_exclusive = {
 			focus = DKB_Declare_Vlasov_Supreme_Ruler
@@ -10517,9 +10492,141 @@ focus = {
 			focus = DKB_Birth_of_the_Federation
 		}
 		
-		x = 2
-		y = 7
+		x = 3
+		y = 6
 		completion_reward = {
+		country_event = vlasov.17
+	    }
+	
+    }
+	
+	
+	focus = {
+		id = DKB_Liberation_Army_Coup
+		icon = GFX_DKB_roa
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		has_country_flag = DKB_Kolchakites_in_Power
+		}
+		bypass = {
+		has_country_flag = DKB_Kolchakites_in_Power
+		}
+        relative_position_id = DKB_A_Calm_Morning
+		prerequisite = {
+			focus = DKB_A_Calm_Morning
+		}
+		
+		x = -10
+		y = 1
+		completion_reward = {
+		custom_effect_tooltip = unlock_focuses
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_The_Director_Rises
+		icon = GFX_goal_RUS_airforce
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		has_country_leader = {
+            name = "Viktor Maltsev"
+            ruling_only = yes
+            }
+		}
+        relative_position_id = DKB_Liberation_Army_Coup
+		prerequisite = {
+			focus = DKB_Liberation_Army_Coup
+		}
+		
+		x = 1
+		y = 1
+		completion_reward = {
+		custom_effect_tooltip = unlock_focuses
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_The_White_General
+		icon = GFX_goal_RUS_white_legacy
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+			has_country_leader = {
+            name = "Boris Shteyfon"
+            ruling_only = yes
+            }
+		 }
+        relative_position_id = DKB_Liberation_Army_Coup
+		prerequisite = {
+			focus = DKB_Liberation_Army_Coup
+		}
+		
+		x = -1
+		y = 1
+		completion_reward = {
+		custom_effect_tooltip = unlock_focuses
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_The_Putsch_Succeeds
+		icon = GFX_goal_RUS_new_russia
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		has_country_flag = DKB_Kaminski_Coup_flag
+		}
+		bypass = {
+		has_country_flag = DKB_Kaminski_Coup_flag
+		}
+        relative_position_id = DKB_A_Calm_Morning
+		prerequisite = {
+			focus = DKB_A_Calm_Morning
+		}
+		
+		x = 10
+		y = 1
+		completion_reward = {
+		custom_effect_tooltip = unlock_focuses
+	    }
+	
+    }
+	
+	focus = {
+		id = DKB_Bunyachenko_Steps_In
+		icon = GFX_goal_RUS_Yunarmiya
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		has_country_flag = DKB_Bunyachenko_in_Power
+		}
+		bypass = {
+		has_country_flag = DKB_Bunyachenko_in_Power
+		}
+        relative_position_id = DKB_A_Calm_Morning
+		prerequisite = {
+			focus = DKB_A_Calm_Morning
+		}
+		
+		x = -17
+		y = 1
+		completion_reward = {
+		custom_effect_tooltip = unlock_focuses
 	    }
 	
     }

@@ -2,12 +2,30 @@
 OOB = "BBR"
 
 # Starting tech
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+		basic_light_tank = 1
+		basic_heavy_tank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+		improved_light_tank_chassis = 1
+		basic_heavy_tank_chassis = 1
+		engine_tech_1 = 1
+	}
+}
 set_technology = {
 	### MOD ###
-	### Tanks ###
-	gwtank = 1
-	basic_light_tank = 1
-	basic_heavy_tank = 1
 	### INF ###
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -141,7 +159,7 @@ create_country_leader = {
 	desc = "POLITICS_WILLIAM_H_MURRAY_DESC"
 	picture = "GFX_Portrait_William_H_Murray_animated"
 	expire = "1965.1.1"
-	ideology = paternal_autocrat_subtype
+	ideology = jacksonianism_subtype
 	traits = { alfalfa_bill }
 }
 create_country_leader = {
@@ -149,7 +167,7 @@ create_country_leader = {
 	desc = "POLITICS_WILLIAM_JOSEPH_SIMMONS"
 	picture = "gfx/leaders/COR/COR_William_Joseph_Simmons.png"
 	expire = "1965.1.1"
-	ideology = national_populist_subtype
+	ideology = klan_nationalism_subtype
 	traits = {}
 }
 create_country_leader = {
@@ -157,7 +175,7 @@ create_country_leader = {
 	desc = "POLITICS_RICHARD_RUSSELL_DESC"
 	picture = "gfx/leaders/COR/COR_Richard_Russell.png"
 	expire = "1965.1.1"
-	ideology = social_conservative_subtype
+	ideology = soccon_agrarianism_subtype
 	traits = {}
 }
 create_country_leader = {
@@ -171,7 +189,7 @@ create_country_leader = {
 create_country_leader = {
 	name = "Harry F. Byrd"
 	desc = "POLITICS_HARRY_F_BYRD_DESC"
-	picture = "Portrait_CON_Huey_Long.png"
+	picture = "gfx/country_leaders/Portrait_CON_Huey_Long.png"
 	expire = "1965.1.1"
 	ideology = authoritarian_democrat_subtype
 	traits = {}
@@ -179,7 +197,7 @@ create_country_leader = {
 create_country_leader = {
 	name = "Rush Limbaugh Sr."
 	desc = "POLITICS_RUSH_LIMBAUGH_SR_DESC"
-	picture = "Portrait_COR_Rush_Limbaugh_sr.png"
+	picture = "gfx/country_leaders/Portrait_COR_Rush_Limbaugh_sr.png"
 	expire = "1965.1.1"
 	ideology = social_democrat_subtype
 	traits = {}
@@ -454,7 +472,7 @@ create_corps_commander = { #Edwin Walker
 }
 
 create_corps_commander = { #Lindy
-	name = "Charles Lindbergh"
+	name = "Charles Lindbergh "
 #	desc = "TEX_JOHN_HINES_DESC"
 	portrait_path = "gfx/leaders/COR/COR_lindybeige.png"
 	traits = {

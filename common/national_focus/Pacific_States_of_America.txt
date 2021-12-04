@@ -35,10 +35,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_activate_the_Western_Defense_Command"
-			add_tech_bonus = {
-				name = doctrine_bonus
-				bonus = 1
-				uses = 2
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
 				category = land_doctrine
 			}
 			army_experience = 50
@@ -1297,10 +1297,10 @@ focus_tree = {
 		relative_position_id = CAL_defense_logistics_agency
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_protecting_Columbia"
-			add_tech_bonus = {
-				name = doctrine_bonus
-				bonus = 1
-				uses = 2
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
 				category = land_doctrine
 			}
 			hidden_effect = {
@@ -1430,10 +1430,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_Columbia_needs_you"
-			add_tech_bonus = {
-				name = doctrine_bonus
-				bonus = 1
-				uses = 2
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
 				category = land_doctrine
 			}
 		}
@@ -1530,10 +1530,11 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_navy"
 			navy_experience = 10
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				category = naval_doctrine
+			add_doctrine_cost_reduction = {
+	name = naval_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = naval_doctrine
 			}
 		}
 	}
@@ -2027,10 +2028,11 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_new_admirals"
 			navy_experience = 10
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				category = naval_doctrine
+			add_doctrine_cost_reduction = {
+	name = naval_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = naval_doctrine
 			}
 			create_navy_leader = {# Lloyd M. Mustin
 				name = "Lloyd M. Mustin"
@@ -2043,7 +2045,7 @@ focus_tree = {
 				coordination_skill = 3
 			}
 			create_navy_leader = {# Richard Nixon
-				name = "Richard Nixon"
+				name = "Richard M. Nixon"
 				portrait_path = "gfx/leaders/CAL/Portrait_CAL_Richard_Nixon_Admiral.png"
 				traits = {}
 				skill = 2
@@ -2081,10 +2083,11 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_expand_the_waves"
 			navy_experience = 10
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				category = naval_doctrine
+			add_doctrine_cost_reduction = {
+	name = naval_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = naval_doctrine
 			}
 		}
 	}
@@ -2256,10 +2259,11 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_columbia_gem_of_the_ocean"
 			navy_experience = 10
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				category = naval_doctrine
+			add_doctrine_cost_reduction = {
+	name = naval_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = naval_doctrine
 			}
 		}
 	}
@@ -2399,10 +2403,11 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_train_pilots"
 			air_experience = 25
-			add_tech_bonus = {
-				bonus = 1
-				uses = 2
-				category = air_doctrine
+			add_doctrine_cost_reduction = {
+	name = air_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = air_doctrine
 			}
 		}
 	}
@@ -2672,10 +2677,11 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_rule_the_sky"
 			air_experience = 10
-			add_tech_bonus = {
-				bonus = 1
-				uses = 2
-				category = air_doctrine
+			add_doctrine_cost_reduction = {
+	name = air_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = air_doctrine
 			}
 		}
 	}
@@ -3757,8 +3763,11 @@ focus_tree = {
 		cost = 2.00
 		available = {
 			has_global_flag = USA_civil_war_over_flag
-			CAL = {
+			OR = {
+				CAL = {
 			owns_state = 361
+			}
+			has_global_flag = CAl_peaceoutgang
 			}
 		}
 		x = 115
@@ -8513,7 +8522,7 @@ focus_tree = {
 
 	focus = {# Chautauqua
 		id = CAL_chautauqua
-		icon = GFX_goal_support_democracy
+		icon = GFX_goal_democratic
 		cost = 5.00
 		prerequisite = {
 			focus = CAL_social_liberals_in_power
@@ -10099,7 +10108,7 @@ focus_tree = {
 	
 	focus = {# National Referendum 
 		id = CAL_national_referendums
-		icon = GFX_goal_support_democracy
+		icon = GFX_goal_democratic
 		cost = 5.00
 		prerequisite = {
 			focus = CAL_social_democrats_reelected
@@ -12915,10 +12924,10 @@ focus_tree = {
 				remove_idea = CAL_fortress_america_idea_1
 				add_idea = CAL_fortress_america_idea_2
 			}
-			add_tech_bonus = {
-				name = navy_bonus
-				bonus = 1
-				uses = 2
+			add_doctrine_cost_reduction = {
+				name = naval_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
 				category = naval_doctrine
 			}
 			random_owned_controlled_state = {
@@ -13242,7 +13251,7 @@ focus_tree = {
 	
 	focus = {
 		id = CAL_anti_imperialism
-		icon = GFX_goal_support_democracy
+		icon = GFX_goal_democratic
 		cost = 3
 		prerequisite = {
 			focus = CAL_new_moralism
@@ -13703,19 +13712,21 @@ focus_tree = {
 				add_idea = USA_league_of_america_3
 			}
 			navy_experience = 10
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				category = naval_doctrine
+			add_doctrine_cost_reduction = {
+	name = naval_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = naval_doctrine
 			}
 			every_country = {
 				limit = {
 					is_in_faction_with = ROOT
 				}
-				add_tech_bonus = {
-					bonus = 1
-					uses = 1
-					category = naval_doctrine
+				add_doctrine_cost_reduction = {
+	name = naval_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = naval_doctrine
 				}
 			}
 		}
@@ -15920,10 +15931,10 @@ focus_tree = {
 				}
 			}
 			air_experience = 10
-			add_tech_bonus = {
-				name = CAL_rule_the_sky
-				bonus = 1
-				uses = 2
+			add_doctrine_cost_reduction = {
+				name = air_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
 				category = air_doctrine
 			}
 			hidden_effect = {
@@ -17072,7 +17083,7 @@ focus_tree = {
 			create_country_leader = {
 				name = "Tamon Yamaguchi"
 				desc = "POLITICS_TAMON_YAMAGUCHI_DESC"
-				picture = "Portrait_JAP_Tamon_Yamaguchi.png"
+				picture = "gfx/country_leaders/Portrait_JAP_Tamon_Yamaguchi.png"
 				expire = "1965.1.1"
 				ideology = national_populist_subtype
 				traits = {
@@ -17236,9 +17247,9 @@ focus_tree = {
 				create_country_leader = {
 					name = "Norton II"
 					desc = "POLITICS_CAL_NORTON_II_DESC"
-					picture = "Portrait_CAL_Norton_II.png"
+					picture = "gfx/country_leaders/Portrait_CAL_Norton_II.png"
 					expire = "1965.1.1"
-					ideology = radical_socialist_subtype
+					ideology = monsoc_subtype
 					traits = {
 						charitable_emperor
 					}
@@ -17246,7 +17257,7 @@ focus_tree = {
 				create_country_leader = {
 					name = "Norton II"
 					desc = "POLITICS_CAL_NORTON_II_DESC"
-					picture = "Portrait_CAL_Norton_II.png"
+					picture = "gfx/country_leaders/Portrait_CAL_Norton_II.png"
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 					traits = {
@@ -17256,7 +17267,7 @@ focus_tree = {
 				create_country_leader = {
 					name = "Norton II"
 					desc = "POLITICS_CAL_NORTON_II_DESC"
-					picture = "Portrait_CAL_Norton_II.png"
+					picture = "gfx/country_leaders/Portrait_CAL_Norton_II.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = {
@@ -17266,7 +17277,7 @@ focus_tree = {
 				create_country_leader = {
 					name = "Norton II"
 					desc = "POLITICS_CAL_NORTON_II_DESC"
-					picture = "Portrait_CAL_Norton_II.png"
+					picture = "gfx/country_leaders/Portrait_CAL_Norton_II.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {
@@ -17276,7 +17287,7 @@ focus_tree = {
 				create_country_leader = {
 					name = "Norton II"
 					desc = "POLITICS_CAL_NORTON_II_DESC"
-					picture = "Portrait_CAL_Norton_II.png"
+					picture = "gfx/country_leaders/Portrait_CAL_Norton_II.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = {
@@ -17286,7 +17297,7 @@ focus_tree = {
 				create_country_leader = {
 					name = "Norton II"
 					desc = "POLITICS_CAL_NORTON_II_DESC"
-					picture = "Portrait_CAL_Norton_II.png"
+					picture = "gfx/country_leaders/Portrait_CAL_Norton_II.png"
 					expire = "1965.1.1"
 					ideology = authoritarian_democrat_subtype
 					traits = {
@@ -17296,9 +17307,9 @@ focus_tree = {
 				create_country_leader = {
 					name = "Norton II"
 					desc = "POLITICS_CAL_NORTON_II_DESC"
-					picture = "Portrait_CAL_Norton_II.png"
+					picture = "gfx/country_leaders/Portrait_CAL_Norton_II.png"
 					expire = "1965.1.1"
-					ideology = paternal_autocrat_subtype
+					ideology = absolute_monarchy_subtype
 					traits = {
 						charitable_emperor
 					}

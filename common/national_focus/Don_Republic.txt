@@ -1483,10 +1483,7 @@ focus_tree = {
 			factor = 2000
 		}
 		available = {
-			OR = {
-				is_neighbor_of = RUS
-				is_neighbor_of = SOV
-			}
+			is_neighbor_of = RUS
 		}
 		prerequisite = {
 			focus = DKB_united_armies
@@ -1497,10 +1494,7 @@ focus_tree = {
 		completion_reward = {
 			every_state = {
 				limit = {
-					OR = {
-						is_core_of = SOV
-						is_core_of = RUS
-					}
+					is_core_of = RUS
 				}
 				add_claim_by = ROOT
 			}
@@ -1522,10 +1516,7 @@ focus_tree = {
 		}
 		available = {
 			NOT = {
-				OR = {
-					country_exists = SOV
-					country_exists = RUS
-				}
+				country_exists = RUS
 			}
 			195 = { is_owned_and_controlled_by = ROOT }
 			219 = { is_owned_and_controlled_by = ROOT }
@@ -2211,10 +2202,10 @@ focus_tree = {
 					}
 				}
 			}
-			add_tech_bonus = {
-				name = DKB_Expand_Airfields
-				bonus = 1
-				uses = 2
+			add_doctrine_cost_reduction = {
+				name = air_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
 				category = air_doctrine
 			}
 		}
@@ -2273,12 +2264,10 @@ focus_tree = {
 				ideology = paternal_autocrat
 				popularity = 0.3
 			}
-			create_country_leader = {
-					name = "Roman I"
-					picture = "gfx/leaders/RUS/Portrait_RUS_Roman_I.png"
-					expire = "1965.1.1"
-					ideology = paternal_autocrat_subtype
-				}
+			country_event = {
+				id = dkb.111
+				days = 1
+			}
 			swap_ideas = {
 				remove_idea = DKB_aftermath_uch_idea_1
 				add_idea = DKB_aftermath_uch_idea_2
@@ -2972,13 +2961,8 @@ focus = {
 			focus = DKB_Syrtsov_Steps_In
 		}
 		available = {
-			OR = {
-				AND = {
-					country_exists = RUS
-					RUS = { has_socialist_government = yes }
-				}
-				country_exists = SOV
-			}
+			country_exists = RUS
+			RUS = { has_socialist_government = yes }
 			has_socialist_government = yes
 		}
 		
@@ -3024,7 +3008,7 @@ focus = {
 					country_exists = RUS
 					RUS = { has_socialist_government = no }
 				}
-				NOT = { country_exists = SOV }
+				NOT = { soviets_exist = yes }
 			}
 			has_socialist_government = yes
 		}
@@ -4787,7 +4771,6 @@ focus = {
 		y = 2
 		available = {
 			NOT = { country_exists = RUS }
-			NOT = { country_exists = SOV }
 			195 = { is_owned_and_controlled_by = ROOT }
 			219 = { is_owned_and_controlled_by = ROOT }
 			has_socialist_government = yes
@@ -5182,7 +5165,10 @@ focus = {
 	x = -2
 	y = 0
 	available = {
+		OR = {
 			has_government = radical_socialist
+			has_government = totalist
+			}
 		}
 	ai_will_do = {
 		factor = 80
@@ -5295,11 +5281,11 @@ focus = {
 		focus = DKU_Produce_More_Equipment_Soc
 	}
 	completion_reward = {
-		add_tech_bonus = {
-			name = DKU_Modern_Tactics
-			bonus = 1
-			uses = 2
-			category = land_doctrine
+		add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
 		}
 	}
 }
@@ -5444,9 +5430,9 @@ focus = {
 	}
 	completion_reward = {
 		air_experience = 25
-		add_tech_bonus = {
-				name = DKU_A_Cossack_Airforce
-				bonus = 1
+		add_doctrine_cost_reduction = {
+				name = air_doc_bonus
+				cost_reduction = 0.5
 				uses = 1
 				category = air_doctrine
 			}
@@ -5557,11 +5543,11 @@ focus = {
 			uses = 1
 			category = cat_anti_air
 		}
-		add_tech_bonus = {
-			name = DKU_Secure_The_Sky
-			bonus = 1
-			uses = 2
-			category = air_doctrine
+		add_doctrine_cost_reduction = {
+				name = air_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
 		}
 	}
 }
@@ -6130,10 +6116,7 @@ focus = {
 			}
 		}
 		available = {
-			OR = {
-			has_war_with = SOV
 			has_war_with = RUS
-			}
 		}
 		prerequisite = {
 			focus = DKB_raze_russia
@@ -6161,17 +6144,14 @@ focus = {
 		available = {
 			if = {
 				limit = {
-					country_exists = SOV
+					soviets_exist = yes
 					SOV = { has_country_flag = SOV_restored_in_transamur }
 				}
 				NOT = { country_exists = RUS }
 			}
 			else = {
 				NOT = {
-					OR = {
-						country_exists = SOV
-						country_exists = RUS
-					}
+					country_exists = RUS
 				}
 			}
 			195 = { is_owned_and_controlled_by = ROOT }
@@ -6191,7 +6171,7 @@ focus = {
 		completion_reward = {
 			if = {
 				limit = {
-					country_exists = SOV
+					soviets_exist = yes
 					SOV = { has_country_flag = SOV_restored_in_transamur }
 				}
 				declare_war_on = {
@@ -7808,7 +7788,7 @@ focus = {
 				add_state_core = 811
 				add_state_core = 654
 				set_cosmetic_tag = SIB_auto
-				set_capital = 580
+				set_capital = { state = 580 }
 			}
 			every_owned_state = {
 				limit = {
@@ -8246,11 +8226,11 @@ focus = {
 		x = 0
 		y = 2
 		completion_reward = {
-		add_tech_bonus = {
-			name = DKU_New_Doctrine_For_Cossacks
-			bonus = 1
-			uses = 1
-			category = land_doctrine
+		add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
 		}
 		army_experience = 50
 		}
@@ -8314,11 +8294,11 @@ focus = {
 		x = -2
 		y = 1
 		completion_reward = {
-		add_tech_bonus = {
-			name = DKU_New_Doctrine_For_Cossacks
-			bonus = 1
-			uses = 1
-			category = naval_doctrine
+		add_doctrine_cost_reduction = {
+				name = naval_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = naval_doctrine
 		}
 		navy_experience = 50
 		}
@@ -8418,11 +8398,11 @@ focus = {
 		x = 2
 		y = 1
 		completion_reward = {
-		add_tech_bonus = {
-			name = DKU_New_Doctrine_For_Cossacks
-			bonus = 1
-			uses = 1
-			category = air_doctrine
+		add_doctrine_cost_reduction = {
+				name = air_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
 		}
 		air_experience = 50
 		}
@@ -8499,11 +8479,11 @@ focus = {
 		x = -1
 		y = 2
 		completion_reward = {
-		add_tech_bonus = {
-			name = DKU_New_Doctrine_For_Cossacks
-			bonus = 1
-			uses = 1
-			category = land_doctrine
+		add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
 		}
 		}
 	}

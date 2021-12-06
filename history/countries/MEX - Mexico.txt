@@ -1,4 +1,4 @@
-﻿capital = 277
+﻿﻿capital = 277
 OOB = "MEX"
 set_naval_oob = "MEX_naval"
 set_convoys = 40
@@ -60,9 +60,36 @@ if = {
 }
 
 country_event = { id = mexico.1 days = 2 }
-country_event = { id = mexico.2 days = 68 }
+country_event = { id = mexico.132 days = 572 } # 1937 Orizaba earthquake
+country_event = { id = mexico.128 days = 1271 } # Mexican cup 1939
+country_event = { id = mexico.133 days = 1600 } # 1940 El Centro earthquake
+country_event = { id = mexico.125 days = 1715 } # Here's the Point is released
+country_event = { id = mexico.24 days = 1895 random_days = 1683 } # Calles is dead!
+country_event = { id = mexico.134 days = 1931 } # 1941 Colima earthquake
+country_event = { id = mexico.127 days = 2292 } # Wild Flower is released
+country_event = { id = mexico.136 days = 2260 } # Bohemia Poblana
+country_event = { id = mexico.131 days = 2337 } # El Santo enters the Ring
+country_event = { id = mexico.126 days = 2687 } # María Candelaria is released
+
+country_event = { id = mexico.28 days = 496 } # Academy of the Mayan Language founded
+country_event = { id = mexico.29 days = 223 } # Mexican Muralism
+country_event = { id = mexico.30 days = 861 } # Popular Graphic Workshop
+country_event = { id = mexico.31 days = 953 } # Monument to the Revolution
+country_event = { id = mexico.32 days = 130 } # National Parks
+country_event = { id = mexico.33 days = 466 } # Regeneración
+country_event = { id = mexico.34 days = 161 } # Frente Unico Pro Derechos de la Mujer
+country_event = { id = mexico.35 days = 896 } # Women's Suffrage
+country_event = { id = mexico.36 days = 540 random_days = 540 } # Mexican Anarchist Federation
 
 add_opinion_modifier = { target = NIC modifier = NIC_revolutionary_allies }
+
+load_focus_tree = mexico_start
+
+save_glbval_event_target_as = Jesus_Mexico
+save_glbval_event_target_as = Rio_Grande_Owner
+save_glbval_event_target_as = Veracruz_Owner
+save_glbval_event_target_as = Baja_Owner
+save_glbval_event_target_as = Oaxaca
 
 set_research_slots = 3
 
@@ -76,23 +103,23 @@ set_politics = {
 }
 
 set_popularities = {
-    totalist = 16
-    syndicalist = 17
-    radical_socialist = 45
-    social_democrat = 17
-    social_liberal = 0
-    market_liberal = 0
-    social_conservative = 0
-    authoritarian_democrat = 0
-    paternal_autocrat = 0
-    national_populist = 5
+    totalist = 13
+    syndicalist = 15
+    radical_socialist = 17
+    social_democrat = 14
+    social_liberal = 6
+    market_liberal = 6
+    social_conservative = 7
+    authoritarian_democrat = 6
+    paternal_autocrat = 8
+    national_populist = 8
 }
 
 add_ideas = {
-	MEX_Emiliano_Zapata_hog_rso
-	MEX_Gildardo_Magana_Cerda_for_rso
+	MEX_Eufemio_Zapata_hog_rso
+	MEX_Gilberto_Bosques_Saldivar_for_rso
 	MEX_Antonio_Diaz_Soto_y_Gama_eco_syn
-	MEX_Ricardo_Flores_Magon_sec_syn
+	MEX_Plutarco_Elias_Calles_sec_tot
 
 	#laws
 	limited_exports
@@ -100,20 +127,23 @@ add_ideas = {
 	# National Spirits
 	MEX_revolution_economic
 	MEX_revolution_military
+	MEX_asa_rebellion
+	MEX_dl_opposition
+	MEX_church_question
 }
 
 create_country_leader = {# Plutarco Calles
 	name = "Plutarco Calles"
 	desc = "POLITICS_PLUTARCO_CALLES_DESC"
-	picture = "Portrait_Mexico_Plutarco_Calles.png"
+	picture = "gfx/leaders/MEX/Portrait_Mexico_Plutarco_Calles.png"
 	expire = "1965.1.1"
 	ideology = totalist_subtype
-	traits = {}
+	traits = { jefe_maximo }
 }
 create_country_leader = {# Vicente Toledano
 	name = "Vicente Toledano"
 	desc = "POLITICS_VINCENTE_TOLEDANO_DESC"
-	picture = "Portrait_Mexico_Vincente_Toledano.png"
+	picture = "gfx/leaders/MEX/Portrait_Mexico_Vincente_Toledano.png"
 	expire = "1965.1.1"
 	ideology = syndicalist_subtype
 	traits = {}
@@ -121,15 +151,15 @@ create_country_leader = {# Vicente Toledano
 create_country_leader = {# Emiliano Zapata
 	name = "Emiliano Zapata"
 	desc = "POLITICS_EMILIANO_ZAPATA_DESC"
-	picture = "Portrait_Mexico_Emiliano_Zapata.png"
+	picture = "gfx/leaders/MEX/Portrait_Mexico_Emiliano_Zapata.png"
 	expire = "1965.1.1"
 	ideology = agrarian_socialism_subtype
-	traits = {}
+	traits = { dislikes_politics }
 }
 create_country_leader = {# Pascual Ortiz Rubio
 	name = "Pascual Ortiz Rubio"
 	desc = "POLITICS_PASCUAL_RUBIO_DESC"
-	picture = "Portrait_Mexico_Pascual_Rubio.png"
+	picture = "gfx/leaders/MEX/Portrait_Mexico_Pascual_Rubio.png"
 	expire = "1965.1.1"
 	ideology = syndie_social_democrat_subtype
 	traits = {}
@@ -137,7 +167,7 @@ create_country_leader = {# Pascual Ortiz Rubio
 create_country_leader = {# 
 	name = "Manuel Avila Camacho"
 	desc = "POLITICS_AVILLA_DESC"
-	picture = "Portrait_Mexico_Manuel_Avila_Camacho.png"
+	picture = "gfx/leaders/MEX/Portrait_Mexico_Manuel_Avila_Camacho.png"
 	expire = "1965.1.1"
 	ideology = social_liberal_subtype
 	traits = {}
@@ -145,7 +175,7 @@ create_country_leader = {#
 create_country_leader = {# Juan Andreu Almazán
 	name = "Miguel Aleman Valdéz"
 	desc = "POLITICS_Valdez_DESC"
-	picture = "Portrait_Mexico_Miguel_Valdes.png"
+	picture = "gfx/leaders/MEX/Portrait_Mexico_Miguel_Valdes.png"
 	expire = "1965.1.1"
 	ideology = market_liberal_subtype
 	traits = {}
@@ -153,15 +183,15 @@ create_country_leader = {# Juan Andreu Almazán
 create_country_leader = {# Juan Andreu Almazán
 	name = "Manuel Gomez Morín"
 	desc = "POLITICS_MORIN_DESC"
-	picture = "Portrait_Mexico_Manuel_Gomez_Morin.png"
+	picture = "gfx/leaders/MEX/Portrait_Mexico_Manuel_Gomez_Morin.png"
 	expire = "1965.1.1"
-	ideology = social_conservative_subtype
+	ideology = christian_democracy_subtype
 	traits = {}
 }
 create_country_leader = {# Juan Andreu Almazán
 	name = "Juan Andreu Almazán"
 	desc = "POLITICS_JUAN_ALMAZAN_DESC"
-	picture = "Portrait_Mexico_Juan_Almazan.png"
+	picture = "gfx/leaders/MEX/Portrait_Mexico_Juan_Almazan.png"
 	expire = "1965.1.1"
 	ideology = authoritarian_democrat_subtype
 	traits = {}
@@ -169,15 +199,15 @@ create_country_leader = {# Juan Andreu Almazán
 create_country_leader = {# Pablo Gonzalez Garza
 	name = "Pablo Gonzalez Garza"
 	desc = "POLITICS_PABLO_GONZALEZ_GARZA_DESC"
-	picture = "Portrait_Mexico_Garza.png"
+	picture = "gfx/leaders/MEX/Portrait_Pablo_Garza_Civilian.png"
 	expire = "1965.1.1"
 	ideology = junta_subtype
 	traits = {}
 }
-create_country_leader = {# Jose Antonio Urquiza
-	name = "Jose Antonio Urquiza"
-	desc = "POLITICS_JOSE_URQUIZA_DESC"
-	picture = "Portrait_Mexico_Urquiza.png"
+create_country_leader = {# Pablo Gonzalez Garza
+	name = "Pablo Gonzales Garza"
+	desc = "POLITICS_PABLO_GONZALES_GARZA_DESC"
+	picture = "gfx/leaders/MEX/Portrait_Pablo_Garza_Civilian.png"
 	expire = "1965.1.1"
 	ideology = national_populist_subtype
 	traits = {}
@@ -185,7 +215,7 @@ create_country_leader = {# Jose Antonio Urquiza
 
 ### Field Marshal
 create_field_marshal = {# Emiliano Zapata
-	name = "Emiliano Zapata"
+	name = "Emiliano Zapata "
 	desc = "ARMY_MEX_EMILIANO_ZAPATA_DESC"
 	portrait_path = "gfx/leaders/MEX/Portrait_Mexico_Emiliano_Zapata_General.png"
 	id = 9372
@@ -201,9 +231,25 @@ create_field_marshal = {# Emiliano Zapata
 	planning_skill = 2
 	logistics_skill = 3
 }
+create_field_marshal = {# Alvaro Obregon
+	name = "Álvaro Obregón"
+	#desc = "ARMY_MEX_EMILIANO_ZAPATA_DESC"
+	portrait_path = "gfx/leaders/MEX/Portrait_Mexico_Alvaro_Obregon.png"
+	id = 9972
+	traits = {
+		politically_connected
+		war_hero
+		infantry_leader
+	}
+	skill = 3
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 3
+}
 ### General ###
 create_corps_commander = {# Pancho Villa
-	name = "Pancho Villa"
+	name = "Pancho Villa "
 	desc = "ARMY_MEX_PANCHO_VILLA_DESC"
 	portrait_path = "gfx/leaders/MEX/Portrait_MEX_Pancho_Villa_General.png"
 	id = 9373
@@ -218,6 +264,24 @@ create_corps_commander = {# Pancho Villa
 	defense_skill = 2
 	planning_skill = 2
 	logistics_skill = 3
+}
+create_corps_commander = {# Pablo Gonzalez Garza
+	name = "Pablo Gonzalez Garza "
+	desc = "POLITICS_PABLO_GONZALEZ_GARZA_DESC"
+	portrait_path = "gfx/leaders/MEX/Portrait_Mexico_Garza.png"
+	id = 93731
+	traits = {
+		trait_strategist_genius
+		career_officer
+		trait_cautious
+		offensive_doctrine
+		mex_junta_general
+	}
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 2
 }
 create_corps_commander = {# Plutarco Elías Calles
 	name = "Plutarco Elías Calles"
@@ -243,7 +307,10 @@ create_corps_commander = {# Juan G. Cabral
 		career_officer
 		trait_engineer
 		fortress_buster
+		trickster
+		mex_junta_general
 	}
+	id = 93732
 	skill = 2
 	attack_skill = 2
 	defense_skill = 2
@@ -328,7 +395,19 @@ create_corps_commander = {# Abelardo L. Rodríguez
 create_corps_commander = {# Maximino Avila Camacho-Generated
 	name = "Maximino Avila Camacho"
 	desc = "ARMY_MEX_MAXIMINO_AVILA_CAMACHO_DESC"
-	portrait_path = "gfx/leaders/MEX/Portrait_MEX_Maximino_Avila_Camacho.png"
+	portrait_path = "gfx/leaders/MEX/Portrait_Maximino_Avila_Camacho.png"
+	traits = { mex_junta_general trait_engineer infantry_leader career_officer harsh_leader trait_reckless }
+	id = 94731
+	skill = 1
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+create_corps_commander = {# Maximino Avila Camacho-Generated
+	name = "Manuel Avila Camacho "
+	#desc = "ARMY_MEX_MAXIMINO_AVILA_CAMACHO_DESC"
+	portrait_path = "gfx/leaders/MEX/Portrait_Manuel_Avila_Camacho_Militar.png"
 	traits = {}
 	skill = 1
 	attack_skill = 1
@@ -336,6 +415,7 @@ create_corps_commander = {# Maximino Avila Camacho-Generated
 	planning_skill = 1
 	logistics_skill = 1
 }
+
 ### Navy Leader
 create_navy_leader = { #Auto-Generated
 	name = "Othon Blanco Nunez de Caceres"

@@ -1506,11 +1506,6 @@ country_event = { #vlasov ded
           id = vlasov.13
           days = 3
           }
-          random_other_country = {
-				news_event = {
-					id = worldnews.1249
-				}
-			}
 		}
 	  }
 	  
@@ -1538,7 +1533,7 @@ country_event = { #vlasov ded
 			}
 			set_country_flag = DKB_Kaminski_Coup_flag
 	    }
-	option = { #Bunyachenko and the ROA
+	option = { #Sheifton
 		name = vlasov.13.b
 		add_stability = 0.10
 		set_cosmetic_tag = DKB_shteifon_RUS
@@ -1546,21 +1541,28 @@ country_event = { #vlasov ded
              ideology = paternal_autocrat
              popularity = 0.05
             }
-			create_country_leader = {
-				name = "Sergei Bunyachenko"
-				picture = "gfx/leaders/DKB/Portrait_DKB_Sergei_Bunyachenko.png"
-				expire = "1965.1.1"
-				ideology = junta_subtype
-			 }
 			set_politics = {
 			ruling_party = paternal_autocrat
 				elections_allowed = no
 			}
-			set_country_flag = DKB_ROA_Coup
+			set_country_flag = DKB_Kolchakites_in_Power
+	    }
+		option = { #Bunya
+		name = vlasov.13.c
+			add_stability = 0.05
+			set_country_flag = DKB_Bunyachenko_in_Power
+			create_country_leader = {
+				name = "Sergei Bunyachenko"
+				picture = "gfx/leaders/DKB/Portrait_DKB_Sergei_Bunyachenko.png"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+			 }
+			 set_cosmetic_tag = DKB_vlasov_RUS_alt3
 	    }
 		
 	  
     }
+	#Vlasov path stuff
 	
 	country_event = { #Federation
     id = vlasov.15
@@ -1874,7 +1876,29 @@ country_event = { #vlasov ded
 	   }
 	 }
 	 
-	 
+	 #ROA path stuff
+	country_event = { #Post coup Leadership question
+    id = vlasov.23
+	title = vlasov.23.t
+	desc = vlasov.23.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { #White Government Remains
+		name = vlasov.21.a
+		add_stability = 0.10
+	   }
+	option = { #Rise of the Director
+		name = vlasov.21.b
+		add_political_power = 150
+		create_country_leader = {
+			name = "Viktor Maltsev"
+			picture = "gfx/leaders/DKB/Portrait_DKB_Viktor_Maltsev.png"
+			expire = "1965.1.1"
+			ideology = junta_subtype
+			 }
+	   }
+	 }
 	
 #demand shit
 country_event = { #The East Bank

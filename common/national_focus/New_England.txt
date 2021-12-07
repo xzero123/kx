@@ -4148,10 +4148,11 @@ focus_tree = {
 		complete_tooltip = {}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_US_Airforce"
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				category = air_doctrine
+			add_doctrine_cost_reduction = {
+	name = air_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = air_doctrine
 			}
 			air_experience = 50
 		}
@@ -4515,10 +4516,11 @@ focus_tree = {
 		complete_tooltip = {}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_US_Navy"
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				category = naval_doctrine
+			add_doctrine_cost_reduction = {
+	name = naval_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = naval_doctrine
 			}
 			navy_experience = 50
 		}
@@ -5747,10 +5749,25 @@ focus_tree = {
 				uses = 2
 				category = armor
 			}
-			add_equipment_to_stockpile = {
-				type = light_tank_equipment
+			if = {
+				limit = {
+					NOT = { has_dlc = "No Step Back" }
+				}
+				add_equipment_to_stockpile = {
+				type = light_tank_equipment_1
 				amount = 15
 				producer = NEE
+			}
+			}
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = {
+				type = light_tank_chassis
+				amount = 15
+				producer = NEE
+			}
 			}
 		}
 	}
@@ -5989,10 +6006,25 @@ focus_tree = {
 				uses = 2
 				category = armor
 			}
-			add_equipment_to_stockpile = {
-			type = light_tank_equipment
+			if = {
+				limit = {
+					NOT = { has_dlc = "No Step Back" }
+				}
+				add_equipment_to_stockpile = {
+			type = light_tank_equipment_1
 			amount = 30
 			producer = NEE
+			}
+			}
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = {
+			type = light_tank_chassis
+			amount = 30
+			producer = NEE
+			}
 			}
 		}
 	}
@@ -6022,15 +6054,35 @@ focus_tree = {
 		complete_tooltip = {}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_Reestablish_Minutemen"
-			add_equipment_to_stockpile = {
-			type = light_tank_equipment
-			amount = 160
-			producer = NEE
+			if = {
+				limit = {
+					NOT = { has_dlc = "No Step Back" }
+				}
+				add_equipment_to_stockpile = {
+				type = light_tank_equipment_1
+				amount = 160
+				producer = NEE
+				}
+				add_equipment_to_stockpile = {
+				type = medium_tank_equipment_1
+				amount = 15
+				producer = NEE
+				}
 			}
-			add_equipment_to_stockpile = {
-			type = medium_tank_equipment
-			amount = 15
-			producer = TEX
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = {
+				type = light_tank_chassis
+				amount = 160
+				producer = NEE
+				}
+				add_equipment_to_stockpile = {
+				type = medium_tank_chassis
+				amount = 15
+				producer = NEE
+				}
 			}
 		}
 	}
@@ -6579,10 +6631,25 @@ focus_tree = {
 				uses = 1
 				category = cat_superior_firepower
 			}
-			add_equipment_to_stockpile = {
-			type = light_tank_equipment
+			if = {
+				limit = {
+					NOT = { has_dlc = "No Step Back" }
+				}
+				add_equipment_to_stockpile = {
+			type = light_tank_equipment_1
 			amount = 5
 			producer = NEE
+			}
+			}
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = {
+			type = light_tank_chassis
+			amount = 5
+			producer = NEE
+			}
 			}
 			add_equipment_to_stockpile = {
 				type = artillery_equipment
@@ -6627,10 +6694,25 @@ focus_tree = {
 				uses = 1
 				category = cat_superior_firepower
 			}
-			add_equipment_to_stockpile = {
-			type = light_tank_equipment
+			if = {
+				limit = {
+					NOT = { has_dlc = "No Step Back" }
+				}
+				add_equipment_to_stockpile = {
+			type = light_tank_equipment_1
 			amount = 10
 			producer = NEE
+			}
+			}
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = {
+			type = light_tank_chassis
+			amount = 10
+			producer = NEE
+			}
 			}
 			add_equipment_to_stockpile = {
 				type = motorized_equipment
@@ -8782,13 +8864,11 @@ focus = {
 		log = "[GetDateText]: [Root.GetName]: Focus NEE_into_the_shaddows"
 		add_ideas = war_economy
 		hidden_effect = {
-			create_country_leader = {
-				name = "H.P. Lovecraft"
-				desc = "POLITICS_LOVECRAFT_DESC"
-				picture = "Portrait_NEE_HP_Lovecraft_2.png"
-				expire = "1965.1.1"
-				ideology = lovecraftianism_subtype
-				traits = { all_seeing_all_knowing }
+			if = {	
+				limit = { has_country_leader = { name = "H.P. Lovecraft" ruling_only = yes } }
+				set_country_leader_portrait = {
+					portrait = "gfx/leaders/NEE/Portrait_NEE_HP_Lovecraft_2.png"
+				}
 			}
 		}
 	}
@@ -8880,13 +8960,11 @@ focus = {
 			limit = { has_country_leader = { ruling_only = yes name = "H.P. Lovecraft" }  }
 			add_country_leader_trait = king_in_yellow
 			hidden_effect = {
-				create_country_leader = {
-					name = "H.P. Lovecraft"
-					desc = "POLITICS_LOVECRAFT_DESC"
-					picture = "Portrait_NEE_Lovecraft_King_In_Yellow.png"
-					expire = "1965.1.1"
-					ideology = lovecraftianism_subtype
-					traits = { all_seeing_all_knowing king_in_yellow }
+				if = {	
+					limit = { has_country_leader = { name = "H.P. Lovecraft" ruling_only = yes } }
+					set_country_leader_portrait = {
+						portrait = "gfx/leaders/NEE/Portrait_NEE_Lovecraft_King_In_Yellow.png"
+					}
 				}
 			}
 		}
@@ -9228,11 +9306,11 @@ focus = {
 				instant_build = yes
 			}
 		}
-		add_tech_bonus = {
-			name = NEE_naval_doctrine_bonus
-			bonus = 1
-			uses = 3
-			category = naval_doctrine
+		add_doctrine_cost_reduction = {
+				name = naval_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = naval_doctrine
 		}
 		add_tech_bonus = {
 			name = NEE_submarine_research
@@ -11634,13 +11712,11 @@ focus = {
 			add_stability = 0.15
 			add_popularity = { ideology = national_populist popularity = 0.05 }
 			hidden_effect = {
-				create_country_leader = {
-				name = "August Derleth"
-				desc = "POLITICS_AUGUST_DERLETH_DESC"
-				picture = "Portrait_NEE_King_August_Derleth.png"
-				expire = "1965.1.1"
-				ideology = lovecraftianism_subtype
-				traits = { popular_author king_in_yellow_two }
+				if = {	
+					limit = { has_country_leader = { name = "August Derleth" ruling_only = yes } }
+					set_country_leader_portrait = {
+						portrait = "gfx/leaders/NEE/Portrait_NEE_King_August_Derleth.png"
+					}
 				}
 			}
 		}
@@ -11852,13 +11928,11 @@ focus = {
 
 		completion_reward = {
 			hidden_effect = {
-				create_country_leader = {
-				name = "Henry S. Whitehead"
-				desc = "POLITICS_WHITEHEAD_DESC"
-				picture = "Portrait_NEE_Henry_Culthead.png"
-				expire = "1965.1.1"
-				ideology = lovecraftianism_subtype
-				traits = { popular_author whitehead_apostle }
+				if = {	
+					limit = { has_country_leader = { name = "Henry S. Whitehead" ruling_only = yes } }
+					set_country_leader_portrait = {
+						portrait = "gfx/leaders/NEE/Portrait_NEE_Henry_Culthead.png"
+					}
 				}
 			}
 			country_event = {

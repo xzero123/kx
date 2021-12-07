@@ -718,10 +718,25 @@ country_event = { #Tank companies located
 			}
 		}
 		add_ideas = LIT_new_tank_blueprints_sweden
-		add_equipment_to_stockpile = {
-			type = light_tank_equipment
+		if = {
+			limit = {
+				NOT = { has_dlc = "No Step Back" }
+			}
+			add_equipment_to_stockpile = {
+			type = light_tank_equipment_1
 			amount = 150
 			producer = SWE
+		}
+		}
+		if = {
+			limit = {
+				has_dlc = "No Step Back"
+			}
+			add_equipment_to_stockpile = {
+			type = light_tank_chassis
+			amount = 150
+			producer = SWE
+		}
 		}
 	}
 	option = { #Tank - GER
@@ -734,10 +749,25 @@ country_event = { #Tank companies located
 			}
 		}
 		add_ideas = LIT_new_tank_blueprints_germany
-		add_equipment_to_stockpile = {
-			type = light_tank_equipment
+		if = {
+			limit = {
+				NOT = { has_dlc = "No Step Back" }
+			}
+			add_equipment_to_stockpile = {
+			type = light_tank_equipment_1
 			amount = 150
 			producer = GER
+		}
+		}
+		if = {
+			limit = {
+				has_dlc = "No Step Back"
+			}
+			add_equipment_to_stockpile = {
+			type = light_tank_chassis
+			amount = 150
+			producer = GER
+		}
 		}
 	}
 	option = { #Tank - CZE
@@ -761,10 +791,25 @@ country_event = { #Tank companies located
 			}
 		}
 		add_ideas = LIT_new_tank_blueprints_czech
-		add_equipment_to_stockpile = {
-			type = light_tank_equipment
+		if = {
+			limit = {
+				NOT = { has_dlc = "No Step Back" }
+			}
+			add_equipment_to_stockpile = {
+			type = light_tank_equipment_1
 			amount = 150
 			producer = CZE
+		}
+		}
+		if = {
+			limit = {
+				has_dlc = "No Step Back"
+			}
+			add_equipment_to_stockpile = {
+			type = light_tank_chassis
+			amount = 150
+			producer = CZE
+		}
 		}
 	}
 }
@@ -3786,7 +3831,7 @@ country_event = { #The Vilnius Uprising
 		create_country_leader = {
 			name = "Augustinas Voldemaras"
 			desc = "POLITICS_VOLDEMARAS_DESC"
-			picture = "Portrait_LIT_Augustinas_Voldemaras.png"
+			picture = "gfx/leaders/LIT/Portrait_LIT_Augustinas_Voldemaras_KX.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 		} 
@@ -3980,7 +4025,7 @@ country_event = { # RIP Voldemaras
 		create_country_leader = {
 			name = "Vytautas Alantas"
 			desc = "POLITICS_VYTAUTAS_ALANTAS_DESC"
-			picture = "Portrait_LIT_Vytautas_Alantas.png"
+			picture = "gfx/leaders/LIT/Portrait_LIT_Vytautas_Alantas.png"
 			expire = "1965.1.1"
 			ideology = occultism_subtype
 		}
@@ -3993,7 +4038,7 @@ country_event = { # RIP Voldemaras
 		create_country_leader = {
 			name = "Antanas Maceina"
 			desc = "POLITICS_ANTANAS_MACEINA_DESC"
-			picture = "Portrait_LIT_Antanas_Maceina.png"
+			picture = "gfx/leaders/LIT/Portrait_LIT_Antanas_Maceina.png"
 			expire = "1965.1.1"
 			ideology = fundementalism_subtype
 		}

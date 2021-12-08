@@ -182,7 +182,11 @@ focus_tree = {
 		available_if_capitulated = no
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_declare_martial_law"
-			
+			swap_ideas = {
+				remove_idea = MEX_post_assasination_chaos
+				add_idea = MEX_post_assasination_chaos2
+			}
+			add_stability = -0.05
 		}
 	}
 	
@@ -200,7 +204,14 @@ focus_tree = {
 		available_if_capitulated = no
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_infiltrate_goldshirts"
-			
+			swap_ideas = {
+				remove_idea = MEX_emboldened_ASA
+				add_idea = MEX_asa_rebellion
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.05
+			}
 		}
 	}
 	
@@ -236,7 +247,22 @@ focus_tree = {
 		available_if_capitulated = no
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_crackdown"
-			
+			swap_ideas = {
+				remove_idea = MEX_emboldened_DL
+				add_idea = MEX_dl_opposition
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.05
+			}
 		}
 	}
 	
@@ -260,7 +286,12 @@ focus_tree = {
 		available_if_capitulated = no
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_reassure_populace"
-			
+			add_stability = 0.05
+			add_political_power = 100
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.05
+			}
 		}
 	}
 	
@@ -284,7 +315,13 @@ focus_tree = {
 		available_if_capitulated = no
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_supervise_ejidos"
-			
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.02
+			}
 		}
 	}
 	
@@ -305,7 +342,23 @@ focus_tree = {
 		available_if_capitulated = no
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_socialist_democracy_secured"
-			
+			remove_ideas = MEX_post_assasination_chaos2
+			add_popularity = {
+				ideology = totalist
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.02
+			}
 		}
 	}
 	

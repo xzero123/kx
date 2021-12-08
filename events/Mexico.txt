@@ -77,6 +77,15 @@ country_event = { # assassination attempt
 			}
 		}
 		set_country_flag = MEX_zapata_is_alvie_flag
+		add_ideas = MEX_post_assasination_chaos
+		swap_ideas = {
+			remove_idea = MEX_asa_rebellion
+			add_idea = MEX_emboldened_ASA
+		}
+		swap_ideas = {
+			remove_idea = MEX_dl_opposition
+			add_idea = MEX_emboldened_DL
+		}
 		hidden_effect = {
 			country_event = {
 				id = mexico.306
@@ -627,10 +636,16 @@ country_event = { # Elections of 1937
 			create_country_leader = { # Pancho Villa
 				name = "Pancho Villa"
 				desc = "POLITICS_PANCHO_VILLA_DESC"
-				picture = "gfx/leaders/MEX/Portrait_Mexico_Pancho_Villa.png"
+				picture = "gfx/leaders/MEX/Portrait_MEX_Pancho_Villa_President.png"
 				expire = "1965.1.1"
 				ideology = agrarian_socialism_subtype
 				traits = { dislikes_politics }
+			}
+			if = {	
+				limit = { has_country_leader = { name = "Pancho Villa" ruling_only = yes } }
+				set_country_leader_portrait = {
+					portrait = "gfx/leaders/MEX/Portrait_MEX_Pancho_Villa_President.png"
+				}
 			}
 
 			hidden_effect = {

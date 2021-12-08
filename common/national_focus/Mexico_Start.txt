@@ -19,6 +19,11 @@ focus_tree = {
 		available = {
 			always = yes
 		}
+		allow_branch = {
+			NOT = {
+				has_country_flag = MEX_zapata_final_years_flag
+			}
+		}
 		cost = 4.00
 		x = 1
 		y = 0
@@ -148,12 +153,12 @@ focus_tree = {
 	
 	focus = {#
 		id = MEX_zapatas_last_years
-		icon = X
+		icon = GFX_goal_MEX_Fateful_day
 		
 		cost = 2.00
 		relative_position_id = MEX_fateful_day
 		x = 0
-		y = 4
+		y = 1
 		allow_branch = {
 			has_country_flag = MEX_zapata_final_years_flag
 		}
@@ -170,7 +175,7 @@ focus_tree = {
 	
 	focus = {#
 		id = MEX_declare_martial_law
-		icon = X
+		icon = GFX_goal_MEX_stability
 		prerequisite = {
 			focus = MEX_zapatas_last_years
 		}
@@ -192,7 +197,7 @@ focus_tree = {
 	
 	focus = {#
 		id = MEX_infiltrate_goldshirts
-		icon = X
+		icon = GFX_goal_MEX_Coup_Stopped
 		prerequisite = {
 			focus = MEX_declare_martial_law
 		}
@@ -217,7 +222,7 @@ focus_tree = {
 	
 	focus = {#
 		id = MEX_deploy_militias
-		icon = X
+		icon = GRU_RED_MILITIAS
 		prerequisite = {
 			focus = MEX_declare_martial_law
 		}
@@ -229,13 +234,36 @@ focus_tree = {
 		available_if_capitulated = no
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_deploy_militias"
+			division_template = {
+				name = "Workers Militia"
+				regiments = {
+					militia = { x = 0 y = 0 }
+					militia = { x = 0 y = 1 }
+					militia = { x = 0 y = 2 }
+					militia = { x = 1 y = 0 }
+				}
+			}
 			
+			random_owned_state = {
+				create_unit = { 
+					division = "name = \"Patriotic Infantry\" division_template = \"Patriotic Infantry\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+				
+				create_unit = { 
+					division = "name = \"Patriotic Infantry\" division_template = \"Patriotic Infantry\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+			}
+			add_war_support = 0.05
+			add_command_power = 100
+			army_experience = 100
 		}
 	}
 	
 	focus = {#
 		id = MEX_DL_crackdown
-		icon = X
+		icon = GFX_goal_MEX_broken_democracy
 		prerequisite = {
 			focus = MEX_declare_martial_law
 		}
@@ -268,7 +296,7 @@ focus_tree = {
 	
 	focus = {#
 		id = MEX_reassure_populace
-		icon = X
+		icon = GFX_goal_FRA_popularfront
 		prerequisite = {
 			focus = MEX_infiltrate_goldshirts
 		}
@@ -297,7 +325,7 @@ focus_tree = {
 	
 	focus = {#
 		id = MEX_supervise_ejidos
-		icon = X
+		icon = GFX_goal_MEX_Empower_Ejido
 		prerequisite = {
 			focus = MEX_infiltrate_goldshirts
 		}
@@ -327,7 +355,7 @@ focus_tree = {
 	
 	focus = {#
 		id = MEX_socialist_democracy_secured
-		icon = X
+		icon = GFX_goal_generic_socialist_democracy
 		prerequisite = {
 			focus = MEX_reassure_populace
 		}

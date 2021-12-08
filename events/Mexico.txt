@@ -735,9 +735,8 @@ country_event = { # Finding the Assassin
 			}
 			if = {
 				limit = {
-					OR = {
-						has_country_flag = MEX_military_coup_has_occured_flag
-						has_country_flag = MEX_zapata_is_alvie_flag
+					NOT = {
+						has_country_flag = MEX_calles_has_power
 					}
 				}
 				MEX = {
@@ -763,6 +762,31 @@ country_event = { # Assassin cell 'found' - Garza Responsible
 		name = mexico.6.a
 		add_political_power = 20
 		remove_unit_leader = 93731
+	}
+}
+country_event = { # Trying to Find the Assasin
+	id = mexico.700
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.700"}
+	title = mexico.700.t
+	desc = mexico.700.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = { #Calles Found Out
+		name = mexico.700.a
+		country_event = {
+			id = mexico.7
+			days = 5
+		}
+	}
+	
+	option = { #Blame the Military
+		name = mexico.700.b
+		country_event = {
+			id = mexico.6
+			days = 5
+		}
 	}
 }
 country_event = { # Assassin cell 'found' - Calles Responsible
@@ -1723,7 +1747,7 @@ country_event = { # Calles is dead!
 			add_ideas = MEX_Lazaro_Cardenas_hog_tot
 		}
 		create_country_leader = { # Lazaro Cardenas
-			name = "Lázaro Cárdenas"
+			name = "Lázaro Cárdenas del Rio"
 			desc = "POLITICS_LAZARO_CARDENAS_DESC"
 			picture = "gfx/leaders/MEX/Portrait_MEX_Lazaro_Cardenas_General.png"
 			expire = "1965.1.1"
@@ -3894,7 +3918,7 @@ country_event = { # Elections of 1937
 		}
 		
 		create_corps_commander = {
-			name = "Lázaro Cárdenas"
+			name = "Lázaro Cárdenas "
 			portrait_path = "gfx/leaders/MEX/Portrait_MEX_Lazaro_Cardenas_General.png"
 			traits = {
 				mex_counter_revolutionary

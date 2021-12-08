@@ -54,7 +54,7 @@ focus_tree = {
 		available_if_capitulated = no
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_zapata_slain"
-			custom_effect_tooltip = unlock_focuses
+			custom_effect_tooltip = MEX_zapata_dies_tt
 		}
 	}
 	
@@ -81,7 +81,7 @@ focus_tree = {
 		available_if_capitulated = no
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MEX_zapata_lives"
-			custom_effect_tooltip = unlock_focuses
+			custom_effect_tooltip = MEX_zapata_lives_tt
 		}
 	}
 	
@@ -131,6 +131,15 @@ focus_tree = {
 					days = 1
 				}
 			}
+			if = {
+				limit = {
+					has_country_leader = {
+						name = "Emiliano Zapata"
+					}
+				}
+				set_country_flag = MEX_zapata_final_years_flag
+				custom_effect_tooltip = MEX_unlock_zapata_tree_tt
+			}
 			custom_effect_tooltip = MEX_unlock_tree_tt
 		}
 	}
@@ -145,151 +154,157 @@ focus_tree = {
 		relative_position_id = MEX_fateful_day
 		x = 0
 		y = 4
+		allow_branch = {
+			has_country_flag = MEX_zapata_final_years_flag
+		}
+		bypass = {
+			always = yes
+		}
 		ai_will_do = { factor = 100 }
 		available_if_capitulated = no
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_future_of_mexico"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_zapatas_last_years"
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	
 	focus = {#
-		id = MEX_zapatas_1
+		id = MEX_declare_martial_law
 		icon = X
 		prerequisite = {
 			focus = MEX_zapatas_last_years
 		}
-		cost = 2.00
+		cost = 5.00
 		relative_position_id = MEX_zapatas_last_years
 		x = 0
 		y = 1
 		ai_will_do = { factor = 100 }
 		available_if_capitulated = no
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_future_of_mexico"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_declare_martial_law"
 			
 		}
 	}
 	
 	focus = {#
-		id = MEX_zapatas_2
+		id = MEX_infiltrate_goldshirts
 		icon = X
 		prerequisite = {
-			focus = MEX_zapatas_last_years
+			focus = MEX_declare_martial_law
 		}
-		cost = 2.00
+		cost = 5.00
 		relative_position_id = MEX_zapatas_last_years
 		x = -2
 		y = 2
 		ai_will_do = { factor = 100 }
 		available_if_capitulated = no
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_future_of_mexico"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_infiltrate_goldshirts"
 			
 		}
 	}
 	
 	focus = {#
-		id = MEX_zapatas_3
+		id = MEX_deploy_militias
 		icon = X
 		prerequisite = {
-			focus = MEX_zapatas_last_years
+			focus = MEX_declare_martial_law
 		}
-		cost = 2.00
+		cost = 5.00
 		relative_position_id = MEX_zapatas_last_years
 		x = 0
 		y = 2
 		ai_will_do = { factor = 100 }
 		available_if_capitulated = no
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_future_of_mexico"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_deploy_militias"
 			
 		}
 	}
 	
 	focus = {#
-		id = MEX_zapatas_4
+		id = MEX_DL_crackdown
 		icon = X
 		prerequisite = {
-			focus = MEX_zapatas_last_years
+			focus = MEX_declare_martial_law
 		}
-		cost = 2.00
+		cost = 5.00
 		relative_position_id = MEX_zapatas_last_years
 		x = 2
 		y = 2
 		ai_will_do = { factor = 100 }
 		available_if_capitulated = no
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_future_of_mexico"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_DL_crackdown"
 			
 		}
 	}
 	
 	focus = {#
-		id = MEX_zapatas_5
+		id = MEX_destroy_ASA
 		icon = X
 		prerequisite = {
-			focus = MEX_zapatas_2
+			focus = MEX_infiltrate_goldshirts
 		}
 		prerequisite = {
-			focus = MEX_zapatas_3
+			focus = MEX_deploy_militias
 		}
 		prerequisite = {
-			focus = MEX_zapatas_4
+			focus = MEX_DL_crackdown
 		}
-		cost = 2.00
+		cost = 5.00
 		relative_position_id = MEX_zapatas_last_years
 		x = -1
 		y = 3
 		ai_will_do = { factor = 100 }
 		available_if_capitulated = no
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_future_of_mexico"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_destroy_ASA"
 			
 		}
 	}
 	
 	focus = {#
-		id = MEX_zapatas_6
+		id = MEX_strangle_DL
 		icon = X
 		prerequisite = {
-			focus = MEX_zapatas_2
+			focus = MEX_infiltrate_goldshirts
 		}
 		prerequisite = {
-			focus = MEX_zapatas_3
+			focus = MEX_deploy_militias
 		}
 		prerequisite = {
-			focus = MEX_zapatas_4
+			focus = MEX_DL_crackdown
 		}
-		cost = 2.00
+		cost = 5.00
 		relative_position_id = MEX_zapatas_last_years
 		x = 1
 		y = 3
 		ai_will_do = { factor = 100 }
 		available_if_capitulated = no
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_future_of_mexico"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_strangle_DL"
 			
 		}
 	}
 	
 	focus = {#
-		id = MEX_zapatas_7
+		id = MEX_socialist_democracy_secured
 		icon = X
 		prerequisite = {
-			focus = MEX_zapatas_5
+			focus = MEX_destroy_ASA
 		}
 		prerequisite = {
-			focus = MEX_zapatas_6
+			focus = MEX_strangle_DL
 		}
-		cost = 2.00
+		cost = 5.00
 		relative_position_id = MEX_zapatas_last_years
 		x = 0
 		y = 4
 		ai_will_do = { factor = 100 }
 		available_if_capitulated = no
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus MEX_future_of_mexico"
+			log = "[GetDateText]: [Root.GetName]: Focus MEX_socialist_democracy_secured"
 			
 		}
 	}

@@ -77,7 +77,6 @@ country_event = { # assassination attempt
 			}
 		}
 		set_country_flag = MEX_zapata_is_alvie_flag
-		add_ideas = MEX_post_assasination_chaos
 		swap_ideas = {
 			remove_idea = MEX_asa_rebellion
 			add_idea = MEX_emboldened_ASA
@@ -86,6 +85,7 @@ country_event = { # assassination attempt
 			remove_idea = MEX_dl_opposition
 			add_idea = MEX_emboldened_DL
 		}
+		add_ideas = MEX_post_assasination_chaos
 		hidden_effect = {
 			country_event = {
 				id = mexico.306
@@ -121,11 +121,9 @@ country_event = { # assassination attempt
 		}
 		set_country_flag = MEX_zapata_is_dead_flag
 		kill_country_leader = yes
-		if = {
-			limit = {
-				has_unit_leader = 9372
-			}
-			remove_unit_leader = 9372
+		random_unit_leader = {
+			limit = { has_id = 9372 }			
+			remove_unit_leader = yes
 		}
 		create_country_leader = {# Eufemio Zapata
 			name = "Eufemio Zapata"
@@ -756,7 +754,7 @@ country_event = { # Finding the Assassin
 				}
 				MEX = {
 					country_event = {
-						id = mexico.7
+						id = mexico.7001
 						days = 5
 					}
 				}
@@ -776,20 +774,23 @@ country_event = { # Assassin cell 'found' - Garza Responsible
 	option = {
 		name = mexico.6.a
 		add_political_power = 20
-		remove_unit_leader = 93731
+		random_unit_leader = {
+			limit = { has_id = 93731 }			
+			remove_unit_leader = yes
+		}
 	}
 }
 country_event = { # Trying to Find the Assasin
-	id = mexico.700
-	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.700"}
-	title = mexico.700.t
-	desc = mexico.700.d
+	id = mexico.7001
+	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.7001"}
+	title = mexico.7001.t
+	desc = mexico.7001.d
 	picture = GFX_report_event_generic_diplomacy2
 
 	is_triggered_only = yes
 
 	option = { #Calles Found Out
-		name = mexico.700.a
+		name = mexico.7001.a
 		country_event = {
 			id = mexico.7
 			days = 5
@@ -797,7 +798,7 @@ country_event = { # Trying to Find the Assasin
 	}
 	
 	option = { #Blame the Military
-		name = mexico.700.b
+		name = mexico.7001.b
 		country_event = {
 			id = mexico.6
 			days = 5
@@ -816,11 +817,9 @@ country_event = { # Assassin cell 'found' - Calles Responsible
 	option = {
 		name = mexico.7.a
 		add_political_power = 20
-		if = {
-			limit = {
-				has_unit_leader = 9374
-			}
-			remove_unit_leader = 9374
+		random_unit_leader = {
+			limit = { has_id = 9374 }			
+			remove_unit_leader = yes
 		}
 		set_country_flag = MEX_calles_purged
 	}
@@ -2597,8 +2596,14 @@ country_event = { # what do
 					set_nationality = MEX
 				}
 			}
-			remove_unit_leader = 9374
-			remove_unit_leader = 9373
+			random_unit_leader = {
+				limit = { has_id = 9374 }			
+				remove_unit_leader = yes
+			}
+			random_unit_leader = {
+				limit = { has_id = 9373 }			
+				remove_unit_leader = yes
+			}
 		}
 		add_popularity = {
 			ideology = authoritarian_democrat
@@ -2990,7 +2995,10 @@ country_event = { # garza speech
 			ideology = paternal_autocrat_subtype
 			traits = {}
 		}
-		remove_unit_leader = 93731
+		random_unit_leader = {
+			limit = { has_id = 93731 }			
+			remove_unit_leader = yes
+		}
 	}
 	option = { # he lives
 		name = mexico.46.b
@@ -5596,7 +5604,10 @@ country_event = { # military question
 		}
 		add_political_power = 100
 		add_command_power = -50
-		remove_unit_leader = 93731
+		random_unit_leader = {
+			limit = { has_id = 93731 }			
+			remove_unit_leader = yes
+		}
 	}
 	
 	option = { # do nothing
@@ -6152,7 +6163,10 @@ country_event = { # christ bois gone
 
 	option = { #
 		name = mexico.143.a
-		remove_unit_leader = 104013
+		random_unit_leader = {
+			limit = { has_id = 104013 }			
+			remove_unit_leader = yes
+		}
 	}
 }
 
@@ -6384,7 +6398,11 @@ country_event = { # living dead (rocque)
 	option = { #
 		name = mexico.154.a
 		set_country_flag = MEX_rocque_dead
-		remove_unit_leader = 120107
+		random_unit_leader = {
+			limit = { has_id = 120107 }			
+			remove_unit_leader = yes
+		}
+		
 		country_event = {
 			id = mexico.158
 			days = 20
@@ -6405,7 +6423,10 @@ country_event = { # living dead (carrasco)
 
 	option = { #
 		name = mexico.155.a
-		remove_unit_leader = 120108
+		random_unit_leader = {
+			limit = { has_id = 120108 }			
+			remove_unit_leader = yes
+		}
 		set_country_flag = MEX_carrasco_dead
 		hidden_effect = {
 			country_event = {

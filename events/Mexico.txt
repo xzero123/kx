@@ -2376,7 +2376,7 @@ country_event = { # tolenado does authoritarianism
 	immediate = {
 		hidden_effect = {
 			country_event = {
-				id = mexico.412
+				id = mexico.414
 				days = 23
 			}
 		}
@@ -2390,37 +2390,6 @@ country_event = { # tolenado does authoritarianism
 	
 	option = { # do nothing
 		name = mexico.411.b
-		add_political_power = 5
-	}
-}
-
-country_event = { # tolenado does authoritarianism
-	id = mexico.412
-	immediate = {log = "[GetDateText]: [Root.GetName]: event mexico.412" }
-	title = mexico.412.t
-	desc = mexico.412.d
-	
-	fire_only_once = yes
-
-	is_triggered_only = yes
-	
-	immediate = {
-		hidden_effect = {
-			country_event = {
-				id = mexico.414
-				days = 23
-			}
-		}
-	}
-
-	option = { # allow it
-		name = mexico.412.a
-		add_political_power = 5
-		add_to_variable = { MEX_toledano_auth = 1 }
-	}
-	
-	option = { # do nothing
-		name = mexico.412.b
 		add_political_power = 5
 	}
 }
@@ -2442,7 +2411,7 @@ country_event = { # tolenado does authoritarianism
 		hidden_effect = {
 			if = {
 				limit = {
-					check_variable = { MEX_toledano_auth > 3 }
+					check_variable = { MEX_toledano_auth > 2 }
 				}
 				country_event = {
 					id = mexico.416
@@ -2451,7 +2420,7 @@ country_event = { # tolenado does authoritarianism
 			}
 			if = {
 				limit = {
-					check_variable = { MEX_toledano_auth < 3 }
+					check_variable = { MEX_toledano_auth < 2 }
 				}
 				country_event = {
 					id = mexico.415
@@ -2467,7 +2436,7 @@ country_event = { # tolenado does authoritarianism
 		hidden_effect = {
 			if = {
 				limit = {
-					check_variable = { MEX_toledano_auth > 3 }
+					check_variable = { MEX_toledano_auth > 2 }
 				}
 				country_event = {
 					id = mexico.416
@@ -2476,7 +2445,7 @@ country_event = { # tolenado does authoritarianism
 			}
 			if = {
 				limit = {
-					check_variable = { MEX_toledano_auth < 3 }
+					check_variable = { MEX_toledano_auth < 2 }
 				}
 				country_event = {
 					id = mexico.415

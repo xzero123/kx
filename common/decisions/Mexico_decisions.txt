@@ -142,7 +142,7 @@ political_actions = {
 		visible = {
 			has_idea = MEX_dl_opposition
 			NOT = {
-				has_completed_focus = MEX_negotiate_DL
+				has_country_flag = MEX_negotiate_DL
 			}
 			has_country_flag = MEX_the_1937_elections_happened
 		}
@@ -232,15 +232,12 @@ political_actions = {
 
 		visible = {
 			has_idea = MEX_dl_opposition2
-			NOT = {
-				has_completed_focus = MEX_negotiate_DL
-			}
 			has_country_flag = MEX_the_1937_elections_happened
 		}
 
 		fire_only_once = yes
 		cost = 50
-		days_remove = 50
+		days_remove = 75
 		
 		ai_will_do = {
 			factor = 50
@@ -257,6 +254,77 @@ political_actions = {
 			country_event = {
 				id = mexico.9
 				days = 4
+			}
+			clr_country_flag = MEX_taking_decision
+		}
+	}
+	
+	MEX_deal_with_church = {# deal with church
+		icon = generic_nationalism
+
+		allowed = { tag = MEX }
+
+		available = {
+			has_idea = MEX_church_question
+			OR = {	
+				has_government = radical_socialist
+				has_government = syndicalist
+				has_government = social_democrat
+			}
+			NOT = {
+				has_country_flag = MEX_taking_decision
+			}
+		}
+
+		visible = {
+			has_idea = MEX_church_question
+			NOT = {
+				has_country_flag = MEX_negotiate_DL
+			}
+			has_country_flag = MEX_the_1937_elections_happened
+		}
+
+		fire_only_once = yes
+		cost = 50
+		days_remove = 50
+		
+		ai_will_do = {
+			factor = 50
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_deal_with_church"
+			set_country_flag = MEX_taking_decision
+		}
+		
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_deal_with_church"
+			if = {
+				limit = {
+					has_government = social_democrat
+				}
+				country_event = {
+					id = mexico.900
+					days = 4
+				}
+			}
+			if = {
+				limit = {
+					has_government = radical_socialist
+				}
+				country_event = {
+					id = mexico.901
+					days = 4
+				}
+			}
+			if = {
+				limit = {
+					has_government = syndicalist
+				}
+				country_event = {
+					id = mexico.902
+					days = 4
+				}
 			}
 			clr_country_flag = MEX_taking_decision
 		}

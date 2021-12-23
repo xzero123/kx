@@ -12,7 +12,7 @@ focus_tree = {
 		}
 	}
 	default = no
-	continuous_focus_position = { x = 2400 y = 800 }
+	continuous_focus_position = { x = 900 y = 1000 }
 
 	#####################
 	### Economic Path ###
@@ -2282,4 +2282,1370 @@ focus_tree = {
 			country_event = albania.71
 		}
 	}
+        ###################
+	### Hoxha Path ###
+	###################
+
+	focus = {
+		id = ALB_Triumphant_Flag
+		icon = GFX_focus_red_flag_army
+		x = 32
+		y = 6
+                available = { always = no }
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Triumphant_Flag"
+		}
+	}
+        focus = {
+		id = ALB_Kalmendis_Last_Days
+		icon = GFX_goal_POL_Concerto_Midnight_Sun
+		x = -2
+		y = 1
+                relative_position_id = ALB_Triumphant_Flag
+                prerequisite = {
+			focus = ALB_Triumphant_Flag
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Kalmendis_Last_Days"
+		}
+	}
+        focus = {
+		id = ALB_Tragedy_Zogu
+		icon = GFX_goal_ALB_King_Cult
+		x = 0
+		y = 1
+                relative_position_id = ALB_Triumphant_Flag
+                prerequisite = {
+			focus = ALB_Triumphant_Flag
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Tragedy_Zogu"
+		}
+	}
+        focus = {
+		id = ALB_Formalize_Liberation_Army
+		icon = GFX_DKB_don_army
+		x = 2
+		y = 1
+                relative_position_id = ALB_Triumphant_Flag
+                prerequisite = {
+			focus = ALB_Triumphant_Flag
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Formalize_Liberation_Army"
+		}
+	}
+        focus = {
+		id = ALB_Congress_Permet
+		icon = GFX_GRU_union_congress-4049
+		x = 0
+		y = 1
+                relative_position_id = ALB_Tragedy_Zogu
+                prerequisite = {
+			focus = ALB_Kalmendis_Last_Days
+		}
+                prerequisite = {
+                        focus = ALB_Tragedy_Zogu
+		}
+                prerequisite = {
+                        focus = ALB_Formalize_Liberation_Army
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Congress_Permet"
+		}
+	}
+        focus = {
+		id = ALB_Chairman_Hoxha
+		icon = GFX_goal_CSA_empower_chairman
+		x = 0
+		y = 1
+                relative_position_id = ALB_Congress_Permet
+                prerequisite = {
+			focus = ALB_Congress_Permet
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Chairman_Hoxha"
+		}
+	}
+        focus = {
+		id = ALB_Succession_Concession
+		icon = GFX_goal_CSA_empower_congress
+		x = -11
+		y = 1
+                relative_position_id = ALB_Chairman_Hoxha
+                prerequisite = {
+			focus = ALB_Chairman_Hoxha
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Succession_Concession"
+		}
+	}
+        focus = {
+		id = ALB_Hurl_Reaction
+		icon = GFX_goal_HOL_fires_of_revolution_faux
+		x = -4
+		y = 1
+                relative_position_id = ALB_Succession_Concession
+                prerequisite = {
+			focus = ALB_Succession_Concession
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Hurl_Reaction"
+		}
+	}
+        focus = {
+		id = ALB_Unified_Church
+		icon = GFX_goal_KIV_church_support
+		x = -1
+		y = 1
+                relative_position_id = ALB_Hurl_Reaction
+                prerequisite = {
+			focus = ALB_Hurl_Reaction
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Unified_Church"
+		}
+	}
+        focus = {
+		id = ALB_Reform_Tribes
+		icon = GFX_goal_TEX_American_Family
+		x = 1
+		y = 1
+                relative_position_id = ALB_Hurl_Reaction
+                prerequisite = {
+			focus = ALB_Hurl_Reaction
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Reform_Tribes"
+		}
+	}
+        focus = {
+		id = ALB_Communes_Son
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 1
+                relative_position_id = ALB_Succession_Concession
+                prerequisite = {
+			focus = ALB_Succession_Concession
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Communes_Son"
+		}
+	}
+        focus = {
+		id = ALB_Syndicate_Development
+		icon = GFX_goal_ALB_army
+		x = -1
+		y = 1
+                relative_position_id = ALB_Communes_Son
+                prerequisite = {
+			focus = ALB_Communes_Son
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Syndicate_Development"
+		}
+	}
+        focus = {
+		id = ALB_Organize_CTU
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 1
+                relative_position_id = ALB_Syndicate_Development
+                prerequisite = {
+			focus = ALB_Syndicate_Development
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Organize_CTU"
+		}
+	}
+        focus = {
+		id = ALB_Rini_Rini
+		icon = GFX_goal_ALB_army
+		x = 1
+		y = 1
+                relative_position_id = ALB_Communes_Son
+                prerequisite = {
+			focus = ALB_Communes_Son
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Rini_Rini"
+		}
+	}
+        focus = {
+		id = ALB_Thousand_Voices
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 1
+                relative_position_id = ALB_Rini_Rini
+                prerequisite = {
+			focus = ALB_Rini_Rini
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Thousand_Voices"
+		}
+	}
+        focus = {
+		id = ALB_Shelter_Citizens
+		icon = GFX_goal_ALB_army
+		x = 4
+		y = 1
+                relative_position_id = ALB_Succession_Concession
+                prerequisite = {
+			focus = ALB_Succession_Concession
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Shelter_Citizens"
+		}
+	}
+        focus = {
+		id = ALB_Shores_Adriatic
+		icon = GFX_goal_ALB_army
+		x = -1
+		y = 1
+                relative_position_id = ALB_Shelter_Citizens
+                prerequisite = {
+			focus = ALB_Shelter_Citizens
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Shores_Adriatic"
+		}
+	}
+        focus = {
+		id = ALB_Agrarian_Reforms
+		icon = GFX_goal_ALB_army
+		x = 1
+		y = 1
+                relative_position_id = ALB_Shelter_Citizens
+                prerequisite = {
+			focus = ALB_Shelter_Citizens
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Agrarian_Reforms"
+		}
+	}
+        focus = {
+		id = ALB_No_Other_Way
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 3
+                relative_position_id = ALB_Communes_Son
+                prerequisite = {
+			focus = ALB_Unified_Church
+		}
+                prerequisite = {
+			focus = ALB_Reform_Tribes
+		}
+                prerequisite = {
+			focus = ALB_Organize_CTU
+		}
+                prerequisite = {
+			focus = ALB_Thousand_Voices
+		}
+                prerequisite = {
+			focus = ALB_Shores_Adriatic
+		}
+                prerequisite = {
+			focus = ALB_Agrarian_Reforms
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_No_Other_Way"
+		}
+	}
+        focus = {
+		id = ALB_Foundation_Peoples_Army
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 2
+                relative_position_id = ALB_Chairman_Hoxha
+                prerequisite = {
+			focus = ALB_Succession_Concession
+                        focus = ALB_No_Vision_Mine
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Foundation_Peoples_Army"
+		}
+	}
+        focus = {
+		id = ALB_Bringing_Albania_Century
+		icon = GFX_goal_ALB_army
+		x = -3
+		y = 1
+                relative_position_id = ALB_Foundation_Peoples_Army
+                prerequisite = {
+			focus = ALB_Foundation_Peoples_Army
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Bringing_Albania_Century"
+		}
+	}
+        focus = {
+		id = ALB_Never_Another_Famine
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 1
+                relative_position_id = ALB_Bringing_Albania_Century
+                prerequisite = {
+			focus = ALB_Bringing_Albania_Century
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Never_Another_Famine"
+		}
+	}
+        focus = {
+		id = ALB_Flowers_Socialism
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 1
+                relative_position_id = ALB_Foundation_Peoples_Army
+                prerequisite = {
+			focus = ALB_Foundation_Peoples_Army
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Flowers_Socialism"
+		}
+	}
+        focus = {
+		id = ALB_University_Tirana
+		icon = GFX_goal_ALB_army
+		x = -1
+		y = 1
+                relative_position_id = ALB_Flowers_Socialism
+                prerequisite = {
+			focus = ALB_Flowers_Socialism
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_University_Tirana"
+		}
+	}
+        focus = {
+		id = ALB_Women_Sky
+		icon = GFX_goal_ALB_army
+		x = 1
+		y = 1
+                relative_position_id = ALB_Flowers_Socialism
+                prerequisite = {
+			focus = ALB_Flowers_Socialism
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Women_Sky"
+		}
+	}
+        focus = {
+		id = ALB_Grab_Pickaxe
+		icon = GFX_goal_ALB_army
+		x = 3
+		y = 1
+                relative_position_id = ALB_Foundation_Peoples_Army
+                prerequisite = {
+			focus = ALB_Foundation_Peoples_Army
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Grab_Pickaxe"
+		}
+	}
+        focus = {
+		id = ALB_Kickstart_Nationalization
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 1
+                relative_position_id = ALB_Grab_Pickaxe
+                prerequisite = {
+			focus = ALB_Grab_Pickaxe
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Kickstart_Nationalization"
+		}
+	}
+        focus = {
+		id = ALB_Rejuvenation_Classes
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 2
+                relative_position_id = ALB_Flowers_Socialism
+                prerequisite = {
+			focus = ALB_Never_Another_Famine
+		}
+                prerequisite = {
+			focus = ALB_University_Tirana
+		}
+                prerequisite = {
+			focus = ALB_Women_Sky
+		}
+                prerequisite = {
+			focus = ALB_Kickstart_Nationalization
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Rejuvenation_Classes"
+		}
+	}
+        focus = {
+		id = ALB_No_Vision_Mine
+		icon = GFX_goal_ALB_army
+		x = 10
+		y = 1
+                relative_position_id = ALB_Chairman_Hoxha
+                prerequisite = {
+			focus = ALB_Chairman_Hoxha
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_No_Vision_Mine"
+		}
+	}
+        focus = {
+		id = ALB_Chasing_Plan
+		icon = GFX_goal_CSA_great_sprint
+		x = -3
+		y = 1
+                relative_position_id = ALB_No_Vision_Mine
+                prerequisite = {
+			focus = ALB_No_Vision_Mine
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Chasing_Plan"
+		}
+	}
+        focus = {
+		id = ALB_No_Village_Escape
+		icon = GFX_goal_ALB_army
+		x = -1
+		y = 1
+                relative_position_id = ALB_Chasing_Plan
+                prerequisite = {
+			focus = ALB_Chasing_Plan
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_No_Village_Escape"
+		}
+	}
+        focus = {
+		id = ALB_Trade_Unions_Arise
+		icon = GFX_goal_ALB_army
+		x = 1
+		y = 1
+                relative_position_id = ALB_Chasing_Plan
+                prerequisite = {
+			focus = ALB_Chasing_Plan
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Trade_Unions_Arise"
+		}
+	}
+        focus = {
+		id = ALB_Citizen_Guardian
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 2
+                relative_position_id = ALB_Chasing_Plan
+                prerequisite = {
+			focus = ALB_No_Village_Escape
+		}
+                prerequisite = {
+			focus = ALB_Trade_Unions_Arise
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Citizen_Guardian"
+		}
+	}
+        focus = {
+		id = ALB_Constitution_55
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 1
+                relative_position_id = ALB_No_Vision_Mine
+                prerequisite = {
+			focus = ALB_No_Vision_Mine
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Constitution_55"
+		}
+	}
+        focus = {
+		id = ALB_Per_Popullin_Me_Popullin
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 1
+                relative_position_id = ALB_Constitution_55
+                prerequisite = {
+			focus = ALB_Constitution_55
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Per_Popullin_Me_Popullin"
+		}
+	}
+        focus = {
+		id = ALB_Purify_Party
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 1
+                relative_position_id = ALB_Per_Popullin_Me_Popullin
+                prerequisite = {
+			focus = ALB_Per_Popullin_Me_Popullin
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Purify_Party"
+		}
+	}
+        focus = {
+		id = ALB_Cultural_Ideological_Revolution
+		icon = GFX_goal_ALB_army
+		x = 3
+		y = 1
+                relative_position_id = ALB_No_Vision_Mine
+                prerequisite = {
+			focus = ALB_No_Vision_Mine
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Cultural_Ideological_Revolution"
+		}
+	}
+        focus = {
+		id = ALB_Pioneers_Enver
+		icon = GFX_goal_ALB_army
+		x = -1
+		y = 1
+                relative_position_id = ALB_Cultural_Ideological_Revolution
+                prerequisite = {
+			focus = ALB_Cultural_Ideological_Revolution
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Pioneers_Enver"
+		}
+	}
+        focus = {
+		id = ALB_Decouple_Skanderbeg
+		icon = GFX_goal_ALB_army
+		x = 1
+		y = 1
+                relative_position_id = ALB_Cultural_Ideological_Revolution
+                prerequisite = {
+			focus = ALB_Cultural_Ideological_Revolution
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Decouple_Skanderbeg"
+		}
+	}
+        focus = {
+		id = ALB_Worship_Albania_Venerate_Hoxha
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 2
+                relative_position_id = ALB_Cultural_Ideological_Revolution
+                prerequisite = {
+			focus = ALB_Pioneers_Enver
+		}
+                prerequisite = {
+			focus = ALB_Decouple_Skanderbeg
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Worship_Albania_Venerate_Hoxha"
+		}
+	}
+        focus = {
+		id = ALB_Enver_Star_Era
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 3
+                relative_position_id = ALB_Constitution_55
+                prerequisite = {
+			focus = ALB_Citizen_Guardian
+		}
+                prerequisite = {
+			focus = ALB_Purify_Party
+		}
+                prerequisite = {
+			focus = ALB_Worship_Albania_Venerate_Hoxha
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Enver_Star_Era"
+		}
+	}
+        focus = {
+		id = ALB_Chairman_Xoxe
+		icon = GFX_goal_CSA_empower_chairman
+		x = -5
+		y = 1
+                relative_position_id = ALB_No_Other_Way
+                prerequisite = {
+			focus = ALB_No_Other_Way
+		}
+                mutually_exclusive = {
+			focus = ALB_Chairman_Maleshova
+		}
+                mutually_exclusive = {
+			focus = ALB_Chairman_Fundo
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Chairman_Xoxe"
+		}
+	}
+        focus = {
+		id = ALB_Yugophilism
+		icon = GFX_goal_SER_Immortal_Yugoslavism
+		x = -1
+		y = 1
+                relative_position_id = ALB_Chairman_Xoxe
+                prerequisite = {
+			focus = ALB_Chairman_Xoxe
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Yugophilism"
+		}
+	}
+        focus = {
+		id = ALB_New_Hardline_Methods
+		icon = GFX_goal_NOR_secret_police
+		x = 1
+		y = 1
+                relative_position_id = ALB_Chairman_Xoxe
+                prerequisite = {
+			focus = ALB_Chairman_Xoxe
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_New_Hardline_Methods"
+		}
+	}
+        focus = {
+		id = ALB_Pact_Conviction
+		icon = GFX_goal_CSA_lead_the_revolution
+		x = 0
+		y = 2
+                relative_position_id = ALB_Chairman_Xoxe
+                prerequisite = {
+			focus = ALB_Yugophilism
+		}
+                prerequisite = {
+			focus = ALB_New_Hardline_Methods
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Pact_Conviction"
+		}
+	}
+        focus = {
+		id = ALB_Expand_USSR
+		icon = GFX_goal_CRO_illyrian_yugoslavia
+		x = 0
+		y = 1
+                relative_position_id = ALB_Pact_Conviction
+                prerequisite = {
+			focus = ALB_Pact_Conviction
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Expand_USSR"
+		}
+	}
+        focus = {
+		id = ALB_Chairman_Maleshova
+		icon = GFX_goal_CSA_empower_chairman
+		x = 0
+		y = 1
+                relative_position_id = ALB_No_Other_Way
+                prerequisite = {
+			focus = ALB_No_Other_Way
+		} 
+                mutually_exclusive = {
+			focus = ALB_Chairman_Xoxe
+		}
+                mutually_exclusive = {
+			focus = ALB_Chairman_Fundo
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Chairman_Maleshova"
+		}
+	}
+        focus = {
+		id = ALB_Reinforce_Syndicalist_System
+		icon = GFX_goal_CSA_general_defence_committee
+		x = -1
+		y = 1
+                relative_position_id = ALB_Chairman_Maleshova
+                prerequisite = {
+			focus = ALB_Chairman_Maleshova
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Reinforce_Syndicalist_System"
+		}
+	}
+        focus = {
+		id = ALB_Cooperate_Chief_Capital
+		icon = GFX_goal_CSA_class_fusion
+		x = 1
+		y = 1
+                relative_position_id = ALB_Chairman_Maleshova
+                prerequisite = {
+			focus = ALB_Chairman_Maleshova
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Cooperate_Chief_Capital"
+		}
+	}
+        focus = {
+		id = ALB_Western_Diplomatic_Approach
+		icon = GFX_goal_CSA_inevitable_world_socialism
+		x = 0
+		y = 2
+                relative_position_id = ALB_Chairman_Maleshova
+                prerequisite = {
+			focus = ALB_Reinforce_Syndicalist_System
+		}
+                prerequisite = {
+			focus = ALB_Cooperate_Chief_Capital
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Western_Diplomatic_Approach"
+		}
+	}
+        focus = {
+		id = ALB_Appeal_Northern_Epirus
+		icon = GFX_GRE_army_focus
+		x = 0
+		y = 1
+                relative_position_id = ALB_Western_Diplomatic_Approach
+                prerequisite = {
+			focus = ALB_Western_Diplomatic_Approach
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Appeal_Northern_Epirus"
+		}
+	}
+        focus = {
+		id = ALB_Chairman_Fundo
+		icon = GFX_goal_CSA_empower_chairman
+		x = 5
+		y = 1
+                relative_position_id = ALB_No_Other_Way
+                prerequisite = {
+			focus = ALB_No_Other_Way
+		} 
+                mutually_exclusive = {
+			focus = ALB_Chairman_Xoxe
+		}
+                mutually_exclusive = {
+			focus = ALB_Chairman_Maleshova
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Chairman_Fundo"
+		}
+	}
+        focus = {
+		id = ALB_Rehabilitate_Bashkimi
+		icon = GFX_goal_FIN_Social_Democrats
+		x = -1
+		y = 1
+                relative_position_id = ALB_Chairman_Fundo
+                prerequisite = {
+			focus = ALB_Chairman_Fundo
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Rehabilitate_Bashkimi"
+		}
+	}
+        focus = {
+		id = ALB_Transform_Rigid_Structure
+		icon = GFX_CAL_aim_for_the_heart
+		x = 1
+		y = 1
+                relative_position_id = ALB_Chairman_Fundo
+                prerequisite = {
+			focus = ALB_Chairman_Fundo
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Transform_Rigid_Structure"
+		}
+	}
+        focus = {
+		id = ALB_Moderate_Men_Treaty
+		icon = GFX_goal_CSA_lead_american_revolution
+		x = 0
+		y = 2
+                relative_position_id = ALB_Chairman_Fundo
+                prerequisite = {
+			focus = ALB_Rehabilitate_Bashkimi
+		}
+                prerequisite = {
+			focus = ALB_Transform_Rigid_Structure
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Moderate_Men_Treaty"
+		}
+	}
+        focus = {
+		id = ALB_Vouch_Dardania
+		icon = GFX_goal_SER_king
+		x = 0
+		y = 1
+                relative_position_id = ALB_Moderate_Men_Treaty
+                prerequisite = {
+			focus = ALB_Moderate_Men_Treaty
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Vouch_Dardania"
+		}
+	}
+        focus = {
+		id = ALB_We_Follow
+		icon = GFX_goal_ALB_army
+		x = -5
+		y = 1
+                relative_position_id = ALB_Enver_Star_Era
+                prerequisite = {
+			focus = ALB_Enver_Star_Era
+		} 
+                mutually_exclusive = {
+			focus = ALB_Utopia_Perfected
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_We_Follow"
+		}
+	}
+        focus = {
+		id = ALB_Arme_Municion
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 1
+                relative_position_id = ALB_We_Follow
+                prerequisite = {
+			focus = ALB_We_Follow
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Arme_Municion"
+		}
+	}
+        focus = {
+		id = ALB_Illyrian_Thesis
+		icon = GFX_goal_ALB_army
+		x = -5
+		y = 1
+                relative_position_id = ALB_Arme_Municion
+                prerequisite = {
+			focus = ALB_Arme_Municion
+		} 
+                mutually_exclusive = {
+			focus = ALB_Hypothesize_Thraco_Dacians
+		}
+                mutually_exclusive = {
+			focus = ALB_Theory_Pelesagians
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Illyrian_Thesis"
+		}
+	}
+        focus = {
+		id = ALB_Courage_Teuta
+		icon = GFX_goal_ALB_army
+		x = -1
+		y = 1
+                relative_position_id = ALB_Illyrian_Thesis
+                prerequisite = {
+			focus = ALB_Illyrian_Thesis
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Courage_Teuta"
+		}
+	}
+        focus = {
+		id = ALB_Remove_Squatting_Menace
+		icon = GFX_goal_ALB_army
+		x = 1
+		y = 1
+                relative_position_id = ALB_Illyrian_Thesis
+                prerequisite = {
+			focus = ALB_Illyrian_Thesis
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Remove_Squatting_Menace"
+		}
+	}
+        focus = {
+		id = ALB_Ardlyria_Comes_Life
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 2
+                relative_position_id = ALB_Illyrian_Thesis
+                prerequisite = {
+			focus = ALB_Courage_Teuta
+		}
+                prerequisite = {
+			focus = ALB_Remove_Squatting_Menace
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Ardlyria_Comes_Life"
+		}
+	}
+        focus = {
+		id = ALB_Hypothesize_Thraco_Dacians
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 1
+                relative_position_id = ALB_Arme_Municion
+                prerequisite = {
+			focus = ALB_Arme_Municion
+		} 
+                mutually_exclusive = {
+			focus = ALB_Illyrian_Thesis
+		}
+                mutually_exclusive = {
+			focus = ALB_Theory_Pelesagians
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Illyrian_Thesis"
+		}
+	}
+        focus = {
+		id = ALB_Natural_Extension
+		icon = GFX_goal_ALB_army
+		x = -1
+		y = 1
+                relative_position_id = ALB_Hypothesize_Thraco_Dacians
+                prerequisite = {
+			focus = ALB_Hypothesize_Thraco_Dacians
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Natural_Extension"
+		}
+	}
+        focus = {
+		id = ALB_Like_Maximinus_Thrax
+		icon = GFX_goal_ALB_army
+		x = 1
+		y = 1
+                relative_position_id = ALB_Hypothesize_Thraco_Dacians
+                prerequisite = {
+			focus = ALB_Hypothesize_Thraco_Dacians
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Like_Maximinus_Thrax"
+		}
+	}
+        focus = {
+		id = ALB_Moesia_Stands_One
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 2
+                relative_position_id = ALB_Hypothesize_Thraco_Dacians
+                prerequisite = {
+			focus = ALB_Natural_Extension
+		}
+                prerequisite = {
+			focus = ALB_Like_Maximinus_Thrax
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Moesia_Stands_One"
+		}
+	}
+        focus = {
+		id = ALB_Theory_Pelesagians
+		icon = GFX_goal_ALB_army
+		x = 5
+		y = 1
+                relative_position_id = ALB_Arme_Municion
+                prerequisite = {
+			focus = ALB_Arme_Municion
+		} 
+                mutually_exclusive = {
+			focus = ALB_Illyrian_Thesis
+		}
+                mutually_exclusive = {
+			focus = ALB_Hypothesize_Thraco_Dacians
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Theory_Pelesagians"
+		}
+	}
+        focus = {
+		id = ALB_Learn_Good_Pyrrhus
+		icon = GFX_goal_ALB_army
+		x = -1
+		y = 1
+                relative_position_id = ALB_Theory_Pelesagians
+                prerequisite = {
+			focus = ALB_Theory_Pelesagians
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Learn_Good_Pyrrhus"
+		}
+	}
+        focus = {
+		id = ALB_Rescue_Arvanite_Brothers
+		icon = GFX_goal_ALB_army
+		x = 1
+		y = 1
+                relative_position_id = ALB_Theory_Pelesagians
+                prerequisite = {
+			focus = ALB_Theory_Pelesagians
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Rescue_Arvanite_Brothers"
+		}
+	}
+        focus = {
+		id = ALB_Pelesagia_Ashes
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 2
+                relative_position_id = ALB_Theory_Pelesagians
+                prerequisite = {
+			focus = ALB_Learn_Good_Pyrrhus
+		}
+                prerequisite = {
+			focus = ALB_Rescue_Arvanite_Brothers
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Pelesagia_Ashes"
+		}
+	}
+        focus = {
+		id = ALB_Utopia_Perfected
+		icon = GFX_goal_ALB_army
+		x = 5
+		y = 1
+                relative_position_id = ALB_Enver_Star_Era
+                prerequisite = {
+			focus = ALB_Enver_Star_Era
+		} 
+                mutually_exclusive = {
+			focus = ALB_We_Follow
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Utopia_Perfected"
+		}
+	}
+        focus = {
+		id = ALB_Socialisms_Orchard
+		icon = GFX_goal_ALB_army
+		x = -1
+		y = 1
+                relative_position_id = ALB_Utopia_Perfected
+                prerequisite = {
+			focus = ALB_Utopia_Perfected
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Socialisms_Orchard"
+		}
+	}
+        focus = {
+		id = ALB_Explore_Wealth
+		icon = GFX_goal_ALB_army
+		x = 1
+		y = 1
+                relative_position_id = ALB_Utopia_Perfected
+                prerequisite = {
+			focus = ALB_Utopia_Perfected
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Explore_Wealth"
+		}
+	}
+        focus = {
+		id = ALB_Prosperity_Shared
+		icon = GFX_goal_ALB_army
+		x = 0
+		y = 2
+                relative_position_id = ALB_Utopia_Perfected
+                prerequisite = {
+			focus = ALB_Socialisms_Orchard
+		}
+                prerequisite = {
+			focus = ALB_Explore_Wealth
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Prosperity_Shared"
+		}
+	}
+      
 }

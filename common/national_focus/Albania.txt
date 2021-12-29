@@ -12,7 +12,7 @@ focus_tree = {
 		}
 	}
 	default = no
-	continuous_focus_position = { x = 900 y = 1000 }
+	continuous_focus_position = { x = 900 y = 850 }
 
 	#####################
 	### Economic Path ###
@@ -2297,7 +2297,7 @@ focus_tree = {
 	focus = {
 		id = ALB_Triumphant_Flag
 		icon = GFX_goal_ALB_Triumphant_Flag
-		x = 32
+		x = 33
 		y = 6
                 available = { 
 			has_government = syndicalist
@@ -4028,5 +4028,457 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Prosperity_Shared"
 		}
 	}
-      
+
+        #####################
+        ### Nexhmije Path ###
+	#####################
+
+	focus = {
+		id = ALB_My_Sweet_Enver
+		icon = GFX_goal_ALB_My_Enver
+		x = 6
+		y = 10
+                available = { 
+			has_government = totalist
+			has_country_leader = {
+				name = "Nexhmije Hoxha"
+				ruling_only = yes
+			}
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_My_Sweet_Enver"
+		}
+	}
+        focus = {
+		id = ALB_Sorrows_Aria
+		icon = GFX_goal_ALB_Sorrows_Aria
+		x = -1
+		y = 1
+                relative_position_id = ALB_My_Sweet_Enver
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_My_Sweet_Enver
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Sorrows_Aria"
+		}
+	}
+        focus = {
+		id = ALB_Piercing_Fury
+		icon = GFX_goal_ALB_Piercing_Fury
+		x = 1
+		y = 1
+                relative_position_id = ALB_My_Sweet_Enver
+                available = { 
+			has_government = totalist
+                        has_completed_focus = ALB_Sorrows_Aria
+		}
+                prerequisite = {
+			focus = ALB_My_Sweet_Enver
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Piercing_Fury"
+		}
+	}
+        focus = {
+		id = ALB_Strangle_Traitors
+		icon = GFX_goal_ALB_Strangle_Traitors
+		x = 0
+		y = 2
+                relative_position_id = ALB_My_Sweet_Enver
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_Sorrows_Aria
+		}
+                prerequisite = {
+			focus = ALB_Piercing_Fury
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Strangle_Traitors"
+		}
+	}
+        focus = {
+		id = ALB_Renewed_Vision_Albania
+		icon = GFX_goal_ALB_Renewed_Vision
+		x = 0
+		y = 1
+                relative_position_id = ALB_Strangle_Traitors
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_Strangle_Traitors
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Renewed_Vision_Albania"
+		}
+	}
+        focus = {
+		id = ALB_Created_Paradise
+		icon = GFX_goal_ALB_Created_Paradise
+		x = -7
+		y = 1
+                relative_position_id = ALB_Renewed_Vision_Albania
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_Renewed_Vision_Albania
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Created_Paradise"
+		}
+	}
+        focus = {
+		id = ALB_Worthy_Enver
+		icon = GFX_goal_ALB_Worthy_Enver
+		x = -5
+		y = 1
+                relative_position_id = ALB_Renewed_Vision_Albania
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_Renewed_Vision_Albania
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Worthy_Enver"
+		}
+	}
+        focus = {
+		id = ALB_Deification_Enver_Hoxha
+		icon = GFX_goal_ALB_Enver_God
+		x = 1
+		y = 1
+                relative_position_id = ALB_Created_Paradise
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_Created_Paradise
+		}
+                prerequisite = {
+			focus = ALB_Worthy_Enver
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Deification_Enver_Hoxha"
+		}
+	}
+        focus = {
+		id = ALB_Progress_Waits_Noone
+		icon = GFX_goal_ALB_Progress_Train
+		x = -3
+		y = 1
+                relative_position_id = ALB_Renewed_Vision_Albania
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_Renewed_Vision_Albania
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Progress_Waits_Noone"
+		}
+	}
+        focus = {
+		id = ALB_Collectives_Militarization
+		icon = GFX_goal_ALB_Collective_Militarization
+		x = -1
+		y = 1
+                relative_position_id = ALB_Renewed_Vision_Albania
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_Renewed_Vision_Albania
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Collectives_Militarization"
+		}
+	}
+        focus = {
+		id = ALB_Vanguard_Reborn_Leninism
+		icon = GFX_goal_ALB_Vanguard
+		x = 1
+		y = 1
+                relative_position_id = ALB_Progress_Waits_Noone
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_Progress_Waits_Noone
+		}
+                prerequisite = {
+			focus = ALB_Collectives_Militarization
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Vanguard_Reborn_Leninism"
+		}
+	}
+        focus = {
+		id = ALB_Expansion_Sigurimi_Directorate
+		icon = GFX_goal_ALB_Expand_Sigurimi
+		x = 1
+		y = 1
+                relative_position_id = ALB_Renewed_Vision_Albania
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_Renewed_Vision_Albania
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Expansion_Sigurimi_Directorate"
+		}
+	}
+        focus = {
+		id = ALB_Who_Purges_Purgers
+		icon = GFX_goal_ALB_Purge_Purgers
+		x = 3
+		y = 1
+                relative_position_id = ALB_Renewed_Vision_Albania
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_Renewed_Vision_Albania
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Who_Purges_Purgers"
+		}
+	}
+        focus = {
+		id = ALB_State_Permanent_Purification
+		icon = GFX_goal_ALB_Permanent_Purge
+		x = 1
+		y = 1
+                relative_position_id = ALB_Expansion_Sigurimi_Directorate
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_Expansion_Sigurimi_Directorate
+		}
+                prerequisite = {
+			focus = ALB_Who_Purges_Purgers
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_State_Permanent_Purification"
+		}
+	}
+        focus = {
+		id = ALB_Liquidate_Revisionist_Factionalism
+		icon = GFX_goal_ALB_Smash_Reaction
+		x = 5
+		y = 1
+                relative_position_id = ALB_Renewed_Vision_Albania
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_Renewed_Vision_Albania
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Liquidate_Revisionist_Factionalism"
+		}
+	}
+        focus = {
+		id = ALB_Dissolve_Party
+		icon = GFX_goal_ALB_Smashing_Communism
+		x = 7
+		y = 1
+                relative_position_id = ALB_Renewed_Vision_Albania
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_Renewed_Vision_Albania
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Dissolve_Party"
+		}
+	}
+        focus = {
+		id = ALB_My_Will_Alone
+		icon = GFX_goal_ALB_My_Will_Alone
+		x = 1
+		y = 1
+                relative_position_id = ALB_Liquidate_Revisionist_Factionalism
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_Liquidate_Revisionist_Factionalism
+		}
+                prerequisite = {
+			focus = ALB_Dissolve_Party
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_My_Will_Alone"
+		}
+	}
+        focus = {
+		id = ALB_Legacy_Eternal
+		icon = GFX_goal_ALB_Enver_Legacy
+		x = 0
+		y = 3
+                relative_position_id = ALB_Renewed_Vision_Albania
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_Deification_Enver_Hoxha
+		}
+                prerequisite = {
+			focus = ALB_Vanguard_Reborn_Leninism
+		}
+                prerequisite = {
+			focus = ALB_State_Permanent_Purification
+		}
+                prerequisite = {
+			focus = ALB_My_Will_Alone
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Legacy_Eternal"
+		}
+	} 
+        focus = {
+		id = ALB_Certain_Sense_Catharsis
+		icon = GFX_goal_ALB_Catharsis
+		x = -1
+		y = 1
+                relative_position_id = ALB_Legacy_Eternal
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_Legacy_Eternal
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Certain_Sense_Catharsis"
+		}
+	} 
+        focus = {
+		id = ALB_Behold_Red_Horse
+		icon = GFX_goal_ALB_Red_Horse
+		x = 1
+		y = 1
+                relative_position_id = ALB_Legacy_Eternal
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_Legacy_Eternal
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Behold_Red_Horse"
+		}
+	}
+        focus = {
+		id = ALB_Plunge_Dagger_Rotten_Heart
+		icon = GFX_goal_ALB_Dagger_Heart
+		x = 0
+		y = 2
+                relative_position_id = ALB_Legacy_Eternal
+                available = { 
+			has_government = totalist
+		}
+                prerequisite = {
+			focus = ALB_Certain_Sense_Catharsis
+		}
+                prerequisite = {
+			focus = ALB_Behold_Red_Horse
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ALB_Plunge_Dagger_Rotten_Heart"
+		}
+	}                               
 }

@@ -1,0 +1,90 @@
+###########################
+# Crete
+###########################
+
+focus_tree = {
+	id = crete_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = CRE
+		}
+	}
+	default = no
+
+	focus = {
+		id = CRE_island_under_iron_cross
+		icon = GFX_goal_government_icon
+		available = {
+			
+		}
+		x = 2
+		y = 0
+		cost = 10
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CRE_island_under_iron_cross"
+	
+		}
+	}
+	
+	focus = {
+		id = CRE_survey_garrison
+		icon = GFX_goal_government_icon
+		available = {
+			
+		}
+		prerequisite = {
+			focus = CRE_island_under_iron_cross
+		}
+		x = -1
+		y = 1
+		relative_position_id = CRE_island_under_iron_cross
+		cost = 10
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CRE_survey_garrison"
+	
+		}
+	}
+	
+	focus = {
+		id = CRE_civilian_conflict
+		icon = GFX_goal_government_icon
+		available = {
+			
+		}
+		prerequisite = {
+			focus = CRE_island_under_iron_cross
+		}
+		x = 1
+		y = 1
+		relative_position_id = CRE_island_under_iron_cross
+		cost = 10
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CRE_survey_garrison"
+	
+		}
+	}
+	
+	focus = {
+		id = CRE_black_monday_strikes
+		icon = GFX_goal_government_icon
+		available = {
+			
+		}
+		prerequisite = {
+			focus = CRE_civilian_conflict
+		}
+		prerequisite = {
+			focus = CRE_survey_garrison
+		}
+		x = 0
+		y = 2
+		relative_position_id = CRE_island_under_iron_cross
+		cost = 10
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CRE_survey_garrison"
+	
+		}
+	}
+}

@@ -98,6 +98,64 @@ country_event = { #New Guy
 	}
 }
 
+country_event = { #No Money
+	id = crete.4
+	title = crete.4.t 
+	desc = crete.4.d 
+	is_triggered_only = yes
+			
+	option = { #Sell it
+		name = crete.4.a 
+		country_event = {
+			id = crete_sale.1
+			days = 5
+		}
+	}
+	
+	option = { #Yeild to Civilian Govt
+		name = crete.3.b
+		create_country_leader = {
+			name = "Georgios Petrakis"
+			desc = "POLITICS_PETRAKIS_DESC"
+			picture = "gfx/leaders/CRE/Portrait_Crete_Georgios_Petrakis.png"
+			expire = "1965.1.1"
+			ideology = authoritarian_democrat_subtype
+			traits = {}
+		}
+		drop_cosmetic_tag = yes
+		country_event = {
+			id = crete.5
+			days = 5
+		}
+	}
+	
+	option = { #Nothing
+		name = crete.3.c
+		set_country_flag = CRE_GERMS_HOLD
+	}
+}
+
+country_event = { #Govt
+	id = crete.5
+	title = crete.5.t 
+	desc = crete.5.d 
+	is_triggered_only = yes
+			
+	option = { #Natpop
+		name = crete.5.a 
+		set_politics = {
+			ruling_party = national_populist
+		}
+	}
+	
+	option = { #RadSoc
+		name = crete.5.b
+		set_politics = {
+			ruling_party = radical_socialist
+		}
+	}
+}
+
 ####Sale of Crete#####
 country_event = { #sale of crete 
 	id = crete_sale.1

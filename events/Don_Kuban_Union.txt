@@ -137,12 +137,16 @@ add_namespace = germans
 		}
 		remove_ideas_with_trait = head_of_government
 		add_ideas = DKB_Mikhail_N_Grabbe_hog_ade
+		set_cosmetic_tag = DKB_bog
 		unlock_national_focus = DKB_after
 		random_unit_leader = {
 				limit = { has_id = 3337 }			
 				remove_unit_leader = yes
 			} #Krasnov
-		country_event = dkb.210
+		country_event = {
+         id = dkb.210
+         days = 4
+         }
 		ai_chance = {
 			factor = 75
 			modifier = {
@@ -1617,10 +1621,6 @@ country_event = { #vlasov ded
 				expire = "1965.1.1"
 				ideology = vlasovism_socdem_subtype
 			 }
-	      country_event = {
-          id = vlasov.16
-          days = 3
-          }
 		 }
 	  }
 	  
@@ -1660,11 +1660,6 @@ country_event = { #vlasov ded
 				expire = "1965.1.1"
 				ideology = vlasovism_soccon_subtype
 			 }
-		 
-		 country_event = {
-          id = vlasov.16
-          days = 3
-          }
 		 }
 	  }
 	  
@@ -1677,10 +1672,15 @@ country_event = { #vlasov ded
 	fire_only_once = yes
 	is_triggered_only = yes
 	
-	option = { #keep old flag
+	option = { #Eagle
 		name = vlasov.16.a
+		set_cosmetic_tag = DKB_vlasov_RUS
 	  }
-	option = { #remove Eagle
+	option = { #ROA flag
+		name = vlasov.16.b
+		set_cosmetic_tag = DKB_vlasov_RUS_alt
+	  }
+	option = { #basic tricolor
 		name = vlasov.16.b
 		set_cosmetic_tag = DKB_vlasov_RUS_alt2
 	  }

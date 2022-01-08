@@ -7135,7 +7135,7 @@ focus = {
 	
 	focus = {
 		id = DKB_regin_in_the_SB
-		icon = GFX_goal_generic_crisis
+		icon = GFX_SER_union_war_preparations
 		cost = 5
 		prerequisite = {
 			focus = DKB_establish_the_tobolsk_autonomy
@@ -9473,7 +9473,26 @@ focus = {
 		prerequisite = {
 			focus = DKB_Liberate_the_Mountains
 		}
-		
+		available = {
+		KLY = {
+			exists = no
+			}
+		KUB = {
+			exists = no
+			}
+        MTR = {
+			exists = no
+			}
+		234 = { is_owned_and_controlled_by = ROOT }	
+		233 = { is_owned_and_controlled_by = ROOT }	
+		237 = { is_owned_and_controlled_by = ROOT }
+		has_war = no
+		}
+		bypass = {
+		RUS = {
+			exists = no
+			}
+		}
 		x = -3
 		y = 6
 		completion_reward = {
@@ -9592,7 +9611,7 @@ focus = {
 		x = 0
 		y = 9
 		completion_reward = {
-			set_cosmetic_tag = DKB_vlasov_RUS
+			set_cosmetic_tag = DKB_vlasov_RUS_alt
 			every_owned_state = {
 				limit = {
 					is_core_of = RUS
@@ -9761,6 +9780,12 @@ focus = {
 		y = 3
 		completion_reward = {
 		 country_event = vlasov.10
+		 hidden_effect = {
+		 country_event = {
+          id = vlasov.16
+          days = 2
+          }
+		  }
 		 swap_ideas = {
 			remove_idea = DKB_aftermath_uch_economic_idea_1
 			add_idea = DKB_aftermath_uch_economic_idea_2

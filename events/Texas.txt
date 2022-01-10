@@ -33,6 +33,13 @@ country_event = { # Elections in Texas
 		name = Texas.0.a
 		ai_chance = {
 			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = TXS_independence
+					option = TXS_INDEPENDENCE_GUARENTEE
+				}
+			}
 		}
 		custom_effect_tooltip = AFP_TEXAS
 	}		
@@ -41,13 +48,6 @@ country_event = { # Elections in Texas
 		name = Texas.0.b
 		ai_chance = {
 			factor = 50
-				modifier = {
-					factor = 100
-					has_game_rule = {
-						rule = TXS_independence
-						option = TXS_INDEPENDENCE_GUARENTEE
-					}
-				}
 			}
 			hidden_effect = {
 			country_event = {
@@ -72,6 +72,13 @@ country_event = { # Elections in Texas
 		name = Texas.1.a
 		ai_chance = {
 			factor = 50
+			modifier = {
+					factor = 100
+					has_game_rule = {
+						rule = TXS_independence
+						option = TXS_INDEPENDENCE_GUARENTEE
+					}
+				}
 		}
 		custom_effect_tooltip = AFP_TEXAS
 	}		
@@ -80,13 +87,6 @@ country_event = { # Elections in Texas
 		name = Texas.1.b
 		ai_chance = {
 			factor = 50
-			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = TXS_independence
-					option = TXS_INDEPENDENCE_GUARENTEE
-				}
-			}
 		}
 		hidden_effect = {
 			country_event = {
@@ -155,6 +155,13 @@ country_event = { # Dealing with Texas
 		name = Texas.4.a
 		ai_chance = {
 			factor = 25
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = TXS_independence
+					option = TXS_INDEPENDENCE_GUARENTEE
+				}
+			}
 		}
 		add_stability = -0.15
 		add_political_power = -200
@@ -168,13 +175,6 @@ country_event = { # Dealing with Texas
 		name = Texas.4.b
 		ai_chance = {
 			factor = 25
-			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = TXS_independence
-					option = TXS_INDEPENDENCE_GUARENTEE
-				}
-			}
 		}
 		add_stability = -0.15
 		add_political_power = -20
@@ -202,6 +202,13 @@ country_event = { # Dealing with Texas
 		name = Texas.4.c
 		ai_chance = {
 			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = TXS_independence
+					option = TXS_INDEPENDENCE_GUARENTEE
+				}
+			}
 		}
 		add_stability = -0.15
 		add_political_power = -20
@@ -262,30 +269,30 @@ country_event = { # Allred Resigns
 	fire_only_once = yes
 
 	option = {
-		name = Texas.7.b
-		ai_chance = {
-			factor = 50
-		}
-		country_event = { #Leave-Texas
-			id = Texas.9
-			days = 1
-			}
-		}
-	
-	option = {
 		name = Texas.7.a
 		ai_chance = {
 			factor = 50
+		}
+		country_event = { #AFP-Texas
+			id = Texas.8
+			days = 1
+		}
+	}
+	
+	option = {
+		name = Texas.7.b
+		ai_chance = {
+			factor = 50
 			modifier = {
-				factor = 100
+				factor = 0
 				has_game_rule = {
 					rule = TXS_independence
 					option = TXS_INDEPENDENCE_GUARENTEE
 				}
 			}
 		}
-		country_event = { #AFP-Texas
-			id = Texas.8
+		country_event = { #Leave-Texas
+			id = Texas.9
 			days = 5	
 		}
 	}
@@ -320,7 +327,7 @@ country_event = { # AFP Dominates Texas
 			OR = {
 				has_global_flag = USA_president_landon
 				has_global_flag = USA_president_curtis
-				has_country_flag_flag = USA_Herb_36_Victory
+				has_country_flag = USA_Herb_36_Victory
 				has_government = social_democrat
 				has_government = syndicalist
 			}
@@ -928,7 +935,7 @@ country_event = { # Introduction event
 		hidden_effect = {
 			country_event = {
 				id = Texas.26
-				days = 3
+				days = 1
 			}
 		}
 	}
@@ -950,6 +957,13 @@ country_event = { # Introduction event
 		
 		ai_chance = {
 			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = TXS_independence
+					option = TXS_INDEPENDENCE_GUARENTEE
+				}
+			}
 		}
 		
 		add_political_power = -10
@@ -960,13 +974,6 @@ country_event = { # Introduction event
 		
 		ai_chance = {
 			factor = 50
-			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = TXS_independence
-					option = TXS_INDEPENDENCE_GUARENTEE
-				}
-			}
 		}
 		add_political_power = -10
 		add_manpower = -6
@@ -975,7 +982,7 @@ country_event = { # Introduction event
 		hidden_effect = {
 			country_event = {
 				id = Texas.27
-				days = 3
+				days = 1
 			}
 		}
 	}
@@ -997,6 +1004,13 @@ country_event = { # Introduction event
 		
 		ai_chance = {
 			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = TXS_independence
+					option = TXS_INDEPENDENCE_GUARENTEE
+				}
+			}
 		}
 		
 		add_political_power = -10
@@ -1007,13 +1021,6 @@ country_event = { # Introduction event
 		
 		ai_chance = {
 			factor = 50
-			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = TXS_independence
-					option = TXS_INDEPENDENCE_GUARENTEE
-				}
-			}
 		}
 		add_political_power = -10
 		add_manpower = -6
@@ -1022,7 +1029,7 @@ country_event = { # Introduction event
 		hidden_effect = {
 			country_event = {
 				id = Texas.28
-				days = 3
+				days = 1
 			}
 		}
 	}
@@ -1044,6 +1051,13 @@ country_event = { # Introduction event
 		
 		ai_chance = {
 			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = TXS_independence
+					option = TXS_INDEPENDENCE_GUARENTEE
+				}
+			}
 		}
 		
 		add_political_power = -10
@@ -1054,13 +1068,6 @@ country_event = { # Introduction event
 		
 		ai_chance = {
 			factor = 50
-			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = TXS_independence
-					option = TXS_INDEPENDENCE_GUARENTEE
-				}
-			}
 		}
 		add_political_power = -10
 		add_manpower = -6
@@ -1069,7 +1076,7 @@ country_event = { # Introduction event
 		hidden_effect = {
 			country_event = {
 				id = Texas.29
-				days = 3
+				days = 1
 			}
 		}
 	}
@@ -1091,6 +1098,13 @@ country_event = { # Introduction event
 		
 		ai_chance = {
 			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = TXS_independence
+					option = TXS_INDEPENDENCE_GUARENTEE
+				}
+			}
 		}
 		
 		add_political_power = -10
@@ -1101,13 +1115,6 @@ country_event = { # Introduction event
 		
 		ai_chance = {
 			factor = 50
-			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = TXS_independence
-					option = TXS_INDEPENDENCE_GUARENTEE
-				}
-			}
 		}
 		add_political_power = -10
 		add_manpower = -6
@@ -1116,7 +1123,7 @@ country_event = { # Introduction event
 		hidden_effect = {
 			country_event = {
 				id = Texas.30
-				days = 3
+				days = 1
 			}
 			country_event = { #AFP-Texas
 				id = Texas.10
@@ -1150,6 +1157,13 @@ country_event = { # Introduction event
 		
 		ai_chance = {
 			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = TXS_independence
+					option = TXS_INDEPENDENCE_GUARENTEE
+				}
+			}
 		}
 		
 		add_political_power = -10
@@ -1160,13 +1174,6 @@ country_event = { # Introduction event
 		
 		ai_chance = {
 			factor = 50
-			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = TXS_independence
-					option = TXS_INDEPENDENCE_GUARENTEE
-				}
-			}
 		}
 		add_political_power = -10
 		add_manpower = -6
@@ -1204,6 +1211,13 @@ country_event = { # Introduction event
 		
 		ai_chance = {
 			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = TXS_independence
+					option = TXS_INDEPENDENCE_GUARENTEE
+				}
+			}
 		}
 		
 		add_political_power = -10
@@ -1214,13 +1228,6 @@ country_event = { # Introduction event
 		
 		ai_chance = {
 			factor = 50
-			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = TXS_independence
-					option = TXS_INDEPENDENCE_GUARENTEE
-				}
-			}
 		}
 		add_political_power = -10
 		add_stability = -0.02
@@ -1250,6 +1257,13 @@ country_event = { # Introduction event
 		
 		ai_chance = {
 			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = TXS_independence
+					option = TXS_INDEPENDENCE_GUARENTEE
+				}
+			}
 		}
 		
 		add_political_power = -10
@@ -1260,13 +1274,6 @@ country_event = { # Introduction event
 		
 		ai_chance = {
 			factor = 50
-			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = TXS_independence
-					option = TXS_INDEPENDENCE_GUARENTEE
-				}
-			}
 		}
 		add_political_power = -10
 		add_stability = -0.02
@@ -1302,15 +1309,8 @@ country_event = { # Introduction event
 		name = TXS.0.a
 		ai_chance = {
 			factor = 50
-		}
-		remove_ideas = USA_bleeding_texas
-	}
-	option = {
-		name = TXS.0.b
-		ai_chance = {
-			factor = 50
 			modifier = {
-				factor = 100
+				factor = 0
 				has_game_rule = {
 					rule = TXS_independence
 					option = TXS_INDEPENDENCE_GUARENTEE
@@ -1318,9 +1318,16 @@ country_event = { # Introduction event
 			}
 		}
 		remove_ideas = USA_bleeding_texas
+	}
+	option = {
+		name = TXS.0.b
+		ai_chance = {
+			factor = 50
+		}
+		remove_ideas = USA_bleeding_texas
 		country_event = {
-				id = TXS.1
-				days = 3
+			id = TXS.1
+			days = 3
 		}
 	}
 }
@@ -1422,6 +1429,31 @@ country_event = { #
         name = TXS.2.a
         ai_chance = {
             factor = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = TXS_civil_war
+						option = TXS_LEFT_ALONE
+					}
+					has_game_rule = {
+						rule = TXS_civil_war
+						option = TXS_CIVIL_WAR_LONGISIST
+					}
+					has_game_rule = {
+						rule = TXS_civil_war
+						option = TXS_CIVIL_WAR_FEDS
+					}
+					has_game_rule = {
+						rule = TXS_civil_war
+						option = TXS_CIVIL_WAR_CAR
+					}
+					has_game_rule = {
+						rule = TXS_civil_war
+						option = TXS_CIVIL_WAR_PSA
+					}
+				}
+			}
         }
         declare_war_on = {
             target = TXS
@@ -1435,16 +1467,26 @@ country_event = { #
 		}
     }
 
-    option = { # Puppet Texas
+    option = { # Do nothing
         name = TXS.2.b
         ai_chance = {
             factor = 70
 			modifier = {
-                factor = 100
-                has_game_rule = {
-                    rule = TXS_civil_war
-                    option = TXS_CIVIL_WAR_LONGISIST
-                }
+                factor = 0
+				OR = {
+					has_game_rule = {
+						rule = TXS_civil_war
+						option = TXS_CIVIL_WAR_LONGISIST
+					}
+					has_game_rule = {
+						rule = TXS_civil_war
+						option = TXS_CIVIL_WAR_CSA
+					}
+					has_game_rule = {
+						rule = TXS_civil_war
+						option = TXS_WAR_WITH_EVERYONE
+					}
+				}
             }
 		}
         TXS = {
@@ -1455,17 +1497,31 @@ country_event = { #
         }
     }
 
-    option = {
+    option = { # AUS Puppet
         name = TXS.2.c
         ai_chance = {
             factor = 10
-			 modifier = {
-                factor = 0
-                has_game_rule = {
-                    rule = TXS_civil_war
-                    option = TXS_CIVIL_WAR_LONGISIST
-                }
-            }
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = TXS_civil_war
+						option = TXS_LEFT_ALONE
+					}
+					has_game_rule = {
+						rule = TXS_civil_war
+						option = TXS_CIVIL_WAR_FEDS
+					}
+					has_game_rule = {
+						rule = TXS_civil_war
+						option = TXS_CIVIL_WAR_CAR
+					}
+					has_game_rule = {
+						rule = TXS_civil_war
+						option = TXS_CIVIL_WAR_PSA
+					}
+				}
+			}
         }
         TXS = {
         country_event = {
@@ -1492,11 +1548,11 @@ country_event = {
 		name = TXS.3.a
 		ai_chance = {
 			factor = 1
-			 modifier = {
-                factor = 100
+			modifier = {
+                factor = 0
                 has_game_rule = {
                     rule = TXS_civil_war
-                    option = TXS_WAR_WITH_EVERYONE
+                    option = TXS_CIVIL_WAR_LONGISIST
                 }
             }
 		}
@@ -1508,16 +1564,22 @@ country_event = {
 		}
 	}
 	
-	option = {
+	option = { # AUS Puppet
 		name = TXS.3.b
 		ai_chance = {
 			factor = 99
-			 modifier = {
-                factor = 100
-                has_game_rule = {
-                    rule = TXS_civil_war
-                    option = TXS_CIVIL_WAR_LONGISIST
-                }
+			modifier = {
+                factor = 0
+				OR = {
+					has_game_rule = {
+						rule = TXS_civil_war
+						option = TXS_WAR_WITH_EVERYONE
+					}
+					has_game_rule = {
+						rule = TXS_civil_war
+						option = TXS_CIVIL_WAR_CSA
+					}
+				}
             }
 		}
 		TEX = {
@@ -1589,10 +1651,7 @@ country_event = { # Texas Leaves!
 	fire_only_once = yes
 
 	option = {
-		name = TXS.5a
-		ai_chance = {
-			factor = 0
-		}
+		name = TXS.5.a
 		declare_war_on = {
 			target = TXS
 			type = annex_everything
@@ -1623,11 +1682,11 @@ country_event = { # CSA Decision about Texas
         name = TXS.6.a
         ai_chance = { 
             factor = 1
-			 modifier = {
-                factor = 100
+            modifier = {
+                factor = 0
                 has_game_rule = {
                     rule = TXS_civil_war
-                    option = TXS_WAR_WITH_EVERYONE
+                    option = TXS_CIVIL_WAR_CSA
                 }
             }
         }
@@ -1641,11 +1700,11 @@ country_event = { # CSA Decision about Texas
         name = TXS.6.b
         ai_chance = {
             factor = 99
-            modifier = {
-                factor = 100
+			modifier = {
+                factor = 0
                 has_game_rule = {
                     rule = TXS_civil_war
-                    option = TXS_CIVIL_WAR_CSA
+                    option = TXS_WAR_WITH_EVERYONE
                 }
             }
         }
@@ -1673,7 +1732,16 @@ country_event = { # ACW nation informed that Canada has seized New England
 	
 	option = { # Pile on Texas!
 		name = TXS.7.a
-		ai_chance = { factor = 50 }
+		ai_chance = {
+			factor = 50
+			modifier = {
+                factor = 0
+                has_game_rule = {
+                    rule = TXS_civil_war
+                    option = TXS_CIVIL_WAR_CSA
+               }
+			}
+		}
 		declare_war_on = {
 			target = CSA
 			type = annex_everything
@@ -1684,13 +1752,6 @@ country_event = { # ACW nation informed that Canada has seized New England
 		name = TXS.7.b
 		ai_chance = {
 			factor = 99
-			modifier = {
-                factor = 100
-                has_game_rule = {
-                    rule = TXS_civil_war
-                    option = TXS_CIVIL_WAR_CSA
-               }
-			}
 		}
 		CSA = {
 		country_event = {
@@ -1785,8 +1846,14 @@ country_event = { # Defection
 		army_experience = -100
 		add_manpower = -100
 		#remove_unit_leader = 950
-		remove_unit_leader = 934
-		remove_unit_leader = 620
+		random_unit_leader = {
+				limit = { has_id = 934 }			
+				remove_unit_leader = yes
+			}
+		random_unit_leader = {
+				limit = { has_id = 620 }			
+				remove_unit_leader = yes
+			}
 		
 		TEX = {
 			country_event = TXS.10
@@ -1810,12 +1877,27 @@ country_event = { # Defection
 		add_war_support = -0.04
 		army_experience = -100
 		add_manpower = -1000
-		remove_unit_leader = 945
-		remove_unit_leader = 969
-		remove_unit_leader = 946
-		remove_unit_leader = 89998
+		random_unit_leader = {
+				limit = { has_id = 945 }			
+				remove_unit_leader = yes
+			}
+		random_unit_leader = {
+				limit = { has_id = 969 }			
+				remove_unit_leader = yes
+			}
+		random_unit_leader = {
+				limit = { has_id = 946 }			
+				remove_unit_leader = yes
+			}
+		random_unit_leader = {
+				limit = { has_id = 89998 }			
+				remove_unit_leader = yes
+			}
 		COR = {
-			remove_unit_leader = 78900
+			random_unit_leader = {
+				limit = { has_id = 78900 }			
+				remove_unit_leader = yes
+			}
 		}
 	}
 }
@@ -2156,7 +2238,7 @@ country_event = { #
 		create_country_leader = {
 			name = "Union Council"
 			desc = "POLITICS_SYNDIE_COUNCIL_DESC"
-			picture = "Portrait_TXS_council.tga"
+			picture = "gfx/leaders/TXS/Portrait_TXS_council.png"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 			traits = { makescift_commitee }
@@ -2317,7 +2399,10 @@ country_event = { # Reiber's Coup
 			ruling_party = paternal_autocrat
 			elections_allowed = no
 			}
-			remove_unit_leader = 89999 
+			random_unit_leader = {
+				limit = { has_id = 79999 }			
+				remove_unit_leader = yes
+			}
 			remove_all_ministers = yes
 			add_ideas = {
 				TXS_Torklid_Rieber_hog_npo
@@ -2371,9 +2456,9 @@ country_event = { # Reiber's Coup
 			create_country_leader = {
 				name = "Chamber of Executives"
 				desc = "POLITICS_CHAMBER_DESC"
-				picture = "Portrait_TXS_chamber.tga"
+				picture = "gfx/leaders/TXS/Portrait_TXS_chamber.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = corporatocracy_subtype
 				traits = { bought_and_paid_for }
 			}
 			hidden_effect = {
@@ -2402,45 +2487,237 @@ country_event = { # Reiber's Coup
 		}
 	}
 }
-country_event = { # Two TXSilies seeks to join the Entente
+
+country_event = {
 	id = TXS.21
 	immediate = {log = "[GetDateText]: [Root.GetName]: event TXS.21"}
 	title = TXS.21.t
-	desc = TXS.21.d
+	desc = { text = TXS.21.d1 trigger = { tag = TXS has_global_flag = TXS_negotiations_1 } }
+	desc = { text = TXS.21.d2 trigger = { tag = CAN has_global_flag = TXS_negotiations_2 } }
+	desc = { text = TXS.21.d3 trigger = { tag = CAN has_global_flag = TXS_negotiations_3 } }
+	desc = { text = TXS.21.d4 trigger = { tag = TXS has_global_flag = TXS_negotiations_3 } }
+	desc = { text = TXS.21.d5 trigger = { tag = TXS has_global_flag = TXS_negotiations_2 } }
 	picture = diplomacy1
 
 	is_triggered_only = yes
 
 	option = {
 		name = TXS.21.a
+		trigger = {
+			NOT = { has_global_flag = TXS_negotiations_1 }
+		}
 		ai_chance = {
 			factor = 95
 		}
-		effect_tooltip = {
-			add_to_faction = TXS
+		if = {
+			limit = {
+				original_tag = CAN
+				has_global_flag = TXS_negotiations_2
+			}
+			effect_tooltip = {
+				add_to_faction = TXS
+				add_political_power = 25
+			}
+			TXS = {
+				country_event = {
+					id = TXS.22
+					days = 3
+				}
+			}
+			add_political_power = 25
 		}
-		TXS = {
-			country_event = {
-				id = TXS.22
-				days = 5
+		else_if = {
+			limit = {
+				original_tag = CAN
+				has_global_flag = TXS_negotiations_3
+			}
+			effect_tooltip = {
+				give_guarantee = TXS
+				add_political_power = 25
+			}
+			TXS = {
+				country_event = {
+					id = TXS.22
+					days = 3
+				}
+			}
+			add_political_power = 25
+		}
+		else_if = {
+			limit = {
+				original_tag = TXS
+				has_global_flag = TXS_negotiations_2
+			}
+			effect_tooltip = {
+				CAN = { add_to_faction = TXS }
+				add_political_power = 25
+			}
+			add_political_power = 25
+			CAN = {
+				country_event = {
+					id = TXS.22
+					days = 3
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				original_tag = TXS
+				has_global_flag = TXS_negotiations_3
+			}
+			effect_tooltip = {
+				CAN = { give_guarantee = TXS }
+				add_political_power = 25
+			}
+			add_political_power = 25
+			CAN = {
+				country_event = {
+					id = TXS.22
+					days = 3
+				}
 			}
 		}
 	}
 	option = {
+		trigger = {
+			NOT = { has_global_flag = TXS_negotiations_2 }
+			OR = {
+				NOT = {
+					original_tag = TXS
+				}
+				has_global_flag = TXS_negotiations_1
+			}
+		}
 		name = TXS.21.b
 		ai_chance = {
 			factor = 5
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = TXS_foreign_policy
+					option = TXS_FOREGN_POLICY_ENTENTE_LITE
+				}
+			}
 		}
-		add_political_power = -20
-		TXS = {
-			country_event = {
-				id = TXS.33
-				days = 5
+		clr_global_flag = TXS_negotiations_1
+		set_global_flag = TXS_negotiations_2
+		clr_global_flag = TXS_negotiations_3
+		if = {
+			limit = {
+				has_global_flag = TXS_negotiations_1
+			}
+			add_political_power = -20
+			CAN = {
+				country_event = {
+					id = TXS.21
+					days = 3
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				original_tag = CAN
+			}
+			TXS = {
+				country_event = {
+					id = TXS.21
+					days = 3
+				}
+			}
+		}
+	}
+	option = {
+		trigger = {
+			NOT = { has_global_flag = TXS_negotiations_3 }
+			OR = {
+				NOT = {
+					original_tag = TXS
+				}
+				has_global_flag = TXS_negotiations_1
+			}
+		}
+		name = TXS.21.c
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = TXS_foreign_policy
+					option = TXS_FOREGN_POLICY_ENTENTE
+				}
+			}
+		}
+		clr_global_flag = TXS_negotiations_1
+		clr_global_flag = TXS_negotiations_2
+		set_global_flag = TXS_negotiations_3
+		if = {
+			limit = {
+				has_global_flag = TXS_negotiations_1
+			}
+			CAN = {
+				country_event = {
+					id = TXS.21
+					days = 3
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				original_tag = CAN
+			}
+			TXS = {
+				country_event = {
+					id = TXS.21
+					days = 3
+				}
+			}
+		}
+	}
+	option = {
+		trigger = {
+			NOT = { has_global_flag = TXS_negotiations_1 }
+		}
+		name = TXS.21.e
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = TXS_foreign_policy
+						option = TXS_FOREGN_POLICY_ENTENTE
+					}
+					has_game_rule = {
+						rule = TXS_foreign_policy
+						option = TXS_FOREGN_POLICY_ENTENTE_LITE
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				original_tag = TXS
+			}
+			add_political_power = -20
+			CAN = {
+				country_event = {
+					id = TXS.23
+					days = 3
+				}
+			}
+		}
+		else = {
+			TXS = {
+				country_event = {
+					id = TXS.23
+					days = 3
+				}
 			}
 		}
 	}
 }
-country_event = { # British say yes!
+
+country_event = {
 	id = TXS.22
 	immediate = {log = "[GetDateText]: [Root.GetName]: event TXS.22"}
 	title = TXS.22.t
@@ -2451,13 +2728,30 @@ country_event = { # British say yes!
 
 	option = {
 		name = TXS.22.a
-		add_political_power = 60
-		CAN = {
-			add_to_faction = TXS
+		add_political_power = 25
+		if = {
+			limit = {
+				has_global_flag = TXS_negotiations_2
+			}
+			CAN = {
+				add_to_faction = TXS
+			}
 		}
+		else_if = {
+			limit = {
+				has_global_flag = TXS_negotiations_3
+			}
+			CAN = {
+				give_guarantee = TXS
+			}
+		}
+		clr_global_flag = TXS_negotiations_1
+		clr_global_flag = TXS_negotiations_2
+		clr_global_flag = TXS_negotiations_3
 	}
 }
-country_event = { # British say no!
+
+country_event = {
 	id = TXS.23
 	immediate = {log = "[GetDateText]: [Root.GetName]: event TXS.23"}
 	title = TXS.23.t
@@ -2467,49 +2761,246 @@ country_event = { # British say no!
 	is_triggered_only = yes
 
 	option = { # damn
-		name = TXS.33.a
-		add_political_power = -20
+		name = TXS.23.a
+		if = {
+			limit = {
+				original_tag = TXS
+			}
+			add_political_power = -20
+		}
 	}
 }
-country_event = { # Two TXSilies offer(German)
+
+country_event = {
 	id = TXS.24
 	immediate = {log = "[GetDateText]: [Root.GetName]: event TXS.24"}
 	title = TXS.24.t
-	desc = TXS.24.d
+	desc = { text = TXS.24.d1 trigger = { tag = TXS has_global_flag = TXS_negotiations_1 } }
+	desc = { text = TXS.24.d2 trigger = { tag = GER has_global_flag = TXS_negotiations_2 } }
+	desc = { text = TXS.24.d3 trigger = { tag = GER has_global_flag = TXS_negotiations_3 } }
+	desc = { text = TXS.24.d4 trigger = { tag = TXS has_global_flag = TXS_negotiations_3 } }
+	desc = { text = TXS.24.d5 trigger = { tag = TXS has_global_flag = TXS_negotiations_2 } }
 	picture = diplomacy1
 
 	is_triggered_only = yes
 
 	option = {
 		name = TXS.24.a
+		trigger = {
+			NOT = { has_global_flag = TXS_negotiations_1 }
+		}
 		ai_chance = {
 			factor = 95
 		}
-		effect_tooltip = {
-			add_to_faction = TXS
+		if = {
+			limit = {
+				original_tag = GER
+				has_global_flag = TXS_negotiations_2
+			}
+			effect_tooltip = {
+				add_to_faction = TXS
+				add_political_power = 25
+			}
+			TXS = {
+				country_event = {
+					id = TXS.25
+					days = 3
+				}
+			}
+			add_political_power = 25
 		}
-		TXS = {
-			country_event = {
-				id = TXS.25
-				days = 5
+		else_if = {
+			limit = {
+				original_tag = GER
+				has_global_flag = TXS_negotiations_3
+			}
+			effect_tooltip = {
+				give_guarantee = TXS
+				add_political_power = 25
+			}
+			TXS = {
+				country_event = {
+					id = TXS.25
+					days = 3
+				}
+			}
+			add_political_power = 25
+		}
+		else_if = {
+			limit = {
+				original_tag = TXS
+				has_global_flag = TXS_negotiations_2
+			}
+			effect_tooltip = {
+				GER = { add_to_faction = TXS }
+				add_political_power = 25
+			}
+			add_political_power = 25
+			GER = {
+				country_event = {
+					id = TXS.25
+					days = 3
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				original_tag = TXS
+				has_global_flag = TXS_negotiations_3
+			}
+			effect_tooltip = {
+				GER = { give_guarantee = TXS }
+				add_political_power = 25
+			}
+			add_political_power = 25
+			GER = {
+				country_event = {
+					id = TXS.25
+					days = 3
+				}
 			}
 		}
 	}
 	option = {
-		name = TXS.34.b
+		trigger = {
+			NOT = { has_global_flag = TXS_negotiations_2 }
+			OR = {
+				NOT = {
+					original_tag = TXS
+				}
+				has_global_flag = TXS_negotiations_1
+			}
+		}
+		name = TXS.24.b
 		ai_chance = {
 			factor = 5
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = TXS_foreign_policy
+					option = TXS_FOREGN_POLICY_REICHSPAKT_LITE
+				}
+			}
 		}
-		add_political_power = -20
-		TXS = {
-			country_event = {
-				id = TXS.26
-				days = 5
+		if = {
+			limit = {
+				has_global_flag = TXS_negotiations_1
+			}
+			add_political_power = -20
+			GER = {
+				country_event = {
+					id = TXS.24
+					days = 3
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				original_tag = GER
+			}
+			TXS = {
+				country_event = {
+					id = TXS.24
+					days = 3
+				}
+			}
+		}
+		clr_global_flag = TXS_negotiations_1
+		set_global_flag = TXS_negotiations_2
+		clr_global_flag = TXS_negotiations_3
+	}
+	option = {
+		trigger = {
+			NOT = { has_global_flag = TXS_negotiations_3 }
+			OR = {
+				NOT = {
+					original_tag = TXS
+				}
+				has_global_flag = TXS_negotiations_1
+			}
+		}
+		name = TXS.24.c
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = TXS_foreign_policy
+					option = TXS_FOREGN_POLICY_REICHSPAKT
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_global_flag = TXS_negotiations_1
+			}
+			GER = {
+				country_event = {
+					id = TXS.24
+					days = 3
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				original_tag = GER
+			}
+			TXS = {
+				country_event = {
+					id = TXS.24
+					days = 3
+				}
+			}
+		}
+		clr_global_flag = TXS_negotiations_1
+		set_global_flag = TXS_negotiations_2
+		clr_global_flag = TXS_negotiations_3
+	}
+	option = {
+		trigger = {
+			NOT = { has_global_flag = TXS_negotiations_1 }
+		}
+		name = TXS.24.e
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = TXS_foreign_policy
+						option = TXS_FOREGN_POLICY_REICHSPAKT
+					}
+					has_game_rule = {
+						rule = TXS_foreign_policy
+						option = TXS_FOREGN_POLICY_REICHSPAKT_LITE
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				original_tag = TXS
+			}
+			add_political_power = -20
+			GER = {
+				country_event = {
+					id = TXS.26
+					days = 3
+				}
+			}
+		}
+		else = {
+			TXS = {
+				country_event = {
+					id = TXS.26
+					days = 3
+				}
 			}
 		}
 	}
 }
-country_event = { # German say yes!
+
+country_event = {
 	id = TXS.25
 	immediate = {log = "[GetDateText]: [Root.GetName]: event TXS.25"}
 	title = TXS.25.t
@@ -2520,14 +3011,30 @@ country_event = { # German say yes!
 
 	option = {
 		name = TXS.25.a
-		add_political_power = 60
-		GER = {
-			add_to_faction = TXS
+		add_political_power = 25
+		if = {
+			limit = {
+				has_global_flag = TXS_negotiations_2
+			}
+			GER = {
+				add_to_faction = TXS
+			}
 		}
-		set_global_flag = TXS_german
+		if = {
+			limit = {
+				has_global_flag = TXS_negotiations_3
+			}
+			GER = {
+				give_guarantee = TXS
+			}
+		}
+		clr_global_flag = TXS_negotiations_1
+		clr_global_flag = TXS_negotiations_2
+		clr_global_flag = TXS_negotiations_3
 	}
 }
-country_event = { # German say no!
+
+country_event = {
 	id = TXS.26
 	immediate = {log = "[GetDateText]: [Root.GetName]: event TXS.26"}
 	title = TXS.26.t
@@ -2538,74 +3045,295 @@ country_event = { # German say no!
 
 	option = { # damn
 		name = TXS.26.a
-		add_political_power = -20
+		if = {
+			limit = {
+				original_tag = TXS
+			}
+			add_political_power = -20
+		}
 	}
 }
-country_event = { # Two TXSilies offer(Austrian)
+
+country_event = {
 	id = TXS.27
 	immediate = {log = "[GetDateText]: [Root.GetName]: event TXS.27"}
 	title = TXS.27.t
-	desc = TXS.27.d
+	desc = { text = TXS.27.d1 trigger = { tag = TXS has_global_flag = TXS_negotiations_1 } }
+	desc = { text = TXS.27.d2 trigger = { tag = FRA has_global_flag = TXS_negotiations_2 } }
+	desc = { text = TXS.27.d3 trigger = { tag = FRA has_global_flag = TXS_negotiations_3 } }
+	desc = { text = TXS.27.d4 trigger = { tag = TXS has_global_flag = TXS_negotiations_3 } }
+	desc = { text = TXS.27.d5 trigger = { tag = TXS has_global_flag = TXS_negotiations_2 } }
 	picture = diplomacy1
 
 	is_triggered_only = yes
 
 	option = {
 		name = TXS.27.a
+		trigger = {
+			NOT = { has_global_flag = TXS_negotiations_1 }
+		}
 		ai_chance = {
 			factor = 95
 		}
-		add_political_power = 140
-		effect_tooltip = {
-			add_to_faction = TXS
+		if = {
+			limit = {
+				original_tag = FRA
+				has_global_flag = TXS_negotiations_2
+			}
+			effect_tooltip = {
+				add_to_faction = TXS
+				add_political_power = 25
+			}
+			TXS = {
+				country_event = {
+					id = TXS.28
+					days = 3
+				}
+			}
+			add_political_power = 25
 		}
-		TXS = {
-			country_event = {
-				id = TXS.28
-				days = 5
+		else_if = {
+			limit = {
+				original_tag = FRA
+				has_global_flag = TXS_negotiations_3
+			}
+			effect_tooltip = {
+				give_guarantee = TXS
+				add_political_power = 25
+			}
+			TXS = {
+				country_event = {
+					id = TXS.28
+					days = 3
+				}
+			}
+			add_political_power = 25
+		}
+		else_if = {
+			limit = {
+				original_tag = TXS
+				has_global_flag = TXS_negotiations_2
+			}
+			effect_tooltip = {
+				FRA = { add_to_faction = TXS }
+				add_political_power = 25
+			}
+			add_political_power = 25
+			FRA = {
+				country_event = {
+					id = TXS.28
+					days = 3
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				original_tag = TXS
+				has_global_flag = TXS_negotiations_3
+			}
+			effect_tooltip = {
+				FRA = { give_guarantee = TXS }
+				add_political_power = 25
+			}
+			add_political_power = 25
+			FRA = {
+				country_event = {
+					id = TXS.28
+					days = 3
+				}
 			}
 		}
 	}
 	option = {
+		trigger = {
+			NOT = { has_global_flag = TXS_negotiations_2 }
+			OR = {
+				NOT = {
+					original_tag = TXS
+				}
+				has_global_flag = TXS_negotiations_1
+			}
+		}
 		name = TXS.27.b
-		add_political_power = -20
-		TXS = {
-			country_event = {
-				id = TXS.27
-				days = 5
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = TXS_foreign_policy
+					option = TXS_FOREGN_POLICY_INTERNATIONALE_LITE
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_global_flag = TXS_negotiations_1
+			}
+			add_political_power = -20
+			FRA = {
+				country_event = {
+					id = TXS.27
+					days = 3
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				original_tag = FRA
+			}
+			TXS = {
+				country_event = {
+					id = TXS.27
+					days = 3
+				}
+			}
+		}
+		clr_global_flag = TXS_negotiations_1
+		set_global_flag = TXS_negotiations_2
+		clr_global_flag = TXS_negotiations_3
+	}
+	option = {
+		trigger = {
+			NOT = { has_global_flag = TXS_negotiations_3 }
+			OR = {
+				NOT = {
+					original_tag = TXS
+				}
+				has_global_flag = TXS_negotiations_1
+			}
+		}
+		name = TXS.27.c
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = TXS_foreign_policy
+					option = TXS_FOREGN_POLICY_INTERNATIONALE
+				}
+			}
+		}
+		clr_global_flag = TXS_negotiations_1
+		clr_global_flag = TXS_negotiations_2
+		set_global_flag = TXS_negotiations_3
+		if = {
+			limit = {
+				has_global_flag = TXS_negotiations_1
+			}
+			FRA = {
+				country_event = {
+					id = TXS.27
+					days = 3
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				original_tag = FRA
+			}
+			TXS = {
+				country_event = {
+					id = TXS.27
+					days = 3
+				}
+			}
+		}
+	}
+	option = {
+		trigger = {
+			NOT = { has_global_flag = TXS_negotiations_1 }
+		}
+		name = TXS.27.e
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = TXS_foreign_policy
+						option = TXS_FOREGN_POLICY_INTERNATIONALE
+					}
+					has_game_rule = {
+						rule = TXS_foreign_policy
+						option = TXS_FOREGN_POLICY_INTERNATIONALE_LITE
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				original_tag = TXS
+			}
+			add_political_power = -20
+			FRA = {
+				country_event = {
+					id = TXS.29
+					days = 3
+				}
+			}
+		}
+		else = {
+			TXS = {
+				country_event = {
+					id = TXS.29
+					days = 3
+				}
 			}
 		}
 	}
 }
-country_event = { # Austrian say yes!
+
+country_event = {
 	id = TXS.28
 	immediate = {log = "[GetDateText]: [Root.GetName]: event TXS.28"}
-	title = TXS.38.t
-	desc = TXS.38.d
+	title = TXS.28.t
+	desc = TXS.28.d
 	picture = diplomacy1
 
 	is_triggered_only = yes
 
 	option = {
 		name = TXS.28.a
-		add_political_power = 60
-		FRA = {
-			add_to_faction = TXS
+		add_political_power = 25
+		if = {
+			limit = {
+				has_global_flag = TXS_negotiations_2
+			}
+			FRA = {
+				add_to_faction = TXS
+			}
 		}
+		else_if = {
+			limit = {
+				has_global_flag = TXS_negotiations_3
+			}
+			FRA = {
+				give_guarantee = TXS
+			}
+		}
+		clr_global_flag = TXS_negotiations_1
+		clr_global_flag = TXS_negotiations_2
+		clr_global_flag = TXS_negotiations_3
 	}
 }
-country_event = { # Austrian say no!
+
+country_event = {
 	id = TXS.29
 	immediate = {log = "[GetDateText]: [Root.GetName]: event TXS.29"}
-	title = TXS.39.t
-	desc = TXS.39.d
+	title = TXS.29.t
+	desc = TXS.29.d
 	picture = diplomacy1
 
 	is_triggered_only = yes
 
 	option = { # damn
 		name = TXS.29.a
-		add_political_power = -20
+		if = {
+			limit = {
+				original_tag = TXS
+			}
+			add_political_power = -20
+		}
 	}
 }
 country_event = { # America is reunited
@@ -2621,11 +3349,18 @@ country_event = { # America is reunited
 		OR = {
 			tag = TXS
 			tag = ALA
+			tag = PAN
 		}
 		owns_state = 361 #Maryland
 		owns_state = 371 #Louisiana
 		owns_state = 395 #Illinois
-		owns_state = 797 #San Francisco
+		OR = {
+			owns_state = 797 #San Francisco
+			AND = {
+				CAL = { is_in_faction = yes }
+				has_global_flag = CAL_seperatist_claim
+			}
+		}
 		owns_state = 932 #Massachusetts
 		NOT = {
 			country_exists = TEX
@@ -2646,6 +3381,143 @@ country_event = { # America is reunited
 		name = TXS.30.a
 		trigger = {
 			NOT = {
+				has_country_flag = GEX_became_KTX
+				AND = {
+					OR = {
+						tag = PAN
+						tag = TXS
+					}
+					NOT = {
+						has_country_flag = TXS_Remove_Texaco
+					}
+					OR = {
+						has_government = national_populist
+						has_government = paternal_autocrat
+					}
+				}
+				has_country_leader = {
+					ruling_only = yes
+					name = "Elwood Towner"
+				}
+			}
+		}
+		set_country_flag = TXS_UNITED_AMERICA
+		
+		if = {
+			limit = {
+				CAL = {
+					is_in_faction = yes
+					exists = yes
+				}
+				has_global_flag = CAL_seperatist_claim
+			}
+			CAL = {
+				every_owned_state = {
+					FROM.OWNER = { 
+						add_state_core = ROOT
+					}
+				}
+			}
+		}
+		every_owned_state = {
+			FROM.OWNER = { 
+				add_state_core = PREV
+			}
+		}
+	}
+	option = { # at long last we are reunited
+		name = TXS.30.a
+		trigger = {
+			AND = {
+				tag = TXS
+				NOT = {
+					has_country_flag = TXS_Remove_Texaco
+					has_country_flag = GEX_became_KTX
+				}
+				OR = {
+					has_government = national_populist
+					has_government = paternal_autocrat
+				}
+			}
+		}
+		set_cosmetic_tag = TXS_texaco_usa
+		if = {
+			limit = {
+				CAL = {
+					is_in_faction = yes
+					exists = yes
+				}
+				has_global_flag = CAL_seperatist_claim
+			}
+			CAL = {
+				every_owned_state = {
+					add_core_of = ROOT
+				}
+			}
+		}
+		every_owned_state = {
+			FROM.OWNER = { 
+				add_state_core = PREV
+			}
+		}
+		set_country_flag = TXS_UNITED_AMERICA
+	}
+	option = { # at long last we are reunited
+		name = TXS.30.b
+		trigger = {
+			has_cosmetic_tag = ALA_LIC
+		}
+		
+		set_cosmetic_tag = ALA_LIC_USA
+		if = {
+			limit = {
+				CAL = {
+					is_in_faction = yes
+					exists = yes
+				}
+				has_global_flag = CAL_seperatist_claim
+			}
+			CAL = {
+				every_owned_state = {
+					add_core_of = ROOT
+				}
+			}
+		}
+		every_owned_state = {
+			FROM.OWNER = { 
+				add_state_core = PREV
+			}
+		}
+		set_country_flag = TXS_UNITED_AMERICA
+	}
+	option = { # at long last we are reunited
+		name = TXS.30.c
+		trigger = {
+			has_cosmetic_tag = ALA_JEW
+		}
+		
+		set_cosmetic_tag = ALA_JEW_USA
+		if = {
+			limit = {
+				CAL = {
+					is_in_faction = yes
+					exists = yes
+				}
+				has_global_flag = CAL_seperatist_claim
+			}
+			CAL = {
+				every_owned_state = {
+					add_core_of = ROOT
+				}
+			}
+		}
+		set_country_flag = TXS_UNITED_AMERICA
+	}
+	option = { # at long last we are reunited
+		name = TXS.30.e
+		trigger = {
+			NOT = {
+				tag = PAN
 				AND = {
 					tag = TXS
 					NOT = {
@@ -2657,65 +3529,85 @@ country_event = { # America is reunited
 					}
 				}
 			}
-		}
-			
-		set_cosmetic_tag = NEE_america
-		every_owned_state = {
-			FROM.OWNER = { 
-				add_state_core = PREV 
+			has_country_leader = {
+				ruling_only = yes
+				name = "Elwood Towner"
 			}
 		}
 		set_country_flag = TXS_UNITED_AMERICA
+		
+		if = {
+			limit = {
+				CAL = {
+					is_in_faction = yes
+					exists = yes
+				}
+				has_global_flag = CAL_seperatist_claim
+			}
+			CAL = {
+				every_owned_state = {
+					FROM.OWNER = { 
+						add_state_core = ROOT
+					}
+				}
+			}
+		}
+		every_owned_state = {
+			FROM.OWNER = { 
+				add_state_core = PREV
+			}
+		}
 	}
+	
+	option = { # at long last we are reunited
+		name = TXS.30.f
+		trigger = {
+			tag = TXS
+			OR = {
+				has_country_leader = {
+					ruling_only = yes
+					name = "Wilhelm II"
+				}
+				has_country_leader = {
+					ruling_only = yes
+					name = "Wilhelm III"
+				}
+			}
+		}
+		set_country_flag = TXS_UNITED_AMERICA
+		set_cosmetic_tag = USA_GER
+		
+	}
+
 	option = { # at long last we are reunited
 		name = TXS.30.a
 		trigger = {
-			AND = {
-				tag = TXS
-				NOT = {
-					has_country_flag = TXS_Remove_Texaco
+			tag = PAN
+		}
+		set_country_flag = TXS_UNITED_AMERICA
+		
+		if = {
+			limit = {
+				CAL = {
+					is_in_faction = yes
+					exists = yes
 				}
-				OR = {
-					has_government = national_populist
-					has_government = paternal_autocrat
+				has_global_flag = CAL_seperatist_claim
+			}
+			CAL = {
+				every_owned_state = {
+					FROM.OWNER = { 
+						add_state_core = ROOT
+					}
 				}
 			}
 		}
-		set_cosmetic_tag = TXS_texaco_usa
 		every_owned_state = {
 			FROM.OWNER = { 
-				add_state_core = PREV 
+				add_state_core = PREV
 			}
 		}
-		set_country_flag = TXS_UNITED_AMERICA
-	}
-	option = { # at long last we are reunited
-		name = TXS.30.b
-		trigger = {
-			has_cosmetic_tag = ALA_LIC
-		}
-			
-		set_cosmetic_tag = ALA_LIC_USA
-		every_owned_state = {
-			FROM.OWNER = { 
-				add_state_core = PREV 
-			}
-		}
-		set_country_flag = TXS_UNITED_AMERICA
-	}
-	option = { # at long last we are reunited
-		name = TXS.30.c
-		trigger = {
-			has_cosmetic_tag = ALA_JEW
-		}
-			
-		set_cosmetic_tag = ALA_JEW_USA
-		every_owned_state = {
-			FROM.OWNER = { 
-				add_state_core = PREV 
-			}
-		}
-		set_country_flag = TXS_UNITED_AMERICA
+		set_cosmetic_tag = NEE_america
 	}
 }
 country_event = { # Austrian say yes!
@@ -2734,7 +3626,7 @@ country_event = { # Austrian say yes!
 			factor = 95
 		}
 		hidden_effect = {
-		set_global_flag= TXS_divided
+			set_global_flag= TXS_divided
 		}
 	}
 }
@@ -2755,7 +3647,7 @@ country_event = { # Introduction event
 			country_event = {
 				id = TXS.108
 				days = 5
-				} #party spliters
+			} #party spliters
 		} 
 	}
 }
@@ -2773,25 +3665,25 @@ country_event = { # The most decorated soldier
 	}
 	
 	option = {
-	name = TXS.33.a
-	create_corps_commander = {# Audie Murphy
-		name = "Audie Murphy"
-		desc = ""
-		portrait_path = "gfx/leaders/TXS/Portrait_Texas_Audie_Murphy.tga"
-		traits = {
-			trickster
-			war_hero
-			trait_reckless
-		}
-		skill = 3
-		attack_skill = 3
-		defense_skill = 2
-		planning_skill = 2
-		logistics_skill = 3
+		name = TXS.33.a
+		create_corps_commander = {# Audie Murphy
+			name = "Audie Murphy"
+			desc = ""
+			portrait_path = "gfx/leaders/TXS/Portrait_Texas_Audie_Murphy.png"
+			traits = {
+				trickster
+				war_hero
+				trait_reckless
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
 		}
 	}
 }
-country_event = { # Introduction event
+country_event = { # Loyalty to the U.S
 	id = TXS.34
 	immediate = {log = "[GetDateText]: [Root.GetName]: event TXS.34"}
 	title = TXS.34.t
@@ -2803,20 +3695,64 @@ country_event = { # Introduction event
 	
 	option = {
 	name = TXS.34.a
-	declare_war_on = {
-		target = TEX
-		type = annex_everything
-	}
-	declare_war_on = {
-		target = CSA
-		type = annex_everything
+		declare_war_on = {
+			target = TEX
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = CSA
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = CAL
+			type = annex_everything
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = CAR_USA_TREATY }
+			}
+			declare_war_on = {
+				target = COR
+				type = annex_everything
+			}
+		}
+		give_military_access = USA
+		USA = {
+			give_military_access = ROOT
+		}
+		reverse_add_opinion_modifier = {
+			target = USA
+			modifier = KR_approves_of_govt
+		}
+		add_opinion_modifier = {
+			target = USA
+			modifier = KR_approves_of_govt
+		}
+		if = {
+			limit = {
+				WCC = {
+					is_in_faction_with = USA
+				}
+			}
+			give_military_access = WCC
+			WCC = {
+				give_military_access = ROOT
+			}
+			reverse_add_opinion_modifier = {
+				target = WCC
+				modifier = KR_approves_of_govt
+			}
+			add_opinion_modifier = {
+				target = WCC
+				modifier = KR_approves_of_govt
+			}
 		}
 		hidden_effect = {
-		set_global_flag = TXS_ACW_USA
+			set_global_flag = TXS_ACW_USA
 		}
 	}
 }
-country_event = { # Introduction event
+country_event = { # Loyalty to the Union State
 	id = TXS.35
 	immediate = {log = "[GetDateText]: [Root.GetName]: event TXS.35"}
 	title = TXS.35.t
@@ -2828,24 +3764,55 @@ country_event = { # Introduction event
 	
 	option = {
 	name = TXS.35.a
-	declare_war_on = {
-			target = CSA
-			type = annex_everything
-	}
-	declare_war_on = {
-			target = USA
-			type = annex_everything
-	}
-	declare_war_on = {
-			target = CAL
-			type = annex_everything
-	}
-	hidden_effect = {
-		set_global_flag = TXS_FACTION
+		if = {
+			limit = {
+				NOT = { has_global_flag = AUS_CSA_TREATY }
+			}
+			declare_war_on = {
+				target = CSA
+				type = annex_everything
+			}
+		}
+		declare_war_on = {
+				target = USA
+				type = annex_everything
+		}
+		declare_war_on = {
+				target = WCC
+				type = annex_everything
+		}
+		declare_war_on = {
+				target = COR
+				type = annex_everything
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = PSA_AUS_TREATY }
+			}
+			declare_war_on = {
+				target = CAL
+				type = annex_everything
+			}
+		}
+		give_military_access = TEX
+		TEX = {
+			give_military_access = ROOT
+		}
+		reverse_add_opinion_modifier = {
+			target = TEX
+			modifier = KR_approves_of_govt
+		}
+		add_opinion_modifier = {
+			target = TEX
+			modifier = KR_approves_of_govt
+		}
+		hidden_effect = {
+			set_global_flag = TXS_FACTION
+			set_global_flag = TXS_ACW_TEX
 		}
 	}
 }
-country_event = { # Introduction event
+country_event = { # Loyalty to the CSA
 	id = TXS.36
 	immediate = {log = "[GetDateText]: [Root.GetName]: event TXS.36"}
 	title = TXS.36.t
@@ -2857,28 +3824,55 @@ country_event = { # Introduction event
 	
 	option = {
 	name = TXS.36.a
-	declare_war_on = {
-			target = TEX
-			type = annex_everything
-	}
-	declare_war_on = {
-			target = COR
-			type = annex_everything
-	}
-	declare_war_on = {
-			target = USA
-			type = annex_everything
-	}
-	declare_war_on = {
-			target = CAL
-			type = annex_everything
-	}
-	hidden_effect = {
-		set_global_flag = TXS_FACTION
+		if = {
+			limit = {
+				NOT = { has_global_flag = AUS_CSA_TREATY }
+			}
+			declare_war_on = {
+				target = TEX
+				type = annex_everything
+			}
+		}
+		declare_war_on = {
+				target = COR
+				type = annex_everything
+		}
+		declare_war_on = {
+				target = USA
+				type = annex_everything
+		}
+		declare_war_on = {
+				target = WCC
+				type = annex_everything
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = PSA_CSA_TREATY }
+			}
+			declare_war_on = {
+				target = CAL
+				type = annex_everything
+			}
+		}
+		give_military_access = CSA
+		CSA = {
+			give_military_access = ROOT
+		}
+		reverse_add_opinion_modifier = {
+			target = CSA
+			modifier = KR_approves_of_govt
+		}
+		add_opinion_modifier = {
+			target = CSA
+			modifier = KR_approves_of_govt
+		}
+		hidden_effect = {
+			set_global_flag = TXS_FACTION
+			set_global_flag = TXS_ACW_CSA
 		}
 	}
 }
-country_event = { # Introduction event
+country_event = { # Loyalty to the PSA
 	id = TXS.37
 	immediate = {log = "[GetDateText]: [Root.GetName]: event TXS.37"}
 	title = TXS.37.t
@@ -2890,9 +3884,14 @@ country_event = { # Introduction event
 	
 	option = {
 		name = TXS.37.a
-		declare_war_on = {
-			target = CSA
-			type = annex_everything
+		if = {
+			limit = {
+				NOT = { has_global_flag = PSA_CSA_TREATY }
+			}
+			declare_war_on = {
+				target = CSA
+				type = annex_everything
+			}
 		}
 		declare_war_on = {
 			target = COR
@@ -2903,15 +3902,38 @@ country_event = { # Introduction event
 			type = annex_everything
 		}
 		declare_war_on = {
-			target = TEX
+			target = WCC
 			type = annex_everything
 		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = PSA_AUS_TREATY }
+			}
+			declare_war_on = {
+				target = TEX
+				type = annex_everything
+			}
+		}
+		give_military_access = CAL
+		CAL = {
+			give_military_access = ROOT
+		}
+		reverse_add_opinion_modifier = {
+			target = CAL
+			modifier = KR_approves_of_govt
+		}
+		add_opinion_modifier = {
+			target = CAL
+			modifier = KR_approves_of_govt
+		}
+
 		hidden_effect = {
 			set_global_flag = TXS_FACTION
+			set_global_flag = TXS_ACW_CAL
 		}
 	}
 }
-country_event = { # Introduction event
+country_event = { # Loyalty to the CAR
 	id = TXS.370
 	immediate = {log = "[GetDateText]: [Root.GetName]: event TXS.370"}
 	title = TXS.370.t
@@ -2931,16 +3953,42 @@ country_event = { # Introduction event
 			target = CAL
 			type = annex_everything
 		}
-		declare_war_on = {
-			target = USA
-			type = annex_everything
+		if = {
+			limit = {
+				NOT = { has_global_flag = CAR_USA_TREATY }
+			}
+			declare_war_on = {
+				target = USA
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = WCC
+				type = annex_everything
+			}
 		}
 		declare_war_on = {
 			target = TEX
 			type = annex_everything
 		}
+		declare_war_on = {
+			target = BBR
+			type = annex_everything
+		}
+		give_military_access = COR
+		COR = {
+			give_military_access = ROOT
+		}
+		reverse_add_opinion_modifier = {
+			target = COR
+			modifier = KR_approves_of_govt
+		}
+		add_opinion_modifier = {
+			target = COR
+			modifier = KR_approves_of_govt
+		}
 		hidden_effect = {
 			set_global_flag = TXS_FACTION
+			set_global_flag = TXS_ACW_COR
 		}
 	}
 }
@@ -3148,7 +4196,7 @@ country_event = { # The most decorated soldier
 	name = TXS.46.a
 	create_navy_leader = { #Auto-Generated
 		name = "Dorris Miller"
-		portrait_path = "gfx/leaders/TXS/Portrait_Texas_Dorris_Miller.tga"
+		portrait_path = "gfx/leaders/TXS/Portrait_Texas_Dorris_Miller.png"
 		traits = {
 			fly_swatter
 			superior_tactician
@@ -3279,7 +4327,7 @@ country_event = { # Introduction event
 			create_country_leader = {
 				name = "Homer Brooks"
 				desc = "POLITICS_HOMER_ROSS_DESC"
-				picture = "Portrait_Texas_Homer_Ross.tga"
+				picture = "gfx/leaders/TXS/Portrait_Texas_Homer_Ross.png"
 				expire = "1965.1.1"
 				ideology = syndicalist_subtype
 				traits = { }
@@ -3396,9 +4444,9 @@ country_event = { # Introduction event
 			create_country_leader = {
 				name = "Martin Dies Jr."
 				desc = "POLITICS_MARTIN_DIES_DESC"
-				picture = "Portrait_Texas_Martin_Dies_Jr.tga"
+				picture = "gfx/leaders/TXS/Portrait_Texas_Martin_Dies_Jr.png"
 				expire = "1965.1.1"
-				ideology = authoritarian_democrat_subtype
+				ideology = longism_subtype
 				traits = {  }
 		}
 	}
@@ -3411,9 +4459,9 @@ country_event = { # Introduction event
 			create_country_leader = {
 				name = "Frank Hamer"
 				desc = "POLITICS_FRANK_HAMER_DESC"
-				picture = "Portrait_Texas_Frank_Hamer.tga"
+				picture = "gfx/leaders/TXS/Portrait_Texas_Frank_Hamer.png"
 				expire = "1965.1.1"
-				ideology = authoritarian_democrat_subtype
+				ideology = longism_subtype
 				traits = {  }
 		}
 	}
@@ -3426,9 +4474,9 @@ country_event = { # Introduction event
 			create_country_leader = {
 				name = "Andrew Jackson Houston"
 				desc = "POLITICS_ANDREW_JACKSON_HOUSTON_DESC"
-				picture = "Portrait_texas_Andrew_Jackson_Houston_civ.tga"
+				picture = "gfx/leaders/TXS/Portrait_texas_Andrew_Jackson_Houston_civ.png"
 				expire = "1965.1.1"
-				ideology = authoritarian_democrat_subtype
+				ideology = longism_subtype
 				traits = {  }
 		}
 	}
@@ -3461,7 +4509,7 @@ country_event = { # Introduction event
 				create_country_leader = {
 					name = "Coke R Stevenson"
 					desc = "POLITICS_COKE_R_STEVENSON_DESC"
-					picture = "Portrait_Texas_Coke_Stevenson.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Coke_Stevenson.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {  }
@@ -3469,7 +4517,7 @@ country_event = { # Introduction event
 				create_country_leader = {
 					name = "Coke R Stevenson"
 					desc = "POLITICS_COKE_R_STEVENSON_DESC"
-					picture = "Portrait_Texas_Coke_Stevenson.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Coke_Stevenson.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = {  }
@@ -3480,7 +4528,7 @@ country_event = { # Introduction event
 				create_country_leader = {
 					name = "H.L. Hunt"
 					desc = "POLITICS_HL_HUNT_DESC"
-					picture = "Portrait_TXS_Haroldson_Lafayette_Hunt.tga"
+					picture = "gfx/leaders/TXS/Portrait_TXS_Haroldson_Lafayette_Hunt.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {  }
@@ -3488,7 +4536,7 @@ country_event = { # Introduction event
 				create_country_leader = {
 					name = "H.L. Hunt"
 					desc = "POLITICS_HL_HUNT_DESC"
-					picture = "Portrait_TXS_Haroldson_Lafayette_Hunt.tga"
+					picture = "gfx/leaders/TXS/Portrait_TXS_Haroldson_Lafayette_Hunt.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = {  }
@@ -3499,7 +4547,7 @@ country_event = { # Introduction event
 				create_country_leader = {
 					name = "Wilbert Lee O'Daniel"
 					desc = "POLITICS_WL_ODANIEL_DESC"
-					picture = "Portrait_TXS_WL_Odaniel.tga"
+					picture = "gfx/leaders/TXS/Portrait_TXS_WL_Odaniel.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {}
@@ -3507,7 +4555,7 @@ country_event = { # Introduction event
 				create_country_leader = {
 					name = "Wilbert Lee O'Daniel"
 					desc = "POLITICS_WL_ODANIEL_DESC"
-					picture = "Portrait_TXS_WL_Odaniel.tga"
+					picture = "gfx/leaders/TXS/Portrait_TXS_WL_Odaniel.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = {}
@@ -3518,7 +4566,7 @@ country_event = { # Introduction event
 				create_country_leader = {
 					name = "Daniel James Moody"
 					desc = "POLITICS_COKE_R_STEVENSON_DESC"
-					picture = "Portrait_Texas_Dan_Moody.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Dan_Moody.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = {  }
@@ -3527,9 +4575,9 @@ country_event = { # Introduction event
 			if = {	
 				limit = { has_country_flag = TXS_1941_primary_allred }
 				create_country_leader = {
-					name = "James V Allred"
+					name = "James V. Allred"
 					desc = "POLITICS_JAMES_ALLRED_DESC"
-					picture = "Portrait_Texas_James_V_Allred_Cigar.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_James_V_Allred_Cigar.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = {}
@@ -3602,7 +4650,7 @@ country_event = { # Introduction event
 		}
 		add_ideas = {
 			TXS_Daniel_Moody_hog_sli
-			TXS_Cordell_Hull_for_sli
+			TXS_Earle_Mayford_for_sli
 			TXS_Daniel_James_Moody_eco_sli
 			TXS_Oscar_L_Chapman_sec_sli
 		}
@@ -3654,7 +4702,7 @@ country_event = { #
 				create_country_leader = {
 					name = "Allan Shivers"
 					desc = "POLITICS_ALLAN_SHIVERS_DESC"
-					picture = "Portrait_Texas_Allan_Shivers.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Allan_Shivers.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {  }
@@ -3662,7 +4710,7 @@ country_event = { #
 				create_country_leader = {
 					name = "Allan Shivers"
 					desc = "POLITICS_ALLAN_SHIVERS_DESC"
-					picture = "Portrait_Texas_Allan_Shivers.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Allan_Shivers.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = {  }
@@ -3673,7 +4721,7 @@ country_event = { #
 				create_country_leader = {
 					name = "Tom Connally"
 					desc = "POLITICS_TOM_CONNALY_DESC"
-					picture = "Portrait_TXS_Tom_Connally.tga"
+					picture = "gfx/leaders/TXS/Portrait_TXS_Tom_Connally.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {  }
@@ -3681,7 +4729,7 @@ country_event = { #
 				create_country_leader = {
 					name = "Tom Connally"
 					desc = "POLITICS_TOM_CONNALY_DESC"
-					picture = "Portrait_TXS_Tom_Connally.tga"
+					picture = "gfx/leaders/TXS/Portrait_TXS_Tom_Connally.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = {  }
@@ -3690,9 +4738,9 @@ country_event = { #
 			if = {	
 				limit = { has_country_flag = TXS_1946_primary_lbj }
 				create_country_leader = {
-					name = "Lyndon B Johnson"
+					name = "Lyndon B Johnson "
 					desc = "POLITICS_LBJ_DESC"
-					picture = "Portrait_Texas_Lyndon_Baines_Johnson_2.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Lyndon_Baines_Johnson_2.png"
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 					traits = {}
@@ -3703,7 +4751,7 @@ country_event = { #
 				create_country_leader = {
 					name = "Ralph Yarborough"
 					desc = "POLITICS_RALPH_DESC"
-					picture = "Portrait_Texas_Ralph_Yarborough.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Ralph_Yarborough.png"
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 					traits = {}
@@ -3712,7 +4760,7 @@ country_event = { #
 			create_country_leader = {
 				name = "Daniel James Moody"
 				desc = "POLITICS_COKE_R_STEVENSON_DESC"
-				picture = "Portrait_Texas_Dan_Moody.tga"
+				picture = "gfx/leaders/TXS/Portrait_Texas_Dan_Moody.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 				traits = {  }
@@ -3741,7 +4789,7 @@ country_event = { #
 		remove_all_ministers = yes
 		add_ideas = {
 			TXS_Daniel_Moody_hog_sli
-			TXS_Cordell_Hull_for_sli
+			TXS_Earle_Mayford_for_sli
 			TXS_Daniel_James_Moody_eco_sli
 			TXS_Oscar_L_Chapman_sec_sli
 		}
@@ -3830,7 +4878,7 @@ country_event = { #
 				create_country_leader = {
 					name = "Allan Shivers"
 					desc = "POLITICS_ALLAN_SHIVERS_DESC"
-					picture = "Portrait_Texas_Allan_Shivers.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Allan_Shivers.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {  }
@@ -3838,7 +4886,7 @@ country_event = { #
 				create_country_leader = {
 					name = "Allan Shivers"
 					desc = "POLITICS_ALLAN_SHIVERS_DESC"
-					picture = "Portrait_Texas_Allan_Shivers.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Allan_Shivers.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = {  }
@@ -3849,7 +4897,7 @@ country_event = { #
 				create_country_leader = {
 					name = "Tom Connally"
 					desc = "POLITICS_TOM_CONNALY_DESC"
-					picture = "Portrait_TXS_Tom_Connally.tga"
+					picture = "gfx/leaders/TXS/Portrait_TXS_Tom_Connally.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {  }
@@ -3857,7 +4905,7 @@ country_event = { #
 				create_country_leader = {
 					name = "Tom Connally"
 					desc = "POLITICS_TOM_CONNALY_DESC"
-					picture = "Portrait_TXS_Tom_Connally.tga"
+					picture = "gfx/leaders/TXS/Portrait_TXS_Tom_Connally.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = {  }
@@ -3866,9 +4914,9 @@ country_event = { #
 			if = {	
 				limit = { has_country_flag = TXS_1951_primary_lbj }
 				create_country_leader = {
-					name = "Lyndon B Johnson"
+					name = "Lyndon B Johnson "
 					desc = "POLITICS_LBJ_DESC"
-					picture = "Portrait_Texas_Lyndon_Baines_Johnson_2.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Lyndon_Baines_Johnson_2.png"
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 					traits = {}
@@ -3879,7 +4927,7 @@ country_event = { #
 				create_country_leader = {
 					name = "Ralph Yarborough"
 					desc = "POLITICS_RALPH_DESC"
-					picture = "Portrait_Texas_Ralph_Yarborough.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Ralph_Yarborough.png"
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 					traits = {}
@@ -3890,7 +4938,7 @@ country_event = { #
 					create_country_leader = {
 					name = "Daniel James Moody"
 					desc = "POLITICS_COKE_R_STEVENSON_DESC"
-					picture = "Portrait_Texas_Dan_Moody.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Dan_Moody.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = {  }
@@ -3901,7 +4949,7 @@ country_event = { #
 				create_country_leader = {
 					name = "Dwight D Eisenhower"
 					desc = "POLITICS_DWIGHT_EISENHOWER_DESC"
-					picture = "Portrait_TXS_gen_Dwight_Eisenhower.tga"
+					picture = "gfx/leaders/TXS/Portrait_TXS_gen_Dwight_Eisenhower.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = {}
@@ -3932,7 +4980,7 @@ country_event = { #
 		remove_all_ministers = yes
 		add_ideas = {
 			TXS_Daniel_Moody_hog_sli
-			TXS_Cordell_Hull_for_sli
+			TXS_Earle_Mayford_for_sli
 			TXS_Daniel_James_Moody_eco_sli
 			TXS_Oscar_L_Chapman_sec_sli
 		}
@@ -4007,7 +5055,7 @@ country_event = { #
 				create_country_leader = {
 					name = "Price Daniel"
 					desc = "POLITICS_PRICE_DANIEL_DESC"
-					picture = "Portrait_Texas_Price_Daniel.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Price_Daniel.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {  }
@@ -4015,7 +5063,7 @@ country_event = { #
 				create_country_leader = {
 					name = "Price Daniel"
 					desc = "POLITICS_PRICE_DANIEL_DESC"
-					picture = "Portrait_Texas_Price_Daniel.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Price_Daniel.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = {  }
@@ -4026,7 +5074,7 @@ country_event = { #
 				create_country_leader = {
 					name = "Tom Connally"
 					desc = "POLITICS_TOM_CONNALY_DESC"
-					picture = "Portrait_TXS_Tom_Connally.tga"
+					picture = "gfx/leaders/TXS/Portrait_TXS_Tom_Connally.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {  }
@@ -4034,7 +5082,7 @@ country_event = { #
 				create_country_leader = {
 					name = "Tom Connally"
 					desc = "POLITICS_TOM_CONNALY_DESC"
-					picture = "Portrait_TXS_Tom_Connally.tga"
+					picture = "gfx/leaders/TXS/Portrait_TXS_Tom_Connally.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = {  }
@@ -4043,9 +5091,9 @@ country_event = { #
 			if = {	
 				limit = { has_country_flag = TXS_1957_primary_lbj }
 				create_country_leader = {
-					name = "Lyndon B Johnson"
+					name = "Lyndon B. Johnson"
 					desc = "POLITICS_LBJ_DESC"
-					picture = "Portrait_Texas_Lyndon_Johnson.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Lyndon_Johnson.png"
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 					traits = {}
@@ -4056,7 +5104,7 @@ country_event = { #
 				create_country_leader = {
 					name = "Ralph Yarborough"
 					desc = "POLITICS_RALPH_DESC"
-					picture = "Portrait_Texas_Ralph_Yarborough.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Ralph_Yarborough.png"
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 					traits = {}
@@ -4067,7 +5115,7 @@ country_event = { #
 				create_country_leader = {
 					name = "Daniel James Moody"
 					desc = "POLITICS_COKE_R_STEVENSON_DESC"
-					picture = "Portrait_Texas_Dan_Moody.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Dan_Moody.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = {  }
@@ -4078,7 +5126,7 @@ country_event = { #
 				create_country_leader = {
 					name = "Dwight D Eisenhower"
 					desc = "POLITICS_DWIGHT_EISENHOWER_DESC"
-					picture = "Portrait_TXS_gen_Dwight_Eisenhower.tga"
+					picture = "gfx/leaders/TXS/Portrait_TXS_gen_Dwight_Eisenhower.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = {}
@@ -4108,7 +5156,7 @@ country_event = { #
 		remove_all_ministers = yes
 		add_ideas = {
 			TXS_Daniel_Moody_hog_sli
-			TXS_Cordell_Hull_for_sli
+			TXS_Earle_Mayford_for_sli
 			TXS_Daniel_James_Moody_eco_sli
 			TXS_Oscar_L_Chapman_sec_sli
 		}
@@ -4245,19 +5293,25 @@ country_event = { # Introduction event
 		name = TXS.60.a
 		ai_chance = {
 			factor = 99
+			modifier = {
+                factor = 0
+				OR = {
+					has_game_rule = {
+						rule = TXS_civil_war
+						option = TXS_WAR_WITH_EVERYONE
+					}
+					has_game_rule = {
+						rule = TXS_civil_war
+						option = TXS_CIVIL_WAR_CSA
+					}
+				}
+            }
 		}
 	}
 	option = {
 		name = TXS.60.b
 		ai_chance = {
 			factor = 1
-			 modifier = {
-                factor = 100
-                has_game_rule = {
-                    rule = TXS_civil_war
-                    option = TXS_WAR_WITH_EVERYONE
-                }
-            }
 		}
 		declare_war_on = {
 			target = TXS
@@ -4282,7 +5336,7 @@ country_event = { # Introduction event
 				create_country_leader = {
 					name = "Homer Brooks"
 					desc = "POLITICS_HOMER_ROSS_DESC"
-					picture = "Portrait_Texas_Homer_Ross.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Homer_Ross.png"
 					expire = "1965.1.1"
 					ideology = syndicalist_subtype
 					traits = { }
@@ -4293,7 +5347,7 @@ country_event = { # Introduction event
 				create_country_leader = {
 					name = "Emma B. Tenayuca"
 					desc = "POLITICS_TENAYUCA_DESC"
-					picture = "Portrait_TXS_Emma_Tenayuca.tga"
+					picture = "gfx/leaders/TXS/Portrait_TXS_Emma_Tenayuca.png"
 					expire = "1965.1.1"
 					ideology = syndicalist_subtype
 					traits = {}
@@ -4485,9 +5539,9 @@ country_event = { # Introduction event
 			create_country_leader = {
 				name = "Ira C. Eaker"
 				desc = "POLITICS_EAKER_DESC"
-				picture = "Portrait_Texas_Ira_C_Eaker.tga"
+				picture = "gfx/leaders/TXS/Portrait_Texas_Ira_C_Eaker.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = junta_subtype
 				traits = { hog_old_air_marshal }
 			}
 			set_country_flag = TXS_Military_in_charge
@@ -4509,9 +5563,9 @@ country_event = { # Introduction event
 			create_country_leader = {
 				name = "Chester W. Nimitz"
 				desc = "POLITICS_NIMITZ_DESC"
-				picture = "Portrait_Texas_Chester_W_Nimitz.tga"
+				picture = "gfx/leaders/TXS/Portrait_Texas_Chester_W_Nimitz.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = junta_subtype
 				traits = { hog_old_admiral }
 		}
 		set_country_flag = TXS_Military_in_charge
@@ -4534,9 +5588,9 @@ country_event = { # Introduction event
 			create_country_leader = {
 				name = "Dwight D. Eisenhower"
 				desc = "POLITICS_DWIGHT_EISENHOWER_DESC"
-				picture = "Portrait_TXS_gen_Dwight_Eisenhower.tga"
+				picture = "gfx/leaders/TXS/Portrait_TXS_gen_Dwight_Eisenhower.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = junta_subtype
 				traits = { hog_old_general }
 		}
 		set_country_flag = TXS_Military_in_charge
@@ -4572,11 +5626,12 @@ country_event = { # Introduction event
 		create_country_leader = {
 			name = "Wilbert Lee O'Daniel"
 			desc = "POLITICS_WL_ODANIEL_DESC"
-			picture = "Portrait_TXS_WL_Odaniel.tga"
+			picture = "gfx/leaders/TXS/Portrait_TXS_WL_Odaniel.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = corporatocracy_subtype
 			traits = {}
 		}
+		set_country_flag = TXS_pappy_puppet
 	}
 	 
 	option = {
@@ -4693,7 +5748,7 @@ country_event = { # Introduction event
 				create_country_leader = {
 					name = "Coke R Stevenson"
 					desc = "POLITICS_COKE_R_STEVENSON_DESC"
-					picture = "Portrait_Texas_Coke_Stevenson.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Coke_Stevenson.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {  }
@@ -4701,7 +5756,7 @@ country_event = { # Introduction event
 				create_country_leader = {
 					name = "Coke R Stevenson"
 					desc = "POLITICS_COKE_R_STEVENSON_DESC"
-					picture = "Portrait_Texas_Coke_Stevenson.tga"
+					picture = "gfx/leaders/TXS/Portrait_Texas_Coke_Stevenson.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = {  }
@@ -4712,7 +5767,7 @@ country_event = { # Introduction event
 				create_country_leader = {
 					name = "H.L. Hunt"
 					desc = "POLITICS_HL_HUNT_DESC"
-					picture = "Portrait_TXS_Haroldson_Lafayette_Hunt.tga"
+					picture = "gfx/leaders/TXS/Portrait_TXS_Haroldson_Lafayette_Hunt.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {  }
@@ -4720,7 +5775,7 @@ country_event = { # Introduction event
 				create_country_leader = {
 					name = "H.L. Hunt"
 					desc = "POLITICS_HL_HUNT_DESC"
-					picture = "Portrait_TXS_Haroldson_Lafayette_Hunt.tga"
+					picture = "gfx/leaders/TXS/Portrait_TXS_Haroldson_Lafayette_Hunt.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = {  }
@@ -4731,7 +5786,7 @@ country_event = { # Introduction event
 				create_country_leader = {
 					name = "Wilbert Lee O'Daniel"
 					desc = "POLITICS_WL_ODANIEL_DESC"
-					picture = "Portrait_TXS_WL_Odaniel.tga"
+					picture = "gfx/leaders/TXS/Portrait_TXS_WL_Odaniel.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {}
@@ -4739,7 +5794,7 @@ country_event = { # Introduction event
 				create_country_leader = {
 					name = "Wilbert Lee O'Daniel"
 					desc = "POLITICS_WL_ODANIEL_DESC"
-					picture = "Portrait_TXS_WL_Odaniel.tga"
+					picture = "gfx/leaders/TXS/Portrait_TXS_WL_Odaniel.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = {}
@@ -4748,7 +5803,7 @@ country_event = { # Introduction event
 			create_country_leader = {
 				name = "Daniel James Moody"
 				desc = "POLITICS_COKE_R_STEVENSON_DESC"
-				picture = "Portrait_Texas_Dan_Moody.tga"
+				picture = "gfx/leaders/TXS/Portrait_Texas_Dan_Moody.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 				traits = {  }
@@ -4841,7 +5896,7 @@ country_event = { # Introduction event
 		create_country_leader = {
 				name = "Chuck Norris I"
 				desc = "POLITICS_CHUCK_NORRIS_DESC"
-				picture = "Portrait_Texas_Chuck_Norris.tga"
+				picture = "gfx/leaders/TXS/Portrait_Texas_Chuck_Norris.png"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 				traits = { }
@@ -4849,7 +5904,7 @@ country_event = { # Introduction event
 		create_country_leader = {
 				name = "Chuck Norris I"
 				desc = "POLITICS_CHUCK_NORRIS_DESC"
-				picture = "Portrait_Texas_Chuck_Norris.tga"
+				picture = "gfx/leaders/TXS/Portrait_Texas_Chuck_Norris.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 				traits = { }
@@ -4857,7 +5912,7 @@ country_event = { # Introduction event
 		create_country_leader = {
 				name = "Chuck Norris I"
 				desc = "POLITICS_CHUCK_NORRIS_DESC"
-				picture = "Portrait_Texas_Chuck_Norris.tga"
+				picture = "gfx/leaders/TXS/Portrait_Texas_Chuck_Norris.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 				traits = { }
@@ -4865,7 +5920,7 @@ country_event = { # Introduction event
 		create_country_leader = {
 				name = "Chuck Norris I"
 				desc = "POLITICS_CHUCK_NORRIS_DESC"
-				picture = "Portrait_Texas_Chuck_Norris.tga"
+				picture = "gfx/leaders/TXS/Portrait_Texas_Chuck_Norris.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 				traits = { }
@@ -4873,7 +5928,7 @@ country_event = { # Introduction event
 		create_country_leader = {
 				name = "Chuck Norris I"
 				desc = "POLITICS_CHUCK_NORRIS_DESC"
-				picture = "Portrait_Texas_Chuck_Norris.tga"
+				picture = "gfx/leaders/TXS/Portrait_Texas_Chuck_Norris.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 				traits = { }
@@ -4881,7 +5936,7 @@ country_event = { # Introduction event
 		create_country_leader = {
 				name = "Chuck Norris I"
 				desc = "POLITICS_CHUCK_NORRIS_DESC"
-				picture = "Portrait_Texas_Chuck_Norris.tga"
+				picture = "gfx/leaders/TXS/Portrait_Texas_Chuck_Norris.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 				traits = { }
@@ -4889,7 +5944,7 @@ country_event = { # Introduction event
 		create_country_leader = {
 				name = "Beto O'Rourke"
 				desc = "POLITICS_BETO_DESC"
-				picture = "Portrait_Texas_Beto_O'Rourke.tga"
+				picture = "gfx/leaders/TXS/Portrait_Texas_Beto_O'Rourke.png"
 				expire = "1965.1.1"
 				ideology = totalist_subtype
 				traits = { }
@@ -4926,9 +5981,9 @@ country_event = { # Introduction event
 		create_country_leader = {
 				name = "Chester W. Nimitz"
 				desc = "POLITICS_NIMITZ_DESC"
-				picture = "Portrait_Texas_Chester_W_Nimitz.tga"
+				picture = "gfx/leaders/TXS/Portrait_Texas_Chester_W_Nimitz.png"
 				expire = "1965.1.1"
-				ideology = authoritarian_democrat_subtype
+				ideology = authdem_junta_subtype
 				traits = { hog_old_admiral }
 		}
 		set_cosmetic_tag = TXS_garner_ad
@@ -5051,7 +6106,7 @@ country_event = { # Dallas Plaza Bombing
 	trigger = {
 		tag = TXS
 		has_completed_focus = TXS_soccon_victory
-		has_country_leader { ruling_only = yes name = "John Nance Garner" }
+		has_country_leader = { ruling_only = yes name = "John Nance Garner" }
 	}
 	
 	option = {
@@ -5120,7 +6175,7 @@ country_event = { # LBJ Speech
 		create_country_leader = {
 			name = "Woodie Guthrie"
 			desc = "POLITICS_WOODIE_GURTHIE_DESC"
-			picture = "Portrait_Texas_woodie.tga"
+			picture = "gfx/leaders/TXS/Portrait_Texas_woodie.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
 			traits = { cowboy }
@@ -5191,8 +6246,12 @@ country_event = { # Introduction event
 		ai_chance = {
 			factor = 50
 		}
-		TEX = {
-			change_tag_from = TXS
+		if = {
+			limit = {
+				is_ai = yes
+				TXS = { is_ai = no }
+			}
+			ROOT = { change_tag_from = TXS }
 		}
 		TEX = {
 			annex_country = {
@@ -5251,9 +6310,9 @@ country_event = { # Introduction event
 			create_country_leader = {
 				name = "Ira C. Eaker"
 				desc = "POLITICS_EAKER_DESC"
-				picture = "Portrait_Texas_Ira_C_Eaker.tga"
+				picture = "gfx/leaders/TXS/Portrait_Texas_Ira_C_Eaker.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = junta_subtype
 				traits = { hog_old_air_marshal }
 			}
 			set_country_flag = TXS_Military_in_charge
@@ -5276,9 +6335,9 @@ country_event = { # Introduction event
 			create_country_leader = {
 				name = "Chester W. Nimitz"
 				desc = "POLITICS_NIMITZ_DESC"
-				picture = "Portrait_Texas_Chester_W_Nimitz.tga"
+				picture = "gfx/leaders/TXS/Portrait_Texas_Chester_W_Nimitz.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = junta_subtype
 				traits = { hog_old_admiral }
 		}
 		set_country_flag = TXS_Military_in_charge
@@ -5302,9 +6361,9 @@ country_event = { # Introduction event
 			create_country_leader = {
 				name = "Dwight D. Eisenhower"
 				desc = "POLITICS_DWIGHT_EISENHOWER_DESC"
-				picture = "Portrait_TXS_gen_Dwight_Eisenhower.tga"
+				picture = "gfx/leaders/TXS/Portrait_TXS_gen_Dwight_Eisenhower.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = junta_subtype
 				traits = { hog_old_general }
 		}
 		set_country_flag = TXS_Military_in_charge
@@ -5321,6 +6380,7 @@ country_event = { # Texas Leaves!
 	
 	fire_only_once = yes
 	trigger = {
+		always = no
 		NOT = {
 			country_exists = GER
 			country_exists = MAF
@@ -5394,19 +6454,17 @@ country_event = { # B U N G H O L E
 
 country_event = { #Ike Returns
 	id = TXS.90
-	immediate = {log = "[GetDateText]: [Root.GetName]: event TXS.32"}
+	immediate = {log = "[GetDateText]: [Root.GetName]: event TXS.90"}
 	title = TXS.90.t
 	desc = TXS.90.d
-	#picture = 
+	picture = GFX_event_wcc_3
 	
 	fire_only_once = yes
 	
 	trigger = {
-		OR = {
-			WCC = {
-				exists = no
-				has_capitulated = yes
-			}
+		tag = TXS
+		WCC = {
+			has_capitulated = yes
 		}
 	}
 	 
@@ -5415,7 +6473,7 @@ country_event = { #Ike Returns
 		create_field_marshal = {# 
 			name = "Dwight D Eisenhower"
 			desc = "USA_DWIGHT_EISENHOWER_ARMY_DESC"
-			portrait_path = "gfx/leaders/TXS/Portrait_TXS_gen_Dwight_Eisenhower.tga"
+			portrait_path = "gfx/leaders/TXS/Portrait_TXS_gen_Dwight_Eisenhower.png"
 			traits = {
 				organizer
 				trait_cautious
@@ -5428,6 +6486,12 @@ country_event = { #Ike Returns
 			logistics_skill = 3
 		}
 		set_country_flag = TXS_Ike
+		WCC = {
+			random_unit_leader = {
+				limit = { has_id = 9500 }			
+				remove_unit_leader = yes
+			}
+		}
 	}
 }
 
@@ -5899,7 +6963,7 @@ country_event = { #Texaco Splits!
 	 
 	option = { #
 		name = TXS.110.a
-		set_country_flag = TXS_Texaco_Influence_5
+		set_variable = { TXS_Texaco_Influence = 5 }
 		add_ideas = TXS_texaco_monopoly
 		add_popularity = {
 			ideology = paternal_autocrat
@@ -5978,7 +7042,7 @@ country_event = { #Dem Primary
 		create_country_leader = {
 			name = "John Nance Garner"
 			desc = "POLITICS_JOHN_GARNER_DESC"
-			picture = "Portrait_TXS_Garner.tga"
+			picture = "gfx/leaders/TXS/Portrait_TXS_Garner.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 			traits = { cactus_jack }
@@ -5986,7 +7050,7 @@ country_event = { #Dem Primary
 		create_country_leader = {
 			name = "John Nance Garner"
 			desc = "POLITICS_JOHN_GARNER_DESC"
-			picture = "Portrait_TXS_Garner.tga"
+			picture = "gfx/leaders/TXS/Portrait_TXS_Garner.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 			traits = { cactus_jack }

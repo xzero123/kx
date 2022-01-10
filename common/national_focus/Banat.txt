@@ -1543,6 +1543,10 @@ focus_tree = {
 		x = 29
 		y = 16
 		cost = 0.8
+		prerequisite = {
+			focus = BAN_ally_poland
+			focus = BAN_attack_syndicalism
+		}
 		
 		available = {
 			controls_state = 192
@@ -3832,9 +3836,9 @@ focus_tree = {
 			create_country_leader = {
 				name = "Albert Bartha"
 				desc = "BAN_ALBERT_BARTHA_DESC"
-				picture = "BAN_Albert_Bartha.tga"
+				picture = "gfx/leaders/BAN/BAN_Albert_Bartha.png"
 				expire = "1965.1.1"
-				ideology = social_conservative_subtype
+				ideology = moderate_authoritarianism_subtype
 			}
 			hidden_effect = {
 				country_event = {
@@ -3952,9 +3956,9 @@ focus_tree = {
 			create_country_leader = {
 				name = "Albert Bartha"
 				desc = "BAN_ALBERT_BARTHA_DESC"
-				picture = "BAN_Albert_Bartha.tga"
+				picture = "gfx/leaders/BAN/BAN_Albert_Bartha.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = junta_subtype
 			}
 			add_stability = -0.03
 			hidden_effect = {
@@ -4975,10 +4979,30 @@ focus_tree = {
 		}
 	}
 	
-	
-	
-	
-	
+	focus = {
+		id = BAN_wisdom_yields_profit
+		icon = GFX_goal_CSA_economy_of_scale
+		x = 47
+		y = 5
+		cost = 5.8
+		
+		available = {
+			OR = {
+				has_country_flag = BAN_roth_survives
+				AND = {
+					has_government = syndicalist
+					has_completed_focus = BAN_red_and_redder
+				}
+			}
+		}
+		
+		prerequisite = { focus = BAN_educate_all }
+		
+		completion_reward = {
+			add_stability = 0.03
+			remove_ideas = BAN_dead_economy_4
+		}
+	}
 	
 	
 	

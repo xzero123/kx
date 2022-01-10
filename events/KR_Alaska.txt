@@ -17,7 +17,6 @@ country_event = { # Fist Event
 		has_country_flag = ALA_chance_given
 	}
 	fire_only_once = yes
-			
 
 	option = { 
 		name = Alaska.0.a
@@ -42,12 +41,15 @@ country_event = { # Fist Event
 			change_tag_from = USA
 		}
 		COR = {
-			remove_unit_leader = 141
+			random_unit_leader = {
+				limit = { has_id = 141 }			
+				remove_unit_leader = yes
+			}
 		}
 	}
 }
 
-country_event = { # Fist Event
+country_event = { # First Event
 	id = Alaska.1
 	immediate = {log = "[GetDateText]: [Root.GetName]: event Alaska.1"}
 	title = Alaska.1.t
@@ -57,22 +59,37 @@ country_event = { # Fist Event
 	is_triggered_only = yes
 
 	fire_only_once = yes
-			
 
 	option = { # Barons deal goes through
 		name = Alaska.1.a
 		ai_chance = {
-			factor = 50
+			factor = 33
 			modifier = {
-				factor = 100
-					OR = {
+				factor = 0
+				OR = {
 					has_game_rule = {
 						rule = ALA_POLITICAL_PATH
-						option = ALA_WICKERSHAM
+						option = ALA_DEMOCRATIC
 					}
 					has_game_rule = {
 						rule = ALA_POLITICAL_PATH
-						option = ALA_BARONS
+						option = ALA_SOCCON
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_SOCDEM
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_MARLIB
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_TOWNER
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_DIXON
 					}
 				}
 			}
@@ -85,9 +102,36 @@ country_event = { # Fist Event
 	option = { # Agree, with conditions
 		name = Alaska.1.b
 		ai_chance = {
-			factor = 50
+			factor = 34
 			modifier = {
-				factor = 100
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_LIECHTENSTEIN
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_BARONS
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_ISRAEL
+					}
+				}
+			}
+		}
+		country_event = {
+			id = Alaska.3
+			days = 3
+		}
+	}
+	option = { # Refuse
+		name = Alaska.1.c
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 0
 				OR = {
 					has_game_rule = {
 						rule = ALA_POLITICAL_PATH
@@ -95,41 +139,52 @@ country_event = { # Fist Event
 					}
 					has_game_rule = {
 						rule = ALA_POLITICAL_PATH
+						option = ALA_WICKERSHAM_PLAN
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_SYNDICALISM
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_LOVESTONE
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
 						option = ALA_DEMOCRATIC
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_SOCCON
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_SOCDEM
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_MARLIB
 					}
 					has_game_rule = {
 						rule = ALA_POLITICAL_PATH
 						option = ALA_TOWNER
 					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_DIXON
+					}
 				}
 			}
 		}
 		country_event = {
-				id = Alaska.3
-				days = 3
-		}
-	}
-	option = { # Refuse
-		name = Alaska.1.c
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = ALA_POLITICAL_PATH
-					option = ALA_BARONS
-				}
-			}
-		}
-		country_event = {
-				id = Alaska.2
-				days = 3
+			id = Alaska.2
+			days = 3
 		}
 	}
 }
 
 
-country_event = { # Fist Event
+country_event = {
 	id = Alaska.2
 	immediate = {log = "[GetDateText]: [Root.GetName]: event Alaska.1"}
 	title = Alaska.2.t
@@ -138,7 +193,6 @@ country_event = { # Fist Event
 
 	is_triggered_only = yes
 	fire_only_once = yes
-			
 
 	option = { # Shame (WILL LEAD TO COUP)
 		name = Alaska.2.a
@@ -146,39 +200,57 @@ country_event = { # Fist Event
 			factor = 50
 		}
 		country_event = {
-				id = Alaska.5
-				days = 3
+			id = Alaska.5
+			days = 3
 		}
 	}
 }
 
 
-country_event = { # Fist Event
+country_event = {
 	id = Alaska.3
 	immediate = {log = "[GetDateText]: [Root.GetName]: event Alaska.1"}
 	title = Alaska.3.t
 	desc = Alaska.3.d
 	picture = GFX_ALA_strike_1
 	
-	
 	is_triggered_only = yes
 	fire_only_once = yes
-			
 
-	option = { # Shame
+	option = {
 		name = Alaska.3.a
 		ai_chance = {
 			factor = 50
 			modifier = {
-				factor = 100
+				factor = 0
 				OR = {
 					has_game_rule = {
 						rule = ALA_POLITICAL_PATH
-						option = ALA_DEMOCRATIC
+						option = ALA_LIECHTENSTEIN
 					}
 					has_game_rule = {
 						rule = ALA_POLITICAL_PATH
-						option = ALA_TOWNER
+						option = ALA_BARONS
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_ISRAEL
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_WICKERSHAM
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_WICKERSHAM_PLAN
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_SYNDICALISM
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_LOVESTONE
 					}
 				}
 			}
@@ -202,20 +274,36 @@ country_event = { # Fist Event
 		}
 	}
 	
-	option = { # Shame
+	option = {
 		name = Alaska.3.b
 		ai_chance = {
 			factor = 50
 			modifier = {
-				factor = 100
+				factor = 0
 				OR = {
 					has_game_rule = {
 						rule = ALA_POLITICAL_PATH
-						option = ALA_WICKERSHAM
+						option = ALA_DEMOCRATIC
 					}
 					has_game_rule = {
 						rule = ALA_POLITICAL_PATH
-						option = ALA_BARONS
+						option = ALA_SOCCON
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_SOCDEM
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_MARLIB
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_TOWNER
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_DIXON
 					}
 				}
 			}
@@ -253,29 +341,32 @@ country_event = { # Wickersham's march
 
 	is_triggered_only = yes
 	fire_only_once = yes
-			
 
 	option = { # 
 		name = Alaska.4.a
 		ai_chance = {
 			factor = 50
 			modifier = {
-				factor = 100
+				factor = 0
 				OR = {
 					has_game_rule = {
 						rule = ALA_POLITICAL_PATH
-						option = ALA_WICKERSHAM
+						option = ALA_LIECHTENSTEIN
 					}
 					has_game_rule = {
 						rule = ALA_POLITICAL_PATH
 						option = ALA_BARONS
 					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_ISRAEL
+					}
 				}
 			}
 		}
 		country_event = {
-				id = Alaska.6
-				days = 3
+			id = Alaska.6
+			days = 3
 		}
 	}
 	option = { # Send a strongly worded letter
@@ -283,10 +374,24 @@ country_event = { # Wickersham's march
 		ai_chance = {
 			factor = 50
 			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = ALA_POLITICAL_PATH
-					option = ALA_BARONS
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_WICKERSHAM
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_WICKERSHAM_PLAN
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_SYNDICALISM
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_LOVESTONE
+					}
 				}
 			}
 		}
@@ -297,7 +402,7 @@ country_event = { # Wickersham's march
 	}
 }
 
-country_event = { # Fist Event
+country_event = {
 	id = Alaska.5
 	immediate = {log = "[GetDateText]: [Root.GetName]: event Alaska.1"}
 	title = Alaska.5.t
@@ -306,21 +411,17 @@ country_event = { # Fist Event
 	
 	is_triggered_only = yes
 	fire_only_once = yes
-			
 
-	option = { # Shame
+	option = {
 		name = Alaska.5.a
-		ai_chance = {
-			factor = 50
-		}
 		add_popularity = {
 			ideology = paternal_autocrat
 			popularity = 0.15
 		}
 		set_country_flag = ALA_BARONS
 		swap_ideas = {
-		remove_idea = ALA_resource_barons
-		add_idea = ALA_resource_barons_good
+			remove_idea = ALA_resource_barons
+			add_idea = ALA_resource_barons_good
 		}
 		hidden_effect = {
 			set_politics = {
@@ -338,7 +439,7 @@ country_event = { # Fist Event
 	}
 }
 
-country_event = { # Fist Event
+country_event = {
 	id = Alaska.6
 	immediate = {log = "[GetDateText]: [Root.GetName]: event Alaska.1"}
 	title = Alaska.6.t
@@ -348,13 +449,9 @@ country_event = { # Fist Event
 	
 	is_triggered_only = yes
 	fire_only_once = yes
-			
 
-	option = { # Shame
+	option = {
 		name = Alaska.6.a
-		ai_chance = {
-			factor = 50
-		}
 		add_popularity = {
 			ideology = radical_socialist
 			popularity = 0.15
@@ -388,16 +485,12 @@ country_event = { # Wickersham's speech
 	
 	is_triggered_only = yes
 	fire_only_once = yes
-			
 
-	option = { # Shame
+	option = {
 		name = Alaska.7.a
-		ai_chance = {
-			factor = 50
-		}
 		country_event = {
-				id = Alaska.5
-				days = 3
+			id = Alaska.5
+			days = 3
 		}
 	}
 }
@@ -411,17 +504,26 @@ country_event = { # The First Test
 	
 	is_triggered_only = yes
 	fire_only_once = yes
-			
 
-	option = { # Shame
+	option = {
 		name = Alaska.8.a
 		ai_chance = {
 			factor = 50
 			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = ALA_POLITICAL_PATH
-					option = ALA_WICKERSHAM
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_LIECHTENSTEIN
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_BARONS
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_ISRAEL
+					}
 				}
 			}
 			modifier = {
@@ -429,13 +531,6 @@ country_event = { # The First Test
 				ALA = {
 					is_subject = yes
 					overlord = { has_socialist_government = no }
-				}
-			}
-			modifier = {
-				factor = 100
-				ALA = {
-					is_subject = yes
-					overlord = { has_socialist_government = yes }
 				}
 			}
 		}
@@ -446,15 +541,36 @@ country_event = { # The First Test
 			popularity = 0.15
 		}
 	}
-	option = { # Shame
+	option = {
 		name = Alaska.8.b
 		ai_chance = {
 			factor = 50
 			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = ALA_POLITICAL_PATH
-					option = ALA_BARONS
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_WICKERSHAM
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_WICKERSHAM_PLAN
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_SYNDICALISM
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_LOVESTONE
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				ALA = {
+					is_subject = yes
+					overlord = { has_socialist_government = yes }
 				}
 			}
 		}
@@ -498,7 +614,6 @@ country_event = { # The Head of State
 		}
 	}
 	fire_only_once = yes
-			
 
 	option = { 
 		name = Alaska.9.a
@@ -514,9 +629,9 @@ country_event = { # The Head of State
 		create_country_leader = {
 			name = "Stephen Birch"
 			desc = "POLITICS_BIRCH_DESC"
-			picture = "Portrait_Alaska_Stephen_Birch.tga"
+			picture = "gfx/leaders/ALA/Portrait_Alaska_Stephen_Birch.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = corporatocracy_subtype
 			traits = {  }
 		}
 	}
@@ -534,7 +649,7 @@ country_event = { # Barons Resistance
 		has_government = radical_socialist
 	}
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.10.a
 		ai_chance = {
@@ -560,17 +675,13 @@ country_event = { # The Death of Wickersham
 		tag = ALA
 	}
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.11.a
-		ai_chance = {
-			factor = 50
-		}
-		kill_country_leader = yes
 		create_country_leader = {
 			name = "Rex Beach"
 			desc = "POLITICS_BEACH_DESC"
-			picture = "Portrait_Alaska_Rex_Beach.tga"
+			picture = "gfx/leaders/ALA/Portrait_Alaska_Rex_Beach.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
 			traits = {  }
@@ -601,7 +712,20 @@ country_event = { # The Red Congress
 	option = { 
 		name = Alaska.12.a
 		ai_chance = {
-			factor = 50
+			factor = 34
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_SYNDICALISM
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_LOVESTONE
+					}
+				}
+			}
 		}
 		set_politics = {
 			ruling_party = radical_socialist
@@ -620,6 +744,19 @@ country_event = { # The Red Congress
 		name = Alaska.12.b
 		ai_chance = {
 			factor = 33
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_WICKERSHAM_PLAN
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_LOVESTONE
+					}
+				}
+			}
 		}
 		set_politics = {
 			ruling_party = syndicalist
@@ -638,6 +775,19 @@ country_event = { # The Red Congress
 		name = Alaska.12.c
 		ai_chance = {
 			factor = 33
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_WICKERSHAM_PLAN
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_SYNDICALISM
+					}
+				}
+			}
 		}
 		set_politics = {
 			ruling_party = totalist
@@ -671,7 +821,7 @@ country_event = { # The Election
 		create_country_leader = {
 			name = "Bob Bartlett"
 			desc = "POLITICS_BOB_BARTLETT_DESC"
-			picture = "Portrait_Alaska_Bob_Bartlett.tga"
+			picture = "gfx/leaders/ALA/Portrait_Alaska_Bob_Bartlett.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 			traits = {}
@@ -682,7 +832,28 @@ country_event = { # The Election
 	option = { 
 		name = Alaska.13.a
 		ai_chance = {
-			factor = 50
+			factor = 33
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_TOWNER
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_DIXON
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_SOCCON
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_MARLIB
+					}
+				}
+			}
 		}
 		set_politics = {
 			ruling_party = social_democrat
@@ -704,7 +875,28 @@ country_event = { # The Election
 	option = { 
 		name = Alaska.13.b
 		ai_chance = {
-			factor = 50
+			factor = 33
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_TOWNER
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_DIXON
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_SOCDEM
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_MARLIB
+					}
+				}
+			}
 		}
 		set_politics = {
 			ruling_party = social_conservative
@@ -726,12 +918,18 @@ country_event = { # The Election
 	option = { 
 		name = Alaska.13.c
 		ai_chance = {
-			factor = 50
+			factor = 34
 			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = ALA_POLITICAL_PATH
-					option = ALA_TOWNER
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_SOCDEM
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_SOCCON
+					}
 				}
 			}
 		}
@@ -778,8 +976,8 @@ country_event = { # Japan Grows Weary
 			factor = 50
 		}
 		country_event = {
-				id = Alaska.16
-				days = 3
+			id = Alaska.16
+			days = 3
 		}
 	}
 }
@@ -793,7 +991,7 @@ country_event = { # Japan Demands Submission!
 
 	is_triggered_only = yes
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.16.a
 		ai_chance = {
@@ -828,7 +1026,7 @@ country_event = { # Japan Demands Submission!
 			create_field_marshal = {# 
 				name = "Yasuyo Yamasaki"
 				desc = ""
-				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Yasuyo_Yamasaki.tga"
+				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Yasuyo_Yamasaki.png"
 				traits = {
 					war_hero
 					JAP_samurai_lineage
@@ -842,7 +1040,7 @@ country_event = { # Japan Demands Submission!
 			create_corps_commander = {# 
 				name = "Kiichiro Higuchi"
 				desc = ""
-				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Kiichiro_Higuchi.tga"
+				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Kiichiro_Higuchi.png"
 				traits = {
 					career_officer
 					organizer
@@ -884,7 +1082,7 @@ country_event = { # Canada Deciding to Help Alaska
 
 	is_triggered_only = yes
 	fire_only_once = yes
-			
+	
 	option = { # accept
 		name = Alaska.17.a
 		ai_chance = {
@@ -917,7 +1115,7 @@ country_event = { # Canada's Demands
 	title = Alaska.18.t
 	desc = Alaska.18.d
 	picture = GFX_report_event_CAN_army2
-
+	
 	is_triggered_only = yes
 	fire_only_once = yes
 			
@@ -953,33 +1151,33 @@ country_event = { # Canada's Demands
 			}
 		}
 		create_corps_commander = {# Audie Murphy
-				name = "Harry Wickwire Foster"
-				desc = ""
-				portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Harry_Wickwire_Foster.tga"
-				traits = {
-					war_hero
-				}
-				skill = 1
-				attack_skill = 3
-				defense_skill = 2
-				planning_skill = 2
-				logistics_skill = 3
+			name = "Harry Wickwire Foster"
+			desc = ""
+			portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Harry_Wickwire_Foster.png"
+			traits = {
+				war_hero
 			}
-			create_field_marshal = {
-				name = "George Pearkes"
-				portrait_path = "gfx/leaders/ALA/Portrait_ALA_George_Pearkes.tga"
-				traits = { 
-					old_guard 
-					inflexible_strategist 
-				}
-				skill = 2
-				attack_skill = 1
-				defense_skill = 1
-				planning_skill = 1
-				logistics_skill = 1
+			skill = 1
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+		}
+		create_field_marshal = {
+			name = "George Pearkes"
+			portrait_path = "gfx/leaders/ALA/Portrait_ALA_George_Pearkes.png"
+			traits = { 
+				old_guard 
+				inflexible_strategist 
 			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
 		}
 	}
+}
 	
 country_event = { # Japan Takes Over Alaska
 	id = Alaska.19
@@ -990,7 +1188,7 @@ country_event = { # Japan Takes Over Alaska
 
 	is_triggered_only = yes
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.19.a
 		ai_chance = {
@@ -1022,10 +1220,10 @@ country_event = { # Japan Takes Over Alaska
 				national_populist = 25
 			}
 			
-			create_field_marshal = {# 
+			create_field_marshal = {
 				name = "Yasuyo Yamasaki"
 				desc = ""
-				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Yasuyo_Yamasaki.tga"
+				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Yasuyo_Yamasaki.png"
 				traits = {
 					war_hero
 					JAP_samurai_lineage
@@ -1040,7 +1238,7 @@ country_event = { # Japan Takes Over Alaska
 	}
 }
 	
-country_event = { #
+country_event = {
 	id = Alaska.20
 	immediate = {log = "[GetDateText]: [Root.GetName]: event Alaska.1"}
 	title = Alaska.20.t
@@ -1069,7 +1267,7 @@ country_event = { # Barons Resistance
 
 	is_triggered_only = yes
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.21.a
 		ai_chance = {
@@ -1092,7 +1290,7 @@ country_event = { # Gold Mining
 
 	is_triggered_only = yes
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.22.a
 		ai_chance = {
@@ -1100,7 +1298,7 @@ country_event = { # Gold Mining
 		}
 		set_country_flag = ALA_civ
 	}	
-			
+	
 	option = { 
 		name = Alaska.22.b
 		ai_chance = {
@@ -1119,12 +1317,9 @@ country_event = { # Alaskan Snow Cruiser
 
 	is_triggered_only = yes
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.23.a
-		ai_chance = {
-			factor = 50
-		}
 		add_political_power = -50
 	}	
 }
@@ -1135,26 +1330,61 @@ country_event = { # Civil Air Bill
 	title = Alaska.24.t
 	desc = Alaska.24.d
 	picture = GFX_report_event_CAN_fleeing
+	
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				50 = {
+					set_country_flag = ALA_bill_fails_to_pass_pre
+				}
+				50 = {
+					set_country_flag = ALA_bill_passes_pre
+				}
+			}
+		}
+	}
 
 	is_triggered_only = yes
 	fire_only_once = yes
-			
-	option = { 
+	
+	option = {
 		name = Alaska.24.a
+		trigger = {
+			has_country_flag = ALA_bill_fails_to_pass_pre
+		}
 		ai_chance = {
 			factor = 50
 		}
-		random_list = {
-			50 = {
-				custom_effect_tooltip = ALA_bill_fails_to_pass
-				set_country_flag = ALA_bill_fails_to_pass
-			}
-			50 = {
-				custom_effect_tooltip = ALA_bill_passes
-				set_country_flag = ALA_bill_passes
-			}
+		custom_effect_tooltip = ALA_bill_fails_to_pass
+		hidden_effect = {
+			set_country_flag = ALA_bill_fails_to_pass
 		}
-	}	
+	}
+	
+	option = {
+		name = Alaska.24.b
+		trigger = {
+			has_country_flag = ALA_bill_passes_pre
+		}
+		ai_chance = {
+			factor = 100
+		}
+		custom_effect_tooltip = ALA_bill_passes
+		set_country_flag = ALA_bill_passes
+	}
+	
+	option = {
+		name = Alaska.24.c
+		trigger = {
+			has_country_flag = ALA_bill_fails_to_pass_pre
+		}
+		ai_chance = {
+			factor = 50
+		}
+		add_political_power = -100
+		custom_effect_tooltip = ALA_bill_passes
+		set_country_flag = ALA_bill_passes
+	}
 }
 
 country_event = { # Two Influences
@@ -1168,7 +1398,7 @@ country_event = { # Two Influences
 		tag = ALA
 	}
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.25.a
 		ai_chance = {
@@ -1196,7 +1426,7 @@ country_event = { #
 	
 	is_triggered_only = yes
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.26.a
 		ai_chance = {
@@ -1238,7 +1468,7 @@ country_event = { # Syndicate Buyout
 		has_completed_focus = ALA_last_frontier
 	}
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.27.a
 		ai_chance = {
@@ -1263,11 +1493,11 @@ country_event = { # John Weir Troy Resigns
 		}
 	}
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.28.a
 		ai_chance = {
-			factor = 50
+			factor = 100
 		}
 		hidden_effect = {
 			country_event = {
@@ -1287,12 +1517,9 @@ country_event = { # Gruening Speech
 	
 	is_triggered_only = yes
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.29.a
-		ai_chance = {
-			factor = 50
-		}
 		hidden_effect = {
 			country_event = {
 				id = Alaska.30
@@ -1316,7 +1543,7 @@ country_event = { # A Chance
 
 	is_triggered_only = yes
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.30.a
 		ai_chance = {
@@ -1369,15 +1596,15 @@ country_event = { # Canada Grows Weary
 	}
 	
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.31.a
 		ai_chance = {
 			factor = 50
 		}
 		country_event = {
-				id = Alaska.32
-				days = 3
+			id = Alaska.32
+			days = 3
 		}
 	}
 }
@@ -1425,7 +1652,7 @@ country_event = { # Canada Demands Submission!
 			create_corps_commander = {# Audie Murphy
 				name = "Harry Wickwire Foster"
 				desc = ""
-				portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Harry_Wickwire_Foster.tga"
+				portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Harry_Wickwire_Foster.png"
 				traits = {
 					war_hero
 				}
@@ -1437,7 +1664,7 @@ country_event = { # Canada Demands Submission!
 			}
 			create_field_marshal = {
 				name = "George Pearkes"
-				portrait_path = "gfx/leaders/ALA/Portrait_ALA_George_Pearkes.tga"
+				portrait_path = "gfx/leaders/ALA/Portrait_ALA_George_Pearkes.png"
 				traits = { 
 					old_guard 
 					inflexible_strategist 
@@ -1478,7 +1705,7 @@ country_event = { # Japan Deciding to Help Alaska
 
 	is_triggered_only = yes
 	fire_only_once = yes
-			
+	
 	option = { # accept
 		name = Alaska.33.a
 		ai_chance = {
@@ -1548,7 +1775,7 @@ country_event = { # Japan's Demands
 			create_field_marshal = {# 
 				name = "Yasuyo Yamasaki"
 				desc = ""
-				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Yasuyo_Yamasaki.tga"
+				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Yasuyo_Yamasaki.png"
 				traits = {
 					war_hero
 					JAP_samurai_lineage
@@ -1562,7 +1789,7 @@ country_event = { # Japan's Demands
 			create_corps_commander = {# 
 				name = "Kiichiro Higuchi"
 				desc = ""
-				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Kiichiro_Higuchi.tga"
+				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Kiichiro_Higuchi.png"
 				traits = {
 					career_officer
 					organizer
@@ -1621,7 +1848,7 @@ country_event = { # Canada Takes Over Alaska
 			create_corps_commander = {# Audie Murphy
 				name = "Harry Wickwire Foster"
 				desc = ""
-				portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Harry_Wickwire_Foster.tga"
+				portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Harry_Wickwire_Foster.png"
 				traits = {
 					war_hero
 				}
@@ -1633,7 +1860,7 @@ country_event = { # Canada Takes Over Alaska
 			}
 			create_field_marshal = {
 				name = "George Pearkes"
-				portrait_path = "gfx/leaders/ALA/Portrait_ALA_George_Pearkes.tga"
+				portrait_path = "gfx/leaders/ALA/Portrait_ALA_George_Pearkes.png"
 				traits = { 
 					old_guard 
 					inflexible_strategist 
@@ -1660,12 +1887,9 @@ country_event = { # State Fair - version 1
 		date > 1937.9.2
 	}
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.36.a
-		ai_chance = {
-			factor = 50
-		}
 		hidden_effect = {
 			country_event = {
 				id = Alaska.41
@@ -1687,12 +1911,9 @@ country_event = { # Fishing Contest
 		date > 1937.7.7
 	}
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.37.a
-		ai_chance = {
-			factor = 50
-		}
 		#Flavour
 	}
 }
@@ -1715,12 +1936,9 @@ country_event = { # Syndicalist Infiltration of Fishing Unions
 		}
 	}
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.38.a
-		ai_chance = {
-			factor = 50
-		}
 		#Flavour
 	}
 }
@@ -1738,7 +1956,7 @@ country_event = { #Dimond accused of being a Syndie
 		has_government = social_democrat
 	}
 	fire_only_once = yes
-			
+	
 	option = { #Scale it Back!
 		name = Alaska.39.a
 		ai_chance = {
@@ -1770,18 +1988,15 @@ country_event = { #Guggenheim Dead
 		has_country_leader = { ruling_only = yes name = "Simon Guggenheim" }
 	}
 	fire_only_once = yes
-			
+	
 	option = { #RIP
 		name = Alaska.40.a
-		ai_chance = {
-			factor = 50
-		}
 		create_country_leader = {
 			name = "Stephen Birch"
 			desc = "POLITICS_BIRCH_DESC"
-			picture = "Portrait_Alaska_Stephen_Birch.tga"
+			picture = "gfx/leaders/ALA/Portrait_Alaska_Stephen_Birch.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = corporatocracy_subtype
 			traits = {  }
 		}
 	}
@@ -1796,12 +2011,9 @@ country_event = { # State Fair - version 2
 
 	
 	is_triggered_only = yes
-			
+	
 	option = { 
 		name = Alaska.36.a
-		ai_chance = {
-			factor = 50
-		}
 		hidden_effect = {
 			country_event = {
 				id = Alaska.41
@@ -1820,12 +2032,9 @@ country_event = { # Rise of Lovestone
 
 	
 	is_triggered_only = yes
-			
+	
 	option = { 
 		name = Alaska.42.a
-		ai_chance = {
-			factor = 50
-		}
 		add_popularity = {
 			ideology = totalist
 			popularity = 0.15
@@ -1845,7 +2054,7 @@ country_event = { # Event for Russia
 		is_subject_of = RUS
 	}
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.43.a
 		set_party_name = {
@@ -1860,7 +2069,7 @@ country_event = { # Event for Russia
 		create_country_leader = {
 			name = "Russian Administration"
 			desc = "POLITICS_RUSSIAN_ADMIN_DESC"
-			picture = "Portrait_Alaska_Russian_Administration.tga"
+			picture = "gfx/leaders/ALA/Portrait_Alaska_Russian_Administration.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 			traits = {  }
@@ -1868,23 +2077,23 @@ country_event = { # Event for Russia
 		create_country_leader = {
 			name = "Russian Administration"
 			desc = "POLITICS_RUSSIAN_ADMIN_DESC"
-			picture = "Portrait_Alaska_Russian_Administration.tga"
+			picture = "gfx/leaders/ALA/Portrait_Alaska_Russian_Administration.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = autocratic_colonial_govt_subtype
 			traits = {  }
 		}
 		create_country_leader = {
 			name = "Russian Administration"
 			desc = "POLITICS_RUSSIAN_ADMIN_DESC"
-			picture = "Portrait_Alaska_Russian_Administration.tga"
+			picture = "gfx/leaders/ALA/Portrait_Alaska_Russian_Administration.png"
 			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
+			ideology = colonial_govt_subtype
 			traits = {  }
 		}
 		create_country_leader = {
 			name = "Russian Administration"
 			desc = "POLITICS_RUSSIAN_ADMIN_DESC"
-			picture = "Portrait_Alaska_Russian_Administration.tga"
+			picture = "gfx/leaders/ALA/Portrait_Alaska_Russian_Administration.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 			traits = {  }
@@ -1892,7 +2101,7 @@ country_event = { # Event for Russia
 		create_country_leader = {
 			name = "Russian Administration"
 			desc = "POLITICS_RUSSIAN_ADMIN_DESC"
-			picture = "Portrait_Alaska_Russian_Administration.tga"
+			picture = "gfx/leaders/ALA/Portrait_Alaska_Russian_Administration.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 			traits = {  }
@@ -1900,7 +2109,7 @@ country_event = { # Event for Russia
 		create_country_leader = {
 			name = "Russian Administration"
 			desc = "POLITICS_RUSSIAN_ADMIN_DESC"
-			picture = "Portrait_Alaska_Russian_Administration.tga"
+			picture = "gfx/leaders/ALA/Portrait_Alaska_Russian_Administration.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 			traits = {  }
@@ -1908,7 +2117,7 @@ country_event = { # Event for Russia
 		create_country_leader = {
 			name = "Russian Administration"
 			desc = "POLITICS_RUSSIAN_ADMIN_DESC"
-			picture = "Portrait_Alaska_Russian_Administration.tga"
+			picture = "gfx/leaders/ALA/Portrait_Alaska_Russian_Administration.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 			traits = {  }
@@ -1916,7 +2125,7 @@ country_event = { # Event for Russia
 		create_country_leader = {
 			name = "Russian Administration"
 			desc = "POLITICS_RUSSIAN_ADMIN_DESC"
-			picture = "Portrait_Alaska_Russian_Administration.tga"
+			picture = "gfx/leaders/ALA/Portrait_Alaska_Russian_Administration.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
 			traits = {  }
@@ -1924,7 +2133,7 @@ country_event = { # Event for Russia
 		create_country_leader = {
 			name = "Russian Administration"
 			desc = "POLITICS_RUSSIAN_ADMIN_DESC"
-			picture = "Portrait_Alaska_Russian_Administration.tga"
+			picture = "gfx/leaders/ALA/Portrait_Alaska_Russian_Administration.png"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 			traits = {  }
@@ -1932,7 +2141,7 @@ country_event = { # Event for Russia
 		create_country_leader = {
 			name = "Russian Administration"
 			desc = "POLITICS_RUSSIAN_ADMIN_DESC"
-			picture = "Portrait_Alaska_Russian_Administration.tga"
+			picture = "gfx/leaders/ALA/Portrait_Alaska_Russian_Administration.png"
 			expire = "1965.1.1"
 			ideology = totalist_subtype
 			traits = {  }
@@ -1949,18 +2158,20 @@ country_event = { # the Coup
 
 	is_triggered_only = yes
 	fire_only_once = yes
-			
+	
 	option = { 
 		name = Alaska.43.a
-		ai_chance = {
-			factor = 50
+		hidden_effect = {
+			set_technology = {
+				beringia_tomahawk = 1
+			}
 		}
 		create_country_leader = {
 			name = "Elwood Towner"
 			desc = "POLITICS_TOWNER_DESC"
-			picture = "Portrait_ALA_Elwood_Towner.tga"
+			picture = "gfx/leaders/ALA/Portrait_ALA_Elwood_Towner.png"
 			expire = "1965.1.1"
-			ideology = national_populist_subtype
+			ideology = townerism_subtype
 			traits = {  }
 		}	
         remove_all_ministers = yes
@@ -1974,6 +2185,7 @@ country_event = { # the Coup
 		ALA = {
 			set_cosmetic_tag = ALA_REDMAN
 			set_country_flag = ALA_INDIANTIME
+			set_global_flag = ALA_NATIVEGANG
 			set_politics = {
 				ruling_party = national_populist
 				last_election = "1935.11.14"
@@ -1996,7 +2208,7 @@ country_event = { # the Coup
 			create_field_marshal = {# 
 				name = "Ernest Childers"
 				desc = ""
-				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Ernst_Childers.tga"
+				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Ernst_Childers.png"
 				traits = {
 					war_hero
 				}
@@ -2009,7 +2221,7 @@ country_event = { # the Coup
 			create_corps_commander = {# 
 				name = "Ira Hayes"
 				desc = ""
-				portrait_path = "gfx/leaders/ALA/Portrait_NVN_Ira_Hayes.tga"
+				portrait_path = "gfx/leaders/ALA/Portrait_NVN_Ira_Hayes.png"
 				traits = {
 					career_officer
 					organizer
@@ -2024,7 +2236,7 @@ country_event = { # the Coup
 			create_corps_commander = {# 
 				name = "Dan Waupoose"
 				desc = ""
-				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Dan_Waupoose.tga"
+				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Dan_Waupoose.png"
 				traits = {
 					career_officer
 					organizer
@@ -2039,7 +2251,7 @@ country_event = { # the Coup
 			create_corps_commander = {# 
 				name = "Woody J Cochran"
 				desc = ""
-				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Woody_Cochran.tga"
+				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Woody_Cochran.png"
 				traits = {
 					career_officer
 					organizer
@@ -2054,7 +2266,7 @@ country_event = { # the Coup
 			create_corps_commander = {# 
 				name = "Dan Akee"
 				desc = ""
-				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Dan_Akee.tga"
+				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Dan_Akee.png"
 				traits = {
 					career_officer
 					organizer
@@ -2069,7 +2281,7 @@ country_event = { # the Coup
 			create_corps_commander = {# 
 				name = "Joe Medicine Crow"
 				desc = ""
-				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Medicine_Crow.tga"
+				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Medicine_Crow.png"
 				traits = {
 					career_officer
 					organizer
@@ -2084,7 +2296,7 @@ country_event = { # the Coup
 			}
 			create_navy_leader = {# 
 				name = "Joseph J. Clark"
-				portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Joseph_J_Clark.tga"
+				portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Joseph_J_Clark.png"
 				traits = {}
 				skill = 2
 				attack_skill = 2
@@ -2167,14 +2379,14 @@ country_event = { #Relgion Question
 	option = {
 		name = Alaska.47.a
 		add_political_power = 20		
-                add_ideas = ALA_Seculurism
-		ai_chance = { factor = 50 }
+        add_ideas = ALA_Seculurism
+		ai_chance = { factor = 45 }
 	}
 	option = {
 		name = Alaska.47.b
 		add_political_power = 10
 		add_ideas = ALA_Indianized_Relgion
-		ai_chance = { factor = 40 }
+		ai_chance = { factor = 45 }
 	}
 	option = {
 		name = Alaska.47.c
@@ -2246,7 +2458,7 @@ country_event = { # Altaic-Berginia wishes to join the Co-Prosperity Sphere
 	option = { # Of course they may join!
 		name = Alaska.50.a
 		ai_chance = {
-			factor = 99
+			factor = 50
 		}
 		add_political_power = 50
 		add_to_faction = ALA
@@ -2254,7 +2466,7 @@ country_event = { # Altaic-Berginia wishes to join the Co-Prosperity Sphere
 	option = { # We have no need of them
 		name = Alaska.50.b
 		ai_chance = {
-			factor = 1
+			factor = 50
 		}
 	}
 }
@@ -2274,9 +2486,9 @@ country_event = { #Red Man's Burden
 		add_political_power = 100
 		add_ideas = ALA_Red_Mans_Burden
 		set_cosmetic_tag = ALA_REDMANCANADA
-			create_wargoal = {
-				type = annex_everything target = CAN
-			}
+		create_wargoal = {
+			type = annex_everything target = CAN
+		}
 		every_state = {
 			limit = { is_core_of = CAN }
 			add_core_of = ALA
@@ -2291,13 +2503,13 @@ country_event = { #Red Man's Burden
 		hidden_effect = {
 			ALA = {
 				add_equipment_to_stockpile = { type = fighter_equipment_0 amount = 500 }
-				add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 100000 }
+				add_equipment_to_stockpile = { type = beringia_equipment_0 amount = 100000 }
 				add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 100000 }
 			}
 		}	
 	}
 }
-country_event = { #Ayn Rand Ivite?
+country_event = { #Ayn Rand Invite?
 	id = Alaska.52
 	immediate = { log = "[GetDateText]: [Root.GetName]: event Alaska.52" }
 	title = Alaska.52.t
@@ -2311,10 +2523,10 @@ country_event = { #Ayn Rand Ivite?
 		ai_chance = {
 			factor = 50
 			modifier = {
-				factor = 100
+				factor = 0
 				has_game_rule = {
 					rule = ALA_POLITICAL_PATH
-					option = ALA_TOWNER
+					option = ALA_DEMOCRATIC
 				}
 			}
 		}
@@ -2328,21 +2540,28 @@ country_event = { #Ayn Rand Ivite?
 		create_country_leader = {
 			name = "Alisa Rosenbaum"
 			desc = "POLITICS_RAND_DESC"
-			picture = "Portrait_ALA_Ayn_Rand.tga"
+			picture = "gfx/leaders/ALA/Portrait_ALA_Ayn_Rand.png"
 			expire = "1965.1.1"
-			ideology = market_liberal_subtype
+			ideology = ancap_subtype
 			traits = {  }
 		}
 	}
-        option = { ##hELL nO
+	
+	option = { ##hELL nO
 		name = Alaska.52.b
 		ai_chance = {
 			factor = 50
 			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = ALA_POLITICAL_PATH
-					option = ALA_DEMOCRATIC
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_DIXON
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_TOWNER
+					}
 				}
 			}
 		}
@@ -2372,7 +2591,7 @@ country_event = { #Population boost
 	title = Alaska.54.t
 	desc = Alaska.54.d
 	
-	picture = GFX_report_event_IRE_immigration
+	picture = GFX_GFX_report_event_IRE_immigration
 
 	trigger = {
 	tag = ALA
@@ -2524,13 +2743,14 @@ country_event = { # How is this Nation gonna run?
 			name = "Elwood Towner"
 		}
 	}
-			
+	
 	option = { # Nationalism
 		name = Alaska.59.a
 		ai_chance = {
 			factor = 50
 		}
 		add_political_power = 50
+		set_country_flag = ALA_redman_superevent_flag
 	}
 	option = { # Traditonalism
 		name = Alaska.59.b
@@ -2543,6 +2763,7 @@ country_event = { # How is this Nation gonna run?
 			ideology = national_populist
 			popularity = 0.5
 		}
+		set_country_flag = ALA_redman_superevent_flag
 	}
 }
 
@@ -2841,13 +3062,38 @@ country_event = { # yo should we just buy alaska
 
 	option = { #no 
 		name = Alaska.110.a
-		
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = ALA_POLITICAL_PATH
+					option = ALA_LIECHTENSTEIN
+				}
+			}
+		}
 	}
 	
 	option = { # why the fuck not
 		name = Alaska.110.b
 		trigger = {
 			has_government = paternal_autocrat
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_BARONS
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_ISRAEL
+					}
+				}
+			}
 		}
 		country_event = {
 			id = Alaska.111
@@ -2872,9 +3118,9 @@ country_event = { # the crazy sons of bitches did it
 		create_country_leader = {
 			name = "Franz Joseph II"
 			desc = "POLITICS_FRANZJOSEPH_II_DESC"
-			picture = "Portrait_ALA_Franz_Joseph_II.tga"
+			picture = "gfx/leaders/ALA/Portrait_ALA_Franz_Joseph_II.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = absolute_monarchy_subtype
 			traits = {  }
 		}
 		set_cosmetic_tag = ALA_LIC
@@ -2894,7 +3140,7 @@ country_event = { # flavour event about jewish settlement
 	immediate = {log = "[GetDateText]: [Root.GetName]: event Alaska.115"}
 	title = Alaska.115.t
 	desc = Alaska.115.d
-	picture = report_event_IRE_immigration
+	picture = GFX_report_event_IRE_immigration
 
 	fire_only_once = yes
 	
@@ -2916,7 +3162,7 @@ country_event = { # flavour event about jewish settlement pt.2
 	immediate = {log = "[GetDateText]: [Root.GetName]: event Alaska.116"}
 	title = Alaska.116.t
 	desc = Alaska.116.d
-	picture = report_event_IRE_immigration
+	picture = GFX_report_event_IRE_immigration
 
 	fire_only_once = yes
 	
@@ -2924,9 +3170,28 @@ country_event = { # flavour event about jewish settlement pt.2
 
 	option = { # epic
 		name = Alaska.116.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_LIECHTENSTEIN
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_BARONS
+					}
+				}
+			}
+		}
 		if = {
 			limit = {
-				has_government = paternal_autocrat
+				has_country_leader = {
+					name = "Simon Guggenheim"
+					ruling_only = yes
+				}
 				NOT = {
 					israel_exists_already = yes
 				}
@@ -2942,7 +3207,16 @@ country_event = { # flavour event about jewish settlement pt.2
 	
 	option = { # not epic
 		name = Alaska.116.b
-		
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = ALA_POLITICAL_PATH
+					option = ALA_ISRAEL
+				}
+			}
+		}
 	}
 }
 
@@ -2951,7 +3225,7 @@ country_event = { # flavour event about jewish settlement pt.3
 	immediate = {log = "[GetDateText]: [Root.GetName]: event Alaska.117"}
 	title = Alaska.117.t
 	desc = Alaska.117.d
-	picture = report_event_IRE_immigration
+	picture = GFX_report_event_IRE_immigration
 
 	fire_only_once = yes
 	
@@ -2959,11 +3233,36 @@ country_event = { # flavour event about jewish settlement pt.3
 
 	option = { # epic
 		name = Alaska.117.a
-		
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = ALA_POLITICAL_PATH
+					option = ALA_ISRAEL
+				}
+			}
+		}
 	}
 	
 	option = { # not epic
 		name = Alaska.117.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_LIECHTENSTEIN
+					}
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_BARONS
+					}
+				}
+			}
+		}
 		set_cosmetic_tag = ALA_JEW
 		complete_national_focus = ALA_foreign_rule
 	}
@@ -3036,5 +3335,49 @@ country_event = { # AUS said yes!
 			transfer_state = 942
 		}
 		
+	}
+}
+
+country_event = { # Roach Plot
+	id = Alaska.121
+	immediate = {log = "[GetDateText]: [Root.GetName]: event Alaska.121"}
+	title = Alaska.121.t
+	desc = Alaska.121.d
+	picture = GFX_report_event_ALA_Enver
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	option = { # Kill them
+		name = Alaska.121.a
+                add_war_support = 0.02
+                add_political_power = -25
+                country_event= {
+			days = 4 
+			id = Alaska.122
+		}		
+	}
+}
+
+country_event = { # Enver gets scalped
+	id = Alaska.122
+	immediate = {log = "[GetDateText]: [Root.GetName]: event Alaska.122"}
+	title = Alaska.122.t
+	desc = Alaska.122.d
+	picture = GFX_report_event_ALA_Dead_Enver
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	option = { # Finally 
+		name = Alaska.122.a
+                add_manpower = -1
+                random_unit_leader = {
+				limit = { has_id = 39890 }			
+				remove_unit_leader = yes
+			}
+                add_stability = 0.02	
 	}
 }

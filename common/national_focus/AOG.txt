@@ -9,6 +9,9 @@ focus_tree = {
 			tag = AOG
 		}
 	}
+	
+	shared_focus = GEX_war_in_the_east
+	shared_focus = GEX_darkest_hour
 
 	default = no
 	focus = {
@@ -287,7 +290,7 @@ focus_tree = {
 			set_cosmetic_tag = AOG_CHINA
 			country_event = allgost.18
 			every_owned_state = {
-				FROM.OWNER = { 
+				AOG = { 
 					add_state_core = PREV 
 				}
 			}
@@ -1424,9 +1427,9 @@ focus_tree = {
 		cancel_if_invalid = yes
 
 		completion_reward = {
-			add_tech_bonus = {
-				name = generic_aviation_effort_2
-				bonus = 1
+			add_doctrine_cost_reduction = {
+				name = air_doc_bonus
+				cost_reduction = 0.5
 				uses = 1
 				category = air_doctrine
 			}
@@ -1592,9 +1595,9 @@ focus_tree = {
 		cancel_if_invalid = yes
 
 		completion_reward = {
-			add_tech_bonus = {
-				name = generic_aviation_effort
-				bonus = 1
+			add_doctrine_cost_reduction = {
+				name = naval_doc_bonus
+				cost_reduction = 0.5
 				uses = 1
 				category = naval_doctrine
 			}

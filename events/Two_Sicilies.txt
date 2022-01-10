@@ -238,13 +238,13 @@ country_event = { # The 1937 Election
 		name = sic.10.a
 		ai_chance = {
 			factor = 25
-			modifier = {
-				factor = 0
-				has_game_rule = {
-					rule = SIC_election
-					option = SIC_ELECTION_INTEGRALIST
-				}
-			}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = {
+			#		rule = SIC_election
+			#		option = SIC_ELECTION_INTEGRALIST
+			#	}
+			#}
 		}
 
 		hidden_effect = {
@@ -271,13 +271,13 @@ country_event = { # The 1937 Election
 		name = sic.10.b
 		ai_chance = {
 			factor = 25
-			modifier = {
-				factor = 0
-				has_game_rule = {
-					rule = SIC_election
-					option = SIC_ELECTION_INTEGRALIST
-				}
-			}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = {
+			#		rule = SIC_election
+			#		option = SIC_ELECTION_INTEGRALIST
+			#	}
+			#}
 		}
 
 		hidden_effect = {
@@ -304,13 +304,13 @@ country_event = { # The 1937 Election
 		name = sic.10.c
 		ai_chance = {
 			factor = 25
-			modifier = {
-				factor = 0
-				has_game_rule = {
-					rule = SIC_election
-					option = SIC_ELECTION_INTEGRALIST
-				}
-			}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = {
+			#		rule = SIC_election
+			#		option = SIC_ELECTION_INTEGRALIST
+			#	}
+			#}
 		}
 
 		hidden_effect = {
@@ -337,13 +337,13 @@ country_event = { # The 1937 Election
 		name = sic.10.e
 		ai_chance = {
 			factor = 25
-			modifier = {
-				factor = 0
-				has_game_rule = {
-					rule = SIC_election
-					option = SIC_ELECTION_DEMOCRACY
-				}
-			}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = {
+			#		rule = SIC_election
+			#		option = SIC_ELECTION_DEMOCRACY
+			#	}
+			#}
 		}
 
 		add_popularity = {
@@ -3746,9 +3746,9 @@ country_event = { # Legion Takes Power
 		create_country_leader = {
 			name = "Julius Evola"
 			desc = "POLITICS_JULIUS_EVOLA_DESC"
-			picture = "gfx/leaders/SRI/Julius_Evola.tga"
+			picture = "gfx/leaders/SRI/Julius_Evola.png"
 			expire = "1970.1.1"
-			ideology = national_populist_subtype
+			ideology = occultism_subtype
 			traits = {}
 		}
 		leave_faction = yes
@@ -4373,9 +4373,9 @@ country_event = { # The King Arrives
 		create_country_leader = {
 				name = "Victor Emmanuel III"
 				desc = "POLITICS_VICTOR_EMMANUEL_III_DESC"
-				picture = "gfx/leaders/SIC/Victor_Emmanuel_III.dds"
+				picture = "gfx/leaders/SIC/Victor_Emmanuel_III.png"
 				expire = "1951.1.1"
-				ideology = national_populist_subtype
+				ideology = occultism_subtype
 				traits = {}
 		}
 		set_country_flag = SIC_Kings_return
@@ -4389,9 +4389,9 @@ country_event = { # The King Arrives
 		create_country_leader = {
 				name = "Julius Evola"
 				desc = "POLITICS_JULIUS_EVOLA_DESC"
-				picture = "gfx/leaders/SIC/Julius_Evola_Baron.dds"
+				picture = "gfx/leaders/SIC/Julius_Evola_Baron.png"
 				expire = "1970.1.1"
-				ideology = national_populist_subtype
+				ideology = occultism_subtype
 				traits = {}
 		}
 		set_country_flag = SIC_Kings_return
@@ -4860,10 +4860,25 @@ country_event = { # Fighting Vice
 			amount = 30
 			producer = SIC
 		}
-		add_equipment_to_stockpile = {
-			type = light_tank_equipment
-			amount = 20
-			producer = SIC
+		if = {
+			limit = {
+				NOT = { has_dlc = "No Step Back" }
+			}
+			add_equipment_to_stockpile = {
+				type = light_tank_equipment_1
+				amount = 20
+				producer = SIC
+			}
+		}
+		if = {
+			limit = {
+				has_dlc = "No Step Back"
+			}
+			add_equipment_to_stockpile = {
+				type = light_tank_chassis
+				amount = 20
+				producer = SIC
+			}
 		}
 		add_equipment_to_stockpile = {
 			type = artillery_equipment_1
@@ -5735,7 +5750,7 @@ country_event = { # Empire of Rome
 			last_election = "1936.11.08"
 			elections_allowed = no
 		}
-		set_capital = 2
+		set_capital = { state = 2 }
 	}
 	option = { # Roman Empire
 		name = sic.1570.b
@@ -5756,7 +5771,7 @@ country_event = { # Empire of Rome
 			last_election = "1936.11.08"
 			elections_allowed = no
 		}
-		set_capital = 2
+		set_capital = { state = 2 }
 	}
 	option = { # Third Rome
 		name = sic.1570.c
@@ -5777,7 +5792,7 @@ country_event = { # Empire of Rome
 			last_election = "1936.11.08"
 			elections_allowed = no
 		}
-		set_capital = 2
+		set_capital = { state = 2 }
 	}
 }   
 
@@ -5941,9 +5956,9 @@ country_event = { # Death of the King
 		create_country_leader = {
 				name = "Umberto II"
 				desc = "POLITICS_Umberto_II_DESC"
-				picture = "gfx/leaders/SIC/Umberto_II.dds"
+				picture = "gfx/leaders/SIC/Umberto_II.png"
 				expire = "1951.1.1"
-				ideology = national_populist_subtype
+				ideology = occultism_subtype
 				traits = {}
 		}
 	}
@@ -5995,7 +6010,7 @@ country_event = { # The Black Prince
 		name = sic.1640.a
 	create_navy_leader = {
 		name = "Junio Valerio Borghese"
-		portrait_path = "gfx/leaders/SIC/Junio_Valerio_Borghese.dds"
+		portrait_path = "gfx/leaders/SIC/Junio_Valerio_Borghese.png"
 		traits = { seawolf }
 		skill = 3
 		attack_skill = 3
@@ -6028,7 +6043,7 @@ country_event = { # The Black Prince Salvages Ships
 		name = sic.1650.a
 		create_navy_leader = {
 		name = "Junio Valerio Borghese"
-		portrait_path = "gfx/leaders/SIC/Junio_Valerio_Borghese.dds"
+		portrait_path = "gfx/leaders/SIC/Junio_Valerio_Borghese.png"
 		traits = { seawolf }
 		skill = 3
 		attack_skill = 3

@@ -1,4 +1,4 @@
-﻿###########################
+###########################
 # Horthy's Fiume events
 ###########################
 
@@ -546,15 +546,6 @@ country_event = { #Our Choice
 	
 	option = { #Resturn home to Hungary!
 		name = fiu.21.b
-		if = {
-			limit = {
-				country_exists = HNR
-			}
-			declare_war_on = {
-				target = HNR
-				type = annex_everything
-			}
-		}
 		
 		if = {
 			limit = {
@@ -565,17 +556,7 @@ country_event = { #Our Choice
 				type = annex_everything
 			}
 		}
-		
-		if = {
-			limit = {
-				country_exists = HSR
-			}
-			declare_war_on = {
-				target = HSR
-				type = annex_everything
-			}
-		}
-		
+
 		every_country = {
 			limit = {
 				OR = {
@@ -835,43 +816,33 @@ country_event = { #Horthy Forms the Robber's Corps (A secret operations unit tha
 			random_list = {
 				25 = {
 					set_country_flag = FIU_robbery_british_museum
-					every_country = {
-						news_event = {
-							id = fiunews.1 #The Great Heist of the British Museum
-							days = 30
-							random = 100
-						}
+					news_event = {
+						id = fiunews.1 #The Great Heist of the British Museum
+						days = 30
+						random = 100
 					}
 				}
 				25 = {
 					set_country_flag = FIU_robbery_mona_lisa #In Memory of Vincenzo Peruggia
-					every_country = {
-						news_event = {
-							id = fiunews.2 #Vicenzo Peruggia Strikes Back
-							days = 30
-							random = 100
-						}
+					news_event = {
+						id = fiunews.2 #Vicenzo Peruggia Strikes Back
+						days = 30
+						random = 100
 					}
-					
 				}
 				25 = {
-					set_country_flag = FIU_robbery_nyc
-					every_country = {
-						news_event = {
-							id = fiunews.3 #Plunder of the Metropolitan Museum of Art
-							days = 30
-							random = 100
-						}
+					news_event = {
+						id = fiunews.3 #Plunder of the Metropolitan Museum of Art
+						days = 30
+						random = 100
 					}
 				}
 				25 = {
 					set_country_flag = FIU_robbery_deutsche_bank
-					every_country = {
-						news_event = {
-							id = fiunews.4 #Cracking Deutsche Bank
-							days = 30
-							random = 100
-						}
+					news_event = {
+						id = fiunews.4 #Cracking Deutsche Bank
+						days = 30
+						random = 100
 					}
 				}
 			}
@@ -1051,6 +1022,8 @@ country_event = { #The Free City of Fiume is declared
 		FIU = {
 			add_state_core = 1105
 			transfer_state = 1105
+			add_state_core = 1206
+			transfer_state = 1206
 			change_tag_from = AUS
 		}
 		hidden_effect = {
@@ -1065,11 +1038,17 @@ country_event = { #The Free City of Fiume is declared
 			}
 		}
 		CRO = {
-			remove_unit_leader = 40000
+			random_unit_leader = {
+				limit = { has_id = 40000 }			
+				remove_unit_leader = yes
+			}
 			give_guarantee = FIU
 		}
 		HUN = {
-			remove_unit_leader = 5018
+			random_unit_leader = {
+				limit = { has_id = 5018 }			
+				remove_unit_leader = yes
+			}
 		}
 	}
 	
@@ -1080,6 +1059,8 @@ country_event = { #The Free City of Fiume is declared
 		FIU = {
 			add_state_core = 1105
 			transfer_state = 1105
+			add_state_core = 1206
+			transfer_state = 1206
 		}
 		hidden_effect = {
 			country_event = {
@@ -1093,7 +1074,10 @@ country_event = { #The Free City of Fiume is declared
 			}
 		}
 		CRO = {
-			remove_unit_leader = 40000
+			random_unit_leader = {
+				limit = { has_id = 40000 }			
+				remove_unit_leader = yes
+			}
 			give_guarantee = FIU
 		}
 	}
@@ -1135,7 +1119,7 @@ news_event = {  #The Great Heist of the British Museum
 	title = fiunews.1.t
 	desc = fiunews.1.d
 	
-	picture = GFX_news_event_FIU_british_museum
+	picture = GFX_news_FIU_briish_museum
 	
 	major = yes
 	
@@ -1173,7 +1157,7 @@ news_event = {  #Vincenzo Peruggia Strikes Back
 	title = fiunews.2.t
 	desc = fiunews.2.d
 	
-	picture = GFX_news_event_FIU_mona_lisa
+	picture = GFX_news_FIU_louvre
 	
 	major = yes
 	
@@ -1211,7 +1195,7 @@ news_event = {  #Plunder of the Metropolitan Museum
 	title = fiunews.3.t
 	desc = fiunews.3.d
 	
-	picture = GFX_news_event_FIU_metropolitan_museum
+	picture = GFX_news_FIU_Metropolitan_Museum
 	
 	major = yes
 	
@@ -1257,7 +1241,7 @@ news_event = {  #Plunder of the Metropolitan Museum
 	title = fiunews.4.t
 	desc = fiunews.4.d
 	
-	picture = GFX_news_event_FIU_deutsche_bank
+	picture = GFX_news_FIU_german_bank
 	
 	major = yes
 	

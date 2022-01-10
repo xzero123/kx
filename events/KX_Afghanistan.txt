@@ -1,1 +1,1086 @@
-﻿############################# Anglo-Afghan War############################## By DoctorPainkiller##############################add_namespace = afg### 5th Anglo-Afghan War#country_event = { #attack Delhi#	id = afg.0#	immediate = {log = "[GetDateText]: [Root.GetName]: event afg.0"}#	title = afg.0.t#	desc = afg.0.d#	picture = GFX_report_event_british_artillery##	fire_only_once = yes##	trigger = {#		tag = AFG#		date > 1936.2.2#		has_war = no#		is_subject = no#		owns_state = 442 #Peshawar#		owns_state = 445 #Quetta#		DEH = {#			exists = yes#			NOT = { is_in_faction_with = AFG }#		}#	}##	mean_time_to_happen = {#		days = 1#	}#	#	immediate = {#		set_country_flag = DEH_afghan_war_happened#	}##	option = {#		name = afg.0.a#		ai_chance = {#			factor = 100#		}#		declare_war_on = {#			target = DEH#			type = annex_everything#		}#		hidden_effect = {#			DEH = {#				set_country_flag = DEH_afghan_war#				country_event = {#					id = delhi.4#					days = 1#				}#			}#			news_event = {#				id = worldnews.19#				days = 1#			}#		}#	}##	option = {#		name = afg.0.b#		ai_chance = {#			factor = 0#		}#		add_political_power = -100#		DEH = {#			set_country_flag = DEH_no_afghan_war#		}#		AFG = {#			set_country_flag = AFG_muslim_angry#		}#	}#}### Delhi wins the war#country_event = {#	id = afg.1#	immediate = {log = "[GetDateText]: [Root.GetName]: event afg.1"}#	title = afg.1.t#	picture = GFX_report_event_PRF_war##	desc = {#		text = afg.1.d#		trigger = {#			NOT = {#				is_subject_of = FROM#			}#		}#	}#	desc = {#		text = afg.1.d.puppet#		trigger = {#			is_subject_of = FROM#		}#	}##	is_triggered_only = yes##	option = {#		name = afg.1.a#	}#}### Afghanistan wins the war#country_event = {#	id = afg.2#	immediate = {log = "[GetDateText]: [Root.GetName]: event afg.2"}#	title = afg.2.t#	desc = afg.2.d#	picture = GFX_report_event_PRF_war##	fire_only_once = yes##	trigger = {#		tag = AFG#		has_war_with = DEH#		DEH = {#			has_country_flag = DEH_afghan_war#		}#		AFG = {#			controls_state = 267 #Kabul#			controls_state = 415 #Herat#			controls_state = 444 #Baluchistan#			controls_state = 440 #Punjab#			controls_state = 891 #Lahore#			controls_state = 439 #Delhi#			NOT = {#				surrender_progress > 0.20#			}#		}#	}##	mean_time_to_happen = {#		days = 10#	}##	option = {#		name = afg.2.a #Let us claim Kashmir and carve a path to the Mouth of the Indus!#		ai_chance = {#			factor = 90#		}#		add_political_power = 50#		add_state_core = 441 #Kashmir#		add_state_core = 444 #Baluchistan#		add_state_core = 891 #Lahore#		DEH = {#			country_event = {#				id = afg.3#			}#		}#	}#	option = {#		name = afg.2.b #I shall be the emancipator and liberator of all Mohammedans in the Indus Valley!#		ai_chance = {#			factor = 9#		}#		add_political_power = -100#		add_state_core = 441 #Kashmir#		add_state_core = 444 #Baluchistan#		add_state_core = 891 #Lahore#		add_state_core = 440 #Punjab#		add_state_core = 443 #Sindh#		add_state_core = 439 #Delhi#		add_state_core = 890 #Shimla#		DEH = {#			country_event = {#				id = afg.3#			}#		}#	}#	option = {#		name = afg.2.c #No peace with idol-worshippers, let us complete our conquest!#		ai_chance = {#			factor = 1#		}#		add_political_power = -100#	}#}### Delhi receives the peace demand#country_event = {#	id = afg.3#	immediate = {log = "[GetDateText]: [Root.GetName]: event afg.3"}#	title = afg.3.t#	desc = afg.3.d#	picture = GFX_report_event_PRF_war##	is_triggered_only = yes##	option = {#		name = afg.3.a #We yield because we have no other choice...#		ai_chance = {#			factor = 99#			modifier = {#				factor = 6#				439 = {#					is_core_of = AFG#				}#			}#		}#		add_political_power = -200#		AFG = {#			white_peace_with_ROOT = yes#		}#		every_owned_state = {#			limit = {#				is_core_of = AFG#			}#			AFG = {#				transfer_state = PREV#			}#		}#	}#	option = {#		name = afg.3.b #They must be joking, Hindustan Zindabad!#		ai_chance = {#			factor = 1#			modifier = {#				factor = 0.5#				439 = {#					is_core_of = AFG#				}#			}#		}#		add_political_power = -200#		AFG = {#			country_event = {#				id = afg.4#				days = 1#			}#		}#	}#}### Delhi refuses the peace demand#country_event = {#	id = afg.4#	immediate = {log = "[GetDateText]: [Root.GetName]: event afg.4"}#	title = afg.4.t#	desc = afg.4.d#	picture = GFX_report_event_PRF_war##	is_triggered_only = yes##	option = {#		name = afg.4.a#	}#}############################### Afghanistan Events############################## By anbory#################################Shia muslims flee the war####country_event = {#	id = afg.5#	immediate = {log = "[GetDateText]: [Root.GetName]: event afg.5"}#	title = afg.5.t#	desc = afg.5.d##	fire_only_once = yes##	trigger = {#		tag = AFG#		date > 1936.2.2#		has_war = yes#	}##	mean_time_to_happen = {#		days = 5#	}##	option = {#		name = afg.5.a#		add_manpower = -5000#		PER = {#			country_event = {#				id = afg.6#				days = 1#			}#		}#	}#}#####Shia muslims flee the war - PER message####country_event = {#	id = afg.6#	immediate = {log = "[GetDateText]: [Root.GetName]: event afg.6"}#	title = afg.6.t#	desc = afg.6.d##	fire_only_once = yes#	is_triggered_only = yes##	option = { #Welcome them#		ai_chance = {#			factor = 70#		}#		name = afg.6.a#		add_manpower = 5000#	}##	option = { #Close the borders#		ai_chance = {#			factor = 30#		}#		name = afg.6.b#		AFG = {#			country_event = {#				id = afg.7#				days = 4#			}#		}#	}#}#####Shia refugees return from Persia####country_event = {#	id = afg.7#	immediate = {log = "[GetDateText]: [Root.GetName]: event afg.7"}#	title = afg.7.t#	desc = afg.7.d##	fire_only_once = yes#	is_triggered_only = yes##	option = {#		name = afg.7.a#		add_manpower = 5000#	}##}#####Political Instability after the war####country_event = {#	id = afg.8#	immediate = {log = "[GetDateText]: [Root.GetName]: event afg.8"}#	title = afg.8.t#	desc = afg.8.d##	fire_only_once = yes#	trigger = {#		tag = AFG#		has_country_flag = AFG_lose_war#	}#	mean_time_to_happen = {#		days = 7#	}##	option = { #Keep current leader#		ai_chance = {#			factor = 30#		}#		name = afg.8.a#		add_political_power = -1000 #Deep political crisis#		custom_effect_tooltip = AFG_chaos_tooltip#		hidden_effect = {#			random_list = {#				40 = {#					country_event = {#						id = afg.9#						days = 31#					}#				} #Order Restored#				60 = {#					country_event = {#						id = afg.10#						days = 31#					}#				} #Govermnet Falls#			}#		}#	}##	option = { #New King#		ai_chance = {#			factor = 35#		}#		name = afg.8.c#		create_country_leader = {#			name = "Mohammed Nadir"#			desc = "POLITICS_MOHAMMED_NADIR_DESC"#			picture = "Portrait_Afghan_Mohammed_Zahir.tga"#			expire = "1965.1.1"#			ideology = paternal_autocrat_subtype#			traits = {}#		}#		set_country_flag = AFG_reforms#		set_cosmetic_tag = AFG_nadir#		hidden_effect = {#			remove_ideas_with_trait = head_of_government#			add_ideas = AFG_Inayatullah_Khan_Seraj_hog_pau#			remove_ideas_with_trait = foreign_minister#			add_ideas = AFG_Haji_Faiz_Muhammed_Zikeria_for_pau#			remove_ideas_with_trait = security_minister#			add_ideas = AFG_Ghulam_Faruq_Usman_sec_pau#		}#		add_political_power = -400#		country_event = {#			id = afg.14#			days = 7#		}#	}#}#####Order Restored####country_event = {#	id = afg.9#	immediate = {log = "[GetDateText]: [Root.GetName]: event afg.9"}#	title = afg.9.t#	desc = afg.9.d##	fire_only_once = yes#	is_triggered_only = yes##	option = {#		name = afg.9.a#		add_political_power = 600 #Initial recovery#	}##}#####Chaos in Afganistan####country_event = {#	id = afg.10#	immediate = {log = "[GetDateText]: [Root.GetName]: event afg.10"}#	title = afg.10.t#	desc = afg.10.d##	fire_only_once = yes#	is_triggered_only = yes##	option = { #New King#		ai_chance = {#			factor = 50#		}#		name = afg.10.b#		create_country_leader = {#			name = "Mohammed Nadir"#			desc = "POLITICS_MOHAMMED_NADIR_DESC"#			picture = "Portrait_Afghan_Mohammed_Zahir.tga"#			expire = "1965.1.1"#			ideology = paternal_autocrat_subtype#			traits = {}#		}#		set_country_flag = AFG_reforms#		set_cosmetic_tag = AFG_nadir#		hidden_effect = {#			remove_ideas_with_trait = head_of_government#			add_ideas = AFG_Inayatullah_Khan_Seraj_hog_pau#			remove_ideas_with_trait = foreign_minister#			add_ideas = AFG_Haji_Faiz_Muhammed_Zikeria_for_pau#			remove_ideas_with_trait = security_minister#			add_ideas = AFG_Ghulam_Faruq_Usman_sec_pau#		}#		add_political_power = 300#	}#}##### Reforms - Nadir Route######## Nadir's Claims to the Throne####country_event = {#	id = afg.14#	immediate = {log = "[GetDateText]: [Root.GetName]: event afg.14"}#	title = afg.14.t#	desc = afg.14.d##	fire_only_once = yes#	is_triggered_only = yes##	option = { # Call a jirga#		name = afg.14.a#		add_political_power = 20#		country_event = {#			id = afg.15#			days = 7#		}#	}#}##### Jirga decide what to do with Nadir####country_event = {#	id = afg.15#	immediate = {log = "[GetDateText]: [Root.GetName]: event afg.15"}#	title = afg.15.t#	desc = afg.15.d##	fire_only_once = yes#	is_triggered_only = yes##	option = { # Accept him#		ai_chance = {#			factor = 90#		}#		name = afg.15.a#		add_political_power = 40#		country_event = {#			id = afg.16#			days = 70#		}#	}##	option = { # Denounce him#		ai_chance = {#			factor = 10#		}#		name = afg.15.b#		add_political_power = -160#		country_event = {#			id = afg.16#			days = 140#		}#	}#}##### Choose new HoG ####country_event = {#	id = afg.16#	immediate = {log = "[GetDateText]: [Root.GetName]: event afg.16"}#	title = afg.16.t#	desc = afg.16.d##	fire_only_once = yes#	is_triggered_only = yes##	option = { # Shah Wali Khan#		ai_chance = {#			factor = 26#		}#		name = afg.16.a#		add_political_power = -80#		remove_ideas_with_trait = head_of_government#		add_ideas = AFG_Shah_Wali_Khan_hog_ade#	}##	option = { # Muhammed Hashim#		ai_chance = {#			factor = 30#		}#		name = afg.16.b#		add_political_power = -80#		remove_ideas_with_trait = head_of_government#		add_ideas = AFG_Muhammed_Hashim_hog_ade#	}##	option = { # Muhammed Ghobar#		ai_chance = {#			factor = 22#		}#		name = afg.16.c#		add_political_power = -80#		remove_ideas_with_trait = head_of_government#		add_ideas = AFG_Muhammed_Ghobar_hog_ade#	}##	option = { # Abdul Hadi Dawai#		ai_chance = {#			factor = 12#		}#		name = afg.16.e#		add_political_power = -120#		remove_ideas_with_trait = head_of_government#		add_ideas = AFG_Abdul_Hadi_Dawai_hog_ade#	}##	option = { # Nadir Shah#		ai_chance = {#			factor = 10#		}#		name = afg.16.f#		add_political_power = -160#		remove_ideas_with_trait = head_of_government#		add_ideas = AFG_Mohammed_Nadir_Shah_hog_sco#	}#}##### Status of Amanullah's Reforms ####country_event = {#	id = afg.17#	immediate = {log = "[GetDateText]: [Root.GetName]: event afg.17"}#	title = afg.17.t#	desc = afg.17.d##	fire_only_once = yes#	trigger = {#		tag = AFG#		has_political_power > -400#		has_country_flag = AFG_reforms#	}##	mean_time_to_happen = {#		days = 70#	}##	option = { # Only Agrarian reforms#		ai_chance = {#			factor = 60#		}#		name = afg.17.a#		add_political_power = -100#		267 = {#			add_building_construction = {#				type = infrastructure#				level = 2#				instant_build = yes#			}#		}#		415 = {#			add_building_construction = {#				type = infrastructure#				level = 1#				instant_build = yes#			}#		}##	}##	option = { # Do Nothing#		ai_chance = {#			factor = 30#		}#		name = afg.17.b#		add_political_power = 40#	}##	option = { # Full Reforms#		ai_chance = {#			factor = 10#		}#		name = afg.17.c#		add_political_power = -200#		267 = {#			add_extra_state_shared_building_slots = 2#			add_building_construction = {#				type = industrial_complex#				level = 1#				instant_build = yes#			}#			add_building_construction = {#				type = arms_factory#				level = 1#				instant_build = yes#			}#			add_building_construction = {#				type = infrastructure#				level = 2#				instant_build = yes#			}#		}#		415 = {#			add_extra_state_shared_building_slots = 2#			add_building_construction = {#				type = industrial_complex#				level = 2#				instant_build = yes#			}#			add_building_construction = {#				type = infrastructure#				level = 2#				instant_build = yes#			}#		}#	}#}########################################### New Afghanistan Events		############################################## By anbory ###############################################################Indian sarrafs (money changers) left our country####country_event = {#	id = afg.18#	immediate = {log = "[GetDateText]: [Root.GetName]: event afg.18"}#	title = afg.18.t#	desc = afg.18.d##	fire_only_once = yes##	trigger = {#		tag = AFG#		has_war_with = DEH#	}##	mean_time_to_happen = {#		days = 15#	}##	option = {#		name = afg.18.a#		add_political_power = -20#		set_country_flag = AFG_sar_gone#	}##}#####War is over, sarrafs traders came back####country_event = {#	id = afg.19#	immediate = {log = "[GetDateText]: [Root.GetName]: event afg.19"}#	title = afg.19.t#	desc = afg.19.d##	fire_only_once = yes##	trigger = {#		tag = AFG#		NOT = {	has_war_with = DEH }#		has_country_flag = AFG_sar_gone#	}##	mean_time_to_happen = {#		days = 30#	}##	option = {#		name = afg.19.a#		add_political_power = 15#		clr_country_flag = AFG_sar_gone#	}##}#
+### epic afg path by dr phil and about10baboons ###
+
+add_namespace = afghanredux
+add_namespace = afgnews
+
+country_event = {
+	id = afghanredux.0
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.0"}
+	title = afghanredux.0.t
+	desc = afghanredux.0.d
+	picture = GFX_report_event_AFG_royal_family
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = afghanredux.0.a
+	}
+
+	option = {
+		name = afghanredux.0.b
+		country_event = {
+			id = afghanredux.40
+			days = 0
+		}
+	}
+
+}
+
+country_event = { 
+	id = afghanredux.1
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.1"}
+	title = {
+		text = afghanredux.1.t.victory
+		trigger = {
+			has_country_flag = AFG_afghanistan_victory
+		}
+	}
+	title = {
+		text = afghanredux.1.t.defeat
+		trigger = {
+			has_country_flag = AFG_lose_war
+		}
+	}
+	desc = {
+		text = afghanredux.1.d.victory
+		trigger = {
+			has_country_flag = AFG_afghanistan_victory
+		}
+	}
+	desc = {
+		text = afghanredux.1.d.defeat
+		trigger = {
+			has_country_flag = AFG_lose_war
+		}
+	}
+	picture = GFX_report_event_AFG_tribal_uprising
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = afghanredux.1.a
+		trigger = {
+			has_country_flag = AFG_afghanistan_victory
+		}
+		set_cosmetic_tag = AFG_MGH
+		create_country_leader = {
+			name = "Habibullah Khan"
+			desc = "POLITICS_HABIBULLAH_KHAN_DESC"
+			picture = "gfx/leaders/AFG/Portrait_Afghan_Habibullah_Khan.png"
+			expire = "1965.1.1"
+			ideology = absolute_monarchy_subtype
+			traits = { afg_the_conqueror }
+		}
+	}
+	option = {
+		name = afghanredux.1.b
+		trigger = {
+			has_country_flag = AFG_lose_war
+		}
+		create_country_leader = {
+			name = "Habibullah Khan"
+			desc = "POLITICS_HABIBULLAH_KHAN_DESC"
+			picture = "gfx/leaders/AFG/Portrait_Afghan_Habibullah_Khan.tga"
+			expire = "1965.1.1"
+			ideology = absolute_monarchy_subtype
+			traits = { afg_the_unready }
+		}
+	}
+}
+
+country_event = { # Luftexpedition Request
+	id = afghanredux.2
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.2"}
+	title = afghanredux.2.t
+	desc = afghanredux.2.d
+	picture = GFX_report_event_AFG_tribal_uprising
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = afghanredux.2.a
+		ai_chance = {
+			factor = 100
+		}
+		set_country_flag = AFG_GER_allied_aid_LUFT
+		add_political_power = -50
+		add_timed_idea = {
+			idea = GER_luftexpedition
+			days = 365
+		}
+		add_equipment_to_stockpile = {
+			type = fighter_equipment_1
+			amount = -50
+		}
+		AFG = {
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_1
+				amount = 50
+				producer = GER
+			}
+			country_event = {
+				id = afghanredux.21
+				days = 1
+			}
+		}
+		GER = {
+			country_event = {
+				id = afghanredux.7
+				days = 1 
+			}
+		}
+	}
+	option = {
+		name = afghanredux.2.b
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = 50
+	}
+}
+
+country_event = { # Ottoman Support Request
+	id = afghanredux.3
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.3"}
+	title = afghanredux.3.t
+	desc = afghanredux.3.d
+	picture = GFX_report_event_AFG_tribal_uprising
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = afghanredux.3.a
+		ai_chance = {
+			factor = 100
+		}
+		set_country_flag = AFG_OTT_allied_aid
+		add_political_power = -50
+		add_timed_idea = {
+			idea = AFG_OTT_jihad
+			days = 365
+		}
+		AFG = {
+			country_event = {
+					id = afghanredux.22
+					days = 2
+				}
+
+		}
+		OTT = {
+			country_event = {
+				id = afghanredux.8
+				days = 1 
+			}
+		}
+	}
+	option = {
+		name = afghanredux.3.b
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = 50
+	}
+}
+
+country_event = { # Request Allied Support Germans
+	id = afghanredux.4
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.4"}
+	title = afghanredux.4.t
+	desc = afghanredux.4.d
+	picture = GFX_report_event_AFG_tribal_uprising
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = afghanredux.4.a
+		ai_chance = {
+			factor = 100
+		}
+		add_political_power = -50
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_0
+			amount = -3000
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment_1
+			amount = -500
+		}
+
+		AFG = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 5000
+				producer = GER
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 500
+				producer = GER
+			}
+			add_opinion_modifier = {
+				target = GER
+				modifier = SWI_honored_obligations
+			}
+			country_event = {
+				id = afghanredux.23
+				days = 3
+			}
+		}
+		hidden_effect = {
+			AFG = {
+				set_country_flag = AFG_germans_send_aid
+			}
+		}
+	}
+	option = {
+		name = afghanredux.4.b
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = 100
+		hidden_effect = {
+			AFG = {
+				set_country_flag = AFG_germans_deny_aid
+			}
+		}
+	}
+}
+
+country_event = { # Request Allied Support Turks
+	id = afghanredux.5
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.5"}
+	title = afghanredux.5.t
+	desc = afghanredux.5.d
+	picture = GFX_report_event_AFG_tribal_uprising
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = afghanredux.5.a
+		ai_chance = {
+			factor = 100
+		}
+		add_political_power = -50
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_0
+			amount = -3000
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment_1
+			amount = -500
+		}
+		add_opinion_modifier = {
+			target = AFG
+			modifier = SWI_honored_obligations
+		}
+		AFG = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 3000
+				producer = OTT
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 500
+				producer = OTT
+			}
+			country_event = {
+				id = afghanredux.24
+				days = 2
+			}
+			add_opinion_modifier = {
+				target = OTT
+				modifier = SWI_honored_obligations
+			}
+		}
+		hidden_effect = {
+			AFG = {
+				set_country_flag = AFG_turks_send_aid
+			}
+		}
+	}
+	option = {
+		name = afghanredux.5.b
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = 100
+		hidden_effect = {
+			AFG = {
+				set_country_flag = AFG_turks_deny_aid
+			}
+		}
+	}
+}
+
+country_event = {
+	id = afghanredux.6
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.6"}
+	title = afghanredux.6.t
+	desc = afghanredux.6.d
+	picture = GFX_report_event_AFG_tribal_uprising
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = afghanredux.6.a
+		add_political_power = -250
+		add_opinion_modifier = {
+			target = NEP
+			modifier = ITA_outraged
+		}
+		NEP = {
+			add_state_core = 890
+			transfer_state = 890
+		}
+	}
+}
+
+country_event = { # volunteer event for GER,
+	id = afghanredux.7
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.7"}
+	title = afghanredux.7.t
+	desc = afghanredux.7.d
+	picture = GFX_report_event_AFG_tribal_uprising
+
+	trigger = {
+		is_ai = yes #AI Only
+		AND = {
+			country_exists = AFG
+			country_exists = DEH
+		}
+		num_divisions > 10
+		num_of_factories > 10
+		tag = GER
+		has_global_flag = anglo_afghan_war
+		AFG = {
+			has_country_flag = AFG_germans_send_aid
+		}
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = afghanredux.7.a
+		AFG = { save_event_target_as = volunteer_target }
+		send_volunteers_to_TARGET = yes
+		}
+	}
+
+country_event = { # volunteer event for OTT,
+	id = afghanredux.8
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.8"}
+	title = afghanredux.8.t
+	desc = afghanredux.8.d
+	picture = GFX_report_event_AFG_tribal_uprising
+
+	trigger = {
+		is_ai = yes #AI Only
+		AND = {
+			country_exists = AFG
+			country_exists = DEH
+		}
+		num_divisions > 10
+		num_of_factories > 10
+		tag = OTT
+		has_global_flag = anglo_afghan_war
+		AFG = {
+			has_country_flag = AFG_turks_send_aid
+		}
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = afghanredux.8.a
+		AFG = { save_event_target_as = volunteer_target }
+		send_volunteers_to_TARGET = yes
+	}
+}
+
+country_event = { # Amanullah in Turkiye stronk cCc
+	id = afghanredux.9
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.9"}
+	title = afghanredux.9.t
+	desc = afghanredux.9.d
+	picture = GFX_report_event_AFG_amanullah_ataturk
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = afghanredux.9.a
+		hidden_effect = {
+			country_event = {
+				id = afghanredux.10
+				days = 5
+			}
+		}
+	}
+}
+
+country_event = { # Amanullah in Iran
+	id = afghanredux.10
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.10"}
+	title = afghanredux.10.t
+	desc = afghanredux.10.d
+	picture = GFX_report_event_AFG_amanullah_iran
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = afghanredux.10.a
+		hidden_effect = {
+			country_event = {
+				id = afghanredux.11
+				days = 7
+			}
+		}
+	}
+}
+
+country_event = { # Amanullah returns #try to just give him a trait, he already here fam!
+	id = afghanredux.11
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.11"}
+	title = afghanredux.11.t
+	desc = afghanredux.11.d
+	picture = GFX_report_event_AFG_amanullah_soraya
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = afghanredux.11.a
+		add_political_power = -15
+		add_stability = -0.05
+		custom_effect_tooltip = AFG_amanullah_swordbearer
+		hidden_effect = {
+			random_unit_leader = {
+				limit = { has_id = 1671 } #Amanullah Khan
+				add_unit_leader_trait = swordbearer
+			}
+		}
+	}
+}
+
+country_event = { # Habibullah Consolidation
+	id = afghanredux.12
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.12"}
+	title = afghanredux.12.t
+	desc = afghanredux.12.d
+	picture = GFX_report_event_AFG_habibullah_khan
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = afghanredux.12.a
+		hidden_effect = {
+			country_event = {
+				id = afghanredux.13
+				days = 15
+			}
+		}
+	}
+}
+
+country_event = { # Hunting Trip
+	id = afghanredux.13
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.13"}
+	title = afghanredux.13.t
+	desc = afghanredux.13.d
+	picture = GFX_report_event_AFG_habibullah_khan
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = afghanredux.13.a
+		hidden_effect = {
+			country_event = {
+				id = afghanredux.14
+				days = 2
+			}
+		}
+	}
+}
+
+country_event = { # Habibullah Assassinated
+	id = afghanredux.14
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.14"}
+	title = afghanredux.14.t
+	desc = afghanredux.14.d
+	picture = GFX_report_event_AFG_habibullah_khan
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = afghanredux.14.a
+		create_country_leader = {
+			name = "Nasrullah Khan"
+			desc = "POLITICS_NASRULLAH_KHAN_DESC"
+			picture = "gfx/leaders/AFG/Portrait_Afghan_Nasrullah_Khan.png"
+			expire = "1965.1.1"
+			ideology = absolute_monarchy_subtype
+			traits = {}
+		}
+		random_unit_leader = {
+			limit = {
+				has_id = 1672
+			}
+			retire = yes
+		}
+		hidden_effect = {
+			country_event = {
+				id = afghanredux.15
+				days = 3
+			}
+		}
+	}
+}
+
+country_event = { # Nasrullah seizes throne
+	id = afghanredux.15
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.15"}
+	title = afghanredux.15.t
+	desc = afghanredux.15.d
+	picture = GFX_report_event_AFG_royal_family
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # Accept demands for investigation
+		name = afghanredux.15.a
+		hidden_effect = {
+			country_event = {
+				id = afghanredux.16
+				days = 4
+			}
+		}
+	}
+	option = { # Refuse demands for investigation
+		name = afghanredux.15.b
+		hidden_effect = {
+			country_event = {
+				id = afghanredux.17
+				days = 4
+			}
+		}
+	}
+}
+
+country_event = { # Amanullah arrests Nasrullah
+	id = afghanredux.16
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.16"}
+	title = afghanredux.16.t
+	desc = afghanredux.16.d
+	picture = GFX_report_event_AFG_royal_family
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = afghanredux.16.a
+		set_country_flag = AFG_king_amanullah
+		set_politics = {
+			ruling_party = authoritarian_democrat
+				elections_allowed = no
+		}
+		create_country_leader = {
+			name = "Amanullah Khan"
+			desc = "POLITICS_AMANULLAH_KHAN_DESC"
+			picture = "gfx/leaders/AFG/Portrait_Afghan_Amanullah_Khan.png"
+			expire = "1965.1.1"
+			ideology = oligarchy_subtype
+			traits = {}
+		}
+		every_unit_leader = {
+			limit = {
+				has_id = 1673
+			}
+			retire = yes
+		}
+	}
+}
+
+country_event = { # Split in the army
+	id = afghanredux.17
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.17"}
+	title = afghanredux.17.t
+	desc = afghanredux.17.d
+	picture = GFX_report_event_AFG_civil_war
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # Sides with Amanullah
+		name = afghanredux.17.a
+		hidden_effect = {
+			country_event = {
+					id = afghanredux.16
+					days = 1
+			}
+		}
+	}
+	option = { # Sides with Nasrullah
+		name = afghanredux.17.b
+		hidden_effect = {
+			country_event = {
+					id = afghanredux.18
+					days = 1
+			}
+		}
+	}
+}
+
+country_event = { # Amanullah flees into exile
+	id = afghanredux.18
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.18"}
+	title = afghanredux.18.t
+	desc = afghanredux.18.d
+	picture = GFX_report_event_AFG_amanullah_soraya
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # Don't Purge
+		name = afghanredux.18.a
+		every_unit_leader = {
+			limit = {
+				has_id = 1671
+			}
+			retire = yes
+		}
+		hidden_effect = {
+			country_event = {
+					id = afghanredux.19
+					days = 15
+			}
+		}
+	}
+	option = { # Full Purge
+		name = afghanredux.18.b
+		every_unit_leader = {
+			limit = {
+				has_id = 1671
+			}
+			retire = yes
+		}
+		hidden_effect = {
+			country_event = {
+					id = afghanredux.20
+					days = 15
+			}
+		}
+	}
+}
+
+country_event = { # Nasrullah wins
+	id = afghanredux.19
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.19"}
+	title = afghanredux.19.t
+	desc = afghanredux.19.d
+	picture = GFX_report_event_AFG_royal_family
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = afghanredux.19.a
+		set_country_flag = AFG_king_nasrullah
+	}
+}
+
+country_event = { # Mohammed Nadir Shah marches on Kabul
+	id = afghanredux.20
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.20"}
+	title = afghanredux.20.t
+	desc = afghanredux.20.d
+	picture = GFX_report_event_AFG_royal_family
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = afghanredux.20.a
+		set_country_flag = AFG_king_nadir
+		create_country_leader = {
+			name = "Mohammed Nadir Shah"
+			desc = "POLITICS_NADIR_SHAH_DESC"
+			picture = "gfx/leaders/AFG/Portrait_Afghan_Mohammed_Nadir_Shah.png"
+			expire = "1965.1.1"
+			ideology = absolute_monarchy_subtype
+			traits = {}
+		}
+		create_field_marshal = {
+			name = "Mohammed Nadir Shah"
+			portrait_path = "gfx/leaders/AFG/Portrait_Afghan_Mohammed_Nadir_Shah.png"
+			traits = { media_personality swordbearer politically_connected harsh_leader war_hero }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+			id = 545454
+		}
+		create_corps_commander = {
+			name = "Mohammed Zahir Shah"
+			portrait_path = "gfx/leaders/AFG/Portrait_Afghan_Mohammed_Zahir.png"
+			traits = { media_personality politically_connected war_hero }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+			id = 545455
+		}
+		every_unit_leader = {
+			limit = {
+				has_id = 1673
+			}
+			retire = yes
+		}
+	}
+}
+
+country_event = {
+	id = afghanredux.21
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.21"}
+	title = afghanredux.21.t
+	desc = afghanredux.21.d
+	picture = GFX_report_event_AFG_tribal_uprising
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = afghanredux.21.a
+		add_ideas = {
+			AFG_luftexpedition
+		}
+	}
+}
+
+country_event = {
+	id = afghanredux.22
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.22"}
+	title = afghanredux.22.t
+	desc = afghanredux.22.d
+	picture = GFX_report_event_AFG_tribal_uprising
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = afghanredux.22.a
+		add_ideas = AFG_jihad
+	}
+}
+
+country_event = {
+	id = afghanredux.23
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.23"}
+	title = afghanredux.23.t
+	desc = afghanredux.23.d
+	picture = GFX_report_event_AFG_tribal_uprising
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = afghanredux.23.a
+	}
+}
+
+country_event = {
+	id = afghanredux.24
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.24"}
+	title = afghanredux.24.t
+	desc = afghanredux.24.d
+	picture = GFX_report_event_AFG_tribal_uprising
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = afghanredux.24.a
+	}
+}
+
+country_event = {
+	id = afghanredux.25
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.24"}
+	title = afghanredux.25.t
+	desc = afghanredux.25.d
+	picture = GFX_report_event_AFG_tribal_uprising
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = afghanredux.25.a
+		DEH = {
+			add_timed_idea = {
+				idea = DEH_PGI_resistance
+				days = 180
+			}
+		}
+	}
+}
+
+country_event = { # coronation of Nasrullah formally
+	id = afghanredux.26
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.24"}
+	title = afghanredux.26.t
+	desc = afghanredux.26.d
+	picture = GFX_report_event_AFG_royal_family
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = afghanredux.26.a
+		add_stability = 0.05
+		add_war_support = 0.05
+		add_political_power = 10 
+	}
+}
+
+country_event = { # bye ott and ger
+	id = afghanredux.37
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.24"}
+	title = afghanredux.37.t
+	desc = afghanredux.37.d
+	picture = GFX_report_event_AFG_tribal_uprising
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		has_country_flag = AFG_initial_war_over
+	}
+	option = {
+		name = afghanredux.37.a
+		remove_ideas = {
+			AFG_jihad
+			AFG_luftexpedition
+		}
+	}
+}
+
+country_event = {
+	id = afghanredux.38
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.24"}
+	title = afghanredux.38.t
+	desc = afghanredux.38.d
+	picture = GFX_report_event_AFG_civil_war
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = afghanredux.38.a
+		create_country_leader = {
+			name = "Habibullah Kalakani"
+			desc = "POLITICS_KALAKANI_DESC"
+			picture = "gfx/leaders/AFG/Portrait_Afghan_Habibullah_Kalakani.png"
+			expire = "1965.1.1"
+			ideology = fundementalism_subtype
+		}
+		remove_ideas = AFG_islamist_insurgency
+		set_politics = {
+			ruling_party = national_populist
+				elections_allowed = no
+		}
+		set_political_party = {
+			ideology = national_populist
+			popularity = 15
+		}
+		set_country_flag = AFG_king_bandit
+		every_unit_leader = {
+			limit = {
+				OR = {
+					has_id = 1673
+					has_id = 1671
+				}
+			}
+			retire = yes
+		}
+		create_field_marshal = {
+			name = "Habibullah Kalakani"
+			portrait_path = "gfx/leaders/AFG/Portrait_Afghan_Habibullah_Kalakani.png"
+			traits = {
+				cavalry_leader
+				politically_connected
+				commando
+				war_hero
+			}
+			skill = 1
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		create_corps_commander = {
+			name = "Hamidullah Kalakani"
+			portrait_path = "gfx/leaders/AFG/Portrait_Afghan_Hamidullah_Kalakani.png"
+			traits = {
+				cavalry_leader
+				politically_connected
+			}
+			skill = 1
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+
+	option = {
+		name = afghanredux.38.b
+		set_politics = {
+			ruling_party = paternal_autocrat
+				elections_allowed = no
+		}
+		create_country_leader = {
+			name = "Henry Page Croft"
+			picture = "gfx/leaders/AFG/Portrait_Afghan_Henry_Croft.png"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+		}
+		create_field_marshal = {
+			name = "Henry Page Croft"
+			portrait_path = "gfx/leaders/AFG/Portrait_Afghan_Henry_Croft.png"
+			traits = {
+				politically_connected
+				war_hero
+			}
+			skill = 1
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		create_corps_commander = {
+			name = "Enoch Powell"
+			portrait_path = "gfx/leaders/AFG/Portrait_Afghan_Enoch_Powell.png"
+			traits = {
+				politically_connected
+				infantry_leader
+			}
+			skill = 1
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		AFG = {
+			get_current_government_type = yes
+		}
+		DEH = {
+			puppet = AFG
+		}
+		AFG = { 
+			restore_previous_government_type = yes
+		}
+		set_party_name = { 
+			ideology = paternal_autocrat 
+			long_name = "The Second Army of Retribution, Viceroyalty of Afghanistan" 
+			name = "Dominion Government"
+		}
+		set_cosmetic_tag = AFG_DEH
+		set_country_flag = DEH_subjugate_afghans
+		every_unit_leader = {
+			limit = {
+				OR = {
+					has_id = 1673
+					has_id = 1671
+				}
+			}
+			retire = yes
+		}
+	}
+	option = {
+		name = afghanredux.38.c
+		create_country_leader = {
+			name = "Mohammed Nadir Khan"
+			desc = "POLITICS_NADIR_SHAH_DESC"
+			picture = "gfx/leaders/AFG/Portrait_Afghan_Mohammed_Nadir_Shah.png"
+			expire = "1965.1.1"
+			ideology = absolute_monarchy_subtype
+		}
+		create_field_marshal = {
+			name = "Mohammed Nadir Shah"
+			portrait_path = "gfx/leaders/AFG/Portrait_Afghan_Mohammed_Nadir_Shah.png"
+			traits = { media_personality swordbearer politically_connected harsh_leader war_hero }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+			id = 545454
+		}
+		create_corps_commander = {
+			name = "Mohammed Zahir Shah"
+			portrait_path = "gfx/leaders/AFG/Portrait_Afghan_Mohammed_Zahir.png"
+			traits = { media_personality politically_connected war_hero }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+			id = 545455
+		}
+		set_country_flag = AFG_reforms
+		set_country_flag = AFG_king_nadir
+		set_cosmetic_tag = AFG_nadir
+		hidden_effect = {
+			remove_ideas_with_trait = head_of_government
+			add_ideas = AFG_Inayatullah_Khan_Seraj_hog_pau
+			remove_ideas_with_trait = foreign_minister
+			add_ideas = AFG_Haji_Faiz_Muhammed_Zikeria_for_pau
+			remove_ideas_with_trait = security_minister
+			add_ideas = AFG_Ghulam_Faruq_Usman_sec_pau
+		}
+		add_stability = 0.3
+		every_unit_leader = {
+			limit = {
+				OR = {
+					has_id = 1673
+					has_id = 1671
+				}
+			}
+			retire = yes
+		}
+	}
+	country_event = { # nadir intro
+	id = afghanredux.40
+	immediate = {log = "[GetDateText]: [Root.GetName]: event afghanredux.24"}
+	title = afghanredux.40.t
+	desc = afghanredux.40.d
+	picture = GFX_report_event_AFG_nadir_shah
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = afghanredux.40.a
+	}
+	option = {
+		name = afghanredux.40.b
+		country_event = {
+			id = afghanredux.0
+			days = 0
+		}
+	}
+}
+}

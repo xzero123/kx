@@ -17,7 +17,7 @@ focus_tree = {
 	focus = {# Second Constitutional Convention
 		id = CSA_second_convention
 		icon = GFX_goal_CSA_victory
-		cost = 10
+		cost = 5
 		available = {
 			has_global_flag = USA_civil_war_over_flag
 			OR = {
@@ -88,7 +88,7 @@ focus_tree = {
 	focus = {
 		id = CSA_la_cosa_nostra
 		icon = GFX_goal_CSA_goal_lacostanostra
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_second_convention
 		}
@@ -121,7 +121,7 @@ focus_tree = {
 	focus = {
 		id = CSA_blind_eye_church
 		icon = GFX_goal_CSA_church
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_la_cosa_nostra
 		}
@@ -143,7 +143,7 @@ focus_tree = {
 	focus = {
 		id = CSA_proletariat_of_Chicago
 		icon = GFX_goal_CSA_proletariet_of_chicago
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_la_cosa_nostra
 		}
@@ -172,7 +172,7 @@ focus_tree = {
 	focus = {
 		id = CSA_open_soup_kitchens
 		icon = GFX_goal_CSA_soup_kitchens
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_proletariat_of_Chicago
 		}
@@ -198,7 +198,7 @@ focus_tree = {
 	focus = {
 		id = CSA_welfare_state
 		icon = GFX_goal_CSA_welfare_state
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_open_soup_kitchens
 		}
@@ -224,7 +224,7 @@ focus_tree = {
 	focus = {
 		id = CSA_sway_the_unions
 		icon = GFX_goal_CSA_sway_the_unions
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_proletariat_of_Chicago
 		}
@@ -250,7 +250,7 @@ focus_tree = {
 	focus = {
 		id = CSA_cult_of_personality
 		icon = GFX_goal_CSA_cult_of_capone
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_sway_the_unions
 		}
@@ -275,13 +275,19 @@ focus_tree = {
 							ideology = paternal_autocrat
 							popularity = 0.15
 						}
+						hidden_effect = {
+							country_event = {
+								id = csa.136
+								days = 40
+							}
+						}
 				}
 
 	}
 	focus = {
 		id = CSA_intergrate_the_underground_economy
 		icon = GFX_goal_CSA_underground_economy
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_welfare_state
 		}
@@ -311,7 +317,7 @@ focus_tree = {
 	focus = {
 		id = CSA_great_purge
 		icon = GFX_goal_CSA_great_purge
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_la_cosa_nostra
 		}
@@ -328,13 +334,19 @@ focus_tree = {
 			completion_reward = {
 					log = "[GetDateText]: [Root.GetName]: Focus CSA_great_purge"
 					add_ideas = CSA_great_purge
+					hidden_effect = {
+						country_event = {
+							id = csa.116
+							months = 4
+						}
+					}
 				}
 
 	}
 	focus = {
 		id = CSA_found_OSS
 		icon = GFX_goal_CSA_OSS
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_great_purge
 		}
@@ -352,6 +364,12 @@ focus_tree = {
 					log = "[GetDateText]: [Root.GetName]: Focus CSA_found_OSS"
 					add_ideas = CSA_OSS_idea
 					country_event = csa.139
+					hidden_effect = {
+						country_event = {
+							id = csa.137
+							days = 45
+						}
+					}
 					swap_ideas = {
 							remove_idea = CSA_great_purge
 							add_idea = CSA_great_purge_2
@@ -362,7 +380,7 @@ focus_tree = {
 	focus = {
 		id = CSA_expand_OSS
 		icon = GFX_goal_CSA_OSS_expand_duties
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_found_OSS
 		}
@@ -388,7 +406,7 @@ focus_tree = {
 	focus = {
 		id = CSA_old_allies
 		icon = GFX_goal_CSA_oldallies
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_great_purge
 		}
@@ -414,7 +432,7 @@ focus_tree = {
 	focus = {
 		id = CSA_mass_collectivisation
 		icon = GFX_goal_CSA_collective
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_old_allies
 		}
@@ -441,7 +459,7 @@ focus_tree = {
 	focus = {
 		id = CSA_loyalty_to_the_boss
 		icon = GFX_goal_CSA_loyalty_to_the_boss
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_welfare_state
 		}
@@ -484,7 +502,7 @@ focus_tree = {
 	focus = {
 		id = CSA_state_of_fear
 		icon = GFX_goal_CSA_state_of_fear
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_expand_OSS
 		}
@@ -513,7 +531,7 @@ focus_tree = {
 	focus = {
 		id = CSA_capones_america
 		icon = GFX_goal_CSA_capones_america
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_intergrate_the_underground_economy
 		}
@@ -550,7 +568,7 @@ focus_tree = {
 	focus = {
 		id = CSA_caponism
 		icon = GFX_goal_CSA_caponism
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_capones_america
 		}
@@ -574,7 +592,7 @@ focus_tree = {
 	focus = {
 		id = CSA_capones_five_year_plan
 		icon = GFX_goal_CSA_5_year_plan
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_caponism
 		}
@@ -661,7 +679,7 @@ focus_tree = {
 	focus = {
 		id = CSA_reorganize_syndicate
 		icon = GFX_goal_CSA_reorganize_syndicate
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_capones_america
 		}
@@ -691,7 +709,7 @@ focus_tree = {
 	focus = {
 		id = CSA_nittis_lists
 		icon = GFX_goal_CSA_nitti_list
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_reorganize_syndicate
 		}
@@ -724,7 +742,10 @@ focus_tree = {
 		cost = 4.25
 		available = {
 			has_country_flag = CSA_constitutional_convention_done
+			OR = {
 			has_country_flag = CSA_social_patriot_victory
+			has_country_flag = CSA_butler_democracy
+			}
 			OR = {
 				has_government = social_democrat
 				has_government = radical_socialist
@@ -769,9 +790,13 @@ focus_tree = {
 	focus = {# Federalism
 		id = CSA_federalism
 		icon = GFX_goal_HOL_list_left
-		cost = 7
-		available = { has_government = social_democrat 
-		has_country_flag = CSA_AFL_In_Power
+		cost = 5
+		available = { 
+			has_government = social_democrat 
+			OR = {
+			has_country_flag = CSA_AFL_In_Power
+			has_country_flag = CSA_butler_democracy
+			}
 		}
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -798,7 +823,7 @@ focus_tree = {
 	focus = {# Worker's Cooperatives
 		id = CSA_workers_cooperatives
 		icon = GFX_goal_syndicalist_industry
-		cost = 6.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_federalism
 		}
@@ -905,7 +930,7 @@ focus_tree = {
 	focus = {# American Guildism
 		id = CSA_closed_shops
 		icon = GFX_goal_CSA_closed_shops
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = CSA_calm_moderates
 		}
@@ -930,7 +955,7 @@ focus_tree = {
 	focus = {# Mutualism
 		id = CSA_mutualism
 		icon = GFX_goal_socialist_infrastructure
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = CSA_federalism
 		}
@@ -982,7 +1007,7 @@ focus_tree = {
 	focus = {# Publicly Owned Enterprise
 		id = CSA_public_owned_enterprise
 		icon = GFX_goal_workers_rights
-		cost = 6.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_mutualism
 		}
@@ -1017,7 +1042,7 @@ focus_tree = {
 	focus = {# Social Dividends
 		id = CSA_social_dividends
 		icon = GFX_goal_CSA_social_dividends
-		cost = 6.50
+		cost = 5
 		prerequisite = {
 			focus = CSA_public_owned_enterprise
 		}
@@ -1075,7 +1100,7 @@ focus_tree = {
 	focus = {# Federalist economics
 		id = CSA_federalist_economics
 		icon = GFX_goal_CSA_business_unionism
-		cost = 7.25
+		cost = 5
 		available = { has_government = social_democrat }
 		prerequisite = {
 			focus = CSA_closed_shops
@@ -1150,7 +1175,7 @@ focus_tree = {
 	focus = {# Fair Days Pay
 		id = CSA_high_wages
 		icon = GFX_goal_CSA_fair_days_pay
-		cost = 6.5
+		cost = 5.5
 		available = { has_government = social_democrat }
 		prerequisite = {
 			focus = CSA_federalist_economics
@@ -1181,7 +1206,7 @@ focus_tree = {
 	focus = {# For a Fair Days Work
 		id = CSA_paid_vacations
 		icon = GFX_goal_CSA_for_fair_days_work
-		cost = 6.5
+		cost = 5.5
 		available = { has_government = social_democrat }
 		prerequisite = {
 			focus = CSA_high_wages
@@ -1208,7 +1233,7 @@ focus_tree = {
 	focus = {# Civilian Goods
 		id = CSA_civilian_goods
 		icon = GFX_goal_CSA_capital_investments
-		cost = 6.00
+		cost = 5
 		available = { has_government = social_democrat }
 		prerequisite = {
 			focus = CSA_federalist_economics
@@ -1284,7 +1309,7 @@ focus_tree = {
 	focus = {# Patriotic Recruitment
 		id = CSA_recruitment_campaign
 		icon = GFX_goal_CSA_recruitment_campaign
-		cost = 6
+		cost = 5
 		available = { has_government = social_democrat }
 		prerequisite = {
 			focus = CSA_civilian_goods
@@ -1335,7 +1360,7 @@ focus_tree = {
 	focus = {# Social Moderation
 		id = CSA_social_moderation
 		icon = GFX_goal_CSA_social_patriotism
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_american_commonwealth
 		}
@@ -1357,7 +1382,7 @@ focus_tree = {
 	focus = {# Independent Media
 		id = CSA_indepedent_media
 		icon = GFX_goal_CSA_protect_freedom_of_speech
-		cost = 7.00
+		cost = 5.00
 		available = {
 			OR = {
 				has_government = social_democrat
@@ -1391,7 +1416,7 @@ focus_tree = {
 	focus = {# Protect the Working Class
 		id = CSA_protect_the_working_class
 		icon = GFX_goal_CSA_protect_working_class
-		cost = 7.25
+		cost = 5
 		available = {
 			OR = {
 				has_government = social_democrat
@@ -1424,7 +1449,7 @@ focus_tree = {
 	focus = {# Mutual Economic Committee
 		id = CSA_mutal_economic_comitee
 		icon = GFX_goal_CSA_craft_unions_committee
-		cost = 7.25
+		cost = 5
 		available = {
 			OR = {
 				has_government = social_democrat
@@ -1509,10 +1534,13 @@ focus_tree = {
 	focus = {# Nationalism
 		id = CSA_nationalism
 		icon = GFX_goal_CSA_nationalism
-		cost = 7.25
+		cost = 5
 		available = {
-			has_government = radical_socialist
+			has_government = radical_socialist	
+			OR = {
 			has_country_flag = CSA_Nationalist_Victory
+			has_country_flag = CSA_butler_democracy
+			}
 		}
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1533,7 +1561,7 @@ focus_tree = {
 	focus = {# Economies of Scale
 		id = CSA_economies_of_scale
 		icon = GFX_goal_CSA_economy_of_scale
-		cost = 7.25
+		cost = 5
 		available = {
 				has_government = radical_socialist
 		}
@@ -1601,7 +1629,7 @@ focus_tree = {
 	focus = {# Department of Production
 		id = CSA_department_of_production
 		icon = GFX_goal_CSA_department_of_production
-		cost = 7.25
+		cost = 5
 		available = {
 				has_government = radical_socialist
 		}
@@ -1692,7 +1720,7 @@ focus_tree = {
 	focus = {# Mass Coops
 		id = CSA_coop_clubs
 		icon = GFX_goal_CSA_coop_clubs
-		cost = 7.25
+		cost = 5
 		available = {
 				has_government = radical_socialist
 		}
@@ -1771,7 +1799,7 @@ focus_tree = {
 	focus = {# Townhall democracy
 		id = CSA_empower_councils
 		icon = GFX_goal_CSA_townhall_democarcy
-		cost = 7.25
+		cost = 5
 		available = {
 				has_government = radical_socialist
 		}
@@ -1830,7 +1858,7 @@ focus_tree = {
 	focus = {# Peaceful Revolution
 		id = CSA_peaceful_revolution
 		icon = GFX_goal_CSA_peaceful_revolution
-		cost = 7.25
+		cost = 5
 		available = {
 				has_government = radical_socialist
 		}
@@ -1933,7 +1961,7 @@ focus_tree = {
 	focus = {# Guildism
 		id = CSA_guildism
 		icon = GFX_goal_CSA_american_guildism
-		cost = 7.25
+		cost = 5
 		available = {
 				has_government = radical_socialist
 		}
@@ -1966,7 +1994,7 @@ focus_tree = {
 	focus = {# Industrial Army
 		id = CSA_industrial_army
 		icon = GFX_goal_CSA_industrial_army
-		cost = 7.25
+		cost = 5
 		available = {
 			has_government = radical_socialist
 		}
@@ -2035,7 +2063,7 @@ focus_tree = {
 	focus = {# Agricultural Revolution
 		id = CSA_agricultural_revolution
 		icon = GFX_goal_CSA_agricultural_revolution
-		cost = 7.25
+		cost = 5
 		available = {
 				has_government = radical_socialist
 		}
@@ -2094,7 +2122,7 @@ focus_tree = {
 	focus = {# Equality
 		id = CSA_equality
 		icon = GFX_goal_CSA_equality
-		cost = 6
+		cost = 5
 		available = {
 				has_government = radical_socialist
 		}
@@ -2124,7 +2152,7 @@ focus_tree = {
 	focus = {# Social Ills
 		id = CSA_social_ills
 		icon = GFX_goal_CSA_curing_social_ills
-		cost = 6
+		cost = 5
 		available = {
 				has_government = radical_socialist
 		}
@@ -2151,7 +2179,7 @@ focus_tree = {
 	focus = {# Comm Infrastructure
 		id = CSA_communication_infrastructure
 		icon = GFX_goal_CSA_communications_infrastructure
-		cost = 7.25
+		cost = 5
 		available = {
 			has_government = radical_socialist
 		}
@@ -2257,7 +2285,7 @@ focus_tree = {
 	focus = {# Democratic Press
 		id = CSA_democratic_press
 		icon = GFX_goal_CSA_democratic_press
-		cost = 7.25
+		cost = 5
 		available = {
 				has_government = radical_socialist
 		}
@@ -2284,7 +2312,7 @@ focus_tree = {
 	focus = { #Public Kitchens
 		id = CSA_public_kitchens
 		icon = GFX_goal_CSA_public_kitchens
-		cost = 7.25
+		cost = 5
 		available = {
 				has_government = radical_socialist
 		}
@@ -2310,7 +2338,7 @@ focus_tree = {
 	focus = { #Looking Backward
 		id = CSA_Looking_backward
 		icon = GFX_goal_CSA_looking_backwards
-		cost = 7.25
+		cost = 5
 		available = {
 				has_government = radical_socialist
 		}
@@ -2425,8 +2453,12 @@ focus_tree = {
 		id = CSA_american_syndicalist_union
 		icon = GFX_goal_ideology_syndicalist
 		cost = 5.00
-		available = { has_government = syndicalist 
-		has_country_flag = CSA_constitutional_convention_done
+		available = { 
+			has_government = syndicalist 
+			OR = {
+			has_country_flag = CSA_constitutional_convention_done
+			has_country_flag = CSA_butler_democracy
+			}
 		}
 		prerequisite = {
 			focus = CSA_second_convention
@@ -2458,7 +2490,7 @@ focus_tree = {
 	focus = {# All Industrial Congress
 		id = CSA_all_industrial_congress
 		icon = GFX_goal_CSA_all_industrial_congress
-		cost = 7.25
+		cost = 5
 		available = {
 			OR = {
 				has_government = syndicalist
@@ -2495,7 +2527,7 @@ focus_tree = {
 	focus = {# Party Organizers
 		id = CSA_party_organizers
 		icon = GFX_goal_CSA_organizing_the_party
-		cost = 7.25
+		cost = 5
 		available = {
 			OR = {
 				has_government = syndicalist
@@ -2526,7 +2558,7 @@ focus_tree = {
 	focus = {# Worker Takeover
 		id = CSA_worker_takeover
 		icon = GFX_goal_USA_sabotabby
-		cost = 7.25
+		cost = 5
 		available = {
 			OR = {
 				has_government = syndicalist
@@ -2628,7 +2660,7 @@ focus_tree = {
 	focus = {# General Defense Comittee
 		id = CSA_general_defense_comitte
 		icon = GFX_goal_CSA_general_defence_committee
-		cost = 7.25
+		cost = 5
 		available = {
 			OR = {
 				has_government = syndicalist
@@ -2706,7 +2738,7 @@ focus_tree = {
 	focus = {# Worker's Self-Management
 		id = CSA_workers_self_managment
 		icon = GFX_goal_syndicalist_workers
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_all_industrial_congress
 		}
@@ -2737,7 +2769,7 @@ focus_tree = {
 	focus = {# Economic democracy
 		id = CSA_industrial_democracy
 		icon = GFX_goal_CSA_industrial_democracy
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_all_industrial_congress
 		}
@@ -2769,7 +2801,7 @@ focus_tree = {
 	focus = {# Protect the Revolution
 		id = CSA_protect_the_revolution
 		icon = GFX_Socialist_Law
-		cost = 7.25
+		cost = 5
 		available = {
 			OR = {
 				has_government = syndicalist
@@ -2806,7 +2838,7 @@ focus_tree = {
 	focus = {# Unionist Econimics
 		id = CSA_unionist_economics
 		icon = GFX_goal_syndicalist_industry
-		cost = 7.25
+		cost = 5
 		available = { has_government = syndicalist }
 		select_effect = {
 		country_event = {
@@ -2867,7 +2899,7 @@ focus_tree = {
 	focus = {# Centrist Marxism
 		id = CSA_centrist_economics
 		icon = GFX_socialist_constitution
-		cost = 7.25
+		cost = 5
 		available = { has_government = syndicalist }
 		select_effect = {
 		country_event = {
@@ -2928,7 +2960,7 @@ focus_tree = {
 	focus = {# Decentralized Planning
 		id = CSA_syndicalist_economics
 		icon = GFX_goal_syndicalism
-		cost = 7.25
+		cost = 5
 		select_effect = {
 		country_event = {
 			id = csa.27
@@ -2987,7 +3019,7 @@ focus_tree = {
 	focus = {# Empower Congress
 		id = CSA_empower_congress
 		icon = GFX_goal_CSA_empower_congress
-		cost = 7.25
+		cost = 5
 		available = {
 				has_government = syndicalist
 		}
@@ -3046,7 +3078,7 @@ focus_tree = {
 	focus = {# CSA Strategic Services
 		id = CSA_strategic_services
 		icon = GFX_goal_CSA_committee_of_strategoc_services
-		cost = 7.25
+		cost = 5
 		available = {
 				has_government = syndicalist
 		}
@@ -3091,7 +3123,7 @@ focus_tree = {
 	focus = {# Worker's council
 		id = CSA_industrial_unionism
 		icon = GFX_goal_CSA_industrial_unionism
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_unionist_economics
 			focus = CSA_centrist_economics
@@ -3114,7 +3146,7 @@ focus_tree = {
 	focus = {# Agricultural Unions
 		id = CSA_agricultural_unions
 		icon = GFX_goal_CSA_agricultural_revolution
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_industrial_unionism
 		}
@@ -3138,7 +3170,7 @@ focus_tree = {
 	focus = {# Red Militias
 		id = CSA_empower_militias
 		icon = GFX_goal_CSA_empower_red_militias
-		cost = 7.25
+		cost = 5
 		available = { has_government = syndicalist }
 		prerequisite = {
 			focus = CSA_syndicalist_economics
@@ -3187,7 +3219,7 @@ focus_tree = {
 	focus = {# Power to the People
 		id = CSA_power_to_the_people
 		icon = GFX_goal_CSA_power_to_the_people
-		cost = 7.25
+		cost = 5
 		available = {
 			OR = {
 				has_government = syndicalist
@@ -3214,7 +3246,7 @@ focus_tree = {
 	focus = {# Free Communes
 		id = CSA_free_communes
 		icon = GFX_CAL_focus_collective_housing
-		cost = 7.25
+		cost = 5
 		available = { has_government = syndicalist }
 		prerequisite = {
 			focus = CSA_syndicalist_economics
@@ -3281,7 +3313,7 @@ focus_tree = {
 	focus = {# American Syndicalism
 		id = CSA_american_syndicalism
 		icon = GFX_goal_CSA_new_american_syndicalism
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_strategic_services
 		}
@@ -3308,7 +3340,7 @@ focus_tree = {
 	focus = {# Socialist Confederation
 		id = CSA_social_confederation
 		icon = GFX_goal_CSA_socialist_confederation
-		cost = 7.25
+		cost = 5
 		available = { has_government = syndicalist }
 		prerequisite = {
 			focus = CSA_power_to_the_people
@@ -3338,7 +3370,7 @@ focus_tree = {
 	focus = {# Councilism
 		id = CSA_councilism
 		icon = GFX_BBR_labor_board
-		cost = 7.25
+		cost = 5
 		available = { has_government = syndicalist }
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -3367,7 +3399,7 @@ focus_tree = {
 	focus = {# The Revolution Continues
 		id = CSA_the_revolution_continues
 		icon = GFX_goal_revolution
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_american_syndicalism
 			focus = CSA_councilism
@@ -3391,7 +3423,7 @@ focus_tree = {
 	focus = {# United Socialist American States
 		id = CSA_usas
 		icon = GFX_goal_CSA_ussa
-		cost = 5.25
+		cost = 5
 		available = {
 			OR = {
 				has_country_flag = CSA_constitutional_convention_done
@@ -3418,6 +3450,7 @@ focus_tree = {
 			set_country_flag = CSA_socialist_union_of_america_flag
 			hidden_effect = {
 				country_event = { id = csa.52 days = 90 }
+				country_event = { id = csa.64 months = 3 }
 			}
 			add_popularity = { ideology = totalist popularity = 0.03 }
 		}
@@ -3466,7 +3499,7 @@ focus_tree = {
 	focus = {# Union Management
 		id = CSA_union_managment
 		icon = GFX_goal_CSA_craft_unions_committee
-		cost = 7.25
+		cost = 5
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CSA_browder_is_leader
@@ -3523,7 +3556,7 @@ focus_tree = {
 	focus = {# Popular Front
 		id = CSA_popular_front
 		icon = GFX_goal_CSA_popular_front
-		cost = 7.25
+		cost = 5
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CSA_browder_is_leader
@@ -3586,7 +3619,7 @@ focus_tree = {
 	focus = {# Subdue Upper Class
 		id = CSA_subdue_bourgeousie
 		icon = GFX_goal_CSA_subdue_bourgeoisie
-		cost = 7.25
+		cost = 5
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CSA_browder_is_leader
@@ -3672,7 +3705,7 @@ focus_tree = {
 	focus = {# Browder's Economic Policy
 		id = CSA_browders_economics
 		icon = GFX_goal_CSA_Browder_Syndicalism
-		cost = 7.25
+		cost = 5
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CSA_browder_is_leader
@@ -3781,7 +3814,12 @@ focus_tree = {
 				}
 			}
 			set_country_leader_portrait = {
-					portrait = "gfx/leaders/CSA/Portrait_CSA_Earl_Bowder.tga"
+					portrait = "gfx/leaders/CSA/Portrait_CSA_Earl_Bowder.png"
+			}
+			hidden_effect = {
+				country_event = { id = csa.63 days = 120 }
+				country_event = { id = csa.65 days = 150 }
+				country_event = { id = csa.66 days = 180 }
 			}
 		}
 	}
@@ -3789,7 +3827,7 @@ focus_tree = {
 	focus = {# Collective Farming
 		id = CSA_collective_farming
 		icon = GFX_goal_CSA_green_fields_program
-		cost = 5.5
+		cost = 5
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CSA_browder_is_leader
@@ -3833,7 +3871,7 @@ focus_tree = {
 	focus = {# Industrial Build up
 		id = CSA_industrial_build_up
 		icon = GFX_goal_CSA_strenght_through_industry
-		cost = 6.75
+		cost = 5
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CSA_browder_is_leader
@@ -3968,7 +4006,7 @@ focus_tree = {
 	focus = {# Practical Trade
 		id = CSA_practical_trade
 		icon = GFX_goal_CSA_practical_trade
-		cost = 7.25
+		cost = 5
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CSA_browder_is_leader
@@ -4070,7 +4108,7 @@ focus_tree = {
 	focus = {# Price Controls
 		id = CSA_price_controls
 		icon = GFX_goal_CSA_price_controls
-		cost = 5.5
+		cost = 5
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CSA_browder_is_leader
@@ -4110,7 +4148,7 @@ focus_tree = {
 	focus = {# Socialist Self-Management
 		id = CSA_decentralized_planning
 		icon = GFX_BBR_collective_management
-		cost = 6
+		cost = 5
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CSA_browder_is_leader
@@ -4164,7 +4202,7 @@ focus_tree = {
 	focus = {# Reform the IWW
 		id = CSA_reform_the_iww
 		icon = GFX_goal_CSA_restructure_iww
-		cost = 7.50
+		cost = 5.00
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CSA_browder_is_leader
@@ -4206,7 +4244,7 @@ focus_tree = {
 	focus = {# Friendly Media
 		id = CSA_friendly_media
 		icon = GFX_goal_CSA_socialist_friendly_media
-		cost = 6.25
+		cost = 5
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CSA_browder_is_leader
@@ -4245,7 +4283,7 @@ focus_tree = {
 	focus = {# Social Americanism
 		id = CSA_american_communism
 		icon = GFX_goal_CSA_apple_pie_communism
-		cost = 7.25
+		cost = 5
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CSA_browder_is_leader
@@ -4278,7 +4316,7 @@ focus_tree = {
 	focus = {# Commune Reform
 		id = CSA_commune_policy
 		icon = GFX_goal_CSA_deal_with_communes
-		cost = 7.25
+		cost = 5
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CSA_browder_is_leader
@@ -4313,7 +4351,7 @@ focus_tree = {
 	focus = {# Purge the Stubborn
 		id = CSA_purge_the_stubborn
 		icon = GFX_goal_CSA_asserting_the_apparatus
-		cost = 10
+		cost = 5
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CSA_browder_is_leader
@@ -4394,7 +4432,7 @@ focus_tree = {
 	focus = {# Centralized synd
 		id = CSA_nat_syndicalist_econ
 		icon = GFX_goal_CSA_centralised_syndicalism
-		cost = 7.25
+		cost = 5
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CSA_browder_is_leader
@@ -4526,7 +4564,7 @@ focus_tree = {
 	focus = {# The Boss
 		id = CSA_the_boss
 		icon = GFX_goal_CSA_the_boss
-		cost = 7.25
+		cost = 5
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CSA_browder_is_leader
@@ -4568,7 +4606,7 @@ focus_tree = {
 	focus = {# Create the CIA
 		id = CSA_create_the_cia
 		icon = GFX_goal_NOR_secret_police
-		cost = 7.25
+		cost = 5
 		available = {
 			has_government = totalist
 		}
@@ -4585,13 +4623,23 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CSA_create_the_cia"
 			add_ideas = CSA_cia_idea
+			hidden_effect = {
+				country_event = {
+					id = csa.61
+					months = 12
+				}
+				country_event = {
+					id = csa.62
+					months = 12
+				}
+			}
 		}
 	}
 	
 	focus = {# Resources nationalism
 		id = CSA_resource_nationalization
 		icon = GFX_goal_CSA_resource_nationalisation
-		cost = 7.25
+		cost = 5
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = CSA_foster_is_leader
@@ -4646,7 +4694,7 @@ focus_tree = {
 	focus = {# People's Commissars
 		id = CSA_peoples_commisars
 		icon = GFX_goal_CSA_peoples_commissars
-		cost = 7.25
+		cost = 5
 		available = {
 			has_government = totalist
 		}
@@ -4838,8 +4886,8 @@ focus_tree = {
 	
 	focus = {# Foster's Economic Plan
 		id = CSA_fosters_economics
-		icon = GFX_goal_ideology_totalist
-		cost = 6.5
+		icon = GFX_goal_CSA_Foster_Economy
+		cost = 5.5
 		available = {
 			has_country_leader = { ruling_only = yes name = "William Z. Foster" }
 			has_government = totalist
@@ -4918,7 +4966,7 @@ focus_tree = {
 	focus = {# Purge Reactionaries.
 		id = CSA_purge_reactionaries
 		icon = GFX_goal_CSA_purge_reactionaries
-		cost = 9
+		cost = 5
 		available = {
 			has_country_leader = { ruling_only = yes name = "William Z. Foster" }
 			has_government = totalist
@@ -4928,16 +4976,14 @@ focus_tree = {
 			focus = CSA_fosters_economics
 		}
 		select_effect = {
-		hidden_effect = {
+			hidden_effect = {
 				country_event = {
-				id = csa.415
-				days = 30
+					id = csa.415
+					days = 30
 				}
-			}
-		hidden_effect = {
 				country_event = {
-				id = csa.417
-				days = 55
+					id = csa.417
+					days = 55
 				}
 			}
 		}
@@ -4946,6 +4992,20 @@ focus_tree = {
 		y = 4
 		ai_will_do = {
 			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = CSA_post_civil_war
+					option = CSA_POST_CIVIL_WAR_BUTLER
+				}
+			}
+			modifier = {
+				factor = 100
+				has_game_rule = {
+					rule = CSA_post_civil_war
+					option = CSA_POST_CIVIL_WAR_FOSTER
+				}
+			}
 		}
 		select_effect = {
 			add_timed_idea = {
@@ -4966,13 +5026,18 @@ focus_tree = {
 			add_popularity = { ideology = market_liberal popularity = -0.05 }
 			add_popularity = { ideology = social_liberal popularity = -0.05 }
 			add_popularity = { ideology = totalist popularity = 0.03 }
+			hidden_effect = {
+				country_event = { id = csa.63 days = 120 }
+				country_event = { id = csa.65 days = 150 }
+				country_event = { id = csa.66 days = 180 }
+			}
 		}
 	}
 	
 	focus = {# Purge Social Capitalists
 		id = CSA_purge_other_leftists
 		icon = GFX_goal_CSA_destroy_social_capitalists
-		cost = 8.50
+		cost = 5
 		available = {
 			has_country_leader = { ruling_only = yes name = "William Z. Foster" }
 			has_government = totalist
@@ -5055,7 +5120,7 @@ focus_tree = {
 	focus = {# State Farms
 		id = CSA_state_farms
 		icon = GFX_goal_CSA_collective_farms
-		cost = 6.5
+		cost = 5.5
 		available = {
 			has_country_leader = { ruling_only = yes name = "William Z. Foster" }
 			has_government = totalist
@@ -5130,6 +5195,20 @@ focus_tree = {
 					infrastructure > 0 
 				}
 				add_extra_state_shared_building_slots = 2
+			}
+			hidden_effect = {
+				country_event = {
+					id = csa.404
+					days = 50
+				}
+				country_event = {
+					id = csa.405
+					days = 50
+				}
+				country_event = {
+					id = csa.406
+					days = 50
+				}
 			}
 		}
 	}
@@ -5233,7 +5312,7 @@ focus_tree = {
 	focus = {# Minority Radicalization
 		id = CSA_defend_the_revolution
 		icon = GFX_BBR_bourgeoisie_to_knees
-		cost = 6.5
+		cost = 5.5
 		available = {
 			has_country_leader = { ruling_only = yes name = "William Z. Foster" }
 			has_government = totalist
@@ -5307,7 +5386,7 @@ focus_tree = {
 	focus = {# Smash Americanism 
 		id = CSA_smash_americanism
 		icon = GFX_goal_CSA_hit_the_superstructure
-		cost = 8
+		cost = 5
 		available = {
 			has_country_leader = { ruling_only = yes name = "William Z. Foster" }
 			has_government = totalist
@@ -5366,7 +5445,7 @@ focus_tree = {
 	focus = {# Great Sprint Forward
 		id = CSA_the_great_sprint
 		icon = GFX_goal_CSA_great_sprint
-		cost = 9.5
+		cost = 5
 		available = {
 			has_country_leader = { ruling_only = yes name = "William Z. Foster" }
 			has_government = totalist
@@ -5675,6 +5754,9 @@ focus_tree = {
 			has_country_leader = { ruling_only = yes name = "William Z. Foster" }
 			has_government = totalist
 		}
+		bypass = {
+			country_exists = BBR
+		}
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = CSA_proletariat_science
@@ -5711,7 +5793,7 @@ focus_tree = {
 	focus = {# Lead the Revolution
 		id = CSA_lead_the_revolution
 		icon = GFX_goal_CSA_lead_the_revolution
-		cost = 6
+		cost = 5
 		available = {
 			has_country_leader = { ruling_only = yes name = "William Z. Foster" }
 			has_government = totalist
@@ -5747,7 +5829,7 @@ focus_tree = {
 	focus = {# Planned Economy
 		id = CSA_planned_economy
 		icon = GFX_goal_CSA_fosters_anticapitalist_society
-		cost = 6.5
+		cost = 5.5
 		available = {
 			has_country_leader = { ruling_only = yes name = "William Z. Foster" }
 			has_government = totalist
@@ -5808,7 +5890,7 @@ focus_tree = {
 	focus = {# Finish Totalism
 		id = CSA_finish_totalism
 		icon = GFX_CSA_finish_centralism
-		cost = 6.00
+		cost = 5
 		available = {
 			has_country_leader = { ruling_only = yes name = "Smedley Butler" }
 			has_government = radical_socialist
@@ -5833,7 +5915,7 @@ focus_tree = {
 	focus = {# Populist Appeals
 		id = CSA_populist_appeals
 		icon = GFX_goal_CSA_nationalism
-		cost = 6.00
+		cost = 5
 		available = {
 			has_country_leader = { ruling_only = yes name = "Smedley Butler" }
 			has_government = radical_socialist
@@ -5858,7 +5940,7 @@ focus_tree = {
 	focus = {# Savior of the Revolution
 		id = CSA_savior_of_the_revolution
 		icon = GFX_goal_CSA_peoples_republican_army
-		cost = 6
+		cost = 5
 		available = {
 			has_country_leader = { ruling_only = yes name = "Smedley Butler" }
 			has_government = radical_socialist
@@ -5878,7 +5960,7 @@ focus_tree = {
 	focus = {# Restore Unions
 		id = CSA_restore_unions
 		icon = GFX_goal_CSA_democratic_centralism
-		cost = 6
+		cost = 5
 		available = {
 			has_country_leader = { ruling_only = yes name = "Smedley Butler" }
 			has_government = radical_socialist
@@ -5907,7 +5989,7 @@ focus_tree = {
 	focus = {# Humane Society
 		id = CSA_humane_society
 		icon = GFX_goal_healthcare
-		cost = 6
+		cost = 5
 		available = {
 			has_country_leader = { ruling_only = yes name = "Smedley Butler" }
 			has_government = radical_socialist
@@ -5938,7 +6020,7 @@ focus_tree = {
 	focus = {# Integrate Revolutionary Guards
 		id = CSA_integrate_revolutionary_guards
 		icon = GFX_goal_CSA_empower_red_militias
-		cost = 6
+		cost = 5
 		available = {
 			has_country_leader = { ruling_only = yes name = "Smedley Butler" }
 			has_government = radical_socialist
@@ -5962,7 +6044,7 @@ focus_tree = {
 	focus = {# Red Junta
 		id = CSA_red_junta
 		icon = GFX_goal_CSA_empower_congress
-		cost = 6
+		cost = 5
 		available = {
 			has_country_leader = { ruling_only = yes name = "Smedley Butler" }
 			has_government = radical_socialist
@@ -5987,7 +6069,7 @@ focus_tree = {
 	focus = {# Special Operations
 		id = CSA_special_ops
 		icon = GFX_goal_CSA_red_marines
-		cost = 6
+		cost = 5
 		available = {
 			has_country_leader = { ruling_only = yes name = "Smedley Butler" }
 			has_government = radical_socialist
@@ -6034,7 +6116,7 @@ focus_tree = {
 	focus = { #War is a Racket
 		id = CSA_war_is_a_racket
 		icon = GFX_goal_CSA_peace_league
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = CSA_integrate_revolutionary_guards
 		}
@@ -6067,7 +6149,7 @@ focus_tree = {
 	focus = {# Utopian Society
 		id = CSA_utopian_society
 		icon = GFX_goal_CSA_fair_days_pay
-		cost = 6.5
+		cost = 5.5
 		available = {
 			has_country_leader = { ruling_only = yes name = "Smedley Butler" }
 			has_government = radical_socialist
@@ -6098,7 +6180,7 @@ focus_tree = {
 	focus = { #Defensive Outlook
 		id = CSA_defensive_outlook
 		icon = GFX_CSA_defensive_outlook
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = CSA_special_ops
 		}
@@ -6129,7 +6211,7 @@ focus_tree = {
 	focus = {# Small Business Investment
 		id = CSA_business_return
 		icon = GFX_goal_CSA_capital_investments
-		cost = 6.00
+		cost = 5
 		prerequisite = {
 			focus = CSA_utopian_society
 		}
@@ -6211,7 +6293,7 @@ focus_tree = {
 	focus = {# Democracy Returns
 		id = CSA_democracy_returns
 		icon = GFX_goal_CSA_industrial_democracy
-		cost = 6.00
+		cost = 5
 		prerequisite = {
 			focus = CSA_business_return
 		}
@@ -6240,7 +6322,7 @@ focus_tree = {
 	focus = {# rebuilding the country
 		id = CSA_rebuilding_the_country
 		icon = GFX_goal_red_star_green_wreath
-		cost = 7.25
+		cost = 5
 		available = {
 			has_global_flag = USA_civil_war_over_flag
 		}
@@ -6259,7 +6341,7 @@ focus_tree = {
 	focus = {# Redistribute Wealth
 		id = CSA_redistribute_wealth
 		icon = GFX_goal_TEX_wealth_ceiling
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_rebuilding_the_country
 		}
@@ -6283,7 +6365,7 @@ focus_tree = {
 	focus = {# Women's Liberation
 		id = CSA_womens_liberation
 		icon = GFX_focus_generic_female_voting
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_redistribute_wealth
 		}
@@ -6302,13 +6384,23 @@ focus_tree = {
 			USA_political_recovery = yes
 			add_stability = 0.04
 			add_political_power = 30
+			hidden_effect = {
+				country_event = {
+					id = csa.17
+					months = 6
+				}
+				country_event = {
+					id = csa.184
+					months = 6
+				}
+			}
 		}
 	}
 	
 	focus = {# The Social Revolution
 		id = CSA_social_revolution
 		icon = GFX_goal_revolution_tools
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_redistribute_wealth
 		}
@@ -6326,6 +6418,9 @@ focus_tree = {
 			custom_effect_tooltip = USA_political_recovery_tooltip
 			USA_political_recovery = yes
 			hidden_effect = {
+				country_event = { id = csa.18 months = 8 }
+				country_event = { id = csa.19 months = 10 }
+				country_event = { id = csa.20 months = 10 }
 				country_event = { id = csa.24 days = 30 random = 10 }
 				if = {
 				limit = { has_country_leader = { ruling_only = yes name = "William Z. Foster" } }
@@ -6339,7 +6434,7 @@ focus_tree = {
 	focus = {# Equality Before the Law
 		id = CSA_emancipation_for_all
 		icon = GFX_goal_LIB_whiter_pale
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_social_revolution
 			focus = CSA_womens_liberation
@@ -6365,7 +6460,7 @@ focus_tree = {
 	focus = {# Stomp Nationalism
 		id = CSA_illegalize_racism
 		icon = GFX_CSA_racial_liberation
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_social_revolution
 			focus = CSA_womens_liberation
@@ -6384,13 +6479,19 @@ focus_tree = {
 			custom_effect_tooltip = USA_political_recovery_tooltip
 			USA_political_recovery = yes 
 			add_manpower = 8000
+			hidden_effect = {
+				country_event = {
+					id = csa.23
+					months = 6
+				}
+			}
 		}
 	}
 	
 	focus = {# Revolutionary Education
 		id = CSA_revolutionary_education
 		icon = GFX_goals_FRA_educated
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_emancipation_for_all
 			focus = CSA_illegalize_racism
@@ -6406,13 +6507,23 @@ focus_tree = {
 			custom_effect_tooltip = USA_political_recovery_tooltip
 			add_research_slot = 1
 			USA_political_recovery = yes
+			hidden_effect = {
+				country_event = {
+					id = csa.21
+					months = 11
+				}
+				country_event = {
+					id = csa.2100
+					months = 11
+				}
+			}
 		}
 	}
 
 	focus = {# Reconstruction
 		id = CSA_reconstruction
 		icon = GFX_goal_construction_engineering
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_rebuilding_the_country
 		}
@@ -6439,7 +6550,7 @@ focus_tree = {
 	focus = {# Deal with the Feds
 		id = CSA_deal_with_feds
 		icon = GFX_goal_USA_mac_in_command
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_reconstruction
 		}
@@ -6458,7 +6569,7 @@ focus_tree = {
 	focus = {# Transformation Justice
 		id = CSA_transformitive_justice
 		icon = GFX_goal_USA_eagle
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_deal_with_feds
 		}
@@ -6481,7 +6592,7 @@ focus_tree = {
 	focus = {# Deal with American First
 		id = CSA_deal_with_firsters
 		icon = GFX_goal_CSA_deal_with_odp
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_reconstruction
 		}
@@ -6500,7 +6611,7 @@ focus_tree = {
 	focus = {# Destroy Jim Crow
 		id = CSA_destroy_jim_crow
 		icon = GFX_BBR_intellectual_appeal
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_deal_with_firsters
 		}
@@ -6523,7 +6634,7 @@ focus_tree = {
 	focus = {# Homes for the People
 		id = CSA_homes_for_the_people
 		icon = GFX_CAL_focus_collective_housing
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_destroy_jim_crow
 		}
@@ -6546,13 +6657,19 @@ focus_tree = {
 			custom_effect_tooltip = USA_economic_recovery_tooltip
 			USA_political_recovery = yes
 			COR_increase_recovery = yes
+			hidden_effect = {
+				country_event = {
+					id = csa.16
+					months = 5
+				}
+			}
 		}
 	}
 
 	focus = {# Southern Investment
 		id = CSA_expanded_investments
 		icon = GFX_CSA_red_roads
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_transformitive_justice
 		}
@@ -6575,7 +6692,7 @@ focus_tree = {
 	focus = {# Reconstruction
 		id = CSA_reconstruction_is_over
 		icon = GFX_goal_red_star_dove
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_revolutionary_education
 		}
@@ -6601,7 +6718,7 @@ focus_tree = {
 	focus = {# A new America
 		id = CSA_a_new_america
 		icon = GFX_america_goal_champagn
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_reconstruction_is_over
 		}
@@ -6615,6 +6732,12 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus CSA_a_new_america"
 			increase_ruling_party_popularity_by_5 = yes
 			add_political_power = 100
+			hidden_effect = {
+				country_event = {
+					id = csa.126
+					months = 4
+				}
+			}
 		}
 	}
 
@@ -6644,7 +6767,7 @@ focus_tree = {
 	focus = {#IWW Army
 		id = CSA_iww_doctrine
 		icon = GFX_goal_CSA_wobbly_militarization
-		cost = 10
+		cost = 5
 		x = -6
 		y = 1
 		ai_will_do = {
@@ -6681,7 +6804,7 @@ focus_tree = {
 	focus = {#Motor Factories
 		id = CSA_motor_factories
 		icon = GFX_goal_Automobile_Production
-		cost = 10
+		cost = 5
 		x = 0
 		y = 1
 		ai_will_do = {
@@ -6732,7 +6855,7 @@ focus_tree = {
 	focus = {#The Peoples Vehicles
 		id = CSA_peoples_vehicles
 		icon = GFX_goal_generic_army_motorized
-		cost = 10
+		cost = 5
 		x = -2
 		y = 2
 		ai_will_do = {
@@ -6749,11 +6872,11 @@ focus_tree = {
 			remove_idea = CSA_iww_doctrine_idea
 			add_idea = CSA_iww_doctrine_idea_2
 			}
-			add_tech_bonus = {
-				name = CSA_iww_doctrine_bonus
-				bonus = 1
-				uses = 1
-				category = cat_mobile_warfare
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_mobile_warfare
 			}
 			add_equipment_to_stockpile = {
 			type = motorized_equipment
@@ -6765,7 +6888,7 @@ focus_tree = {
 	focus = {#Reverse Engineering
 		id = CSA_reverse_engineering
 		icon = GFX_goal_generic_production2
-		cost = 10
+		cost = 5
 		x = 0
 		y = 2
 		ai_will_do = {
@@ -6778,11 +6901,11 @@ focus_tree = {
 		prerequisite = { focus = CSA_motor_factories }
 		relative_position_id = CSA_iww_doctrine
 		completion_reward = {
-			add_tech_bonus = {
-				name = CSA_iww_doctrine_bonus
-				bonus = 1
-				uses = 1
-				category = cat_mobile_warfare
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_mobile_warfare
 			}
 			add_tech_bonus = {
 				name = CSA_iww_doctrine_bonus
@@ -6801,7 +6924,7 @@ focus_tree = {
 	focus = {#Military Industrialization
 		id = CSA_military_industrialization
 		icon = GFX_goal_generic_soviet_construction
-		cost = 10
+		cost = 5
 		x = 2
 		y = 2
 		ai_will_do = {
@@ -6839,7 +6962,7 @@ focus_tree = {
 	focus = {#Tank Advancements
 		id = CSA_tanks_advancements
 		icon = GFX_goal_CSA_tanks_of_the_revolution
-		cost = 10
+		cost = 5
 		x = 1
 		y = 3
 		ai_will_do = {
@@ -6859,17 +6982,32 @@ focus_tree = {
 				uses = 2
 				category = armor
 			}
-			add_equipment_to_stockpile = {
-			type = light_tank_equipment
-			amount = 45
-			producer = CSA
+			if = {
+				limit = {
+					NOT = { has_dlc = "No Step Back" }
+				}
+				add_equipment_to_stockpile = {
+				type = light_tank_equipment_1
+				amount = 45
+				producer = CSA
+				}
 			}
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = {
+				type = light_tank_chassis
+				amount = 45
+				producer = CSA
+				}
+			}			
 		}
 	}
 	focus = {#Motor Training
 		id = CSA_new_training
 		icon = GFX_focus_generic_license_production
-		cost = 10
+		cost = 5
 		x = -1
 		y = 3
 		ai_will_do = {
@@ -6899,7 +7037,7 @@ focus_tree = {
 	focus = {# IWW
 		id = CSA_IWW_production
 		icon = GFX_goal_CSA_union_army
-		cost = 10
+		cost = 5
 		x = 0
 		y = 4
 		ai_will_do = {
@@ -6917,29 +7055,45 @@ focus_tree = {
 			remove_idea = CSA_iww_doctrine_idea_3
 			add_idea = CSA_iww_doctrine_idea_4
 			}
-			add_tech_bonus = {
-				name = CSA_iww_doctrine_bonus
-				bonus = 1
-				uses = 3
-				category = cat_mobile_warfare
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_mobile_warfare
 			}
 			add_equipment_to_stockpile = {
 			type = motorized_equipment
 			amount = 40
 			producer = CSA
 			}
-			add_equipment_to_stockpile = {
-			type = light_tank_equipment
-			amount = 30
-			producer = CSA
+			if = {
+				limit = {
+					NOT = { has_dlc = "No Step Back" }
+				}
+				add_equipment_to_stockpile = {
+				type = light_tank_equipment_1
+				amount = 30
+				producer = CSA
+				}
 			}
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = {
+				type = light_tank_chassis
+				amount = 30
+				producer = CSA
+				}
+			}
+			
 			add_stability = 0.05
 		}
 	}
 	focus = {#Centralist Military
 		id = CSA_centralist_doctrine
 		icon = GFX_goal_CSA_centralist_reorganization
-		cost = 10
+		cost = 5
 		x = -2
 		y = 1
 		ai_will_do = {
@@ -6964,11 +7118,11 @@ focus_tree = {
 			amount = 15
 			producer = CSA
 			}
-			add_tech_bonus = {
-				name = CSA_centralist_doctrine_bonus
-				bonus = 1
-				uses = 1
-				category = cat_superior_firepower
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_superior_firepower
 			}
 			add_popularity = { ideology = totalist popularity = 0.05 }
 		}
@@ -6976,7 +7130,7 @@ focus_tree = {
 	focus = {#Artillery Contracts
 		id = CSA_artillery_production_lines
 		icon = GFX_goal_generic_army_artillery
-		cost = 10
+		cost = 5
 		x = 0
 		y = 1
 		ai_will_do = {
@@ -7009,7 +7163,7 @@ focus_tree = {
 	focus = {#Officer Artillery Training
 		id = CSA_artillery_training
 		icon = GFX_goal_generic_army_artillery2
-		cost = 10
+		cost = 5
 		x = 0
 		y = 1
 		ai_will_do = {
@@ -7027,18 +7181,18 @@ focus_tree = {
 			add_idea = CSA_centralist_doctrine_idea_2
 			}
 			army_experience = 15
-			add_tech_bonus = {
-				name = CSA_centralist_doctrine_bonus
-				bonus = 2
-				uses = 1
-				category = cat_superior_firepower
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_superior_firepower
 			}
 		}
 	}
 	focus = {#Counter-Reactionary Arnaments
 		id = CSA_canons_of_socialism
 		icon = GFX_focus_generic_tank_destroyer
-		cost = 10
+		cost = 5
 		x = -1
 		y = 2
 		ai_will_do = {
@@ -7077,7 +7231,7 @@ focus_tree = {
 	focus = {#Combined Arms 
 		id = CSA_revolution_arms
 		icon = GFX_focus_generic_combined_arms
-		cost = 10
+		cost = 5
 		x = 1
 		y = 2
 		ai_will_do = {
@@ -7095,11 +7249,11 @@ focus_tree = {
 			remove_idea = CSA_centralist_doctrine_idea_2
 			add_idea = CSA_centralist_doctrine_idea_3
 			}
-			add_tech_bonus = {
-				name = CSA_centralist_doctrine_bonus
-				bonus = 2
-				uses = 1
-				category = cat_superior_firepower
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_superior_firepower
 			}
 			add_equipment_to_stockpile = {
 				type = artillery_equipment
@@ -7136,7 +7290,7 @@ focus_tree = {
 	focus = {#Modernized Army
 		id = CSA_modernized_army
 		icon = GFX_goal_CSA_professional_red_army
-		cost = 10
+		cost = 5
 		x = 0
 		y = 3
 		ai_will_do = {
@@ -7156,11 +7310,11 @@ focus_tree = {
 			}
 			add_stability = 0.05
 			add_political_power = 30
-			add_tech_bonus = {
-				name = CSA_centralist_doctrine_bonus
-				bonus = 1
-				uses = 1
-				category = cat_superior_firepower
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_superior_firepower
 			}
 			add_tech_bonus = {
 				name = CSA_centralist_doctrine_bonus
@@ -7173,7 +7327,7 @@ focus_tree = {
 	focus = {# Collectivist Doctrine
 		id = CSA_collectivist_doctrine
 		icon = GFX_goal_CSA_collectivist_military
-		cost = 10
+		cost = 5
 		x = 2
 		y = 1
 		ai_will_do = {
@@ -7196,18 +7350,18 @@ focus_tree = {
 			add_popularity = { ideology = totalist popularity = 0.03 }
 			add_popularity = { ideology = syndicalist popularity = 0.02 }
 			add_manpower = 3000
-			add_tech_bonus = {
-				name = CSA_collectivist_doctrine_bonus
-				bonus = 1
-				uses = 1
-				category = cat_mass_assault
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_mass_assault
 			}
 		}
 	}
 	focus = {# Call to the Masses
 		id = CSA_call_to_the_masses
 		icon = GFX_BBR_southern_class_consciousness
-		cost = 10
+		cost = 5
 		x = 0
 		y = 1
 		ai_will_do = {
@@ -7226,18 +7380,18 @@ focus_tree = {
 			}
 			add_manpower = 10000
 			add_war_support = 0.1
-			add_tech_bonus = {
-				name = CSA_collectivist_doctrine_bonus
-				bonus = 1
-				uses = 1
-				category = cat_mass_assault
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_mass_assault
 			}
 		}
 	}
 	focus = {# Arms Quotas
 		id = CSA_production_quotas
 		icon = GFX_goal_generic_build_tank
-		cost = 10
+		cost = 5
 		x = -2
 		y = 2
 		ai_will_do = {
@@ -7286,7 +7440,7 @@ focus_tree = {
 	focus = {# Overwhelm the enemy
 		id = CSA_overwhelm_the_reactionary
 		icon = GFX_goal_CSA_overwhelm_reactionaries
-		cost = 10
+		cost = 5
 		x = 0
 		y = 2
 		ai_will_do = {
@@ -7306,18 +7460,18 @@ focus_tree = {
 			add_manpower = 14500
 			add_war_support = 0.1
 			add_stability = -0.03
-			add_tech_bonus = {
-				name = CSA_collectivist_doctrine_bonus
-				bonus = 1
-				uses = 1
-				category = cat_mass_assault
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_mass_assault
 			}
 		}
 	}
 	focus = {# Socialist Support
 		id = CSA_socialist_support
 		icon = GFX_goal_CSA_militia_support
-		cost = 10
+		cost = 5
 		x = 2
 		y = 2
 		ai_will_do = {
@@ -7343,7 +7497,7 @@ focus_tree = {
 	focus = {# Arms of the Proletariat
 		id = CSA_proletariat_arms
 		icon = GFX_goal_CSA_proletarian_arms
-		cost = 10
+		cost = 5
 		x = -1
 		y = 3
 		ai_will_do = {
@@ -7373,7 +7527,7 @@ focus_tree = {
 	focus = {# Revolutionary Training Ethos
 		id = CSA_radical_training
 		icon = GFX_goal_CSA_radicalized_training
-		cost = 10
+		cost = 5
 		x = 1
 		y = 3
 		ai_will_do = {
@@ -7392,18 +7546,18 @@ focus_tree = {
 			add_idea = CSA_collectivist_doctrine_idea_3
 			}
 			add_war_support = 0.05
-			add_tech_bonus = {
-				name = CSA_collectivist_doctrine_bonus
-				bonus = 2
-				uses = 2
-				category = cat_mass_assault
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_mass_assault
 			}
 		}
 	}
 	focus = {# Revolutionary Army
 		id = CSA_revolutionary_army
 		icon = GFX_goal_CSA_revolutionary_army
-		cost = 10
+		cost = 5
 		x = 0
 		y = 4
 		ai_will_do = {
@@ -7426,18 +7580,18 @@ focus_tree = {
 			add_popularity = { ideology = totalist popularity = 0.03 }
 			add_political_power = 40
 			add_war_support = 0.05
-			add_tech_bonus = {
-				name = CSA_collectivist_doctrine_bonus
-				bonus = 1
-				uses = 3
-				category = cat_mass_assault
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_mass_assault
 			}
 		}
 	}
 	focus = {# Buterlerian Army
 		id = CSA_butlers_doctrine
 		icon = GFX_goal_CSA_butlers_plan
-		cost = 10
+		cost = 5
 		x = 6
 		y = 1
 		ai_will_do = {
@@ -7473,7 +7627,7 @@ focus_tree = {
 	focus = {# Red Officers Corps
 		id = CSA_red_officers
 		icon = GFX_focus_generic_military_mission
-		cost = 10
+		cost = 5
 		x = 0
 		y = 1
 		ai_will_do = {
@@ -7509,7 +7663,7 @@ focus_tree = {
 	focus = {# The People's Academies
 		id = CSA_peoples_academies
 		icon = GFX_goal_CSA_peoples_military_academy
-		cost = 10
+		cost = 5
 		x = 0
 		y = 2
 		ai_will_do = {
@@ -7539,7 +7693,7 @@ focus_tree = {
 	focus = {# Professional Drills
 		id = CSA_professional_drills
 		icon = GFX_goal_CSA_drills
-		cost = 10
+		cost = 5
 		x = 2
 		y = 2
 		ai_will_do = {
@@ -7553,11 +7707,11 @@ focus_tree = {
 		relative_position_id = CSA_butlers_doctrine
 		completion_reward = {
 			add_ideas = CSA_professional_red_army
-			add_tech_bonus = {
-				name = CSA_Plan_bonus
-				bonus = 2
-				uses = 2
-				category = cat_grand_battle_plan
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_grand_battle_plan
 			}
 			army_experience = 40
 		}
@@ -7565,7 +7719,7 @@ focus_tree = {
 	focus = {# The Red Marines
 		id = CSA_red_marines
 		icon = GFX_goal_CSA_red_marines
-		cost = 10
+		cost = 5
 		x = 1
 		y = 3
 		ai_will_do = {
@@ -7611,7 +7765,7 @@ focus_tree = {
 	focus = {# Reconnaissance 
 		id = CSA_red_scouts
 		icon = GFX_goal_CSA_red_scouts
-		cost = 10
+		cost = 5
 		x = -1
 		y = 3
 		ai_will_do = {
@@ -7640,7 +7794,7 @@ focus_tree = {
 	focus = {# Red Republican Army
 		id = CSA_red_republican_army
 		icon = GFX_goal_CSA_peoples_republican_army
-		cost = 10
+		cost = 5
 		x = 0
 		y = 4
 		ai_will_do = {
@@ -7700,10 +7854,10 @@ focus_tree = {
 		relative_position_id = CSA_second_continental_army
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_protecting_Columbia"
-			add_tech_bonus = {
-				name = doctrine_bonus
-				bonus = 1
-				uses = 2
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
 				category = land_doctrine
 			}
 			if = {
@@ -7822,10 +7976,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_Columbia_needs_you"
-			add_tech_bonus = {
-				name = doctrine_bonus
-				bonus = 1
-				uses = 2
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
 				category = land_doctrine
 			}
 		}
@@ -7901,7 +8055,7 @@ focus_tree = {
 		available = { any_owned_state = { is_coastal = yes} }
 		x = 55
 		y = 7
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 4
 			modifier = {
@@ -7911,10 +8065,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CSA_second_continental_navy"
-			add_tech_bonus = {
-				name = CSA_second_continental_navy
-				bonus = 1
-				uses = 2
+			add_doctrine_cost_reduction = {
+				name = naval_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
 				category = naval_doctrine
 			}
 		}
@@ -7929,7 +8083,7 @@ focus_tree = {
 		relative_position_id = CSA_second_continental_navy
 		x = 0
 		y = 1
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 4
 			modifier = {
@@ -7956,7 +8110,7 @@ focus_tree = {
 		relative_position_id = CSA_revolutionary_naval_industry
 		x = -2
 		y = 2
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 5
 			modifier = {
@@ -8039,7 +8193,7 @@ focus_tree = {
 		relative_position_id = CSA_revolutionary_naval_industry
 		x = -1
 		y = 1
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 4
 			modifier = {
@@ -8087,7 +8241,7 @@ focus_tree = {
 		relative_position_id = CSA_revolutionary_naval_industry
 		x = 1
 		y = 1
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 4
 			modifier = {
@@ -8133,7 +8287,7 @@ focus_tree = {
 		relative_position_id = CSA_revolutionary_naval_industry
 		x = 0
 		y = 2
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 5
 			modifier = {
@@ -8203,7 +8357,7 @@ focus_tree = {
 		relative_position_id = CSA_revolutionary_naval_industry
 		x = -1
 		y = 3
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 4
 			modifier = {
@@ -8226,7 +8380,7 @@ focus_tree = {
 		relative_position_id = CSA_revolutionary_naval_industry
 		x = 2
 		y = 2
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 4
 			modifier = {
@@ -8261,7 +8415,7 @@ focus_tree = {
 		relative_position_id = CSA_revolutionary_naval_industry
 		x = 1
 		y = 3
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 4
 			modifier = {
@@ -8291,7 +8445,7 @@ focus_tree = {
 		relative_position_id = CSA_revolutionary_naval_industry
 		x = 0
 		y = 4
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 4
 			modifier = {
@@ -8366,10 +8520,10 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_tech_bonus = {
-				name = CSA_air_doctrine_bonus
-				bonus = 2
-				uses = 2
+			add_doctrine_cost_reduction = {
+				name = air_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
 				category = air_doctrine
 			}
 		}
@@ -8450,10 +8604,10 @@ focus_tree = {
 		prerequisite = { focus = CSA_red_air_force }
 		relative_position_id = CSA_red_air_force
 		completion_reward = {
-			add_tech_bonus = {
-				name = CSA_air_doctrine_bonus
-				bonus = 1
-				uses = 2
+			add_doctrine_cost_reduction = {
+				name = air_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
 				category = air_doctrine
 			}
 		}
@@ -8547,7 +8701,7 @@ focus_tree = {
 	focus = {
 		id = CSA_from_the_sky
 		icon = GFX_goal_air_armada
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_unleash_the_hellcat
 		}
@@ -8582,7 +8736,7 @@ focus_tree = {
 	focus = {
 		id = CSA_back_in_business
 		icon = GFX_goal_CSA
-		cost = 7.25
+		cost = 5
 		x = 78
 		y = 0
 
@@ -8614,7 +8768,7 @@ focus_tree = {
 	focus = {
 		id = CSA_mexico_friendship
 		icon = GFX_goal_USA_mexican_friendship
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_back_in_business
 		}
@@ -8666,7 +8820,7 @@ focus_tree = {
 	focus = {
 		id = CSA_free_mexico
 		icon = GFX_goal_FRA_develop_MEX
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_back_in_business
 		}
@@ -8729,7 +8883,7 @@ focus_tree = {
 	focus = {
 		id = CSA_mexican_standoff
 		icon = GFX_goal_mexico
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_back_in_business
 		}
@@ -8772,7 +8926,7 @@ focus_tree = {
 	focus = {
 		id = CSA_demand_new_england
 		icon = GFX_goal_flag_new_england
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_mexican_standoff
 			focus = CSA_mexico_friendship
@@ -8818,7 +8972,7 @@ focus_tree = {
 	focus = {
 		id = CSA_the_revolution_at_home
 		icon = GFX_goal_CSA_revolution_at_homee
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_demand_new_england
 		}
@@ -8850,7 +9004,7 @@ focus_tree = {
 	focus = {
 		id = CSA_defend_the_front
 		icon = GFX_goal_CSA_socialist_defence_doctrine
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_the_revolution_at_home
 		}
@@ -8880,7 +9034,7 @@ focus_tree = {
 	focus = {
 		id = CSA_peace_league
 		icon = GFX_goal_CSA_peace_league
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_defend_the_front
 		}
@@ -8944,7 +9098,7 @@ focus_tree = {
 	focus = {
 		id = CSA_pacifist_propaganda
 		icon = GFX_goal_CSA_pacifist_education
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_peace_league
 		}
@@ -8977,7 +9131,7 @@ focus_tree = {
 	focus = {
 		id = CSA_invest_in_the_future
 		icon = GFX_BBR_means_of_production
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_peace_league
 		}
@@ -9037,7 +9191,7 @@ focus_tree = {
 	focus = {
 		id = CSA_peace_through_socialism
 		icon = GFX_goal_red_star_dove
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_pacifist_propaganda
 		}
@@ -9080,7 +9234,7 @@ focus_tree = {
 	focus = {
 		id = CSA_revolutionary_monroeism
 		icon = GFX_goal_CSA_revolutionize_monroeism
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_the_revolution_at_home
 		}
@@ -9110,7 +9264,7 @@ focus_tree = {
 	focus = {
 		id = CSA_logistics_management
 		icon = GFX_goal_reform_socialist_army
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_revolutionary_monroeism
 		}
@@ -9168,7 +9322,7 @@ focus_tree = {
 	focus = {
 		id = CSA_naval_investments
 		icon = GFX_goal_CSA_power_of_red_navy_2
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_logistics_management
 		}
@@ -9215,7 +9369,7 @@ focus_tree = {
 	focus = {
 		id = CSA_americanist_faction
 		icon = GFX_goal_CSA_lead_american_revolution
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_naval_investments
 		}
@@ -9244,7 +9398,7 @@ focus_tree = {
 	focus = {
 		id = CSA_scoop_up_local_socialists
 		icon = GFX_BBR_approach_local_socialists
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_americanist_faction
 		}
@@ -9264,63 +9418,28 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CSA_scoop_up_local_socialists"
-			if = {
-			limit = {
-				NIC = {
-				has_socialist_government = yes
+			every_other_country = {
+				limit = {
+					has_socialist_government = yes
+					NOT = {
+						is_subject_of = ROOT
+						has_war_with = ROOT
+					}
+					OR = {
+						is_in_north_america = yes
+						is_in_south_america = yes
+						is_in_central_america = yes
 					}
 				}
-			NIC = {
-			add_opinion_modifier = { target = CSA modifier = medium_increase }
-				}
-			}
-			if = {
-			limit = {
-				MEX = {
-				has_socialist_government = yes
-					}
-				}
-			MEX = {
-			add_opinion_modifier = { target = CSA modifier = medium_increase }
-				}
-			}
-			if = {
-			limit = {
-				CUB = {
-				has_socialist_government = yes
-					}
-				}
-			CUB = {
-			add_opinion_modifier = { target = CSA modifier = medium_increase }
-				}
-			}
-			if = {
-			limit = {
-				FOP = {
-				has_socialist_government = yes
-					}
-				}
-			FOP = {
-			add_opinion_modifier = { target = CSA modifier = medium_increase }
-				}
-			}
-			if = {
-			limit = {
-				CHL = {
-				has_socialist_government = yes
-					}
-				}
-			CHL = {
-			add_opinion_modifier = { target = CSA modifier = medium_increase }
-				}
-			}
+				add_opinion_modifier = { target = CSA modifier = medium_increase }
+			}	
 		}
 	}
 	
 	focus = {
 		id = CSA_world_revolution
 		icon = GFX_goal_CSA_World_Revolution_csa
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_demand_new_england
 		}
@@ -9351,7 +9470,7 @@ focus_tree = {
 	focus = {
 		id = CSA_address_the_internationale
 		icon = GFX_BBR_internationale_struggle
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_revolutionary_monroeism
 			focus = CSA_defend_the_front
@@ -9379,7 +9498,7 @@ focus_tree = {
 	focus = {
 		id = CSA_on_the_beach
 		icon = GFX_BBR_unionize_yesterday
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_world_revolution
 		}
@@ -9411,7 +9530,7 @@ focus_tree = {
 	focus = {
 		id = CSA_join_the_internationale
 		icon = GFX_BBR_internationale_collaboration
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_on_the_beach
 		}
@@ -9448,7 +9567,7 @@ focus_tree = {
 	focus = {
 		id = CSA_new_lend_lease
 		icon = GFX_goal_syndicalist_industry
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_join_the_internationale
 		}
@@ -9477,7 +9596,7 @@ focus_tree = {
 	focus = {
 		id = CSA_invest_in_the_west
 		icon = GFX_BBR_build_industries
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_new_lend_lease
 		}
@@ -9538,7 +9657,7 @@ focus_tree = {
 	focus = {
 		id = CSA_save_the_cnt
 		icon = GFX_goal_CSA_iberian_revolution
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_invest_in_the_west
 			focus = CSA_new_red_faction
@@ -9597,7 +9716,7 @@ focus_tree = {
 	focus = {
 		id = CSA_brazilian_socialism
 		icon = GFX_goal_CSA_red_brazil
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_save_the_cnt
 		}
@@ -9793,7 +9912,7 @@ focus_tree = {
 	focus = {
 		id = CSA_strike_ireland
 		icon = GFX_goal_CSA_irish_revolution
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_new_red_faction
 		}
@@ -9827,7 +9946,7 @@ focus_tree = {
 	focus = {
 		id = CSA_strike_faux_socialists
 		icon = GFX_goal_GER_crush_western_syndies
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_strike_ireland
 		}
@@ -9864,7 +9983,7 @@ focus_tree = {
 	focus = {
 		id = CSA_power_of_the_revolution
 		icon = GFX_goal_CSA_inevitable_world_socialism
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_brazilian_socialism
 			focus = CSA_strike_faux_socialists
@@ -9896,7 +10015,7 @@ focus_tree = {
 	focus = {
 		id = CSA_break_japan
 		icon = GFX_goal_USA_dismantle_empire
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_power_of_the_revolution
 		}
@@ -9931,7 +10050,7 @@ focus_tree = {
 	focus = {
 		id = CSA_eastern_revolution
 		icon = GFX_goal_USA_vietnam_yesterday
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_break_japan
 		}
@@ -9969,7 +10088,7 @@ focus_tree = {
 	focus = {
 		id = CSA_save_bolshevism
 		icon = GFX_goal_support_communism
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_break_japan
 			focus = CSA_prussian_socialism
@@ -10004,7 +10123,7 @@ focus_tree = {
 	focus = {
 		id = CSA_prussian_socialism
 		icon = GFX_BBR_crush_old_imperialists
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_power_of_the_revolution
 		}
@@ -10039,7 +10158,7 @@ focus_tree = {
 	focus = {
 		id = CSA_austria_hungary
 		icon = GFX_goal_CRO_crush_austrian_monopolies
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_prussian_socialism
 		}
@@ -10073,7 +10192,7 @@ focus_tree = {
 	focus = {
 		id = CSA_world_without_chains
 		icon = GFX_goal_ideology_libsoc
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_austria_hungary
 		}
@@ -10108,7 +10227,7 @@ focus_tree = {
 	focus = {
 		id = CSA_free_the_west
 		icon = GFX_goal_USA_spirit_of_monroe
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_revolutionary_monroeism
 			focus = CSA_on_the_beach
@@ -10144,7 +10263,7 @@ focus_tree = {
 	focus = {
 		id = CSA_free_canada
 		icon = GFX_goal_canada
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_free_the_west
 		}
@@ -10197,13 +10316,119 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = CSA_carribean_revolution
+		icon = GFX_goal_CSA_caribbean_revolution
+		cost = 5
+		prerequisite = {
+			focus = CSA_free_canada
+		}
+		available = {
+			is_subject = no
+			controls_all_owned_states = yes
+			OR = {
+				is_in_faction = no
+				is_faction_leader = yes
+			}
+			any_other_country = {
+				OR = {
+					tag = CUB
+					tag = HAI
+					tag = DOM
+					tag = CAF
+				}
+				exists = yes
+				has_socialist_government = no
+				NOT = { is_subject_of = ROOT }
+			}
+		}
+		relative_position_id = CSA_free_the_west
+		x = 0
+		y = 2
+
+		ai_will_do = {
+			factor = 50
+		}
+
+		available_if_capitulated = no
+		cancel_if_invalid = yes
+
+		bypass = {
+			OR = {
+				NOT = { country_exists = CUB }
+				CUB = { is_subject_of = ROOT }
+				CUB = { has_socialist_government = yes }
+				has_war_with = CUB
+			}
+			OR = {
+				NOT = { country_exists = HAI }
+				HAI = { is_subject_of = ROOT }
+				HAI = { has_socialist_government = yes }
+				has_war_with = HAI
+			}
+			OR = {
+				NOT = { country_exists = DOM }
+				DOM = { is_subject_of = ROOT }
+				DOM = { has_socialist_government = yes }
+				has_war_with = DOM
+			}
+			OR = {
+				NOT = { country_exists = CAF }
+				CAF = { is_subject_of = ROOT }
+				CAF = { has_socialist_government = yes }
+				has_war_with = CAF
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_master_of_the_west"
+			if = {
+			limit = {
+			CUB = { has_socialist_government = no is_subject_of = ROOT }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = CUB
+				}
+			}
+			if = {
+			limit = {
+			HAI = { has_socialist_government = no NOT = { is_subject_of = ROOT } }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = HAI
+				}
+			}
+			if = {
+			limit = {
+			DOM = { has_socialist_government = no NOT = { is_subject_of = ROOT } }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = DOM
+				}
+			}
+			if = {
+			limit = {
+			CAF = { has_socialist_government = no NOT = { is_subject_of = ROOT } }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = CAF
+				}
+			}
+		}
+	}
 	
 	focus = {
 		id = CSA_look_to_the_south
 		icon = GFX_goal_NOR_secret_police
-		cost = 7.25
+		cost = 5
 		prerequisite = {
-			focus = CSA_free_canada
+			focus = CSA_master_of_the_west
+			focus = CSA_scoop_up_local_socialists
 		}
 		available = {
 			is_subject = no
@@ -10225,8 +10450,8 @@ focus_tree = {
 			}
 		}
 		relative_position_id = CSA_free_the_west
-		x = 0
-		y = 2
+		x = -1
+		y = 4
 
 		ai_will_do = {
 			factor = 20
@@ -10244,9 +10469,9 @@ focus_tree = {
 	focus = {
 		id = CSA_master_of_the_west
 		icon = GFX_goal_CSA_master_west
-		cost = 7.25
+		cost = 5
 		prerequisite = {
-			focus = CSA_look_to_the_south
+			focus = CSA_carribean_revolution
 		}
 		available = {
 			is_subject = no
@@ -10272,7 +10497,7 @@ focus_tree = {
 	focus = {
 		id = CSA_african_revolution
 		icon = GFX_BBR_radical_anti_imperialism
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_master_of_the_west
 		}
@@ -10320,7 +10545,7 @@ focus_tree = {
 	focus = {
 		id = CSA_break_arab_monarchism
 		icon = GFX_goal_USA_anti_imperialist_league
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_african_revolution
 		}
@@ -10360,54 +10585,30 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = CSA_carribean_revolution
-		icon = GFX_goal_CSA_caribbean_revolution
-		cost = 7.25
-		prerequisite = {
-			focus = CSA_master_of_the_west
-			focus = CSA_scoop_up_local_socialists
-		}
-		available = {
-			is_subject = no
-		}
-		relative_position_id = CSA_free_the_west
-		x = -1
-		y = 4
-
-		ai_will_do = {
-			factor = 50
-		}
-
-		available_if_capitulated = no
-		cancel_if_invalid = yes
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus CSA_master_of_the_west"
-			create_wargoal = {
-				type = puppet_wargoal_focus
-				target = CUB
-			}
-			create_wargoal = {
-				type = puppet_wargoal_focus
-				target = HAI
-			}
-			create_wargoal = {
-				type = puppet_wargoal_focus
-				target = CAF
-			}
-		}
-	}
-	
-	focus = {
 		id = CSA_gateway_to_south_america
 		icon = GFX_CAL_good_neighbor
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_master_of_the_west
 			focus = CSA_scoop_up_local_socialists
 		}
 		available = {
 			is_subject = no
+			controls_all_owned_states = yes
+			OR = {
+				is_in_faction = no
+				is_faction_leader = yes
+			}
+			any_other_country = {
+				OR = {
+					tag = COL
+					tag = VEN
+					tag = ECU
+				}
+				exists = yes
+				has_socialist_government = no
+				NOT = { is_subject_of = ROOT }
+			}
 		}
 		relative_position_id = CSA_free_the_west
 		x = -3
@@ -10420,13 +10621,57 @@ focus_tree = {
 		available_if_capitulated = no
 		cancel_if_invalid = yes
 
+		bypass = {
+			OR = {
+				NOT = { country_exists = COL }
+				COL = { is_subject_of = ROOT }
+				COL = { has_socialist_government = yes }
+				has_war_with = COL
+			}
+			OR = {
+				NOT = { country_exists = VEN }
+				VEN = { is_subject_of = ROOT }
+				VEN = { has_socialist_government = yes }
+				has_war_with = VEN
+			}
+			OR = {
+				NOT = { country_exists = ECU }
+				ECU = { is_subject_of = ROOT }
+				ECU = { has_socialist_government = yes }
+				has_war_with = ECU
+			}
+		}
+
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CSA_master_of_the_west"
 			add_stability = 0.05
 			add_political_power = 45
+			if = {
+			limit = {
+			COL = { has_socialist_government = no NOT = { is_subject_of = ROOT } }
+			}
 			create_wargoal = {
 			type = puppet_wargoal_focus
 			target = COL
+				}
+			}
+			if = {
+			limit = {
+			VEN = { has_socialist_government = no NOT = { is_subject_of = ROOT } }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = VEN
+				}
+			}
+			if = {
+			limit = {
+			ECU = { has_socialist_government = no NOT = { is_subject_of = ROOT } }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = ECU
+				}
 			}
 		}
 	}
@@ -10434,7 +10679,7 @@ focus_tree = {
 	focus = {
 		id = CSA_socialist_liberation
 		icon = GFX_goal_CSA_socialist_liberation
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_gateway_to_south_america
 		}
@@ -10552,6 +10797,15 @@ focus_tree = {
 		}
 		available = {
 			is_subject = no
+			controls_all_owned_states = yes
+			OR = {
+				is_in_faction = no
+				is_faction_leader = yes
+			}
+			PRU = {
+				exists = yes
+				has_socialist_government = no
+			}
 		}
 		relative_position_id = CSA_socialist_liberation
 		x = 0
@@ -10563,6 +10817,15 @@ focus_tree = {
 
 		available_if_capitulated = no
 		cancel_if_invalid = yes
+
+		bypass = {
+			OR = {
+				NOT = { country_exists = PRU }
+				PRU = { is_subject_of = ROOT }
+				PRU = { has_socialist_government = yes }
+				has_war_with = PRU
+			}
+		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CSA_through_peru"
@@ -10583,6 +10846,15 @@ focus_tree = {
 		}
 		available = {
 			is_subject = no
+			controls_all_owned_states = yes
+			OR = {
+				is_in_faction = no
+				is_faction_leader = yes
+			}
+			BOL = {
+				exists = yes
+				has_socialist_government = no
+			}
 		}
 		relative_position_id = CSA_socialist_liberation
 		x = 0
@@ -10594,6 +10866,15 @@ focus_tree = {
 
 		available_if_capitulated = no
 		cancel_if_invalid = yes
+
+		bypass = {
+			OR = {
+				NOT = { country_exists = BOL }
+				BOL = { is_subject_of = ROOT }
+				BOL = { has_socialist_government = yes }
+				has_war_with = BOL
+			}
+		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CSA_break_bolivia"
@@ -10614,6 +10895,21 @@ focus_tree = {
 		}
 		available = {
 			is_subject = no
+			controls_all_owned_states = yes
+			OR = {
+				is_in_faction = no
+				is_faction_leader = yes
+			}
+			any_other_country = {
+				OR = {
+					tag = ARG
+					tag = PAR
+					tag = URG
+				}
+				exists = yes
+				has_socialist_government = no
+				NOT = { is_subject_of = ROOT }
+			}
 		}
 		relative_position_id = CSA_socialist_liberation
 		x = 0
@@ -10626,12 +10922,56 @@ focus_tree = {
 		available_if_capitulated = no
 		cancel_if_invalid = yes
 
+		bypass = {
+			OR = {
+				NOT = { country_exists = ARG }
+				ARG = { is_subject_of = ROOT }
+				ARG = { has_socialist_government = yes }
+				has_war_with = ARG
+			}
+			OR = {
+				NOT = { country_exists = PAR }
+				PAR = { is_subject_of = ROOT }
+				PAR = { has_socialist_government = yes }
+				has_war_with = PAR
+			}
+			OR = {
+				NOT = { country_exists = URG }
+				URG = { is_subject_of = ROOT }
+				URG = { has_socialist_government = yes }
+				has_war_with = URG
+			}
+		}
+
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CSA_end_argentina"
 			add_war_support = 0.05
+			if = {
+			limit = {
+			ARG = { has_socialist_government = no NOT = { is_subject_of = ROOT } }
+			}
 			create_wargoal = {
 			type = puppet_wargoal_focus
 			target = ARG
+				}
+			}
+			if = {
+			limit = {
+			PAR = { has_socialist_government = no NOT = { is_subject_of = ROOT } }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = PAR
+				}
+			}
+			if = {
+			limit = {
+			URG = { has_socialist_government = no NOT = { is_subject_of = ROOT } }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = URG
+				}
 			}
 		}
 	}
@@ -10639,7 +10979,7 @@ focus_tree = {
 	focus = {
 		id = CSA_socialism_in_one_nation
 		icon = GFX_goal_ideology_totalist
-		cost = 7.25
+		cost = 5
 		prerequisite = {
 			focus = CSA_gateway_to_south_america
 		}
@@ -10670,7 +11010,7 @@ focus_tree = {
 	focus = {
 		id = CSA_reorganize_mexico
 		icon = GFX_goal_FRA_develop_MEX
-		cost = 8
+		cost = 5
 		prerequisite = {
 			focus = CSA_socialism_in_one_nation
 		}
@@ -10703,7 +11043,7 @@ focus_tree = {
 	focus = {
 		id = CSA_greater_california
 		icon = GFX_CAL_focus_collective_housing
-		cost = 8
+		cost = 5
 		prerequisite = {
 			focus = CSA_reorganize_mexico
 		}
@@ -10731,7 +11071,7 @@ focus_tree = {
 	focus = {
 		id = CSA_reorganize_central_america
 		icon = GFX_goal_centroamerica
-		cost = 8
+		cost = 5
 		prerequisite = {
 			focus = CSA_greater_california
 		}
@@ -10864,7 +11204,7 @@ focus_tree = {
 	focus = {
 		id = CSA_the_great_north
 		icon = GFX_goal_generic_coal_mining
-		cost = 8
+		cost = 5
 		prerequisite = {
 			focus = CSA_road_to_alaska
 		}
@@ -10907,7 +11247,7 @@ focus_tree = {
 	focus = {
 		id = CSA_appeal_to_socialism
 		icon = GFX_BBR_syndie_media
-		cost = 8
+		cost = 5
 		prerequisite = {
 			focus = CSA_organize_northern_technates
 		}
@@ -10940,20 +11280,17 @@ focus_tree = {
 		cancel_if_invalid = yes
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus CSA_the_great_north"
-			CSA = { 
-			country_event = {
-			id = csa.258
-			days = 1
-				}
-			}
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_appeal_to_socialism"
+			increase_ruling_party_popularity_by_5 = yes
+			add_stability = 0.03
+			add_political_power = 20
 		}
 	}
 	
 	focus = {
 		id = CSA_organize_northern_technates
 		icon = GFX_goal_CAN_eyes_south
-		cost = 8
+		cost = 5
 		prerequisite = {
 			focus = CSA_the_great_north
 		}
@@ -10992,7 +11329,7 @@ focus_tree = {
 	focus = {
 		id = CSA_organize_ontario
 		icon = GFX_goal_red_star_green_wreath
-		cost = 8
+		cost = 5
 		prerequisite = {
 			focus = CSA_socialism_in_one_nation
 		}
@@ -11096,7 +11433,7 @@ focus_tree = {
 	focus = {
 		id = CSA_greater_new_england
 		icon = GFX_goal_CAN_nee_recruitment
-		cost = 8
+		cost = 5
 		prerequisite = {
 			focus = CSA_deal_with_Quebec
 		}
@@ -11131,7 +11468,7 @@ focus_tree = {
 	focus = {
 		id = CSA_oh_sweet_colombia
 		icon = GFX_CSA_oh_sweet_columbia
-		cost = 8
+		cost = 5
 		prerequisite = {
 			focus = CSA_greater_new_england
 		}
@@ -11143,15 +11480,15 @@ focus_tree = {
 		}
 		available = {
 			is_subject = no
-		305 = {
-		is_owned_and_controlled_by_ROOT_or_subject = yes
-		}
-		306 = {
-		is_owned_and_controlled_by_ROOT_or_subject = yes
-		}
-		307 = {
-		is_owned_and_controlled_by_ROOT_or_subject = yes
-		}
+			305 = {
+				is_owned_and_controlled_by_ROOT_or_subject = yes
+			}
+			306 = {
+				is_owned_and_controlled_by_ROOT_or_subject = yes
+			}
+			307 = {
+				is_owned_and_controlled_by_ROOT_or_subject = yes
+			}
 		}
 		relative_position_id = CSA_socialism_in_one_nation
 		x = -1
@@ -11163,42 +11500,42 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CSA_oh_sweet_colombia"
-		305 = {
-		add_state_modifier = {
-			modifier = {
-			local_resources_factor	= 0.1
-			local_non_core_manpower	= 0.05
+			305 = {
+			add_state_modifier = {
+				modifier = {
+				local_resources_factor	= 0.1
+				local_non_core_manpower	= 0.05
+				}
 			}
-		}
-		add_extra_state_shared_building_slots = 1
-		}
-		
-		306 = {
-		add_state_modifier = {
-			modifier = {
-			local_resources_factor	= 0.1
-			local_non_core_manpower	= 0.05
+			add_extra_state_shared_building_slots = 1
 			}
-		}
-		add_extra_state_shared_building_slots = 1
-		}
-		
-		307 = {
-		add_state_modifier = {
-			modifier = {
-			local_resources_factor	= 0.1
-			local_non_core_manpower	= 0.05
+			
+			306 = {
+			add_state_modifier = {
+				modifier = {
+				local_resources_factor	= 0.1
+				local_non_core_manpower	= 0.05
+				}
 			}
-		}
-		add_extra_state_shared_building_slots = 1
-		}
+			add_extra_state_shared_building_slots = 1
+			}
+			
+			307 = {
+			add_state_modifier = {
+				modifier = {
+				local_resources_factor	= 0.1
+				local_non_core_manpower	= 0.05
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			}
 		}
 	}
 	
 	focus = {# American Empire
 		id = CSA_american_empire
 		icon = GFX_CSA_Socialist_Empire
-		cost = 7
+		cost = 5
 		available = {
 		controls_all_owned_states = yes
 		306 = {
@@ -11273,7 +11610,7 @@ focus_tree = {
 	focus = {# Technocratic Committees
 		id = CSA_appoint_sychophants
 		icon = GFX_CSA_focus_techno
-		cost = 6
+		cost = 5
 		prerequisite = {focus = CSA_the_marxist }
 		available = { has_government = totalist }
 		cancel_if_invalid = yes
@@ -11284,12 +11621,15 @@ focus_tree = {
 		}
 		relative_position_id = CSA_managerialism
 		completion_reward = {	
-		add_tech_bonus = {
-			name = industrial_bonus
-			bonus = 1
-			uses = 1
-			category = industry
-		}
+			hidden_effect = {
+				country_event = { id = csa.175 days = 20 }
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1
+				uses = 1
+				category = industry
+			}
 		
 			if = {
 				limit = { has_idea = CSA_burnhams_economic_policy_idea1 }
@@ -11312,7 +11652,7 @@ focus_tree = {
 	focus = {# Vertical Integration
 		id = CSA_vertical_integration
 		icon = GFX_CSA_vertical_integration
-		cost = 6
+		cost = 5
 		prerequisite = {focus = CSA_the_marxist }
 		prerequisite = {focus = CSA_the_machiavellian }
 		available = { has_government = totalist }
@@ -11364,6 +11704,9 @@ focus_tree = {
 		}
 		relative_position_id = CSA_managerialism
 		completion_reward = {
+			hidden_effect = {
+				country_event = { id = csa.173 days = 50 }
+			}
 		swap_ideas = {
 			remove_idea = CSA_burnhams_economic_policy_idea3
 			add_idea = CSA_burnhams_economic_policy_idea4
@@ -11427,7 +11770,7 @@ focus_tree = {
 	focus = {# National Economy
 		id = CSA_national_economy
 		icon = GFX_goal_CSA_industrial_army
-		cost = 6
+		cost = 5
 		prerequisite = {focus = CSA_reward_the_craft_unions }
 		prerequisite = {focus = CSA_squeeze_bourgousie }
 		available = { has_government = totalist }
@@ -11445,6 +11788,7 @@ focus_tree = {
 			}
 			hidden_effect = {
 				country_event = { id = csa.53 days = 3 }
+				country_event = { id = csa.167 days = 5 }
 			}	
 		random_owned_controlled_state = {
 				limit = {
@@ -11487,7 +11831,7 @@ focus_tree = {
 	focus = {# Society of Continental Socialists
 		id = CSA_proletariat_Vanguard
 		icon = GFX_CSA_continental_socialist_society
-		cost = 6
+		cost = 5
 		prerequisite = {focus = CSA_the_machiavellian }
 		prerequisite = {focus = CSA_the_patriot }
 		available = { has_government = totalist }
@@ -11501,12 +11845,16 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = CSA_continental_socialist_society_idea
 			add_stability = 0.05
+			hidden_effect = {
+				country_event = { id = csa.164 days = 60 }
+				country_event = { id = csa.180 days = 15 }
+			}
 		}
 	}
 	focus = {# Red Scare
 		id = CSA_red_scare
 		icon = GFX_CSA_Burnhams_red_scare
-		cost = 6
+		cost = 5
 		prerequisite = { focus = CSA_the_patriot }
 		available = { has_government = totalist }
 		cancel_if_invalid = yes
@@ -11519,6 +11867,9 @@ focus_tree = {
 		completion_reward = {
 			add_war_support = 0.1
 			add_political_power = 30
+			hidden_effect = {
+				country_event = { id = csa.178 days = 15 }
+			}
 		}
 	}
 	focus = {# Proletariat Duties
@@ -11537,6 +11888,9 @@ focus_tree = {
 		relative_position_id = CSA_managerialism
 		completion_reward = {
 			add_ideas = CSA_proletariat_duties_idea
+			hidden_effect = {
+				country_event = { id = csa.166 days = 10 }
+			}
 		}
 	}
 	focus = {# Reward the Crafts Unions
@@ -11562,7 +11916,7 @@ focus_tree = {
 		focus = {# Expand Emergency Powers
 		id = CSA_emergency_powers
 		icon = GFX_goal_CSA_emergency_powers
-		cost = 6
+		cost = 5
 		prerequisite = {focus = CSA_reward_the_craft_unions }
 		prerequisite = {focus = CSA_proletariat_duties}
 		available = { has_government = totalist }
@@ -11594,10 +11948,16 @@ focus_tree = {
 		relative_position_id = CSA_managerialism
 		completion_reward = {
 			increase_ruling_party_popularity_by_5 = yes
-		swap_ideas = {
+			swap_ideas = {
 				remove_idea = CSA_burnhams_economic_policy_idea5
 				add_idea = CSA_burnhams_economic_policy_idea6
 			}	
+			hidden_effect = {
+				country_event = {
+					id = csa.161
+					days = 8
+				}
+			}
 		}
 	}
 	focus = {# New Socialist Values
@@ -11616,6 +11976,12 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 20
 			add_stability = 0.05
+			hidden_effect = {
+				country_event = {
+					id = csa.171
+					days = 20
+				}
+			}
 		}
 	}
 	focus = {# Ultimatum to Leninists
@@ -11633,6 +11999,12 @@ focus_tree = {
 		relative_position_id = CSA_managerialism
 		completion_reward = {
 			add_popularity = { ideology = totalist popularity = 0.05 }
+			hidden_effect = {
+				country_event = {
+					id = csa.160
+					days = 7
+				}
+			}
 		}
 	}
 	focus = {# Oaths of Loyalty
@@ -11689,7 +12061,11 @@ focus_tree = {
 			#add_ideas = CSA_deposing_rebels_idea #Idea does not exist -bchevy
 			add_stability = -0.02
 			hidden_effect = {
+				country_event = { id = csa.63 days = 120 }
+				country_event = { id = csa.65 days = 150 }
 				country_event = { id = csa.66 days = 180 }
+				country_event = { id = csa.162 days = 40 }
+				country_event = { id = csa.181 days = 10 }
 			}
 		}
 	}
@@ -11709,6 +12085,14 @@ focus_tree = {
 		}
 		relative_position_id = CSA_managerialism
 		completion_reward = {
+			hidden_effect = {
+				country_event = { id = csa.172 days = 300 }
+				country_event = { id = csa.174 days = 60 }
+				country_event = { id = csa.169 days = 50 }
+				country_event = { id = csa.186 days = 5 }
+				country_event = { id = csa.198 months = 2 }
+				country_event = { id = csa.211 months = 2 }
+			}
 			swap_ideas = {
 			remove_idea = CSA_emergency_powers_idea
 			add_idea = CSA_proletariat_commander_idea
@@ -11734,7 +12118,8 @@ focus_tree = {
 			add_popularity = { ideology = totalist popularity = 0.1 }
 			add_stability = 0.05
 			hidden_effect = {
-			country_event = { id = csa.510 days = 230 }
+				country_event = { id = csa.510 days = 230 }
+				country_event = { id = csa.170 days = 10 }
 			}
 		}
 	}
@@ -11742,7 +12127,7 @@ focus_tree = {
 	focus = {# Biological Weapons
 		id = CSA_biological_warfare
 		icon = GFX_CSA_biological_weapons
-		cost = 6
+		cost = 5
 		prerequisite = {focus = CSA_proletariat_commander}
 		available = { has_government = totalist }
 		cancel_if_invalid = yes
@@ -11798,6 +12183,7 @@ focus_tree = {
 		relative_position_id = CSA_managerialism
 		completion_reward = {
 			add_war_support = 0.10	
+			country_event = { id = csa.179 days = 10 }
 		}
 	}
 	focus = {# Anti-Capitalist Protection Wall
@@ -11960,7 +12346,7 @@ focus_tree = {
 	focus = {# Red Patronage
 		id = CSA_red_patronage
 		icon = GFX_goal_CSA_red_patronage
-		cost = 6
+		cost = 5
 		available = { has_government = totalist }
 		prerequisite = {focus = CSA_final_revolution}
 		cancel_if_invalid = yes
@@ -11994,7 +12380,7 @@ focus_tree = {
 	focus = {# Lovestone Circles
 		id = CSA_lovestone_circles
 		icon = GFX_goal_CSA_lovestone_circles
-		cost = 6
+		cost = 5
 		available = { has_government = totalist }
 		prerequisite = {focus = CSA_red_patronage}
 		cancel_if_invalid = yes
@@ -12014,7 +12400,7 @@ focus_tree = {
 	focus = {# Subjugate the Technocrats
 		id = CSA_subjugate_the_technocratic
 		icon = GFX_goal_CSA_technocratic_subjugation
-		cost = 6
+		cost = 5
 		available = { has_government = totalist }
 		prerequisite = {focus = CSA_red_patronage}
 		cancel_if_invalid = yes
@@ -12076,7 +12462,7 @@ focus_tree = {
 	focus = {# CSS Radicalization
 		id = CSA_css_radicalization
 		icon = GFX_goal_CSA_CSS_radicalization_campaign
-		cost = 6
+		cost = 5
 		available = { has_government = totalist }
 		prerequisite = {focus = CSA_red_patronage}
 		cancel_if_invalid = yes
@@ -12095,7 +12481,7 @@ focus_tree = {
 	focus = {# Class Mergers
 		id = CSA_class_mergers
 		icon = GFX_goal_CSA_class_fusion
-		cost = 6
+		cost = 5
 		available = { has_government = totalist }
 		prerequisite = {focus = CSA_lovestone_circles}
 		prerequisite = {focus = CSA_subjugate_the_technocratic}
@@ -12134,7 +12520,7 @@ focus_tree = {
 	focus = {# Experimental Candidates
 		id = CSA_experimental_candidates
 		icon = GFX_goal_CSA_rural_industrialization
-		cost = 6
+		cost = 5
 		available = { has_government = totalist }
 		prerequisite = {focus = CSA_class_mergers}
 		cancel_if_invalid = yes
@@ -12174,7 +12560,7 @@ focus_tree = {
 	focus = {# Socialism First
 		id = CSA_socialism_first
 		icon = GFX_goal_CSA_Socialism_first
-		cost = 6
+		cost = 5
 		available = { has_government = totalist }
 		prerequisite = {focus = CSA_css_radicalization}
 		prerequisite = {focus = CSA_subjugate_the_technocratic }
@@ -12205,7 +12591,7 @@ focus_tree = {
 	focus = {# New Surveilance
 		id = CSA_new_surveilance
 		icon = GFX_goal_CSA_surveillance
-		cost = 6
+		cost = 5
 		available = { has_government = totalist }
 		prerequisite = {focus = CSA_socialism_first}
 		cancel_if_invalid = yes
@@ -12230,7 +12616,7 @@ focus_tree = {
 	focus = {# Permanent Revolution
 		id = CSA_permanent_revolution
 		icon = GFX_goal_CSA_experimental_age
-		cost = 6
+		cost = 5
 		available = { has_government = totalist }
 		prerequisite = {focus = CSA_socialism_first}
 		cancel_if_invalid = yes
@@ -12260,7 +12646,7 @@ focus_tree = {
 	focus = {# Rural Industrialization
 		id = CSA_rural_industrialization
 		icon = GFX_goal_CSA_mass_extraction
-		cost = 6
+		cost = 5
 		available = { has_government = totalist }
 		prerequisite = {focus = CSA_class_mergers}
 		cancel_if_invalid = yes
@@ -12319,7 +12705,7 @@ focus_tree = {
 	focus = {# New Economic Planning
 		id = CSA_new_economic_planning
 		icon = GFX_goal_CSA_new_economic_planning
-		cost = 6
+		cost = 5
 		available = { has_government = totalist }
 		prerequisite = {focus = CSA_experimental_candidates}
 		prerequisite = {focus = CSA_rural_industrialization}
@@ -12390,7 +12776,7 @@ focus_tree = {
 	focus = {# American Exceptionalism
 		id = CSA_american_exceptionalism
 		icon = GFX_goal_CSA_american_exceptionalism
-		cost = 6
+		cost = 5
 		available = { has_government = totalist }
 		prerequisite = {focus = CSA_new_economic_planning}
 		prerequisite = {focus = CSA_all_to_the_director }
@@ -12427,7 +12813,7 @@ focus_tree = {
 	focus = {# All to the Director
 		id = CSA_all_to_the_director
 		icon = GFX_goal_CSA_all_to_the_director
-		cost = 6
+		cost = 5
 		available = { has_government = totalist }
 		prerequisite = {focus = CSA_permanent_revolution}
 		prerequisite = {focus = CSA_rural_industrialization}
@@ -12454,7 +12840,7 @@ focus_tree = {
 	focus = {# Gamma Expansion
 		id = CSA_gamma_expansion
 		icon = GFX_BBR_state_employement
-		cost = 6
+		cost = 5
 		available = { has_government = totalist }
 		prerequisite = {focus = CSA_permanent_revolution}
 		prerequisite = {focus = CSA_new_surveilance}
@@ -12507,7 +12893,7 @@ focus_tree = {
 	focus = { #Mass Extraction
 		id = CSA_mass_extraction
 		icon = GFX_goal_CSA_resource_nationalisation
-		cost = 6
+		cost = 5
 		available = { has_government = totalist }
 		prerequisite = {focus = CSA_gamma_expansion }
 		prerequisite = {focus = CSA_all_to_the_director }

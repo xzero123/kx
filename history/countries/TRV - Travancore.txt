@@ -2,10 +2,9 @@
 oob = "empty"
 
 set_technology = {
-	### Tanks ###
-	gwtank = 1
 	### Infantry ###
 	infantry_weapons = 1
+	basic_train = 1
 	tech_support = 1
 	tech_mountaineers = 1
 	tech_engineers = 1
@@ -13,6 +12,24 @@ set_technology = {
 	### Air ###
 	early_fighter = 1
 }
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+	}
+}
+set_country_flag = KX_no_naval_tech_decision_enable
 
 set_research_slots = 2
 set_convoys = 30
@@ -38,21 +55,21 @@ set_popularities = {
 
 create_country_leader = {
 	name = "Chithira Thirunal Balarama Varma"
-	picture = "gfx/leaders/PRF/Portrait_PRF_Balarama_Varma_of_Travancore.tga"
+	picture = "gfx/leaders/PRF/Portrait_PRF_Balarama_Varma_of_Travancore.png"
 	expire = "1965.1.1"
 	ideology = authoritarian_democrat_subtype
 }
 
 create_country_leader = {
 	name = "Chithira Thirunal Balarama Varma"
-	picture = "gfx/leaders/PRF/Portrait_PRF_Balarama_Varma_of_Travancore.tga"
+	picture = "gfx/leaders/PRF/Portrait_PRF_Balarama_Varma_of_Travancore.png"
 	expire = "1965.1.1"
 	ideology = paternal_autocrat_subtype
 }
 
 create_country_leader = {
 	name = "Chithira Thirunal Balarama Varma"
-	picture = "gfx/leaders/PRF/Portrait_PRF_Balarama_Varma_of_Travancore.tga"
+	picture = "gfx/leaders/PRF/Portrait_PRF_Balarama_Varma_of_Travancore.png"
 	expire = "1965.1.1"
 	ideology = social_conservative_subtype
 }
@@ -67,7 +84,7 @@ add_ideas = {
 ### Field Marshals ###
 create_field_marshal = {
 	name = "Chithira Thirunal Balarama Varma"
-	portrait_path = "gfx/leaders/PRF/Portrait_PRF_Balarama_Varma_of_Travancore.tga"
+	portrait_path = "gfx/leaders/PRF/Portrait_PRF_Balarama_Varma_of_Travancore.png"
 	traits = {
 		inspirational_leader
 		artillery_officer
@@ -82,7 +99,7 @@ create_field_marshal = {
 ### Corps Commanders ###
 create_corps_commander = {
 	name = "Chandrasekharan Nair"
-	portrait_path = "gfx/leaders/BHC/Portrait_BHC_Pratap.tga"
+	portrait_path = "gfx/leaders/BHC/Portrait_BHC_Pratap.png"
 	traits = {
 		trickster
 	}
@@ -94,7 +111,7 @@ create_corps_commander = {
 }
 create_corps_commander = {
 	name = "Chacko"
-	portrait_path = "gfx/leaders/Generic/Portrait_India_Generic_land_new_5.tga"
+	portrait_path = "gfx/leaders/Generic/Portrait_India_Generic_land_new_5.png"
 	traits = {
 		infantry_officer
 	}
@@ -106,7 +123,7 @@ create_corps_commander = {
 }
 create_corps_commander = {
 	name = "Ravi Varma"
-	portrait_path = "gfx/leaders/Generic/Portrait_India_Generic_land_new_3.tga"
+	portrait_path = "gfx/leaders/Generic/Portrait_India_Generic_land_new_3.png"
 	traits = {
 		harsh_leader
 		politically_connected

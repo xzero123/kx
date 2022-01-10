@@ -731,7 +731,7 @@ country_event = { #The darkest hour of the German Empire
 
 	option = { #We have no other choice.
 		name = part.13.a
-		set_capital = 64
+		set_capital = { state = 64 }
 	}
 }
 
@@ -826,49 +826,49 @@ country_event = { #A new Emperor!
 		create_country_leader = {
 			name = "Friedrich Wilhelm V"
 			desc = "POLITICS_GRU_WILHELM_V_DESC"
-			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.tga"
+			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Friedrich Wilhelm V"
 			desc = "POLITICS_GRU_WILHELM_V_DESC"
-			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.tga"
+			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 		}
 		create_country_leader = {
 			name = "Friedrich Wilhelm V"
 			desc = "POLITICS_GRU_WILHELM_V_DESC"
-			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.tga"
+			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 		}
 		create_country_leader = {
 			name = "Friedrich Wilhelm V"
 			desc = "POLITICS_GRU_WILHELM_V_DESC"
-			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.tga"
+			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 		}
 		create_country_leader = {
 			name = "Friedrich Wilhelm V"
 			desc = "POLITICS_GRU_WILHELM_V_DESC"
-			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.tga"
+			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Friedrich Wilhelm V"
 			desc = "POLITICS_GRU_WILHELM_V_DESC"
-			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.tga"
+			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Friedrich Wilhelm V"
 			desc = "POLITICS_GRU_WILHELM_V_DESC"
-			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.tga"
+			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 		}
@@ -996,49 +996,49 @@ country_event = { #A new king!
 		create_country_leader = {
 			name = "Friedrich Wilhelm V"
 			desc = "POLITICS_GRU_WILHELM_V_DESC"
-			picture = "Portrait_DDR_Wilhelm_V.tga"
+			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Friedrich Wilhelm V"
 			desc = "POLITICS_GRU_WILHELM_V_DESC"
-			picture = "Portrait_DDR_Wilhelm_V.tga"
+			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 		}
 		create_country_leader = {
 			name = "Friedrich Wilhelm V"
 			desc = "POLITICS_GRU_WILHELM_V_DESC"
-			picture = "Portrait_DDR_Wilhelm_V.tga"
+			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 		}
 		create_country_leader = {
 			name = "Friedrich Wilhelm V"
 			desc = "POLITICS_GRU_WILHELM_V_DESC"
-			picture = "Portrait_DDR_Wilhelm_V.tga"
+			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 		}
 		create_country_leader = {
 			name = "Friedrich Wilhelm V"
 			desc = "POLITICS_GRU_WILHELM_V_DESC"
-			picture = "Portrait_DDR_Wilhelm_V.tga"
+			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Friedrich Wilhelm V"
 			desc = "POLITICS_GRU_WILHELM_V_DESC"
-			picture = "Portrait_DDR_Wilhelm_V.tga"
+			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Friedrich Wilhelm V"
 			desc = "POLITICS_GRU_WILHELM_V_DESC"
-			picture = "Portrait_DDR_Wilhelm_V.tga"
+			picture = "gfx/leaders/DDR/Portrait_DDR_Wilhelm_V.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 		}
@@ -3107,6 +3107,8 @@ country_event = { #The partitioning of Germany FRA
 		GRU = {
 			country_event = part.49
 		}
+		ROOT = { country_event = rotermorgen.1 }
+		GRU = { inherit_technology = ROOT }
 	}
 
 	option = { #German Union and Rhineland
@@ -3216,6 +3218,8 @@ country_event = { #The partitioning of Germany FRA
 		WGR = {
 			country_event = part.52
 		}
+		ROOT = { country_event = rotermorgen.1 }
+		GRU = { inherit_technology = ROOT }
 	}
 
 	option = { #Move border
@@ -3298,6 +3302,8 @@ country_event = { #The partitioning of Germany FRA
 		GRU = {
 			country_event = part.49
 		}
+		ROOT = { country_event = rotermorgen.1 }
+		GRU = { inherit_technology = ROOT }
 		add_state_claim = 42
 		add_state_claim = 781
 	}
@@ -3795,49 +3801,49 @@ country_event = { #Germany has imposed a King on us
 		create_country_leader = {
 			name = "Charles III"
 			desc = "GBP_CHARLES_III_DESC"
-			picture = "Portrait_Britain_Charles_III.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Charles III"
 			desc = "GBP_CHARLES_III_DESC"
-			picture = "Portrait_Britain_Charles_III.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Charles III"
 			desc = "GBP_CHARLES_III_DESC"
-			picture = "Portrait_Britain_Charles_III.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Charles III"
 			desc = "GBP_CHARLES_III_DESC"
-			picture = "Portrait_Britain_Charles_III.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 		}
 		create_country_leader = {
 			name = "Charles III"
 			desc = "GBP_CHARLES_III_DESC"
-			picture = "Portrait_Britain_Charles_III.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Charles III"
 			desc = "GBP_CHARLES_III_DESC"
-			picture = "Portrait_Britain_Charles_III.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 		}
 		create_country_leader = {
 			name = "Charles III"
 			desc = "GBP_CHARLES_III_DESC"
-			picture = "Portrait_Britain_Charles_III.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 		}
@@ -3874,49 +3880,49 @@ country_event = { #Germany let us choose our new President
 			create_country_leader = {
 				name = "Michael Foot"
 				desc = "GBP_MICHAEL_FOOT_DESC"
-				picture = "Portrait_Britain_Michael_Foot.tga"
+				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 			}
 			create_country_leader = {
 				name = "Michael Foot"
 				desc = "GBP_MICHAEL_FOOT_DESC"
-				picture = "Portrait_Britain_Michael_Foot.tga"
+				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 			}
 			create_country_leader = {
 				name = "Michael Foot"
 				desc = "GBP_MICHAEL_FOOT_DESC"
-				picture = "Portrait_Britain_Michael_Foot.tga"
+				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 			}
 			create_country_leader = {
 				name = "Michael Foot"
 				desc = "GBP_MICHAEL_FOOT_DESC"
-				picture = "Portrait_Britain_Michael_Foot.tga"
+				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 			}
 			create_country_leader = {
 				name = "Michael Foot"
 				desc = "GBP_MICHAEL_FOOT_DESC"
-				picture = "Portrait_Britain_Michael_Foot.tga"
+				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 			}
 			create_country_leader = {
 				name = "Michael Foot"
 				desc = "GBP_MICHAEL_FOOT_DESC"
-				picture = "Portrait_Britain_Michael_Foot.tga"
+				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 			}
 			create_country_leader = {
 				name = "Michael Foot"
 				desc = "GBP_MICHAEL_FOOT_DESC"
-				picture = "Portrait_Britain_Michael_Foot.tga"
+				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
 				ideology = national_populist_subtype
 			}
@@ -3933,49 +3939,49 @@ country_event = { #Germany let us choose our new President
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
-				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 			}
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
-				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 			}
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
-				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 			}
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
-				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 			}
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
-				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 			}
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
-				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 			}
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
-				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
 				ideology = national_populist_subtype
 			}
@@ -4044,14 +4050,14 @@ country_event = { #Wales
 			create_country_leader = {
 				name = "Oskar I"
 				desc = "POLITICS_OSKAR_DESC"
-				picture = "Portrait_Oskar_I.tga"
+				picture = "gfx/leaders/WAL/Portrait_Oskar_I.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 			}
 			create_country_leader = {
 				name = "Oskar I"
 				desc = "POLITICS_OSKAR_DESC"
-				picture = "Portrait_Oskar_I.tga"
+				picture = "gfx/leaders/WAL/Portrait_Oskar_I.png"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 			}
@@ -4109,49 +4115,49 @@ country_event = { #England
 		create_country_leader = {
 			name = "Charles III"
 			desc = "GBP_CHARLES_III_DESC"
-			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Charles III"
 			desc = "GBP_CHARLES_III_DESC"
-			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Charles III"
 			desc = "GBP_CHARLES_III_DESC"
-			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Charles III"
 			desc = "GBP_CHARLES_III_DESC"
-			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 		}
 		create_country_leader = {
 			name = "Charles III"
 			desc = "GBP_CHARLES_III_DESC"
-			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Charles III"
 			desc = "GBP_CHARLES_III_DESC"
-			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 		}
 		create_country_leader = {
 			name = "Charles III"
 			desc = "GBP_CHARLES_III_DESC"
-			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_Charles_III.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 		}
@@ -5231,7 +5237,7 @@ country_event = { #A New King
 		create_country_leader = {
 			name = "François III"
 			desc = "FRP_FRANCOIS_III_DESC"
-			picture = "Portrait_France_Francois_III.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Francois_III.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 			traits = {
@@ -5241,7 +5247,7 @@ country_event = { #A New King
 		create_country_leader = {
 			name = "François III"
 			desc = "FRP_FRANCOIS_III_DESC"
-			picture = "Portrait_France_Francois_III.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Francois_III.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 			traits = {
@@ -5251,7 +5257,7 @@ country_event = { #A New King
 		create_country_leader = {
 			name = "François III"
 			desc = "FRP_FRANCOIS_III_DESC"
-			picture = "Portrait_France_Francois_III.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Francois_III.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 			traits = {
@@ -5261,7 +5267,7 @@ country_event = { #A New King
 		create_country_leader = {
 			name = "François III"
 			desc = "FRP_FRANCOIS_III_DESC"
-			picture = "Portrait_France_Francois_III.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Francois_III.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 			traits = {
@@ -5271,7 +5277,7 @@ country_event = { #A New King
 		create_country_leader = {
 			name = "François III"
 			desc = "FRP_FRANCOIS_III_DESC"
-			picture = "Portrait_France_Francois_III.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Francois_III.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 			traits = {
@@ -5281,7 +5287,7 @@ country_event = { #A New King
 		create_country_leader = {
 			name = "François III"
 			desc = "FRP_FRANCOIS_III_DESC"
-			picture = "Portrait_France_Francois_III.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Francois_III.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 			traits = {
@@ -5291,7 +5297,7 @@ country_event = { #A New King
 		create_country_leader = {
 			name = "François III"
 			desc = "FRP_FRANCOIS_III_DESC"
-			picture = "Portrait_France_Francois_III.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Francois_III.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 			traits = {
@@ -5325,9 +5331,9 @@ country_event = { #The Queen's Coronation
 		}
 		set_cosmetic_tag = FRP_VIC
 		create_country_leader = {
-			name = "Queen Victoria Louise I"
+			name = "Queen Victoria Louise"
 			desc = "FRP_FRANCOIS_III_DESC"
-			picture = "VictoriaLouiseSocDem.tga"
+			picture = "gfx/leaders/FRP/VictoriaLouiseSocDem.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 			traits = {
@@ -5335,9 +5341,9 @@ country_event = { #The Queen's Coronation
 			}
 		}
 		create_country_leader = {
-			name = "Queen Victoria Louise I"
+			name = "Victoria Louise I"
 			desc = "FRP_FRANCOIS_III_DESC"
-			picture = "VictoriaLouiseMarLib.tga"
+			picture = "gfx/leaders/FRP/VictoriaLouiseMarLib.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 			traits = {
@@ -5345,9 +5351,9 @@ country_event = { #The Queen's Coronation
 			}
 		}
 		create_country_leader = {
-			name = "Queen Victoria Louise I"
+			name = "Victoria Louise I"
 			desc = "FRP_FRANCOIS_III_DESC"
-			picture = "VictoriaLouiseMarLib.tga"
+			picture = "gfx/leaders/FRP/VictoriaLouiseMarLib.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 			traits = {
@@ -5355,9 +5361,9 @@ country_event = { #The Queen's Coronation
 			}
 		}
 		create_country_leader = {
-			name = "Queen Victoria Louise I"
+			name = "Victoria Louise"
 			desc = "FRP_FRANCOIS_III_DESC"
-			picture = "VictoriaLouiseRoyal.tga"
+			picture = "gfx/leaders/FRP/VictoriaLouiseSocDem.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 			traits = {
@@ -5367,7 +5373,7 @@ country_event = { #The Queen's Coronation
 		create_country_leader = {
 			name = "Queen Victoria Louise I"
 			desc = "FRP_FRANCOIS_III_DESC"
-			picture = "VictoriaLouisePortrait.tga"
+			picture = "gfx/leaders/FRP/VictoriaLouisePortrait.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 			traits = {
@@ -5377,7 +5383,7 @@ country_event = { #The Queen's Coronation
 		create_country_leader = {
 			name = "Queen Victoria Louise I"
 			desc = "FRP_FRANCOIS_III_DESC"
-			picture = "VictoriaLouisePortrait.tga"
+			picture = "gfx/leaders/FRP/VictoriaLouisePortrait.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 			traits = {
@@ -5387,12 +5393,23 @@ country_event = { #The Queen's Coronation
 		create_country_leader = {
 			name = "Queen Victoria Louise I"
 			desc = "FRP_FRANCOIS_III_DESC"
-			picture = "VictoriaLouisePortrait.tga"
+			picture = "gfx/leaders/FRP/VictoriaLouisePortrait.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 			traits = {
 
 			}
+		}
+		create_field_marshal = {
+			name = "Queen Victoria"
+			portrait_path = "gfx/leaders/FRP/VictoriaLouisePortrait.png"
+			traits = { media_personality cavalry_officer trait_cautious politically_connected }
+			skill = 2
+			id = 602
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
 		}
 		add_political_power = -150
 		if = { limit = { country_exists = NFA }
@@ -5417,49 +5434,49 @@ country_event = { #Germany lets us choose our new President
 		create_country_leader = {
 			name = "Albert Lebrun"
 			desc = "FRP_ALBERT_LEBRUN_DESC"
-			picture = "Portrait_France_Albert_Lebrun.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Albert_Lebrun.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Albert Lebrun"
 			desc = "FRP_ALBERT_LEBRUN_DESC"
-			picture = "Portrait_France_Albert_Lebrun.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Albert_Lebrun.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Albert Lebrun"
 			desc = "FRP_ALBERT_LEBRUN_DESC"
-			picture = "Portrait_France_Albert_Lebrun.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Albert_Lebrun.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Albert Lebrun"
 			desc = "FRP_ALBERT_LEBRUN_DESC"
-			picture = "Portrait_France_Albert_Lebrun.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Albert_Lebrun.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 		}
 		create_country_leader = {
 			name = "Albert Lebrun"
 			desc = "FRP_ALBERT_LEBRUN_DESC"
-			picture = "Portrait_France_Albert_Lebrun.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Albert_Lebrun.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Albert Lebrun"
 			desc = "FRP_ALBERT_LEBRUN_DESC"
-			picture = "Portrait_France_Albert_Lebrun.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Albert_Lebrun.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 		}
 		create_country_leader = {
 			name = "Albert Lebrun"
 			desc = "FRP_ALBERT_LEBRUN_DESC"
-			picture = "Portrait_France_Albert_Lebrun.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Albert_Lebrun.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 		}
@@ -5494,49 +5511,49 @@ country_event = { #A new government BRI
 		create_country_leader = {
 			name = "Louis of Hesse"
 			desc = "BRI_LOUIS_HESSE_DESC"
-			picture = "Portrait_Britanny_Louis_Hesse.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britanny_Louis_Hesse.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Louis of Hesse"
 			desc = "BRI_LOUIS_HESSE_DESC"
-			picture = "Portrait_Britanny_Louis_Hesse.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britanny_Louis_Hesse.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Louis of Hesse"
 			desc = "BRI_LOUIS_HESSE_DESC"
-			picture = "Portrait_Britanny_Louis_Hesse.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britanny_Louis_Hesse.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Louis of Hesse"
 			desc = "BRI_LOUIS_HESSE_DESC"
-			picture = "Portrait_Britanny_Louis_Hesse.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britanny_Louis_Hesse.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 		}
 		create_country_leader = {
 			name = "Louis of Hesse"
 			desc = "BRI_LOUIS_HESSE_DESC"
-			picture = "Portrait_Britanny_Louis_Hesse.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britanny_Louis_Hesse.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Louis of Hesse"
 			desc = "BRI_LOUIS_HESSE_DESC"
-			picture = "Portrait_Britanny_Louis_Hesse.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britanny_Louis_Hesse.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 		}
 		create_country_leader = {
 			name = "Louis of Hesse"
 			desc = "BRI_LOUIS_HESSE_DESC"
-			picture = "Portrait_Britanny_Louis_Hesse.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britanny_Louis_Hesse.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 		}
@@ -5564,49 +5581,49 @@ country_event = { #A new government OCC
 		create_country_leader = {
 			name = "Louis de Grimaldi"
 			desc = "OCC_LOUIS_GRIMALDI_DESC"
-			picture = "Portrait_Occitany_Louis_Grimaldi.tga"
+			picture = "gfx/leaders/Occ/Portrait_Occitany_Louis_Grimaldi.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Louis de Grimaldi"
 			desc = "OCC_LOUIS_GRIMALDI_DESC"
-			picture = "Portrait_Occitany_Louis_Grimaldi.tga"
+			picture = "gfx/leaders/Occ/Portrait_Occitany_Louis_Grimaldi.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Louis de Grimaldi"
 			desc = "OCC_LOUIS_GRIMALDI_DESC"
-			picture = "Portrait_Occitany_Louis_Grimaldi.tga"
+			picture = "gfx/leaders/Occ/Portrait_Occitany_Louis_Grimaldi.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Louis de Grimaldi"
 			desc = "OCC_LOUIS_GRIMALDI_DESC"
-			picture = "Portrait_Occitany_Louis_Grimaldi.tga"
+			picture = "gfx/leaders/Occ/Portrait_Occitany_Louis_Grimaldi.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 		}
 		create_country_leader = {
 			name = "Louis de Grimaldi"
 			desc = "OCC_LOUIS_GRIMALDI_DESC"
-			picture = "Portrait_Occitany_Louis_Grimaldi.tga"
+			picture = "gfx/leaders/Occ/Portrait_Occitany_Louis_Grimaldi.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Louis de Grimaldi"
 			desc = "OCC_LOUIS_GRIMALDI_DESC"
-			picture = "Portrait_Occitany_Louis_Grimaldi.tga"
+			picture = "gfx/leaders/Occ/Portrait_Occitany_Louis_Grimaldi.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 		}
 		create_country_leader = {
 			name = "Louis de Grimaldi"
 			desc = "OCC_LOUIS_GRIMALDI_DESC"
-			picture = "Portrait_Occitany_Louis_Grimaldi.tga"
+			picture = "gfx/leaders/Occ/Portrait_Occitany_Louis_Grimaldi.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 		}
@@ -6289,49 +6306,49 @@ country_event = { #A New King
 		create_country_leader = {
 			name = "Charles XI"
 			desc = "FRP_CHARLES_XI_DESC"
-			picture = "Portrait_France_Charles_XI.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Charles_XI.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Charles XI"
 			desc = "FRP_CHARLES_XI_DESC"
-			picture = "Portrait_France_Charles_XI.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Charles_XI.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Charles XI"
 			desc = "FRP_CHARLES_XI_DESC"
-			picture = "Portrait_France_Charles_XI.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Charles_XI.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Charles XI"
 			desc = "FRP_CHARLES_XI_DESC"
-			picture = "Portrait_France_Charles_XI.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Charles_XI.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 		}
 		create_country_leader = {
 			name = "Charles XI"
 			desc = "FRP_CHARLES_XI_DESC"
-			picture = "Portrait_France_Charles_XI.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Charles_XI.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Charles XI"
 			desc = "FRP_CHARLES_XI_DESC"
-			picture = "Portrait_France_Charles_XI.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Charles_XI.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 		}
 		create_country_leader = {
 			name = "Charles XI"
 			desc = "FRP_CHARLES_XI_DESC"
-			picture = "Portrait_France_Charles_XI.tga"
+			picture = "gfx/leaders/FRP/Portrait_France_Charles_XI.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 		}
@@ -6577,49 +6594,49 @@ country_event = { #A new Grand Duke
 		create_country_leader = {
 			name = "Gabriel I"
 			desc = "BRI_GABRIEL_I_DESC"
-			picture = "Portrait_Britanny_Gabriel_I.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britanny_Gabriel_I.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Gabriel I"
 			desc = "BRI_GABRIEL_I_DESC"
-			picture = "Portrait_Britanny_Gabriel_I.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britanny_Gabriel_I.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Gabriel I"
 			desc = "BRI_GABRIEL_I_DESC"
-			picture = "Portrait_Britanny_Gabriel_I.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britanny_Gabriel_I.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Gabriel I"
 			desc = "BRI_GABRIEL_I_DESC"
-			picture = "Portrait_Britanny_Gabriel_I.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britanny_Gabriel_I.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 		}
 		create_country_leader = {
 			name = "Gabriel I"
 			desc = "BRI_GABRIEL_I_DESC"
-			picture = "Portrait_Britanny_Gabriel_I.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britanny_Gabriel_I.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Gabriel I"
 			desc = "BRI_GABRIEL_I_DESC"
-			picture = "Portrait_Britanny_Gabriel_I.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britanny_Gabriel_I.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 		}
 		create_country_leader = {
 			name = "Gabriel I"
 			desc = "BRI_GABRIEL_I_DESC"
-			picture = "Portrait_Britanny_Gabriel_I.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britanny_Gabriel_I.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 		}
@@ -6675,49 +6692,49 @@ country_event = { #A new Grand Duke
 		create_country_leader = {
 			name = "Bertran II"
 			desc = "OCC_BERTRAN_II_DESC"
-			picture = "Portrait_Occitania_Bertran_II.tga"
+			picture = "gfx/leaders/Occ/Portrait_Occitania_Bertran_II.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Bertran II"
 			desc = "OCC_BERTRAN_II_DESC"
-			picture = "Portrait_Occitania_Bertran_II.tga"
+			picture = "gfx/leaders/Occ/Portrait_Occitania_Bertran_II.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Bertran II"
 			desc = "OCC_BERTRAN_II_DESC"
-			picture = "Portrait_Occitania_Bertran_II.tga"
+			picture = "gfx/leaders/Occ/Portrait_Occitania_Bertran_II.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Bertran II"
 			desc = "OCC_BERTRAN_II_DESC"
-			picture = "Portrait_Occitania_Bertran_II.tga"
+			picture = "gfx/leaders/Occ/Portrait_Occitania_Bertran_II.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 		}
 		create_country_leader = {
 			name = "Bertran II"
 			desc = "OCC_BERTRAN_II_DESC"
-			picture = "Portrait_Occitania_Bertran_II.tga"
+			picture = "gfx/leaders/Occ/Portrait_Occitania_Bertran_II.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Bertran II"
 			desc = "OCC_BERTRAN_II_DESC"
-			picture = "Portrait_Occitania_Bertran_II.tga"
+			picture = "gfx/leaders/Occ/Portrait_Occitania_Bertran_II.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 		}
 		create_country_leader = {
 			name = "Bertran II"
 			desc = "OCC_BERTRAN_II_DESC"
-			picture = "Portrait_Occitania_Bertran_II.tga"
+			picture = "gfx/leaders/Occ/Portrait_Occitania_Bertran_II.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 		}
@@ -7125,49 +7142,49 @@ country_event = { #Russia has imposed a King on us
 		create_country_leader = {
 			name = "William V"
 			desc = "GBP_WILLIAM_V_DESC"
-			picture = "Portrait_Britain_William_V.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_William_V.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 		}
 		create_country_leader = {
 			name = "William V"
 			desc = "GBP_WILLIAM_V_DESC"
-			picture = "Portrait_Britain_William_V.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_William_V.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}
 		create_country_leader = {
 			name = "William V"
 			desc = "GBP_WILLIAM_V_DESC"
-			picture = "Portrait_Britain_William_V.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_William_V.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 		}
 		create_country_leader = {
 			name = "William V"
 			desc = "GBP_WILLIAM_V_DESC"
-			picture = "Portrait_Britain_William_V.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_William_V.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 		}
 		create_country_leader = {
 			name = "William V"
 			desc = "GBP_WILLIAM_V_DESC"
-			picture = "Portrait_Britain_William_V.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_William_V.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 		}
 		create_country_leader = {
 			name = "William V"
 			desc = "GBP_WILLIAM_V_DESC"
-			picture = "Portrait_Britain_William_V.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_William_V.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 		}
 		create_country_leader = {
 			name = "William V"
 			desc = "GBP_WILLIAM_V_DESC"
-			picture = "Portrait_Britain_William_V.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_William_V.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 		}
@@ -7203,49 +7220,49 @@ country_event = { #Russia let us choose our new President
 			create_country_leader = {
 				name = "Michael Foot"
 				desc = "GBP_MICHAEL_FOOT_DESC"
-				picture = "Portrait_Britain_Michael_Foot.tga"
+				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 			}
 			create_country_leader = {
 				name = "Michael Foot"
 				desc = "GBP_MICHAEL_FOOT_DESC"
-				picture = "Portrait_Britain_Michael_Foot.tga"
+				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 			}
 			create_country_leader = {
 				name = "Michael Foot"
 				desc = "GBP_MICHAEL_FOOT_DESC"
-				picture = "Portrait_Britain_Michael_Foot.tga"
+				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 			}
 			create_country_leader = {
 				name = "Michael Foot"
 				desc = "GBP_MICHAEL_FOOT_DESC"
-				picture = "Portrait_Britain_Michael_Foot.tga"
+				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 			}
 			create_country_leader = {
 				name = "Michael Foot"
 				desc = "GBP_MICHAEL_FOOT_DESC"
-				picture = "Portrait_Britain_Michael_Foot.tga"
+				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 			}
 			create_country_leader = {
 				name = "Michael Foot"
 				desc = "GBP_MICHAEL_FOOT_DESC"
-				picture = "Portrait_Britain_Michael_Foot.tga"
+				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 			}
 			create_country_leader = {
 				name = "Michael Foot"
 				desc = "GBP_MICHAEL_FOOT_DESC"
-				picture = "Portrait_Britain_Michael_Foot.tga"
+				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
 				ideology = national_populist_subtype
 			}
@@ -7262,49 +7279,49 @@ country_event = { #Russia let us choose our new President
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
-				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 			}
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
-				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 			}
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
-				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 			}
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
-				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 			}
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
-				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 			}
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
-				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 			}
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
-				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
 				ideology = national_populist_subtype
 			}
@@ -7404,49 +7421,49 @@ country_event = { #England
 		create_country_leader = {
 			name = "Bernard Montgomery"
 			desc = "GBP_BERNARD_MONTGOMERY_DESC"
-			picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+			picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Bernard Montgomery"
 			desc = "GBP_BERNARD_MONTGOMERY_DESC"
-			picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+			picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Bernard Montgomery"
 			desc = "GBP_BERNARD_MONTGOMERY_DESC"
-			picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+			picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 		}
 		create_country_leader = {
 			name = "Bernard Montgomery"
 			desc = "GBP_BERNARD_MONTGOMERY_DESC"
-			picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+			picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 		}
 		create_country_leader = {
 			name = "Bernard Montgomery"
 			desc = "GBP_BERNARD_MONTGOMERY_DESC"
-			picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+			picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 		}
 		create_country_leader = {
 			name = "Bernard Montgomery"
 			desc = "GBP_BERNARD_MONTGOMERY_DESC"
-			picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+			picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 		}
 		create_country_leader = {
 			name = "Bernard Montgomery"
 			desc = "GBP_BERNARD_MONTGOMERY_DESC"
-			picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.tga"
+			picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 		}
@@ -7473,49 +7490,49 @@ country_event = { #Freedom!
 		create_country_leader = {
 			name = "William V"
 			desc = "GBP_WILLIAM_V_DESC"
-			picture = "Portrait_Britain_William_V.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_William_V.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 		}
 		create_country_leader = {
 			name = "William V"
 			desc = "GBP_WILLIAM_V_DESC"
-			picture = "Portrait_Britain_William_V.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_William_V.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}
 		create_country_leader = {
 			name = "William V"
 			desc = "GBP_WILLIAM_V_DESC"
-			picture = "Portrait_Britain_William_V.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_William_V.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 		}
 		create_country_leader = {
 			name = "William V"
 			desc = "GBP_WILLIAM_V_DESC"
-			picture = "Portrait_Britain_William_V.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_William_V.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 		}
 		create_country_leader = {
 			name = "William V"
 			desc = "GBP_WILLIAM_V_DESC"
-			picture = "Portrait_Britain_William_V.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_William_V.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 		}
 		create_country_leader = {
 			name = "William V"
 			desc = "GBP_WILLIAM_V_DESC"
-			picture = "Portrait_Britain_William_V.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_William_V.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 		}
 		create_country_leader = {
 			name = "William V"
 			desc = "GBP_WILLIAM_V_DESC"
-			picture = "Portrait_Britain_William_V.tga"
+			picture = "gfx/leaders/GBP/Portrait_Britain_William_V.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 		}
@@ -7645,49 +7662,49 @@ country_event = { #Freedom!
 			create_country_leader = {
 				name = "Joan I"
 				desc = "WAL_JOAN_I_DESC"
-				picture = "Portrait_Wales_Joan.tga"
+				picture = "gfx/leaders/WAL/Portrait_Wales_Joan.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 			}
 			create_country_leader = {
 				name = "Joan I"
 				desc = "WAL_JOAN_I_DESC"
-				picture = "Portrait_Wales_Joan.tga"
+				picture = "gfx/leaders/WAL/Portrait_Wales_Joan.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 			}
 			create_country_leader = {
 				name = "Joan I"
 				desc = "WAL_JOAN_I_DESC"
-				picture = "Portrait_Wales_Joan.tga"
+				picture = "gfx/leaders/WAL/Portrait_Wales_Joan.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 			}
 			create_country_leader = {
 				name = "Joan I"
 				desc = "WAL_JOAN_I_DESC"
-				picture = "Portrait_Wales_Joan.tga"
+				picture = "gfx/leaders/WAL/Portrait_Wales_Joan.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 			}
 			create_country_leader = {
 				name = "Joan I"
 				desc = "WAL_JOAN_I_DESC"
-				picture = "Portrait_Wales_Joan.tga"
+				picture = "gfx/leaders/WAL/Portrait_Wales_Joan.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 			}
 			create_country_leader = {
 				name = "Joan I"
 				desc = "WAL_JOAN_I_DESC"
-				picture = "Portrait_Wales_Joan.tga"
+				picture = "gfx/leaders/WAL/Portrait_Wales_Joan.png"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 			}
 			create_country_leader = {
 				name = "Joan I"
 				desc = "WAL_JOAN_I_DESC"
-				picture = "Portrait_Wales_Joan.tga"
+				picture = "gfx/leaders/WAL/Portrait_Wales_Joan.png"
 				expire = "1965.1.1"
 				ideology = national_populist_subtype
 			}
@@ -7703,49 +7720,49 @@ country_event = { #Freedom!
 			create_country_leader = {
 				name = "David Lloyd George"
 				desc = "WAL_DAVID_LLOYD_GEORGE_DESC"
-				picture = "Portrait_Wales_David_Lloyd_George.tga"
+				picture = "gfx/leaders/WAL/Portrait_Wales_David_Lloyd_George.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 			}
 			create_country_leader = {
 				name = "David Lloyd George"
 				desc = "WAL_DAVID_LLOYD_GEORGE_DESC"
-				picture = "Portrait_Wales_David_Lloyd_George.tga"
+				picture = "gfx/leaders/WAL/Portrait_Wales_David_Lloyd_George.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 			}
 			create_country_leader = {
 				name = "David Lloyd George"
 				desc = "WAL_DAVID_LLOYD_GEORGE_DESC"
-				picture = "Portrait_Wales_David_Lloyd_George.tga"
+				picture = "gfx/leaders/WAL/Portrait_Wales_David_Lloyd_George.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 			}
 			create_country_leader = {
 				name = "David Lloyd George"
 				desc = "WAL_DAVID_LLOYD_GEORGE_DESC"
-				picture = "Portrait_Wales_David_Lloyd_George.tga"
+				picture = "gfx/leaders/WAL/Portrait_Wales_David_Lloyd_George.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 			}
 			create_country_leader = {
 				name = "David Lloyd George"
 				desc = "WAL_DAVID_LLOYD_GEORGE_DESC"
-				picture = "Portrait_Wales_David_Lloyd_George.tga"
+				picture = "gfx/leaders/WAL/Portrait_Wales_David_Lloyd_George.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 			}
 			create_country_leader = {
 				name = "David Lloyd George"
 				desc = "WAL_DAVID_LLOYD_GEORGE_DESC"
-				picture = "Portrait_Wales_David_Lloyd_George.tga"
+				picture = "gfx/leaders/WAL/Portrait_Wales_David_Lloyd_George.png"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 			}
 			create_country_leader = {
 				name = "David Lloyd George"
 				desc = "WAL_DAVID_LLOYD_GEORGE_DESC"
-				picture = "Portrait_Wales_David_Lloyd_George.tga"
+				picture = "gfx/leaders/WAL/Portrait_Wales_David_Lloyd_George.png"
 				expire = "1965.1.1"
 				ideology = national_populist_subtype
 			}
@@ -7880,49 +7897,49 @@ country_event = { #Freedom!
 			create_country_leader = {
 				name = "Seumas VIII"
 				desc = "SCO_SEUMAS_VIII_DESC"
-				picture = "Portrait_Scotland_Seumas_VIII.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_Seumas_VIII.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 			}
 			create_country_leader = {
 				name = "Seumas VIII"
 				desc = "SCO_SEUMAS_VIII_DESC"
-				picture = "Portrait_Scotland_Seumas_VIII.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_Seumas_VIII.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 			}
 			create_country_leader = {
 				name = "Seumas VIII"
 				desc = "SCO_SEUMAS_VIII_DESC"
-				picture = "Portrait_Scotland_Seumas_VIII.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_Seumas_VIII.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 			}
 			create_country_leader = {
 				name = "Seumas VIII"
 				desc = "SCO_SEUMAS_VIII_DESC"
-				picture = "Portrait_Scotland_Seumas_VIII.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_Seumas_VIII.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 			}
 			create_country_leader = {
 				name = "Seumas VIII"
 				desc = "SCO_SEUMAS_VIII_DESC"
-				picture = "Portrait_Scotland_Seumas_VIII.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_Seumas_VIII.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 			}
 			create_country_leader = {
 				name = "Seumas VIII"
 				desc = "SCO_SEUMAS_VIII_DESC"
-				picture = "Portrait_Scotland_Seumas_VIII.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_Seumas_VIII.png"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 			}
 			create_country_leader = {
 				name = "Seumas VIII"
 				desc = "SCO_SEUMAS_VIII_DESC"
-				picture = "Portrait_Scotland_Seumas_VIII.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_Seumas_VIII.png"
 				expire = "1965.1.1"
 				ideology = national_populist_subtype
 			}
@@ -7944,49 +7961,49 @@ country_event = { #Freedom!
 			create_country_leader = {
 				name = "Harold Harington Balfour"
 				desc = "SCO_HAROLD_HARRINGTON_BALFOUR_DESC"
-				picture = "Portrait_Scotland_Harold_Harrington_Balfour.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_Harold_Harrington_Balfour.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 			}
 			create_country_leader = {
 				name = "Harold Harington Balfour"
 				desc = "SCO_HAROLD_HARRINGTON_BALFOUR_DESC"
-				picture = "Portrait_Scotland_Harold_Harrington_Balfour.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_Harold_Harrington_Balfour.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 			}
 			create_country_leader = {
 				name = "Harold Harington Balfour"
 				desc = "SCO_HAROLD_HARRINGTON_BALFOUR_DESC"
-				picture = "Portrait_Scotland_Harold_Harrington_Balfour.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_Harold_Harrington_Balfour.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 			}
 			create_country_leader = {
 				name = "Harold Harington Balfour"
 				desc = "SCO_HAROLD_HARRINGTON_BALFOUR_DESC"
-				picture = "Portrait_Scotland_Harold_Harrington_Balfour.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_Harold_Harrington_Balfour.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 			}
 			create_country_leader = {
 				name = "Harold Harington Balfour"
 				desc = "SCO_HAROLD_HARRINGTON_BALFOUR_DESC"
-				picture = "Portrait_Scotland_Harold_Harrington_Balfour.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_Harold_Harrington_Balfour.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 			}
 			create_country_leader = {
 				name = "Harold Harington Balfour"
 				desc = "SCO_HAROLD_HARRINGTON_BALFOUR_DESC"
-				picture = "Portrait_Scotland_Harold_Harrington_Balfour.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_Harold_Harrington_Balfour.png"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 			}
 			create_country_leader = {
 				name = "Harold Harington Balfour"
 				desc = "SCO_HAROLD_HARRINGTON_BALFOUR_DESC"
-				picture = "Portrait_Scotland_Harold_Harrington_Balfour.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_Harold_Harrington_Balfour.png"
 				expire = "1965.1.1"
 				ideology = national_populist_subtype
 			}
@@ -8007,49 +8024,49 @@ country_event = { #Freedom!
 			create_country_leader = {
 				name = "James Hamilton"
 				desc = "SCO_JAMES_DUKE_DESC"
-				picture = "Portrait_Scotland_James_Duke.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_James_Duke.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 			}
 			create_country_leader = {
 				name = "James Hamilton"
 				desc = "SCO_JAMES_DUKE_DESC"
-				picture = "Portrait_Scotland_James_Duke.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_James_Duke.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 			}
 			create_country_leader = {
 				name = "James Hamilton"
 				desc = "SCO_JAMES_DUKE_DESC"
-				picture = "Portrait_Scotland_James_Duke.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_James_Duke.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 			}
 			create_country_leader = {
 				name = "James Hamilton"
 				desc = "SCO_JAMES_DUKE_DESC"
-				picture = "Portrait_Scotland_James_Duke.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_James_Duke.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 			}
 			create_country_leader = {
 				name = "James Hamilton"
 				desc = "SCO_JAMES_DUKE_DESC"
-				picture = "Portrait_Scotland_James_Duke.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_James_Duke.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 			}
 			create_country_leader = {
 				name = "James Hamilton"
 				desc = "SCO_JAMES_DUKE_DESC"
-				picture = "Portrait_Scotland_James_Duke.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_James_Duke.png"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 			}
 			create_country_leader = {
 				name = "James Hamilton"
 				desc = "SCO_JAMES_DUKE_DESC"
-				picture = "Portrait_Scotland_James_Duke.tga"
+				picture = "gfx/leaders/SCT/Portrait_Scotland_James_Duke.png"
 				expire = "1965.1.1"
 				ideology = national_populist_subtype
 			}

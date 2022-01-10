@@ -17,7 +17,14 @@ country_event = { # the Coup
 	option = { # Towner Lives!
 		name = REDAlaska.1.a
 		ai_chance = {
-			factor = 95
+			factor = 99
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = ALA_POLITICAL_PATH
+					option = ALA_DIXON
+				}
+			}
 		}
 		add_political_power = 50
 	}
@@ -25,15 +32,28 @@ country_event = { # the Coup
 	option = { 
 		name = REDAlaska.1.b
 		ai_chance = {
-			factor = 5
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					has_game_rule = {
+						rule = ALA_POLITICAL_PATH
+						option = ALA_DIXON
+					}
+				}
+			}
 		}
+		trigger = {
+			is_ai = no
+		}
+		set_country_flag = ALA_based_thing
 		complete_national_focus = Alaska_true_red_braves
 		create_country_leader = {
 			name = "Thomas Dixon"
 			desc = "POLITICS_TDIXON_DESC"
-			picture = "Portrait_ALA_Thomas_Dixon.tga"
+			picture = "gfx/leaders/ALA/Portrait_ALA_Thomas_Dixon.png"
 			expire = "1965.1.1"
-			ideology = totalist_subtype
+			ideology = left_townerism_subtype
 			traits = {  }
 		}	
         remove_all_ministers = yes
@@ -67,7 +87,7 @@ country_event = { # the Coup
 			create_field_marshal = {# 
 				name = "Joe Medicine Crow"
 				desc = ""
-				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Medicine_Crow.tga"
+				portrait_path = "gfx/leaders/ALA/Portrait_ALA_Medicine_Crow.png"
 				traits = {
 					war_hero
 				}
@@ -110,7 +130,7 @@ country_event = { #Warrior Bands
 	option = {
 		name = REDAlaska.3.a
 		add_political_power = 20		
-                add_ideas = ALA_crazy_warrior_buff
+		add_ideas = ALA_crazy_warrior_buff
 	}
 }
 
@@ -124,7 +144,7 @@ country_event = { #Red Man's Internationale
 
 	trigger = {
 		ALA = {
-		exists = yes
+			exists = yes
 		}
 	}
 
@@ -133,7 +153,7 @@ country_event = { #Red Man's Internationale
 	option = { ###Kinda fail
 		name = REDAlaska.6.a
 		FRA = {
-		add_to_faction = ALA
+			add_to_faction = ALA
 		}
 	}
 }
@@ -151,7 +171,7 @@ country_event = { #Indian Totalism
 	option = {
 		name = REDAlaska.5.a
 		add_political_power = 100
-                add_ideas = ALA_crazy_industry_buff
+		add_ideas = ALA_crazy_industry_buff
 	}
 }
 
@@ -184,7 +204,7 @@ country_event = { #Scalping da whity
 	option = {
 		name = REDAlaska.7.a
 		add_political_power = 100
-                add_ideas = ALA_another_crazy_buff
+		add_ideas = ALA_another_crazy_buff
 	}
 }
 
@@ -201,7 +221,7 @@ country_event = { #White Genocide
 	option = {
 		name = REDAlaska.8.a
 		add_political_power = 100
-                add_ideas = ALA_even_crazyer_buff_then_the_last
+		add_ideas = ALA_even_crazyer_buff_then_the_last
 	}
 }
 
@@ -219,60 +239,60 @@ country_event = { #Red Man's Burden
 		name = REDAlaska.9.a
 		add_political_power = 100
 		load_oob = INDIANWARRIORS
-			create_wargoal = {
-				type = annex_everything target = CAN
-			}
-			create_wargoal = {
-				type = annex_everything target = USA
-			}
-			create_wargoal = {
-				type = annex_everything target = MEX
-			}
-			create_wargoal = {
-				type = annex_everything target = GUA
-			}
-			create_wargoal = {
-				type = annex_everything target = HON
-			}
-			create_wargoal = {
-				type = annex_everything target = ELS
-			}
-			create_wargoal = {
-				type = annex_everything target = NIC
-			}
-			create_wargoal = {
-				type = annex_everything target = COS
-			}
-			create_wargoal = {
-				type = annex_everything target = PAN
-			}
-			create_wargoal = {
-				type = annex_everything target = CUB
-			}
-			create_wargoal = {
-				type = annex_everything target = DOM
-			}
-			create_wargoal = {
-				type = annex_everything target = HAI
-			}
-			create_wargoal = {
-				type = annex_everything target = DOM
-			}
-			create_wargoal = {
-				type = annex_everything target = TEX
-			}
-			create_wargoal = {
-				type = annex_everything target = CSA
-			}
-			create_wargoal = {
-				type = annex_everything target = CAL
-			}
-			create_wargoal = {
-				type = annex_everything target = WCC
-			}
-			create_wargoal = {
-				type = annex_everything target = COR
-			}
+		create_wargoal = {
+			type = annex_everything target = CAN
+		}
+		create_wargoal = {
+			type = annex_everything target = USA
+		}
+		create_wargoal = {
+			type = annex_everything target = MEX
+		}
+		create_wargoal = {
+			type = annex_everything target = GUA
+		}
+		create_wargoal = {
+			type = annex_everything target = HON
+		}
+		create_wargoal = {
+			type = annex_everything target = ELS
+		}
+		create_wargoal = {
+			type = annex_everything target = NIC
+		}
+		create_wargoal = {
+			type = annex_everything target = COS
+		}
+		create_wargoal = {
+			type = annex_everything target = PAN
+		}
+		create_wargoal = {
+			type = annex_everything target = CUB
+		}
+		create_wargoal = {
+			type = annex_everything target = DOM
+		}
+		create_wargoal = {
+			type = annex_everything target = HAI
+		}
+		create_wargoal = {
+			type = annex_everything target = DOM
+		}
+		create_wargoal = {
+			type = annex_everything target = TEX
+		}
+		create_wargoal = {
+			type = annex_everything target = CSA
+		}
+		create_wargoal = {
+			type = annex_everything target = CAL
+		}
+		create_wargoal = {
+			type = annex_everything target = WCC
+		}
+		create_wargoal = {
+			type = annex_everything target = COR
+		}
 		every_state = {
 			limit = { is_core_of = CAN }
 			add_core_of = ALA
@@ -385,6 +405,7 @@ country_event = { # Indianizing Canada
 
 			add_state_core = 484
 		}
+		set_country_flag = ALA_redman_superevent_flag
 		set_province_name = { id = 6882 name = "Lenapehoking"}
 		set_province_name = { id = 11782 name = "Sanhickan"}
 		set_province_name = { id = 9864 name = "Absegami"}
@@ -554,12 +575,15 @@ country_event = { #Baste Huwhite Reseravtions
 				add_state_core = 739
 				transfer_state = 331
 				add_state_core = 331
+				set_technology = {
+					reservation_musket = 1
+				}
 				
 				### Leader
 				create_country_leader = {
 					name = "Alastair of the Anglos"
 					desc = "POLITICS_CUCKEDBRIT_DESC"
-					picture = "gfx/leaders/ALA/ALA_Alastair.tga"
+					picture = "gfx/leaders/ALA/ALA_Alastair.png"
 					expire = "1965.1.1"
 					ideology = national_populist_subtype
 					traits = {}
@@ -627,12 +651,15 @@ country_event = { #Baste Huwhite Reseravtions
 				add_state_core = 466
 				transfer_state = 730
 				add_state_core = 730
+				set_technology = {
+					reservation_musket = 1
+				}
 				
 				### Leader
 				create_country_leader = {
 					name = "Conseil Souverain"
 					desc = "POLITICS_CONSEIL_SOUVERAIN_DESC"
-					picture = "gfx/leaders/ALA/ALA_Conseil_Souverain.tga"
+					picture = "gfx/leaders/ALA/ALA_Conseil_Souverain.png"
 					expire = "1965.1.1"
 					ideology = national_populist_subtype
 					traits = {}
@@ -700,12 +727,15 @@ country_event = { #Baste Huwhite Reseravtions
 				add_state_core = 931
 				transfer_state = 935
 				add_state_core = 935
+				set_technology = {
+					reservation_musket = 1
+				}
 				
 				### Leader
 				create_country_leader = {
 					name = "Sir Mather"
 					desc = "POLITICS_MATHER_DESC"
-					picture = "gfx/leaders/ALA/ALA_Mather.tga"
+					picture = "gfx/leaders/ALA/ALA_Mather.png"
 					expire = "1965.1.1"
 					ideology = national_populist_subtype
 					traits = {}

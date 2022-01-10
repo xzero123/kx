@@ -4,6 +4,7 @@ set_convoys = 10
 set_research_slots = 2
 set_technology = {
 	### Infantry ###
+	basic_train = 1
 	infantry_weapons = 1
 	tech_support = 1
 	tech_engineers = 1
@@ -21,17 +22,15 @@ if = {
 		has_dlc = "Man the Guns"
 	}
 	set_technology = {
-		weltkrieg_light_ship_hull = 1
-		contact_mine = 1
-		weltkrieg_cruiser_hull = 1
+		early_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		
+		basic_naval_mines = 1
 
 		## Modules##
-		weltkrieg_naval_gunnery = 1
-		light_battery_one = 1
+		basic_battery = 1
+		basic_light_battery = 1
 		smoke_generator = 1
-
-		### Transport ###
-		transport = 1
 	}
 }
 
@@ -44,11 +43,8 @@ if = {
 		}
 	}
 	set_technology = {
-		weltkrieg_destroyer_nonmtg = 1
-		weltkrieg_cruiser_nonmtg = 1
-
-		### Transport ###
-		transport_n = 1
+		early_destroyer = 1
+		early_light_cruiser = 1
 	}
 }
 
@@ -60,7 +56,7 @@ country_event = {
 }
 set_stability = 0.55
 set_war_support = 0.15
-
+starting_train_buffer = 1
 set_politics = {
 	ruling_party = authoritarian_democrat
 	last_election = "1932.4.20"
@@ -94,27 +90,27 @@ add_ideas = {
 create_country_leader = {
 	name = "Manuel Pino"
 	desc = "POLITICS_MANUEL_PINO_DESC"
-	picture = "Portrait_PAN_Manuel_Pino.tga"
+	picture = "gfx/leaders/PAN/Portrait_PAN_Manuel_Pino.png"
 	expire = "1965.1.1"
-	ideology = paternal_autocrat_subtype
+	ideology = junta_subtype
 }
 create_country_leader = {
 	name = "Harmodio Arias Madrid"
 	desc = "POLITICS_HARMODIO_ARIAS_MADRID_DESC"
-	picture = "Portrait_PAN_Harmodio_Arias_Madrid_our.tga"
+	picture = "gfx/leaders/PAN/Portrait_PAN_Harmodio_Arias_Madrid_our.png"
 	expire = "1965.1.1"
 	ideology = authoritarian_democrat_subtype
 }
 create_country_leader = {
 	name = "Juan Demostenes Arosemena"
 	desc = "POLITICS_JUAN_AROSEMENA_DESC"
-	picture = "Portrait_PAN_Juan_Demostenes_Arosemena.tga"
+	picture = "gfx/leaders/PAN/Portrait_PAN_Juan_Demostenes_Arosemena.png"
 	expire = "1965.1.1"
 	ideology = market_liberal_subtype
 }
 create_country_leader = {
 	name = "Ricardo Alfaro Jované"
-	picture = "Portrait_PAN_Ricardo_Jovane.tga"
+	picture = "gfx/leaders/PAN/Portrait_PAN_Ricardo_Jovane.png"
 	expire = "1965.1.1"
 	ideology = social_liberal_subtype
 }
@@ -122,7 +118,7 @@ create_country_leader = {
 ### Field Marshals ###
 create_field_marshal = {
 	name = "Manuel Pino"
-	picture = "Portrait_PAN_Manuel_Pino.tga"
+	portrait_path = "gfx/leaders/PAN/Portrait_PAN_Manuel_Pino.png"
 	traits = {
 		defensive_doctrine
 	}
@@ -135,7 +131,7 @@ create_field_marshal = {
 ### Corps Commanders ###
 create_corps_commander = {
 	name = "Boris Nestor Martinez Salazar"
-	picture = "Portrait_PAN_Boris_Salazar.tga"
+	portrait_path = "gfx/leaders/PAN/Portrait_PAN_Boris_Salazar.png"
 	traits = {
 		organizer
 	}
@@ -147,7 +143,7 @@ create_corps_commander = {
 }
 create_corps_commander = {
 	name = "Jose Antonio Remon Cantera"
-	picture = "Portrait_PAN_Jose_Antonio_Remon_Cantera.tga"
+	portrait_path = "gfx/leaders/PAN/Portrait_PAN_Jose_Antonio_Remon_Cantera.png"
 	traits = {
 		organizer
 	}

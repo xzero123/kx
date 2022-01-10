@@ -230,29 +230,34 @@ USA_american_imperialism = {
 		icon = generic_prepare_civil_war
 
 		allowed = { 
-		original_tag = USA }
+			OR = {
+				original_tag = USA
+				original_tag = CAL
+			}
+		}
 
 		available = {
 			is_subject = no
 			controls_all_owned_states = yes
 			can_declare_war_on = CAN
 			OR = {
-			CAN = {
-				OR = {
-					has_socialist_government = yes
-					has_government = national_populist
-					custom_trigger_tooltip = {
-						tooltip = USA_subject_of_foreign_power
-						is_subject = yes
-						NOT = { is_subject_of = USA }
-					}
-					custom_trigger_tooltip = {
-						tooltip = USA_owns_american_cores
-						any_owned_state = { is_claim_or_core_of_ROOT = yes }
+				has_completed_focus = USA_dismantle_the_empire
+				has_completed_focus = CAL_dismantle_the_empire
+				CAN = {
+					OR = {
+						has_socialist_government = yes
+						has_government = national_populist
+						custom_trigger_tooltip = {
+							tooltip = USA_subject_of_foreign_power
+							is_subject = yes
+							NOT = { is_subject_of = USA }
+						}
+						custom_trigger_tooltip = {
+							tooltip = USA_owns_american_cores
+							any_owned_state = { is_claim_or_core_of_ROOT = yes }
+						}
 					}
 				}
-			}
-			has_completed_focus = CAL_dismantle_the_empire
 			}
 		}
 
@@ -2726,10 +2731,8 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 			ALA = { is_subject = no }
 			OR = {
 				ALA = {
-					OR = {
-						has_country_flag = ALA_DEMOCRACY
-						has_country_flag = ALA_BARONS
-					}
+					has_socialist_government = no
+					NOT = { has_government = national_populist }
 				}
 				AND = {
 					has_socialist_government = yes
@@ -2773,6 +2776,106 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 		}
 	}
 
+	USA_reclaim_texas_decision = {# Reclaim Texas
+		icon = generic_political_discourse
+		allowed = {
+			OR = {
+				tag = USA
+				tag = WCC
+				tag = CAL
+				tag = COR
+				tag = CSA
+			}
+		}
+		available = {
+			is_subject = no
+			controls_all_owned_states = yes
+			can_declare_war_on = TXS
+			TXS = { 
+				is_neighbor_of = ROOT
+				is_subject = no
+			}
+		}
+		visible = {
+			country_exists = TXS
+			has_global_flag = USA_civil_war_over_flag
+			NOT = {
+				count_triggers = {
+					amount = 2
+					country_exists = USA
+					country_exists = CAL
+					country_exists = COR
+					country_exists = TEX
+					country_exists = CSA
+					country_exists = WCC
+				}
+			}
+			OR = {
+				AND = {
+					tag = USA
+					has_democratic_government = yes
+					TXS = { has_democratic_government = yes }
+				}
+				AND = {
+					tag = USA
+					has_global_flag = TXS_ACW_USA
+				}
+				AND = {
+					tag = WCC
+					USA = { exists = no }
+					has_global_flag = TXS_ACW_USA
+				}
+				AND = {
+					tag = CAL
+					has_democratic_government = yes
+					TXS = { has_democratic_government = yes }
+				}
+				AND = {
+					tag = CAL
+					has_global_flag = TXS_ACW_CAL
+				}
+				AND = {
+					tag = TEX
+					has_democratic_government = yes
+					TXS = { has_democratic_government = yes }
+				}
+				AND = {
+					tag = TEX
+					has_global_flag = TXS_ACW_TEX
+				}
+				AND = {
+					tag = COR
+					has_global_flag = TXS_ACW_COR
+				}
+				AND = {
+					tag = CSA
+					has_global_flag = TXS_ACW_CSA
+				}
+				AND = {
+					tag = CSA
+					TXS = { has_socialist_government = yes }
+				}
+			}
+		}
+		fire_only_once = yes
+		cost = 80
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+			modifier = {
+				factor = 0
+				has_army_manpower = { size < 250000 }
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision USA_reclaim_texas_decision"
+			TXS = {	country_event = ustates.2760 }
+		}
+	}
+	
 	USA_reclaim_hawaii_decision = {# Reclaim Hawaii
 		icon = generic_political_discourse
 		allowed = {
@@ -2950,7 +3053,7 @@ USA_reconstruction_decisions = {# Reconstruction Stuff
 		ai_will_do = { factor = 100 }
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision USA_capital_returns_to_dc"
-			set_capital = 361
+			set_capital = { state = 361 }
 		}
 	}
 }
@@ -3511,7 +3614,7 @@ USA_rainbow_war_plans_decisions = {
 				has_completed_focus = CAL_enter_the_fray
 				has_completed_focus = WCC_enter_the_fray
 			}
-			country_exists = SOV
+			soviets_exist = yes
 			SOV = {
 				is_major = yes
 				OR = {
@@ -4129,7 +4232,7 @@ USA_MacArthur_policies = {
 		icon = GFX_decision_generic_independence
 		allowed = { original_tag = USA }
 		available = { has_government = paternal_autocrat 
-		surrender_progress > 0.80
+		surrender_progress > 0.90
 		NOT = {
 		WCC = {
 		has_war_with = USA
@@ -4144,7 +4247,7 @@ USA_MacArthur_policies = {
 		exists = yes
 			} 
 		}
-		cost = 10
+		cost = 0
 		fire_only_once = yes
 
 		ai_will_do = { factor = 40 }

@@ -30,6 +30,7 @@ can_release_central_asia = {
 		state = 586 #Kokand
 		state = 589 #Semirechye
 		state = 732 #Pamir
+		state = 861 #Pamir
 	}
 	407 = { #Tashkent#
 		is_owned_and_controlled_by = ROOT
@@ -48,6 +49,10 @@ can_release_central_asia = {
 		is_claim_or_core_of_ROOT = no
 	}
 	732 = { #Pamir#
+		is_owned_and_controlled_by = ROOT
+		is_claim_or_core_of_ROOT = no
+	}
+	861 = { #Pamir#
 		is_owned_and_controlled_by = ROOT
 		is_claim_or_core_of_ROOT = no
 	}
@@ -518,20 +523,6 @@ can_release_taiwan = {
 	}
 }
 
-#Tajikistan - annexation_TAJ_CONQ
-can_release_tajikistan = {
-	state = 732 #Pamir
-	is_claim_or_core_of_ROOT = no
-	ROOT = {
-		should_release_turkestan_first = yes
-		should_release_central_asia_first = yes
-		NOT = {
-			has_country_flag = TAJ_CONQ
-			country_exists = TAJ
-		}
-	}
-}
-
 #Tibet - annexation_TIB_CONQ
 can_release_tibet = {
 	state = 322 #Lhasa
@@ -567,38 +558,15 @@ can_release_turkestan = {
 		is_owned_and_controlled_by = ROOT
 		is_claim_or_core_of_ROOT = no
 	}
-	584 = { #Karakum
-		is_owned_and_controlled_by = ROOT
-		is_claim_or_core_of_ROOT = no
-	}
-	732 = { #Pamir
-		is_owned_and_controlled_by = ROOT
-		is_claim_or_core_of_ROOT = no
-	}
 	ROOT = {
 		should_release_central_asia_first = yes
 		NOT = {
 			has_country_flag = TRK_CONQ
 			country_exists = TRK
-			country_exists = UZB
-			country_exists = TAJ
 		}
 	}
 }
 
-#Turkmenistan - annexation_TKM_CONQ
-can_release_turkmenistan = {
-	state = 584 #Karakum
-	is_claim_or_core_of_ROOT = no
-	ROOT = {
-		should_release_turkestan_first = yes
-		should_release_central_asia_first = yes
-		NOT = {
-			has_country_flag = TKM_CONQ
-			country_exists = TRK
-		}
-	}
-}
 
 #Vietnam - annexation_VIN_CONQ
 can_release_vietnam = {
@@ -622,10 +590,9 @@ can_release_vietnam = {
 
 #Uzbekistan - annexation_UZB_CONQ
 can_release_uzbekistan = {
-	state = 407 #Tashkent
+	state = 861 #Tashkent
 	is_claim_or_core_of_ROOT = no
 	ROOT = {
-		should_release_turkestan_first = yes
 		should_release_central_asia_first = yes
 		NOT = {
 			has_country_flag = UZB_CONQ
@@ -782,7 +749,6 @@ should_release_central_asia_first = {
 		country_exists = ALO
 		country_exists = TRK
 		country_exists = KYR
-		country_exists = TAJ
 		country_exists = UZB
 		has_country_flag = CA_CONQ
 		NOT = {
@@ -791,7 +757,7 @@ should_release_central_asia_first = {
 					is_owned_and_controlled_by = ROOT
 					is_claim_or_core_of_ROOT = no
 				}
-				584 = { #Karakum
+				861 = { #Karakum
 					is_owned_and_controlled_by = ROOT
 					is_claim_or_core_of_ROOT = no
 				}
@@ -832,20 +798,10 @@ should_release_japan_first = {
 should_release_turkestan_first = {
 	OR = {
 		country_exists = TRK
-		country_exists = UZB
-		country_exists = TAJ
 		has_country_flag = TRK_CONQ
 		NOT = {
 			AND = {
 				405 = { #Bukhara
-					is_owned_and_controlled_by = ROOT
-					is_claim_or_core_of_ROOT = no
-				}
-				584 = { #Karakum
-					is_owned_and_controlled_by = ROOT
-					is_claim_or_core_of_ROOT = no
-				}
-				732 = { #Pamir
 					is_owned_and_controlled_by = ROOT
 					is_claim_or_core_of_ROOT = no
 				}

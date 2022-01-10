@@ -17,7 +17,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Legitimate_America
 		icon = GFX_focus_generic_strike_at_democracy3
-		cost = 6
+		cost = 5
 		x = 4
 		y = 0
 		ai_will_do = {
@@ -47,11 +47,11 @@ focus_tree = {
 	focus = {
 		id = NEE_federalists_in_command
 		icon = GFX_NEE_federalist_party_in_control
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Legitimate_America
 		}
-		x = -2
+		x = 14
 		y = 1
 		relative_position_id = NEE_Legitimate_America
 		ai_will_do = {
@@ -73,7 +73,7 @@ focus_tree = {
 	focus = {
 		id = NEE_new_english_nationalism
 		icon = GFX_NEE_new_england_nationalism
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_federalists_in_command
 		}
@@ -191,7 +191,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Public_Opinion_Support
 		icon = GFX_NEE_swaying_public_opinion
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_syndicalist_crackdown
 		}
@@ -223,7 +223,7 @@ focus_tree = {
 	focus = {
 		id = NEE_preferred_immigration
 		icon = GFX_NEE_protecting_our_heritage
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_federalists_in_command
 		}
@@ -256,7 +256,7 @@ focus_tree = {
 	focus = {
 		id = NEE_preserve_the_estates
 		icon = GFX_goal_COR_american_estates
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Public_Opinion_Support
 		}
@@ -297,7 +297,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Reassure_Financial_Institutions
 		icon = GFX_focus_empty_coffers
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Public_Opinion_Support
 		}
@@ -374,7 +374,7 @@ focus_tree = {
 	focus = {
 		id = NEE_elite_contracts
 		icon = GFX_NEE_elite_contracts
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_special_relationship
 		}
@@ -414,7 +414,7 @@ focus_tree = {
 	focus = {
 		id = NEE_controlled_vice
 		icon = GFX_NEE_controlled_vice
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_elite_contracts
 		}
@@ -452,7 +452,7 @@ focus_tree = {
 	focus = {
 		id = NEE_american_aristocracy
 		icon = GFX_NEE_american_aristocracy
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_controlled_vice
 		}
@@ -490,7 +490,7 @@ focus_tree = {
 	focus = {
 		id = NEE_canadian_investments
 		icon = GFX_goal_USA_reconcile_canada
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_american_aristocracy
 		}
@@ -524,7 +524,7 @@ focus_tree = {
 	focus = {
 		id = NEE_ready_to_strike
 		icon = GFX_focus_generic_air_defense
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_american_aristocracy
 		}
@@ -569,7 +569,7 @@ focus_tree = {
 	focus = {
 		id = NEE_elite_universities
 		icon = GFX_NEE_ivy_league
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_american_aristocracy
 		}
@@ -599,11 +599,561 @@ focus_tree = {
 			add_ideas = NEE_ivy_league
 		}
 	}
+
+	focus = {
+		id = NEE_socialist_victory
+		icon = GFX_NEE_the_grange
+		cost = 5
+		prerequisite = {
+			focus = NEE_Legitimate_America
+		}
+		available = {
+		has_government = radical_socialist
+		has_cosmetic_tag = NEE_LERMOND_FLAG
+		}
+		x = -22
+		y = 1
+		relative_position_id = NEE_Legitimate_America
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus NEE_socialist_victory"
+			add_stability = 0.05
+			add_popularity = { ideology = radical_socialist popularity = 0.03 }
+			add_popularity = { ideology = social_democrat popularity = 0.03 }
+			hidden_effect = {
+				country_event = {
+				id = newengland.2003
+				days = 8
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = NEE_legacy_of_populism
+		icon = GFX_NEE_legacy_populist
+		cost = 5
+		prerequisite = {
+			focus = NEE_socialist_victory
+		}
+		available = {
+		has_government = radical_socialist
+		}
+		x = 2
+		y = 1
+		relative_position_id = NEE_socialist_victory
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus NEE_legacy_of_populism"
+			add_ideas = NEE_populist_legacy
+			add_popularity = { ideology = radical_socialist popularity = 0.03 }
+		}
+	}
+
+	focus = {
+		id = NEE_farmers_in_need
+		icon = GFX_NEE_needy_farmers
+		cost = 5
+		prerequisite = {
+			focus = NEE_legacy_of_populism
+		}
+		available = {
+		has_government = radical_socialist
+		}
+		x = 1
+		y = 2
+		relative_position_id = NEE_socialist_victory
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus NEE_farmers_in_need"
+			swap_ideas = {
+			remove_idea = NEE_populist_legacy
+			add_idea = NEE_populist_legacy_two
+			}
+			add_manpower = 5000
+		}
+	}
+
+
+	focus = {
+		id = NEE_national_arboretums
+		icon = GFX_NEE_national_arboreum
+		cost = 5
+		prerequisite = {
+			focus = NEE_farmers_in_need
+		}
+		available = {
+		has_government = radical_socialist
+		}
+		x = 1
+		y = 3
+		relative_position_id = NEE_socialist_victory
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus NEE_national_arboretums"
+			random_owned_controlled_state = {
+				limit = {
+					is_mainland_america = yes
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_mainland_america = yes
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_stability = 0.05
+			hidden_effect = {
+				country_event = {
+				id = newengland.2007
+				days = 365
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = NEE_public_ownership
+		icon = GFX_NEE_public_owners
+		cost = 5
+		prerequisite = {
+			focus = NEE_socialist_victory
+		}
+		available = {
+		has_government = radical_socialist
+		}
+		x = 0
+		y = 1
+		relative_position_id = NEE_socialist_victory
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus NEE_public_ownership"
+			add_ideas = NEE_public_tools
+			add_stability = 0.03
+			hidden_effect = {
+				country_event = {
+				id = newengland.2008
+				days = 3
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = NEE_cooperative_management
+		icon = GFX_NEE_coop_management
+		cost = 5
+		prerequisite = {
+			focus = NEE_socialist_victory
+		}
+		available = {
+		has_government = radical_socialist
+		}
+		x = -2
+		y = 1
+		relative_position_id = NEE_socialist_victory
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus NEE_cooperative_management"
+			add_ideas = NEE_coop_management
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = NEE_bellamyist_ideals
+		icon = GFX_NEE_bellamyist_ideas
+		cost = 5
+		prerequisite = {
+			focus = NEE_cooperative_management
+		}
+		prerequisite = {
+			focus = NEE_public_ownership
+		}
+		available = {
+		has_government = radical_socialist
+		}
+		x = -1
+		y = 2
+		relative_position_id = NEE_socialist_victory
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus NEE_bellamyist_ideals"
+			random_owned_state = {
+				limit = {
+					is_core_of = NEE
+					is_controlled_by = NEE
+					infrastructure > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = NEE
+					is_controlled_by = NEE
+					infrastructure > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = NEE
+					is_controlled_by = NEE
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.50
+				uses = 2
+				category = electronics
+			}
+			hidden_effect = {
+				country_event = {
+				id = newengland.2004
+				days = 25
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = NEE_annual_income
+		icon = GFX_goal_CSA_fair_days_pay
+		cost = 5
+		prerequisite = {
+			focus = NEE_bellamyist_ideals
+		}
+		available = {
+		has_government = radical_socialist
+		}
+		x = -3
+		y = 3
+		relative_position_id = NEE_socialist_victory
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus NEE_annual_income"
+			add_ideas = NEE_annual_income_idea
+		}
+	}
+
+	focus = {
+		id = NEE_local_unions
+		icon = GFX_NEE_local_union
+		cost = 5
+		prerequisite = {
+			focus = NEE_bellamyist_ideals
+		}
+		available = {
+		has_government = radical_socialist
+		}
+		x = -1
+		y = 3
+		relative_position_id = NEE_socialist_victory
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus NEE_local_unions"
+			swap_ideas = {
+			remove_idea = NEE_public_tools
+			add_idea = NEE_local_unions_idea
+			}
+			add_political_power = 30
+		}
+	}
+
+	focus = {
+		id = NEE_industry_specialization
+		icon = GFX_NEE_industry_specialists
+		cost = 5
+		prerequisite = {
+			focus = NEE_local_unions
+		}
+		prerequisite = {
+			focus = NEE_annual_income
+		}
+		available = {
+		has_government = radical_socialist
+		}
+		x = -2
+		y = 4
+		relative_position_id = NEE_socialist_victory
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus NEE_industry_specialization"
+			swap_ideas = {
+			remove_idea = NEE_coop_management
+			add_idea = NEE_industry_specialists
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = NEE_socialist_pioneers
+		icon = GFX_NEE_socialist_pioneer
+		cost = 5
+		prerequisite = {
+			focus = NEE_local_unions
+		}
+		prerequisite = {
+			focus = NEE_national_arboretums
+		}
+		available = {
+		has_government = radical_socialist
+		}
+		x = -0
+		y = 4
+		relative_position_id = NEE_socialist_victory
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus NEE_socialist_pioneers"
+			swap_ideas = {
+			remove_idea = NEE_populist_legacy_two
+			add_idea = NEE_populist_legacy_three
+			}
+			add_popularity = { ideology = radical_socialist popularity = 0.05 }
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = NEE_utopian_colonies
+		icon = GFX_NEE_utopianism
+		cost = 5
+		prerequisite = {
+			focus = NEE_industry_specialization
+		}
+		prerequisite = {
+			focus = NEE_socialist_pioneers
+		}
+		available = {
+		has_government = radical_socialist
+		}
+		x = 0
+		y = 5
+		relative_position_id = NEE_socialist_victory
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus NEE_utopian_colonies"
+			swap_ideas = {
+			remove_idea = NEE_populist_legacy_three
+			add_idea = NEE_populist_legacy_four
+			}
+			add_political_power = 25
+			add_stability = 0.05
+			hidden_effect = {
+				country_event = {
+				id = newengland.2005
+				days = 14
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = NEE_unite_with_csa
+		icon = GFX_NEE_lefty_allies
+		cost = 5
+		prerequisite = {
+			focus = NEE_utopian_colonies
+		}
+		available = {
+		has_government = radical_socialist
+		OR = {
+			INT = {
+			exists = yes
+			}
+			CSA = {
+			exists = yes
+			}
+		}
+		is_puppet = no
+		}
+		mutually_exclusive = {
+			focus = NEE_go_our_own_way
+			focus = NEE_reconcile_canada
+		}
+		x = -2
+		y = 6
+		relative_position_id = NEE_socialist_victory
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus NEE_unite_with_csa"
+			country_event = newengland.1092
+			add_political_power = 20
+		}
+	}
+
+	focus = {
+		id = NEE_go_our_own_way
+		icon = GFX_NEE_greater_nee
+		cost = 5
+		prerequisite = {
+			focus = NEE_utopian_colonies
+		}
+		available = {
+		has_government = radical_socialist
+		is_puppet = no
+		}
+		mutually_exclusive = {
+			focus = NEE_unite_with_csa
+			focus = NEE_reconcile_canada
+		}
+		x = 0
+		y = 6
+		relative_position_id = NEE_socialist_victory
+		ai_will_do = {
+			factor = 18
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus NEE_go_our_own_way"
+			create_faction = "Brotherhood of the Co-operative Commonwealth"
+			add_popularity = { ideology = radical_socialist popularity = 0.03 }
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = NEE_reconcile_canada
+		icon = GFX_NEE_canada_reconciliation
+		cost = 5
+		prerequisite = {
+			focus = NEE_utopian_colonies
+		}
+		available = {
+		has_government = radical_socialist
+		CAN = {
+		exists = yes
+		if = {
+			limit = {
+			has_authoritarian_government = yes
+			}
+			has_war = yes
+		}
+		else = {
+			has_authoritarian_government = no
+		}
+		}
+		is_puppet = no
+		}
+		mutually_exclusive = {
+			focus = NEE_go_our_own_way
+			focus = NEE_unite_with_csa
+		}
+		x = 2
+		y = 6
+		relative_position_id = NEE_socialist_victory
+		ai_will_do = {
+			factor = 2
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus NEE_reconcile_canada"
+			CAN = {
+			country_event = newengland.1099
+			}
+			add_stability = 0.02
+		}
+	}
 	
 	focus = {
 		id = NEE_progressive_republicans
 		icon = GFX_NEE_progressives
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Legitimate_America
 		}
@@ -613,7 +1163,7 @@ focus_tree = {
 				has_country_flag = prohbs_in_power
 			}
 		}
-		x = 6
+		x = -8
 		y = 1
 		relative_position_id = NEE_Legitimate_America
 		ai_will_do = {
@@ -633,7 +1183,7 @@ focus_tree = {
 	focus = {
 		id = NEE_break_monopolies
 		icon = GFX_CAL_new_antitrust_laws
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_progressive_republicans
 		}
@@ -666,7 +1216,7 @@ focus_tree = {
 	focus = {
 		id = NEE_regional_utilites
 		icon = GFX_goal_TEX_accessible_utilities
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_break_monopolies
 		}
@@ -706,7 +1256,7 @@ focus_tree = {
 	focus = {
 		id = NEE_st_lawrence_seaway
 		icon = GFX_NEE_st_lawrence_seaway_2
-		cost = 6
+		cost = 5
 		available = {
 		has_full_control_of_state = 796
 		}
@@ -740,7 +1290,7 @@ focus_tree = {
 	focus = {
 		id = NEE_tax_hike
 		icon = GFX_CAL_rich_taxation
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_progressive_republicans
 		}
@@ -764,7 +1314,7 @@ focus_tree = {
 	focus = {
 		id = NEE_national_labor_committee
 		icon = GFX_NEE_Labor_Committee
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_tax_hike
 		}
@@ -793,7 +1343,7 @@ focus_tree = {
 	focus = {
 		id = NEE_committee_on_agriculture
 		icon = GFX_CAL_farm_bankruptcy_act
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_progressive_republicans
 		}
@@ -843,7 +1393,7 @@ focus_tree = {
 	focus = {
 		id = NEE_crop_insurance
 		icon = GFX_NEE_crop_insurance
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_committee_on_agriculture
 		}
@@ -885,7 +1435,7 @@ focus_tree = {
 	focus = {
 		id = NEE_food_allotment
 		icon = GFX_goal_COR_bbbb
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_national_labor_committee
 		}
@@ -916,7 +1466,7 @@ focus_tree = {
 	focus = {
 		id = NEE_full_employment_act
 		icon = GFX_NEE_full_employement
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_food_allotment
 		}
@@ -1018,7 +1568,7 @@ focus_tree = {
 	focus = {
 		id = NEE_mab
 		icon = GFX_CAL_military_lobby
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_committee_on_agriculture
 			focus = NEE_interstate_highway
@@ -1059,7 +1609,7 @@ focus_tree = {
 	focus = {
 		id = NEE_demand_support
 		icon = GFX_goal_USA_demand_debts
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_mab
 		}
@@ -1086,7 +1636,7 @@ focus_tree = {
 	focus = {
 		id = NEE_lincolnian_republic
 		icon = GFX_NEE_abe
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_demand_support
 		}
@@ -1111,7 +1661,7 @@ focus_tree = {
 	focus = {
 		id = NEE_western_intervention
 		icon = GFX_NEE_beyond_new_england
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_lincolnian_republic
 		}
@@ -1144,7 +1694,7 @@ focus_tree = {
 	focus = {
 		id = NEE_fea
 		icon = GFX_NEE_education_administration
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_full_employment_act
 		}
@@ -1168,7 +1718,7 @@ focus_tree = {
 	focus = {
 		id = NEE_rural_electricity
 		icon = GFX_CAL_rea
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_full_employment_act
 		}
@@ -1208,7 +1758,7 @@ focus_tree = {
 	focus = {
 		id = NEE_farm_coops
 		icon = GFX_goal_TEX_coop_plan
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_full_employment_act
 		}
@@ -1260,7 +1810,7 @@ focus_tree = {
 	focus = {
 		id = NEE_modern_republicanism
 		icon = GFX_NEE_modern_republicanism
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Legitimate_America
 		}
@@ -1270,7 +1820,7 @@ focus_tree = {
 				has_government = social_liberal
 			}
 		}
-		x = 14
+		x = 0
 		y = 1
 		relative_position_id = NEE_Legitimate_America
 		ai_will_do = {
@@ -1290,7 +1840,7 @@ focus_tree = {
 	focus = {
 		id = NEE_interstate_highway
 		icon = GFX_NEE_interstate_highway
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_modern_republicanism
 		}
@@ -1413,7 +1963,7 @@ focus_tree = {
 	focus = {
 		id = NEE_entente_support
 		icon = GFX_NEE_entente_support
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_modern_republicanism
 		}
@@ -1440,7 +1990,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Townhall_Democracy
 		icon = GFX_goal_conspiracy
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_interstate_highway
 		}
@@ -1464,7 +2014,7 @@ focus_tree = {
 	focus = {
 		id = NEE_cultural_liberalism
 		icon = GFX_NEE_cultural_liberalism
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_education_spending
 		}
@@ -1498,7 +2048,7 @@ focus_tree = {
 	focus = {
 		id = NEE_fight_the_mob
 		icon = GFX_NEE_fight_the_mob
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_entente_support
 		}
@@ -1538,7 +2088,7 @@ focus_tree = {
 	focus = {
 		id = NEE_support_small_business
 		icon = GFX_NEE_support_small_businesses
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_cultural_liberalism
 		}
@@ -1594,7 +2144,7 @@ focus_tree = {
 	focus = {
 		id = NEE_housing_expansion
 		icon = GFX_NEE_housing_expansion
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_fight_the_mob
 		}
@@ -1630,7 +2180,7 @@ focus_tree = {
 	focus = {
 		id = NEE_save_the_constitution
 		icon = GFX_NEE_save_the_constitution
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_support_small_business
 		}
@@ -1663,7 +2213,7 @@ focus_tree = {
 	focus = {
 		id = NEE_unifying_america
 		icon = GFX_NEE_salute_red_white_blue
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_save_the_constitution
 		}
@@ -1695,7 +2245,7 @@ focus_tree = {
 	focus = {
 		id = NEE_take_on_machines
 		icon = GFX_NEE_investigate_the_machines
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_save_the_constitution
 		}
@@ -1752,12 +2302,12 @@ focus_tree = {
 	focus = {
 		id = NEE_International_Recognition
 		icon = GFX_focus_generic_treaty
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_entente_support
 			focus = NEE_irish_ties
 		}
-		x = 18
+		x = 4
 		y = 3
 		relative_position_id = NEE_Legitimate_America
 		ai_will_do = {
@@ -1780,11 +2330,11 @@ focus_tree = {
 	focus = {
 		id = NEE_Safeguard_Democracy
 		icon = GFX_goal_COS_Ferrer_Coup
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_International_Recognition
 		}
-		x = 18
+		x = 4
 		y = 4
 		relative_position_id = NEE_Legitimate_America
 		ai_will_do = {
@@ -1809,11 +2359,11 @@ focus_tree = {
 	focus = {
 		id = NEE_Home_of_the_Brave
 		icon = GFX_goal_liberty
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Safeguard_Democracy
 		}
-		x = 18
+		x = 4
 		y = 5
 		relative_position_id = NEE_Legitimate_America
 		ai_will_do = {
@@ -1838,11 +2388,11 @@ focus_tree = {
 	focus = {
 		id = NEE_Declare_Independence
 		icon = GFX_NEE_demand_home_rule
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Home_of_the_Brave
 		}
-		x = 18
+		x = 4
 		y = 6
 		relative_position_id = NEE_Legitimate_America
 		ai_will_do = {
@@ -1881,7 +2431,7 @@ focus_tree = {
 		available = {
 			has_government = social_conservative
 		}
-		x = 22
+		x = 8
 		y = 1
 		relative_position_id = NEE_Legitimate_America
 		ai_will_do = {
@@ -2348,7 +2898,7 @@ focus_tree = {
 		prerequisite = {
 			focus = NEE_Legitimate_America
 		}
-		x = 31
+		x = 23
 		y = 1
 		relative_position_id = NEE_Legitimate_America
 		ai_will_do = {
@@ -3018,8 +3568,8 @@ focus_tree = {
 		days = 50
 				}
 			}
-		}
 		custom_effect_tooltip = NEE_sentinel_wealth_flag
+		}
 	}
 	
 	focus = {
@@ -3132,10 +3682,10 @@ focus_tree = {
 		id = NEE_lothrop_stoddard
 		icon = GFX_NEE_stoddard_regime
 		cost = 5
-		x = -18
-		y = 1
+		x = 34
+		y = 2
 		prerequisite = {
-			focus = NEE_Legitimate_America
+			focus = NEE_radical_victory
 		}
 		relative_position_id = NEE_Legitimate_America
 		ai_will_do = {
@@ -3578,7 +4128,7 @@ focus_tree = {
 	focus = {
 		id = NEE_US_Airforce
 		icon = GFX_goal_NEE_Air_Force
-		cost = 6
+		cost = 5
 		x = 40
 		y = 1
 		relative_position_id = NEE_Legitimate_America
@@ -3598,10 +4148,11 @@ focus_tree = {
 		complete_tooltip = {}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_US_Airforce"
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				category = air_doctrine
+			add_doctrine_cost_reduction = {
+	name = air_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = air_doctrine
 			}
 			air_experience = 50
 		}
@@ -3610,7 +4161,7 @@ focus_tree = {
 	focus = {
 		id = NEE_WASP
 		icon = GFX_focus_generic_female_pilots
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_US_Airforce
 		}
@@ -3642,7 +4193,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Air_Defence_Command
 		icon = GFX_goal_NEE_airforce
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_US_Airforce
 		}
@@ -3710,7 +4261,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Paladin_Fighter
 		icon = GFX_goal_generic_air_fighter2
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Air_Defence_Command
 		}
@@ -3748,7 +4299,7 @@ focus_tree = {
 	focus = {
 		id = NEE_B25_Bomber
 		icon = GFX_goal_generic_occupy_start_war
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Air_Defence_Command
 		}
@@ -3787,7 +4338,7 @@ focus_tree = {
 	focus = {
 		id = NEE_P51_Mustang
 		icon = GFX_goal_USA_freedom_fighters
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_B25_Bomber
 			focus = NEE_Paladin_Fighter
@@ -3822,7 +4373,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Flying_For_Freedom
 		icon = GFX_focus_chi_flying_tigers
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_P51_Mustang
 		}
@@ -3861,7 +4412,7 @@ focus_tree = {
 	focus = {
 		id = NEE_ISAC_Equipement
 		icon = GFX_goal_CAN_isac
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_US_Navy
 		}
@@ -3897,7 +4448,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Self_Reliance
 		icon = GFX_goal_BAN_autarky
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_US_Navy
 		}
@@ -3944,7 +4495,7 @@ focus_tree = {
 	focus = {# New England's Navy
 		id = NEE_US_Navy
 		icon = GFX_goal_NEE_Navy2
-		cost = 6
+		cost = 5
 		x = 44
 		y = 1
 		relative_position_id = NEE_Legitimate_America
@@ -3965,10 +4516,11 @@ focus_tree = {
 		complete_tooltip = {}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_US_Navy"
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				category = naval_doctrine
+			add_doctrine_cost_reduction = {
+	name = naval_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = naval_doctrine
 			}
 			navy_experience = 50
 		}
@@ -3977,7 +4529,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Liberty_Ships
 		icon = GFX_goal_USA_liberty_ships
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_US_Navy
 		}
@@ -4023,7 +4575,7 @@ focus_tree = {
 	focus = {
 		id = NEE_destroyer_effort
 		icon = GFX_goal_generic_navy_anti_submarine
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Liberty_Ships
 		}
@@ -4061,7 +4613,7 @@ focus_tree = {
 	focus = {
 		id = NEE_submarine_effort
 		icon = GFX_goal_generic_navy_submarine
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Liberty_Ships
 		}
@@ -4099,7 +4651,7 @@ focus_tree = {
 	focus = {
 		id = NEE_light_cruiser_effort
 		icon = GFX_goal_EGY_sultan_fleet
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_submarine_effort
 			focus = NEE_destroyer_effort
@@ -4134,7 +4686,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Colombia_Gem_of_the_Ocean
 		icon = GFX_goal_generic_navy_battleship
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_light_cruiser_effort
 		}
@@ -4169,7 +4721,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Infrastructure_Act
 		icon = GFX_NEE_interstate_highway
-		cost = 6
+		cost = 5
 		x = 48
 		y = 0
 		relative_position_id = NEE_Legitimate_America
@@ -4237,7 +4789,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Maine_Steel
 		icon = GFX_focus_generic_steel
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_bureau_of_industry
 		}
@@ -4276,7 +4828,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Minutetank
 		icon = GFX_goal_American_Armor
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Maine_Steel
 		}
@@ -4308,7 +4860,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Synthetic_Oil
 		icon = GFX_goal_generic_oil_refinery
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_bureau_of_industry
 		}
@@ -4358,7 +4910,7 @@ focus_tree = {
 	focus = {
 		id = NEE_bureau_of_industry
 		icon = GFX_goal_TEX_keynesian_economics
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Infrastructure_Act
 		}
@@ -4389,7 +4941,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Settlement_Movement
 		icon = GFX_NEE_housing_expansion
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Infrastructure_Act
 		}
@@ -4445,7 +4997,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Electrification_Effort
 		icon = GFX_CAL_rea
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Settlement_Movement
 		}
@@ -4511,7 +5063,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Ivy_League_Expansion
 		icon = GFX_NEE_ivy_league
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Smith_and_Wessons
 			focus = NEE_Settlement_Movement
@@ -4535,7 +5087,7 @@ focus_tree = {
 	focus = {
 		id = NEE_American_Capitalism
 		icon = GFX_goal_USA_american_industry
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Electrification_Effort
 		}
@@ -4566,7 +5118,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Reestablish_Minutemen
 		icon = GFX_goal_USA_national_guard
-		cost = 6
+		cost = 5
 		x = 54
 		y = 0
 		relative_position_id = NEE_Legitimate_America
@@ -4594,7 +5146,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Smith_and_Wessons
 		icon = MON_army_money
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Reestablish_Minutemen
 		}
@@ -4639,7 +5191,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Lowel_Munition_Factory
 		icon = GFX_goal_generic_construct_mil_factory
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Smith_and_Wessons
 		}
@@ -4679,7 +5231,7 @@ focus_tree = {
 	focus = {
 		id = NEE_long_range_patrol
 		icon = GFX_goal_NEE_the_military_coup
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Reestablish_Minutemen
 		}
@@ -4709,7 +5261,7 @@ focus_tree = {
 	focus = {
 		id = NEE_marines
 		icon = GFX_goal_USA_usmc
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_long_range_patrol
 		}
@@ -4742,7 +5294,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Urban_Combat_Training
 		icon = GFX_SIA_Urban_Warfare_NF
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_marines
 		}
@@ -4772,7 +5324,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Behind_Eneny_Lines
 		icon = GFX_goal_TEX_night_assaults
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_long_range_patrol
 		}
@@ -4802,7 +5354,7 @@ focus_tree = {
 	focus = {
 		id = NEE_defensive_in_nature
 		icon = GFX_goal_NEE_joint_coastal_defenses
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Reestablish_Minutemen
 		}
@@ -4835,7 +5387,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Enfield_Imports
 		icon = GFX_goal_OTT_arms_purchase
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_defensive_in_nature
 			focus = NEE_long_range_patrol
@@ -4867,7 +5419,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Defence_Stratagem_A
 		icon = GFX_focus_generic_provoke_border_clashes
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_defensive_in_nature
 		}
@@ -4897,7 +5449,7 @@ focus_tree = {
 	focus = {
 		id = NEE_A11_Mathilda
 		icon = GFX_goal_light_tanks
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Defence_Stratagem_A
 			focus = NEE_Behind_Eneny_Lines
@@ -4934,7 +5486,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Entrenchement_Tactics
 		icon = GFX_HUN_logistics
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_defensive_in_nature
 		}
@@ -4970,7 +5522,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Battleline_of_Freedom
 		icon = GFX_goal_fortify_the_westwall
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Reestablish_Minutemen
 		}
@@ -5012,7 +5564,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Forest_Rangers
 		icon = GFX_goal_NEE_secure_vermont
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Entrenchement_Tactics
 		}
@@ -5047,7 +5599,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Underground_Railroad
 		icon = GFX_goal_generic_seize_railway
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Behind_Eneny_Lines
 		}
@@ -5085,7 +5637,7 @@ focus_tree = {
 	focus = {
 		id = NEE_Arsenal_of_Democracy
 		icon = GFX_focus_generic_bastion_of_democracy
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = NEE_Defence_Stratagem_A
 		}
@@ -5160,7 +5712,7 @@ focus_tree = {
 			focus = NEE_old_gravel_voice
 			focus = NEE_green_policy
 		}
-		cost = 6
+		cost = 5
 		x = -7
 		y = 1
 		relative_position_id = NEE_the_future_of_new_england_army
@@ -5185,11 +5737,11 @@ focus_tree = {
 				uses = 1
 				category = cat_mobile_warfare
 			}
-			add_tech_bonus = {
-				name = COR_Spearhead_Doctrine
-				bonus = 2
-				uses = 1
-				category = cat_mobile_warfare
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_mobile_warfare
 			}
 			add_tech_bonus = {
 				name = NEE_tanks
@@ -5197,17 +5749,32 @@ focus_tree = {
 				uses = 2
 				category = armor
 			}
-			add_equipment_to_stockpile = {
-				type = light_tank_equipment
+			if = {
+				limit = {
+					NOT = { has_dlc = "No Step Back" }
+				}
+				add_equipment_to_stockpile = {
+				type = light_tank_equipment_1
 				amount = 15
 				producer = NEE
+			}
+			}
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = {
+				type = light_tank_chassis
+				amount = 15
+				producer = NEE
+			}
 			}
 		}
 	}
 	focus = {
 		id = NEE_mechanical_cavalry
 		icon = GFX_goal_NEE_mechanical_cavalry
-		cost = 6
+		cost = 5
 		x = 0
 		y = 1
 		relative_position_id = NEE_appoint_chaffee
@@ -5243,7 +5810,7 @@ focus_tree = {
 	focus = {
 		id = NEE_coordination_principal
 		icon = GFX_goal_USA_organic_air_support
-		cost = 6
+		cost = 5
 		x = 0
 		y = 2
 		relative_position_id = NEE_appoint_chaffee
@@ -5273,7 +5840,7 @@ focus_tree = {
 	focus = {
 		id = NEE_experimental_organization
 		icon = GFX_focus_generic_army_tanks2
-		cost = 6
+		cost = 5
 		x = 1
 		y = 3
 		relative_position_id = NEE_appoint_chaffee
@@ -5307,7 +5874,7 @@ focus_tree = {
 	focus = {
 		id = NEE_mobile_emphasis
 		icon = GFX_goal_generic_army_motorized
-		cost = 6
+		cost = 5
 		x = 1
 		y = 4
 		relative_position_id = NEE_appoint_chaffee
@@ -5343,7 +5910,7 @@ focus_tree = {
 	focus = {
 		id = NEE_equipment_update
 		icon = GFX_goal_generic_small_arms
-		cost = 6
+		cost = 5
 		x = -1
 		y = 3
 		relative_position_id = NEE_appoint_chaffee
@@ -5400,7 +5967,7 @@ focus_tree = {
 	focus = {
 		id = NEE_armor_production
 		icon = GFX_focus_generic_tank_production
-		cost = 6
+		cost = 5
 		x = -1
 		y = 4
 		relative_position_id = NEE_appoint_chaffee
@@ -5439,17 +6006,32 @@ focus_tree = {
 				uses = 2
 				category = armor
 			}
-			add_equipment_to_stockpile = {
-			type = light_tank_equipment
+			if = {
+				limit = {
+					NOT = { has_dlc = "No Step Back" }
+				}
+				add_equipment_to_stockpile = {
+			type = light_tank_equipment_1
 			amount = 30
 			producer = NEE
+			}
+			}
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = {
+			type = light_tank_chassis
+			amount = 30
+			producer = NEE
+			}
 			}
 		}
 	}
 	focus = {
 		id = NEE_tank_deployment
 		icon = GFX_goal_WCC_pattons_boys
-		cost = 6
+		cost = 5
 		x = 0
 		y = 5
 		relative_position_id = NEE_appoint_chaffee
@@ -5472,22 +6054,42 @@ focus_tree = {
 		complete_tooltip = {}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_Reestablish_Minutemen"
-			add_equipment_to_stockpile = {
-			type = light_tank_equipment
-			amount = 160
-			producer = NEE
+			if = {
+				limit = {
+					NOT = { has_dlc = "No Step Back" }
+				}
+				add_equipment_to_stockpile = {
+				type = light_tank_equipment_1
+				amount = 160
+				producer = NEE
+				}
+				add_equipment_to_stockpile = {
+				type = medium_tank_equipment_1
+				amount = 15
+				producer = NEE
+				}
 			}
-			add_equipment_to_stockpile = {
-			type = medium_tank_equipment
-			amount = 15
-			producer = TEX
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = {
+				type = light_tank_chassis
+				amount = 160
+				producer = NEE
+				}
+				add_equipment_to_stockpile = {
+				type = medium_tank_chassis
+				amount = 15
+				producer = NEE
+				}
 			}
 		}
 	}
 	focus = {
 		id = NEE_research_grants
 		icon = GFX_HUN_new_warfighting_technology
-		cost = 6
+		cost = 5
 		x = 1
 		y = 6
 		relative_position_id = NEE_appoint_chaffee
@@ -5507,11 +6109,11 @@ focus_tree = {
 		complete_tooltip = {}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_Reestablish_Minutemen"
-			add_tech_bonus = {
-				name = NEE_Spearhead_Doctrine
-				bonus = 2
-				uses = 2
-				category = cat_mobile_warfare
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_mobile_warfare
 			}
 			add_tech_bonus = {
 				name = mechanized_bonus
@@ -5628,11 +6230,11 @@ focus_tree = {
 				uses = 2
 				category = infantry_weapons
 			}
-			add_tech_bonus = {
-				name = NEE_grand_battleplan
-				bonus = 1
-				uses = 1
-				category = cat_grand_battle_plan
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_grand_battle_plan
 			}
 		}
 	}
@@ -5664,11 +6266,11 @@ focus_tree = {
 			add_idea = NEE_pershing_plan_idea_2
 			}
 			add_command_power = 30
-			add_tech_bonus = {
-				name = NEE_grand_battleplan
-				bonus = 1
-				uses = 1
-				category = cat_grand_battle_plan
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_grand_battle_plan
 			}
 		}
 	}
@@ -5732,11 +6334,11 @@ focus_tree = {
 			remove_idea = NEE_pershing_plan_idea_2
 			add_idea = NEE_pershing_plan_idea_3
 			}
-			add_tech_bonus = {
-				name = NEE_grand_battleplan
-				bonus = 1
-				uses = 1
-				category = cat_grand_battle_plan
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_grand_battle_plan
 			}
 		}
 	}
@@ -5770,11 +6372,11 @@ focus_tree = {
 			remove_idea = NEE_pershing_plan_idea_3
 			add_idea = NEE_pershing_plan_idea_4
 			}
-			add_tech_bonus = {
-				name = NEE_grand_battleplan
-				bonus = 2
-				uses = 2
-				category = cat_grand_battle_plan
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_grand_battle_plan
 			}
 			add_war_support = 0.05
 		}
@@ -5895,11 +6497,11 @@ focus_tree = {
 			remove_idea = NEE_westpoint_idea
 			add_idea = NEE_westpoint_idea_2
 			}
-			add_tech_bonus = {
-				name = NEE_grand_battleplan
-				bonus = 1
-				uses = 1
-				category = cat_grand_battle_plan
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_grand_battle_plan
 			}
 		}
 	}
@@ -6023,16 +6625,31 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_old_gravel_voice"
 			army_experience = 15
-			add_tech_bonus = {
-				name = NEE_firepwer_docrine
-				bonus = 1
-				uses = 1
-				category = cat_superior_firepower
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_superior_firepower
 			}
-			add_equipment_to_stockpile = {
-			type = light_tank_equipment
+			if = {
+				limit = {
+					NOT = { has_dlc = "No Step Back" }
+				}
+				add_equipment_to_stockpile = {
+			type = light_tank_equipment_1
 			amount = 5
 			producer = NEE
+			}
+			}
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = {
+			type = light_tank_chassis
+			amount = 5
+			producer = NEE
+			}
 			}
 			add_equipment_to_stockpile = {
 				type = artillery_equipment
@@ -6071,16 +6688,31 @@ focus_tree = {
 				uses = 1
 				category = motorized_equipment
 			}
-			add_tech_bonus = {
-				name = NEE_firepwer_docrine
-				bonus = 1
-				uses = 1
-				category = cat_superior_firepower
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_superior_firepower
 			}
-			add_equipment_to_stockpile = {
-			type = light_tank_equipment
+			if = {
+				limit = {
+					NOT = { has_dlc = "No Step Back" }
+				}
+				add_equipment_to_stockpile = {
+			type = light_tank_equipment_1
 			amount = 10
 			producer = NEE
+			}
+			}
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = {
+			type = light_tank_chassis
+			amount = 10
+			producer = NEE
+			}
 			}
 			add_equipment_to_stockpile = {
 				type = motorized_equipment
@@ -6115,11 +6747,11 @@ focus_tree = {
 			army_experience = 10
 			add_command_power = 20
 			add_war_support = 0.03
-			add_tech_bonus = {
-				name = NEE_firepwer_docrine
-				bonus = 2
-				uses = 1
-				category = cat_superior_firepower
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_superior_firepower
 			}
 		}
 	}
@@ -6146,11 +6778,11 @@ focus_tree = {
 		complete_tooltip = {}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_artillery_line"
-			add_tech_bonus = {
-				name = NEE_firepwer_docrine
-				bonus = 1
-				uses = 1
-				category = cat_superior_firepower
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_superior_firepower
 			}
 			add_tech_bonus = {
 				name = artillery_bonus
@@ -6298,11 +6930,11 @@ focus_tree = {
 				uses = 1
 				category = cat_anti_air
 			}
-			add_tech_bonus = {
-				name = NEE_firepwer_docrine
-				bonus = 1
-				uses = 1
-				category = cat_superior_firepower
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_superior_firepower
 			}
 		}
 	}
@@ -6471,11 +7103,11 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_consistant_conscription"
 			add_ideas = NEE_green_policy_idea
 			add_manpower = 9500
-			add_tech_bonus = {
-				name = Green_Plan
-				bonus = 1
-				uses = 1
-				category = cat_mass_assault
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_mass_assault
 			}
 		}
 	}
@@ -6539,11 +7171,11 @@ focus_tree = {
 			amount = 150
 			producer = NEE
 			}
-			add_tech_bonus = {
-				name = Green_Plan
-				bonus = 1
-				uses = 1
-				category = cat_mass_assault
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_mass_assault
 			}
 		}
 	}
@@ -6690,7 +7322,7 @@ focus_tree = {
 		focus = {# New England's Future
 		id = NEE_new_england_future
 		icon = GFX_goal_NEE_new_england_future
-		cost = 6
+		cost = 5
 		x = 100
 		y = 0
 		ai_will_do = {
@@ -6735,7 +7367,7 @@ focus_tree = {
 	focus = {# Joint Entente Exercises
 		id = NEE_joint_exercises
 		icon = GFX_goal_NEE_joint_entente_excercises
-		cost = 6
+		cost = 5
 		x = 95
 		y = 2
 		ai_will_do = {
@@ -6759,7 +7391,7 @@ focus_tree = {
 	focus = {# British Pact
 		id = NEE_british_pact
 		icon = GFX_goal_NEE_british_pact_3
-		cost = 6
+		cost = 5
 		x = -2
 		y = 1
 		relative_position_id = NEE_joint_exercises
@@ -6786,7 +7418,7 @@ focus_tree = {
 	focus = {# Joint Coastal Defenses
 		id = NEE_joint_coastal_defenses
 		icon = GFX_goal_NEE_joint_coastal_defenses
-		cost = 10
+		cost = 5
 		x = 0
 		y = 1
 		relative_position_id = NEE_joint_exercises
@@ -6901,7 +7533,7 @@ focus_tree = {
 	focus = {# Back the French
 		id = NEE_back_french
 		icon = GFX_goal_NEE_back_the_french
-		cost = 6
+		cost = 5
 		x = 2
 		y = 1
 		relative_position_id = NEE_joint_exercises
@@ -6932,7 +7564,7 @@ focus_tree = {
 	focus = {# Join ISAC
 		id = NEE_join_isac
 		icon = GFX_goal_NEE_join_ISAC
-		cost = 6
+		cost = 5
 		x = -1
 		y = 2
 		relative_position_id = NEE_joint_exercises
@@ -6979,7 +7611,7 @@ focus_tree = {
 	focus = {# Boston to Ottawa
 		id = NEE_boston_to_ottawa
 		icon = GFX_goal_NEE_boston_to_ottawa
-		cost = 6
+		cost = 5
 		x = 1
 		y = 2
 		relative_position_id = NEE_joint_exercises
@@ -7020,7 +7652,7 @@ focus_tree = {
 	focus = {# Wealth Cooperation
 		id = NEE_wealth_cooperation
 		icon = GFX_goal_NEE_wealth_cooperation
-		cost = 6
+		cost = 5
 		x = 0
 		y = 3
 		relative_position_id = NEE_joint_exercises
@@ -7049,7 +7681,7 @@ focus_tree = {
 	focus = {# Harboring Exiles
 		id = NEE_harbour_exiles
 		icon = GFX_goal_NEE_harboring_exiles
-		cost = 6
+		cost = 5
 		x = 0
 		y = 2
 		relative_position_id = NEE_new_england_future
@@ -7099,7 +7731,7 @@ focus_tree = {
 	focus = {# Boston Line
 		id = NEE_boston_line
 		icon = GFX_goal_NEE_Boston_line
-		cost = 6
+		cost = 5
 		x = 105
 		y = 2
 		ai_will_do = {
@@ -7197,7 +7829,7 @@ focus_tree = {
 	focus = {# American Infrastructure
 		id = NEE_american_infrastructure
 		icon = GFX_goal_USA_american_industry
-		cost = 6
+		cost = 5
 		x = -2
 		y = 1
 		relative_position_id = NEE_boston_line
@@ -7246,7 +7878,7 @@ focus_tree = {
 	focus = {# New English Fleet
 		id = NEE_new_english_fleet
 		icon = GFX_goal_NEE_Navy
-		cost = 6
+		cost = 5
 		x = 0
 		y = 1
 		relative_position_id = NEE_boston_line
@@ -7271,7 +7903,7 @@ focus_tree = {
 	focus = {# Cannon City
 		id = NEE_cannon_city
 		icon = GFX_goal_NEE_Cannon_City
-		cost = 6
+		cost = 5
 		x = 2
 		y = 1
 		relative_position_id = NEE_boston_line
@@ -7305,7 +7937,7 @@ focus_tree = {
 	focus = {# Local Militia
 		id = NEE_local_militia
 		icon = GFX_goal_NEE_Local_Militias
-		cost = 6
+		cost = 5
 		x = -2
 		y = 2
 		relative_position_id = NEE_boston_line
@@ -7330,7 +7962,7 @@ focus_tree = {
 	focus = {# New English Gunboat Diplomacy
 		id = NEE_new_english_gunboat_diplomacy
 		icon = GFX_goal_NEE_Gunboat_Diplomacy
-		cost = 6
+		cost = 5
 		x = 0
 		y = 2
 		relative_position_id = NEE_boston_line
@@ -7355,7 +7987,7 @@ focus_tree = {
 	focus = {# Protectionist Trade
 		id = NEE_protectionist_trade
 		icon = GFX_goal_NEE_Protectionist_Trade
-		cost = 6
+		cost = 5
 		x = 2
 		y = 2
 		relative_position_id = NEE_boston_line
@@ -7380,7 +8012,7 @@ focus_tree = {
 	focus = {# Armed Beacon
 		id = NEE_armed_beacon
 		icon = GFX_goal_NEE_Armed_Beacon
-		cost = 6
+		cost = 5
 		x = 0
 		y = 3
 		relative_position_id = NEE_boston_line
@@ -7412,7 +8044,7 @@ focus_tree = {
 	focus = {# Retake Long Island
 		id = NEE_retake_long_island
 		icon = GFX_goal_NEE_retake_Long_Island
-		cost = 6
+		cost = 5
 		x = -1
 		y = 6
 		relative_position_id = NEE_new_england_future
@@ -7439,7 +8071,7 @@ focus_tree = {
 	focus = {# Irish Relations
 		id = NEE_irish_relations
 		icon = GFX_NEE_irish_ties
-		cost = 6
+		cost = 5
 		x = 1
 		y = 6
 		relative_position_id = NEE_new_england_future
@@ -7473,7 +8105,7 @@ focus = {
 		focus = NEE_Legitimate_America
 	}
 	
-	x = -10
+	x = -15
 	y = 1
 
 	available = {
@@ -7481,6 +8113,9 @@ focus = {
 			has_country_flag = prohbs_in_power
 			has_government = radical_socialist
 		}
+		NOT ={
+				has_cosmetic_tag = NEE_LERMOND_FLAG
+			}
 	}
 
 	available_if_capitulated = yes 
@@ -7999,7 +8634,7 @@ focus = {
 	icon = GFX_goal_NEE_establish_the_kingdom_of_new_england
 	cost = 1
 	
-	x = -34
+	x = -38
 	y = 0
 	
 	available = {
@@ -8229,13 +8864,11 @@ focus = {
 		log = "[GetDateText]: [Root.GetName]: Focus NEE_into_the_shaddows"
 		add_ideas = war_economy
 		hidden_effect = {
-			create_country_leader = {
-				name = "H.P. Lovecraft"
-				desc = "POLITICS_LOVECRAFT_DESC"
-				picture = "Portrait_NEE_HP_Lovecraft_2.tga"
-				expire = "1965.1.1"
-				ideology = national_populist_subtype
-				traits = { all_seeing_all_knowing }
+			if = {	
+				limit = { has_country_leader = { name = "H.P. Lovecraft" ruling_only = yes } }
+				set_country_leader_portrait = {
+					portrait = "gfx/leaders/NEE/Portrait_NEE_HP_Lovecraft_2.png"
+				}
 			}
 		}
 	}
@@ -8327,13 +8960,11 @@ focus = {
 			limit = { has_country_leader = { ruling_only = yes name = "H.P. Lovecraft" }  }
 			add_country_leader_trait = king_in_yellow
 			hidden_effect = {
-				create_country_leader = {
-					name = "H.P. Lovecraft"
-					desc = "POLITICS_LOVECRAFT_DESC"
-					picture = "Portrait_NEE_Lovecraft_King_In_Yellow.tga"
-					expire = "1965.1.1"
-					ideology = national_populist_subtype
-					traits = { all_seeing_all_knowing king_in_yellow }
+				if = {	
+					limit = { has_country_leader = { name = "H.P. Lovecraft" ruling_only = yes } }
+					set_country_leader_portrait = {
+						portrait = "gfx/leaders/NEE/Portrait_NEE_Lovecraft_King_In_Yellow.png"
+					}
 				}
 			}
 		}
@@ -8368,7 +8999,7 @@ focus = {
 focus = {
 	id = NEE_establishdeltagreen
 	icon = GFX_goal_NEE_establish_delta_green
-	cost = 7
+	cost = 5
 	prerequisite = { focus = NEE_iamprovidence }
 	relative_position_id = NEE_iamprovidence
 	x = -5
@@ -8382,6 +9013,10 @@ focus = {
 	
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus NEE_establishdeltagreen"
+		create_intelligence_agency = {
+					name = "Delta Green"
+					icon = agency_logo_KX_new_england
+				}
 		add_ideas = NEE_delta_green
 	}
 }
@@ -8405,6 +9040,28 @@ focus = {
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus NEE_WASP_supremacy"
 		add_ideas = NEE_madness_idea
+		hidden_effect = {
+			country_event = {
+				id = newengland.227
+				days = 100
+			}
+			country_event = {
+				id = lovecraftflavor.14
+				days = 150
+			}
+			country_event = {
+				id = lovecraftflavor.15
+				days = 175
+			}
+			country_event = {
+				id = lovecraftflavor.16
+				days = 200
+			}
+			country_event = {
+				id = lovecraftflavor.23
+				days = 250
+			}
+		}
 	}
 }
 
@@ -8412,7 +9069,7 @@ focus = {
 focus = {
 	id = NEE_cult_of_providence
 	icon = GFX_GFX_NEE_lovecrafts_society
-	cost = 7
+	cost = 5
 	prerequisite = { focus = NEE_establishdeltagreen }
 	relative_position_id = NEE_iamprovidence
 	x = -5
@@ -8439,7 +9096,7 @@ focus = {
 focus = {
 	id = NEE_political_machine
 	icon = GFX_NEE_politicalmachine
-	cost = 7
+	cost = 5
 	prerequisite = { focus = NEE_iamprovidence }
 	relative_position_id = NEE_iamprovidence
 	x = 5
@@ -8460,7 +9117,7 @@ focus = {
 focus = {
 	id = NEE_eldritch_signs
 	icon = GFX_NEE_eldrich_signs
-	cost = 7
+	cost = 5
 	prerequisite = { focus = NEE_political_machine }
 	relative_position_id = NEE_iamprovidence
 	x = 5
@@ -8649,11 +9306,11 @@ focus = {
 				instant_build = yes
 			}
 		}
-		add_tech_bonus = {
-			name = NEE_naval_doctrine_bonus
-			bonus = 1
-			uses = 3
-			category = naval_doctrine
+		add_doctrine_cost_reduction = {
+				name = naval_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = naval_doctrine
 		}
 		add_tech_bonus = {
 			name = NEE_submarine_research
@@ -8964,17 +9621,11 @@ focus = {
 	
 	ai_will_do = {
 		factor = 1
-		 modifier = {
-            factor = 100
-			OR = {
-				has_game_rule = {
-					rule = NEE_start_path
-					option = NEE_WASHINGTON_MONARCHY
-				}
-				has_game_rule = {
-					rule = NEE_start_path
-					option = NEE_MILITARY_COUP
-				}
+		modifier = {
+            factor = 0
+			has_game_rule = {
+				rule = NEE_start_path
+				option = NEE_CAN_MONARCHY
 			}
         }
 	}
@@ -9234,7 +9885,10 @@ focus = {
 	id = NEE_reclaim_america
 	icon = GFX_NEE_washington_reclaim_america
 	cost = 5
-	prerequisite = { focus = NEE_washingtons_will }
+	prerequisite = { 
+		focus = NEE_washingtons_will 
+		focus = NEE_formal_nobility
+	}
 	prerequisite = { focus = NEE_monarchist_revival }
 	relative_position_id = NEE_true_heirs
 	x = -1
@@ -9378,9 +10032,6 @@ focus = {
 	id = NEE_the_kingdom_of_america
 	icon = GFX_goal_NEE_the_kingdom_of_america
 	cost = 5
-	mutually_exclusive = {
-		focus = NEE_48_colonies
-	}
 	prerequisite = { 
 		focus = NEE_reintergrate_america 
 		focus = NEE_reclaim_america 
@@ -10025,6 +10676,27 @@ focus = {
 		
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_WASHINGTON_MONARCHY
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_KENNEDY_MONARCHY
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_ASTOR_MONARCHY
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_MILITARY_COUP
+					}
+				}
+			}
 		}
 		
 		completion_reward = {
@@ -10058,10 +10730,8 @@ focus = {
 			add_popularity = { ideology = paternal_autocrat popularity = 0.15 }
 			add_stability = 0.05
 			hidden_effect = {
-				country_event = {
-					id = newengland.300 days = 1
-					###Canadian Control
-				}
+				country_event = newengland.1060
+				
 			}
 		}
 	}
@@ -10251,7 +10921,7 @@ focus = {
 	focus = {
 		id = NEE_imperial_integration
 		icon = GFX_focus_chi_british_cooperation
-		cost = 8
+		cost = 5
 		prerequisite = { focus = NEE_the_new_normal }
 		relative_position_id = NEE_the_new_normal
 		x = 0
@@ -10418,9 +11088,7 @@ focus = {
 		id = NEE_48_colonies
 		icon = GFX_goal_NEE_the_48_colonies
 		cost = 5
-		mutually_exclusive = {
-			focus = NEE_the_kingdom_of_america
-		}
+	
 		prerequisite = { focus = NEE_REVENGE }
 		prerequisite = { focus = NEE_prepare_to_move_south }
 		available = {
@@ -10516,7 +11184,7 @@ focus = {
 	focus = {
 		id = NEE_the_american_question
 		icon = GFX_goal_flag_new_england
-		cost = 10
+		cost = 5
 		prerequisite = { focus = NEE_prepare_to_move_south }
 		prerequisite = { focus = NEE_boston_royal_marine_academy }
 		available = {
@@ -10777,7 +11445,7 @@ focus = {
 	focus = {
 		id = NEE_anewengland
 		icon = GFX_anewengland
-		cost = 7
+		cost = 5
 		prerequisite = { focus = NEE_award_royal_titles }
 		prerequisite = { focus = NEE_a_new_vision_on_history }
 		relative_position_id = NEE_crown_edward
@@ -10980,7 +11648,7 @@ focus = {
 	focus = {
 		id = NEE_the_prodigal_son
 		icon = GFX_NEE_prodigal_son
-		cost = 8
+		cost = 5
 		prerequisite = { focus = NEE_boston_royal_marine_academy }
 		prerequisite = { focus = NEE_award_royal_titles }
 		prerequisite = { focus = NEE_a_new_vision_on_history }
@@ -11003,3 +11671,741 @@ focus = {
 		add_popularity = { ideology = paternal_autocrat popularity = 0.15 }	
 		}
 	}
+	
+	#Lovecraft Sucessors
+	
+	focus = {
+		id = NEE_derleth_power
+		icon = GFX_goal_NEE_Derleth
+		cost = 5
+		relative_position_id = NEE_nation_of_madness
+		x = -4
+		y = 2
+		
+		available = {
+			has_country_flag = NEE_derleth
+		}
+		
+		bypass = {
+			has_country_flag = NEE_derleth
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = unlock_focuses
+			add_political_power = 15
+		}
+	}
+	
+	focus = {
+		id = NEE_lovecraft_heir
+		icon = GFX_goal_NEE_Heir
+		cost = 5
+		relative_position_id = NEE_derleth_power
+		prerequisite = { focus = NEE_derleth_power  }
+		x = 0
+		y = 1
+
+		completion_reward = {
+			country_event = {
+			id = lovecraftflavor.10
+			}
+			add_stability = 0.15
+			add_popularity = { ideology = national_populist popularity = 0.05 }
+			hidden_effect = {
+				if = {	
+					limit = { has_country_leader = { name = "August Derleth" ruling_only = yes } }
+					set_country_leader_portrait = {
+						portrait = "gfx/leaders/NEE/Portrait_NEE_King_August_Derleth.png"
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_cristian_moral
+		icon = GFX_SRI_fascist_christ
+		cost = 5
+		relative_position_id = NEE_derleth_power
+		prerequisite = { focus = NEE_lovecraft_heir  }
+		x = 0
+		y = 2
+
+		completion_reward = {
+			add_ideas = NEE_christian_moral
+		}
+	}
+	
+	focus = {
+		id = NEE_cosmic_horror
+		icon = GFX_goal_NEE_cosmic_horror
+		cost = 5
+		relative_position_id = NEE_derleth_power
+		prerequisite = { focus = NEE_cristian_moral  }
+		x = 0
+		y = 3
+
+		completion_reward = {
+			country_event = {
+			id = lovecraftflavor.2
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_developp_myth
+		icon = GFX_NEE_politicalmachine
+		cost = 5
+		relative_position_id = NEE_derleth_power
+		prerequisite = { focus = NEE_derleth_power  }
+		x = -2
+		y = 1
+
+		completion_reward = {
+			add_political_power = 30
+			country_event = {
+			id = lovecraftflavor.3
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_sell_lovecraft_books
+		icon = GFX_goal_NEE_Make_his_work
+		cost = 5
+		relative_position_id = NEE_derleth_power
+		prerequisite = { focus = NEE_developp_myth  }
+		x = -2
+		y = 2
+
+		completion_reward = {
+			add_ideas = NEE_lovecraft_book
+			country_event = {
+			id = lovecraftflavor.1
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_long_power
+		icon = GFX_goal_NEE_Long
+		cost = 5
+		relative_position_id = NEE_nation_of_madness
+		x = 0
+		y = 2
+		
+		available = {
+			has_country_flag = NEE_long
+		}
+		
+		bypass = {
+			has_country_flag = NEE_long
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = unlock_focuses
+			add_political_power = 15
+		}
+	}
+	
+	focus = {
+		id = NEE_lovecraft_sucessor
+		icon = GFX_goal_NEE_Successor
+		cost = 5
+		relative_position_id = NEE_long_power
+		prerequisite = { focus = NEE_long_power  }
+		x = 0
+		y = 1
+
+		completion_reward = {
+			country_event = {
+			id = lovecraftflavor.11
+			}
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_sci_fi
+		icon = GFX_goal_NEE_sci_fi_lovecraft
+		cost = 5
+		relative_position_id = NEE_long_power
+		prerequisite = { focus = NEE_lovecraft_sucessor  }
+		x = 0
+		y = 2
+
+		completion_reward = {
+			add_ideas = NEE_sci_fi_idea
+			country_event = {
+			id = lovecraftflavor.6
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_lovecraftism
+		icon = GFX_GFX_NEE_lovecrafts_society
+		cost = 5
+		relative_position_id = NEE_long_power
+		prerequisite = { focus = NEE_sci_fi  }
+		x = 0
+		y = 3
+
+		completion_reward = {
+			add_ideas = NEE_lovecraftism_idea
+			country_event = {
+			id = lovecraftflavor.4
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_true_ideology
+		icon = GFX_NEE_triumph_ofthe_providence_club
+		cost = 5
+		relative_position_id = NEE_lovecraftism
+		prerequisite = { focus = NEE_lovecraftism  }
+		x = -1
+		y = 1
+
+		completion_reward = {
+			country_event = {
+			id = lovecraftflavor.13
+			}
+			add_stability = 0.05
+			add_popularity = { ideology = national_populist popularity = 0.10 }
+		}
+	}
+	
+	focus = {
+		id = NEE_school_of_thought
+		icon = GFX_quota_adjustments
+		cost = 5
+		relative_position_id = NEE_lovecraftism
+		prerequisite = { focus = NEE_lovecraftism  }
+		x = 1
+		y = 1
+
+		completion_reward = {
+			add_stability = 0.10
+			country_event = {
+			id = lovecraftflavor.5
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_whitehead_power
+		icon = GFX_goal_NEE_Whitehead
+		cost = 5
+		relative_position_id = NEE_nation_of_madness
+		x = 4
+		y = 2
+		
+		available = {
+			has_country_flag = NEE_whitehead
+		}
+		
+		bypass = {
+			has_country_flag = NEE_whitehead
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = unlock_focuses
+			add_political_power = 15
+		}
+	}
+	
+	focus = {
+		id = NEE_lovecraft_disciple
+		icon = GFX_goal_NEE_Disciple
+		cost = 5
+		relative_position_id = NEE_whitehead_power
+		prerequisite = { focus = NEE_whitehead_power  }
+		x = 0
+		y = 1
+
+		completion_reward = {
+			hidden_effect = {
+				if = {	
+					limit = { has_country_leader = { name = "Henry S. Whitehead" ruling_only = yes } }
+					set_country_leader_portrait = {
+						portrait = "gfx/leaders/NEE/Portrait_NEE_Henry_Culthead.png"
+					}
+				}
+			}
+			country_event = {
+			id = lovecraftflavor.12
+			}
+			add_political_power = 100
+			add_stability = -0.10
+		}
+	}
+	
+	focus = {
+		id = NEE_reconcile_christian
+		icon = GFX_NEE_court_catholics
+		cost = 5
+		relative_position_id = NEE_whitehead_power
+		prerequisite = { focus = NEE_lovecraft_disciple  }
+		x = 0
+		y = 2
+
+		completion_reward = {
+			country_event = {
+			id = lovecraftflavor.17
+			}
+			add_stability = 0.10
+			add_political_power = -50
+		}
+	}
+	
+	focus = {
+		id = NEE_study_supernatural
+		icon = GFX_goal_NEE_supernatural
+		cost = 5
+		relative_position_id = NEE_whitehead_power
+		prerequisite = { focus = NEE_reconcile_christian  }
+		x = 0
+		y = 3
+
+		completion_reward = {
+			add_ideas = NEE_supernatural_science
+			add_war_support = -0.10
+			add_tech_bonus = {
+				name = infantry_weapons_bonus
+				bonus = 0.5
+				uses = 2
+				category = infantry_weapons
+			}
+			country_event = {
+			id = lovecraftflavor.9
+			}
+			hidden_effect = {
+				country_event = {
+				id = lovecraftflavor.18
+				days = 5
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_lovecraftian_church
+		icon = GFX_goal_NEE_lovecraft_church
+		cost = 5
+		relative_position_id = NEE_whitehead_power
+		prerequisite = { focus = NEE_whitehead_power  }
+		x = 2
+		y = 1
+
+		completion_reward = {
+			add_ideas = NEE_lovecraft_church
+			add_popularity = { ideology = national_populist popularity = -0.10 }
+			country_event = {
+			id = lovecraftflavor.7
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_prophet_of_God
+		icon = GFX_goal_NEE_lovecraft_prophet
+		cost = 5
+		relative_position_id = NEE_whitehead_power
+		prerequisite = { focus = NEE_lovecraftian_church }
+		x = 2
+		y = 2
+
+		completion_reward = {
+			add_popularity = { ideology = national_populist popularity = -0.05 }
+			country_event = {
+			id = lovecraftflavor.8
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_racial_laws_question
+		icon = GFX_NEE_racial_catalogues
+		cost = 5
+		relative_position_id = NEE_nation_of_madness
+		prerequisite = { focus = NEE_whitehead_power focus = NEE_derleth_power focus = NEE_long_power }
+		x = -2
+		y = 3
+
+		completion_reward = {
+			add_political_power = 15
+			country_event = {
+			id = newengland.229
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_honor_providence
+		icon = GFX_NEE_nation_of_madness
+		cost = 5
+		relative_position_id = NEE_nation_of_madness
+		prerequisite = { focus = NEE_whitehead_power focus = NEE_derleth_power focus = NEE_long_power }
+		x = 2
+		y = 3
+
+		completion_reward = {
+			add_political_power = 15
+			country_event = {
+			id = newengland.228
+			}
+		}
+	}
+	
+	#Lovecraft Foreign Policy
+	
+	focus = {
+		id = NEE_providence_call
+		icon = GFX_goal_NEE_providence_calling
+		cost = 5
+		relative_position_id = NEE_nation_of_madness
+		available = {
+			has_government = national_populist
+			has_country_flag = NEE_lovecraftians_win
+			has_completed_focus = NEE_into_the_shaddows
+		}
+		mutually_exclusive = {
+			focus = NEE_our_anglo_brother
+		}
+		x = 12
+		y = 2
+
+		completion_reward = {
+			add_ideas = NEE_providence_fp
+			CAN = {
+			set_autonomy = {
+				target = NEE
+				autonomy_state = autonomy_free
+				}
+			}
+			leave_faction = yes
+		}
+	}
+	
+	focus = {
+		id = NEE_frozen_kingdom
+		icon = GFX_goal_NEE_frozen_kingdom
+		cost = 5
+		relative_position_id = NEE_providence_call
+		available = {
+			has_government = national_populist
+			has_war = no
+			is_subject = no
+		}
+		prerequisite = { focus = NEE_providence_call }
+		x = 0
+		y = 1
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = CAN
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = USA
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = CSA
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = COR
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = TEX
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = WCC
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = TXS
+			}
+			every_state = {
+            limit = {
+               is_owned_by = CAN
+            }
+            add_claim_by = NEE
+			}
+			every_state = {
+            limit = {
+               is_owned_by = USA
+            }
+            add_claim_by = NEE
+			}
+			every_state = {
+            limit = {
+               is_owned_by = COR
+            }
+            add_claim_by = NEE
+			}
+			every_state = {
+            limit = {
+               is_owned_by = TEX
+            }
+            add_claim_by = NEE
+			}
+			every_state = {
+            limit = {
+               is_owned_by = CSA
+            }
+            add_claim_by = NEE
+			}
+			every_state = {
+            limit = {
+               is_owned_by = WCC
+            }
+            add_claim_by = NEE
+			}
+			every_state = {
+            limit = {
+               is_owned_by = CAL
+            }
+            add_claim_by = NEE
+			}
+			every_state = {
+            limit = {
+               is_owned_by = TXS
+            }
+            add_claim_by = NEE
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_sarnath_doom
+		icon = GFX_goal_NEE_Darlath
+		cost = 5
+		relative_position_id = NEE_frozen_kingdom
+		available = {
+			has_government = national_populist
+			has_war = no
+			is_subject = no
+		}
+		prerequisite = { focus = NEE_frozen_kingdom }
+		x = -1
+		y = 2
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = DEH
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = BHC
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = PRF
+			}
+			every_state = {
+            limit = {
+               is_owned_by = DEH
+            }
+            add_claim_by = NEE
+			}
+			every_state = {
+            limit = {
+               is_owned_by = BHC
+            }
+            add_claim_by = NEE
+			}
+			every_state = {
+            limit = {
+               is_owned_by = PRF
+            }
+            add_claim_by = NEE
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_rlyeh
+		icon = GFX_goal_NEE_Rlyeh
+		cost = 5
+		relative_position_id = NEE_frozen_kingdom
+		available = {
+			has_government = national_populist
+			has_war = no
+			is_subject = no
+		}
+		prerequisite = { focus = NEE_frozen_kingdom }
+		x = 1
+		y = 2
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = AST
+			}
+			every_state = {
+            limit = {
+               is_owned_by = AST
+            }
+            add_claim_by = NEE
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_land_winged_death
+		icon = GFX_goal_NEE_winged_death
+		cost = 5
+		relative_position_id = NEE_frozen_kingdom
+		available = {
+			has_government = national_populist
+			has_war = no
+			is_subject = no
+		}
+		prerequisite = { focus = NEE_frozen_kingdom }
+		x = 2
+		y = 1
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = SAF
+			}
+			every_state = {
+            limit = {
+               is_owned_by = SAF
+            }
+            add_claim_by = NEE
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_portsmouth
+		icon = GFX_goal_NEE_Portsmouth
+		cost = 5
+		relative_position_id = NEE_frozen_kingdom
+		available = {
+			has_government = national_populist
+			has_war = no
+			is_subject = no
+		}
+		prerequisite = { focus = NEE_frozen_kingdom }
+		x = -2
+		y = 1
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = ENG
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = IRE
+			}
+			every_state = {
+            limit = {
+               is_owned_by = ENG
+            }
+            add_claim_by = NEE
+			}
+			every_state = {
+            limit = {
+               is_owned_by = IRE
+            }
+            add_claim_by = NEE
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_lovecraft_imperium
+		icon = GFX_goal_NEE_Lovecraft_Empire
+		cost = 5
+		relative_position_id = NEE_frozen_kingdom
+		available = {
+			owns_state = 361
+			owns_state = 739
+			owns_state = 1176
+			owns_state = 126
+			owns_state = 439
+			owns_state = 285
+			has_government = national_populist
+			has_war = no
+			is_subject = no
+		}
+		prerequisite = { focus = NEE_frozen_kingdom }
+		x = 0
+		y = 3
+
+		completion_reward = {
+			country_event = {
+			id = lovecraftflavor.20
+			}
+			set_cosmetic_tag = NEE_lovecraft_empire
+			add_political_power = 125
+			every_state = {
+            limit = {
+               is_owned_by = NEE
+            }
+            add_core_of  = NEE
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_our_anglo_brother
+		icon = GFX_NEE_reorientation
+		cost = 5
+		relative_position_id = NEE_providence_call
+		available = {
+			has_government = national_populist
+			has_country_flag = NEE_lovecraftians_win
+			is_in_faction_with = CAN
+			has_completed_focus = NEE_into_the_shaddows
+		}
+		mutually_exclusive = {
+			focus = NEE_providence_call
+		}
+		x = 4
+		y = 0
+
+		completion_reward = {
+			add_stability = 0.10
+			add_political_power = 50
+		}
+	}
+	
+	focus = {
+		id = NEE_fruits_of_cooperation
+		icon = GFX_focus_chi_british_cooperation
+		cost = 5
+		relative_position_id = NEE_our_anglo_brother
+		available = {
+			has_government = national_populist
+			is_in_faction_with = CAN
+			has_completed_focus = NEE_claim_greater_new_england
+		}
+		prerequisite = { focus = NEE_our_anglo_brother }
+		x = 0
+		y = 1
+
+		completion_reward = {
+			country_event = {
+			id = lovecraftflavor.21
+			}
+			transfer_state = 464
+			transfer_state = 465
+			add_ideas = NEE_anglo_fp
+		}
+	}
+	
+}	

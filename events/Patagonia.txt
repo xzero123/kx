@@ -8,6 +8,7 @@ add_namespace = fop
 add_namespace = fopcoup
 add_namespace = fopintro
 add_namespace = fopking
+add_namespace = fopfor
 add_namespace = fopfonte
 
 country_event = {
@@ -371,7 +372,7 @@ country_event = { # we got Hannaford out alive!
 		add_war_support = 0.05
 		create_corps_commander = {
 			name = "Guillermo Mac Hannaford"
-			picture = "Portrait_FOP_Guillermo_Mac_Hannaford.tga"
+			portrait_path = "gfx/leaders/FOP/Portrait_FOP_Guillermo_Mac_Hannaford.png"
 			traits = {
 				career_officer
 				trait_engineer
@@ -479,7 +480,7 @@ country_event = { # he accepted the bribe
 		name = fop.11.a
 		create_corps_commander = {
 			name = "Guillermo Mac Hannaford"
-			picture = "Portrait_FOP_Guillermo_Mac_Hannaford.tga"
+			portrait_path = "gfx/leaders/FOP/Portrait_FOP_Guillermo_Mac_Hannaford.png"
 			traits = {
 				career_officer
 				trait_engineer
@@ -693,7 +694,37 @@ country_event = { # does thou want to join the FOP faction
 
 country_event = { # proclaim ourselves new argentina
 	id = fop.24
-	immediate = {log = "[GetDateText]: [Root.GetName]: event fop.24"
+	immediate = {log = "[GetDateText]: [Root.GetName]: event fop.24"}
+	title = fop.24.t
+	desc = fop.24.d
+	picture = GFX_report_event_communists_cheer
+
+	fire_only_once = yes
+
+	trigger = {
+		278 = {
+			is_owned_and_controlled_by = FOP
+		}
+	}
+
+	option = { # yaaaas
+		name = fop.24.a
+		trigger = {
+			NOT = {
+				has_government = national_populist
+			}
+		}
+		set_capital = { state = 278 }
+		add_political_power = 250
+		add_stability = -0.25
+		hidden_effect = {
+			add_offsite_building = { type = dockyard level = -1 }
+			add_ideas = {
+				FOP_economic_fallout_revolution1
+				FOP_anti_syndie_rebels_idea1
+				FOP_integrating_the_north1
+			}
+		}
 		hidden_effect = {
 			remove_ideas = {
 				FOP_construction_planning_idea
@@ -712,32 +743,6 @@ country_event = { # proclaim ourselves new argentina
 				FOP_training_idea
 				FOP_defence_force_idea
 				FOP_patagonian_resourcefulness
-			}
-		}
-	}
-	title = fop.24.t
-	desc = fop.24.d
-	picture = GFX_report_event_communists_cheer
-
-	fire_only_once = yes
-
-	trigger = {
-		278 = {
-			is_owned_and_controlled_by = FOP
-		}
-	}
-
-	option = { # yaaaas
-		name = fop.24.a
-		set_capital = 278
-		add_political_power = 250
-		add_stability = -0.25
-		hidden_effect = {
-			add_offsite_building = { type = dockyard level = -1 }
-			add_ideas = {
-				FOP_economic_fallout_revolution1
-				FOP_anti_syndie_rebels_idea1
-				FOP_integrating_the_north1
 			}
 		}
 		add_popularity = {
@@ -772,6 +777,33 @@ country_event = { # proclaim ourselves new argentina
 			id = fop.200
 			days = 15
 		}
+	}
+	option = { # yaaaas
+		name = fop.24.b
+		trigger = {
+			has_government = national_populist
+		}
+		1028 = {
+			remove_core_of = ARG
+		}
+		1029 = {
+			remove_core_of = ARG
+		}
+		512 = {
+			remove_core_of = ARG
+		}
+		every_owned_state = {
+			limit = {
+				is_core_of = ARG
+			}
+			ARG = {
+				transfer_state = PREV
+			}
+		}
+		FOP = {
+			puppet = ARG
+		}
+		set_country_flag = FOP_CAN_DEAL
 	}
 }
 
@@ -1933,10 +1965,10 @@ country_event = { #9th FORA Congress Trade Union
 		}
 		create_country_leader = {
 			name = "Alfredo Palacios"
-			picture = "gfx/leaders/FOP/Portrait_FOP_Alfredo_Palacios.tga"
+			picture = "gfx/leaders/FOP/Portrait_FOP_Alfredo_Palacios.png"
 			desc = "POLITICS_ALFREDO_PALACIOS_DESC"
 			expire = "1965.1.1"
-			ideology = radical_socialist_subtype
+			ideology = moderate_socialist_subtype
 		}
 	}
 	option = {
@@ -2729,10 +2761,10 @@ country_event = { #TUC USA victory
 				clr_country_flag = FOP_Di_Giovanni_leads
 				create_country_leader = {
 					name = "Severino di Giovanni"
-					picture = "gfx/leaders/FOP/Portrait_FOP_Severino_di_Giovanni.tga"
+					picture = "gfx/leaders/FOP/Portrait_FOP_Severino_di_Giovanni.png"
 					desc = "POLITICS_SEVERINO_DI_GIOVANNI_DESC"
 					expire = "1965.1.1"
-					ideology = syndicalist_subtype
+					ideology = anarcho_syndicalist_subtype
 				}
 				remove_all_ministers = yes
 				add_ideas = {
@@ -3271,7 +3303,7 @@ country_event = {#Negotiations with the GOU
 			create_corps_commander = {
 				name = "Bernardo Alberte"
 				desc = "ARG_Bernardo_Alberte_desc"
-				portrait_path = "gfx/leaders/ARG/Portrait_ARG_Alberte.tga"
+				portrait_path = "gfx/leaders/ARG/Portrait_ARG_Alberte.png"
 				traits = {
 					infantry_officer
 					politically_connected
@@ -3308,7 +3340,7 @@ country_event = {#Negotiations with the GOU
 			create_corps_commander = {
 				name = "Bernardo Alberte"
 				desc = "ARG_Bernardo_Alberte_desc"
-				portrait_path = "gfx/leaders/ARG/Portrait_ARG_Alberte.tga"
+				portrait_path = "gfx/leaders/ARG/Portrait_ARG_Alberte.png"
 				traits = {
 					infantry_officer
 					politically_connected
@@ -3627,9 +3659,9 @@ country_event = {#First Socialist Party Elections
 		create_country_leader = {
 			name = "Alicia Moreau de Justo"
 			desc = "POLITICS_ALICIA_JUSTO_DESC"
-			picture = "gfx/leaders/ARG/Portrait_Argentine_Alicia_Justo.tga"
+			picture = "gfx/leaders/ARG/Portrait_Argentine_Alicia_Justo.png"
 			expire = "1965.1.1"
-			ideology = radical_socialist_subtype
+			ideology = moderate_socialist_subtype
 			female = yes
 		}
 	}
@@ -3643,9 +3675,9 @@ country_event = {#First Socialist Party Elections
 		create_country_leader = {
 			name = "Nicolas Repetto"
 			desc = "POLITICS_NICOLAS_REPETTO_DESC"
-			picture = "gfx/leaders/ARG/Portrait_Argentine_Nicolas_Repetto.tga"
+			picture = "gfx/leaders/ARG/Portrait_Argentine_Nicolas_Repetto.png"
 			expire = "1965.1.1"
-			ideology = radical_socialist_subtype
+			ideology = moderate_socialist_subtype
 		}
 	}
 }
@@ -3677,10 +3709,10 @@ country_event = {#Second Socialist Party Elections
 			}
 			create_country_leader = {
 				name = "Alfredo Palacios"
-				picture = "gfx/leaders/FOP/Portrait_FOP_Alfredo_Palacios.tga"
+				picture = "gfx/leaders/FOP/Portrait_FOP_Alfredo_Palacios.png"
 				desc = "POLITICS_ALFREDO_PALACIOS_DESC"
 				expire = "1965.1.1"
-				ideology = radical_socialist_subtype
+				ideology = moderate_socialist_subtype
 			}
 		}
 	}
@@ -3703,9 +3735,9 @@ country_event = {#Second Socialist Party Elections
 			create_country_leader = {
 				name = "Alicia Moreau de Justo"
 				desc = "POLITICS_ALICIA_JUSTO_DESC"
-				picture = "gfx/leaders/ARG/Portrait_Argentine_Alicia_Justo.tga"
+				picture = "gfx/leaders/ARG/Portrait_Argentine_Alicia_Justo.png"
 				expire = "1965.1.1"
-				ideology = radical_socialist_subtype
+				ideology = moderate_socialist_subtype
 				female = yes
 			}
 		}
@@ -3730,9 +3762,9 @@ country_event = {#Second Socialist Party Elections
 			create_country_leader = {
 				name = "Nicolas Repetto"
 				desc = "POLITICS_NICOLAS_REPETTO_DESC"
-				picture = "gfx/leaders/ARG/Portrait_Argentine_Nicolas_Repetto.tga"
+				picture = "gfx/leaders/ARG/Portrait_Argentine_Nicolas_Repetto.png"
 				expire = "1965.1.1"
-				ideology = radical_socialist_subtype
+				ideology = moderate_socialist_subtype
 			}
 		}
 	}
@@ -3757,10 +3789,10 @@ country_event = {#Aftermath of the Andesia Collapse
 		}
 		create_country_leader = {
 			name = "Rodolfo Ghioldi"
-			picture = "Portrait_FOP_Rodolfo_Ghioldi.tga"
+			picture = "gfx/leaders/FOP/Portrait_FOP_Rodolfo_Ghioldi.png"
 			desc = "POLITICS_RODOLFO_GHIOLDI_DESC"
 			expire = "1965.1.1"
-			ideology = totalist_subtype
+			ideology = authcom_subtype
 		}
 		add_stability = 0.10
 	}
@@ -3801,7 +3833,7 @@ country_event = {#First Socialist Republic Elections
 		}
 		create_country_leader = {
 			name = "Elpidio Gonzalez"
-			picture = "gfx/leaders/ARG/Portrait_ARG_Elpidio_Gonzales.tga"
+			picture = "gfx/leaders/ARG/Portrait_ARG_Elpidio_Gonzales.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}
@@ -3821,7 +3853,7 @@ country_event = {#First Socialist Republic Elections
 		create_country_leader = {
 			name = "Robustiano Patrón Costas"
 			desc = "POLITICS_ROBUSTIANO_COSTAS_DESC"
-			picture = "gfx/leaders/ARG/Portrait_Argentine_Robustiano_Costas.tga"
+			picture = "gfx/leaders/ARG/Portrait_Argentine_Robustiano_Costas.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 		}
@@ -3852,9 +3884,9 @@ country_event = {#Second Socialist Republic Elections
 			create_country_leader = {
 				name = "Alicia Moreau de Justo"
 				desc = "POLITICS_ALICIA_JUSTO_DESC"
-				picture = "gfx/leaders/ARG/Portrait_Argentine_Alicia_Justo.tga"
+				picture = "gfx/leaders/ARG/Portrait_Argentine_Alicia_Justo.png"
 				expire = "1965.1.1"
-				ideology = radical_socialist_subtype
+				ideology = moderate_socialist_subtype
 				female = yes
 			}
 			clr_country_flag = FOP_SOC_Justo_elected
@@ -3866,9 +3898,9 @@ country_event = {#Second Socialist Republic Elections
 			create_country_leader = {
 				name = "Nicolas Repetto"
 				desc = "POLITICS_NICOLAS_REPETTO_DESC"
-				picture = "gfx/leaders/ARG/Portrait_Argentine_Nicolas_Repetto.tga"
+				picture = "gfx/leaders/ARG/Portrait_Argentine_Nicolas_Repetto.png"
 				expire = "1965.1.1"
-				ideology = radical_socialist_subtype
+				ideology = moderate_socialist_subtype
 			}
 			clr_country_flag = FOP_SOC_Repetto_elected
 		}
@@ -3886,7 +3918,7 @@ country_event = {#Second Socialist Republic Elections
 		create_country_leader = {
 			name = "Arturo Frondizi"
 			desc = "POLITICS_ARTURO_FRONDIZI_DESC"
-			picture = "gfx/leaders/ARG/Portrait_ARG_Frondizi.tga"
+			picture = "gfx/leaders/ARG/Portrait_ARG_Frondizi.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}
@@ -3905,7 +3937,7 @@ country_event = {#Second Socialist Republic Elections
 		create_country_leader = {
 			name = "Ricardo Balbin"
 			desc = "POLITICS_RICARDO_BALBIN_DESC"
-			picture = "gfx/leaders/ARG/Portrait_ARG_Ricardo_Balbin.tga"
+			picture = "gfx/leaders/ARG/Portrait_ARG_Ricardo_Balbin.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 		}
@@ -4344,7 +4376,10 @@ country_event = { #Power secured
 		hidden_effect = {
 			if = {
 				limit = { has_government = totalist }
-				remove_unit_leader = 1954
+				random_unit_leader = {
+					limit = { has_id = 1954 }			
+					remove_unit_leader = yes
+				}
 			}
 			country_event = {
 				id = fopcoup.42
@@ -4366,10 +4401,10 @@ country_event = { #Power secured
 		set_country_flag = FOP_power_secured
 		create_country_leader = {
 			name = "Liborio Justo"
-			picture = "gfx/leaders/FOP/Portrait_FOP_Liborio_Justo.tga"
+			picture = "gfx/leaders/FOP/Portrait_FOP_Liborio_Justo.png"
 			desc = "POLITICS_LIBORIO_JUSTO_DESC"
 			expire = "1965.1.1"
-			ideology = totalist_subtype
+			ideology = authcom_subtype
 		}
 		hidden_effect = {
 			country_event = {
@@ -4383,25 +4418,37 @@ country_event = { #Power secured
 			limit = {
 				has_unit_leader = 7006
 			}
-			remove_unit_leader = 7006
+			random_unit_leader = {
+				limit = { has_id = 7006 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7005
 			}
-			remove_unit_leader = 7005
+			random_unit_leader = {
+				limit = { has_id = 7005 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7000
 			}
-			remove_unit_leader = 7000
+			random_unit_leader = {
+				limit = { has_id = 7000 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7008
 			}
-			remove_unit_leader = 7008
+			random_unit_leader = {
+				limit = { has_id = 7008 }			
+				remove_unit_leader = yes
+			}
 		}
 	}
 	option = {#Radical Anarchists Win
@@ -4420,31 +4467,46 @@ country_event = { #Power secured
 			limit = {
 				has_unit_leader = 7001
 			}
-			remove_unit_leader = 7001
+			random_unit_leader = {
+				limit = { has_id = 7001 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7002
 			}
-			remove_unit_leader = 7002
+			random_unit_leader = {
+				limit = { has_id = 7002 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7004
 			}
-			remove_unit_leader = 7004
+			random_unit_leader = {
+				limit = { has_id = 7004 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7005
 			}
-			remove_unit_leader = 7005
+			random_unit_leader = {
+				limit = { has_id = 7005 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7007
 			}
-			remove_unit_leader = 7007
+			random_unit_leader = {
+				limit = { has_id = 7007 }			
+				remove_unit_leader = yes
+			}
 		}
 		remove_all_ministers = yes
 		add_ideas = {
@@ -4470,19 +4532,28 @@ country_event = { #Power secured
 			limit = {
 				has_unit_leader = 7006
 			}
-			remove_unit_leader = 7006
+			random_unit_leader = {
+				limit = { has_id = 7006 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7000
 			}
-			remove_unit_leader = 7000
+			random_unit_leader = {
+				limit = { has_id = 7000 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7008
 			}
-			remove_unit_leader = 7008
+			random_unit_leader = {
+				limit = { has_id = 7008 }			
+				remove_unit_leader = yes
+			}
 		}
 		hidden_effect = {
 			country_event = {
@@ -4506,25 +4577,37 @@ country_event = { #Power secured
 			limit = {
 				has_unit_leader = 7002
 			}
-			remove_unit_leader = 7002
+			random_unit_leader = {
+				limit = { has_id = 7002 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7000
 			}
-			remove_unit_leader = 7000
+			random_unit_leader = {
+				limit = { has_id = 7000 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7008
 			}
-			remove_unit_leader = 7008
+			random_unit_leader = {
+				limit = { has_id = 7008 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7006
 			}
-			remove_unit_leader = 7006
+			random_unit_leader = {
+				limit = { has_id = 7006 }			
+				remove_unit_leader = yes
+			}
 		}
 	}
 }
@@ -4543,10 +4626,10 @@ country_event = { #Communist coup against RadAns
 		name = fopcoup.101.a
 		create_country_leader = {
 			name = "Liborio Justo"
-			picture = "gfx/leaders/FOP/Portrait_FOP_Liborio_Justo.tga"
+			picture = "gfx/leaders/FOP/Portrait_FOP_Liborio_Justo.png"
 			desc = "POLITICS_LIBORIO_JUSTO_DESC"
 			expire = "1965.1.1"
-			ideology = totalist_subtype
+			ideology = authcom_subtype
 		}
 		remove_all_ministers = yes
 		add_ideas = {
@@ -4586,25 +4669,37 @@ country_event = { #Communist coup against RadAns
 			limit = {
 				has_unit_leader = 7006
 			}
-			remove_unit_leader = 7006
+			random_unit_leader = {
+				limit = { has_id = 7006 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7005
 			}
-			remove_unit_leader = 7005
+			random_unit_leader = {
+				limit = { has_id = 7005 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7000
 			}
-			remove_unit_leader = 7000
+			random_unit_leader = {
+				limit = { has_id = 7000 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7008
 			}
-			remove_unit_leader = 7008
+			random_unit_leader = {
+				limit = { has_id = 7008 }			
+				remove_unit_leader = yes
+			}
 		}
 		hidden_effect = {
 			country_event = {
@@ -4635,10 +4730,10 @@ country_event = { #Radical Anarchist Coup against Commies
 		name = fopcoup.103.a
 		create_country_leader = {
 			name = "Severino di Giovanni"
-			picture = "gfx/leaders/FOP/Portrait_FOP_Severino_di_Giovanni.tga"
+			picture = "gfx/leaders/FOP/Portrait_FOP_Severino_di_Giovanni.png"
 			desc = "POLITICS_SEVERINO_DI_GIOVANNI_DESC"
 			expire = "1965.1.1"
-			ideology = syndicalist_subtype
+			ideology = anarcho_syndicalist_subtype
 		}
 		set_country_flag = Marc_Augier_dead
 		if = {
@@ -4685,31 +4780,46 @@ country_event = { #Radical Anarchist Coup against Commies
 			limit = {
 				has_unit_leader = 7001
 			}
-			remove_unit_leader = 7001
+			random_unit_leader = {
+				limit = { has_id = 7001 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7002
 			}
-			remove_unit_leader = 7002
+			random_unit_leader = {
+				limit = { has_id = 7002 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7004
 			}
-			remove_unit_leader = 7004
+			random_unit_leader = {
+				limit = { has_id = 7004 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7005
 			}
-			remove_unit_leader = 7005
+			random_unit_leader = {
+				limit = { has_id = 7005 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 7007
 			}
-			remove_unit_leader = 7007
+			random_unit_leader = {
+				limit = { has_id = 7007 }			
+				remove_unit_leader = yes
+			}
 		}
 	}
 }
@@ -5671,10 +5781,10 @@ country_event = { #Talks with Giovanni
 		army_experience = 5
 		create_country_leader = {
 			name = "Severino di Giovanni"
-			picture = "gfx/leaders/FOP/Portrait_FOP_Severino_di_Giovanni.tga"
+			picture = "gfx/leaders/FOP/Portrait_FOP_Severino_di_Giovanni.png"
 			desc = "POLITICS_SEVERINO_DI_GIOVANNI_DESC"
 			expire = "1965.1.1"
-			ideology = syndicalist_subtype
+			ideology = anarcho_syndicalist_subtype
 		}
 		hidden_effect = {
 			country_event = {
@@ -5952,6 +6062,49 @@ country_event = { #Religion Question
 	}
 }
 
+country_event = { #Permission to join the Entente/Med Pact
+	id = fopfor.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event fopfor.1" }
+	title = fopfor.1.t
+	desc = fopfor.1.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		ai_chance = {
+			factor = 100
+		}
+		name = fopfor.1.a
+		add_to_faction = FOP
+	}
+	option = {
+		ai_chance = {
+			factor = 0
+		}
+		name = fopfor.1.b
+		FOP = {
+			country_event = fopfor.2
+		}
+	}
+}
+
+country_event = { # FROM refuses
+	id = fopfor.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event fopfor.2" }
+	title = fopfor.2.t
+	desc = fopfor.2.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = fopfor.2.a
+	}
+}
+
 country_event = { # suspicions of Alfredo Fonte pillaging villages
 	id = fopfonte.18
 	immediate = {log = "[GetDateText]: [Root.GetName]: event fopfonte.18"}
@@ -6002,7 +6155,10 @@ country_event = { # Fonte found while raiding peasants
 			limit = {
 				has_unit_leader = 1959
 			}
-			remove_unit_leader = 1959
+			random_unit_leader = {
+				limit = { has_id = 1959 }			
+				remove_unit_leader = yes
+			}
 		}
 	}
 
@@ -6017,7 +6173,10 @@ country_event = { # Fonte found while raiding peasants
 			limit = {
 				has_unit_leader = 1959
 			}
-			remove_unit_leader = 1959
+			random_unit_leader = {
+				limit = { has_id = 1959 }			
+				remove_unit_leader = yes
+			}
 		}
 	}
 
@@ -6053,9 +6212,15 @@ country_event = { # Fonte found raiding houses
 			factor = 25
 			modifier = {
 				factor = 0
-				has_game_rule = {
-					rule = FOP_congress_trade_unions
-					option = FOP_TRADE_UNION_CONGRESS_FONTE_COUP
+				OR = {
+					has_game_rule = {
+						rule = FOP_congress_trade_unions
+						option = FOP_TRADE_UNION_CONGRESS_FONTE_COUP
+					}
+					has_game_rule = {
+						rule = FOP_congress_trade_unions
+						option = FOP_TRADE_UNION_CONGRESS_ARAUCANIA
+					}
 				}
 			}
 		}
@@ -6066,7 +6231,10 @@ country_event = { # Fonte found raiding houses
 			limit = {
 				has_unit_leader = 1959
 			}
-			remove_unit_leader = 1959
+			random_unit_leader = {
+				limit = { has_id = 1959 }			
+				remove_unit_leader = yes
+			}
 		}
 	}
 
@@ -6076,9 +6244,15 @@ country_event = { # Fonte found raiding houses
 			factor = 50
 			modifier = {
 				factor = 0
-				has_game_rule = {
-					rule = FOP_congress_trade_unions
-					option = FOP_TRADE_UNION_CONGRESS_FONTE_COUP
+				OR = {
+					has_game_rule = {
+						rule = FOP_congress_trade_unions
+						option = FOP_TRADE_UNION_CONGRESS_FONTE_COUP
+					}
+					has_game_rule = {
+						rule = FOP_congress_trade_unions
+						option = FOP_TRADE_UNION_CONGRESS_ARAUCANIA
+					}
 				}
 			}
 		}
@@ -6088,7 +6262,10 @@ country_event = { # Fonte found raiding houses
 			limit = {
 				has_unit_leader = 1959
 			}
-			remove_unit_leader = 1959
+			random_unit_leader = {
+			limit = { has_id = 1959 }			
+			remove_unit_leader = yes
+		}
 		}
 	}
 
@@ -6149,6 +6326,18 @@ country_event = { # Fonte coups the weak government
 
 	option = { # we are buggered
 		name = fopfonte.21.a
+		
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = FOP_congress_trade_unions
+					option = FOP_TRADE_UNION_CONGRESS_ARAUCANIA
+				}
+			}
+		}
+		
 		add_stability = -0.30
 		set_country_flag = FOP_fonte_performed_coup_flag
 		set_party_name = {
@@ -6204,9 +6393,9 @@ country_event = { # Fonte coups the weak government
 		create_country_leader = {
 			name = "Alfredo Fonte"
 			desc = "POLITICS_FONTE_FOP_DESC"
-			picture = "Portrait_FOP_Fonte.tga"
+			picture = "gfx/leaders/FOP/Portrait_FOP_Fonte.png"
 			expire = "1965.1.1"
-			ideology = totalist_subtype
+			ideology = autocratic_socialist_subtype
 			traits = {}
 		}
 		set_politics = {
@@ -6214,7 +6403,7 @@ country_event = { # Fonte coups the weak government
 		}
 		add_popularity = {
 			ideology = totalist
-			popularity = 1
+			popularity = 0.10
 		}
 		set_cosmetic_tag = FOP_Fonte
 		hidden_effect = {
@@ -6222,8 +6411,63 @@ country_event = { # Fonte coups the weak government
 		    remove_ideas_with_trait = foreign_minister
 		    remove_ideas_with_trait = economy_minister
 		    remove_ideas_with_trait = security_minister
-			news_event = {
+			random_other_country = {
+				news_event = {
 				id = fopfonte.172
+				}
+			}
+		}
+	}
+	option = { # native gang
+		name = fopfonte.21.b
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = FOP_congress_trade_unions
+					option = FOP_TRADE_UNION_CONGRESS_FONTE_COUP
+				}
+			}
+		}
+		set_global_flag = FOP_NATIVE_GANG
+		set_cosmetic_tag = FOP_MONARCH
+		FOP_remove_all_ideas = yes
+			create_country_leader = {
+				name = "Antoine III"
+				picture = "gfx/leaders/FOP/Portrait_FOP_Jacques_Antoine_Bernard.png"
+				expire = "1965.1.1"
+				ideology = national_populist_subtype
+			}
+		set_politics = {
+			ruling_party = national_populist
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.10
+		}
+		hidden_effect = {
+			CHL = {
+				end_puppet = FOP
+			}
+			every_state = {
+				limit = {
+					is_claimed_by = FOP
+				}
+				remove_claim_by = FOP
+			}
+			separate_peace_all_wars = yes
+			remove_all_ministers = yes
+			add_ideas = {
+				FOP_Tomas_D_Casares_hog_npo 
+				FOP_Ernesto_Palacio_for_npo
+				FOP_Ibon_Noya_eco_npo
+				FOP_Julio_Irazusta_sec_npo
+			}
+			random_other_country = {
+				news_event = {
+				id = fopfonte.173
+				}
 			}
 		}
 	}
@@ -6287,5 +6531,36 @@ news_event = {
 
 	option = {
 		name = fopfonte.172.a
+	}
+}
+
+# Fonte coup in Patagonia
+news_event = {
+	id = fopfonte.173
+	immediate = { log = "[GetDateText]: [Root.GetName]: event fopfonte.173" }
+	title = fopfonte.173.t
+	desc = fopfonte.173.d
+	picture = GFX_news_event_PAR_coup
+
+	major = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		wants_world_news = yes
+	}
+
+	show_major = {
+		NOT = {
+			tag = FOP
+		}
+		OR = {
+			regional_north_america_news = yes
+			regional_south_america_news = yes
+		}
+	}
+
+	option = {
+		name = fopfonte.173.a
 	}
 }

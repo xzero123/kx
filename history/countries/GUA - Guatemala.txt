@@ -3,6 +3,7 @@ OOB = "GUA"
 set_research_slots = 2
 set_technology = {
 	### Infantry ###
+	basic_train = 1
 	infantry_weapons = 1
 	gw_artillery = 1
 
@@ -19,17 +20,15 @@ if = {
 		has_dlc = "Man the Guns"
 	}
 	set_technology = {
-        weltkrieg_light_ship_hull = 1        
-        contact_mine = 1        
-        weltkrieg_cruiser_hull = 1        
+		early_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		
+		basic_naval_mines = 1
 
 		## Modules##
-        weltkrieg_naval_gunnery = 1        
-        light_battery_one = 1  
-        smoke_generator = 1  
-		
-		### Transport ###
-		transport = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		smoke_generator = 1
 	}
 }
 
@@ -42,17 +41,14 @@ if = {
 		}
 	}
 	set_technology = {
-        weltkrieg_destroyer_nonmtg = 1        
-        weltkrieg_cruiser_nonmtg = 1      
-		
-		### Transport ###
-		transport_n = 1
+		early_destroyer = 1
+		early_light_cruiser = 1
 	}
 }
 
 set_stability = 0.47
 set_war_support = 0.35
-
+starting_train_buffer = 1
 set_politics = {
 	ruling_party = authoritarian_democrat
 	last_election = "1888.6.15"
@@ -97,36 +93,36 @@ add_dynamic_modifier = {
 
 create_country_leader = {
 	name = "Jorge Ubico Castañeda"
-	picture = "Portrait_GUA_Jorge_Ubico_Casteneda.tga"
+	picture = "gfx/leaders/GUA/Portrait_GUA_Jorge_Ubico_Casteneda.png"
 	expire = "1965.1.1"
-	ideology = paternal_autocrat_subtype
+	ideology = junta_subtype
 }
 
 create_country_leader = {
 	name = "José María Orellana"
 	desc = "POLITICS_JOSE_MARIA_ORELLANA_DESC"
-	picture = "Portrait_GUA_Jose_Maria_Orellana.tga"
+	picture = "gfx/leaders/GUA/Portrait_GUA_Jose_Maria_Orellana.png"
 	expire = "1965.1.1"
-	ideology = authoritarian_democrat_subtype
+	ideology = authdem_junta_subtype
 }
 
 create_country_leader = {
 	name = "Lázaro Chacón González"
-	picture = "Portrait_GUA_Lazaro_Chacon_Gonzalez.tga"
+	picture = "gfx/leaders/GUA/Portrait_GUA_Lazaro_Chacon_Gonzalez.png"
 	expire = "1965.1.1"
 	ideology = social_conservative_subtype
 }
 
 create_country_leader = {
 	name = "Juan José Arévalo Bermejo"
-	picture = "Portrait_GUA_Juan_Jose_Arevalo_Bermejo.tga"
+	picture = "gfx/leaders/GUA/Portrait_GUA_Juan_Jose_Arevalo_Bermejo.png"
 	expire = "1965.1.1"
-	ideology = social_democrat_subtype
+	ideology = syndie_social_democrat_subtype
 }
 
 create_country_leader = {
 	name = "Silverio Ortiz"
-	picture = "Portrait_GUA_Silverio_Oritz.tga"
+	picture = "gfx/leaders/GUA/Portrait_GUA_Silverio_Oritz.png"
 	expire = "1965.1.1"
 	ideology = radical_socialist_subtype
 }
@@ -135,7 +131,7 @@ create_country_leader = {
 create_field_marshal = {
 	name = "Jorge Ubico Castañeda"
 	desc = "ARMY_GUA_JORGE_UBICO_CASTANEDA_DESC"
-	portrait_path = "gfx/leaders/GUA/Portrait_GUA_Jorge_Ubico_Casteneda.tga"
+	portrait_path = "gfx/leaders/GUA/Portrait_GUA_Jorge_Ubico_Casteneda.png"
 	id = 6969
 	traits = {
 		organisational_leader
@@ -148,10 +144,24 @@ create_field_marshal = {
 	logistics_skill = 2
 }
 
-create_field_marshal = {
+create_corps_commander = {
+	name = "Juan Federico Ponce Vaides"
+	desc = "ARMY_GUA_JUAN_PONCE_VAIDES_DESC"
+	portrait_path = "gfx/leaders/GUA/Portrait_GUA_Federico_Ponce_Vaides.png"
+	traits = {
+		harsh_leader
+	}
+	skill = 3
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 2
+	logistics_skill = 3
+}
+
+create_corps_commander = {
 	name = "Lázaro Chacón González"
 	desc = "ARMY_LAZARO_CHACON_GONZALEZ_DESC"
-	portrait_path = "gfx/leaders/GUA/Portrait_GUA_Lazaro_Chacon_Gonzalez.tga"
+	portrait_path = "gfx/leaders/GUA/Portrait_GUA_Lazaro_Chacon_Gonzalez.png"
 	id = 6968
 	traits = {
 		career_officer
@@ -166,7 +176,7 @@ create_field_marshal = {
 create_field_marshal = {
 	name = "José María Orellana"
 	desc = "ARMY_JOSE_MARIA_ORELLANA_DESC"
-	portrait_path = "gfx/leaders/GUA/Portrait_GUA_Jose_Maria_Orellana.tga"
+	portrait_path = "gfx/leaders/GUA/Portrait_GUA_Jose_Maria_Orellana.png"
 	id = 6967
 	traits = {
 		old_guard
@@ -186,7 +196,7 @@ create_field_marshal = {
 create_corps_commander = {
 	name = "Jacobo Árbenz"
 	desc = "ARMY_JACOBO_ARBENZ_DESC"
-	portrait_path = "gfx/leaders/GUA/Portrait_GUA_Arbenz.tga"
+	portrait_path = "gfx/leaders/GUA/Portrait_GUA_Jacobo_Arbenz.png"
 	id = 6970
 	traits = {
 		infantry_officer

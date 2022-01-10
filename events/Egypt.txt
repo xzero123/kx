@@ -33,39 +33,39 @@ country_event = { # Death of Fuad I
 		hidden_effect = {
 			create_country_leader = {
 				name = "Farouk I"
-				picture = "Portrait_Egypt_Farouk.tga"
+				picture = "gfx/leaders/EGY/Portrait_Egypt_Farouk.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 			}
 			create_country_leader = {
 				name = "Farouk I"
-				picture = "Portrait_Egypt_Farouk.tga"
+				picture = "gfx/leaders/EGY/Portrait_Egypt_Farouk.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 			}
 			create_country_leader = {
 				name = "Farouk I"
-				picture = "Portrait_Egypt_Farouk.tga"
+				picture = "gfx/leaders/EGY/Portrait_Egypt_Farouk.png"
 				expire = "1965.1.1"
-				ideology = market_liberal_subtype
+				ideology = liberal_conservative_subtype
 			}
 			create_country_leader = {
 				name = "Farouk I"
-				picture = "Portrait_Egypt_Farouk.tga"
+				picture = "gfx/leaders/EGY/Portrait_Egypt_Farouk.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 			}
 			create_country_leader = {
 				name = "Farouk I"
-				picture = "Portrait_Egypt_Farouk.tga"
+				picture = "gfx/leaders/EGY/Portrait_Egypt_Farouk.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 			}
 			create_country_leader = {
 				name = "Farouk I"
-				picture = "Portrait_Egypt_Farouk.tga"
+				picture = "gfx/leaders/EGY/Portrait_Egypt_Farouk.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = absolute_monarchy_subtype
 			}
 			set_country_flag = EGY_farouk_is_now_sultan
 			country_event = {
@@ -1088,7 +1088,7 @@ country_event = { # New Officers
 		name = egy.27.a
 		create_corps_commander = { # Gamel Abdel Nasser
 			name = "Gamel Abdel Nasser"
-			portrait_path = "gfx/leaders/EGY/Portrait_EGY_Gamel_Abdel_Nasser.tga"
+			portrait_path = "gfx/leaders/EGY/Portrait_EGY_Gamel_Abdel_Nasser.png"
 			traits = {
 				career_officer
 				media_personality
@@ -1101,7 +1101,7 @@ country_event = { # New Officers
 		}
 		create_corps_commander = { # Hussein el-Shafei
 			name = " Hussein el-Shafei"
-			portrait_path = "gfx/leaders/EGY/Portrait_EGY_Hussein_Al_Shafei.tga"
+			portrait_path = "gfx/leaders/EGY/Portrait_EGY_Hussein_Al_Shafei.png"
 			traits = {
 				career_officer
 			}
@@ -1113,7 +1113,7 @@ country_event = { # New Officers
 		}
 		create_corps_commander = { # Abdel Hakim Amer
 			name = "Abdel Hakim Amer"
-			portrait_path = "gfx/leaders/EGY/Portrait_EGY_abdel_hakim_amer.tga"
+			portrait_path = "gfx/leaders/EGY/Portrait_EGY_abdel_hakim_amer.png"
 			traits = {
 				career_officer
 				trait_cautious
@@ -2281,7 +2281,7 @@ country_event = { # Capital of Egypt
 			factor = 70
 		}
 		set_country_flag = EGY_capital_cairo
-		set_capital = 447
+		set_capital = { state = 447 }
 	}
 	option = { # Alexandria
 		name = egy.102.b
@@ -2289,7 +2289,7 @@ country_event = { # Capital of Egypt
 			factor = 30
 		}
 		set_country_flag = EGY_capital_alexandria
-		set_capital = 446
+		set_capital = { state = 446 }
 	}
 }
 country_event = { # A new Lighthouse for Egypt
@@ -2304,7 +2304,7 @@ country_event = { # A new Lighthouse for Egypt
 	trigger = {
 		tag = EGY
 		has_completed_focus = EGY_farouks_reforms
-		controls_state = 753
+		controls_state = 453
 	}
 
 	mean_time_to_happen = {
@@ -4267,5 +4267,63 @@ country_event = { # Tripolitania Counters Our Influence
 
 	option = {
 		name = egy.197.a
+	}
+}
+
+
+country_event = { # Tripolitania Counters Our Influence
+	id = egy.198
+	immediate = { log = "[GetDateText]: [Root.GetName]: event egy.198" }
+	title = egy.198.t
+	desc = egy.198.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = egy.198.a
+		ai_chance = {
+			factor = 30
+		}
+		EGY = {
+			transfer_state = 753
+		}
+	}
+	option = {
+		name = egy.198.b
+		ai_chance = {
+			factor = 70
+		}
+		EGY = {
+			country_event = {
+				id = egy.199
+				days = 3
+			}
+		}
+	}
+}
+
+country_event = { # Tripolitania Counters Our Influence
+	id = egy.199
+	immediate = { log = "[GetDateText]: [Root.GetName]: event egy.198" }
+	title = egy.198.t
+	desc = egy.198.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = egy.199.a
+		create_wargoal = {
+				target = GER
+				type = annex_everything
+			}
+	}
+	option = {
+		name = egy.199.b
+		add_stability = -0.10
+		add_war_support = -0.10
 	}
 }

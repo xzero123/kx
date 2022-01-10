@@ -94,6 +94,14 @@ country_event = { # Socialist Constitution - Social Radicalism
 					}
 					has_game_rule = {
 						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_LOVESTONE
+					}
+					has_game_rule = {
+						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_LOVESTONE
+					}
+					has_game_rule = {
+						rule = CSA_post_civil_war
 						option = CSA_POST_CIVIL_WAR_NATIONALIST
 					}
 				}
@@ -191,6 +199,10 @@ country_event = { # Socialist Constitution - Voting Rights
 					}
 					has_game_rule = {
 						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_LOVESTONE
+					}
+					has_game_rule = {
+						rule = CSA_post_civil_war
 						option = CSA_POST_CIVIL_WAR_NATIONALIST
 					}
 					has_game_rule = {
@@ -267,6 +279,10 @@ country_event = { # Socialist Constitution - Voting Rights
 					}
 					has_game_rule = {
 						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_LOVESTONE
+					}
+					has_game_rule = {
+						rule = CSA_post_civil_war
 						option = CSA_POST_CIVIL_WAR_NATIONALIST
 					}
 					has_game_rule = {
@@ -324,6 +340,10 @@ country_event = { # Socialist Election Arrives
 					}
 					has_game_rule = {
 						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_LOVESTONE
+					}
+					has_game_rule = {
+						rule = CSA_post_civil_war
 						option = CSA_POST_CIVIL_WAR_BROWDER
 					}
 					has_game_rule = {
@@ -372,6 +392,10 @@ country_event = { # Socialist Election Arrives
 					has_game_rule = {
 						rule = CSA_post_civil_war
 						option = CSA_POST_CIVIL_WAR_BURNHAM
+					}
+					has_game_rule = {
+						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_LOVESTONE
 					}
 					has_game_rule = {
 						rule = CSA_post_civil_war
@@ -424,6 +448,10 @@ country_event = { # Socialist Election Arrives
 					}
 					has_game_rule = {
 						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_LOVESTONE
+					}
+					has_game_rule = {
+						rule = CSA_post_civil_war
 						option = CSA_POST_CIVIL_WAR_NATIONALIST
 					}
 					has_game_rule = {
@@ -446,16 +474,41 @@ country_event = { # Socialist Election Arrives
 			id = csa.901
 			days = 6
 			}
+			if = {
+				limit = {
+					BBR = {
+						has_country_leader = { ruling_only = yes name = "Harry Haywood"}
+					}
+				}
+				BBR = {
+					country_event = {
+						id = bbr.28
+						days = 35
+					}
+				}
+			}
 			add_ideas = CSA_Ernest_Hemingway_for_tot
 			add_ideas = CSA_Gus_Hall_eco_tot
 			add_ideas = CSA_Steve_Nelson_sec_tot
 			create_country_leader = {
 				name = "Earl Browder"
 				desc = "POLITICS_EARL_BROWDER_DESC"
-				picture = "Portrait_CSA_Earl_Bowder.tga"
+				picture = "gfx/leaders/CSA/Portrait_CSA_Earl_Bowder.png"
 				expire = "1965.1.1"
-				ideology = totalist_subtype
+				ideology = popcom_subtype
 				traits = { the_director }
+			}
+			country_event = {
+				id = csa.71
+				days = 365
+			}
+			country_event = {
+				id = csa.72
+				days = 380
+			}
+			country_event = {
+				id = csa.74
+				days = 430
 			}
 		}
 		set_politics = {
@@ -515,10 +568,14 @@ country_event = { # Socialist Election Arrives
 			create_country_leader = {
 				name = "James Burnham"
 				desc = "POLITICS_JAMES_BURNHAM_DESC"
-				picture = "gfx/leaders/CSA/Portrait_CSA_burnham.tga"
+				picture = "gfx/leaders/CSA/Portrait_CSA_burnham.png"
 				expire = "1965.1.1"
-				ideology = totalist_subtype
+				ideology = technocratic_socialism_subtype
 				traits = { managerialist }
+			}
+			hidden_effect = {
+				country_event = { id = csa.165 days = 8 }
+				country_event = { id = csa.273 months = 2 }
 			}
 		}
 		set_politics = {
@@ -530,6 +587,19 @@ country_event = { # Socialist Election Arrives
 			ideology = totalist
 			long_name = CSA_totalist_syndicalism_party_long
 			name = CSA_totalist_syndicalism_party
+		}
+		if = {
+			limit = {
+				BBR = {
+					has_country_leader = { ruling_only = yes name = "Harry Haywood"}
+				}
+			}
+			BBR = {
+				country_event = {
+					id = bbr.28
+					days = 35
+				}
+			}
 		}
 	}
 }
@@ -550,7 +620,7 @@ country_event = { # Constitutional Convention begins
 			create_country_leader = {
 				name = "CSA Central Committee"
 				desc = "POLITICS_CSA_CENTRAL_COMITTEE_DESC"
-				picture = "Portrait_CSA_committee.tga"
+				picture = "gfx/leaders/CSA/Portrait_CSA_committee.png"
 				expire = "1965.1.1"
 				ideology = radical_socialist_subtype
 				traits = {
@@ -560,7 +630,7 @@ country_event = { # Constitutional Convention begins
 			create_country_leader = {
 				name = "CSA Central Committee"
 				desc = "POLITICS_CSA_CENTRAL_COMITTEE_DESC"
-				picture = "Portrait_CSA_committee.tga"
+				picture = "gfx/leaders/CSA/Portrait_CSA_committee.png"
 				expire = "1965.1.1"
 				ideology = syndicalist_subtype
 				traits = {
@@ -570,9 +640,9 @@ country_event = { # Constitutional Convention begins
 			create_country_leader = {
 				name = "CSA Central Committee"
 				desc = "POLITICS_CSA_CENTRAL_COMITTEE_DESC"
-				picture = "Portrait_CSA_committee.tga"
+				picture = "gfx/leaders/CSA/Portrait_CSA_committee.png"
 				expire = "1965.1.1"
-				ideology = totalist_subtype
+				ideology = authcom_subtype
 				traits = {
 					our_right_to_survive
 				}
@@ -637,6 +707,10 @@ country_event = { # Socialist Constitution - System of Government
 					has_game_rule = {
 						rule = CSA_post_civil_war
 						option = CSA_POST_CIVIL_WAR_FOSTER
+					}
+					has_game_rule = {
+						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_BUTLER
 					}
 					has_game_rule = {
 						rule = CSA_post_civil_war
@@ -715,6 +789,10 @@ country_event = { # Socialist Constitution - Judiciary
 					has_game_rule = {
 						rule = CSA_post_civil_war
 						option = CSA_POST_CIVIL_WAR_FOSTER
+					}
+					has_game_rule = {
+						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_BUTLER
 					}
 					has_game_rule = {
 						rule = CSA_post_civil_war
@@ -819,6 +897,10 @@ country_event = { # Socialist Constitution - the President
 					}
 					has_game_rule = {
 						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_BUTLER
+					}
+					has_game_rule = {
+						rule = CSA_post_civil_war
 						option = CSA_POST_CIVIL_WAR_SYNDICALIST
 					}
 				}
@@ -852,6 +934,10 @@ country_event = { # Socialist Constitution - the President
 					has_game_rule = {
 						rule = CSA_post_civil_war
 						option = CSA_POST_CIVIL_WAR_FOSTER
+					}
+					has_game_rule = {
+						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_BUTLER
 					}
 					has_game_rule = {
 						rule = CSA_post_civil_war
@@ -949,6 +1035,10 @@ country_event = { # Socialist Constitution - Centralization or decentralization
 					has_game_rule = {
 						rule = CSA_post_civil_war
 						option = CSA_POST_CIVIL_WAR_FOSTER
+					}
+					has_game_rule = {
+						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_BUTLER
 					}
 					has_game_rule = {
 						rule = CSA_post_civil_war
@@ -1087,7 +1177,7 @@ country_event = { # Socialist Constitution - The Capital
 			factor = 40
 		}
 		hidden_effect = {
-			set_capital = 361
+			set_capital = { state = 361 }
 		}
 	}
 	option = {
@@ -1099,7 +1189,7 @@ country_event = { # Socialist Constitution - The Capital
 			factor = 30
 		}
 		hidden_effect = {
-			set_capital = 395
+			set_capital = { state = 395 }
 		}
 	}
 	option = {
@@ -1111,7 +1201,7 @@ country_event = { # Socialist Constitution - The Capital
 			factor = 25
 		}
 		hidden_effect = {
-			set_capital = 360
+			set_capital = { state = 360 }
 		}
 	}
 	option = {
@@ -1123,7 +1213,7 @@ country_event = { # Socialist Constitution - The Capital
 			factor = 5
 		}
 		hidden_effect = {
-			set_capital = 358
+			set_capital = { state = 358 }
 		}
 	}
 }
@@ -1192,25 +1282,25 @@ country_event = { # Constitutional Convention over
 			limit = {
 				has_country_flag = CSA_capital_chicago
 			}
-			set_capital = 395
+			set_capital = { state = 395 }
 		}
 		if = {
 			limit = {
 				has_country_flag = CSA_capital_washington
 			}
-			set_capital = 361
+			set_capital = { state = 361 }
 		}
 		if = {
 			limit = {
 				has_country_flag = CSA_capital_philly
 			}
-			set_capital = 360
+			set_capital = { state = 360 }
 		}
 		if = {
 			limit = {
 				has_country_flag = CSA_capital_nyc
 			}
-			set_capital = 358
+			set_capital = { state = 358 }
 		}
 	}
 }
@@ -1268,6 +1358,14 @@ country_event = { # Socialist Constitution - Election
 					rule = CSA_post_civil_war
 					option = CSA_POST_CIVIL_WAR_FOSTER
 				}
+				has_game_rule = {
+					rule = CSA_post_civil_war
+					option = CSA_POST_CIVIL_WAR_BUTLER
+				}
+				has_game_rule = {
+					rule = CSA_post_civil_war
+					option = CSA_POST_CIVIL_WAR_TOTALIST_CAPONE
+				}
 			}
 		}
 		name = csa.11.a
@@ -1300,7 +1398,15 @@ country_event = { # Socialist Constitution - Election
 					}
 					has_game_rule = {
 						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_BUTLER
+					}
+					has_game_rule = {
+						rule = CSA_post_civil_war
 						option = CSA_POST_CIVIL_WAR_SYNDICALIST
+					}
+					has_game_rule = {
+						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_TOTALIST_CAPONE
 					}
 				}
 			}
@@ -1324,10 +1430,22 @@ country_event = { # Socialist Constitution - Election
 		create_country_leader = {
 				name = "Earl Browder"
 				desc = "POLITICS_EARL_BROWDER_DESC"
-				picture = "gfx/leaders/CSA/Browder_2.tga"
+				picture = "gfx/leaders/CSA/Browder_2.png"
 				expire = "1965.1.1"
-				ideology = totalist_subtype
+				ideology = popcom_subtype
 				traits = { the_director }
+			}
+			country_event = {
+				id = csa.71
+				days = 365
+			}
+			country_event = {
+				id = csa.72
+				days = 380
+			}
+			country_event = {
+				id = csa.74
+				days = 430
 			}
 		}
 		set_politics = {
@@ -1345,6 +1463,19 @@ country_event = { # Socialist Constitution - Election
 				id = csa.50
 				days = 7
 			}
+			if = {
+				limit = {
+					BBR = {
+						has_country_leader = { ruling_only = yes name = "Harry Haywood"}
+					}
+				}
+				BBR = {
+					country_event = {
+						id = bbr.28
+						days = 35
+					}
+				}
+			}
 		}
 	}
 	option = { # Totalist - Foster
@@ -1356,6 +1487,10 @@ country_event = { # Socialist Constitution - Election
 					rule = CSA_post_civil_war
 					option = CSA_POST_CIVIL_WAR_SYNDICALIST
 				}
+				has_game_rule = {
+						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_TOTALIST_CAPONE
+					}
 			}
 		}
 		name = csa.11.c
@@ -1375,11 +1510,31 @@ country_event = { # Socialist Constitution - Election
 			create_country_leader = {
 				name = "William Z. Foster"
 				desc = "POLITICS_WILLIAM_FOSTER_DESC"
-				picture = "Portrait_CSA_William_Z_Foster.tga"
+				picture = "gfx/leaders/CSA/Portrait_CSA_William_Z_Foster.png"
 				expire = "1965.1.1"
-				ideology = totalist_subtype
+				ideology = national_communism_subtype
 				traits = { prince_of_terror }
 			}
+			country_event = {
+				id = csa.69
+				days = 230
+			}
+			country_event = {
+				id = csa.73
+				days = 410
+			}
+			country_event = {
+				id = csa.75
+				days = 440
+			}
+			country_event = {
+				id = csa.89
+				days = 380
+			}
+			#country_event = {
+				#id = csa.92
+				#days = 350
+			#}
 		}
 		set_politics = {
 			ruling_party = totalist
@@ -1410,7 +1565,15 @@ country_event = { # Socialist Constitution - Election
 					}
 					has_game_rule = {
 						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_BUTLER
+					}
+					has_game_rule = {
+						rule = CSA_post_civil_war
 						option = CSA_POST_CIVIL_WAR_SYNDICALIST
+					}
+					has_game_rule = {
+						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_TOTALIST_CAPONE
 					}
 				}
 			}
@@ -1432,10 +1595,15 @@ country_event = { # Socialist Constitution - Election
 			create_country_leader = {
 				name = "James Burnham"
 				desc = "POLITICS_JAMES_BURNHAM_DESC"
-				picture = "gfx/leaders/CSA/Portrait_CSA_burnham.tga"
+				picture = "gfx/leaders/CSA/Portrait_CSA_burnham.png"
 				expire = "1965.1.1"
-				ideology = totalist_subtype
+				ideology = technocratic_socialism_subtype
 				traits = { managerialist }
+			}
+			hidden_effect = {
+				country_event = { id = csa.165 days = 8 }
+				country_event = { id = csa.273 months = 2 }
+			
 			}
 		}
 		
@@ -1459,6 +1627,19 @@ country_event = { # Socialist Constitution - Election
 			last_election = "1936.11.08"
 			elections_allowed = yes
 			}
+			if = {
+				limit = {
+					BBR = {
+						has_country_leader = { ruling_only = yes name = "Harry Haywood"}
+					}
+				}
+				BBR = {
+					country_event = {
+						id = bbr.28
+						days = 35
+					}
+				}
+			}
 		}
 	}
 	option = { # Totalist - Capone
@@ -1471,12 +1652,22 @@ country_event = { # Socialist Constitution - Election
 			has_country_flag = CSA_smuggle
 		}
 		ai_chance = {
-			factor = 25
+			factor = 1
 			modifier = {
-				factor = 100
+				factor = 0
+				OR = {
 					has_game_rule = {
-					rule = CSA_post_civil_war
-					option = CSA_POST_CIVIL_WAR_TOTALIST_CAPONE
+						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_FOSTER
+					}
+					has_game_rule = {
+						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_BUTLER
+					}
+					has_game_rule = {
+						rule = CSA_post_civil_war
+						option = CSA_POST_CIVIL_WAR_SYNDICALIST
+					}
 				}
 			}
 		}
@@ -1487,9 +1678,9 @@ country_event = { # Socialist Constitution - Election
 			create_country_leader = {
 				name = "Alphonse Capone"
 				desc = "POLITICS_CAPONE_DESC"
-				picture = "Portrait_CSA_Alphonse_Capone.tga"
+				picture = "gfx/leaders/CSA/Portrait_CSA_Alphonse_Capone.png"
 				expire = "1965.1.1"
-				ideology = totalist_subtype
+				ideology = caponism_subtype
 				traits = { sec_prince_of_terror scarface }
 			}
 			set_politics = {
@@ -1534,7 +1725,7 @@ country_event = { # Trial of the ODP
 		add_political_power = -100
 		create_corps_commander = { # Chesty Puller
 			name = "Chesty Puller"
-			portrait_path = "gfx/leaders/TEX/Portrait_TEX_chesty_puller.tga"
+			portrait_path = "gfx/leaders/TEX/Portrait_TEX_chesty_puller.png"
 			traits = {
 				harsh_leader
 				career_officer
@@ -1548,7 +1739,7 @@ country_event = { # Trial of the ODP
 		}
 		create_corps_commander = { # Matthew Ridgway
 			name = "Matthew Ridgway"
-			portrait_path = "gfx/leaders/TEX/Portrait_TEX_matthew_ridgway.tga"
+			portrait_path = "gfx/leaders/TEX/Portrait_TEX_matthew_ridgway.png"
 			traits = {
 				inflexible_strategist
 				trait_cautious
@@ -1562,7 +1753,7 @@ country_event = { # Trial of the ODP
 		}
 		create_navy_leader = { # Samuel Murray Robinson
 			name = "Samuel Murray Robinson"
-			portrait_path = "gfx/leaders/TEX/Portrait_TEX_samuel_robinson.tga"
+			portrait_path = "gfx/leaders/TEX/Portrait_TEX_samuel_robinson.png"
 			traits = {}
 			skill = 3 #naval guy, don't patch
 		}
@@ -1595,7 +1786,7 @@ country_event = { # Trial of the Old Federalist
 		add_political_power = -100
 		create_corps_commander = { # Lucian Truscott
 			name = "Lucian Truscott"
-			portrait_path = "gfx/leaders/USA/Portrait_USA_gen_Lucian_Truscott.tga"
+			portrait_path = "gfx/leaders/USA/Portrait_USA_gen_Lucian_Truscott.png"
 			traits = {
 				trait_engineer
 				commando
@@ -1609,7 +1800,7 @@ country_event = { # Trial of the Old Federalist
 		}
 		create_corps_commander = { # James Garesche Ord
 			name = "James Garesche Ord"
-			portrait_path = "gfx/leaders/USA/Portrait_USA_james_ord.tga"
+			portrait_path = "gfx/leaders/USA/Portrait_USA_james_ord.png"
 			traits = {
 				trait_reckless
 				armor_officer
@@ -1623,7 +1814,7 @@ country_event = { # Trial of the Old Federalist
 		}
 		create_navy_leader = { # Ernest King
 			name = "Ernest King"
-			portrait_path = "gfx/leaders/USA/Portrait_USA_earnest_king.dds"
+			portrait_path = "gfx/leaders/USA/Portrait_USA_earnest_king.png"
 			traits = {
 				blockade_runner
 				superior_tactician
@@ -1717,15 +1908,7 @@ country_event = { # fighting racism
 	desc = csa.16.d
 	picture = GFX_report_event_USA_congress
 
-	trigger = {
-		tag = CSA
-		has_completed_focus = CSA_social_revolution
-		has_completed_focus = CSA_homes_for_the_people
-	}
-
-	mean_time_to_happen = {
-		months = 5
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 
@@ -1744,20 +1927,15 @@ country_event = { # The New American Woman
 	picture = GFX_report_event_USA_congress
 
 	trigger = {
-		tag = CSA
-		has_completed_focus = CSA_social_revolution
-		has_completed_focus = CSA_womens_liberation
 		NOT = {
-				has_country_leader = {
+			has_country_leader = {
 				ruling_only = yes
 				name = "James Burnham"
-				}
 			}
+		}
 	}
 
-	mean_time_to_happen = {
-		months = 6
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 
@@ -1775,15 +1953,7 @@ country_event = { # Redistributing wealth
 	desc = csa.18.d
 	picture = GFX_report_event_USA_congress
 
-	trigger = {
-		tag = CSA
-		has_completed_focus = CSA_social_revolution
-		has_completed_focus = CSA_redistribute_wealth
-	}
-
-	mean_time_to_happen = {
-		months = 8
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 
@@ -1800,15 +1970,7 @@ country_event = { # Land Redistribution
 	desc = csa.19.d
 	picture = GFX_report_event_USA_congress
 
-	trigger = {
-		tag = CSA
-		has_completed_focus = CSA_social_revolution
-		has_completed_focus = CSA_redistribute_wealth
-	}
-
-	mean_time_to_happen = {
-		months = 10
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 
@@ -1880,20 +2042,15 @@ country_event = { # Education reform
 	picture = GFX_report_event_USA_congress
 
 	trigger = {
-		tag = CSA
-		has_completed_focus = CSA_social_revolution
-		has_completed_focus = CSA_revolutionary_education
 		NOT = {
-				has_country_leader = {
+			has_country_leader = {
 				ruling_only = yes
 				name = "John Dewey"
-				}
 			}
+		}
 	}
 
-	mean_time_to_happen = {
-		months = 11
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 
@@ -1911,18 +2068,13 @@ country_event = { # Education reform (Dewey)
 	picture = GFX_report_event_USA_congress
 
 	trigger = {
-		tag = CSA
-		has_completed_focus = CSA_social_revolution
-		has_completed_focus = CSA_revolutionary_education
 		has_country_leader = {
-				ruling_only = yes
-				name = "John Dewey"
-				}
+			ruling_only = yes
+			name = "John Dewey"
+		}
 	}
 
-	mean_time_to_happen = {
-		months = 11
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 
@@ -1970,14 +2122,7 @@ country_event = { # Resistance to social changes
 	desc = csa.23.d
 	picture = GFX_report_event_USA_congress
 
-	trigger = {
-		tag = CSA
-		has_completed_focus = CSA_illegalize_racism
-	}
-
-	mean_time_to_happen = {
-		months = 6
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 
@@ -2006,20 +2151,21 @@ country_event = { # family law
 		hidden_effect = {
 			if = { # Burnham's reaction
 				limit = {
-				has_country_leader = {
-				ruling_only = yes
-				name = "James Burnham"
+					has_country_leader = {
+						ruling_only = yes
+						name = "James Burnham"
+					}
 				}
-			}
-			CSA = {
-		country_event = {
-		id = csa.176
-		days = 20
+				CSA = {
+					country_event = {
+						id = csa.176
+						days = 20
+					}
 				}
 			}
 		}
 	}
-	}
+	
 	option = {
 		name = csa.24.a
 		add_popularity = {
@@ -2058,7 +2204,7 @@ country_event = { # Centralist IWW Faction
 		create_country_leader = {
 			name = "Jack Reed"
 			desc = "POLITICS_JACK_REED_DESC"
-			picture = "Portrait_CSA_Jack_Reed.tga"
+			picture = "gfx/leaders/CSA/Portrait_CSA_Jack_Reed.png"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 			traits = {our_right_to_survive}
@@ -2086,7 +2232,7 @@ country_event = { # Centralist IWW Faction
 		create_country_leader = {
 				name = "James P. Cannon"
 				desc = "POLITICS_JAMES_CANNON_DESC"
-				picture = "Portrait_CSA_James_P_Cannon.tga"
+				picture = "gfx/leaders/CSA/Portrait_CSA_James_P_Cannon.png"
 				expire = "1965.1.1"
 				ideology = syndicalist_subtype
 				traits = {
@@ -2116,7 +2262,7 @@ country_event = { # Centralist IWW Faction
 		create_country_leader = {
 			name = "Arturo Giovannitti"
 			desc = "POLITICS_ARTURO_GIOVANNITTI_DESC"
-			picture = "Portrait_CSA_Arturo_Giovannitti.tga"
+			picture = "gfx/leaders/CSA/Portrait_CSA_Arturo_Giovannitti.png"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 			traits = {
@@ -2146,7 +2292,7 @@ country_event = { # Centralist IWW Faction
 		create_country_leader = {
 					name = "Harry Bridges"
 					desc = "POLITICS_HARRY_BRIDGES_DESC"
-					picture = "CSA_Harry_Bridges.tga"
+					picture = "gfx/leaders/CSA/CSA_Harry_Bridges.png"
 					expire = "1965.1.1"
 					ideology = syndicalist_subtype
 					traits = {
@@ -2176,7 +2322,7 @@ country_event = { # Centralist IWW Faction
 		create_country_leader = {
 				name = "Elmer Allison"
 				desc = "POLITICS_ELMER_ALLISON_DESC"
-				picture = "Portrait_CSA_Elmer_Allison.tga"
+				picture = "gfx/leaders/CSA/Portrait_CSA_Elmer_Allison.png"
 				expire = "1965.1.1"
 				ideology = syndicalist_subtype
 				traits = {
@@ -2206,9 +2352,9 @@ country_event = { # Centralist IWW Faction
 		create_country_leader = {
 				name = "Ludwig E. Katterfeld"
 				desc = "POLITICS_LUDWIG_KATTERFELD_DESC"
-				picture = "Portrait_CSA_L_E_Katterfeld.tga"
+				picture = "gfx/leaders/CSA/Portrait_CSA_L_E_Katterfeld.png"
 				expire = "1965.1.1"
-				ideology = radical_socialist_subtype
+				ideology = syndicalist_subtype
 				traits = {
 					editor
 					}
@@ -2248,7 +2394,7 @@ country_event = { # Orthodox Syndicalist Election
 		create_country_leader = {
 			name = "Big Bill Haywood"
 			desc = "POLITICS_BIG_BILL_HAYWOOD_DESC"
-			picture = "gfx/leaders/CSA/Bill_Haywood.tga"
+			picture = "gfx/leaders/CSA/Bill_Haywood.png"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 			traits = { big_bill }
@@ -2276,7 +2422,7 @@ country_event = { # Orthodox Syndicalist Election
 		create_country_leader = {
 			name = "Frank T. Johns"
 			desc = "POLITICS_FRANK_JOHNS_DESC"
-			picture = "Portrait_CSA_Frank_T_Johns.tga"
+			picture = "gfx/leaders/CSA/Portrait_CSA_Frank_T_Johns.png"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 			traits = {
@@ -2306,9 +2452,9 @@ country_event = { # Orthodox Syndicalist Election
 		create_country_leader = {
 				name = "Elizabeth Gurley Flynn"
 				desc = "POLITICS_ELIZABETH_FLYNN_DESC"
-				picture = "Portrait_CSA_Elizabeth_Gurley_Flynn.tga"
+				picture = "gfx/leaders/CSA/Portrait_CSA_Elizabeth_Gurley_Flynn.png"
 				expire = "1965.1.1"
-				ideology = syndicalist_subtype
+				ideology = feminist_syndicalist_subtype
 				female = yes
 				traits = {
 					appeaser
@@ -2337,7 +2483,7 @@ country_event = { # Orthodox Syndicalist Election
 		create_country_leader = {
 				name = "Robert Minor"
 				desc = "POLITICS_ROBERT_MINOR_DESC"
-				picture = "gfx/leaders/CSA/Portrait_TXS_Fighting_Bob_Minor.tga"
+				picture = "gfx/leaders/CSA/Portrait_TXS_Fighting_Bob_Minor.png"
 				expire = "1965.1.1"
 				ideology = syndicalist_subtype
 				female = yes
@@ -2384,9 +2530,9 @@ country_event = { # Anarchist Election
 		create_country_leader = {
 			name = "Emma Goldman"
 			desc = "POLITICS_EMMA_GOLDMAN_DESC"
-			picture = "gfx/leaders/CSA/Emma_Goldman.tga"
+			picture = "gfx/leaders/CSA/Emma_Goldman.png"
 			expire = "1965.1.1"
-			ideology = syndicalist_subtype
+			ideology = feminist_syndicalist_subtype
 			traits = { }
 		}
 		set_politics = {
@@ -2405,9 +2551,9 @@ country_event = { # Anarchist Election
 		create_country_leader = {
 			name = "Dorothy Day"
 			desc = "POLITICS_DOROTHY_DAY_DESC"
-			picture = "gfx/leaders/CSA/Dorothy_Day.tga"
+			picture = "gfx/leaders/CSA/Dorothy_Day.png"
 			expire = "1965.1.1"
-			ideology = syndicalist_subtype
+			ideology = anarcho_syndicalist_subtype
 			traits = { }
 		}
 		set_politics = {
@@ -2426,9 +2572,9 @@ country_event = { # Anarchist Election
 		create_country_leader = {
 			name = "Modest Stein"
 			desc = "POLITICS_MODEST_STEIN_DESC"
-			picture = "gfx/leaders/CSA/Modest_Stein.tga"
+			picture = "gfx/leaders/CSA/Modest_Stein.png"
 			expire = "1965.1.1"
-			ideology = syndicalist_subtype
+			ideology = anarcho_syndicalist_subtype
 			traits = { }
 		}
 		set_politics = {
@@ -2567,6 +2713,7 @@ country_event = { # 1944 Election
 		set_country_flag = CSA_had_1944_election
 		hidden_effect = {
 			set_country_flag = csa_1944_election_radsoc
+			set_country_flag = CSA_Nationalist_Victory
 		}
 		add_popularity = {
 			ideology = radical_socialist
@@ -2861,6 +3008,7 @@ country_event = { # 1948 Election
 		set_country_flag = CSA_had_1948_election
 		hidden_effect = {
 			set_country_flag = csa_1948_election_radsoc
+			set_country_flag = CSA_Nationalist_Victory
 		}
 		add_popularity = {
 			ideology = radical_socialist
@@ -3135,11 +3283,10 @@ country_event = { # 1952 Election
 		hidden_effect = {
 			if = { # Eugene Dennis
 				limit = { has_country_flag = CSA_1952_iww_primary_dennis }
-				kill_ideology_leader = syndicalist
 				create_country_leader = {
 					name = "Eugene Dennis"
 					desc = "POLITICS_EUGENE_DENNIS_DESC"
-					picture = "Portrait_CSA_Eugene_Dennis.tga"
+					picture = "gfx/leaders/CSA/Portrait_CSA_Eugene_Dennis.png"
 					expire = "1965.1.1"
 					ideology = syndicalist_subtype
 					traits = {
@@ -3149,11 +3296,10 @@ country_event = { # 1952 Election
 			}
 			if = { # Henning A. Blomen
 				limit = { has_country_flag = CSA_1952_iww_primary_blomen }
-				kill_ideology_leader = syndicalist
 				create_country_leader = {
 					name = "Henning A. Blomen"
 					desc = "POLITICS_HENNING_BLOMEN_DESC"
-					picture = "Portrait_CSA_Henning_A_Blomen.tga"
+					picture = "gfx/leaders/CSA/Portrait_CSA_Henning_A_Blomen.png"
 					expire = "1965.1.1"
 					ideology = syndicalist_subtype
 					traits = {
@@ -3163,11 +3309,10 @@ country_event = { # 1952 Election
 			}
 			if = { # John Bernard
 				limit = { has_country_flag = CSA_1952_iww_primary_bernard }
-				kill_ideology_leader = syndicalist
 				create_country_leader = {
 					name = "John Bernard"
 					desc = "POLITICS_JOHN_BERNARD_DESC"
-					picture = "Portrait_CSA_John_Bernard.tga"
+					picture = "gfx/leaders/CSA/Portrait_CSA_John_Bernard.png"
 					expire = "1965.1.1"
 					ideology = syndicalist_subtype
 					traits = {
@@ -3177,11 +3322,10 @@ country_event = { # 1952 Election
 			}
 			if = { # Oakley C. Johnson
 				limit = { has_country_flag = CSA_1952_cio_primary_johnson }
-				kill_ideology_leader = radical_socialist
 				create_country_leader = {
 					name = "Oakley C. Johnson"
 					desc = "POLITICS_OAKLEY_JOHNSON_DESC"
-					picture = "Portrait_CSA_Oakley_C_Johnson.tga"
+					picture = "gfx/leaders/CSA/Portrait_CSA_Oakley_C_Johnson.png"
 					expire = "1965.1.1"
 					ideology = radical_socialist_subtype
 					traits = {
@@ -3191,11 +3335,10 @@ country_event = { # 1952 Election
 			}
 			if = { # Bayard Rustin
 				limit = { has_country_flag = CSA_1952_cio_primary_rustin }
-				kill_ideology_leader = radical_socialist
 				create_country_leader = {
 					name = "Bayard Rustin"
 					desc = "POLITICS_BAYARD_RUSTIN_DESC"
-					picture = "Portrait_CSA_Bayard_Rustin.tga"
+					picture = "gfx/leaders/CSA/Portrait_CSA_Bayard_Rustin.png"
 					expire = "1965.1.1"
 					ideology = radical_socialist_subtype
 					traits = {
@@ -3205,11 +3348,10 @@ country_event = { # 1952 Election
 			}
 			if = { # Darlington Hoopes
 				limit = { has_country_flag = CSA_1952_cio_primary_hoopes }
-				kill_ideology_leader = radical_socialist
 				create_country_leader = {
 					name = "Darlington Hoopes"
 					desc = "POLITICS_DARLINGTON_HOOPES_DESC"
-					picture = "Portrait_CSA_Darlington_Hoopes.tga"
+					picture = "gfx/leaders/CSA/Portrait_CSA_Darlington_Hoopes.png"
 					expire = "1965.1.1"
 					ideology = radical_socialist_subtype
 					traits = {
@@ -3248,6 +3390,7 @@ country_event = { # 1952 Election
 		set_country_flag = CSA_had_1952_election
 		hidden_effect = {
 			set_country_flag = csa_1952_election_cio
+			set_country_flag = CSA_Nationalist_Victory
 		}
 		add_popularity = {
 			ideology = radical_socialist
@@ -3999,7 +4142,10 @@ country_event = { # The Arrest of Foster
 
 	option = {
 		name = csa.55.a
-		remove_unit_leader = 991
+		random_unit_leader = {
+			limit = { has_id = 991 }
+			remove_unit_leader = yes
+		}
 		set_country_flag = Jack_Shulman_dead
 		hidden_effect = {
 			random_list = {
@@ -4107,6 +4253,12 @@ country_event = { # Foster goes into exile
 		name = csa.59.a
 		hidden_effect = {
 			set_country_flag = CSA_foster_in_exile
+			hidden_effect = {
+				country_event = {
+					id = csa.61
+					months = 12
+				}
+			}
 		}
 	}
 }
@@ -4124,6 +4276,12 @@ country_event = { # Browder goes into exile
 		name = csa.60.a
 		hidden_effect = {
 			set_country_flag = CSA_browder_in_exile
+			hidden_effect = {
+				country_event = {
+					id = csa.62
+					months = 12
+				}
+			}
 		}
 	}
 }
@@ -4136,15 +4294,11 @@ country_event = { # Foster is killed by American Agent
 	picture = GFX_report_event_USA_congress
 
 	trigger = {
-		tag = CSA
 		has_country_flag = CSA_foster_in_exile
 		has_completed_focus = CSA_create_the_cia
-		has_government = totalist
 	}
 
-	mean_time_to_happen = {
-		months = 12
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 
@@ -4162,15 +4316,11 @@ country_event = { # Browder is killed by American Agent
 	picture = GFX_report_event_USA_congress
 
 	trigger = {
-		tag = CSA
 		has_country_flag = CSA_browder_in_exile
 		has_completed_focus = CSA_create_the_cia
-		has_government = totalist
 	}
 
-	mean_time_to_happen = {
-		months = 12
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 
@@ -4189,8 +4339,8 @@ country_event = { # Ministers are sent on vacation(aka killed)
 	trigger = {
 		tag = CSA
 		OR = {
-		has_completed_focus = CSA_purge_reactionaries
-		has_completed_focus = CSA_purge_counter_revolutionaries
+			has_completed_focus = CSA_purge_reactionaries
+			has_completed_focus = CSA_purge_counter_revolutionaries
 		}
 		has_government = totalist
 	}
@@ -4212,19 +4362,12 @@ country_event = { # The Army restructure
 	picture = GFX_report_event_USA_congress
 
 	trigger = {
-		tag = CSA
-		has_completed_focus = CSA_second_continental_army
-		has_country_flag = CSA_socialist_union_of_america_flag
-		has_completed_focus = CSA_politics
 		NOT = {
 			has_completed_focus = CSA_purge_reactionaries
 		}
-		has_government = totalist
 	}
 
-	mean_time_to_happen = {
-		months = 3
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	option = { # Restructure
@@ -4246,6 +4389,10 @@ country_event = { # The Army restructure
 		add_war_support = -0.05
 		hidden_effect = {
 			set_country_flag = CSA_army_not_purged
+			country_event = {
+				id = csa.67
+				months = 4
+			}
 		}
 	}
 }
@@ -4256,15 +4403,6 @@ country_event = { # Purging the Right Wing
 	title = csa.65.t
 	desc = csa.65.d
 	picture = GFX_report_event_USA_congress
-
-	trigger = {
-		tag = CSA
-		OR = {
-		has_completed_focus = CSA_purge_reactionaries
-		has_completed_focus = CSA_purge_counter_revolutionaries
-		}
-		has_government = totalist
-	}
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -4313,26 +4451,25 @@ country_event = { # Butler's Coup
 	picture = GFX_report_event_USA_congress
 
 	trigger = {
-		tag = CSA
-		has_country_flag = CSA_socialist_union_of_america_flag
-		has_completed_focus = CSA_politics
-		has_country_flag = CSA_army_not_purged
 		NOT = {
 			has_completed_focus = CSA_purge_reactionaries
 		}
-		has_government = totalist
 	}
 
-	mean_time_to_happen = {
-		months = 4
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 
 	option = {
 		name = csa.67.a
 		ai_chance = {
-			factor = 70
+			factor = 0
+			modifier = {
+				has_game_rule = {
+					rule = CSA_post_civil_war
+					option = CSA_POST_CIVIL_WAR_FOSTER
+				}
+			}
 		}
 		add_stability = -0.2
 		add_political_power = -100
@@ -4351,9 +4488,9 @@ country_event = { # Butler's Coup
 		create_country_leader = {
 			name = "Smedley Butler"
 			desc = "POLITICS_SMEDLY_BUTLER_DESC"
-			picture = "Portrait_CSA_smedly_butler_G.tga"
+			picture = "gfx/leaders/CSA/Portrait_CSA_smedly_butler_G.png"
 			expire = "1965.1.1"
-			ideology = radical_socialist_subtype
+			ideology = radsoc_red_junta_subtype
 			traits = { cornered_fox }
 		}
 		set_politics = {
@@ -4364,11 +4501,20 @@ country_event = { # Butler's Coup
 	option = {
 		name = csa.67.b
 		ai_chance = {
-			factor = 30
+			factor = 0
+			modifier = {
+				has_game_rule = {
+					rule = CSA_post_civil_war
+					option = CSA_POST_CIVIL_WAR_BUTLER
+				}
+			}
 		}
 		add_stability = -0.1
 		add_political_power = -250
-		remove_unit_leader = 960 #Butler
+		random_unit_leader = {
+				limit = { has_id = 100 }
+				remove_unit_leader = yes
+			} #Butler
 		if = {
 			limit = {
 				has_idea = CSA_Smedley_Butler_cos
@@ -4399,6 +4545,7 @@ country_event = { # Restoring Democracy
 	option = { #Democracy
 		name = csa.68.a
 		hidden_effect = {
+			set_country_flag = CSA_butler_democracy
 			set_country_flag = CSA_had_1940_election
 			clr_country_flag = CSA_had_1944_election
 			clr_country_flag = CSA_had_1948_election
@@ -4426,7 +4573,24 @@ country_event = { # Restoring Democracy
 				id = csa.6800
 				days = 10
 			}
-
+			hidden_effect = {
+				country_event = {
+					id = csa.6801
+					months = 4
+				}
+				country_event = {
+					id = csa.6802
+					months = 8
+				}
+				country_event = {
+					id = csa.6804
+					months = 1
+				}
+				country_event = {
+					id = csa.6805
+					months = 1
+				}
+			}
 		}
 	}
 }
@@ -4491,16 +4655,13 @@ country_event = { # Prohibition
 	fire_only_once = yes
 
 	trigger = {
-		has_government = radical_socialist
 		has_country_leader = {
 			ruling_only = yes
 			name = "Smedley Butler"
 		}
 	}
 
-	mean_time_to_happen = {
-		months = 4
-	}
+	is_triggered_only = yes
 
 	option = { # Pass it
 		name = csa.6801.a
@@ -4534,16 +4695,13 @@ country_event = { # Aid for Veterans
 	fire_only_once = yes
 
 	trigger = {
-		has_government = radical_socialist
 		has_country_leader = {
 			ruling_only = yes
 			name = "Smedley Butler"
 		}
 	}
 
-	mean_time_to_happen = {
-		months = 8
-	}
+	is_triggered_only = yes
 
 	option = { # Pass it
 		name = csa.6802.a
@@ -4605,22 +4763,17 @@ country_event = { # Foreign Policy
 	fire_only_once = yes
 
 	trigger = {
-		has_government = radical_socialist
 		has_country_leader = {
-		ruling_only = yes
-		name = "Smedley Butler"
+			ruling_only = yes
+			name = "Smedley Butler"
 		}
-	FRA = {
-	OR = {
-	has_government = social_democrat
-	has_government = radical_socialist
-	has_government = syndicalist			
+		FRA = {
+			OR = {
+				has_government = social_democrat
+				has_government = radical_socialist
+				has_government = syndicalist			
+			}
 		}
-	}
-}
-
-	mean_time_to_happen = {
-		months = 1
 	}
 
 	option = { # Ask to join the Internationale
@@ -4663,17 +4816,15 @@ country_event = { # Foreign Policy
 	trigger = {
 		has_government = radical_socialist
 		has_country_leader = {
-		ruling_only = yes
-		name = "Smedley Butler"
+			ruling_only = yes
+			name = "Smedley Butler"
 		}
-	FRA = {
-	has_government = totalist		
+		FRA = {
+			has_government = totalist		
+		}
 	}
-}
 
-	mean_time_to_happen = {
-		months = 1
-	}
+	is_triggered_only = yes
 
 	option = { # Our own faction
 		name = csa.6805.a
@@ -4708,17 +4859,13 @@ country_event = { # Self Determination in the Black Belt
 	picture = GFX_report_event_USA_congress
 
 	trigger = {
-		tag = CSA
 		has_country_leader = {
 			ruling_only = yes
 			name = "William Z. Foster"
 		}
-		has_government = totalist
 	}
 
-	mean_time_to_happen = {
-		months = 10
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 
@@ -4744,7 +4891,20 @@ country_event = { # Reactions to the Black Belt
 	id = csa.70
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.70"}
 	title = csa.70.t
-	desc = csa.70.d
+	desc = { 
+		text = csa.70.d.vanguard
+		trigger = {
+			NOT = {
+			has_cosmetic_tag = BBR_totalist_tuul
+			}
+		}
+	}
+	desc = { 
+		text = csa.70.d.tuul
+		trigger = {
+			has_cosmetic_tag = BBR_totalist_tuul
+		}
+	}
 	picture = GFX_report_event_USA_congress
 
 	trigger = {
@@ -4774,18 +4934,7 @@ country_event = { # The Great Sedition Trial of Harry Leland Mitchell
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = CSA
-		has_country_leader = {
-			ruling_only = yes
-			name = "Earl Browder"
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 12
-	}
-
+	is_triggered_only = yes
 	option = { # Flavor
 		name = csa.71.a
 		add_political_power = 10
@@ -4802,17 +4951,7 @@ country_event = { # The International Peace Movement Movement disbanded.
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = CSA
-		has_country_leader = {
-			ruling_only = yes
-			name = "Earl Browder"
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 14
-	}
+	is_triggered_only = yes
 
 	option = { # Flavor
 		name = csa.72.a
@@ -4833,18 +4972,7 @@ country_event = { # Foster dissolves the AFL
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = CSA
-		has_country_leader = {
-			ruling_only = yes
-			name = "William Z. Foster"
-		}
-		controls_all_owned_states = yes
-	}
-
-	mean_time_to_happen = {
-		months = 40
-	}
+	is_triggered_only = yes
 
 	option = { # Damage a random infra, mil and civ
 		name = csa.73.a
@@ -4891,17 +5019,7 @@ country_event = { # Browder purges The Daily Worker of Reactionaries
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = CSA
-		has_country_leader = {
-			ruling_only = yes
-			name = "Earl Browder"
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 24
-	}
+	is_triggered_only = yes
 
 	option = { # Flavor
 		name = csa.74.a
@@ -4919,18 +5037,7 @@ country_event = { # River Rouge Wildcat Strike Turns Deadly
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = CSA
-		has_country_leader = {
-			ruling_only = yes
-			name = "William Z. Foster"
-		}
-		controls_all_owned_states = yes
-	}
-
-	mean_time_to_happen = {
-		months = 30
-	}
+	is_triggered_only = yes
 
 	option = { # Damage a random infra, mil and civ
 		name = csa.75.a
@@ -4985,7 +5092,7 @@ country_event = { # Primer of God Save the Kaiser
 	}
 }
 
-country_event = { # The Catholic GFX_report_event_generic_workers Movement
+country_event = { # The Catholic Workers Movement
 	id = csa.77
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.77"}
 	title = csa.77.t
@@ -5063,11 +5170,7 @@ country_event = { # cure for Polio
 	trigger = {
 		tag = CSA
 		has_global_flag = USA_civil_war_over_flag
-		date > 1950.01.01
-	}
-
-	mean_time_to_happen = {
-		months = 50
+		date > 1953.01.01
 	}
 
 	fire_only_once = yes
@@ -5136,13 +5239,6 @@ country_event = { # Paul Robeson Takes A World Tour
 	title = csa.85.t
 	desc = csa.85.d
 	picture = GFX_report_event_USA_congress
-
-	trigger = {
-		tag = BBR
-		country_exists = SRI
-		country_exists = FRA
-		country_exists = ENG
-	}
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -5246,17 +5342,7 @@ country_event = { # Syndicalist Ethics
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = CSA
-		has_country_leader = {
-			ruling_only = yes
-			name = "William Z. Foster"
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 30
-	}
+	is_triggered_only = yes
 
 	option = { # Flavor
 		name = csa.89.a
@@ -5441,8 +5527,6 @@ country_event = { # Alternative to Hollywood
 	picture = GFX_report_event_USA_congress
 
 	trigger = {
-		tag = CSA
-		has_global_flag = USA_civil_war_over_flag
 		country_exists = CAL
 		controls_all_owned_states = yes
 		OR = {
@@ -5451,10 +5535,7 @@ country_event = { # Alternative to Hollywood
 			owns_state = 373
 		}
 	}
-
-	mean_time_to_happen = {
-		months = 4
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 
@@ -5672,22 +5753,19 @@ country_event = {# Smugglers?
 
 	fire_only_once = yes
 	
-	trigger = {
-		date > 1937.2.16
-		CSA = {
-			exists = yes
-		}
-		tag = CSA
-	}
-	
-	mean_time_to_happen = {
-		days = 35
-	}
+	is_triggered_only = yes
 
 	option = {
 		name = csa.111.a
 		ai_chance = {
 			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = CSA_post_civil_war
+					option = CSA_POST_CIVIL_WAR_TOTALIST_CAPONE
+				}
+			}
 		}
 		add_political_power = 50
 		set_country_flag = CSA_no_smuggle
@@ -5698,13 +5776,6 @@ country_event = {# Smugglers?
 		name = csa.111.b
 		ai_chance = {
 			factor = 50
-			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = CSA_post_civil_war
-					option = CSA_POST_CIVIL_WAR_TOTALIST_CAPONE
-				}
-			}
 		}
 		set_country_flag = CSA_smuggle
 		add_manpower = 500
@@ -5722,14 +5793,7 @@ country_event = {# 10 MEN THAT SHOOK MY WIFE
 
 	fire_only_once = yes
 	
-	trigger = {
-		tag = CSA
-		has_global_flag = USA_civil_war_over_flag
-	}
-	
-	mean_time_to_happen = {
-		days = 47
-	}
+	is_triggered_only = yes
 
 	option = {
 		name = csa.114.a
@@ -5750,17 +5814,13 @@ country_event = {# Death of Haywood
 	fire_only_once = yes
 	
 	trigger = {
-		tag = CSA
-		has_global_flag = USA_civil_war_over_flag
 		has_country_leader = {
 			name = "William Haywood"
 			ruling_only = yes
 		}
 	}
 	
-	mean_time_to_happen = {
-		days = 31
-	}
+	is_triggered_only = yes
 
 	option = {
 		name = csa.115.a
@@ -5772,15 +5832,15 @@ country_event = {# Death of Haywood
 		create_country_leader = {
 			name = "Jack Reed"
 			desc = "POLITICS_JACK_REED_DESC"
-			picture = "Portrait_CSA_Jack_Reed.tga"
+			picture = "gfx/leaders/CSA/Portrait_CSA_Jack_Reed.png"
 			expire = "1965.1.1"
-			ideology = totalist_subtype
+			ideology = authcom_subtype
 			traits = {}
 		}
 		create_country_leader = {
 			name = "Jack Reed"
 			desc = "POLITICS_JACK_REED_DESC"
-			picture = "Portrait_CSA_Jack_Reed.tga"
+			picture = "gfx/leaders/CSA/Portrait_CSA_Jack_Reed.png"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 			traits = {}
@@ -5788,7 +5848,7 @@ country_event = {# Death of Haywood
 		create_country_leader = {
 			name = "Jack Reed"
 			desc = "POLITICS_JACK_REED_DESC"
-			picture = "Portrait_CSA_Jack_Reed.tga"
+			picture = "gfx/leaders/CSA/Portrait_CSA_Jack_Reed.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
 			traits = {}
@@ -5805,14 +5865,7 @@ country_event = {# The Great Purge, (Political)
 
 	fire_only_once = yes
 	
-	trigger = {
-		tag = CSA
-		has_completed_focus = CSA_great_purge
-	}
-	
-	mean_time_to_happen = {
-		days = 4
-	}
+	is_triggered_only = yes
 
 	option = {
 		name = csa.116.a
@@ -5889,7 +5942,10 @@ country_event = {# Sayonara, Comrade Butler
 		ai_chance = {
 			factor = 100
 		}
-		remove_unit_leader = 960 #Butler
+		random_unit_leader = {
+				limit = { has_id = 100 }
+				retire = yes
+			} #Butler
 		if = {
 			limit = {
 				has_idea = CSA_Smedley_Butler_cos
@@ -5988,16 +6044,7 @@ country_event = { # Boldness in Science
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = CSA
-		has_global_flag = USA_civil_war_over_flag
-		has_country_flag = CSA_america_united
-		has_completed_focus = CSA_a_new_america
-	}
-
-	mean_time_to_happen = {
-		months = 4
-	}
+	is_triggered_only = yes
 
 	option = { # We shall be liberated from the earth
 		name = csa.126.a
@@ -6278,7 +6325,7 @@ country_event = { #
 		name = csa.133.a
 			create_corps_commander = { #Auto-Generated
 				name = "Lucky Luciano"
-				portrait_path = "gfx/leaders/CSA/Portrait_CSA_Lucky_Luciano.tga"
+				portrait_path = "gfx/leaders/CSA/Portrait_CSA_Lucky_Luciano.png"
 				traits = {
 					politically_connected
 					commando
@@ -6291,7 +6338,7 @@ country_event = { #
 			}
 			create_corps_commander = { #Auto-Generated
 				name = "Clyde Barrow"
-				portrait_path = "gfx/leaders/CSA/Portrait_CSA_Clyde_Barrow.tga"
+				portrait_path = "gfx/leaders/CSA/Portrait_CSA_Clyde_Barrow.png"
 				traits = {
 					commando
 				}
@@ -6303,7 +6350,7 @@ country_event = { #
 			}
 			create_corps_commander = { #Auto-Generated
 				name = "Bonnie Parker"
-				portrait_path = "gfx/leaders/CSA/Portrait_CSA_Bonnie_Parker.tga"
+				portrait_path = "gfx/leaders/CSA/Portrait_CSA_Bonnie_Parker.png"
 				traits = {
 					commando
 				}
@@ -6315,7 +6362,7 @@ country_event = { #
 			}
 			create_corps_commander = { #Auto-Generated
 				name = "John Dillinger"
-				portrait_path = "gfx/leaders/CSA/Portrait_CSA_John_Dillinger.tga"
+				portrait_path = "gfx/leaders/CSA/Portrait_CSA_John_Dillinger.png"
 				traits = {	
 					politically_connected
 					commando
@@ -6400,8 +6447,8 @@ country_event = { #Phasing out the Fedora?
 	trigger = {
 		has_idea = CSA_Frank_Nitti_sec_tot
 		has_unit_leader = 100909
-		has_completed_focus = CSA_cult_of_personality
 	}
+	is_triggered_only = yes
 	
 	fire_only_once = yes
 
@@ -6427,10 +6474,8 @@ country_event = { #Nitti Seizes the Military Establishment
 	is_triggered_only = yes
 	
 	trigger = {
-		has_completed_focus = CSA_found_OSS
 		has_idea = CSA_Frank_Nitti_sec_tot
 		has_unit_leader = 100909
-		has_country_flag = CSA_dillinger_promoted
 	}
 	
 
@@ -6438,7 +6483,7 @@ country_event = { #Nitti Seizes the Military Establishment
 		name = csa.137.a
 		create_field_marshal = { #Auto-Generated
 			name = "Frank Nitti"
-			portrait_path = "gfx/leaders/CSA/Portrait_CSA_Frank_Nitti.tga"
+			portrait_path = "gfx/leaders/CSA/Portrait_CSA_Frank_Nitti.png"
 			traits = {
 				trait_cautious
 				career_officer
@@ -6500,9 +6545,9 @@ country_event = {
 			create_country_leader = {
 				name = "Alphonse Capone"
 				desc = "POLITICS_CAPONE_DESC"
-				picture = "Portrait_CSA_Alphonse_Capone.tga"
+				picture = "gfx/leaders/CSA/Portrait_CSA_Alphonse_Capone.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = red_tinted_autocracy_subtype
 			}
 		}
 	}
@@ -6545,19 +6590,18 @@ country_event = {
 	    name = csa.250.a 
 		
 		hidden_effect = {	
-			kill_country_leader = yes
 			set_country_flag = CSA_capone_insane
 			create_country_leader = {
                 name = "Alphonse 'Al' Capone"
 				desc = "POLITICS_CAPONE_DESC"
-				picture = "Portrait_CSA_Alphonse_Capone_chairman.tga"
+				picture = "gfx/leaders/CSA/Portrait_CSA_Alphonse_Capone_chairman.png"
 				expire = "1965.1.1"
-				ideology = totalist_subtype
+				ideology = caponism_subtype
 				traits = { the_boss sec_prince_of_terror scarface }
 			}
 			create_field_marshal = { #Auto-Generated
 				name = "Alphonse Capone"
-				portrait_path = "gfx/leaders/CSA/Portrait_CSA_Alphonse_Capone_chairman.tga"
+				portrait_path = "gfx/leaders/CSA/Portrait_CSA_Alphonse_Capone_chairman.png"
 				traits = {
 					politically_connected
 					commando
@@ -6703,9 +6747,9 @@ country_event = {
 		create_country_leader = {
             name = "Frank Nitti"
 			desc = "POLITICS_FRANK_NITTI_DESC"
-			picture = "Portrait_CSA_Frank_Nitti.tga"
+			picture = "gfx/leaders/CSA/Portrait_CSA_Frank_Nitti.png"
 			expire = "1965.1.1"
-			ideology = totalist_subtype
+			ideology = caponism_subtype
 			traits = { }
 		}
     }
@@ -6714,9 +6758,9 @@ country_event = {
 		create_country_leader = {
             name = "John Dillinger"
 			desc = "POLITICS_FRANK_NITTI_DESC"
-			picture = "Portrait_CSA_John_Dillinger.tga"
+			picture = "gfx/leaders/CSA/Portrait_CSA_John_Dillinger.png"
 			expire = "1965.1.1"
-			ideology = totalist_subtype
+			ideology = caponism_subtype
 			traits = { }
 		}
     }
@@ -6725,9 +6769,9 @@ country_event = {
 		create_country_leader = {
             name = "Lucky Luciano"
 			desc = "POLITICS_FRANK_NITTI_DESC"
-			picture = "Portrait_CSA_Lucky_Luciano.tga"
+			picture = "gfx/leaders/CSA/Portrait_CSA_Lucky_Luciano.png"
 			expire = "1965.1.1"
-			ideology = totalist_subtype
+			ideology = caponism_subtype
 			traits = { }
 		}
     }
@@ -6739,9 +6783,9 @@ country_event = {
 		create_country_leader = {
             name = "Jimmy Hoffa"
 			desc = "POLITICS_FRANK_NITTI_DESC"
-			picture = "Portrait_CSA_Jimmy_Hoffa.tga"
+			picture = "gfx/leaders/CSA/Portrait_CSA_Jimmy_Hoffa.png"
 			expire = "1965.1.1"
-			ideology = totalist_subtype
+			ideology = caponism_subtype
 			traits = { }
 		}
     }
@@ -7115,14 +7159,7 @@ country_event = { # Foster Disappears
 
 	fire_only_once = yes
 	
-	trigger = {
-	tag = CSA
-	has_completed_focus = CSA_ultimatum_to_leninists
-	}
-
-	mean_time_to_happen = {
-	days = 7
-	}
+	is_triggered_only = yes
 	
 	option = { #William Z. Who?
 		name = csa.160.a
@@ -7147,14 +7184,7 @@ country_event = { # Prominent Liberals Moved to Gamma Class
 
 	fire_only_once = yes
 	
-	trigger = {
-	tag = CSA
-	has_completed_focus = CSA_labor_camps
-	}
-	
-	mean_time_to_happen = {
-	days = 8
-	}
+	is_triggered_only = yes
 	
 	option = { #As it should be
 		name = csa.161.a
@@ -7171,15 +7201,7 @@ country_event = { # Left Socialists get promoted/exiled
 
 	fire_only_once = yes
 
-	trigger = {
-	tag = CSA
-	has_completed_focus = CSA_labor_camps
-	has_completed_focus = CSA_purge_counter_revolutionaries
-	}
-	
-	mean_time_to_happen = {
-	days = 40
-	}
+	is_triggered_only = yes
 	
 	
 	option = { #Fairwell, Friends
@@ -7231,14 +7253,7 @@ country_event = { # CSS Youth Wing
 	
 	fire_only_once = yes
 
-	trigger = {
-	tag = CSA
-	has_completed_focus = CSA_proletariat_Vanguard
-	}
-	
-	mean_time_to_happen = {
-	days = 60
-	}
+	is_triggered_only = yes
 		
 	option = {
 		name = csa.164.a
@@ -7255,15 +7270,7 @@ country_event = { # Foster Criticizes Election
 	
 	fire_only_once = yes
 
-	trigger = {
-	tag = CSA
-	has_country_flag = CSA_burnham_is_leader
-	has_country_flag = CSA_constitutional_convention_done
-	}
-	
-	mean_time_to_happen = {
-	days = 8
-	}
+	is_triggered_only = yes
 		
 	option = {
 		name = csa.165.a
@@ -7278,20 +7285,10 @@ country_event = { # Norman Thomas criticizes renewed militarism
 	desc = csa.166.d
 	picture = GFX_report_event_USA_congress
 	
-	trigger = {
-	tag = CSA
-	has_country_flag = CSA_burnham_is_leader
-	has_country_flag = CSA_constitutional_convention_done
-	has_completed_focus = CSA_proletariat_duties
-	has_completed_focus = CSA_the_patriot
-	}
+	is_triggered_only = yes
 	
 	fire_only_once = yes
 
-	mean_time_to_happen = {
-	days = 10
-	}
-		
 	option = {
 		name = csa.166.a
 		add_political_power = -10
@@ -7307,14 +7304,7 @@ country_event = { # Anarchists oppose recent measures
 	
 	fire_only_once = yes
 	
-	trigger = {
-	tag = CSA
-	has_completed_focus = CSA_national_economy
-	}
-	
-	mean_time_to_happen = {
-	days = 5
-	}
+	is_triggered_only = yes
 		
 	option = {
 		name = csa.167.a
@@ -7348,8 +7338,6 @@ country_event = { # Anarchists riot
 	
 	is_triggered_only = yes
 	
-	is_triggered_only = yes
-	
 	option = {
 		name = csa.168.a
 		add_stability = -0.02
@@ -7366,16 +7354,7 @@ country_event = { # Four Hour Work Week
 	
 	fire_only_once = yes
 	
-	trigger = {
-	tag = CSA
-	has_country_flag = CSA_burnham_is_leader
-	has_completed_focus = CSA_a_new_america
-	has_completed_focus = CSA_proletariat_commander
-	}
-	
-	mean_time_to_happen = {
-	days = 50
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = csa.169.a
@@ -7397,17 +7376,7 @@ country_event = { # Energy Accounting
 	
 	fire_only_once = yes
 	
-	trigger = {
-	tag = CSA
-	has_country_flag = CSA_burnham_is_leader
-	has_country_flag = CSA_constitutional_convention_done
-	has_completed_focus = CSA_peoples_senate
-	has_completed_focus = CSA_look_to_the_south
-	}
-	
-	mean_time_to_happen = {
-	days = 10
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = csa.170.a
@@ -7429,16 +7398,7 @@ country_event = { # Female Auxilaries
 	
 	fire_only_once = yes
 	
-	trigger = {
-	tag = CSA
-	has_country_flag = CSA_burnham_is_leader
-	has_completed_focus = CSA_womens_liberation
-	has_completed_focus = CSA_new_socialist_values
-	}
-	
-	mean_time_to_happen = {
-	days = 20
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = csa.171.a
@@ -7460,14 +7420,7 @@ country_event = { # Politically Correct Mount Rushmore
 	
 	fire_only_once = yes
 	
-	trigger = {
-	tag = CSA
-	has_completed_focus = CSA_proletariat_commander
-	}
-	
-	mean_time_to_happen = {
-	days = 300
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = csa.172.a
@@ -7503,16 +7456,7 @@ country_event = { # Corrupt Managers
 	
 	fire_only_once = yes
 	
-	trigger = {
-	tag = CSA
-	has_country_flag = CSA_burnham_is_leader
-	has_completed_focus = CSA_social_revolution
-	has_completed_focus = CSA_squeeze_bourgousie
-	}
-	
-	mean_time_to_happen = {
-	days = 50
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = csa.173.a
@@ -7551,15 +7495,7 @@ country_event = { # Experimental Troops
 	picture = GFX_CSA_iron_brigades
 	
 	fire_only_once = yes
-	
-	trigger = {
-	tag = CSA
-	has_completed_focus = CSA_proletariat_commander
-	}
-	
-	mean_time_to_happen = {
-	days = 60
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = csa.174.a
@@ -7633,15 +7569,7 @@ country_event = { # Continental Constables
 	
 	fire_only_once = yes
 	
-	trigger = {
-	tag = CSA
-	has_completed_focus = CSA_appoint_sychophants
-	has_completed_focus = CSA_emergency_powers
-	}
-	
-	mean_time_to_happen = {
-	days = 20
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = csa.175.a
@@ -7745,14 +7673,7 @@ country_event = { # Root Out Spies
 	
 	fire_only_once = yes
 	
-	trigger = {
-	tag = CSA
-	has_completed_focus = CSA_red_scare
-	}
-	
-	mean_time_to_happen = {
-	days = 15
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = csa.178.a
@@ -7788,14 +7709,7 @@ country_event = { # Court Officers
 	fire_only_once = yes
 	
 	
-	trigger = {
-	tag = CSA
-	has_completed_focus = CSA_the_patriot
-	}
-	
-	mean_time_to_happen = {
-	days = 10
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = csa.179.a
@@ -7836,14 +7750,7 @@ country_event = { # Blackmail Material
 	fire_only_once = yes
 	
 	
-	trigger = {
-	tag = CSA
-	has_completed_focus = CSA_proletariat_Vanguard
-	}
-	
-	mean_time_to_happen = {
-	days = 15
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = csa.180.a
@@ -7868,14 +7775,7 @@ country_event = { # Foster Confesses
 	fire_only_once = yes
 	
 	
-	trigger = {
-	tag = CSA
-	has_completed_focus = CSA_purge_counter_revolutionaries
-	}
-	
-	mean_time_to_happen = {
-	days = 10
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = csa.181.a
@@ -7993,18 +7893,13 @@ country_event = { # The Newish American Woman
 	picture = GFX_report_event_USA_congress
 
 	trigger = {
-		tag = CSA
-		has_completed_focus = CSA_social_revolution
-		has_completed_focus = CSA_womens_liberation
-			has_country_leader = {
-				ruling_only = yes
-				name = "James Burnham"
-			}
+		has_country_leader = {
+			ruling_only = yes
+			name = "James Burnham"
+		}
 	}
 
-	mean_time_to_happen = {
-		months = 6
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 
@@ -8051,10 +7946,7 @@ country_event = { # NAT
 				}
 			}
 		}
-		
-			mean_time_to_happen = {
-		months = 1
-	}
+	
 
 	
 	option = { # Create faction
@@ -8076,16 +7968,9 @@ country_event = { # Continental Director
 	desc = csa.186.d
 	picture = GFX_report_event_USA_congress
 
-	trigger = {
-		tag = CSA
-		has_completed_focus = CSA_proletariat_commander
-	}
+	is_triggered_only = yes
 	fire_only_once = yes
 	
-	mean_time_to_happen = {
-	days = 5
-	}
-
 	option = { # Praise the Commander
 		name = csa.186.a
 			add_political_power = 50
@@ -8098,6 +7983,9 @@ country_event = { # Continental Director
 			elections_allowed = no
 				}
 			hidden_effect = {
+				set_country_leader_portrait = {
+				portrait = "gfx/leaders/CSA/Portrait_CSA_burnham_supreme.png"
+			}
 				set_party_name = {
 				ideology = totalist
 				long_name = CSA_totalist_centralist_party_long
@@ -8565,10 +8453,10 @@ country_event = { # Strengthen Iron Brigades
 
 	trigger = {
 	OR = {
-	has_idea = CSA_iron_brigades_idea_1_PCC
-	has_idea = CSA_iron_brigades_idea_2_PCC
-	has_idea = CSA_iron_brigades_idea_1
-	has_idea = CSA_iron_brigades_idea_2 }
+		has_idea = CSA_iron_brigades_idea_1_PCC
+		has_idea = CSA_iron_brigades_idea_2_PCC
+		has_idea = CSA_iron_brigades_idea_1
+		has_idea = CSA_iron_brigades_idea_2 }
 	}
 	
 	fire_only_once = yes
@@ -8712,14 +8600,10 @@ country_event = { # Fate of Lindbergh
 	picture = GFX_report_event_USA_congress
 
 	trigger = {
-		has_war = yes
 		has_completed_focus = CSA_proletariat_commander
 	}
 
-	fire_only_once = yes
-
-	mean_time_to_happen = {
-	months = 2 }
+	is_triggered_only = yes
 	
 	fire_only_once = yes
 
@@ -8764,19 +8648,16 @@ country_event = { # Death of Rockwell
 	desc = csa.199.d
 
 	trigger = {
-		has_war = yes
 		OR = {
-		has_idea =  CSA_iron_brigades_idea_reinforced 
-		has_idea =  CSA_iron_brigades_idea_reinforced_PCC 
-		has_idea =  CSA_iron_brigades_idea_reinforced_PCC_weapons 
-		has_idea =  CSA_iron_brigades_idea_reinforced_weapons 
+			has_idea =  CSA_iron_brigades_idea_reinforced 
+			has_idea =  CSA_iron_brigades_idea_reinforced_PCC 
+			has_idea =  CSA_iron_brigades_idea_reinforced_PCC_weapons 
+			has_idea =  CSA_iron_brigades_idea_reinforced_weapons 
 		}
 	}
 
 	fire_only_once = yes
 
-	mean_time_to_happen = {
-	months = 1 }
 	option = { # Flavor
 		name = csa.199.a
 		add_war_support = 0.02
@@ -8795,17 +8676,14 @@ country_event = { # Booby Trapped Suits
 	title = csa.210.t
 	desc = csa.210.d
 
-trigger = {
-		has_war = yes
+	trigger = {
 		OR = {
 		has_idea =  CSA_iron_brigades_idea_reinforced_PCC_weapons 
 		has_idea =  CSA_iron_brigades_idea_reinforced_weapons 
 		}
 	}
 	fire_only_once = yes
-	
-	mean_time_to_happen = {
-	months = 2 }
+	is_triggered_only = yes
 
 	option = { # No
 		name = csa.210.a
@@ -8838,14 +8716,7 @@ country_event = { # War Syndicalism
 	desc = csa.211.d
 	picture = GFX_report_event_USA_congress
 
-	trigger = {
-		has_completed_focus = CSA_the_dust_settles
-		has_completed_focus = CSA_proletariat_commander
-		}
-	
-	mean_time_to_happen = {
-	months = 2
-	}
+	is_triggered_only = yes
 	
 	fire_only_once = yes
 
@@ -8870,17 +8741,12 @@ country_event = { # Subservient population
 	fire_only_once = yes
 	
 	trigger = {
-	has_idea = CSA_war_syndicalism_idea
-	has_completed_focus = CSA_peoples_senate
-	has_completed_focus = CSA_military_industrial_complex
-	OR = {
-	has_country_flag = mescaline_use
-	date > 1944.04.01
+		has_idea = CSA_war_syndicalism_idea
+		has_completed_focus = CSA_military_industrial_complex
+		OR = {
+			has_country_flag = mescaline_use
+			date > 1944.08.01
 		}
-	}
-	
-	mean_time_to_happen = {
-	months = 6
 	}
 	
 	option = {
@@ -8903,11 +8769,7 @@ country_event = { # The Attempt
 
 	trigger = {
 		has_completed_focus = CSA_proletariat_commander
-		date > 1943.07.01
-	}
-	
-	mean_time_to_happen = {
-	months = 8
+		date > 1944.01.01
 	}
 	
 	option = { # Flavor
@@ -8972,12 +8834,9 @@ country_event = { # Death of Foster
 
 	trigger = { 
 		has_country_flag = foster_the_soldier
-		has_war = yes
 	}
-	 mean_time_to_happen = {
-	 days = 20
-	 }
-	 
+	
+	is_triggered_only = yes 
 	fire_only_once = yes
 
 	option = { # 
@@ -8998,13 +8857,10 @@ country_event = { # Lindbergh's Redemption
 	picture = GFX_report_event_USA_congress
 
 	trigger = {
-	has_country_flag = lindbergh_lives
-	has_war = yes
+		has_country_flag = lindbergh_lives
 	}
 	
-	mean_time_to_happen = {
-	months = 3
-	}
+	is_triggered_only = yes
 	
 	fire_only_once = yes
 
@@ -9735,14 +9591,10 @@ country_event = { # Valois
 		name = "Georges Valois"
 		}
 	}
-	date > 1942.01.01
+	date > 1942.06.01
 	NOT = {
 	has_war_with = FRA
 		}
-	}
-	
-	mean_time_to_happen = {
-		months = 5
 	}
 	
 	fire_only_once = yes
@@ -9792,10 +9644,6 @@ country_event = { # Technocratic Claims
 		}
 	}
 	
-	mean_time_to_happen = {
-		days = 2
-	}
-	
 	fire_only_once = yes
 	
 	option = { # Claims on Canada
@@ -9804,6 +9652,7 @@ country_event = { # Technocratic Claims
 	add_state_claim = 465
 	add_state_claim = 471
 	add_state_claim = 473
+	add_state_claim = 470
 	add_state_claim = 483
 	add_state_claim = 484
 	add_political_power = -80
@@ -9822,19 +9671,13 @@ country_event = { # Send Lovestone to Alaska?
 	picture = GFX_report_event_USA_congress
 
 	trigger = {
-		has_country_leader = {
-			ruling_only = yes
-			name = "James Burnham"
-		}
 		NOT = {
 			has_idea = CSA_Jay_Lovestone_hog_tot
 		}
 		owns_state = 463
 	}
 	
-	mean_time_to_happen = {
-		months = 2
-	}
+	is_triggered_only = yes
 	
 	fire_only_once = yes
 	
@@ -10219,9 +10062,9 @@ country_event = { # AFL Leadership Contest
 		create_country_leader = {
 			name = "John Lewis"
 			desc = "POLITICS_JOHN_LEWIS_DESC"
-			picture = "gfx/leaders/CSA/Portrait_CSA_John_Lewis.tga"
+			picture = "gfx/leaders/CSA/Portrait_CSA_John_Lewis.png"
 			expire = "1965.1.1"
-			ideology = social_democrat_subtype
+			ideology = syndie_social_democrat_subtype
 			traits = { captain_of_industry }
 			}
 			country_event = {
@@ -10253,9 +10096,9 @@ country_event = { # AFL Leadership Contest
 		create_country_leader = {
 			name = "William Green"
 			desc = "POLITICS_SAMEUL_GREEN_DESC"
-			picture = "gfx/leaders/CSA/Portrait_Samuel_Green.tga"
+			picture = "gfx/leaders/CSA/Portrait_Samuel_Green.png"
 			expire = "1965.1.1"
-			ideology = social_democrat_subtype
+			ideology = syndie_social_democrat_subtype
 			traits = { trade_union_boss }
 			}
 			country_event = {
@@ -10287,9 +10130,9 @@ country_event = { # AFL Leadership Contest
 		create_country_leader = {
 					name = "David Dubinsky"
 					desc = "POLITICS_DAVID_DUBINSKY_DESC"
-					picture = "Portrait_CSA_David_Dubinsky.tga"
+					picture = "gfx/leaders/CSA/Portrait_CSA_David_Dubinsky.png"
 					expire = "1965.1.1"
-					ideology = social_democrat_subtype
+					ideology = syndie_social_democrat_subtype
 					traits = {
 						backroom_backstabber
 					}
@@ -10336,9 +10179,9 @@ country_event = { # AFL Leadership Contest
 		create_country_leader = {
 			name = "John Lewis"
 			desc = "POLITICS_JOHN_LEWIS_DESC"
-			picture = "gfx/leaders/CSA/Portrait_John_Lewis.dds"
+			picture = "gfx/leaders/CSA/Portrait_John_Lewis.png"
 			expire = "1965.1.1"
-			ideology = social_democrat_subtype
+			ideology = syndie_social_democrat_subtype
 			traits = { captain_of_industry }
 			}
 		country_event = {
@@ -10359,9 +10202,9 @@ country_event = { # AFL Leadership Contest
 		create_country_leader = {
 			name = "William Green"
 			desc = "POLITICS_SAMEUL_GREEN_DESC"
-			picture = "gfx/leaders/CSA/Portrait_Samuel_Green.dds"
+			picture = "gfx/leaders/CSA/Portrait_Samuel_Green.png"
 			expire = "1965.1.1"
-			ideology = social_democrat_subtype
+			ideology = syndie_social_democrat_subtype
 			traits = { trade_union_boss }
 			}
 		country_event = {
@@ -10382,9 +10225,9 @@ country_event = { # AFL Leadership Contest
 		create_country_leader = {
 					name = "David Dubinsky"
 					desc = "POLITICS_DAVID_DUBINSKY_DESC"
-					picture = "Portrait_CSA_David_Dubinsky.tga"
+					picture = "gfx/leaders/CSA/Portrait_CSA_David_Dubinsky.png"
 					expire = "1965.1.1"
-					ideology = social_democrat_subtype
+					ideology = syndie_social_democrat_subtype
 					traits = {
 						backroom_backstabber
 					}
@@ -10420,9 +10263,9 @@ country_event = { # AFL Leadership Contest
 		create_country_leader = {
 			name = "John Lewis"
 			desc = "POLITICS_JOHN_LEWIS_DESC"
-			picture = "gfx/leaders/CSA/Portrait_John_Lewis.dds"
+			picture = "gfx/leaders/CSA/Portrait_John_Lewis.png"
 			expire = "1965.1.1"
-			ideology = social_democrat_subtype
+			ideology = syndie_social_democrat_subtype
 			traits = { captain_of_industry }
 			}
 		}
@@ -10439,9 +10282,9 @@ country_event = { # AFL Leadership Contest
 		create_country_leader = {
 			name = "William Green"
 			desc = "POLITICS_SAMEUL_GREEN_DESC"
-			picture = "gfx/leaders/CSA/Portrait_Samuel_Green.dds"
+			picture = "gfx/leaders/CSA/Portrait_Samuel_Green.png"
 			expire = "1965.1.1"
-			ideology = social_democrat_subtype
+			ideology = syndie_social_democrat_subtype
 			traits = { trade_union_boss }
 			}
 		}
@@ -10458,9 +10301,9 @@ country_event = { # AFL Leadership Contest
 		create_country_leader = {
 					name = "David Dubinsky"
 					desc = "POLITICS_DAVID_DUBINSKY_DESC"
-					picture = "Portrait_CSA_David_Dubinsky.tga"
+					picture = "gfx/leaders/CSA/Portrait_CSA_David_Dubinsky.png"
 					expire = "1965.1.1"
-					ideology = social_democrat_subtype
+					ideology = syndie_social_democrat_subtype
 					traits = {
 						backroom_backstabber
 					}
@@ -10618,6 +10461,7 @@ country_event = { # Independence League Leadership Contest
 	option = { # Norman Thomas
 	name = csa.330.a
 	set_country_flag = CSA_1940_cio_election_thomas
+	set_country_flag = CSA_Nationalist_Victory
 	add_ideas = {
 			CSA_Max_Eastman_for_rso
 			CSA_Daniel_Hoan_eco_rso
@@ -10627,7 +10471,7 @@ country_event = { # Independence League Leadership Contest
 		create_country_leader = {
 			name = "Norman Thomas"
 			desc = "POLITICS_NORMAN_THOMAS_DESC"
-			picture = "gfx/leaders/CSA/Portrait_CSA_Norman_Thomas.tga"
+			picture = "gfx/leaders/CSA/Portrait_CSA_Norman_Thomas.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
 			traits = { tenacious_negotiator }
@@ -10637,7 +10481,7 @@ country_event = { # Independence League Leadership Contest
 			ruling_party = radical_socialist
 			election_frequency = 48
 			last_election = "1936.11.08"
-			elections_allowed = no
+			elections_allowed = yes
 		}
 		hidden_effect = {
 		country_event = {
@@ -10649,6 +10493,7 @@ country_event = { # Independence League Leadership Contest
 	option = { # John Dewey
 	name = csa.330.b
 	set_country_flag = CSA_1940_cio_election_dewey
+	set_country_flag = CSA_Nationalist_Victory
 	add_ideas = {
 			CSA_Asa_P_Randolph_for_rso
 			CSA_John_Gates_eco_rso
@@ -10658,7 +10503,7 @@ country_event = { # Independence League Leadership Contest
 		create_country_leader = {
 			name = "John Dewey"
 			desc = "POLITICS_JOHN_DEWEY_DESC"
-			picture = "gfx/leaders/CSA/Portrait_John_Dewey.tga"
+			picture = "gfx/leaders/CSA/Portrait_John_Dewey.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
 			traits = { staunch_constitutionalist }
@@ -10668,7 +10513,7 @@ country_event = { # Independence League Leadership Contest
 			ruling_party = radical_socialist
 			election_frequency = 48
 			last_election = "1936.11.08"
-			elections_allowed = no
+			elections_allowed = yes
 		}
 		hidden_effect = {
 		country_event = {
@@ -10680,6 +10525,7 @@ country_event = { # Independence League Leadership Contest
 	option = { # Roger Nash Baldwin
 	name = csa.330.c
 	set_country_flag = CSA_1940_cio_election_baldwin
+	set_country_flag = CSA_Nationalist_Victory
 	add_ideas = {
 			CSA_Sidney_Hook_for_rso
 			CSA_James_Peter_Warbasse_eco_rso
@@ -10689,7 +10535,7 @@ country_event = { # Independence League Leadership Contest
 		create_country_leader = {
 			name = "Roger Nash Baldwin"
 			desc = "POLITICS_ROGER_NASH_BALDWIN_DESC"
-			picture = "gfx/leaders/CSA/Portrait_Roger_Nash_Baldwin.tga"
+			picture = "gfx/leaders/CSA/Portrait_Roger_Nash_Baldwin.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
 			traits = { editor }
@@ -10699,7 +10545,7 @@ country_event = { # Independence League Leadership Contest
 			ruling_party = radical_socialist
 			election_frequency = 48
 			last_election = "1936.11.08"
-			elections_allowed = no
+			elections_allowed = yes
 		}
 		hidden_effect = {
 		country_event = {
@@ -10711,6 +10557,7 @@ country_event = { # Independence League Leadership Contest
 	option = { # Heywood Broun
 	name = csa.330.e
 	set_country_flag = CSA_1940_cio_election_broun
+	set_country_flag = CSA_Nationalist_Victory
 	add_ideas = {
 			CSA_John_Louis_Engdahl_for_rso
 			CSA_John_Gates_eco_rso
@@ -10720,7 +10567,7 @@ country_event = { # Independence League Leadership Contest
 		create_country_leader = {
 			name = "Heywood Broun"
 			desc = "POLITICS_HEYWOOD_BROUN_DESC"
-			picture = "gfx/leaders/CSA/Portrait_Heywood_Broun.tga"
+			picture = "gfx/leaders/CSA/Portrait_Heywood_Broun.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
 			traits = { editor }
@@ -10730,7 +10577,7 @@ country_event = { # Independence League Leadership Contest
 			ruling_party = radical_socialist
 			election_frequency = 48
 			last_election = "1936.11.08"
-			elections_allowed = no
+			elections_allowed = yes
 		}
 		hidden_effect = {
 		country_event = {
@@ -10742,6 +10589,7 @@ country_event = { # Independence League Leadership Contest
 	option = { # Arthur Ernest Morgan
 	name = csa.330.f
 	set_country_flag = CSA_1940_cio_election_morgan
+	set_country_flag = CSA_Nationalist_Victory
 	add_ideas = {
 			CSA_Emanuel_Haldeman_Julius_for_rso
 			CSA_Walter_Reuther_eco_rso
@@ -10751,7 +10599,7 @@ country_event = { # Independence League Leadership Contest
 		create_country_leader = {
 			name = "Arthur Ernest Morgan"
 			desc = "POLITICS_HEYWOOD_BROUN_DESC"
-			picture = "gfx/leaders/CSA/Portrait_Arthur_Ernest_Morgan.tga"
+			picture = "gfx/leaders/CSA/Portrait_Arthur_Ernest_Morgan.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
 			traits = { educator }
@@ -10761,7 +10609,7 @@ country_event = { # Independence League Leadership Contest
 			ruling_party = radical_socialist
 			election_frequency = 48
 			last_election = "1936.11.08"
-			elections_allowed = no
+			elections_allowed = yes
 		}
 		hidden_effect = {
 		country_event = {
@@ -10773,6 +10621,7 @@ country_event = { # Independence League Leadership Contest
 	option = { # Meyer London
 	name = csa.330.g
 	set_country_flag = CSA_1940_cio_election_london
+	set_country_flag = CSA_Nationalist_Victory
 	add_ideas = {
 			CSA_Asa_P_Randolph_for_rso
 			CSA_John_L_Lewis_eco_rso
@@ -10782,7 +10631,7 @@ country_event = { # Independence League Leadership Contest
 		create_country_leader = {
 			name = "Meyer London"
 			desc = "POLITICS_MEYER_LONDON_DESC"
-			picture = "gfx/leaders/CSA/Portrait_CSA_Meyer_London.tga"
+			picture = "gfx/leaders/CSA/Portrait_CSA_Meyer_London.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
 			traits = { tenacious_negotiator }
@@ -10792,7 +10641,7 @@ country_event = { # Independence League Leadership Contest
 			ruling_party = radical_socialist
 			election_frequency = 48
 			last_election = "1936.11.08"
-			elections_allowed = no
+			elections_allowed = yes
 		}
 		hidden_effect = {
 		country_event = {
@@ -11013,9 +10862,9 @@ country_event = { # General-in-Chief Position Created
 	create_country_leader = {
 				name = "Smedley Butler"
 				desc = "POLITICS_PRESIDENT_SMEDLY_BUTLER_DESC"
-				picture = "Portrait_CSA_smedly_butler_G.tga"
+				picture = "gfx/leaders/CSA/Portrait_CSA_smedly_butler_G.png"
 				expire = "1965.1.1"
-				ideology = radical_socialist_subtype
+				ideology = radsoc_red_junta_subtype
 				traits = { cornered_fox }
 			}
 	}
@@ -11281,18 +11130,14 @@ country_event = { #Minor Food Shortage
 	picture = GFX_report_event_USA_congress
 
 	trigger = {
-	has_country_flag = {
-	flag = CAL_fosters_farms
-	value = 1
-	}
-	has_completed_focus = CSA_state_farms
-	}
-	
-	mean_time_to_happen = {
-	days = 50
+		has_country_flag = {
+		flag = CAL_fosters_farms
+		value = 1
+		}
 	}
 	
 	fire_only_once = yes
+	is_triggered_only = yes
 
 	option = { #Export it
 	name = csa.404.a
@@ -11314,16 +11159,13 @@ country_event = { #Food Shortage
 	picture = GFX_report_event_USA_congress
 
 	trigger = {
-	has_country_flag = {
-	flag = CAL_fosters_farms
-	value = 2
-	}
-	has_completed_focus = CSA_state_farms
+		has_country_flag = {
+			flag = CAL_fosters_farms
+			value = 2
+		}
 	}
 	
-	mean_time_to_happen = {
-	days = 50
-	}
+	is_triggered_only = yes
 	
 	fire_only_once = yes
 
@@ -11349,16 +11191,12 @@ country_event = { #American Famine
 
 	trigger = {
 	has_country_flag = {
-	flag = CAL_fosters_farms
-	value = 2
+		flag = CAL_fosters_farms
+		value = 2
 	}
-	has_completed_focus = CSA_state_farms
-	}
-	
-	mean_time_to_happen = {
-	days = 50
 	}
 	
+	is_triggered_only = yes
 	fire_only_once = yes
 
 	option = { #Export it
@@ -12667,11 +12505,6 @@ country_event = { # La Internationale
 	FRA = {
 	add_political_power = 40
 	add_opinion_modifier = { target = CSA modifier = small_increase }
-	}
-	diplomatic_relation = {
-    country = FRA
-    relation = non_aggression_pact
-    active = no
 		}
 	}
 	option = { # Send Military Aid
@@ -12682,13 +12515,8 @@ country_event = { # La Internationale
 		type = infantry_equipment
 		amount = -5000
 		producer = CSA
-		}
+	}
 	add_opinion_modifier = { target = CSA modifier = medium_increase }
-	diplomatic_relation = {
-    country = FRA
-    relation = non_aggression_pact
-    active = no
-		}
 	FRA = {
 	add_political_power = 40
 	add_manpower = 15000
@@ -12710,7 +12538,7 @@ country_event = { # La Internationale
 	diplomatic_relation = {
     country = FRA
     relation = non_aggression_pact
-    active = no
+    active = yes
 		}
 	}
 }
@@ -13172,6 +13000,13 @@ country_event = { #CSS Report: Jay Lovestone
 		name = csa.510.a
 		ai_chance = {
 			factor = 80
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = CSA_post_civil_war
+					option = CSA_POST_CIVIL_WAR_LOVESTONE
+				}
+			}
 		}
 		add_political_power = -10
 		hidden_effect = {
@@ -13194,6 +13029,13 @@ country_event = { #CSS Report: Jay Lovestone
 		}
 		ai_chance = {
 			factor = 20
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = CSA_post_civil_war
+					option = CSA_POST_CIVIL_WAR_BURNHAM
+				}
+			}
 		}
 		
 		hidden_effect = {
@@ -13221,6 +13063,13 @@ country_event = { #Lovestone Plots Against the CSS
 		name = csa.511.a
 		ai_chance = {
 			factor = 80
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = CSA_post_civil_war
+					option = CSA_POST_CIVIL_WAR_LOVESTONE
+				}
+			}
 		}
 		add_political_power = -30
 		add_stability = -0.03
@@ -13235,6 +13084,16 @@ country_event = { #Lovestone Plots Against the CSS
 	}
 	option = { #I doubt this is my problem
 		name = csa.511.b
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = CSA_post_civil_war
+					option = CSA_POST_CIVIL_WAR_BURNHAM
+				}
+			}
+		}
 		hidden_effect = {
 		CSA = {
 			country_event = {
@@ -13387,9 +13246,9 @@ country_event = { #James Burnham dead
 		create_country_leader = {
 			name = "Jay Lovestone"
 			desc = "POLITICS_JAY_LOVESTONE_DESC"
-			picture = "gfx/leaders/CSA/Portrait_CSA_Jay_Lovestone.tga"
+			picture = "gfx/leaders/CSA/Portrait_CSA_Jay_Lovestone.png"
 			expire = "1965.1.1"
-			ideology = totalist_subtype
+			ideology = technocratic_socialism_subtype
 			traits = { trade_union_boss }
 			}
 		set_politics = {

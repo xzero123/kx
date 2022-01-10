@@ -18,8 +18,8 @@ ideas = {
 		GEA_admirality = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea GEA_admirality"}
 			picture = german_advisors_KR
-			research_bonus = {
-				naval_doctrine = 0.1
+			modifier = {
+				naval_doctrine_cost_factor = -0.1
 			}
 		}
 
@@ -37,11 +37,42 @@ ideas = {
 			picture = german_advisors_KR
 			modifier = {
 				conscription = 0.05
-				conscription_factor = -0.9
+				conscription_factor = -0.85
 				army_morale_factor = 0.10
 				army_attack_factor = 0.20
 				max_planning = 0.25
 				special_forces_min = 10
+				special_forces_cap = 0.25
+				training_time_factor = 0.20
+			}
+		}
+		
+		GEA_prussian_force_exilewaffen = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea GEA_prussian_force"}
+			picture = german_advisors_KR
+			modifier = {
+				conscription = 0.05
+				conscription_factor = -0.85
+				army_morale_factor = 0.10
+				army_attack_factor = 0.20
+				max_planning = 0.25
+				special_forces_min = 25
+				special_forces_cap = 0.45
+				training_time_factor = 0.20
+				weekly_manpower = 350
+			}
+		}
+		
+		GEA_prussian_force_kaisers_own = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea GEA_prussian_force"}
+			picture = german_advisors_KR
+			modifier = {
+				conscription = 0.05
+				conscription_factor = -0.70
+				army_morale_factor = 0.10
+				army_attack_factor = 0.20
+				max_planning = 0.25
+				special_forces_min = 20
 				special_forces_cap = 0.25
 				training_time_factor = 0.20
 			}
@@ -53,9 +84,9 @@ ideas = {
 			modifier = {
 				conscription = 0.05
 				conscription_factor = -0.60
-				army_morale_factor = -0.15
-				army_attack_factor = -0.15
-				army_defence_factor = -0.15
+				army_morale_factor = -0.10
+				army_attack_factor = -0.10
+				army_defence_factor = -0.10
 			}
 		}
 
@@ -65,11 +96,33 @@ ideas = {
 			modifier = {
 				conscription = 0.05
 				conscription_factor = -0.35
-				army_morale_factor = -0.05
-				army_attack_factor = -0.05
-				army_defence_factor = -0.05
 			}
 		}
+		
+		GEA_language_exilewaffen = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea GEA_language"}
+			picture = german_advisors_KR
+			modifier = {
+				conscription = 0.05
+				conscription_factor = -0.35
+				special_forces_cap = 0.10
+				special_forces_attack_factor = 0.25
+				special_forces_defence_factor = 0.10
+			}
+		}
+		
+		GEA_language_kaisers_own = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea GEA_language"}
+			picture = german_advisors_KR
+			modifier = {
+				conscription = 0.05
+				conscription_factor = -0.35
+				army_morale_factor = 0.05
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+			}
+		}
+		
 		GEA_counter_insurgency = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea GEA_counter_insurgency"}
 			picture = MAF_Vorbeck_hat
@@ -343,8 +396,8 @@ ideas = {
 			picture = general_staff_KR
 			modifier = {
 				experience_gain_navy_factor = 0.1
+				naval_doctrine_cost_factor = -0.05
 			}
-			research_bonus = { naval_doctrine = 0.05 }
 		}
 
 	}

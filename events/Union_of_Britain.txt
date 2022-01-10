@@ -528,9 +528,9 @@ country_event = { # Federalist Victory
 		create_country_leader = {
 			name = "Annie Kenney"
 			desc = "POLITICS_ANNIE_KENNEY_DESC"
-			picture = "Portrait_England_Annie_Kenney.tga"
+			picture = "gfx/leaders/ENG/Portrait_England_Annie_Kenney.png"
 			expire = "1965.1.1"
-			ideology = syndicalist_subtype
+			ideology = feminist_syndicalist_subtype
 		}
 		hidden_effect = {
 			add_ideas = ENG_Arthur_Horner_hog_syn
@@ -685,7 +685,7 @@ country_event = { # No majority achieved
 		create_country_leader = {
 			name = "Tom Mann"
 			desc = "POLITICS_TOM_MANN_DESC"
-			picture = "Portrait_England_Tom_Mann.tga"
+			picture = "gfx/leaders/ENG/Portrait_England_Tom_Mann.png"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 		}
@@ -712,7 +712,7 @@ country_event = { # No majority achieved
 		create_country_leader = {
 			name = "Tom Mann"
 			desc = "POLITICS_TOM_MANN_DESC"
-			picture = "Portrait_England_Tom_Mann.tga"
+			picture = "gfx/leaders/ENG/Portrait_England_Tom_Mann.png"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 		}
@@ -4281,7 +4281,7 @@ country_event = {
 				create_country_leader = {
 					name = "Seán Lemass"
 					desc = "POLITICS_SEAN_LEMASS_DESC"
-					picture = "Portrait_Ireland_Sean_Lemass.tga"
+					picture = "gfx/leaders/Ire/Portrait_Ireland_Sean_Lemass.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 				}
@@ -4355,7 +4355,7 @@ country_event = {
 				create_country_leader = {
 					name = "Seán Lemass"
 					desc = "POLITICS_SEAN_LEMASS_DESC"
-					picture = "Portrait_Ireland_Sean_Lemass.tga"
+					picture = "gfx/leaders/Ire/Portrait_Ireland_Sean_Lemass.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 				}
@@ -4397,7 +4397,7 @@ country_event = {
 				create_country_leader = {
 					name = "Seán Lemass"
 					desc = "POLITICS_SEAN_LEMASS_DESC"
-					picture = "Portrait_Ireland_Sean_Lemass.tga"
+					picture = "gfx/leaders/Ire/Portrait_Ireland_Sean_Lemass.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 				}
@@ -4433,16 +4433,13 @@ country_event = {
 			factor = 100
 		}
 		hidden_effect = {
-		create_country_leader = {
-				name = "Oswald Mosley"
-				desc = "POLITICS_OSWALD_MOSLEY_DESC"
-				picture = "Portrait_England_Oswald_Mosley_Grand_Protector.tga"
-				expire = "1965.1.1"
-				ideology = totalist_subtype
-				traits = {
-					grand_protector
+			if = {	
+				limit = { has_country_leader = { name = "Oswald Mosley" ruling_only = yes } }
+				set_country_leader_portrait = {
+					portrait = "gfx/leaders/ENG/Portrait_England_Oswald_Mosley_Grand_Protector.png"
 				}
-			}	
+			}
+			add_country_leader_trait = grand_protector
 		}
 	}
 
@@ -4480,7 +4477,24 @@ country_event = {
 	option = {
 		name = uob.106.aa
 		ai_chance = {
-			factor = 30
+			factor = 25
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_EXPLOSION
+					}
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_CROMWELL
+					}
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_CINCINNATUS
+					}
+				}
+			}
 		}
 		hidden_effect = {
 			add_ideas = ENG_Abe_Moffat_eco_syn
@@ -4490,7 +4504,24 @@ country_event = {
 	option = {
 		name = uob.106.ab
 		ai_chance = {
-			factor = 30
+			factor = 25
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_EXPLOSION
+					}
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_CROMWELL
+					}
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_CINCINNATUS
+					}
+				}
+			}
 		}
 		hidden_effect = {
 			add_ideas = ENG_David_Kirkwood_eco_rso
@@ -4500,7 +4531,24 @@ country_event = {
 	option = {
 		name = uob.106.ac
 		ai_chance = {
-			factor = 30
+			factor = 25
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_EXPLOSION
+					}
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_CROMWELL
+					}
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_CINCINNATUS
+					}
+				}
+			}
 		}
 		hidden_effect = {
 			add_ideas = ENG_Nye_Bevan_eco_syn
@@ -4510,7 +4558,7 @@ country_event = {
 	option = {
 		name = uob.106.ad
 		ai_chance = {
-			factor = 10
+			factor = 25
 		}
 		add_political_power = -100
 	}
@@ -4638,6 +4686,18 @@ country_event = {
 						rule = ENG_revolution
 						option = ENG_REVOLUTION_FAILURE_RESTORATION
 					}
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_EXPLOSION
+					}
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_CROMWELL
+					}
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_CINCINNATUS
+					}
 				}
 			}
 		}
@@ -4687,6 +4747,18 @@ country_event = {
 						rule = ENG_revolution
 						option = ENG_REVOLUTION_FAILURE_RESTORATION
 					}
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_EXPLOSION
+					}
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_CROMWELL
+					}
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_CINCINNATUS
+					}
 				}
 			}
 		}
@@ -4724,7 +4796,14 @@ country_event = {
 	option = { # Proclaim martial law
 		name = uob.201.c
 		ai_chance = {
-			factor = 33
+			factor = 30
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = ENG_revolution
+					option = ENG_REVOLUTION_SUCCESS
+				}
+			}
 		}
 		hidden_effect = {
 		set_country_flag = ENG_martial_law_declared
@@ -4966,19 +5045,19 @@ country_event = {
 			country_event = uob.210 # Yay
 			news_event = {
 				id = uob.222
-				} # Maximists take control with much bloodshed
+			} # Maximists take control with much bloodshed
 		}
 	}
 
 	option = {
-    name = uob.211.b
-    hidden_effect = {
-    country_event = uob.210
-    news_event = {
-        id = uob.221
-         days = 7
-     }
-    }
+		name = uob.211.b
+		hidden_effect = {
+			country_event = uob.210
+			news_event = {
+				id = uob.221
+				days = 7
+			}
+		}
     }
 }
 
@@ -4998,10 +5077,10 @@ country_event = {
 		ai_chance = {
 			factor = 75
 			modifier = {
-				factor = 100
+				factor = 0
 				has_game_rule = {
 					rule = ENG_revolution
-					option = ENG_REVOLUTION_FAILURE
+					option = ENG_REVOLUTION_FAILURE_RESTORATION
 				}
 			}
 		}
@@ -5016,7 +5095,7 @@ country_event = {
 		create_country_leader = {
 			name = "Arthur Horner"
 			desc = "POLITICS_ARTHUR_HORNER_DESC"
-			picture = "Portrait_England_Arthur_Horner.tga"
+			picture = "gfx/leaders/ENG/Portrait_England_Arthur_Horner.png"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 		}
@@ -5025,10 +5104,10 @@ country_event = {
 		ai_chance = {
 			factor = 25
 			modifier = {
-				factor = 100
+				factor = 0
 				has_game_rule = {
 					rule = ENG_revolution
-					option = ENG_REVOLUTION_FAILURE_RESTORATION
+					option = ENG_REVOLUTION_FAILURE
 				}
 			}
 		}
@@ -5060,16 +5139,20 @@ country_event = {
 	option = { # The day after a revolution
 		name = uob.213.a
 		hidden_effect = {
-			retire_country_leader = yes
-			create_country_leader = {
-				name = "Oswald Mosley"
-				desc = "POLITICS_OSWALD_MOSLEY_DESC"
-				picture = "Portrait_England_Oswald_Mosley_Dictator.tga"
-				expire = "1965.1.1"
-				ideology = totalist_subtype
-				traits = {
-					dictator
-					grand_protector
+			if = {	
+				limit = { has_country_leader = { name = "Oswald Mosley" ruling_only = yes } }
+				set_country_leader_portrait = {
+					portrait = "gfx/leaders/ENG/Portrait_England_Oswald_Mosley_Dictator.png"
+				}
+			}
+			add_country_leader_trait = dictator
+			if = {
+				limit = {
+					has_country_flag = ENG_martial_law_declared
+				}
+				country_event = {
+					id = uob.500 
+					days = 1
 				}
 			}
 		}
@@ -6024,9 +6107,9 @@ country_event = {
 		create_country_leader = {
 			name = "Eric Blair"
 			desc = "POLITICS_ERIC_BLAIR_DESC"
-			picture = "Portrait_England_Eric_Blair.tga"
+			picture = "gfx/leaders/ENG/Portrait_England_Eric_Blair.png"
 			expire = "1965.1.1"
-			ideology = totalist_subtype
+			ideology = natsynd_subtype
 		}
 		set_country_flag = blair_chairman
 		add_ideas = ENG_Phil_Piratin_hog_tot
@@ -6044,9 +6127,9 @@ country_event = {
 		create_country_leader = {
 			name = "Annie Kenney"
 			desc = "POLITICS_ANNIE_KENNEY_DESC"
-			picture = "Portrait_England_Annie_Kenney.tga"
+			picture = "gfx/leaders/ENG/Portrait_England_Annie_Kenney.png"
 			expire = "1965.1.1"
-			ideology = syndicalist_subtype
+			ideology = feminist_syndicalist_subtype
 		}
 		set_country_flag = kenney_chairman
 		add_ideas = ENG_Barbara_Castle_hog_syn
@@ -6155,7 +6238,7 @@ country_event = {
 		create_country_leader = {
 			name = "William Gallacher"
 			desc = "POLITICS_WILLIAM_GALLACHER_DESC"
-			picture = "Portrait_England_William_Gallacher.tga"
+			picture = "gfx/leaders/ENG/Portrait_England_William_Gallacher.png"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 		}
@@ -6203,7 +6286,7 @@ country_event = {
 		create_country_leader = {
 			name = "Clem Attlee"
 			desc = "POLITICS_CLEM_ATTLEE_DESC"
-			picture = "Portrait_England_Clem_Attlee.tga"
+			picture = "gfx/leaders/ENG/Portrait_England_Clem_Attlee.png"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 		}
@@ -6231,9 +6314,9 @@ country_event = {
 		create_country_leader = {
 			name = "Barbara Castle"
 			desc = "POLITICS_BARBARA_CASTLE_DESC"
-			picture = "Portrait_England_Barbara_Castle.tga"
+			picture = "gfx/leaders/ENG/Portrait_England_Barbara_Castle.png"
 			expire = "1965.1.1"
-			ideology = syndicalist_subtype
+			ideology = feminist_syndicalist_subtype
 		}
 		add_ideas = ENG_James_Maxton_hog_syn
 		add_political_power = -50
@@ -6334,7 +6417,7 @@ country_event = {
 		create_country_leader = {
 			name = "Eric Blair"
 			desc = "POLITICS_ERIC_BLAIR_DESC"
-			picture = "Portrait_England_Eric_Blair.tga"
+			picture = "gfx/leaders/ENG/Portrait_England_Eric_Blair.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
 		}
@@ -6363,7 +6446,7 @@ country_event = {
 		create_country_leader = {
 			name = "T.E. Lawrence"
 			desc = "ENG_lawrence_desc"
-			picture = "Portrait_England_T_E_Lawrence.tga"
+			picture = "gfx/leaders/ENG/Portrait_England_T_E_Lawrence.png"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 			traits = { dictator }
@@ -7160,11 +7243,10 @@ country_event = {
 				ruling_party = syndicalist
 			}
 		}
-		kill_country_leader = yes
 		create_country_leader = {
 			name = "Arthur Horner"
 			desc = "POLITICS_ARTHUR_HORNER_DESC"
-			picture = "Portrait_England_Arthur_Horner.tga"
+			picture = "gfx/leaders/ENG/Portrait_England_Arthur_Horner.png"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 		}
@@ -7224,15 +7306,14 @@ country_event = {
 
 	option = {
 		name = uobflavour.17.a
-		kill_country_leader = yes
 		set_politics = {
 			ruling_party = syndicalist
 		}
 		create_country_leader = {
 			name = "Christabel Pankhurst"
-			picture = "Portrait_England_Christabel_Pankhurst.tga"
+			picture = "gfx/leaders/ENG/Portrait_England_Christabel_Pankhurst.png"
 			expire = "1965.1.1"
-			ideology = syndicalist_subtype
+			ideology = feminist_syndicalist_subtype
 		}
 		hidden_effect = {
 			set_country_flag = Annie_Kenney_dead
@@ -7682,11 +7763,9 @@ country_event = { # WHRA Burnings
 	title = uob.500.t
 	desc = uob.500.d
 	picture = GFX_report_event_journalists_speech
+	
+	is_triggered_only = yes
 	fire_only_once = yes
-	trigger = {
-		has_country_flag = ENG_ditatorship
-		has_country_flag = ENG_martial_law_declared
-	}
 
 	option = {
 		name = uob.500.a
@@ -7815,13 +7894,19 @@ country_event = { # Mutiny Begins
 			limit = {
 				has_unit_leader = 256 
 			}
-			remove_unit_leader = 256 
+			random_unit_leader = {
+				limit = { has_id = 256 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = { #Begone, Scotsman
 			limit = {
 				has_unit_leader = 254
 			}
-			remove_unit_leader = 254
+			random_unit_leader = {
+				limit = { has_id = 254 }			
+				remove_unit_leader = yes
+			}
 		}
 		hidden_effect = {
 			country_event = {
@@ -7879,9 +7964,18 @@ country_event = { # Scotland Breaks Off!
 		remove_state_core = 938
 		
 		hidden_effect = {
-			remove_unit_leader = 9500 
-			remove_unit_leader = 9501 
-			remove_unit_leader = 9502
+			random_unit_leader = {
+				limit = { has_id = 9500 }			
+				remove_unit_leader = yes
+			}
+			random_unit_leader = {
+				limit = { has_id = 9501 }			
+				remove_unit_leader = yes
+			}
+			random_unit_leader = {
+				limit = { has_id = 9502 }			
+				remove_unit_leader = yes
+			}
 		}
 		
 		hidden_effect = { 
@@ -8195,15 +8289,15 @@ country_event = {
 				create_country_leader = {# Percy Hobart
 					name = "Percy Hobart"
 					desc = "POLITICS_HOBART_DESC"
-					picture = "gfx/leaders/ENG/Portrait_England_Percy_Hobart.tga"
+					picture = "gfx/leaders/ENG/Portrait_England_Percy_Hobart.png"
 					expire = "1965.1.1"
-					ideology = authoritarian_democrat_subtype
+					ideology = authdem_junta_subtype
 					traits = {}
 				}
 				create_country_leader = {# Percy Hobart
 					name = "Percy Hobart"
 					desc = "POLITICS_HOBART_DESC"
-					picture = "gfx/leaders/ENG/Portrait_England_Percy_Hobart.tga"
+					picture = "gfx/leaders/ENG/Portrait_England_Percy_Hobart.png"
 					expire = "1965.1.1"
 					ideology = paternal_autocrat_subtype
 					traits = {}
@@ -8252,7 +8346,7 @@ country_event = {
 			create_country_leader = {
 				name = "T.E. Lawrence"
 				desc = "POLITICS_TE_LAWRENCE_DESC"
-				picture = "Portrait_England_T_E_Lawrence.tga"
+				picture = "gfx/leaders/ENG/Portrait_England_T_E_Lawrence.png"
 				expire = "1965.1.1"
 				ideology = syndicalist_subtype
 				traits = { dictator }
@@ -8298,7 +8392,7 @@ country_event = {
 			create_country_leader = {
 			name = "Eric Blair"
 			desc = "POLITICS_ERIC_BLAIR_DESC"
-			picture = "Portrait_England_Eric_Blair.tga"
+			picture = "gfx/leaders/ENG/Portrait_England_Eric_Blair.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
 			}
@@ -8321,7 +8415,7 @@ country_event = {
 			create_country_leader = {
 				name = "Barbara Castle"
 				desc = "POLITICS_BARBARA_CASTLE_DESC"
-				picture = "Portrait_England_Barbara_Castle.tga"
+				picture = "gfx/leaders/ENG/Portrait_England_Barbara_Castle.png"
 				expire = "1965.1.1"
 				ideology = radical_socialist_subtype
 				traits = { }
@@ -8346,7 +8440,7 @@ country_event = {
 			create_country_leader = {
 				name = "Arthur Horner"
 				desc = "POLITICS_ARTHUR_HORNER_DESC"
-				picture = "Portrait_England_Arthur_Horner.tga"
+				picture = "gfx/leaders/ENG/Portrait_England_Arthur_Horner.png"
 				expire = "1965.1.1"
 				ideology = syndicalist_subtype
 			}
@@ -8377,7 +8471,7 @@ country_event = {
 		add_ideas = ENG_John_Platts_Mills_sec_syn
 	}
 	option = {
-		name = uob.513.b
+		name = uob.513.c
 		set_politics = { ruling_party = social_democrat }
 		remove_all_ministers = yes
 		add_ideas = GBR_Clement_Attlee_hog_sde
@@ -8520,6 +8614,9 @@ country_event = { # Biff boys
 
 	option = { #arrest
 		name = uobflavour.31.a
+		ai_chance = {
+			factor = 100
+		}
 		hidden_effect = {
 			country_event = {
 				id = uobflavour.32
@@ -8529,6 +8626,9 @@ country_event = { # Biff boys
 	}
 	option = { #protest
 		name = uobflavour.31.b
+		ai_chance = {
+			factor = 0
+		}
 		hidden_effect = {
 			country_event = {
 				id = uobflavour.36
@@ -8657,12 +8757,78 @@ country_event = { #officers grumble
 
 	option = { # it's fine
 		name = uob.2000.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_EXPLOSION
+					}
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_CROMWELL
+					}
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_CINCINNATUS
+					}
+				}
+			}
+		}
 		set_country_flag = UOB_army_coup_gang
 	}
 	option = { # oh fuck no
 		name = uob.2000.b
-		stability_factor = -0.05 
-        remove_unit_leader = 251
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_FAILURE_RESTORATION
+					}
+					has_game_rule = {
+						rule = ENG_revolution
+						option = ENG_REVOLUTION_FAILURE
+					}
+				}
+			}
+		}
+		add_stability = -0.05 
+        random_unit_leader = {
+				limit = { has_id = 251 }			
+				remove_unit_leader = yes
+			}
 	}
 }
+
+country_event = { #eat uob?
+	id = uob.2001
+	immediate = { log = "[GetDateText]: [Root.GetName]: event uob.2001" }
+	title = uob.2001.t
+	desc = uob.2001.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = { # yes
+		name = uob.2001.a
+		set_country_flag = ENG_gonnaeatUOB
+		create_wargoal = {
+					type = annex_everything
+					target = WAL
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = SCT
+				}	
+	}
+	option = { # no
+		name = uob.2001.b
+		add_stability = 0.2
+		add_war_support = -0.2
+	}
 }

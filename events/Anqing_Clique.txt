@@ -245,44 +245,52 @@ country_event = { #Japan has pledged support, attack now
 				name = anq_influencepartyname_projapan
 				long_name = anq_influencepartyname_projapan
 			}
-			add_popularity = {
-				ideology = market_liberal #add japanese/fengtian influence
-				popularity = 0.01
-			}
-			ANQ_calculate_fengtian_level = yes
-			ANQ_add_fengtian_spirit = yes
-			set_country_flag = LEP_collapse
+			hidden_effect = {
+				if = {	
+					limit = { has_country_leader = { name = "Chen Tiaoyuan" ruling_only = yes } }
+					set_country_leader_portrait = {
+						portrait = "gfx/leaders/ANQ/Portrait_ANQ_Chen_Double.png"
+					}
+				}
+				add_popularity = {
+					ideology = market_liberal #add japanese/fengtian influence
+					popularity = 0.01
+				}
+				ANQ_calculate_fengtian_level = yes
+				ANQ_add_fengtian_spirit = yes
+				set_country_flag = LEP_collapse
 
-			drop_cosmetic_tag = yes
-			country_event = {
-				id = anq.11
-				hours = 12
-			}
-			if = {
-				limit = { SQI = { has_country_flag = SQI_Zongchang_beat_Tianran } }
-				#notifying about both tiaoyuan and zongchang pro-fengtian
+				drop_cosmetic_tag = yes
 				country_event = {
-					id = anq.129
-					days = 5
+					id = anq.11
+					hours = 12
 				}
-				SQI = {
+				if = {
+					limit = { SQI = { has_country_flag = SQI_Zongchang_beat_Tianran } }
+					#notifying about both tiaoyuan and zongchang pro-fengtian
 					country_event = {
-						id = shandong.33
+						id = anq.129
 						days = 5
 					}
-				}
-				FNG = {
-					country_event = {
-						id = fengtian.211
-						days = 5
+					SQI = {
+						country_event = {
+							id = shandong.33
+							days = 5
+						}
+					}
+					FNG = {
+						country_event = {
+							id = fengtian.211
+							days = 5
+						}
 					}
 				}
 			}
-		}
-		JAP = {
-			country_event = {
-				id = anq.59
-				hours = 2
+			JAP = {
+				country_event = {
+					id = anq.59
+					hours = 2
+				}
 			}
 		}
 	}
@@ -581,11 +589,7 @@ country_event = { #KMT border clashes (initial)
 			has_war_with = CHI
 		}
 	}
-
-	mean_time_to_happen = {
-		days = 3
-	}
-
+	
 	option = {
 		name = anq.13.a #Declare war
 		add_political_power = 50
@@ -829,7 +833,7 @@ country_event = { #Relocating the Capital
 		name = anq.17.a
 		ai_chance = { factor = 80 }
 		set_country_flag = moved_capital
-		set_capital = 613
+		set_capital = { state = 613 }
 		hidden_effect = {
 			country_event = {
 				id = anq.19
@@ -863,7 +867,7 @@ country_event = { #Relocating the Capital
 	option = {
 		name = anq.18.a
 		set_country_flag = moved_capital
-		set_capital = 613
+		set_capital = { state = 613 }
 		hidden_effect = {
 			if = {
 				limit = {
@@ -2418,10 +2422,6 @@ country_event = { # LEP-D
 		}
 	}
 
-	mean_time_to_happen = {
-		days = 2
-	}
-
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event anq.61"
 		if = {
@@ -2558,10 +2558,6 @@ country_event = { # SQI-I
 		}
 	}
 
-	mean_time_to_happen = {
-		days = 4
-	}
-
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event anq.62"
 		if = {
@@ -2600,10 +2596,6 @@ country_event = { # C-D
 			country_exists = LEP
 		}
 		has_country_flag = ANQ_has_to_beat_chi
-	}
-
-	mean_time_to_happen = {
-		days = 4
 	}
 
 	immediate = {
@@ -2924,16 +2916,16 @@ country_event = { # Puppet for pro-japan ANQ
 				create_country_leader = {
 					name = "Liu Heding"
 					desc = "POLITICS_SQI_LIU_HEDING_ARMY_DESC"
-					picture = "gfx/leaders/ANQ/Portrait_ANQ_Liu_Heding.tga"
+					picture = "gfx/leaders/ANQ/Portrait_ANQ_Liu_Heding.png"
 					expire = "1965.1.1"
-					ideology = paternal_autocrat_subtype
+					ideology = pataut_warlordism_subtype
 				}
 				create_country_leader = {
 					name = "Liu Heding"
 					desc = "POLITICS_SQI_LIU_HEDING_ARMY_DESC"
-					picture = "gfx/leaders/ANQ/Portrait_ANQ_Liu_Heding.tga"
+					picture = "gfx/leaders/ANQ/Portrait_ANQ_Liu_Heding.png"
 					expire = "1965.1.1"
-					ideology = authoritarian_democrat_subtype
+					ideology = authdem_warlordism_subtype
 				}
 				set_politics = {
 					ruling_party = authoritarian_democrat
@@ -6604,11 +6596,7 @@ country_event = { #Peace Out
 			}
 		}
 	}
-
-	mean_time_to_happen = {
-		days = 1
-	}
-
+	
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event anq.2310"
 	}

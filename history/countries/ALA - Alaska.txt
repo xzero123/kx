@@ -2,6 +2,94 @@ capital = 463
 OOB = "Empty"
 set_naval_oob = "Empty"
 
+# Starting tech
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+		basic_light_tank = 1
+		basic_heavy_tank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+		improved_light_tank_chassis = 1
+		basic_heavy_tank_chassis = 1
+		engine_tech_1 = 1
+	}
+}
+set_technology = {
+	### MOD ###
+	basic_train = 1
+	### INF ###
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	motorised_infantry = 1
+	gw_artillery = 1
+	marines = 1
+	### AIR ###
+	early_fighter = 1
+	naval_bomber1 = 1
+	early_bomber = 1
+	strategic_bomber1 = 1
+	CAS1 = 1
+	cv_early_fighter = 1
+	cv_naval_bomber1 = 1
+	cv_CAS1 = 1
+}
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "M1921"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 3
+			tank_nsb_engine_upgrade = 1
+		}
+		obsolete = yes
+		icon = "gfx/interface/technologies/USA_gwtank.png"
+	}
+	create_equipment_variant = {
+		name = "M2"
+		type = light_tank_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 5
+		}
+		icon = "gfx/interface/technologies/USA_basic_light_tank.dds"
+	}
+}
+
 ### Navy - MtG ###
 
 if = {
@@ -9,36 +97,34 @@ if = {
 		has_dlc = "Man the Guns"
 	}
 	set_technology = {
-		weltkrieg_light_ship_hull = 1
-		contact_mine = 1
-		light_ship_hull_1936 = 1
-		weltkrieg_cruiser_hull = 1
-		cruiser_hull_1936 = 1
-		weltkrieg_submarine_hull = 1
-		submarine_hull_1936 = 1
-		cruiser_submarine = 1
-		carrier_conversion = 1
-		carrier_hull_1936 = 1
-		ship_hull_revived_ac = 1
-		weltkrieg_heavy_ship_hull = 1
-		heavy_ship_hull_1936 = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		cruiser_submarines = 1
+		early_ship_hull_carrier = 1
+		basic_ship_hull_carrier = 1
+		early_ship_hull_heavy = 1
+		basic_ship_hull_heavy = 1
+		
+		basic_naval_mines = 1
 
 		## Modules##
-		early_torpedo = 1
-		weltkrieg_naval_gunnery = 1
-		naval_ammo_one = 1
-		light_battery_one = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_medium_battery = 1
+		basic_heavy_battery = 1
+		basic_light_battery = 1
+		basic_secondary_battery = 1
+		improved_secondary_battery = 1
 		improved_ship_torpedo_launcher = 1
 		basic_cruiser_armor_scheme = 1
-		weltkrieg_naval_gunnery = 1
-		naval_ammo_one = 1
 		basic_heavy_armor_scheme = 1
-		capital_gunnery_one = 1
-		weltkrieg_naval_gunnery = 1
-		naval_ammo_one = 1
 
 		### Transport ###
-		transport = 1
+		mtg_transport = 1
 	}
 }
 
@@ -51,22 +137,23 @@ if = {
 		}
 	}
 	set_technology = {
-		weltkrieg_destroyer_nonmtg = 1
-		interwar_destroyer_nonmtg = 1
-		weltkrieg_cruiser_nonmtg = 1
-		interwar_cruiser_nonmtg = 1
-		weltkrieg_submarine_nonmtg = 1
-		interwar_submarine_nonmtg = 1
-		weltkrieg_armored_cruiser_nonmtg = 1
-		interwar_armored_cruiser_nonmtg = 1
-		weltkrieg_fast_battleship_nonmtg = 1
-		interwar_fast_battleship_nonmtg = 1
-		weltkrieg_dreadnought_nonmtg = 1
-		super_heavy_dreadnought_nonmtg = 1
-		weltkrieg_carrier_nonmtg = 1
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+		panzerschiffe = 1
+		early_submarine = 1
+		basic_submarine = 1
+		early_heavy_cruiser = 1
+		basic_heavy_cruiser = 1
+		early_battlecruiser = 1
+		early_battleship = 1
+		basic_battleship = 1
+		heavy_battleship = 1
+		early_carrier = 1
 
 		### Transport ###
-		transport_n = 1
+		transport = 1
 	}
 }
 
@@ -75,7 +162,7 @@ set_research_slots = 2
 set_convoys = 80
 set_stability = 0.5
 set_war_support = 0.5
-
+starting_train_buffer = 1
 set_politics = {
 	ruling_party = social_liberal
 	last_election = "1935.11.14"
@@ -109,7 +196,7 @@ add_ideas = {
 create_country_leader = {
 	name = "Jay Lovestone"
 	desc = "POLITICS_LOVESTONE_DESC"
-	picture = "Portrait_Alaska_Jay_Lovestone.tga"
+	picture = "gfx/leaders/ALA/Portrait_Alaska_Jay_Lovestone.png"
 	expire = "1965.1.1"
 	ideology = totalist_subtype
 	traits = {}
@@ -118,7 +205,7 @@ create_country_leader = {
 create_country_leader = {
 	name = "Red Congress of Alaska"
 	desc = "POLITICS_RED_CONGRESS_DESC"
-	picture = "Portrait_Alaska_Congress.tga"
+	picture = "gfx/leaders/ALA/Portrait_Alaska_Congress.png"
 	expire = "1965.1.1"
 	ideology = syndicalist_subtype
 	traits = {}
@@ -127,7 +214,7 @@ create_country_leader = {
 create_country_leader = {
 	name = "James L. Wickersham"
 	desc = "POLITICS_JAMES_WICKERSHAM_DESC"
-	picture = "Portrait_Alaska_James_Wickersham.tga"
+	picture = "gfx/leaders/ALA/Portrait_Alaska_James_Wickersham.png"
 	expire = "1965.1.1"
 	ideology = radical_socialist_subtype
 	traits = {}
@@ -136,7 +223,7 @@ create_country_leader = {
 create_country_leader = {
 	name = "Anthony Dimond"
 	desc = "POLITICS_DIMOND_DESC"
-	picture = "Portrait_Alaska_Anthony_Dimond.tga"
+	picture = "gfx/leaders/ALA/Portrait_Alaska_Anthony_Dimond.png"
 	expire = "1965.1.1"
 	ideology = social_democrat_subtype
 	traits = {}
@@ -145,7 +232,7 @@ create_country_leader = {
 create_country_leader = {
 	name = "Ernest Gruening"
 	desc = "POLITICS_ERNEST_GRUENING_DESC"
-	picture = "Portrait_Alaska_Ernest_Greuning.tga"
+	picture = "gfx/leaders/ALA/Portrait_Alaska_Ernest_Greuning.png"
 	expire = "1965.1.1"
 	ideology = social_liberal_subtype
 	traits = {}
@@ -154,16 +241,16 @@ create_country_leader = {
 create_country_leader = {
 	name = "Austin E. Lathrop"
 	desc = "POLITICS_AUSTIN_DESC"
-	picture = "Portrait_Alaska_Austin_Lathrop.tga"
+	picture = "gfx/leaders/ALA/Portrait_Alaska_Austin_Lathrop.png"
 	expire = "1965.1.1"
-	ideology = market_liberal_subtype
+	ideology = libertarian_subtype
 	traits = {}
 }
 
 create_country_leader = {
 	name = "Daniel Sutherland"
 	desc = "POLITICS_SUTHERLAND_DESC"
-	picture = "Portrait_Alaska_Daniel_Sutherland.tga"
+	picture = "gfx/leaders/ALA/Portrait_Alaska_Daniel_Sutherland.png"
 	expire = "1965.1.1"
 	ideology = social_conservative_subtype
 	traits = {  }
@@ -172,34 +259,34 @@ create_country_leader = {
 create_country_leader = {
 	name = "Lord George Pearkes"
 	desc = "POLITICS_PEARKES_DESC"
-	picture = "Portrait_ALA_George_Pearkes.tga"
+	picture = "gfx/leaders/ALA/Portrait_ALA_George_Pearkes.png"
 	expire = "1965.1.1"
-	ideology = authoritarian_democrat_subtype
+	ideology = authdem_junta_subtype
 	traits = {  }
 }
 
 create_country_leader = {
 	name = "Simon Guggenheim"
 	desc = "POLITICS_GUGGENHEIM_DESC"
-	picture = "Portrait_Alaska_Simon_Guggenheim.tga"
+	picture = "gfx/leaders/ALA/Portrait_Alaska_Simon_Guggenheim.png"
 	expire = "1965.1.1"
-	ideology = paternal_autocrat_subtype
+	ideology = corporatocracy_subtype
 	traits = {  }
 }
 
 create_country_leader = {
 	name = "Yasuyo Yamasaki"
 	desc = "POLITICS_Yamasaki_DESC"
-	picture = "Portrait_ALA_Yasuyo_Yamasaki.tga"
+	picture = "gfx/leaders/ALA/Portrait_ALA_Yasuyo_Yamasaki.png"
 	expire = "1965.1.1"
-	ideology = national_populist_subtype
+	ideology = militarism_subtype
 	traits = {  }
 }
 
 ### Field Marshal
 create_field_marshal = {# Buckner
 	name = "Simon Bolivar Buckner Jr."
-	portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Simon_Bolivar_Buckner_Jr.tga"
+	portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Simon_Bolivar_Buckner_Jr.png"
 	traits = {
 		organizer
 		trait_reckless
@@ -216,7 +303,7 @@ create_field_marshal = {# Buckner
 create_corps_commander = {# Plutarco Elías Calles
 	name = "Lawrence Castner"
 	desc = ""
-	portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Lawrence_Castner.tga"
+	portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Lawrence_Castner.png"
 	traits = {
 		trait_cautious
 		adaptable
@@ -233,7 +320,7 @@ create_corps_commander = {# Plutarco Elías Calles
 create_corps_commander = {# Plutarco Elías Calles
 	name = "Charles Harrison Corlett"
 	desc = ""
-	portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Charles_Corlett.tga"
+	portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Charles_Corlett.png"
 	traits = {
 		naval_invader
 		scavenger
@@ -250,7 +337,7 @@ create_corps_commander = {# Plutarco Elías Calles
 create_corps_commander = {# Plutarco Elías Calles
 	name = "William F. Cassidy"
 	desc = ""
-	portrait_path = "gfx/leaders/ALA/Portrait_Alaska_William_F_Cassidy.tga"
+	portrait_path = "gfx/leaders/ALA/Portrait_Alaska_William_F_Cassidy.png"
 	traits = {
 		trait_engineer
 		organizer
@@ -265,7 +352,7 @@ create_corps_commander = {# Plutarco Elías Calles
 create_corps_commander = {# Plutarco Elías Calles
 	name = "Archibald Van Winkle"
 	desc = ""
-	portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Archibald_Winkne.tga"
+	portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Archibald_Winkne.png"
 	traits = {
 		naval_invader
 		organizer
@@ -280,7 +367,7 @@ create_corps_commander = {# Plutarco Elías Calles
 }
 create_navy_leader = {# Harold Rainsford Stark
 	name = "Thomas C. Kincaid"
-	portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Thomas_Kinkaid.tga"
+	portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Thomas_Kinkaid.png"
 	traits = {air_controller}
 	skill = 4
 	attack_skill = 3
@@ -290,7 +377,7 @@ create_navy_leader = {# Harold Rainsford Stark
 }
 create_navy_leader = {# Harold Rainsford Stark
 	name = "Francis Warren Rockwell"
-	portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Thomas_Warren_Rockwell.tga"
+	portrait_path = "gfx/leaders/ALA/Portrait_Alaska_Thomas_Warren_Rockwell.png"
 	traits = {spotter blockade_runner}
 	skill = 2
 	attack_skill = 2

@@ -6,6 +6,7 @@
 ###################################
 
 add_namespace = newengland
+add_namespace = lovecraftflavor
 
 ### Creating New England
 country_event = { # Occupy New England
@@ -63,7 +64,10 @@ country_event = { # Occupy New England
 		}
 		hidden_effect = {
 			USA = {
-				remove_unit_leader = 86
+				random_unit_leader = {
+					limit = { has_id = 86 }			
+					remove_unit_leader = yes
+				}
 			}
 		}
 	}
@@ -203,8 +207,8 @@ country_event = { # Canada Releases New England
 	option = {
 		name = newengland.5.a
 		ai_chance = {
-			factor = 75
-			 modifier = {
+			factor = 95
+			modifier = {
 				factor = 0
 				OR = {
 					has_game_rule = {
@@ -218,6 +222,14 @@ country_event = { # Canada Releases New England
 					has_game_rule = {
 						rule = NEE_start_path
 						option = NEE_WASHINGTON_MONARCHY
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_KENNEDY_MONARCHY
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_ASTOR_MONARCHY
 					}
 					has_game_rule = {
 						rule = NEE_start_path
@@ -284,6 +296,10 @@ country_event = { # Canada Releases New England
 					id = newengland.101
 					days = 9
 				}
+				country_event = {
+					id = newengland.2009
+					days = 30
+				}
 				load_oob = NEE
 				set_politics = {
 					ruling_party = authoritarian_democrat }
@@ -300,6 +316,16 @@ country_event = { # Canada Releases New England
                     paternal_autocrat = 0
                     national_populist = 0
                 }
+			}
+			USA = {
+				every_unit_leader = { #Adna Chaffee
+					limit = {
+						has_id = 86
+					}
+					set_nationality = NEE
+					set_leader_portrait = GFX_Portrait_NEE_Adna_Chaffee
+					promote_leader = yes
+				}
 			}
 		}
 	}
@@ -362,6 +388,10 @@ country_event = { # Canada Releases New England
 					id = newengland.101
 					days = 9
 				}
+				country_event = {
+					id = newengland.2009
+					days = 30
+				}
 				load_oob = NEE
 				set_politics = {
 					ruling_party = authoritarian_democrat }
@@ -379,6 +409,16 @@ country_event = { # Canada Releases New England
                     national_populist = 0
                 }
 			}
+			USA = {
+				every_unit_leader = { #Adna Chaffee
+					limit = {
+						has_id = 86
+					}
+					set_nationality = NEE
+					set_leader_portrait = GFX_Portrait_NEE_Adna_Chaffee
+					promote_leader = yes
+				}
+			}
 		}
 		NEE = {
 			change_tag_from = CAN
@@ -387,7 +427,7 @@ country_event = { # Canada Releases New England
 	option = {
 		name = newengland.5.c
 		ai_chance = {
-			factor = 25
+			factor = 5
 			modifier = {
 				factor = 0
 				OR = {
@@ -495,6 +535,7 @@ country_event = { # Canada Releases New England
 					id = newengland.6
 					days = 2
 				}
+				
 				
 				load_oob = NEE
 				set_politics = {
@@ -710,7 +751,7 @@ country_event = { # America is reunited
 
 	option = { # at long last we are reunited
 		trigger = {
-			NOT = { has_country_leader = { name = "H.P. Lovecraft" ruling_only = yes } }
+			NOT = { has_country_flag = NEE_lovecraftians_win }
 		}
 		name = newengland.7.a
 		set_country_flag = NEE_claimed_america
@@ -735,7 +776,7 @@ country_event = { # America is reunited
 	}
 	option = { # at long last we are reunited
 		trigger = {
-			has_country_leader = { name = "H.P. Lovecraft" ruling_only = yes }
+			has_country_flag = NEE_lovecraftians_win
 		}
 		name = newengland.7.a
 		set_country_flag = NEE_claimed_america
@@ -972,7 +1013,18 @@ country_event = { # Declaration of Independence
 	id = newengland.15
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.15"}
 	title = newengland.15.t
-	desc = newengland.15.d
+	desc = { # Normal Declaration
+		text = newengland.15.d
+		trigger = {
+			has_socialist_government = no
+		}
+	}
+	desc = { # Leftist Declaration
+		text = newengland.15.d.leftist
+		trigger = {
+			has_government = radical_socialist
+		}
+	}
 	picture = GFX_report_event_generic_diplomacy2
 
 	is_triggered_only = yes
@@ -1027,7 +1079,7 @@ country_event = { # The Provisional Government
 			create_country_leader = {# William Averell Harriman
 				name = "William Averell Harriman"
 				desc = "POLITICS_WILLIAM_HARRIMAN_DESC"
-				picture = "Portrait_NEE_william_harriman.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_william_harriman.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 				traits = {
@@ -1037,7 +1089,7 @@ country_event = { # The Provisional Government
 			create_country_leader = {# Percival P. Baxter
 				name = "Percival P. Baxter"
 				desc = "POLITICS_PERCIVAL_BAXTER_DESC"
-				picture = "Portrait_NEE_Percival_P_Baxter.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_Percival_P_Baxter.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 				traits = {
@@ -1047,7 +1099,7 @@ country_event = { # The Provisional Government
 			create_country_leader = {# Curley
 				name = "James Michael Curley"
 				desc = "POLITICS_JAMES_MICHAEL_CURLEY_DESC"
-				picture = "gfx/leaders/NEE/Jim_Curley.tga"
+				picture = "gfx/leaders/NEE/Jim_Curley.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 				traits = {
@@ -1097,7 +1149,7 @@ country_event = { # The Provisional Government
 		create_country_leader = {
 					name = "George Aiken"
 					desc = "POLITICS_GEORGE_AIKEN_DESC"
-					picture = "gfx/leaders/NEE/George_Aiken.tga"
+					picture = "gfx/leaders/NEE/George_Aiken.png"
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 					traits = {
@@ -1266,7 +1318,7 @@ country_event = { # The Provisional Government
 		create_country_leader = {# Prescott Bush
 			name = "Prescott Bush"
 			desc = "POLITICS_PRESCOTT_BUSH_DESC"
-			picture = "Portrait_NEE_Prescott_Bush.tga"
+			picture = "gfx/leaders/NEE/Portrait_NEE_Prescott_Bush.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 			traits = { financial_expert }
@@ -1576,6 +1628,22 @@ country_event = { # 1940 Democrat Primary
 			}
 		}
 	}
+	option = { # Old Dankest man
+		name = newengland.23.e
+		ai_chance = {
+			factor = 33
+		}
+		hidden_effect = {
+			set_country_flag = NEE_1940_democratic_primary_cross
+			set_country_flag = NEE_election_time
+		}
+		hidden_effect = {
+		country_event = {
+			id = newengland.24
+			days = 9
+			}
+		}
+	}
 }
 
 country_event = { # 1940 Election
@@ -1608,7 +1676,7 @@ country_event = { # 1940 Election
 				create_country_leader = {
 					name = "Joseph Kennedy Sr."
 					desc = "POLITICS_JOSEPH_KENNEDY_DESC"
-					picture = "Portrait_NEE_joseph_kennedy_sr.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_joseph_kennedy_sr.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = { tenacious_negotiator }
@@ -1622,7 +1690,7 @@ country_event = { # 1940 Election
 				create_country_leader = {# Curley
 					name = "James Michael Curley"
 					desc = "POLITICS_JAMES_MICHAEL_CURLEY_DESC"
-					picture = "gfx/leaders/NEE/Jim_Curley.tga"
+					picture = "gfx/leaders/NEE/Jim_Curley.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = {
@@ -1638,10 +1706,24 @@ country_event = { # 1940 Election
 				create_country_leader = {
 					name = "Al Smith"
 					desc = "POLITICS_AL_SMITH_DESC"
-					picture = "gfx/leaders/NEE/Al_Smith.tga"
+					picture = "gfx/leaders/NEE/Al_Smith.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = { political_boss }
+				}
+			}
+
+			if = { # Cross
+				limit = {
+					has_country_flag = NEE_1940_democratic_primary_cross
+				}
+				create_country_leader = {
+					name = "Wilbur Lucius Cross"
+					desc = "POLITICS_WILBUR_CROSS_DESC"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Wilbur_Lucius_Cross.png"
+					expire = "1965.1.1"
+					ideology = social_conservative_subtype
+					traits = { staunch_constitutionalist }
 				}
 			}
 			
@@ -1652,7 +1734,7 @@ country_event = { # 1940 Election
 				create_country_leader = {
 					name = "John Gilbert Winant"
 					desc = "POLITICS_JOHN_WINANT_DESC"
-					picture = "Portrait_NEE_john_winant.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_john_winant.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = {
@@ -1668,7 +1750,7 @@ country_event = { # 1940 Election
 				create_country_leader = {
 					name = " Herbert H. Lehman"
 					desc = "POLITICS_HERBERT_LEHMAN_DESC"
-					picture = "Portrait_NEE_Robert_Lehman.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Robert_Lehman.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = {
@@ -1684,7 +1766,7 @@ country_event = { # 1940 Election
 				create_country_leader = {# Fish
 					name = "Hamilton Fish III"
 					desc = "POLITICS_HAMILTON_FISH_DESC"
-					picture = "gfx/leaders/NEE/Portrait_hamilton_fish_iii.tga"
+					picture = "gfx/leaders/NEE/Portrait_hamilton_fish_iii.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {
@@ -1700,7 +1782,7 @@ country_event = { # 1940 Election
 				create_country_leader = {
 					name = "Percival P. Baxter"
 					desc = "POLITICS_PERCIVAL_BAXTER_DESC"
-					picture = "Portrait_NEE_Percival_P_Baxter.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Percival_P_Baxter.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {
@@ -1716,7 +1798,7 @@ country_event = { # 1940 Election
 				create_country_leader = {# Prescott Bush
 					name = "Prescott Bush"
 					desc = "POLITICS_PRESCOTT_BUSH_DESC"
-					picture = "gfx/leaders/NEE/Portrait_NEE_Prescott_Bush.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Prescott_Bush.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {
@@ -1732,7 +1814,7 @@ country_event = { # 1940 Election
 				create_country_leader = {# Prescott Bush
 					name = "Fred Trump"
 					desc = "POLITICS_FRED_TRUMP_DESC"
-					picture = "gfx/leaders/NEE/Portrait_NEE_Fred_Trump.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Fred_Trump.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {
@@ -1746,7 +1828,7 @@ country_event = { # 1940 Election
 				create_country_leader = {
 					name = "Thomas Dewey"
 					desc = "POLITICS_THOMAS_DEWEY_DESC"
-					picture = "gfx/leaders/USA/Portrait_USA_Thomas_E_Dewey_Cursed.tga"
+					picture = "gfx/leaders/USA/Portrait_USA_Thomas_E_Dewey_Cursed.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = {
@@ -1762,7 +1844,7 @@ country_event = { # 1940 Election
 				create_country_leader = {
 					name = "George Aiken"
 					desc = "POLITICS_GEORGE_AIKEN_DESC"
-					picture = "gfx/leaders/NEE/George_Aiken.tga"
+					picture = "gfx/leaders/NEE/George_Aiken.png"
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 					traits = {
@@ -1778,7 +1860,7 @@ country_event = { # 1940 Election
 				create_country_leader = {
 					name = "Frances Perkins"
 					desc = "POLITICS_FRANCES_PERKINS_DESC"
-					picture = "gfx/leaders/NEE/Frances_Perkins.tga"
+					picture = "gfx/leaders/NEE/Frances_Perkins.png"
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 					traits = {
@@ -1962,6 +2044,15 @@ country_event = { # 1940 Election
 				add_ideas = NEE_Dean_Gooderham_Acheson_for_sco
 				add_ideas = NEE_William_Stuart_Symington_Jr_eco_sco
 				add_ideas = NEE_Wilbur_Lucius_Cross_sec_sco
+			}
+			else_if = { # Cross
+				limit = {
+					has_country_flag = NEE_1940_democratic_primary_cross
+				}
+				add_ideas = NEE_Joseph_Kennedy_Sr_hog_sco
+				add_ideas = NEE_Dean_Gooderham_Acheson_for_sco
+				add_ideas = NEE_William_Stuart_Symington_Jr_eco_sco
+				add_ideas = NEE_James_Andrew_Shanley_sec_sco
 			}
 		}
 	}
@@ -2280,7 +2371,7 @@ country_event = { # 1944 election
 				create_country_leader = {
 					name = "Frances Perkins"
 					desc = "POLITICS_FRANCES_PERKINS_DESC"
-					picture = "gfx/leaders/NEE/Frances_Perkins.tga"
+					picture = "gfx/leaders/NEE/Frances_Perkins.png"
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 					traits = {
@@ -2295,7 +2386,7 @@ country_event = { # 1944 election
 				create_country_leader = {
 					name = "Ernest W. Gibson"
 					desc = "POLITICS_ERNEST_GIBSON_DESC"
-					picture = "Ernest_William_Gibson_Jr.tga"
+					picture = "gfx/leaders/NEE/Ernest_William_Gibson_Jr.png"
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 					traits = { economic_reformer }
@@ -2308,7 +2399,7 @@ country_event = { # 1944 election
 				create_country_leader = {
 					name = "Dennis J. Roberts "
 					desc = "POLITICS_DENNIS_ROBERTS_DESC"
-					picture = "Portrait_NEE_Dennis_Roberts.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Dennis_Roberts.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = { economic_reformer }
@@ -2321,7 +2412,7 @@ country_event = { # 1944 election
 				create_country_leader = {
 					name = "Peter G. Gerry"
 					desc = "POLITICS_PETER_GERRY_DESC"
-					picture = "Portrait_NEE_Peter_Gerry.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Peter_Gerry.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = { great_survivor }
@@ -2334,7 +2425,7 @@ country_event = { # 1944 election
 				create_country_leader = {
 					name = "Sherman Adams"
 					desc = "POLITICS_SHERMAN_ADAMS_DESC"
-					picture = "Portrait_NEE_Sherman_Adams.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Sherman_Adams.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = { quartermaster_general }
@@ -2347,7 +2438,7 @@ country_event = { # 1944 election
 				create_country_leader = {
 					name = "Robert F. Bradford"
 					desc = "POLITICS_ROBERT_BRADFORD_DESC"
-					picture = "Portrait_NEE_Robert_Bradford.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Robert_Bradford.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = { economist }
@@ -2360,7 +2451,7 @@ country_event = { # 1944 election
 				create_country_leader = {
 					name = "Robert Christian Herter"
 					desc = "POLITICS_CHRISTIAN_HERTER_DESC"
-					picture = "Portrait_NEE_Christian_Archibald_Herter.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Christian_Archibald_Herter.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = { tenacious_negotiator }
@@ -2509,6 +2600,17 @@ country_event = { # 1944 election
 				add_ideas = NEE_Dean_Gooderham_Acheson_for_sco
 				add_ideas = NEE_William_Stuart_Symington_Jr_eco_sco
 				add_ideas = NEE_Wilbur_Lucius_Cross_sec_sco
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = NEE_1944_democratic_primary_herter
+					}
+				}
+				add_ideas = NEE_Joseph_Kennedy_Sr_hog_sco
+				add_ideas = NEE_Dean_Gooderham_Acheson_for_sco
+				add_ideas = NEE_William_Stuart_Symington_Jr_eco_sco
+				add_ideas = NEE_James_Andrew_Shanley_sec_sco
 			}
 		}
 	}
@@ -2819,7 +2921,7 @@ country_event = { # 1948 election
 				create_country_leader = {
 					name = "Maurice J. Tobin"
 					desc = "POLITICS_MAURICE_TOBIN_DESC"
-					picture = "Portrait_NEE_Maurice_Tobin.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Maurice_Tobin.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = { divided_interests }
@@ -2832,7 +2934,7 @@ country_event = { # 1948 election
 				create_country_leader = {
 					name = "Paul A. Dever"
 					desc = "POLITICS_PAUL_DEVER_DESC"
-					picture = "Portrait_NEE_Paul_A_Dever.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Paul_A_Dever.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = { armaments_organizer }
@@ -2845,7 +2947,7 @@ country_event = { # 1948 election
 				create_country_leader = {
 					name = "George Aiken"
 					desc = "POLITICS_GEORGE_AIKEN_DESC"
-					picture = "gfx/leaders/NEE/George_Aiken.tga"
+					picture = "gfx/leaders/NEE/George_Aiken.png"
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 					traits = { captain_of_industry }
@@ -2858,7 +2960,7 @@ country_event = { # 1948 election
 				create_country_leader = {
 					name = "Robert F. Bradford"
 					desc = "POLITICS_ROBERT_BRADFORD_DESC"
-					picture = "Portrait_NEE_Robert_Bradford.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Robert_Bradford.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = { economist }
@@ -2871,7 +2973,7 @@ country_event = { # 1948 election
 				create_country_leader = {
 					name = "Thomas C. Hart"
 					desc = "POLITICS_THOMAS_HART_DESC"
-					picture = "Portrait_NEE_Thomas_Hart.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Thomas_Hart.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = { quartermaster_general }
@@ -2985,6 +3087,17 @@ country_event = { # 1948 election
 				add_ideas = NEE_Thomas_C_Hart_hog_sco
 				add_ideas = NEE_James_Aloysius_'Jim'_Farley_for_sco
 				add_ideas = NEE_Edward_Carleton_Moran_Jr_eco_sco
+				add_ideas = NEE_James_Andrew_Shanley_sec_sco
+			}
+			if = { # Thomas C. Hart
+				limit = {
+					NOT ={
+						has_country_flag = PSA_1948_democratic_primary_hickenlooper
+					}
+				}
+				add_ideas = NEE_Joseph_Kennedy_Sr_hog_sco
+				add_ideas = NEE_Dean_Gooderham_Acheson_for_sco
+				add_ideas = NEE_William_Stuart_Symington_Jr_eco_sco
 				add_ideas = NEE_James_Andrew_Shanley_sec_sco
 			}
 		}
@@ -3270,9 +3383,7 @@ country_event = { # 1952 Democrat Primary
 		name = newengland.36.e
 		trigger = {
 			has_government = social_conservative
-			NOT = {
-				has_country_flag = NEE_1944_election_democrat
-			}
+			has_country_flag = NEE_1944_election_democrat
 		}
 	}
 }
@@ -3308,7 +3419,7 @@ country_event = { # 1952 election
 				create_country_leader = {
 					name = "Paul A. Dever"
 					desc = "POLITICS_PAUL_DEVER_DESC"
-					picture = "Portrait_NEE_Paul_A_Dever.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Paul_A_Dever.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = { armaments_organizer }
@@ -3321,7 +3432,7 @@ country_event = { # 1952 election
 				create_country_leader = {
 					name = "Charles Poletti"
 					desc = "POLITICS_CHARLES_POLETTI_DESC"
-					picture = "Portrait_NEE_Charles_Poletti.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Charles_Poletti.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = { appeaser }
@@ -3334,7 +3445,7 @@ country_event = { # 1952 election
 				create_country_leader = {
 					name = "Nelson Rockefeller"
 					desc = "POLITICS_NELSON_ROCKEFELLER_DESC"
-					picture = "Portrait_NEE_Nelson_Rockefeller.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Nelson_Rockefeller.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = { financial_expert }
@@ -3347,7 +3458,7 @@ country_event = { # 1952 election
 				create_country_leader = {
 					name = " Henry C. Lodge Jr."
 					desc = "POLITICS_HENRY_LODGE_JR_DESC"
-					picture = "Portrait_NEE_Henry_Lodge.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Henry_Lodge.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = { war_industrialist  }
@@ -3360,7 +3471,7 @@ country_event = { # 1952 election
 				create_country_leader = {
 					name = "Thomas C. Hart"
 					desc = "POLITICS_THOMAS_HART_DESC"
-					picture = "Portrait_NEE_Thomas_Hart.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Thomas_Hart.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = { quartermaster_general }
@@ -3373,7 +3484,7 @@ country_event = { # 1952 election
 				create_country_leader = {
 					name = "Styles Bridges"
 					desc = "POLITICS_STYLES_BRIDGES_DESC"
-					picture = "Portrait_NEE_Styles_Bridges.tga"
+					picture = "gfx/leaders/NEE/Portrait_NEE_Styles_Bridges.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = { prince_of_terror }
@@ -4483,7 +4594,7 @@ country_event = { # Appointing the New England Poet laureate
 	option = { # H.P Lovecraft, the master of horror
 		name = newengland.59.b
 		add_popularity = {
-			ideology = social_conservative
+			ideology = national_populist
 			popularity = 0.02
 		}
 	}
@@ -4890,6 +5001,30 @@ country_event = { # The Yankee Rebellion
 					id = newengland.6
 					days = 2
 				}
+				country_event = {
+					id = newengland.101
+					days = 9
+				}
+				country_event = {
+					id = newengland.2009
+					days = 30
+				}
+				load_oob = NEE
+				set_politics = {
+					ruling_party = authoritarian_democrat }
+
+                set_popularities = {
+                    totalist = 0
+                    radical_socialist = 0
+                    syndicalist = 0
+                    social_democrat = 4
+                    social_liberal = 28
+                    market_liberal = 32
+                    social_conservative = 36
+                    authoritarian_democrat = 0
+                    paternal_autocrat = 0
+                    national_populist = 0
+                }
 				load_oob = NEE
 			}
 			NEE = {
@@ -5200,7 +5335,8 @@ country_event = { # Major attack
 	}
 
 	immediate = {
-		random_owned_state = {
+		hidden_effect = {
+			random_owned_state = {
 			limit = {
 				has_state_flag = CAN_in_rebellion
 				is_controlled_by = CAN
@@ -5215,6 +5351,7 @@ country_event = { # Major attack
 				}
 			}
 			save_event_target_as = attack
+		}
 		}
 	}
 
@@ -5304,7 +5441,7 @@ country_event = { # Order restored
 					state = 796 #Upstate New York
 				}
 			}
-			add_claim_by = CAN
+			add_core_of = CAN
 		}
 	}
 }
@@ -5364,13 +5501,6 @@ country_event = { # New England receives request
 
 	option = {
 		name = newengland.90.a #It seems we have no choice...
-		trigger = {
-			check_variable = {
-				var = NEE_legitimacy
-				value = NEE_threshold
-				compare = less_than
-			}
-		}
 		if = {
 			limit = {
 				is_neighbor_of = CAN
@@ -5402,13 +5532,6 @@ country_event = { # New England receives request
 	}
 	option = {
 		name = newengland.90.b #We should reunite
-		trigger = {
-			check_variable = {
-				var = NEE_legitimacy
-				value = NEE_threshold
-				compare = greater_than_or_equals
-			}
-		}
 		ai_chance = {
 			factor = 70
 			modifier = {
@@ -5459,13 +5582,6 @@ country_event = { # New England receives request
 	}
 	option = {
 		name = newengland.90.c #Refuse
-		trigger = {
-			check_variable = {
-				var = NEE_legitimacy
-				value = NEE_threshold
-				compare = greater_than_or_equals
-			}
-		}
 		ai_chance = {
 			factor = 30
 			modifier = {
@@ -6409,12 +6525,6 @@ country_event = { # Not Ancaps
 		add_popularity = { ideology = paternal_autocrat popularity = 0.04 }
 		add_popularity = { ideology = national_populist popularity = 0.03 }
 		add_stability = -0.01
-		hidden_effect = {
-		country_event = {
-			id = newengland.103
-			days = 10
-			}
-		}
 	}
 }
 
@@ -6447,6 +6557,14 @@ country_event = { # The Great Strike
 					has_game_rule = {
 						rule = NEE_start_path
 						option = NEE_START_PATH_REMNANT
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_START_PATH_RADSOC
+					}	
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_START_PATH_SYNDIE
 					}	
 				}
 			}
@@ -6492,6 +6610,14 @@ country_event = { # The Great Strike
 						rule = NEE_start_path
 						option = NEE_PROHIBITION
 					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_START_PATH_RADSOC
+					}	
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_START_PATH_SYNDIE
+					}
 				}
 			}
 		}
@@ -6502,6 +6628,200 @@ country_event = { # The Great Strike
 		country_event = {
 			id = newengland.104
 			days = 10
+			}
+		}
+	}
+	option = { #Hardliners Win Out
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_START_PATH_DEMOCRAT
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_START_PATH_REPUBLICAN
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_START_PATH_LIBERAL_REPUBLICAN
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_START_PATH_NATIONAL
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_START_PATH_FEDERALIST
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_START_PATH_REMNANT
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_START_PATH_SENTINEL
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_QUAKER
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_PROHIBITION
+					}
+				}
+			}
+		}
+		name = newengland.103.c
+		add_political_power = -20
+		add_stability = -0.06
+		hidden_effect = {
+		random_other_country = {
+			news_event = { id = worldnews.2050 days = 10 }
+		}
+		country_event = {
+			id = newengland.1030
+			days = 5
+			}
+		}
+	}
+}
+
+country_event = { # The Great Strike-Leftist Victory
+	id = newengland.1030
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.1030"}
+	title = newengland.1030.t
+	desc = newengland.1030.d
+	
+	picture = GFX_report_event_generic_strike
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #Hardliners Win Out
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = NEE_start_path
+					option = NEE_START_PATH_RADSOC
+				}	
+			}
+		}
+		name = newengland.1030.a
+		add_political_power = -20
+		add_stability = -0.06
+		set_politics = {
+			ruling_party = syndicalist
+			last_election = "1936.11.16"
+			elections_allowed = no
+		}
+		create_country_leader = {
+			name = "Norman Wallace Lermond"
+			desc = "POLITICS_NORMAN_WALLACE_LERMOND_DESC"
+			picture = "gfx/leaders/NEE/Portrait_NEE_Norman_Wallace_Lermond.png"
+			expire = "1965.1.1"
+			ideology = agrarian_socialism_subtype
+			traits = { radical_environmentalist }
+		}
+		hidden_effect = {
+		country_event = {
+			id = newengland.1031
+			days = 2
+			}
+		}
+	}
+	option = { #Lermond Takes Over (Moderates)
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = NEE_start_path
+					option = NEE_START_PATH_SYNDIE
+				}	
+			}
+		}
+		name = newengland.1030.b
+		add_political_power = -20
+		add_stability = -0.06
+		set_politics = {
+			ruling_party = radical_socialist
+			last_election = "1936.11.16"
+			elections_allowed = no
+		}
+		hidden_effect = {
+		set_party_name = {
+			ideology = totalist
+			long_name = NEE_Lermond_party_long
+			name = NEE_Lermond_party 
+		}
+		set_party_name = {
+			ideology = radical_socialist
+			long_name = NEE_Lermond_party_long
+			name = NEE_Lermond_party 
+		}
+		set_party_name = {
+			ideology = syndicalist
+			long_name = NEE_Lermond_party_long
+			name = NEE_Lermond_party 
+		}
+		}
+		create_country_leader = {
+			name = "Norman Wallace Lermond"
+			desc = "POLITICS_NORMAN_WALLACE_LERMOND_DESC"
+			picture = "gfx/leaders/NEE/Portrait_NEE_Norman_Wallace_Lermond.png"
+			expire = "1965.1.1"
+			ideology = agrarian_socialism_subtype
+			traits = { radical_environmentalist }
+		}
+		set_cosmetic_tag = NEE_LERMOND_FLAG
+		hidden_effect = {
+			add_ideas = NEE_Allan_Louis_Benson_hog_rso
+			add_ideas = NEE_John_Harvey_Lovell_for_rso
+			add_ideas = NEE_James_Carey_eco_rso
+			add_ideas = NEE_Alfred_Baker_Louis_sec_rso
+		}
+		hidden_effect = {
+			country_event = {
+			id = newengland.2006
+			days = 14
+			}
+		}
+	}
+}
+
+country_event = { # Leftists Unite with the CSA
+	id = newengland.1031
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.1031"}
+	title = newengland.1031.t
+	desc = newengland.1031.d
+	
+	picture = GFX_report_event_generic_strike
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #Hardliners Win Out
+		name = newengland.1031.a
+		CSA = {
+		increase_ruling_party_popularity_by_5 = yes
+		}
+		hidden_effect = {
+		CSA = {
+			change_tag_from = NEE
+		}
+		CSA = {
+				annex_country = {
+					target = NEE
+				}
 			}
 		}
 	}
@@ -6561,21 +6881,6 @@ country_event = { # Canada's Decision
 		country_event = {
 			id = newengland.106
 			hours = 14
-			}
-		}
-	}
-	option = { # Governor-General appointed
-		ai_chance = {
-			factor = 33
-		}
-		name = newengland.105.b
-		set_country_flag = NEE_convention_dissolved
-		add_political_power = -10
-		NEE = {
-		add_popularity = { ideology = paternal_autocrat popularity = 0.1 }
-		country_event = {
-			id = newengland.1060
-			days = 2
 			}
 		}
 	}
@@ -6738,9 +7043,9 @@ country_event = { # Dominionists appointed
 			create_country_leader = {
 				name = "Baron Fairhaven"
 				desc = "NEE_BARON_FAIRHAVEN_DESC"
-				picture = "gfx/leaders/NEE/Portrait_NEE_Baron_Fairhaven.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_Baron_Fairhaven.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = absolute_monarchy_subtype
 				traits = { the_shy_peer }
 			}
 		}
@@ -6776,9 +7081,9 @@ country_event = { # Dominionists appointed
 			create_country_leader = {
 				name = "Henry Rogers Broughton"
 				desc = "NEE_BURTON_DESC"
-				picture = "gfx/leaders/NEE/Portrait_NEE_Henry_Rogers_Broughton.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_Henry_Rogers_Broughton.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = absolute_monarchy_subtype
 				traits = { the_shy_peer }
 			}
 		}
@@ -6815,9 +7120,9 @@ country_event = { # Dominionists appointed
 			create_country_leader = {
 				name = "Cornelius Vanderbilt III"
 				desc = "NEE_CORNELIUS_VANDERBILT_III_DESC"
-				picture = "gfx/leaders/NEE/Portrait_NEE_Cornelius_Vanderbilt_III.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_Cornelius_Vanderbilt_III.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = absolute_monarchy_subtype
 				traits = { elite_family_ties }
 			}
 		}
@@ -6853,14 +7158,18 @@ country_event = { # Dominionists appointed
 		}
 		hidden_effect = {
 			create_country_leader = {
-				name = "Joseph Kennedy Sr."
+				name = "Joseph Kennedy"
 				desc = "POLITICS_JOSEPH_KENNEDY_DESC"
-				picture = "Portrait_NEE_Kennedy_governor_general.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_Kennedy_governor_general.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = absolute_monarchy_subtype
 				traits = { tenacious_negotiator }
 			}
 		}
+	}
+	option = { # the king alone
+		name = newengland.1060.f
+		add_political_power = 50
 	}
 }
 
@@ -7078,9 +7387,9 @@ country_event = { # Feds appointed
 			create_country_leader = {
 				name = "John Jacob Astor"
 				desc = "NEE_JOHN_JACOB_ASTOR_DESC"
-				picture = "gfx/leaders/NEE/Portrait_NEE_John_Jacob_Astor.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_John_Jacob_Astor.png"
 				expire = "1965.1.1"
-				ideology = authoritarian_democrat_subtype
+				ideology = oligarchy_subtype
 				traits = { elite_family_ties }
 			}
 		}
@@ -7106,9 +7415,9 @@ country_event = { # Feds appointed
 			create_country_leader = {
 				name = "Vincent Astor"
 				desc = "NEE_VINCENT_ASTOR_DESC"
-				picture = "gfx/leaders/NEE/Portrait_NEE_Vincent_Astor.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_Vincent_Astor.png"
 				expire = "1965.1.1"
-				ideology = authoritarian_democrat_subtype
+				ideology = oligarchy_subtype
 				traits = { elite_family_ties }
 			}
 		}
@@ -7129,9 +7438,9 @@ country_event = { # Feds appointed
 			create_country_leader = {
 				name = "Harold Stirling Vanderbilt"
 				desc = "NEE_HAROLD_STIRLING_VANDERBILT_DESC"
-				picture = "gfx/leaders/NEE/Harold_Stirling_Vanderbilt.tga"
+				picture = "gfx/leaders/NEE/Harold_Stirling_Vanderbilt.png"
 				expire = "1965.1.1"
-				ideology = authoritarian_democrat_subtype
+				ideology = oligarchy_subtype
 				traits = { elite_family_ties }
 			}
 		}
@@ -7151,9 +7460,9 @@ country_event = { # Feds appointed
 			create_country_leader = {
 				name = "William Kissam Vanderbilt"
 				desc = "NEE_WILLIAM_KISSAM_VANDERBILT_DESC"
-				picture = "gfx/leaders/NEE/William_Kissam_Vanderbilt_II.tga"
+				picture = "gfx/leaders/NEE/William_Kissam_Vanderbilt_II.png"
 				expire = "1965.1.1"
-				ideology = authoritarian_democrat_subtype
+				ideology = oligarchy_subtype
 				traits = { elite_family_ties }
 			}
 		}
@@ -7270,7 +7579,7 @@ country_event = { # Federalist Party Sworn in
 		add_political_power = -20
 		add_popularity = { ideology = radical_socialist popularity = -0.01 }
 		add_stability = 0.02
-		set_capital = 934
+		set_capital = { state = 934 }
 		}
 	}
 	
@@ -7434,9 +7743,9 @@ country_event = { # John Jacob Astor
 			create_country_leader = {
 				name = "John Jacob Astor"
 				desc = "NEE_JOHN_JACOB_ASTOR_DESC"
-				picture = "gfx/leaders/NEE/Portrait_John_Jacob_Astor_no_the_other_one.tga"
+				picture = "gfx/leaders/NEE/Portrait_John_Jacob_Astor_no_the_other_one.png"
 				expire = "1965.1.1"
-				ideology = authoritarian_democrat_subtype
+				ideology = oligarchy_subtype
 				traits = { great_survivor }
 			}
 		}
@@ -7528,7 +7837,7 @@ country_event = { # Radical Constitutional Congress
 		name = newengland.119.a
 		create_corps_commander = {# Robert McCormick
 			name = "Robert McCormick"
-			portrait_path = "gfx/leaders/NEE/Portrait_NEE_Robert_R_McCormick_general.tga"
+			portrait_path = "gfx/leaders/NEE/Portrait_NEE_Robert_R_McCormick_general.png"
 			traits = {
 				politically_connected
 				trait_engineer
@@ -7606,9 +7915,9 @@ country_event = { # Radical Split
 		create_country_leader = {
 			name = "Irenee du Pont"
 			desc = "POLITICS_Irenee_du_Pont_DESC"
-			picture = "gfx/leaders/NEE/Irenee_du_Pont.tga"
+			picture = "gfx/leaders/NEE/Irenee_du_Pont.png"
 			expire = "1965.1.1"
-			ideology = national_populist_subtype
+			ideology = natpop_corporatocracy_subtype
 			traits = { anti_statist }
 		}
 		hidden_effect = {
@@ -7679,7 +7988,7 @@ country_event = { # Radical Split
 		create_country_leader = {
 			name = "Lothrop Stoddard"
 			desc = "POLITICS_LOTHROP_STODDARD_DESC"
-			picture = "gfx/leaders/NEE/Lothrop_Stoddard.tga"
+			picture = "gfx/leaders/NEE/Lothrop_Stoddard.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 			traits = { popular_author }
@@ -7715,9 +8024,9 @@ country_event = { # Remnant Leader Election
 		create_country_leader = {
 			name = "Albert Jay Nock"
 			desc = "POLITICS_Albert_Jay_Nock_DESC"
-			picture = "gfx/leaders/NEE/Albert_Jay_Nock.tga"
+			picture = "gfx/leaders/NEE/Albert_Jay_Nock.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = pataut_ancap_subtype
 			traits = { anti_statist }
 		}
 		set_politics = {
@@ -7740,9 +8049,9 @@ country_event = { # Remnant Leader Election
 		create_country_leader = {
 			name = "Robert McCormick"
 			desc = "POLITICS_ROBERT_MCCORMICK_DESC"
-			picture = "gfx/leaders/NEE/Robert_R_McCormick.tga"
+			picture = "gfx/leaders/NEE/Robert_R_McCormick.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = pataut_ancap_subtype
 			traits = { quartermaster_general }
 		}
 		set_politics = {
@@ -8248,6 +8557,14 @@ country_event = { #Fate of Democracy
 			ruling_party = market_liberal
 			election_frequency = 48
 			elections_allowed = yes
+		}
+		create_country_leader = {
+			name = "Albert Jay Nock"
+			desc = "POLITICS_Albert_Jay_Nock_DESC"
+			picture = "gfx/leaders/NEE/Albert_Jay_Nock.png"
+			expire = "1965.1.1"
+			ideology = ancap_subtype
+			traits = { anti_statist }
 		}
 	}
 }
@@ -9647,9 +9964,9 @@ country_event = {# God Save The King!
 			create_country_leader = {# Joseph William Martin Jr.
 				name = "Albert I"
 				desc = "POLITICS_KING_ALBERT_DESC"
-				picture = "Portrait_NEE_King_Albert.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_King_Albert.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = absolute_monarchy_subtype
 				traits = { foreign_monarch }
 			}
 		}
@@ -9680,9 +9997,9 @@ country_event = {# God Save The King!
 			create_country_leader = {# Joseph William Martin Jr.
 				name = "Henry I"
 				desc = "POLITICS_KING_ALBERT_DESC"
-				picture = "Portrait_NEE_King_Henry.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_King_Henry.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = absolute_monarchy_subtype
 				traits = { foreign_monarch }
 			}
 		}
@@ -10309,10 +10626,10 @@ country_event = {# Hartford Convention over
 		name = newengland.218.a
 		country_event = { id = newengland.219 days = 3 }
 		hidden_effect = {
-			if = { limit = { has_country_flag = NEE_capital_boston } set_capital = 932 }
-			if = { limit = { has_country_flag = NEE_capital_providence } set_capital = 935 }
-			if = { limit = { has_country_flag = NEE_capital_buffalo } set_capital = 796 }
-			if = { limit = { has_country_flag = NEE_capital_hartford } set_capital = 931 }
+			if = { limit = { has_country_flag = NEE_capital_boston } set_capital = { state = 932 } }
+			if = { limit = { has_country_flag = NEE_capital_providence } set_capital = { state = 935 } }
+			if = { limit = { has_country_flag = NEE_capital_buffalo } set_capital = { state = 796 } }
+			if = { limit = { has_country_flag = NEE_capital_hartford } set_capital = { state = 931 } }
 		}
 	}
 }
@@ -10340,13 +10657,17 @@ country_event = {# Constitution - Leader until election
 		create_country_leader = {# Joseph William Martin Jr.
 			name = "Hartford Convention"
 			desc = "POLITICS_BOSTON_DESC"
-			picture = "Portrait_NEE_Boston_Committee.tga"
+			picture = "gfx/leaders/NEE/Portrait_NEE_Boston_Committee.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 			traits = { provisional_congress }
 		}
 		hidden_effect = {
 			country_event = { id = newengland.20 days = 12 }
+			country_event = {
+            id = newengland.103
+            days = 20
+            }
 		}
 	}
 	option = {# Democrat - Jim Curley
@@ -10361,13 +10682,17 @@ country_event = {# Constitution - Leader until election
 		create_country_leader = {# Joseph William Martin Jr.
 			name = "Hartford Convention"
 			desc = "POLITICS_BOSTON_DESC"
-			picture = "Portrait_NEE_Boston_Committee.tga"
+			picture = "gfx/leaders/NEE/Portrait_NEE_Boston_Committee.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 			traits = { provisional_congress }
 		}	
 		hidden_effect = {
 			country_event = { id = newengland.20 days = 12 }
+			country_event = {
+            id = newengland.103
+            days = 20
+            }
 		}
 	}
 	option = {# Quaker - Clarence Pickett
@@ -10390,12 +10715,26 @@ country_event = {# Constitution - Leader until election
 			elections_allowed = yes
 		}
 		set_country_flag = radicals_in_power
+		create_country_leader = {
+			name = "Clarence Pickett"
+			desc = "POLITICS_CLARENCE_PICKETT_DESC"
+			picture = "gfx/leaders/NEE/Portrait_NEE_Clarence_Pickett.png"
+			expire = "1965.1.1"
+			ideology = christian_socialism_subtype
+			traits = { determined_peacemaker }
+		}
 		remove_all_ministers = yes
 		add_ideas = {
 			NEE_Eleanor_Roosevelt_hog_rso
 			NEE_Whittaker_Chambers_for_rso
 			NEE_Lillian_Willoughby_eco_rso
 			NEE_Emily_Greene_Balch_sec_rso
+		}
+		hidden_effect = {
+			country_event = {
+            id = newengland.103
+            days = 20
+            }
 		}
 	}
 	option = {# Prohibition - David Leigh Colvin
@@ -10426,23 +10765,15 @@ country_event = {# Constitution - Leader until election
 			NEE_Wilson_Head_eco_sde
 			NEE_Lizzie_Magie_eco_sde
 		}
+		hidden_effect = {
+			country_event = {
+            id = newengland.103
+            days = 20
+            }
+		}
 	}
 	option = {# Coalition wins
 		name = newengland.219.e
-		trigger = {
-			OR = {
-				AND = {
-					has_country_flag = { flag = NEE_republican value < 3 }
-					has_country_flag = { flag = NEE_democrat value < 3 }
-					has_country_flag = { flag = NEE_quaker value < 3 }
-				}
-				AND = {
-					has_country_flag = { flag = NEE_republican value < 2 }
-					has_country_flag = { flag = NEE_democrat value < 2 }
-					has_country_flag = { flag = NEE_quaker value < 2 }
-				}
-			}
-		}
 		set_country_flag = NEE_hartford_convention_done
 		add_political_power = -50
 		set_politics = {
@@ -10453,13 +10784,17 @@ country_event = {# Constitution - Leader until election
 		create_country_leader = {#
 			name = "Hartford Convention"
 			desc = "POLITICS_BOSTON_DESC"
-			picture = "Portrait_NEE_Boston_Committee.tga"
+			picture = "gfx/leaders/NEE/Portrait_NEE_Boston_Committee.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 			traits = {}
 		}
 		hidden_effect = {
 			country_event = { id = newengland.20 days = 12 }
+			country_event = {
+            id = newengland.103
+            days = 20
+            }
 		}
 	}
 }
@@ -10541,7 +10876,7 @@ country_event = {# The King is Crowned
 			create_country_leader = {# Joseph William Martin Jr.
 				name = "Albert of Windsor"
 				desc = "POLITICS_KING_ALBERT_DESC"
-				picture = "Portrait_NEE_King_Albert.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_King_Albert.png"
 				expire = "1965.1.1"
 				ideology = radical_socialist_subtype
 				traits = {foreign_monarch }
@@ -10549,7 +10884,7 @@ country_event = {# The King is Crowned
 			create_country_leader = {# Joseph William Martin Jr.
 				name = "Albert of Windsor"
 				desc = "POLITICS_KING_ALBERT_DESC"
-				picture = "Portrait_NEE_King_Albert.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_King_Albert.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 				traits = {foreign_monarch }
@@ -10557,7 +10892,7 @@ country_event = {# The King is Crowned
 			create_country_leader = {# 
 				name = "Albert of Windsor"
 				desc = "POLITICS_KING_ALBERT_DESC"
-				picture = "Portrait_NEE_King_Albert.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_King_Albert.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 				traits = {foreign_monarch }
@@ -10565,7 +10900,7 @@ country_event = {# The King is Crowned
 			create_country_leader = {# 
 				name = "Albert of Windsor"
 				desc = "POLITICS_KING_ALBERT_DESC"
-				picture = "Portrait_NEE_King_Albert.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_King_Albert.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 				traits = {foreign_monarch }
@@ -10573,7 +10908,7 @@ country_event = {# The King is Crowned
 			create_country_leader = {# 
 				name = "Albert of Windsor"
 				desc = "POLITICS_KING_ALBERT_DESC"
-				picture = "Portrait_NEE_King_Albert.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_King_Albert.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 				traits = {foreign_monarch }
@@ -10581,7 +10916,7 @@ country_event = {# The King is Crowned
 			create_country_leader = {#
 				name = "Albert of Windsor"
 				desc = "POLITICS_KING_ALBERT_DESC"
-				picture = "Portrait_NEE_King_Albert.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_King_Albert.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 				traits = {foreign_monarch }
@@ -10589,9 +10924,9 @@ country_event = {# The King is Crowned
 			create_country_leader = {#
 				name = "Albert of Windsor"
 				desc = "POLITICS_KING_ALBERT_DESC"
-				picture = "Portrait_NEE_King_Albert.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_King_Albert.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = absolute_monarchy_subtype
 				traits = {foreign_monarch }
 			}
 			set_cosmetic_tag = NEE_CAN
@@ -10610,7 +10945,7 @@ country_event = {# The King is Crowned
 			create_country_leader = {# Joseph William Martin Jr.
 				name = "Henry of Windsor"
 				desc = "POLITICS_KING_Henry_DESC"
-				picture = "Portrait_NEE_King_Henry.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_King_Henry.png"
 				expire = "1965.1.1"
 				ideology = radical_socialist_subtype
 				traits = {foreign_monarch }
@@ -10618,7 +10953,7 @@ country_event = {# The King is Crowned
 			create_country_leader = {# Joseph William Martin Jr.
 				name = "Henry of Windsor"
 				desc = "POLITICS_KING_Henry_DESC"
-				picture = "Portrait_NEE_King_Henry.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_King_Henry.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 				traits = {foreign_monarch }
@@ -10626,7 +10961,7 @@ country_event = {# The King is Crowned
 			create_country_leader = {# 
 				name = "Henry of Windsor"
 				desc = "POLITICS_KING_Henry_DESC"
-				picture = "Portrait_NEE_King_Henry.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_King_Henry.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 				traits = {foreign_monarch }
@@ -10634,7 +10969,7 @@ country_event = {# The King is Crowned
 			create_country_leader = {# 
 				name = "Henry of Windsor"
 				desc = "POLITICS_KING_Henry_DESC"
-				picture = "Portrait_NEE_King_Henry.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_King_Henry.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 				traits = {foreign_monarch }
@@ -10642,7 +10977,7 @@ country_event = {# The King is Crowned
 			create_country_leader = {# 
 				name = "Henry of Windsor"
 				desc = "POLITICS_KING_Henry_DESC"
-				picture = "Portrait_NEE_King_Henry.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_King_Henry.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 				traits = {foreign_monarch }
@@ -10650,7 +10985,7 @@ country_event = {# The King is Crowned
 			create_country_leader = {#
 				name = "Henry of Windsor"
 				desc = "POLITICS_KING_Henry_DESC"
-				picture = "Portrait_NEE_King_Henry.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_King_Henry.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 				traits = {foreign_monarch }
@@ -10658,9 +10993,9 @@ country_event = {# The King is Crowned
 			create_country_leader = {#
 				name = "Henry of Windsor"
 				desc = "POLITICS_KING_Henry_DESC"
-				picture = "Portrait_NEE_King_Henry.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_King_Henry.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = absolute_monarchy_subtype
 				traits = {foreign_monarch }
 			}
 			set_cosmetic_tag = NEE_CAN
@@ -10690,8 +11025,24 @@ country_event = {# Boston Massacre
 		name = newengland.223.a #This far; no further!
 		ai_chance = {
 			factor = 50
-			 modifier = {
-                factor = 100
+			modifier = {
+                factor = 0
+				has_game_rule = {
+					rule = NEE_start_path
+					option = NEE_LOVECRAFT
+				}
+            }
+		}
+		add_political_power = -100
+		set_country_flag = NEE_BOSTON_SUCSESS
+		set_country_flag = NEE_non_radical_extremists_flag
+	}
+	option = {
+		name = newengland.223.b #Something... unexpected happens
+		ai_chance = {
+			factor = 50
+			modifier = {
+                factor = 0
 				OR = {
 					has_game_rule = {
 						rule = NEE_start_path
@@ -10705,22 +11056,6 @@ country_event = {# Boston Massacre
 						rule = NEE_start_path
 						option = NEE_MILITARY_COUP
 					}
-				}
-            }
-		}
-		add_political_power = -100
-		set_country_flag = NEE_BOSTON_SUCSESS
-		set_country_flag = NEE_non_radical_extremists_flag
-	}
-	option = {
-		name = newengland.223.b #Something... unexpected happens
-		ai_chance = {
-			factor = 50
-			 modifier = {
-                factor = 100
-				has_game_rule = {
-					rule = NEE_start_path
-					option = NEE_LOVECRAFT
 				}
             }
 		}
@@ -10758,7 +11093,7 @@ country_event = {# Lovecraft takes over!
 		set_politics = {
 			ruling_party = national_populist
 		}
-		set_capital = 935
+		set_capital = { state = 935 }
 		remove_all_ministers = yes
 		add_ideas = {
 			NEE_HP_Lovecraft_hog_npo
@@ -10778,6 +11113,36 @@ country_event = {# Lovecraft takes over!
 		357 = { set_demilitarized_zone = yes }
 		remove_state_core = 796
 		796 = { set_demilitarized_zone = yes}
+		create_corps_commander = {
+			name = "August Derleth"
+			portrait_path = "gfx/leaders/NEE/Portrait_NEE_August_Derleth.png"
+			traits = { politically_connected swordbearer media_personality }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		create_corps_commander = {
+			name = "Frank Belknap Long"
+			portrait_path = "gfx/leaders/NEE/Portrait_NEE_Frank_Belknap_Long.png"
+			traits = { politically_connected media_personality }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		create_corps_commander = {
+			name = "Henry S. Whitehead"
+			portrait_path = "gfx/leaders/NEE/Portrait_NEE_Henry_S_Whitehead.png"
+			traits = { politically_connected media_personality }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
 	}
 }
 
@@ -10788,13 +11153,7 @@ country_event = {# Lovecraft Dead
 	desc = newengland.227.d
 	picture = GFX_NEE_lovecraft_dead
 
-	trigger = {
-		date > 1945.5.17
-		has_country_leader = {
-			ruling_only = yes
-			name = "H.P. Lovecraft"
-		}
-	}
+	is_triggered_only = yes
 	
 	fire_only_once = yes
 	
@@ -10813,30 +11172,620 @@ country_event = {# Lovecraft Dead
 		create_country_leader = {
 			name = "August Derleth"
 			desc = "POLITICS_AUGUST_DERLETH_DESC"
-			picture = "Portrait_NEE_August_Derleth.tga"
+			picture = "gfx/leaders/NEE/Portrait_NEE_August_Derleth.png"
 			expire = "1965.1.1"
-			ideology = national_populist_subtype
-			traits = { popular_author }
+			ideology = lovecraftianism_subtype
+			traits = { popular_author king_in_yellow_two }
 		}
 		remove_ideas = NEE_HP_Lovecraft_hog_npo
-		add_ideas = NEE_August_Derleth_hog_npo
+		add_ideas = NEE_Clark_Ashton_Smith_hog_npo
 	}
 	option = {
 		name = newengland.227.b #Long takes over
 		add_stability = -0.15
 		add_war_support = -0.20
 		add_political_power = -100
-		set_country_flag = NEE_derleth
+		set_country_flag = NEE_long
 		create_country_leader = {
 			name = "Frank Belknap Long"
 			desc = "POLITICS_FRANK_BELKNAP_LONG_DESC"
-			picture = "Portrait_NEE_Frank_Belknap_Long.tga"
+			picture = "gfx/leaders/NEE/Portrait_NEE_Frank_Belknap_Long.png"
 			expire = "1965.1.1"
-			ideology = national_populist_subtype
-			traits = { popular_author }
+			ideology = lovecraftianism_subtype
+			traits = { popular_author long_master }
 		}
 		remove_ideas = NEE_HP_Lovecraft_hog_npo
-		add_ideas = NEE_Frank_Belknap_Long_hog_npo
+		add_ideas = NEE_Clark_Ashton_Smith_hog_npo
+	}
+	option = {
+		name = newengland.227.c #Whitehead takes over
+		add_stability = -0.15
+		add_war_support = -0.20
+		add_political_power = -100
+		set_country_flag = NEE_whitehead
+		create_country_leader = {
+			name = "Henry S. Whitehead"
+			desc = "POLITICS_WHITEHEAD_DESC"
+			picture = "gfx/leaders/NEE/Portrait_NEE_Henry_S_Whitehead.png"
+			expire = "1965.1.1"
+			ideology = lovecraftianism_subtype
+			traits = { popular_author whitehead_apostle }
+		}
+		remove_ideas = NEE_HP_Lovecraft_hog_npo
+		add_ideas = NEE_Clark_Ashton_Smith_hog_npo
+	}
+}
+
+country_event = {# Lovecraft Funeral
+	id = newengland.228
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.228"}
+	title = newengland.228.t
+	desc = newengland.228.d
+	picture = GFX_report_event_WHR_funeral
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = newengland.228.a #big sad
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = 0.05
+		add_political_power = 100
+	}
+}
+
+country_event = {# Lovecraft Racial Laws Isue
+	id = newengland.229
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.229"}
+	title = newengland.229.t
+	desc = newengland.229.d
+	picture = GFX_NEE_Lovecraft_Papers
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = newengland.229.a #Keep racial laws
+		ai_chance = {
+			factor = 50
+		}
+		add_stability = 0.05
+	}
+	
+	option = {
+		name = newengland.229.b #Abolish racial laws
+		ai_chance = {
+			factor = 50
+		}
+		add_stability = -0.05
+		remove_ideas = NEE_WASP_idea
+	}
+}
+
+country_event = {# Derleth's New Plan
+	id = lovecraftflavor.1
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.1"}
+	title = lovecraftflavor.1.t
+	desc = lovecraftflavor.1.d
+	picture = GFX_NEE_quaker_lovecraft
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.1.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = -0.02
+		add_political_power = 25
+	}
+}
+
+country_event = {# The Journey of the Heir
+	id = lovecraftflavor.2
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.2"}
+	title = lovecraftflavor.2.t
+	desc = lovecraftflavor.2.d
+	picture = GFX_NEE_Lovecraft_Papers
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.2.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = 0.05
+	}
+}
+
+country_event = {# The Myth of Cthulhu Made Better
+	id = lovecraftflavor.3
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.3"}
+	title = lovecraftflavor.3.t
+	desc = lovecraftflavor.3.d
+	picture = GFX_NEE_shadow_book
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.3.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = -0.10
+		add_political_power = 250
+	}
+}
+
+country_event = {# The Legitimate Place of Lovecraftism
+	id = lovecraftflavor.4
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.4"}
+	title = lovecraftflavor.4.t
+	desc = lovecraftflavor.4.d
+	picture = GFX_NEE_shadow_book
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.4.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = 0.02
+		add_political_power = 25
+	}
+}
+
+country_event = {# The School of Lovecraft
+	id = lovecraftflavor.5
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.5"}
+	title = lovecraftflavor.5.t
+	desc = lovecraftflavor.5.d
+	picture = GFX_NEE_lovecraft_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.5.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = -0.05
+	}
+}
+
+country_event = {# Lovecraft's Futurist Vision
+	id = lovecraftflavor.6
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.6"}
+	title = lovecraftflavor.6.t
+	desc = lovecraftflavor.6.d
+	picture = GFX_NEE_Lovecraft_2
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.6.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_political_power = 50
+	}
+}
+
+country_event = {# The Church That Lovecraft Wanted
+	id = lovecraftflavor.7
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.7"}
+	title = lovecraftflavor.7.t
+	desc = lovecraftflavor.7.d
+	picture = GFX_NEE_lovecraft_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.7.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = -0.15
+		add_political_power = 50
+	}
+}
+
+country_event = {# A New Vision of the Word of God
+	id = lovecraftflavor.8
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.8"}
+	title = lovecraftflavor.8.t
+	desc = lovecraftflavor.8.d
+	picture = GFX_NEE_Lovecraft_2
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.8.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = -0.10
+		add_political_power = 25
+	}
+}
+
+country_event = {# The True Lovecraftian Science
+	id = lovecraftflavor.9
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.9"}
+	title = lovecraftflavor.9.t
+	desc = lovecraftflavor.9.d
+	picture = GFX_NEE_Cosmos
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.9.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = -0.20
+		add_political_power = 200
+	}
+}
+
+country_event = {# Derleth
+	id = lovecraftflavor.10
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.10"}
+	title = lovecraftflavor.10.t
+	desc = lovecraftflavor.10.d
+	picture = GFX_NEE_lovecraft_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.10.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = 0.05
+		add_political_power = 20
+	}
+}
+
+country_event = {# Long
+	id = lovecraftflavor.11
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.11"}
+	title = lovecraftflavor.11.t
+	desc = lovecraftflavor.11.d
+	picture = GFX_NEE_lovecraft_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.11.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = 0.05
+		add_political_power = 20
+	}
+}
+
+country_event = {# Whitehead
+	id = lovecraftflavor.12
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.12"}
+	title = lovecraftflavor.12.t
+	desc = lovecraftflavor.12.d
+	picture = GFX_NEE_lovecraft_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.12.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = 0.05
+		add_political_power = 20
+	}
+}
+
+country_event = {# Lovecraft Manifesto
+	id = lovecraftflavor.13
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.13"}
+	title = lovecraftflavor.13.t
+	desc = lovecraftflavor.13.d
+	picture = GFX_NEE_Lovecraft_2
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.13.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = 0.05
+	}
+}
+
+country_event = {# cat
+	id = lovecraftflavor.14
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.14"}
+	title = lovecraftflavor.14.t
+	desc = lovecraftflavor.14.d
+	picture = GFX_event_NEE_nature
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.14.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_political_power = 5
+	}
+}
+
+country_event = {# Eldritch Muse
+	id = lovecraftflavor.15
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.15"}
+	title = lovecraftflavor.15.t
+	desc = lovecraftflavor.15.d
+	picture = GFX_report_event_NEE_great_migration
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.15.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_political_power = 20
+	}
+}
+
+country_event = {# Prince of Lovecraftism
+	id = lovecraftflavor.16
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.16"}
+	title = lovecraftflavor.16.t
+	desc = lovecraftflavor.16.d
+	picture = GFX_NEE_shadow_book
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.16.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = 0.02
+	}
+}
+
+country_event = {# The Eldritch Apostle 
+	id = lovecraftflavor.17
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.17"}
+	title = lovecraftflavor.17.t
+	desc = lovecraftflavor.17.d
+	picture = GFX_report_event_NEE_great_migration
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.17.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_political_power = 25
+		add_stability = 0.03
+	}
+}
+
+country_event = {# Whitehead Creatures
+	id = lovecraftflavor.18
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.18"}
+	title = lovecraftflavor.18.t
+	desc = lovecraftflavor.18.d
+	picture = GFX_NEE_Ghost
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.18.a #Kill him
+		ai_chance = {
+			factor = 50
+		}
+		add_stability = 0.10
+	}
+	
+	option = {
+		name = lovecraftflavor.18.b #Keep him
+		ai_chance = {
+			factor = 50
+		}
+		add_stability = -0.15
+		add_ideas = NEE_whitehead_creature
+	}
+}
+
+country_event = {# Ireland reservation
+	id = lovecraftflavor.19
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.19"}
+	title = lovecraftflavor.19.t
+	desc = lovecraftflavor.19.d
+	picture = GFX_report_event_NEE_great_migration
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns_state = 113
+		has_country_flag = NEE_lovecraftians_win
+	}
+	
+	option = {
+		name = lovecraftflavor.19.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_political_power = 50
+		set_province_name = { id = 11293 name = "The Nameless City" }
+        hidden_effect = {
+            113 = { set_state_name = "The Nameless State" }
+        }
+	}
+}
+
+country_event = {# Lovecraftian Empire 
+	id = lovecraftflavor.20
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.20"}
+	title = lovecraftflavor.20.t
+	desc = lovecraftflavor.20.d
+	picture = GFX_NEE_Lovecraft_2
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.20.a #
+		ai_chance = {
+			factor = 50
+		}
+		add_stability = 0.05
+	}
+	
+	option = {
+		name = lovecraftflavor.20.b #
+		ai_chance = {
+			factor = 50
+		}
+		add_political_power = 50
+		set_capital = { state = 126 }
+		set_province_name = { id = 6103 name = "Celephaïs" }
+        hidden_effect = {
+            126 = { set_state_name = "Celephaïs" }
+        }
+		set_province_name = { id = 12406 name = "New R'lyeh" }
+        hidden_effect = {
+            285 = { set_state_name = "New R'lyeh" }
+        }
+		set_province_name = { id = 3778 name = "Kadath" }
+        hidden_effect = {
+            739 = { set_state_name = "Kadath" }
+        }
+		set_province_name = { id = 2086 name = "New Sarnath" }
+        hidden_effect = {
+            439 = { set_state_name = "New Sarnath " }
+        }
+		set_province_name = { id = 3957 name = "Arkham" }
+        hidden_effect = {
+            361 = { set_state_name = "Arkham" }
+        }
+		set_province_name = { id = 12589 name = "Oriab" }
+        hidden_effect = {
+            1176 = { set_state_name = "Oriab" }
+        }
+	}
+}
+
+country_event = {# Canada gave us some states
+	id = lovecraftflavor.21
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.21"}
+	title = lovecraftflavor.21.t
+	desc = lovecraftflavor.21.d
+	picture = GFX_report_event_edward
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.21.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_political_power = 25
+		add_stability = 0.05
+	}
+}
+
+country_event = {# Check for Cthulu
+	id = lovecraftflavor.22
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.22"}
+	title = lovecraftflavor.22.t
+	desc = lovecraftflavor.22.d
+	picture = GFX_NEE_Lovecraft_2
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns_state = 985
+		has_country_flag = NEE_lovecraftians_win
+	}
+	
+	option = {
+		name = lovecraftflavor.22.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = -0.05
+	}
+}
+
+country_event = {# The Queen in Yellow
+	id = lovecraftflavor.23
+	immediate = {log = "[GetDateText]: [Root.GetName]: event lovecraftflavor.23"}
+	title = lovecraftflavor.23.t
+	desc = lovecraftflavor.23.d
+	picture = GFX_NEE_Lovecraft_2
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lovecraftflavor.23.a #
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = 0.03
 	}
 }
 
@@ -10911,10 +11860,10 @@ country_event = {# The Wahington Myth
 		ai_chance = {
 			factor = 100
 			modifier = {
-            factor = 100
+				factor = 0
 				has_game_rule = {
 					rule = NEE_start_path
-					option = NEE_WASHINGTON_MONARCHY
+					option = NEE_MILITARY_COUP
 				}
 			}
 		}
@@ -10927,10 +11876,20 @@ country_event = {# The Wahington Myth
 		ai_chance = {
 			factor = 100
 			modifier = {
-            factor = 100
-				has_game_rule = {
-					rule = NEE_start_path
-					option = NEE_MILITARY_COUP
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_WASHINGTON_MONARCHY
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_KENNEDY_MONARCHY
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_ASTOR_MONARCHY
+					}
 				}
 			}
 		}
@@ -11009,9 +11968,9 @@ country_event = {# The Army takes over
 		}
 		create_country_leader = {# Leslie Groves
 			name = "Leslie Groves Jr."
-			picture = "Portrait_NEE_leslie_grooves.tga"
+			picture = "gfx/leaders/NEE/Portrait_NEE_leslie_grooves.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = junta_subtype
 			traits = { quartermaster_general }
 		}
 		set_cosmetic_tag = NEE
@@ -11065,9 +12024,9 @@ country_event = {# The King is Crowned
 		}
 		create_country_leader = {# Dr. George Bolling Lee
 			name = "George II Bolling Lee"
-			picture = "Portrait_NEE_Dr_George_Bolling_Lee.tga"
+			picture = "gfx/leaders/NEE/Portrait_NEE_Dr_George_Bolling_Lee.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = absolute_monarchy_subtype
 			traits = { local_monarch }
 		}
 		set_party_name = {
@@ -11084,9 +12043,9 @@ country_event = {# The King is Crowned
 		}
 		create_country_leader = {# Robert E. Lee V
 			name = "Robert E. Lee V"
-			picture = "Portrait_NEE_Robert_E_Lee_V.tga"
+			picture = "gfx/leaders/NEE/Portrait_NEE_Robert_E_Lee_V.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = absolute_monarchy_subtype
 			traits = { local_monarch }
 		}
 		set_party_name = {
@@ -11189,7 +12148,7 @@ country_event = {# Restoring Democracy
 			create_country_leader = {# Prescott Bush
 				name = "Prescott Bush"
 				desc = "POLITICS_PRESCOTT_BUSH_DESC"
-				picture = "Portrait_NEE_Prescott_Bush.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_Prescott_Bush.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 				traits = { financial_expert }
@@ -11197,7 +12156,7 @@ country_event = {# Restoring Democracy
 			create_country_leader = {# Joseph William Martin Jr.
 				name = "James Michael Curley"
 				desc = "POLITICS_JAMES_CURLEY_DESC"
-				picture = "Portrait_NEE_James_Michael_Curley.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_James_Michael_Curley.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 				traits = { political_boss }
@@ -11259,9 +12218,9 @@ country_event = {# Restoring Democracy
 			}
 			create_country_leader = {# Leslie Groves
 				name = "Leslie Groves Jr."
-				picture = "Portrait_NEE_leslie_grooves.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_leslie_grooves.png"
 				expire = "1965.1.1"
-				ideology = authoritarian_democrat_subtype
+				ideology = authdem_junta_subtype
 				traits = { quartermaster_general }
 			}
 			set_politics = {
@@ -11315,14 +12274,14 @@ country_event = {# Bingham takes over the Junta
 			set_country_flag = NEE_no_junta
 			create_country_leader = {#
 				name = "Hiram Bingham III"
-				picture = "Portrait_NEE_Hiram_Bingham_III_political.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_Hiram_Bingham_III_political.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 				traits = { quartermaster_general }
 			}
 			create_country_leader = {#
 				name = "Hiram Bingham III"
-				picture = "Portrait_NEE_Hiram_Bingham_III_political.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_Hiram_Bingham_III_political.png"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 				traits = { quartermaster_general }
@@ -11640,7 +12599,7 @@ country_event = {# Elizebeth becomes General
 		}
 		create_corps_commander = {# Queen Elizabeth
 			name = "Princess Elizabeth of Windsor"
-			portrait_path = "gfx/leaders/NEE/Portrait_NEE_Princess_Elizabeth.tga"
+			portrait_path = "gfx/leaders/NEE/Portrait_NEE_Princess_Elizabeth.png"
 			traits = {
 				politically_connected
 				trait_engineer
@@ -12134,6 +13093,27 @@ country_event = {# Appease the Elites
 		name = newengland.264.a
 		ai_chance = {
 			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_WASHINGTON_MONARCHY
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_KENNEDY_MONARCHY
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_ASTOR_MONARCHY
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_MILITARY_COUP
+					}
+				}
+			}
 		}
 		add_political_power = 20
 	}
@@ -12141,6 +13121,13 @@ country_event = {# Appease the Elites
 		name = newengland.264.b
 		ai_chance = {
 			factor = 100
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = NEE_start_path
+					option = NEE_CAN_MONARCHY
+				}
+			}
 		}
 		set_country_flag = NEE_pissed_off_nobles
 	}
@@ -12161,6 +13148,13 @@ country_event = {# Monarchists Gain Control
 		name = newengland.265.a
 		ai_chance = {
 			factor = 100
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = NEE_start_path
+					option = NEE_MILITARY_COUP
+				}
+			}	
 		}
 		if = {
 			limit = { NOT = { has_completed_focus = NEE_military_coup } }
@@ -12173,14 +13167,31 @@ country_event = {# Monarchists Gain Control
 		name = newengland.265.b
 		ai_chance = {
 			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_WASHINGTON_MONARCHY
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_KENNEDY_MONARCHY
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_ASTOR_MONARCHY
+					}
+				}
+			}
 		}
 		clr_country_flag = NEE_MILITARY_IN_POWER
 		create_country_leader = {# Joseph William Martin Jr.
 			name = "New England Regency Council"
 			desc = "POLITICS_BOSTON_DESC"
-			picture = "Portrait_NEE_Boston_Committee.tga"
+			picture = "gfx/leaders/NEE/Portrait_NEE_Boston_Committee.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = absolute_monarchy_subtype
 			traits = {}
 		}
 		set_party_name = {
@@ -12217,6 +13228,19 @@ country_event = {# Who to Crown
 		name = newengland.266.a
 		ai_chance = {
 			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_KENNEDY_MONARCHY
+					}
+					has_game_rule = {
+						rule = NEE_start_path
+						option = NEE_ASTOR_MONARCHY
+					}
+				}
+			}
 		}
 		complete_national_focus = NEE_true_heirs
 		set_country_flag = NEE_WASHINGTON_MYTH
@@ -12226,13 +13250,20 @@ country_event = {# Who to Crown
 		name = newengland.266.b
 		ai_chance = {
 			factor = 100
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = NEE_start_path
+					option = NEE_WASHINGTON_MONARCHY
+				}
+			}
 		}
 		remove_all_ministers = yes
-		hidden_effect = {
-			add_ideas = NEE_Robert_Shaw_hog_pau
-			add_ideas = NEE_Frank_Hale_for_pau
-			add_ideas = NEE_Viscount_Astor_eco_pau
-			add_ideas = NEE_William_Thaw_sec_pau
+		add_ideas = {
+			NEE_Joseph_Kennedy_Sr_hog_pau
+			NEE_John_Jacob_Astor_IV_for_pau
+			NEE_Vincent_Astor_eco_pau
+			NEE_William_Henry_Vanderbilt_III_sec_pau
 		}
 		set_country_flag = NEE_ELITE_MONARCHY
 		complete_national_focus = NEE_a_monarchy_for_new_england
@@ -12271,13 +13302,20 @@ country_event = {# Who to Crown
 		name = newengland.267.a
 		ai_chance = {
 			factor = 100
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = NEE_start_path
+					option = NEE_ASTOR_MONARCHY
+				}
+			}
 		}
 		create_country_leader = {
 			name = "Joseph, Baron Kennedy"
 			desc = "POLITICS_JOSEPH_KENNEDY_BARON_DESC"
-			picture = "Portrait_NEE_Kennedy_governor_general.tga"
+			picture = "gfx/leaders/NEE/Portrait_NEE_Kennedy_governor_general.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = absolute_monarchy_subtype
 			traits = { baron_kennedy }
 		}
 		set_country_flag = NEE_KENNEDY_CROWNED
@@ -12292,13 +13330,20 @@ country_event = {# Who to Crown
 		name = newengland.267.b
 		ai_chance = {
 			factor = 100
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = NEE_start_path
+					option = NEE_KENNEDY_MONARCHY
+				}
+			}
 		}
 		create_country_leader = {
 			name = "Vincent, Baron Astor"
 			desc = "POLITICS_ASTOR_BARON_DESC"
-			picture = "Portrait_NEE_Vincent_Astor_Governor_general.tga"
+			picture = "gfx/leaders/NEE/Portrait_NEE_Vincent_Astor_Governor_general.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = absolute_monarchy_subtype
 			traits = { elite_family_ties }
 		}
 		set_country_flag = NEE_ASTOR_CROWNED
@@ -12475,6 +13520,12 @@ country_event = {# America Retaken
 			factor = 100
 		}
 		set_cosmetic_tag = NEE_duchy_america
+		hidden_effect = {
+			country_event = {
+				id = newengland.284
+				days = 34
+			}
+		}
 	}	
 	
 	option = { #
@@ -12538,7 +13589,7 @@ country_event = {# Bush
 		ai_chance = {
 			factor = 100
 		}
-		
+		set_country_flag = NEE_bush_accepted_flag
 	}
 	
 	option = { #
@@ -12566,7 +13617,7 @@ country_event = {# Trump
 		ai_chance = {
 			factor = 100
 		}
-		
+		set_country_flag = NEE_trump_accepted_flag
 	}
 	
 	option = { #
@@ -12646,6 +13697,10 @@ country_event = {# Quaker War
 	trigger = {
 		tag = NEE
 		has_government = radical_socialist
+		has_country_leader = {
+			name = "Clarence Pickett"
+			ruling_only = yes
+		}
 		has_war = yes
 	}
 	
@@ -12654,13 +13709,11 @@ country_event = {# Quaker War
 		ai_chance = {
 			factor = 100
 		}
-		create_country_leader = {
-			name = "Clarence Pickett"
-			desc = "POLITICS_CLARENCE_PICKETT_DESC"
-			picture = "Portrait_NEE_Clarence_Pickett_A_N_G_E_R_Y.tga"
-			expire = "1965.1.1"
-			ideology = radical_socialist_subtype
-			traits = { determined_peacemaker }
+		if = {	
+			limit = { has_country_leader = { name = "Clarence Pickett" ruling_only = yes } }
+			set_country_leader_portrait = {
+				portrait = "gfx/leaders/NEE/Portrait_NEE_Clarence_Pickett_A_N_G_E_R_Y.png"
+			}
 		}
 	}
 }
@@ -12724,6 +13777,273 @@ country_event = {# Quaker Peace
 	}
 }
 
+country_event = {# elect a monarch
+	id = newengland.284
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.284"}
+	title = newengland.284.t
+	desc = newengland.284.d
+	picture = GFX_report_event_USA_congress
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { #sounds great
+		name = newengland.284.a
+		ai_chance = {
+			factor = 50
+		}
+		country_event = {
+			id = newengland.285
+			days = 4
+		}
+		if = {
+			limit = {
+				has_idea = NEE_house_kennedy
+			}
+			swap_ideas = {
+				remove_idea = NEE_house_kennedy
+				add_idea = NEE_elective_monarchy_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = NEE_house_astor
+			}
+			swap_ideas = {
+				remove_idea = NEE_house_astor
+				add_idea = NEE_elective_monarchy_idea
+			}
+		}
+	}
+	option = { #nah fuck that noise
+		name = newengland.284.b
+		ai_chance = {
+			factor = 50
+		}
+	}
+}
+
+country_event = {# elect a monarch
+	id = newengland.285
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.285"}
+	title = newengland.285.t
+	desc = newengland.285.d
+	picture = GFX_report_event_USA_congress
+	
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = newengland.286
+				days = 1460
+			}
+		}
+	}
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { #kennedy
+		name = newengland.285.a
+		create_country_leader = {
+			name = "Joseph, Baron Kennedy"
+			desc = "POLITICS_JOSEPH_KENNEDY_BARON_DESC"
+			picture = "gfx/leaders/NEE/Portrait_NEE_Kennedy_governor_general.png"
+			expire = "1965.1.1"
+			ideology = absolute_monarchy_subtype
+			traits = { baron_kennedy }
+		}
+		set_party_name = {
+			name = NEE_Kennedy2_party
+			long_name = NEE_Kennedy2_party_long
+			ideology = paternal_autocrat
+		}
+	}
+	option = { #astor
+		name = newengland.285.b
+		create_country_leader = {
+			name = "Vincent, Baron Astor"
+			desc = "POLITICS_ASTOR_BARON_DESC"
+			picture = "gfx/leaders/NEE/Portrait_NEE_Vincent_Astor_Governor_general.png"
+			expire = "1965.1.1"
+			ideology = absolute_monarchy_subtype
+			traits = { elite_family_ties }
+		}
+		set_party_name = {
+			name = NEE_Astor2_party
+			long_name = NEE_Astor2_party_long
+			ideology = paternal_autocrat
+		}
+	}
+	
+	option = { #Fish
+		name = newengland.285.c
+		create_country_leader = {# Fish
+			name = "Hamilton III, Baron Fish"
+			desc = "POLITICS_HAMILTON_FISH_DESC"
+			picture = "gfx/leaders/NEE/Portrait_hamilton_fish_iii_royal.png"
+			expire = "1965.1.1"
+			ideology = absolute_monarchy_subtype
+			traits = {
+				hog_reformist_soldier
+			}
+		}
+		set_party_name = {
+			name = NEE_Fish_party
+			long_name = NEE_Fish_party_long
+			ideology = paternal_autocrat
+		}
+	}
+	
+	option = { #vanderbuilt
+		name = newengland.285.e
+		create_country_leader = {# Fish
+			name = "William Henry III, Baron Vanderbilt "
+			desc = "POLITICS_HAMILTON_FISH_DESC"
+			picture = "gfx/leaders/NEE/Portrait_NEE_William_Henry_Vanderbilt_III.png"
+			expire = "1965.1.1"
+			ideology = absolute_monarchy_subtype
+			traits = {
+				elite_family_ties
+			}
+		}
+		set_party_name = {
+			name = NEE_Vanderbuilt_party
+			long_name = NEE_Vanderbuilt_party_long
+			ideology = paternal_autocrat
+		}
+	}
+	
+	option = { #Franzjoseph
+		name = newengland.285.f
+		trigger = {
+			ALA = {
+				has_cosmetic_tag = ALA_LIC
+			}
+		}
+		create_country_leader = {
+			name = "Franz Joseph II"
+			desc = "POLITICS_FRANZJOSEPH_II_DESC"
+			picture = "gfx/leaders/ALA/Portrait_ALA_Franz_Joseph_II.png"
+			expire = "1965.1.1"
+			ideology = absolute_monarchy_subtype
+			traits = { elite_family_ties }
+		}
+		set_party_name = {
+			name = NEE_Franz_party
+			long_name = NEE_Franz_party_long
+			ideology = paternal_autocrat
+		}
+		annex_country = {
+			target = ALA
+			transfer_troops = yes
+		}
+		if = {
+			limit = {
+				ALA = {
+					is_ai = yes
+				}
+			}
+			NEE = {
+				change_tag_from = ALA
+			}
+		}
+	}
+}
+
+country_event = {# elect a monarch round 2
+	id = newengland.286
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.286"}
+	title = newengland.286.t
+	desc = newengland.286.d
+	picture = GFX_report_event_USA_congress
+	
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = newengland.287
+				days = 1460
+			}
+		}
+	}
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { #current guy
+		name = newengland.286.a
+		add_political_power = 50
+	}
+	option = { #trump
+		name = newengland.286.b
+		trigger = {
+			has_country_flag = NEE_trump_accepted_flag
+		}
+		create_country_leader = {# Prescott Bush
+			name = "Fredrick, Baron Trump"
+			desc = "POLITICS_FRED_TRUMP_DESC"
+			picture = "gfx/leaders/NEE/Portrait_NEE_Fred_Trump_Royal.png"
+			expire = "1965.1.1"
+			ideology = absolute_monarchy_subtype
+			traits = {
+				captain_of_industry
+			}
+		}
+		set_party_name = {
+			name = NEE_Trump_party
+			long_name = NEE_Trump_party_long
+			ideology = paternal_autocrat
+		}
+		add_political_power = -50
+	}
+	
+	option = { #bush
+		name = newengland.286.c
+		trigger = {
+			has_country_flag = NEE_bush_accepted_flag
+		}
+		create_country_leader = {# Prescott Bush
+			name = "Prescott, Baron Bush"
+			desc = "POLITICS_PRESCOTT_BUSH_DESC"
+			picture = "gfx/leaders/NEE/Portrait_NEE_Prescott_Bush_Royal.png"
+			expire = "1965.1.1"
+			ideology = absolute_monarchy_subtype
+			traits = { financial_expert }
+		}
+		set_party_name = {
+			name = NEE_Bush_party
+			long_name = NEE_Bush_party_long
+			ideology = paternal_autocrat
+		}
+		add_political_power = -50
+	}
+}
+
+country_event = {# elect a monarch round 3
+	id = newengland.287
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.287"}
+	title = newengland.287.t
+	desc = newengland.287.d
+	picture = GFX_report_event_USA_congress
+	
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = newengland.287
+				days = 1460
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = { #current guy
+		name = newengland.287.a
+		add_political_power = 50
+	}
+}
 
 country_event = { #  Coal and Iron Police
 	id = newengland.187 
@@ -12736,7 +14056,7 @@ country_event = { #  Coal and Iron Police
 	fire_only_once = yes
 
 	trigger = {
-        	tag = NNE       
+        	tag = NEE   
         	has_completed_focus = NEE_private_defense_forces
         	}
 
@@ -12788,7 +14108,7 @@ country_event = { #  Old crime
 	fire_only_once = yes
 
 	trigger = {
-       	tag = NNE       
+       	tag = NEE       
         	has_completed_focus =  NEE_dissolving_the_state       
         	}
 
@@ -12838,7 +14158,7 @@ country_event = { # Property
 	fire_only_once = yes
 
 	trigger = {
-       	tag = NNE       
+       	tag = NEE       
       	has_completed_focus =  NEE_hostile_takeover        
         	}
 
@@ -12877,7 +14197,7 @@ country_event = { #  mob war
 	fire_only_once = yes
 
 	trigger = {
-        	tag = NNE       
+        	tag = NEE       
         	has_completed_focus =  NEE_might_makes_right
         	}
 
@@ -12920,8 +14240,8 @@ country_event = { #  mob war
 
 country_event = { # Refugee crisis 
 	id = newengland.191 
-	title = NewEvFlav.5.t 
-	desc = NewEvFlav.5.d
+	title = newengland.191.t 
+	desc = newengland.191.d
 	picture =  GFX_report_event_generic_diplomacy1
 
         	is_triggered_only = no
@@ -12929,7 +14249,7 @@ country_event = { # Refugee crisis
 	fire_only_once = yes
 
 	trigger = {
-        	tag = NNE       
+        	tag = NEE       
        	has_completed_focus =  NEE_right_of_contract
         	}
 
@@ -12965,5 +14285,592 @@ country_event = { # Refugee crisis
 	}     
                 	add_stability = -0.07
                 	add_manpower = 2500
+	}
+}
+
+country_event = { # Seek Allies
+	id = newengland.1092 
+	title = newengland.1092.t 
+	desc = newengland.1092.d
+	picture =  GFX_report_event_generic_diplomacy1
+
+        	is_triggered_only = yes
+
+	fire_only_once = yes
+
+       	option = { #Internationale
+	name =  newengland.1092.a 
+	trigger = {
+	OR = {
+		CSA = {
+		is_in_faction = no
+		}
+		CSA = {
+		is_in_faction_with = INT
+		}
+		NOT = { country_exists = CSA }
+		}
+	}
+                	ai_chance = {	
+	factor = 90	
+	}
+                	add_political_power = -10
+                	add_popularity = { ideology = radical_socialist popularity =  0.03 }
+                	add_stability = 0.03
+                	add_manpower = 1000
+	set_global_flag = INT_NEE_deal_flag
+	hidden_effect = {
+		INT = {
+			country_event = {
+			id = newengland.1093
+			days = 4
+			}
+		}
+	}
+	}
+
+       	option = { #Combined Syndicates
+	name = newengland.1092.b 
+	trigger = {
+		CSA = {
+		is_in_faction = yes
+		}
+		NOT = {
+		CSA = {
+		is_in_faction_with = INT
+		}
+		}
+		country_exists = CSA 
+	}
+                	ai_chance = {	
+	factor = 90	
+	}
+	add_political_power = -20
+                	add_stability = 0.04
+  	add_manpower = 800
+	set_global_flag = CSA_NEE_deal_flag
+	hidden_effect = {
+		CSA = {
+			country_event = {
+			id = newengland.1093
+			days = 4
+			}
+		}
+	}
+	}
+
+       	option = { #On second thought 
+	name = newengland.1092.c 
+	ai_chance = {	
+	factor = 10	
+	}     
+	add_political_power = 15
+                	add_stability = -0.02
+               	add_manpower = 2500
+	}
+}
+
+country_event = { # Seek Allies
+	id = newengland.1093 
+	title = newengland.1093.t 
+	desc = newengland.1093.d
+	picture =  GFX_report_event_generic_diplomacy1
+
+        	is_triggered_only = yes
+
+	fire_only_once = yes
+
+       	option = { #Accept
+	name =  newengland.1093.a 
+                	ai_chance = {	
+	factor = 90	
+	}
+                	add_political_power = 15
+                	add_popularity = { ideology = radical_socialist popularity =  0.03 }
+                	add_stability = 0.03
+                	add_manpower = 1000
+	hidden_effect = {
+		NEE = {
+			country_event = {
+			id = newengland.1094
+			days = 4
+			}
+		}
+	}
+	}
+
+       	option = { #Decline
+	name = newengland.1093.b 
+                	ai_chance = {	
+	factor = 90	
+	}
+	add_political_power = 10
+	hidden_effect = {
+		NEE = {
+			country_event = {
+			id = newengland.1095
+			days = 4
+			}
+		}
+	}
+	}
+
+       	option = { #Integration with Autonomy
+	name = newengland.1093.c 
+	trigger = {
+	tag = CSA
+	}
+	ai_chance = {	
+	factor = 10	
+	}     
+	add_political_power = -5
+                	add_stability = -0.02
+	hidden_effect = {
+		NEE = {
+			country_event = {
+			id = newengland.1096
+			days = 4
+			}
+		}
+	}
+	}
+}
+
+country_event = { # They agreed to let us join the Internationale
+	id = newengland.1094
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.194"}
+	title = newengland.1094.t
+	desc = newengland.1094.d
+	picture =  GFX_report_event_generic_diplomacy3
+
+	is_triggered_only = yes
+
+	option = {
+		name = newengland.1094.a
+		INT = {
+			add_to_faction = NEE
+		}
+		add_political_power = 50
+	}
+}
+
+country_event = { # They declined to let us into the Internationale
+	id = newengland.1095
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.195"}
+	title = newengland.1095.t
+	desc = newengland.1095.d
+	picture =  GFX_report_event_generic_diplomacy3
+
+	is_triggered_only = yes
+
+	option = {
+		name = newengland.1095.a
+		reverse_add_opinion_modifier = {
+			target = INT
+			modifier = ITA_dislikes_govt
+		}
+		INT = {
+		reverse_add_opinion_modifier = {
+			target = NEE
+			modifier = ITA_dislikes_govt
+			}
+		}
+		add_political_power = -20
+	}
+}
+
+country_event = { # Counter-offer
+	id = newengland.1096
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.196"}
+	title = newengland.1096.t
+	desc = newengland.1096.d
+	picture =  GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		name = newengland.1096.a
+		CSA = {
+			puppet = NEE
+		}
+		add_political_power = 20
+		hidden_effect = {
+		CSA = {
+			country_event = {
+			id = newengland.1097
+			days = 4
+			}
+		}
+		}
+	}
+
+	option = {
+		name = newengland.1096.b
+		trigger = {
+			CSA = {
+			has_government = radical_socialist
+			}
+		}
+		CSA = {
+			change_tag_from = NEE
+			add_political_power = 50
+		}
+		CSA = {
+	 	annex_country = {
+	   	target = NEE
+	    	transfer_troops = no
+	    	}
+		}
+		hidden_effect = {
+		CSA = {
+			country_event = {
+			id = newengland.1097
+			days = 4
+			}
+		}
+		}
+	}
+
+	option = {
+		name = newengland.1096.c
+		CSA = {
+			country_event = {
+			id = newengland.1098
+			days = 4
+			}
+		}
+		add_political_power = 20
+	}
+}
+
+country_event = { # NEE Accepts
+	id = newengland.1097
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.197"}
+	title = newengland.1097.t
+	desc = {
+	text = newengland.1097.d
+	trigger = {
+		NOT = {
+			CSA = {
+			has_government = radical_socialist
+			}
+		}
+		}
+	}	
+	desc = {
+	text = newengland.1097.d.bellamy
+	trigger = {
+			CSA = {
+			has_government = radical_socialist
+			}
+		}
+	}
+
+	picture =  GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		name = newengland.1097.a
+		increase_ruling_party_popularity_by_5 = yes
+		add_political_power = 50
+		add_manpower = 5000
+	}
+}
+
+country_event = { # NEE Declines
+	id = newengland.1098
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.198"}
+	title = newengland.1098.t
+	desc = newengland.1098.d
+	picture =  GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		name = newengland.1098.a
+		ai_chance = {	
+		factor = 40	
+		}   
+		reverse_add_opinion_modifier = {
+			target = CSA
+			modifier = ITA_dislikes_govt
+		}
+		CSA = {
+		reverse_add_opinion_modifier = {
+			target = NEE
+			modifier = ITA_dislikes_govt
+			}
+		}
+		add_political_power = 20
+	}
+
+	option = {
+		name = newengland.1098.b
+		ai_chance = {	
+		factor = 30	
+		}   
+		decrease_ruling_party_popularity_by_3 = yes
+		add_political_power = 40
+		add_stability = -0.03
+	}
+
+	option = {
+		name = newengland.1098.c
+		ai_chance = {	
+		factor = 30	
+		}   
+		declare_war_on = {
+			target = NEE
+			type = annex_everything
+		}
+		increase_ruling_party_popularity_by_3 = yes
+		add_political_power = -20
+		add_war_support = 0.05
+		add_manpower = 2000
+	}
+}
+
+country_event = { # Reconcile with the Entente
+	id = newengland.1099 
+	title = newengland.1099.t 
+	desc = newengland.1099.d
+	picture =  GFX_report_event_generic_diplomacy2
+
+        	is_triggered_only = yes
+
+	fire_only_once = yes
+
+       	option = { #Accept
+	name =  newengland.1099.a 
+                	ai_chance = {	
+	factor = 40
+	}
+                	add_political_power = 15
+	add_popularity = { ideology = social_democrat popularity =  0.03 }
+                	add_popularity = { ideology = radical_socialist popularity =  0.02 }
+                	add_stability = 0.03
+                	add_manpower = 1000
+	add_to_faction = NEE
+	hidden_effect = {
+		NEE = {
+			country_event = {
+			id = newengland.2001
+			days = 4
+			}
+		}
+	}
+	}
+
+       	option = { #Decline
+	name = newengland.1099.b 
+                	ai_chance = {	
+	factor = 60
+	}
+	add_political_power = 10
+	hidden_effect = {
+		NEE = {
+			country_event = {
+			id = newengland.2002
+			days = 4
+			}
+		}
+	}
+	}
+}
+
+country_event = { # They allowed us back into the Entente
+	id = newengland.2001
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.201"}
+	title = newengland.2001.t
+	desc = newengland.2001.d
+	picture =  GFX_report_event_generic_diplomacy3
+
+	is_triggered_only = yes
+
+	option = {
+		name = newengland.2001.a
+		add_political_power = 20
+		add_war_support = 0.05
+		add_manpower = 500
+	}
+}
+
+country_event = { # They allowed us back into the Entente
+	id = newengland.2002
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.202"}
+	title = newengland.2002.t
+	desc = newengland.2002.d
+	picture =  GFX_report_event_generic_diplomacy3
+
+	is_triggered_only = yes
+
+	option = {
+		name = newengland.2002.a
+		add_political_power = -15
+		add_war_support = 0.03
+		add_stability = -0.01
+	}
+}
+
+country_event = { # River Commune
+	id = newengland.2003
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.203"}
+	title = newengland.2003.t
+	desc = newengland.2003.d
+	picture =  GFX_report_event_NEE_great_migration
+
+	trigger = {
+	tag = NEE
+	has_government = radical_socialist
+	has_cosmetic_tag = NEE_LERMOND_FLAG
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = newengland.2003.a
+		add_manpower = 5000
+		add_political_power = 15
+		add_stability = -0.01
+	}
+}
+
+country_event = { # Cable Radio for All
+	id = newengland.2004
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.204"}
+	title = newengland.2004.t
+	desc = newengland.2004.d
+	picture =  GFX_report_event_HOL_radio_red
+
+	trigger = {
+	tag = NEE
+	has_government = radical_socialist
+	has_cosmetic_tag = NEE_LERMOND_FLAG
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = newengland.2004.a
+		add_political_power = 5
+		add_command_power = 5
+		random_owned_state = {
+				limit = {
+					is_core_of = NEE
+					is_controlled_by = NEE
+					infrastructure > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+	}
+}
+
+country_event = { # Charity Radio
+	id = newengland.2005
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.205"}
+	title = newengland.2005.t
+	desc = newengland.2005.d
+	picture =  GFX_report_event_POL_radio
+
+	trigger = {
+	tag = NEE
+	has_government = radical_socialist
+	has_cosmetic_tag = NEE_LERMOND_FLAG
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = newengland.2005.a
+		increase_ruling_party_popularity_by_5 = yes
+		add_stability = 0.02
+	}
+}
+
+country_event = { # Maine Naturalist
+	id = newengland.2006
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.206"}
+	title = newengland.2006.t
+	desc = newengland.2006.d
+	picture =  GFX_event_NEE_nature
+
+	trigger = {
+	tag = NEE
+	has_government = radical_socialist
+	has_cosmetic_tag = NEE_LERMOND_FLAG
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = newengland.2006.a
+		increase_ruling_party_popularity_by_5 = yes
+		add_political_power = 10
+	}
+}
+
+
+country_event = { # Knox Academy
+	id = newengland.2007
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.207"}
+	title = newengland.2007.t
+	desc = newengland.2007.d
+	picture =  GFX_event_NEE_nature
+
+	trigger = {
+	tag = NEE
+	has_government = radical_socialist
+	has_cosmetic_tag = NEE_LERMOND_FLAG
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = newengland.2007.a
+		add_research_slot = 1
+		add_political_power = 5
+	}
+}
+
+country_event = { #Mollusks
+	id = newengland.2008
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.208"}
+	title = newengland.2008.t
+	desc = newengland.2008.d
+	picture =  GFX_event_NEE_mollusk
+
+	trigger = {
+	tag = NEE
+	has_government = radical_socialist
+	has_cosmetic_tag = NEE_LERMOND_FLAG
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = newengland.2008.a
+		add_political_power = 50
+	}
+}
+
+country_event = { #steamed hams
+	id = newengland.2009
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.208"}
+	title = newengland.2009.t
+	desc = newengland.2009.d
+	picture =  GFX_event_NEE_steam_hams
+
+
+	is_triggered_only = yes
+
+	option = {
+		name = newengland.2009.a
+		add_political_power = 50
 	}
 }

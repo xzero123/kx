@@ -21,6 +21,40 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = italy.2000
+	title = italy.2000.t
+	desc = italy.2000.d
+	picture = GFX_report_event_ITA_fatima
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = italy.2000.a
+		add_political_power = -150
+		hidden_effect = {
+			random_other_country = {
+				news_event = { id =  worldnews.1247 days = 15 }
+			}
+		}
+	}
+	option = {
+		name = italy.2000.b
+		add_political_power = -250
+		hidden_effect = {
+			random_other_country = {
+				news_event = { id =  worldnews.1248 days = 15 }
+			}
+		}
+	}
+	option = {
+		name = italy.2000.c
+		add_political_power = 50
+	}
+}
+
 ### FLAVOR EVENTS
 
 # Father Charles Coughlin
@@ -70,7 +104,7 @@ country_event = {
 			limit = { has_country_leader = { name = "Gabriele D'Annunzio" } }
 			create_country_leader = {
 				name = "Italo Balbo"
-				picture = "Portrait_ITA_Italo_Balbo.tga"
+				picture = "gfx/leaders/ITA/Portrait_ITA_Italo_Balbo.png"
 				expire = "1965.1.1"
 				ideology = national_populist_subtype
 			}
@@ -138,7 +172,7 @@ country_event = {
 		}
 		add_political_power = -160
 		reverse_add_opinion_modifier = { target = AUS modifier = ITA_likes_govt }
-		set_capital = 162
+		set_capital = { state = 162 }
 	}
 }
 
@@ -236,16 +270,16 @@ country_event = {
 		add_political_power = 20
 		create_country_leader = {
 			name = "Amedeo I"
-			picture = "Portrait_SRD_King_Amedeo.tga"
+			picture = "gfx/leaders/SRD/Portrait_SRD_King_Amedeo.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = absolute_monarchy_subtype
 			traits = {}
 		}
 		create_country_leader = {
 			name = "Amedeo I"
-			picture = "Portrait_SRD_King_Amedeo.tga"
+			picture = "gfx/leaders/SRD/Portrait_SRD_King_Amedeo.png"
 			expire = "1965.1.1"
-			ideology = market_liberal_subtype
+			ideology = liberal_conservative_subtype
 			traits = {}
 		}		
 		set_politics = { ruling_party = market_liberal }
@@ -286,9 +320,9 @@ country_event = {
 		set_politics = { ruling_party = authoritarian_democrat }
 		create_country_leader = {
 			name = "Giuseppe I"
-			picture = "Portrait_TUS_Pietro_Ferdinando.tga"
+			picture = "gfx/leaders/TUS/Portrait_TUS_Pietro_Ferdinando.png"
 			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
+			ideology = prussian_constitutionalism_subtype
 			traits = {}
 		}
 		set_country_flag = ITA_is_kingdom
@@ -328,9 +362,9 @@ country_event = {
 		set_country_flag = ITA_savoyard_on_throne		
 		create_country_leader = {
 			name = "Victor Emmanuel III"
-			picture = "Victor_Emmanuel_III.tga"
+			picture = "gfx/leaders/SRI/Victor_Emmanuel_III.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = absolute_monarchy_subtype
 			traits = {}
 		}	
 		set_politics = { ruling_party = paternal_autocrat }
@@ -370,7 +404,7 @@ country_event = {
 		set_country_flag = ITA_bourbon_on_throne
 		create_country_leader = {
 			name = "Ferdinando III"
-			picture = "gfx/leaders/SIC/Portrait_SIC_Ferdinand_Pius_di_Borbone.tga"
+			picture = "gfx/leaders/SIC/Portrait_SIC_Ferdinand_Pius_di_Borbone.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype		
 		}
@@ -451,7 +485,7 @@ country_event = {
 		}
 		create_country_leader = {
 			name = "Alcide de Gasperi"
-			picture = "Portrait_Italy_Alcide_de_Gasperi.tga"
+			picture = "gfx/leaders/Ita/Portrait_Italy_Alcide_de_Gasperi.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 		}
@@ -502,7 +536,7 @@ country_event = {
 		}
 		create_country_leader = {
 			name = "Luigi Einaudi"
-			picture = "Portrait_ITA_Luigi_Einaudi.tga"
+			picture = "gfx/leaders/ITA/Portrait_ITA_Luigi_Einaudi.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}		
@@ -553,7 +587,7 @@ country_event = {
 		}
 		create_country_leader = {
 			name = "Ivanoe Bonomi"
-			picture = "Portrait_ITA_Ivanoe_Bonomi.tga"
+			picture = "gfx/leaders/ITA/Portrait_ITA_Ivanoe_Bonomi.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 		}		
@@ -625,14 +659,14 @@ country_event = {
 			limit = {	date < 1938.3.1 }
 				create_country_leader = {
 					name = "Gabriele D'Annunzio"
-					picture = "Portrait_ITA_Gabriele_Anunnzio.tga"
+					picture = "gfx/leaders/ITA/Portrait_ITA_Gabriele_Anunnzio.png"
 					expire = "1965.1.1"
 					ideology = national_populist_subtype
 				}
 			else = {
 				create_country_leader = {
 					name = "Italo Balbo"
-					picture = "Portrait_ITA_Italo_Balbo.tga"
+					picture = "gfx/leaders/ITA/Portrait_ITA_Italo_Balbo.png"
 					expire = "1965.1.1"
 					ideology = national_populist_subtype
 				}
@@ -1065,6 +1099,15 @@ country_event = {
 			}
 		}
 	}
+	
+	option = { #Let us spit on this guarantee, Tfu Tfu
+		name = italy.21.b
+		FROM = { country_event = { id = italy.24 } }
+		custom_effect_tooltip = ITA_choose_different_faction
+		hidden_effect = {
+			country_event = { id = italy.25 days = 3 }
+		}
+	}
 }
 
 # Italy is turned down
@@ -1079,6 +1122,9 @@ country_event = {
 	option = {
 		name = italy.22.a
 		add_political_power = -20
+		hidden_effect = {
+			country_event = { id = italy.25 days = 3 }
+		}
 	}
 }
 
@@ -1216,6 +1262,390 @@ country_event = {
 	option = {
 		name = italy.23.a
 		event_target:new_italian_core = { add_core_of = ITA }
+	}
+}
+
+#Italian Rejection
+country_event = {
+	id = italy.24
+	title = italy.24.t
+	desc = italy.24.d
+	picture = diplomacy3
+
+	is_triggered_only = yes
+
+	option = {
+		name = italy.24.a
+	}
+}
+
+#Find new option
+country_event = {
+	id = italy.25
+	title = italy.25.t
+	desc = italy.25.d
+	picture = diplomacy3
+
+	is_triggered_only = yes
+
+	option = {#Try Austria
+		name = italy.25.a
+		trigger = {
+			NOT = { has_global_flag = ITA_austria_faction_asked }
+			any_owned_state = {
+				is_core_of = AUS
+			}
+			country_exists = AUS
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ITA_forpol
+						option = ITA_FORPOL_REICHSPAKT
+					}
+					has_game_rule = {
+						rule = ITA_forpol
+						option = ITA_FORPOL_ENTENTE
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				has_idea = ITA_isolated
+			}
+			modifier = {
+				factor = 2
+				has_cosmetic_tag = ITA_kingdom
+			}
+			modifier = {
+				factor = 0
+				AUS = {
+					has_war = yes
+					OR = {
+						any_war_score < 0
+						surrender_progress > 0.25
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				AUS = {
+					strength_ratio = {
+						tag = ITA
+						ratio < 1.0
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					AUS = {
+						any_owned_state = {
+							is_core_of = ITA
+						}
+					}
+					any_country = {
+						is_in_faction_with = AUS
+						any_owned_state = {
+							is_core_of = ITA
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					has_government = syndicalist
+					has_government = totalist
+					has_government = radical_socialist
+				}
+				AUS = {
+					OR = {
+						has_government = syndicalist
+						has_government = totalist
+						has_government = radical_socialist
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_government = syndicalist
+					has_government = totalist
+					has_government = radical_socialist
+				}
+				AUS = {
+					NOT = {
+						has_government = syndicalist
+						has_government = totalist
+						has_government = radical_socialist
+					}
+				}
+			}
+		}
+		set_global_flag = ITA_austria_faction_asked
+		add_opinion_modifier = {
+			target = AUS
+			modifier = KR_approves_of_govt
+		}
+		reverse_add_opinion_modifier = {
+			target = AUS
+			modifier = KR_approves_of_govt
+		}
+		if = {
+			limit = {
+				AUS = {
+					is_faction_leader = yes
+				}
+			}
+			AUS = {
+				country_event = italy.18
+			}
+			else = {
+				AUS = {
+					country_event = italy.19
+				}
+			}
+		}
+	}
+	
+	option = { #Try Germany
+		name = italy.25.b
+		trigger = {
+			NOT = { has_global_flag = ITA_germany_faction_asked }
+			country_exists = GER
+			GER = {
+				is_faction_leader = yes
+				NOT = {
+					any_owned_state = {
+						is_core_of = ITA
+					}
+				}
+			}
+			NOT = {
+				any_owned_state = {
+					is_core_of = GER
+				}
+				has_government = syndicalist
+				has_government = totalist
+				has_government = radical_socialist
+			}
+		}
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ITA_forpol
+						option = ITA_FORPOL_ENTENTE
+					}
+					has_game_rule = {
+						rule = ITA_forpol
+						option = ITA_FORPOL_AUSTRIA
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				has_idea = ITA_isolated
+			}
+			modifier = {
+				factor = 0
+				GER = {
+					has_war = yes
+					OR = {
+						any_war_score < 0
+						surrender_progress > 0.25
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				GER = {
+					strength_ratio = {
+						tag = ITA
+						ratio < 1.0
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					GER = {
+					any_owned_state = {
+							is_core_of = ITA
+						}
+					}
+				any_country = {
+					is_in_faction_with = GER
+					any_owned_state = {
+							is_core_of = ITA
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					has_government = syndicalist
+					has_government = totalist
+					has_government = radical_socialist
+				}
+				GER = {
+					OR = {
+						has_government = syndicalist
+						has_government = totalist
+						has_government = radical_socialist
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			set_global_flag = ITA_germany_faction_asked
+			add_opinion_modifier = {
+				target = GER
+				modifier = KR_approves_of_govt
+			}
+			reverse_add_opinion_modifier = {
+				target = GER
+				modifier = KR_approves_of_govt
+			}
+			GER = {
+				country_event = italy.18
+			}
+		}
+	}
+	
+	option = { #Try Entente
+		name = italy.25.c
+		trigger = {
+			NOT = { has_global_flag = ITA_canada_faction_asked }
+			country_exists = ENT
+			ENT = {
+				is_faction_leader = yes
+			}
+			NOT = {
+				has_government = syndicalist
+				has_government = totalist
+			}
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ITA_forpol
+						option = ITA_FORPOL_REICHSPAKT
+					}
+					has_game_rule = {
+						rule = ITA_forpol
+						option = ITA_FORPOL_AUSTRIA
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				has_idea = ITA_isolated
+			}
+			modifier = {
+				factor = 0.25
+				NOT = {
+					has_cosmetic_tag = ITA_republic
+				}
+			}
+			modifier = {
+				factor = 0
+				ENT = {
+					has_war = yes
+					OR = {
+						any_war_score < 0
+						surrender_progress > 0.25
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					ENT = {
+						any_owned_state = {
+							is_core_of = ITA
+						}
+					}
+					any_country = {
+						is_in_faction_with = ENT
+						any_owned_state = {
+							is_core_of = ITA
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				ENT = {
+					OR = {
+						has_government = syndicalist
+						has_government = totalist
+						has_government = radical_socialist
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			set_global_flag = ITA_canada_faction_asked
+			add_opinion_modifier = {
+				target = ENT
+				modifier = KR_approves_of_govt
+			}
+			reverse_add_opinion_modifier = {
+				target = ENT
+				modifier = KR_approves_of_govt
+			}
+			ENT = {
+				country_event = italy.18
+			}
+		}
+	}
+	
+	option = { #insert blackjack and hookers joke
+		name = italy.25.e
+		ai_chance = {
+			factor = 0.5
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = ITA_forpol
+						option = ITA_FORPOL_ENTENTE
+					}
+					has_game_rule = {
+						rule = ITA_forpol
+						option = ITA_FORPOL_REICHSPAKT
+					}
+					has_game_rule = {
+						rule = ITA_forpol
+						option = ITA_FORPOL_AUSTRIA
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				has_idea = ITA_isolated
+			}
+			modifier = {
+				factor = 0.25
+				NOT = {
+					has_cosmetic_tag = ITA_republic
+				}
+			}
+		}
+		create_faction = "Italian Bloc"
+		add_political_power = 30
+		add_stability = 0.05
 	}
 }
 
@@ -1756,19 +2186,7 @@ country_event = {
 	option = {
 		name = worldnews.67.a
 		set_country_flag = ITA_Dead_Pius_XI
-		kill_country_leader = yes
-		hidden_effect = {
-			ITA = {	
-				ITA_create_college_of_cardinals = yes
-			}
-		}
-		hidden_effect = {
-			kill_ideology_leader = social_conservative
-			kill_ideology_leader = social_liberal
-			kill_ideology_leader = market_liberal
-			kill_ideology_leader = social_democrat
-			kill_ideology_leader = national_populist
-		}
+		ITA_create_college_of_cardinals = yes
 		hidden_effect = {
 			random_other_country = {
 				news_event = { id = worldnews.67 hours = 5 }
@@ -1954,9 +2372,9 @@ country_event = {
 		}
 		create_country_leader = {
 			name = "Giuseppe I"
-			picture = "Archduke_Joseph_Ferdinand_of_Austria_I.tga"
+			picture = "gfx/leaders/ITA/Archduke_Joseph_Ferdinand_of_Austria_I.png"
 			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
+			ideology = prussian_constitutionalism_subtype
 			traits = {}
 		}
 		if = {
@@ -2001,9 +2419,9 @@ country_event = {
 		add_political_power = -100
 		create_country_leader = {
 			name = "Giuseppe I"
-			picture = "Archduke_Joseph_Ferdinand_of_Austria_I.tga"
+			picture = "gfx/leaders/ITA/Archduke_Joseph_Ferdinand_of_Austria_I.png"
 			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
+			ideology = prussian_constitutionalism_subtype
 			traits = {}
 		}
 		set_politics = {
@@ -2282,9 +2700,9 @@ country_event = {
 		FROM = { puppet = ROOT }
 		create_country_leader = {
 			name = "Giuseppe I"
-			picture = "Archduke_Joseph_Ferdinand_of_Austria_I.tga"
+			picture = "gfx/leaders/ITA/Archduke_Joseph_Ferdinand_of_Austria_I.png"
 			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
+			ideology = prussian_constitutionalism_subtype
 			traits = {}
 		}
 		if = {
@@ -6117,7 +6535,7 @@ country_event = {
 		if = {
 			limit = {
 				is_in_faction = yes
-				NOT = { is_in_faction = FROM }
+				NOT = { is_in_faction_with = FROM }
 			}
 			remove_from_faction = ROOT
 		}
@@ -6311,9 +6729,9 @@ country_event = {
 		}
 		create_country_leader = {
 			name = "Pius XII"
-			picture = "Portrait_Papal_State_PiusXII.tga"
+			picture = "gfx/leaders/Pap/Portrait_Papal_State_PiusXII.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = theocracy_subtype
 			traits = { ITA_the_mfing_pope} 
 		}
 		set_politics = { ruling_party = paternal_autocrat }
@@ -6327,9 +6745,9 @@ country_event = {
 		}
 		create_country_leader = {
 			name = "Gregorius XVII"
-			picture = "Portrait_Italy_GregoriusXVII.tga"
+			picture = "gfx/leaders/Ita/Portrait_Italy_GregoriusXVII.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = theocracy_subtype
 			traits = { ITA_the_mfing_pope} 
 		}
 		set_politics = { ruling_party = paternal_autocrat }
@@ -6347,7 +6765,7 @@ country_event = {
 		}
 		create_country_leader = {
 			name = "John XXIV"
-			picture = "Portrait_Italy_JohnXXIV.tga"
+			picture = "gfx/leaders/Ita/Portrait_Italy_JohnXXIV.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 			traits = { ITA_the_mfing_pope} 
@@ -6363,9 +6781,9 @@ country_event = {
 		}
 		create_country_leader = {
 			name = "Paulus VI"
-			picture = "Portrait_Italy_PaulusVI.tga"
+			picture = "gfx/leaders/Ita/Portrait_Italy_PaulusVI.png"
 			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
+			ideology = theocracy_subtype
 			traits = { ITA_the_mfing_pope} 
 		}
 		set_politics = { ruling_party = authoritarian_democrat }
@@ -6513,9 +6931,9 @@ country_event = {
 		name = italy.171.a
 		create_country_leader = {
 			name = "Giuseppe II"
-			picture = "Portrait_Italy_Giuseppe.tga"
+			picture = "gfx/leaders/Ita/Portrait_Italy_Giuseppe.png"
 			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
+			ideology = prussian_constitutionalism_subtype
 			traits = {}
 		}
 		set_country_flag = Josef_von_Oesterreich_Toskana_dead
@@ -6735,7 +7153,7 @@ country_event = { # Subsequent Italian Elections
 		}
 		create_country_leader = {
 			name = "Alcide de Gasperi"
-			picture = "Portrait_Italy_Alcide_de_Gasperi.tga"
+			picture = "gfx/leaders/Ita/Portrait_Italy_Alcide_de_Gasperi.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 		}
@@ -6767,7 +7185,7 @@ country_event = { # Subsequent Italian Elections
 		}
 		create_country_leader = {
 			name = "Luigi Einaudi"
-			picture = "Portrait_ITA_Luigi_Einaudi.tga"
+			picture = "gfx/leaders/ITA/Portrait_ITA_Luigi_Einaudi.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}		
@@ -6799,7 +7217,7 @@ country_event = { # Subsequent Italian Elections
 		}
 		create_country_leader = {
 			name = "Ivanoe Bonomi"
-			picture = "Portrait_ITA_Ivanoe_Bonomi.tga"
+			picture = "gfx/leaders/ITA/Portrait_ITA_Ivanoe_Bonomi.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 		}		

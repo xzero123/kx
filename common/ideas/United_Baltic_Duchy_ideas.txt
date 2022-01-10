@@ -62,9 +62,7 @@ ideas = {
 				army_morale_factor = 0.1
 				army_defence_factor = 0.05
 				army_attack_factor = 0.05
-			}
-			research_bonus = { 
-				land_doctrine = 0.05 
+				land_doctrine_cost_factor = -0.05
 			}
 		}
 
@@ -80,9 +78,7 @@ ideas = {
 				army_morale_factor = 0.15
 				army_defence_factor = 0.05
 				army_attack_factor = 0.05
-			}
-			research_bonus = { 
-				land_doctrine = 0.05 
+				land_doctrine_cost_factor = -0.05
 			}
 		}
 
@@ -99,9 +95,7 @@ ideas = {
 				army_defence_factor = 0.15
 				army_attack_factor = 0.15
 				experience_loss_factor = -0.25
-			}
-			research_bonus = { 
-				land_doctrine = 0.10 
+				land_doctrine_cost_factor = -0.10
 			}
 		}
 
@@ -119,9 +113,7 @@ ideas = {
 				army_attack_factor = 0.25
 				army_speed_factor = 0.10
 				experience_loss_factor = -0.25
-			}
-			research_bonus = { 
-				land_doctrine = 0.10
+				land_doctrine_cost_factor = -0.10
 			}
 		}
 
@@ -135,9 +127,7 @@ ideas = {
 				army_org_factor = 0.1
 				planning_speed = 0.1
 				army_morale_factor = 0.1
-			}
-			research_bonus = { 
-				land_doctrine = 0.05 
+				land_doctrine_cost_factor = -0.05
 			}
 		}
 
@@ -171,9 +161,15 @@ ideas = {
 				army_org_factor = 0.05
 				army_defence_factor = 0.05
 				army_attack_factor = 0.05
+				land_doctrine_cost_factor = -0.05
 			}
-			research_bonus = { 
-				land_doctrine = 0.05
+		}
+
+		BAT_war_for_riga = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea BAT_war_for_riga"}
+			picture = BAT_Baltische_Landeswehr
+			modifier = {
+				ai_call_ally_desire_factor = -2000
 			}
 		}
 		
@@ -236,7 +232,7 @@ ideas = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea BAT_dualism"}
 			picture = ROM_king_carol_ii_handled
 			modifier = {
-				political_power_factor = -1
+				political_power_cost = 0.25
 				stability_weekly = -0.02
 				disabled_ideas = 1
 			}
@@ -245,7 +241,7 @@ ideas = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea BAT_national_unity_armistice"}
 			picture = generic_deal_with_the_devil2
 			modifier = {
-				political_power_factor = 1
+				political_power_gain = 0.25
 				stability_weekly = 0.01
 			}
 		}
@@ -261,8 +257,7 @@ ideas = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea BAT_forest_brothers"}
 			picture = chi_war_of_resistance3
 			modifier = {
-				resistance_target = 0.3
-				resistance_growth = 0.25
+				war_support_weekly = -0.07
 			}
 		}
 		BAT_land_ownership = {
@@ -509,7 +504,7 @@ ideas = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea BAT_Zersetzung"}
 			picture = generic_spy_intel
 			modifier = {
-				resistance_decay = 0.1
+				war_support_weekly = 0.005
 				stability_factor = -0.05
 			}
 		}
@@ -517,7 +512,7 @@ ideas = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea BAT_Banderbekampfung"}
 			picture = generic_spy_intel
 			modifier = {
-				resistance_activity = -0.1
+				war_support_factor = 0.05
 				stability_factor = -0.05
 			}
 		}
@@ -533,8 +528,8 @@ ideas = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea BAT_loss_of_partisan_momentum"}
 			picture = generic_spy_intel
 			modifier = {
-				resistance_target = -0.1
-				resistance_growth = -0.15
+				war_support_weekly = 0.02
+				political_power_gain = 0.25
 			}
 		}
 		BAT_charity_organizations = {
@@ -548,7 +543,7 @@ ideas = {
 		BAT_landpolizeibehorden_idea = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea BAT_landpolizeibehorden"}
 			picture = volunteer_only
-			modifier = { 
+			modifier = {
 				political_power_cost = -0.05
 				stability_factor = 0.05
 				conscription_factor = -0.05

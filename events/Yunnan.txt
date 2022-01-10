@@ -1,11 +1,13 @@
 ﻿###########################
 # Yunnan Events
 # By Drozdovite ( and a lil bit of WordZero :D )
+# Tang Larp by AmCath
 ###########################
 
 add_namespace = yun
 add_namespace = yun_tonkin
 add_namespace = kmt_yun
+add_namespace = yun_tanglarp
 
 country_event = {# intro
 	id = yun.1
@@ -98,7 +100,7 @@ country_event = {# Long Yun Takes Over!
 					}
 				}
 			}
-			every_unit_leader = { set_nationality = XXA }
+			every_unit_leader = { set_nationality = NSW }
 			603 = { set_demilitarized_zone = yes }
 			816 = { set_demilitarized_zone = yes }
 			1051 = { set_demilitarized_zone = yes }
@@ -150,9 +152,9 @@ country_event = {# Long Yun Takes Over!
 		create_country_leader = {
 			name = "Long Yun"
 			desc = "POLITICS_YUNNAN_LONG_YUN_DESC"
-			picture = "Portrait_Yunnan_leader_Long_Yun.tga"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_leader_Long_Yun.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = pataut_warlordism_subtype
 		}
 		if = {
 			limit = { is_in_faction = yes }
@@ -2030,7 +2032,7 @@ country_event = {#Zhu De intervenes the Yunnan Academy!
 		create_field_marshal = {
 			name = "Zhu De"
 			desc = "POLITICS_YUNNAN_ZHU_DE_ARMY_DESC"
-			picture = "Portrait_Yunnan_Zhu_De.tga"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Zhu_De.png"
 			skill = 3
 			traits = {
 				career_officer
@@ -2121,9 +2123,9 @@ country_event = {# Lu Han Takes Over!
 		create_country_leader = {
 			name = "Lu Han"
 			desc = "POLITICS_YUNNAN_LU_HAN_DESC"
-			picture = "Portrait_Yunnan_Lu_Han.tga"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Lu_Han.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = pataut_warlordism_subtype
 		}
 		add_popularity = {
 			ideology = paternal_autocrat
@@ -2215,9 +2217,9 @@ country_event = {# Hu Ruoyu takes over!
 		create_country_leader = {
 			name = "Hu Ruoyu"
 			desc = "POLITICS_YUNNAN_HU_RUOYU_DESC"
-			picture = "Portrait_Yunnan_Hu_Ruoyu.tga"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Hu_Ruoyu.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = pataut_warlordism_subtype
 		}
 
 		add_popularity = {
@@ -2312,6 +2314,13 @@ country_event = {# Zhu Peide takes over
 			ideology = social_liberal
 			popularity = 0.05
 		}
+		create_country_leader = {
+			name = "Zhu Peide"
+			desc = "POLITICS_YUNNAN_ZHU_PEIDE_DESC"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Zhu_Peide.png"
+			expire = "1965.1.1"
+			ideology = soclib_warlordism_subtype
+		}
 		hidden_effect = {
 			if = {
 				limit = {
@@ -2394,9 +2403,9 @@ country_event = {# Long Yun Retakes Kunming
 		create_country_leader = {
 			name = "Long Yun"
 			desc = "POLITICS_YUNNAN_LONG_YUN_DESC"
-			picture = "Portrait_Yunnan_leader_Long_Yun.tga"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_leader_Long_Yun.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = pataut_warlordism_subtype
 		}
 		add_popularity = {
 			ideology = paternal_autocrat
@@ -2639,9 +2648,9 @@ country_event = {#Long Yun takes over with no issues like a chad
 		create_country_leader = {
 			name = "Long Yun"
 			desc = "POLITICS_YUNNAN_LONG_YUN_DESC"
-			picture = "Portrait_Yunnan_leader_Long_Yun.tga"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_leader_Long_Yun.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = pataut_warlordism_subtype
 		}
 		set_party_name = {
 			ideology = paternal_autocrat
@@ -2967,6 +2976,10 @@ country_event = {#Troop Mobilization
 					}
 					has_game_rule = {
 						rule = YUN_path
+						option = YUN_larp_rule
+					}
+					has_game_rule = {
+						rule = YUN_path
 						option = YUN_federalist
 					}
 				}
@@ -3068,6 +3081,10 @@ country_event = {#General Meeting
 					has_game_rule = {
 						rule = YUN_path
 						option = YUN_isolationist
+					}
+					has_game_rule = {
+						rule = YUN_path
+						option = YUN_larp_rule
 					}
 					has_game_rule = {
 						rule = YUN_path
@@ -3216,6 +3233,10 @@ country_event = {#Going on a diplomatic tour pt.1 Guangdong
 					}
 					has_game_rule = {
 						rule = YUN_path
+						option = YUN_larp_rule
+					}
+					has_game_rule = {
+						rule = YUN_path
 						option = YUN_federalist
 					}
 				}
@@ -3351,6 +3372,10 @@ country_event = {#Going on a diplomatic tour pt.3 Hunnan
 					}
 					has_game_rule = {
 						rule = YUN_path
+						option = YUN_larp_rule
+					}
+					has_game_rule = {
+						rule = YUN_path
 						option = YUN_federalist
 					}
 				}
@@ -3394,6 +3419,10 @@ country_event = {#Going on a diplomatic tour pt.4 KMT
 					has_game_rule = {
 						rule = YUN_path
 						option = YUN_isolationist
+					}
+					has_game_rule = {
+						rule = YUN_path
+						option = YUN_larp_rule
 					}
 					has_game_rule = {
 						rule = YUN_path
@@ -3487,6 +3516,10 @@ country_event = {#Going on a diplomatic tour pt.5 Fengtian
 					}
 					has_game_rule = {
 						rule = YUN_path
+						option = YUN_larp_rule
+					}
+					has_game_rule = {
+						rule = YUN_path
 						option = YUN_federalist
 					}
 				}
@@ -3568,6 +3601,10 @@ country_event = {#Rallying local Left KMT
 					has_game_rule = {
 						rule = YUN_path
 						option = YUN_isolationist
+					}
+					has_game_rule = {
+						rule = YUN_path
+						option = YUN_larp_rule
 					}
 					has_game_rule = {
 						rule = YUN_path
@@ -3663,6 +3700,10 @@ country_event = {#Rallying the NRA
 					has_game_rule = {
 						rule = YUN_path
 						option = YUN_isolationist
+					}
+					has_game_rule = {
+						rule = YUN_path
+						option = YUN_larp_rule
 					}
 					has_game_rule = {
 						rule = YUN_path
@@ -3822,7 +3863,7 @@ country_event = {#Long Yun takes out the L-KMT
 			every_unit_leader = {
 				limit = { has_id = 5007 } #Zhu De
 				demote_leader = yes
-				set_nationality = XXA
+				set_nationality = NSW
 			}
 			XXA = {
 				every_unit_leader = {
@@ -3850,9 +3891,9 @@ country_event = {#Long Yun takes out the L-KMT
 		create_country_leader = {
 			name = "Long Yun"
 			desc = "POLITICS_YUNNAN_LONG_YUN_DESC"
-			picture = "Portrait_Yunnan_leader_Long_Yun.tga"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_leader_Long_Yun.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = pataut_warlordism_subtype
 		}
 		add_ideas = {
 			YUN_Zhang_Chong_hog_pau
@@ -4063,9 +4104,9 @@ country_event = {#Zhu De's stays in power: Zhang Bojun or Zhu De
 		add_stability = 0.10
 		create_country_leader = {
 			name = "Zhang Bojun"
-			picture = "Portrait_Yunnan_Zhang_Bojun.tga"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Zhang_Bojun.png"
 			expire = "1965.1.1"
-			ideology = social_democrat_subtype
+			ideology = socdem_warlordism_subtype
 		}
 		add_popularity = {
 			ideology = social_democrat
@@ -4149,9 +4190,9 @@ country_event = {#Zhu Peide Dies
 		create_country_leader = {
 			name = "Bai Chongxi"
 			desc = "POLITICS_YUNNAN_Bai_Chongxi_DESC"
-			picture = "Portrait_Yunnan_Bai_Chongxi.tga"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Bai_Chongxi.png"
 			expire = "1965.1.1"
-			ideology = social_liberal_subtype
+			ideology = soclib_warlordism_subtype
 		}
 	}
 }
@@ -4400,6 +4441,9 @@ country_event = {#Sichuan wants to surrender
 					has_country_leader = {
 						name = "Tang Jiyao"
 						ruling_only = yes
+					}
+					NOT = {
+						has_country_flag = YUN_larp
 					}
 				}
 				country_event = {
@@ -7202,9 +7246,15 @@ country_event = {#The Future
 			factor = 100
 			modifier = {
 				factor = 0
-				has_game_rule = {
+				OR = {
+					has_game_rule = {
 					rule = YUN_path
 					option = YUN_isolationist
+					}
+					has_game_rule = {
+						rule = YUN_path
+						option = YUN_larp_rule
+					}
 				}
 			}
 		}
@@ -7231,9 +7281,9 @@ country_event = {#The Future
 		create_country_leader = {
 			name = "Tang Jiyao"
 			desc = "POLITICS_YUNNAN_TANG_JIYAO_DESC"
-			picture = "Portrait_Yunnan_Tang_Jiyao.tga"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Tang_Jiyao.png"
 			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
+			ideology = authdem_warlordism_subtype
 		}
 		set_party_name = {
 			ideology = authoritarian_democrat
@@ -8327,3 +8377,1871 @@ news_event = {#Yunnanese Civil War Ends: Zhu De wins
 		name = yun.603.a
 	}
 }
+
+country_event = {#Tang larp?
+	id = yun_tanglarp.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.1" }
+	title = yun_tanglarp.1.t
+	desc = yun_tanglarp.1.d
+	picture = GFX_report_event_YUN_opiumlarp
+	is_triggered_only = yes
+
+
+	option = {
+		name = yun_tanglarp.1.a
+		ai_chance = {
+			factor = 95
+			modifier = {
+				factor = 100
+				NOT = {
+					has_game_rule = {
+					rule = YUN_path
+					option = YUN_larp_rule
+				}
+				}
+			}
+		}
+		swap_ideas = {
+			remove_idea = YUN_Tangs_rule_isolation
+			add_idea = YUN_Tangs_rule_isolation2
+		}
+		swap_ideas = {
+			remove_idea = YUN_democratic_fortress_Tang
+			add_idea = YUN_democratic_fortress_Tang2
+		}
+	}
+	option = {
+		name = yun_tanglarp.1.b
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 100
+					has_game_rule = {
+					rule = YUN_path
+					option = YUN_larp_rule
+				}
+			}
+		}
+		set_cosmetic_tag = YUN_TANG_KINGDOM
+		set_country_flag = YUN_larp
+		set_potential_national_government = yes
+		add_ideas = YUN_reclaiming_birthright
+		hidden_effect = {
+			country_event = {
+				id = yun_tanglarp.21
+				days = 120
+			}
+			country_event = {
+				id = yun_tanglarp.18
+				days = 32
+			}
+			set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+			}
+			set_party_name = {
+			ideology = paternal_autocrat
+			long_name = YUN_house_of_tang_long
+			name = YUN_house_of_tang_party
+			}
+			set_party_name = {
+			ideology = authoritarian_democrat
+			long_name = YUN_house_of_tang_authdem_long
+			name = YUN_house_of_tang_party
+			}
+			remove_ideas = YUN_Tangs_rule_isolation
+			remove_ideas = YUN_democratic_fortress_Tang
+			create_country_leader = {
+			name = "Tang Jiyao"
+			desc = "POLITICS_YUNNAN_TANG_KING_DESC"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Tang_King.png"
+			expire = "1965.1.1"
+			traits = {
+				taoism_gang
+			}
+			ideology = absolute_monarchy_subtype
+			}
+			create_country_leader = {
+			name = "Tang Jiyao"
+			desc = "POLITICS_YUNNAN_TANG_KING_DESC"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Tang_King.png"
+			expire = "1965.1.1"
+			traits = {
+				taoism_gang
+			}
+			ideology = oligarchy_subtype
+			}
+			if = {	
+				limit = { has_country_leader = { name = "Tang Jiyao" ruling_only = yes } }
+				set_country_leader_portrait = {
+					portrait = "gfx/leaders/YUN/Portrait_Yunnan_Tang_King.png"
+				}
+			}
+			every_state = {
+					limit = {
+							OR = {
+								is_claimed_by = FNG
+								is_claimed_by = QIE
+								is_core_of = FNG
+								is_core_of = QIE
+							}
+					}
+					add_claim_by = YUN
+				}
+			random_other_country = {
+				news_event = {
+					id = worldnews.1245
+				}
+			}	
+				
+		}
+	}
+}
+country_event = {#Empire Time
+	id = yun_tanglarp.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.1" }
+	title = yun_tanglarp.2.t
+	desc = yun_tanglarp.2.d
+	picture = GFX_report_event_QIE_imperial_guard
+
+	fire_only_once = yes
+	trigger = {
+		has_country_flag = YUN_larp
+		owns_state = 608
+	}
+
+
+	option = {
+		name = yun_tanglarp.2.a
+		set_cosmetic_tag = YUN_TANG_EMPIRE
+		set_country_flag = YUN_tang_larp_won
+		set_country_flag = has_united_china
+		remove_ideas = YUN_reclaiming_birthright
+		create_country_leader = {
+			name = "Gaozu of Tang"
+			desc = "POLITICS_YUNNAN_TANG_EMPEROR_DESC"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Tang_Emperor.png"
+			expire = "1965.1.1"
+			traits = {
+				taoism_gang
+			}
+			ideology = absolute_monarchy_subtype
+		}
+		hidden_effect = {
+			country_event = {
+				id = yun_tanglarp.17
+				days = 45
+			}
+			create_country_leader = {
+			name = "Gaozu of Tang"
+			desc = "POLITICS_YUNNAN_TANG_EMPEROR_DESC"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Tang_Emperor.png"
+			expire = "1965.1.1"
+			traits = {
+				taoism_gang
+			}
+			ideology = oligarchy_subtype
+			}
+			random_other_country = {
+				news_event = {
+					id = worldnews.1246
+				}
+			}
+		}				
+	}
+}
+country_event = {#Empire Time
+	id = yun_tanglarp.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.1" }
+	title = yun_tanglarp.3.t
+	desc = yun_tanglarp.3.d
+	picture = GFX_report_event_YUN_tangart
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+
+	option = {
+		name = yun_tanglarp.3.a
+		add_ideas = YUN_young_mandate
+		set_capital = { state = 799 }
+		hidden_effect = {
+			country_event = {
+				id = yun_tanglarp.15
+				days = 20
+			}
+		}
+	}
+}
+country_event = {#Empire Time
+	id = yun_tanglarp.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.1" }
+	title = yun_tanglarp.4.t
+	desc = yun_tanglarp.4.d
+	picture = GFX_report_event_YUN_inspection
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+
+	option = {
+		name = yun_tanglarp.4.a
+		add_stability = -0.2
+		add_political_power = 50
+		hidden_effect = {
+			country_event = {
+				id = yun_tanglarp.16
+				days = 30
+			} 
+		}
+	}
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.1" }
+	title = yun_tanglarp.5.t
+	desc = yun_tanglarp.5.d
+	picture = GFX_report_event_TIB_potala
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+
+	option = {
+		name = yun_tanglarp.5.a
+		add_political_power = 50
+		set_country_flag = YUN_slightly_sane_li_larp
+	}
+	option = {
+		name = yun_tanglarp.5.b
+		custom_effect_tooltip = YUN_tang_tributary_tt
+		set_country_flag = YUN_tang_go_big_i_guess
+	}
+}
+country_event = {#Empire Time
+	id = yun_tanglarp.6
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.1" }
+	title = yun_tanglarp.6.t
+	desc = yun_tanglarp.6.d
+	picture = GFX_report_event_YUN_poetry_larp
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+
+	option = {
+		name = yun_tanglarp.6.a
+		increase_ruling_party_popularity_by_10 = yes
+	}
+}
+country_event = {#Empire Time
+	id = yun_tanglarp.7
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.1" }
+	title = yun_tanglarp.7.t
+	desc = yun_tanglarp.7.d
+	picture = GFX_report_event_YUN_tangart
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+
+	option = {
+		name = yun_tanglarp.7.a
+		increase_ruling_party_popularity_by_10 = yes
+	}
+}
+country_event = {#Empire Time
+	id = yun_tanglarp.8
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.1" }
+	title = yun_tanglarp.8.t
+	desc = yun_tanglarp.8.d
+	picture = GFX_report_event_YUN_tangart
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+
+	option = {
+		name = yun_tanglarp.8.a
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = no
+			}
+		increase_ruling_party_popularity_by_10 = yes
+	}
+}
+country_event = {#Empire Time
+	id = yun_tanglarp.9
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.1" }
+	title = yun_tanglarp.9.t
+	desc = yun_tanglarp.9.d
+	picture = GFX_report_event_YUN_army
+
+	is_triggered_only = yes
+
+
+	option = { #no
+		name = yun_tanglarp.9.a
+		ai_chance = {
+			factor = 25
+		}
+		YUN = {
+			country_event = {
+				id = yun_tanglarp.10
+				days = 2
+			}
+		}
+		
+	}
+	option = { #sure
+		name = yun_tanglarp.9.b
+		ai_chance = {
+			factor = 75
+		}
+		trigger = {
+			is_subject = no
+		}
+		set_country_flag = YUN_puppet_of_tang
+		YUN = {
+			country_event = {
+				id = yun_tanglarp.11
+				days = 2
+			}
+		}
+		
+	}
+}
+country_event = {#Empire Time
+	id = yun_tanglarp.10
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.1" }
+	title = yun_tanglarp.10.t
+	desc = yun_tanglarp.10.d
+	picture = GFX_report_event_YUN_army
+
+	is_triggered_only = yes
+
+
+	option = { #war
+		name = yun_tanglarp.10.a
+		declare_war_on = { target = FROM type = annex_everything }
+		
+	}
+	option = { #lreave alone
+		name = yun_tanglarp.10.b
+		add_political_power = -50
+		
+		
+	}
+}
+country_event = {#Empire Time
+	id = yun_tanglarp.11
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.1" }
+	title = yun_tanglarp.11.t
+	desc = yun_tanglarp.11.d
+	picture = GFX_report_event_YUN_Parade
+
+	is_triggered_only = yes
+
+
+	option = { #nice
+		name = yun_tanglarp.11.a
+		YUN = {
+			set_autonomy = {
+			target = FROM
+			autonomy_state = kx_tributary
+			}
+		}
+		
+	}
+}
+country_event = {#Empire Time
+	id = yun_tanglarp.15
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.1" }
+	title = yun_tanglarp.15.t
+	desc = yun_tanglarp.15.d
+	picture = GFX_report_event_YUN_throne
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+
+	option = { #nice
+		name = yun_tanglarp.15.a
+		add_political_power = 100
+		
+	}
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.16
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.1" }
+	title = yun_tanglarp.16.t
+	desc = yun_tanglarp.16.d
+	picture = GFX_report_event_CHI_riot
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+
+	option = { #nice
+		name = yun_tanglarp.16.a
+		add_stability = -0.20
+		add_political_power = 100
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.10
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.10
+		}
+		
+	}
+	option = { #nice
+		name = yun_tanglarp.16.b
+		add_stability = 0.15
+		add_political_power = 50
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+		
+	}
+
+	option = { #nice
+		name = yun_tanglarp.16.c
+		add_ideas = YUN_tang_embraced_buddaism
+		add_stability = -0.15
+		add_political_power = 150
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.10
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.10
+		}
+		
+	}
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.17
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.1" }
+	title = yun_tanglarp.17.t
+	desc = yun_tanglarp.17.d
+	picture = GFX_report_event_YUN_tang_bro_andor_cus
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+
+	option = { #nice
+		name = yun_tanglarp.17.a
+		add_political_power = 25
+		set_country_flag = YUN_tangs_cousin_is_prince
+		create_field_marshal = { #Auto-Generated
+				name = "Tang Jiyu"
+				portrait_path = "gfx/leaders/YUN/Portrait_YUN_Tang_Jiyu.png"
+				traits = {
+					politically_connected
+					offensive_doctrine
+					infantry_officer
+					substance_abuser
+				}
+				skill = 3
+				attack_skill = 4
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 1
+                                id = 99922
+			}
+		
+	}
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.18
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.1" }
+	title = yun_tanglarp.18.t
+	desc = yun_tanglarp.18.d
+	picture = GFX_report_event_YUN_politicians
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+
+	option = { #nice
+		name = yun_tanglarp.18.a
+		random_unit_leader = {
+				limit = { has_id = 7249 }			
+				remove_unit_leader = yes
+			}
+		#kill_ideology_leader = social_democrat
+		#kill_ideology_leader = social_liberal
+		random_unit_leader = {
+				limit = { has_id = 5001 }			
+				remove_unit_leader = yes
+			}
+		random_unit_leader = {
+				limit = { has_id = 5015 }			
+				remove_unit_leader = yes
+			}
+		random_unit_leader = {
+				limit = { has_id = 5013 }			
+				remove_unit_leader = yes
+			}
+		random_unit_leader = {
+				limit = { has_id = 5002 }			
+				remove_unit_leader = yes
+			}
+		random_unit_leader = {
+			limit = { has_id = 5004 }			
+			remove_unit_leader = yes
+		}
+		random_unit_leader = {
+			limit = { has_id = 5006 }			
+			remove_unit_leader = yes
+		}
+		add_command_power = -20
+
+		
+	}
+	option = { #nice
+		name = yun_tanglarp.18.b
+		add_political_power = 50
+		set_country_flag = YUN_slightly_sane_li_larp
+		
+	}
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.19
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.1" }
+	title = yun_tanglarp.19.t
+	desc = yun_tanglarp.19.d
+	picture = GFX_report_event_CHI_riot
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = YUN
+		has_country_flag = YUN_larp
+		owns_state = 743
+		owns_state = 326
+	}
+
+
+	option = { #nice
+		name = yun_tanglarp.19.a
+		add_political_power = 75
+
+		
+	}
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.20
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.1" }
+	title = yun_tanglarp.20.t
+	desc = yun_tanglarp.20.d
+	picture = GFX_report_event_YUN_opiumlarp
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = YUN
+		has_country_flag = YUN_tang_has_son
+		has_country_flag = YUN_tangs_cousin_is_prince
+		has_completed_focus = YUN_truly_great_tang
+	}
+
+
+	option = { #nice
+		name = yun_tanglarp.20.a
+		add_political_power = 75
+		
+	}
+
+	option = { #nice
+		name = yun_tanglarp.20.b
+		#kill_ideology_leader = authoritarian_democrat
+		#kill_ideology_leader = paternal_autocrat
+		random_unit_leader = {
+			limit = { has_id = 5000 }			
+			remove_unit_leader = yes
+		}
+		hidden_effect = {
+			country_event = yun_tanglarp.24
+		}
+		
+	}
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.21
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.1" }
+	title = yun_tanglarp.21.t
+	desc = yun_tanglarp.21.d
+	picture = GFX_report_event_YUN_wedding_thing
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+	option = { #nice
+		name = yun_tanglarp.21.a
+		add_political_power = 25
+		set_country_flag = YUN_actress_wifu
+		hidden_effect = {
+			country_event = {
+				id = yun_tanglarp.22
+				days = 15
+			}
+		}
+	}
+
+	option = { #nice
+		name = yun_tanglarp.21.b
+		add_political_power = 50
+		set_country_flag = YUN_mongol_wifu
+		hidden_effect = {
+			country_event = {
+				id = yun_tanglarp.22
+				days = 15
+			}
+		}
+		
+	}
+
+	option = { #nice
+		name = yun_tanglarp.21.c
+		add_political_power = 15
+		set_country_flag = YUN_poet_wifu
+		hidden_effect = {
+			country_event = {
+				id = yun_tanglarp.22
+				days = 15
+			}
+		}
+		
+	}
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.22
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.22.t 
+	desc = { 
+		text = yun_tanglarp.22.d_actress
+		trigger = {
+			has_country_flag = YUN_actress_wifu
+		}
+	}
+	desc = { 
+		text = yun_tanglarp.22.d_mongol
+		trigger = {
+			has_country_flag = YUN_mongol_wifu
+		}
+	}
+	desc = { 
+		text = yun_tanglarp.22.d_poet
+		trigger = {
+			has_country_flag = YUN_poet_wifu
+		}
+	}
+	picture = GFX_report_event_YUN_stone_forest
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+	option = { #nice
+		name = yun_tanglarp.22.a
+		trigger = {
+			has_country_flag = YUN_actress_wifu
+		}
+		add_stability = 0.10
+		add_ideas = YUN_lilly_of_shangai
+		create_field_marshal = { #Auto-Generated
+				name = "Tian Hou"
+				portrait_path = "gfx/leaders/YUN/Portrait_Yunnan_Li_Lili.png"
+				female = yes
+				traits = {
+					politically_connected
+					media_personality
+				}
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+                                id = 99923
+			}
+		hidden_effect = {
+			country_event = {
+				id = yun_tanglarp.23
+				months = 9
+			}
+		}
+	}
+
+	option = { #nice
+		name = yun_tanglarp.22.b
+		trigger = {
+			has_country_flag = YUN_mongol_wifu
+		}
+		add_stability = 0.10
+		add_ideas = YUN_rose_of_steeps
+		create_field_marshal = { #Auto-Generated
+				name = "Khutulun"
+				portrait_path = "gfx/leaders/YUN/Portrait_Yunnan_Genepil.png"
+				female = yes
+				traits = {
+					politically_connected
+					cavalry_leader
+				}
+				skill = 3
+				attack_skill = 3
+				defense_skill = 3
+				planning_skill = 2
+				logistics_skill = 1
+                                id = 99924
+			}
+		if = {
+			limit = {
+				MON = {
+					NOT = {
+						has_country_flag = MON_not_firends_with_tang_gang
+					}
+					OR = {
+						is_faction_leader = yes
+						is_in_faction = yes
+					}
+				}
+			}
+			MON = {
+				add_to_faction = YUN
+			}
+			set_country_flag = YUN_allied_with_MON
+		}
+		if = {
+			limit = {
+				MON = {
+					is_in_faction = no
+					NOT = {
+						has_country_flag = MON_not_firends_with_tang_gang
+					}
+				}
+			}
+			create_faction = "Heavenly Pact for Asian Salvation"
+			add_to_faction = MON
+			set_country_flag = YUN_allied_with_MON
+		}
+		hidden_effect = {
+			country_event = {
+				id = yun_tanglarp.23
+				months = 9
+			}
+		}
+	}
+	option = { #nice
+		name = yun_tanglarp.22.c
+		trigger = {
+			has_country_flag = YUN_poet_wifu
+		}
+		add_stability = 0.10
+		add_ideas = YUN_poet_of_shangai
+		create_field_marshal = { #Auto-Generated
+				name = "Xue Tao"
+				portrait_path = "gfx/leaders/YUN/Portrait_Yunnan_Eileen.png"
+				female = yes
+				traits = {
+					politically_connected
+					young_leader
+				}
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+                                id = 99925
+			}
+		hidden_effect = {
+			country_event = {
+				id = yun_tanglarp.23
+				months = 9
+			}
+		}
+	}
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.23
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.23.t 
+	desc = { 
+		text = yun_tanglarp.23.d_actress
+		trigger = {
+			has_country_flag = YUN_actress_wifu
+		}
+	}
+	desc = { 
+		text = yun_tanglarp.23.d_mongol
+		trigger = {
+			has_country_flag = YUN_mongol_wifu
+		}
+	}
+	desc = { 
+		text = yun_tanglarp.23.d_poet
+		trigger = {
+			has_country_flag = YUN_poet_wifu
+		}
+	}
+	picture = GFX_report_event_YUN_larp_baby
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+	option = { #nice
+		name = yun_tanglarp.23.a
+		add_stability = 0.15
+		set_country_flag = YUN_tang_has_son
+	}
+
+}
+
+
+country_event = {#Empire Time
+	id = yun_tanglarp.24
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.24.t 
+	desc = yun_tanglarp.24.d
+	picture = GFX_report_event_BAN_funeral
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+	option = { #nice
+		name = yun_tanglarp.24.a
+		trigger = {
+			has_country_flag = YUN_actress_wifu
+		}
+		remove_ideas = YUN_lilly_of_shangai
+		add_ideas = YUN_lilly_of_shangai2
+		hidden_effect = {
+			create_country_leader = {
+			name = "Tian Hou of Tang"
+			desc = "POLITICS_YUNNAN_ACTRESS_WIFU_DESC"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Li_Lili.png"
+			expire = "1965.1.1"
+			traits = {
+				wu_zetianlarp
+			}
+			ideology = absolute_monarchy_subtype
+			female = yes
+			}
+			create_country_leader = {
+			name = "Tian Hou of Tang"
+			desc = "POLITICS_YUNNAN_ACTRESS_WIFU_DESC"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Li_Lili.png"
+			expire = "1965.1.1"
+			traits = {
+				wu_zetianlarp
+			}
+			ideology = oligarchy_subtype
+			female = yes
+			}
+			country_event = {
+				id = yun_tanglarp.27
+				days = 20
+			}
+		}
+	}
+
+	option = { #nice
+		name = yun_tanglarp.24.b
+		trigger = {
+			has_country_flag = YUN_mongol_wifu
+		}
+		remove_ideas = YUN_rose_of_steeps
+		add_ideas = YUN_rose_of_steeps2
+		hidden_effect = {
+			create_country_leader = {
+			name = "Khutulun of Tang"
+			desc = "POLITICS_YUNNAN_MONGOL_WIFU_DESC"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Genepil.png"
+			expire = "1965.1.1"
+			traits = {
+				khutulunlarp
+			}
+			female = yes
+			ideology = absolute_monarchy_subtype
+			}
+			country_event = {
+				id = yun_tanglarp.28
+				days = 20
+			}
+			create_country_leader = {
+			name = "Khutulun of Tang"
+			desc = "POLITICS_YUNNAN_MONGOL_WIFU_DESC"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Genepil.png"
+			expire = "1965.1.1"
+			traits = {
+				khutulunlarp
+			}
+			female = yes
+			ideology = oligarchy_subtype
+			}
+		}
+	}
+	
+
+	option = { #nice
+		name = yun_tanglarp.24.c
+		hidden_effect = {
+			create_country_leader = {
+			name = "Li of Tang"
+			desc = "POLITICS_YUNNAN_LI_TANGLARP_DESC"
+			picture = "gfx/leaders/YUN/Portrait_YUN_Tang_Jiyu.png"
+			expire = "1965.1.1"
+			traits = {
+				marshallemp
+			}
+			ideology = absolute_monarchy_subtype
+			}
+			country_event = {
+				id = yun_tanglarp.30
+				days = 20
+			}
+			create_country_leader = {
+			name = "Li of Tang"
+			desc = "POLITICS_YUNNAN_LI_TANGLARP_DESC"
+			picture = "gfx/leaders/YUN/Portrait_YUN_Tang_Jiyu.png"
+			expire = "1965.1.1"
+			traits = {
+				marshallemp
+			}
+			ideology = oligarchy_subtype
+			}
+		}
+		if = {
+			limit = {
+				has_idea = YUN_lilly_of_shangai
+			}
+			remove_ideas = YUN_lilly_of_shangai
+		}
+		if = {
+			limit = {
+				has_idea = YUN_rose_of_steeps
+			}
+			remove_ideas = YUN_rose_of_steeps
+		}
+	}
+	option = { #nice
+		name = yun_tanglarp.24.e
+		trigger = {
+			has_country_flag = YUN_poet_wifu
+		}
+		remove_ideas = YUN_poet_of_shangai
+		add_ideas = YUN_poet_of_shangai2
+		hidden_effect = {
+			create_country_leader = {
+			name = "Xue Tao of Tang"
+			desc = "POLITICS_YUNNAN_POET_WIFU_DESC"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Eileen.png"
+			expire = "1965.1.1"
+			traits = {
+				poetlarp
+			}
+			female = yes
+			ideology = absolute_monarchy_subtype
+			}
+			country_event = {
+				id = yun_tanglarp.47
+				days = 20
+			}
+			create_country_leader = {
+			name = "Xue Tao of Tang"
+			desc = "POLITICS_YUNNAN_POET_WIFU_DESC"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Eileen.png"
+			expire = "1965.1.1"
+			traits = {
+				poetlarp
+			}
+			female = yes
+			ideology = oligarchy_subtype
+			}
+		}
+	}
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.25
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.25.t 
+	desc = yun_tanglarp.25.d
+	picture = GFX_report_event_YUN_politicians
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+	option = { #nice
+		name = yun_tanglarp.25.a
+		add_political_power = -25
+		remove_ideas = YUN_Albert_Bodard_for_mli
+		add_ideas = YUN_Hu_Shih_for_sli
+
+	}
+
+	option = { #nice
+		name = yun_tanglarp.25.b
+	    add_manpower = -1
+		add_political_power = 50
+	}
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.26
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.26.t 
+	desc = yun_tanglarp.26.d
+	picture = GFX_report_event_YUN_li_larp
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+	option = { #nice
+		name = yun_tanglarp.26.a
+		add_political_power = 50
+		hidden_effect = {
+			country_event = {
+				id = yun_tanglarp.34
+				days = 150
+			}
+		}
+	}
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.27
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.27.t 
+	desc = yun_tanglarp.27.d
+	picture = GFX_report_event_YUN_li_larp
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+	option = { #nice
+		name = yun_tanglarp.27.a
+		add_political_power = 25
+		add_manpower = -200
+		hidden_effect = {
+			country_event = {
+				id = yun_tanglarp.26
+				days = 30
+			}
+		}
+	}
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.28
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.28.t 
+	desc = yun_tanglarp.28.d
+	picture = GFX_report_event_YUN_mongol_larp
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+	option = { #nice
+		name = yun_tanglarp.28.a
+		remove_ideas = YUN_silkroad_but_opium
+		hidden_effect = {
+			country_event = {
+				id = yun_tanglarp.29
+				days = 30
+			}
+		}
+	}
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.29
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.29.t 
+	desc = yun_tanglarp.29.d
+	picture = GFX_report_event_CHI_riot
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+
+
+	option = { #nice
+		name = yun_tanglarp.29.a
+		add_timed_idea = { idea = SZC_opium_addiction_1  days = 120 }
+		hidden_effect = {
+			country_event = {
+				id = yun_tanglarp.32
+				days = 150
+			}
+		}
+	}
+
+
+	option = { #nice
+		name = yun_tanglarp.29.b
+		add_ideas = YUN_silkroad_but_opium
+		hidden_effect = {
+			country_event = {
+				id = yun_tanglarp.32
+				days = 150
+			}
+		}
+	}
+
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.30
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.30.t 
+	desc = yun_tanglarp.30.d
+	picture = GFX_report_event_YUN_tang_bro_andor_cus
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+
+
+	option = { #nice
+		name = yun_tanglarp.30.a
+		add_political_power = 50
+		add_command_power = 20
+		army_experience = 15
+		hidden_effect = {
+			country_event = {
+				id = yun_tanglarp.31
+				days = 30
+			}
+		}
+	}
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.31
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.31.t 
+	desc = yun_tanglarp.31.d
+	picture = GFX_report_event_YUN_larp_baby
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+
+
+	option = { #nice
+		name = yun_tanglarp.31.a
+		add_political_power = 150
+	}
+
+}
+
+
+country_event = {#Empire Time
+	id = yun_tanglarp.32
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.32.t 
+	desc = yun_tanglarp.32.d
+	picture = GFX_report_event_YUN_larp_baby
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+
+
+	option = { #nice
+		name = yun_tanglarp.32.a
+		add_political_power = -50
+		add_stability = -0.10
+		hidden_effect = {
+			country_event = {
+				id = yun_tanglarp.33
+				days = 5
+			}
+		}
+	}
+
+}
+
+
+country_event = {#Empire Time
+	id = yun_tanglarp.33
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.33.t 
+	desc = yun_tanglarp.33.d
+	picture = GFX_report_event_YUN_larp_baby
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+
+
+	option = { #nice
+		name = yun_tanglarp.33.a
+		ai_chance = {
+			factor = 95
+		}
+		add_political_power = -50
+		add_stability = -0.10
+	}
+
+	option = { #nice
+		name = yun_tanglarp.33.b
+		ai_chance = {
+			factor = 5
+		}
+		add_political_power = 150
+		add_stability = 0.15
+	}
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.34
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2"
+	hidden_effect = {
+		if = {
+			limit = {
+			has_completed_focus = YUN_modern_state
+			has_idea = YUN_Hu_Shih_for_sli
+			has_country_flag = YUN_slightly_sane_li_larp
+			}
+			country_event = {
+				id = YUN_tanglarp.48
+				days = 1
+			}
+		}
+	} }
+	title = yun_tanglarp.34.t 
+	desc = yun_tanglarp.34.d
+	picture = GFX_report_event_YUN_larp_baby
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+
+
+	option = { #nice
+		name = yun_tanglarp.34.a
+		add_political_power = 75
+		set_politics = {
+			ruling_party = national_populist
+			elections_allowed = no
+		}
+		increase_ruling_party_popularity_by_10 = yes
+		hidden_effect = {
+			set_party_name = {
+			ideology = national_populist
+			long_name = YUN_house_of_tang_natpop_long
+			name = YUN_house_of_tang_party
+		}
+		create_country_leader = {
+			name = "Tian Hou of Tang"
+			desc = "POLITICS_YUNNAN_ACTRESS_WIFU_DESC"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Li_Lili.png"
+			expire = "1965.1.1"
+			traits = {
+				wu_zetianlarp
+			}
+			ideology = militarism_subtype
+			}
+		}
+	}
+
+
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.35
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.35.t 
+	desc = yun_tanglarp.35.d
+	picture = GFX_report_event_LEC_shanghai_river
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+
+
+	option = { #nice
+		name = yun_tanglarp.35.a
+		ai_chance = {
+			factor = 95
+		}
+		LEC = {
+			country_event = yun_tanglarp.36
+		}
+		POR = {
+			country_event = yun_tanglarp.37
+		}
+		AOG = {
+			country_event = yun_tanglarp.36
+		}
+		GEA = {
+			country_event = yun_tanglarp.37
+		}
+	}
+
+	option = { #nice
+		name = yun_tanglarp.35.b
+		ai_chance = {
+			factor = 5
+		}
+		create_wargoal = {
+					type = annex_everything
+					target = LEC
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = AOG
+				}
+		create_wargoal = {
+					type = annex_everything
+					target = POR
+				}
+		create_wargoal = {
+					type = annex_everything
+					target = GEA
+				}			
+	}
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.36
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.36.t 
+	desc = yun_tanglarp.36.d
+	picture = GFX_report_event_YUN_army
+
+	
+	is_triggered_only = yes
+
+
+
+
+	option = { #nice
+		name = yun_tanglarp.36.a
+		ai_chance = {
+			factor = 60
+		}
+		YUN = {
+			country_event = yun_tanglarp.38
+		}
+	}
+
+	option = { #nice
+		name = yun_tanglarp.36.b
+		ai_chance = {
+			factor = 40
+		}
+		trigger = {
+			is_ai = no
+		}
+		YUN = {
+			country_event = yun_tanglarp.39
+		}
+		
+	}
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.37
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.37.t 
+	desc = yun_tanglarp.37.d
+	picture = GFX_report_event_YUN_army
+
+	is_triggered_only = yes
+
+
+
+
+	option = { #nice
+		name = yun_tanglarp.37.a
+		ai_chance = {
+			factor = 60
+		}
+		if = {
+			limit = {
+				tag = POR
+			}
+			YUN = {
+			country_event = yun_tanglarp.40
+			}
+		}
+		if = {
+			limit = {
+				tag = GEA
+			}
+			YUN = {
+			country_event = yun_tanglarp.41
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					OR = {
+						tag = POR
+						tag = GEA
+					}
+				}
+			}
+			YUN = {
+			country_event = yun_tanglarp.38
+			}
+		}
+
+	}
+
+	option = { #nice
+		name = yun_tanglarp.37.b
+		ai_chance = {
+			factor = 40
+		}
+		YUN = {
+			country_event = yun_tanglarp.39
+		}
+		
+	}
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.38
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.38.t 
+	desc = yun_tanglarp.38.d
+	picture = GFX_report_event_YUN_Army_marches_home
+
+	
+	is_triggered_only = yes
+
+
+
+
+	option = { #nice
+		name = yun_tanglarp.38.a
+		YUN = {
+			annex_country = {
+			target = FROM
+			transfer_troops = no
+			}
+		}
+	}
+
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.39
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.39.t 
+	desc = yun_tanglarp.39.d
+	picture = GFX_report_event_YUN_army
+
+	
+	is_triggered_only = yes
+
+
+
+
+	option = { #nice
+		name = yun_tanglarp.39.a
+		declare_war_on = { target = FROM type = annex_everything }
+	}
+
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.40
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.40.t 
+	desc = yun_tanglarp.40.d
+	picture = GFX_report_event_YUN_Army_marches_home
+
+	
+	is_triggered_only = yes
+
+
+
+
+	option = { #nice
+		name = yun_tanglarp.40.a
+		transfer_state = 729
+	}
+
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.41
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.41.t 
+	desc = yun_tanglarp.41.d
+	picture = GFX_report_event_YUN_Army_marches_home
+
+	
+	is_triggered_only = yes
+
+
+
+
+	option = { #nice
+		name = yun_tanglarp.41.a
+		transfer_state = 728
+	}
+
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.42
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.42.t 
+	desc = yun_tanglarp.42.d
+	picture = GFX_report_event_YUN_army
+
+	fire_only_once = yes
+	
+
+	trigger = {
+		tag = GEA
+		controls_state = 728
+		has_war_with = YUN
+		NOT = {
+			any_owned_state = {
+				NOT = {
+					is_controlled_by = ROOT
+				}
+			}
+		}
+		YUN  = {
+			owns_state = 728
+		}
+	}
+
+
+
+	option = { #nice
+		name = yun_tanglarp.42.a
+		YUN = {
+			country_event = YUN_tanglarp.43
+		}
+	}
+
+	option = { #nice
+		name = yun_tanglarp.42.b
+		trigger = {
+			is_ai = no
+		}
+		add_political_power = -50
+	}
+
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.43
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.43.t 
+	desc = yun_tanglarp.43.d
+	picture = GFX_report_event_YUN_army
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+
+
+	option = { #nice
+		name = yun_tanglarp.43.a
+		white_peace = GEA
+		  "YUN" = {
+			transfer_state = 728
+			if = {
+				limit = {
+					controls_state = 728 
+					GEA = {
+						owns_state = 728
+					}
+				}
+				transfer_state = 728
+				add_state_core = 728
+			}
+		}
+	}
+
+	option = { #nice
+		name = yun_tanglarp.43.b
+		trigger = {
+			is_ai = no
+		}
+		add_political_power = -50
+	}
+
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.44
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.44.t 
+	desc = yun_tanglarp.44.d
+	picture = GFX_report_event_YUN_army
+
+	fire_only_once = yes
+	
+
+	trigger = {
+		tag = POR
+		controls_state = 729 
+		has_war_with = YUN
+		NOT = {
+			any_owned_state = {
+				NOT = {
+					is_controlled_by = ROOT
+				}
+			}
+		}
+		YUN  = {
+			owns_state = 729 
+		}
+	}
+
+
+
+	option = { #nice
+		name = yun_tanglarp.44.a
+		YUN = {
+			country_event = YUN_tanglarp.45
+		}
+	}
+
+	option = { #nice
+		name = yun_tanglarp.44.b
+		trigger = {
+			is_ai = no
+		}
+		add_political_power = -50
+	}
+
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.45
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.45.t 
+	desc = yun_tanglarp.45.d
+	picture = GFX_report_event_YUN_army
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+
+
+	option = { #nice
+		name = yun_tanglarp.45.a
+		white_peace = POR
+		  "YUN" = {
+			transfer_state = 729 
+			if = {
+				limit = {
+					controls_state = 729  
+					POR = {
+						owns_state = 729 
+					}
+				}
+				transfer_state = 729 
+				add_state_core = 729 
+			}
+		}
+	}
+
+	option = { #nice
+		name = yun_tanglarp.45.b
+		trigger = {
+			is_ai = no
+		}
+		add_political_power = -50
+	}
+
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.46
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.46.t 
+	desc = yun_tanglarp.46.d
+	picture = GFX_report_event_YUN_tangart
+
+        fire_only_once = yes
+
+	trigger = {
+		is_subject_of = YUN
+		YUN = {
+			has_country_flag = YUN_larp
+		}
+		NOT = {
+			has_country_flag = YUN_puppet_of_tang
+		}
+	}
+
+
+
+
+	option = { #nice
+		name = yun_tanglarp.46.a
+		set_country_flag = YUN_puppet_of_tang
+		YUN = {
+			set_autonomy = {
+			target = ROOT
+			autonomy_state = kx_tributary
+			}
+		}
+	}
+
+
+
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.47
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.47.t 
+	desc = yun_tanglarp.47.d
+	picture = GFX_YUN_poetbooba
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+
+
+	option = { #nice
+		name = yun_tanglarp.47.a
+		set_party_name = {
+			ideology = social_conservative
+			long_name = YUN_house_of_tang_poet_long
+			name = YUN_house_of_tang_party
+			}
+			set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = no
+		}
+		create_country_leader = {
+			name = "Xue Tao of Tang"
+			desc = "POLITICS_YUNNAN_POET_WIFU_DESC"
+			picture = "gfx/leaders/YUN/Portrait_Yunnan_Eileen.png"
+			expire = "1965.1.1"
+			traits = {
+				poetlarp
+			}
+			female = yes
+			ideology = moderate_authoritarianism_subtype
+			}
+		hidden_effect = {
+			country_event = {
+				id = yun_tanglarp.32
+				days  = 70
+			}
+		}
+		
+	}
+
+
+}
+
+country_event = {#Empire Time
+	id = yun_tanglarp.48
+	immediate = { log = "[GetDateText]: [Root.GetName]: event yun_tanglarp.2" }
+	title = yun_tanglarp.48.t 
+	desc = yun_tanglarp.48.d
+	picture = GFX_report_event_YUN_larp_baby
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+
+
+	option = { #nice
+		name = yun_tanglarp.48.a
+		
+	}
+
+
+}
+
+		
+
+

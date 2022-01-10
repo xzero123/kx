@@ -293,7 +293,7 @@ country_event = {
 			factor = 10
 		}
 		country_event = {
-			id = saf.8
+			id = saf.7
 			days = 7
 		}
 		set_country_flag = saf_flag_no_deal_labour
@@ -634,9 +634,6 @@ country_event = {
 
 	option = { #Workers of the world unite!
 		name = saf.19.a
-		hidden_effect = {
-			kill_country_leader = yes
-		}
 		set_politics = {
 			ruling_party = radical_socialist
 			elections_allowed = no
@@ -724,12 +721,16 @@ country_event = {
 			load_focus_tree = SAF_socialist_focus
 			country_event = { id = saf.107 days = 3 } #Return of Clement Kadalie
 			country_event = { id = saf.118 days = 35 } #White Flight
+			country_event = { id = saf.321 days = 1 } # Deserters
 			news_event = {
 				id = worldnews.62
 				days = 2
 			}
 		}
-		remove_unit_leader = 970
+		random_unit_leader = {
+				limit = { has_id = 970 }			
+				remove_unit_leader = yes
+			}
 		set_country_flag = Jan_C_Smuts_dead
 		if = {
 			limit = { is_in_tech_sharing_group = entente_research }
@@ -1544,7 +1545,7 @@ country_event = {
 			create_country_leader = {
 				name = "Jan Smuts"
 				desc = "POLITICS_JAN_SMUTS_DESC"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Jan_Smuts.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Jan_Smuts.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 			}
@@ -1552,7 +1553,7 @@ country_event = {
 			create_country_leader = {
 				name = "J.G.N. Strauss"
 				desc = "POLITICS_JGN_STRAUSS_DESC"
-				picture = "gfx/leaders/Generic/Portrait_Europe_Generic_new_1.tga"
+				picture = "gfx/leaders/Generic/Portrait_Europe_Generic_new_1.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 			}
@@ -1766,7 +1767,6 @@ country_event = {
 		}
 		custom_effect_tooltip = SAF_tt_Malan_becomes_president
 		hidden_effect = {
-			kill_country_leader = yes
 			set_cosmetic_tag = SAF_republic
 		}
 		leave_faction = yes
@@ -1865,7 +1865,7 @@ country_event = {
 				create_country_leader = {
 					name = "Patrick Duncan"
 					desc = "POLITICS_PAT_DUNCAN_DESC"
-					picture = "gfx/leaders/SAF/Portrait_SAF_Patrick_Duncan.tga"
+					picture = "gfx/leaders/SAF/Portrait_SAF_Patrick_Duncan.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 				}
@@ -1877,7 +1877,7 @@ country_event = {
 				create_country_leader = {
 					name = "George Villiers"
 					desc = "POLITICS_EARL_CLARENDON_DESC"
-					picture = "gfx/leaders/SAF/Portrait_SAF_Earl_of_Clarendon.tga"
+					picture = "gfx/leaders/SAF/Portrait_SAF_Earl_of_Clarendon.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 				}
@@ -1920,6 +1920,9 @@ country_event = {
 			}
 		}
 		release = SFR
+		SFR = {
+			change_tag_from = ROOT
+		}
 		if = {
 			limit = {
 				has_country_flag = saf_duncan_gov_general
@@ -1928,7 +1931,7 @@ country_event = {
 				create_country_leader = {
 					name = "Patrick Duncan"
 					desc = "POLITICS_PAT_DUNCAN_DESC"
-					picture = "gfx/leaders/SAF/Portrait_SAF_Patrick_Duncan.tga"
+					picture = "gfx/leaders/SAF/Portrait_SAF_Patrick_Duncan.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 				}
@@ -1940,7 +1943,7 @@ country_event = {
 				create_country_leader = {
 					name = "George Villiers"
 					desc = "POLITICS_EARL_CLARENDON_DESC"
-					picture = "gfx/leaders/SAF/Portrait_SAF_Earl_of_Clarendon.tga"
+					picture = "gfx/leaders/SAF/Portrait_SAF_Earl_of_Clarendon.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 				}
@@ -2019,7 +2022,10 @@ country_event = {
 
 	option = { #The old man deserved retirement
 		name = saf.55.a
-		remove_unit_leader = 970
+		random_unit_leader = {
+				limit = { has_id = 970 }			
+				remove_unit_leader = yes
+			}
 		set_country_flag = Jan_C_Smuts_dead
 		add_popularity = {
 			ideology = social_conservative
@@ -2035,14 +2041,14 @@ country_event = {
 			create_country_leader = {
 				name = "Jan Hendrik Hofmeyr"
 				desc = "POLITICS_HOFMEYR_DESC"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Jan_Hendrik_Hofmeyr.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Jan_Hendrik_Hofmeyr.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 			}
 			create_country_leader = {
 				name = "J.G.N. Strauss"
 				desc = "POLITICS_JGN_STRAUSS_DESC"
-				picture = "gfx/leaders/Generic/Portrait_Europe_Generic_new_1.tga"
+				picture = "gfx/leaders/Generic/Portrait_Europe_Generic_new_1.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 			}
@@ -3165,7 +3171,6 @@ country_event = {
 		add_war_support = 0.1
 		custom_effect_tooltip = SAF_tt_Malan_becomes_president
 		hidden_effect = {
-			kill_country_leader = yes
 			set_cosmetic_tag = SAF_republic
 		}
 		leave_faction = yes
@@ -3276,10 +3281,6 @@ country_event = {
 		}
 	}
 
-	mean_time_to_happen = {
-		days = 1
-	}
-
 	option = {
 		name = saf.87.a
 		add_political_power = -10
@@ -3316,10 +3317,6 @@ country_event = {
 		}
 		has_country_flag = SAF_fusion
 		has_idea = SAF_wavering_dominion
-	}
-
-	mean_time_to_happen = {
-		days = 1
 	}
 
 	option = { #The cabinet votes to join the homecoming
@@ -3617,10 +3614,6 @@ country_event = {
 		has_idea = SAF_wavering_dominion
 	}
 
-	mean_time_to_happen = {
-		days = 1
-	}
-
 	option = { #South Africa remains neutral
 		name = saf.96.a
 		swap_ideas = { remove_idea = SAF_wavering_dominion add_idea = SAF_neutral_dominion }
@@ -3656,10 +3649,6 @@ country_event = {
 		has_idea = SAF_wavering_dominion
 	}
 
-	mean_time_to_happen = {
-		days = 1
-	}
-
 	option = { #The cabinet votes to join the homecoming
 		name = saf.97.a
 		remove_ideas = SAF_wavering_dominion
@@ -3686,9 +3675,6 @@ country_event = {
 	option = { #Have Patrick Duncan be appointed
 		name = saf.98.a
 		ai_chance = { factor = 60 }
-		hidden_effect = {
-			kill_country_leader = yes
-		}
 		if = {
 			limit = {
 				has_government = social_democrat
@@ -3696,7 +3682,7 @@ country_event = {
 			create_country_leader = {
 				name = "Patrick Duncan"
 				desc = "POLITICS_PAT_DUNCAN_DESC"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Patrick_Duncan.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Patrick_Duncan.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 			}
@@ -3708,7 +3694,7 @@ country_event = {
 			create_country_leader = {
 				name = "Patrick Duncan"
 				desc = "POLITICS_PAT_DUNCAN_DESC"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Patrick_Duncan.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Patrick_Duncan.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 			}
@@ -3720,7 +3706,7 @@ country_event = {
 			create_country_leader = {
 				name = "Patrick Duncan"
 				desc = "POLITICS_PAT_DUNCAN_DESC"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Patrick_Duncan.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Patrick_Duncan.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 			}
@@ -3732,7 +3718,7 @@ country_event = {
 			create_country_leader = {
 				name = "Patrick Duncan"
 				desc = "POLITICS_PAT_DUNCAN_DESC"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Patrick_Duncan.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Patrick_Duncan.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 			}
@@ -3744,7 +3730,7 @@ country_event = {
 			create_country_leader = {
 				name = "Patrick Duncan"
 				desc = "POLITICS_PAT_DUNCAN_DESC"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Patrick_Duncan.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Patrick_Duncan.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 			}
@@ -3753,7 +3739,7 @@ country_event = {
 			create_country_leader = {
 				name = "Patrick Duncan"
 				desc = "POLITICS_PAT_DUNCAN_DESC"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Patrick_Duncan.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Patrick_Duncan.png"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 			}
@@ -3790,7 +3776,6 @@ country_event = {
 		name = saf.99.a
 		ai_chance = { factor = 60 }
 		hidden_effect = {
-			kill_country_leader = yes
 			clr_country_flag = saf_duncan_gov_general
 		}
 		if = {
@@ -3800,7 +3785,7 @@ country_event = {
 			create_country_leader = {
 				name = "Nicolaas Jacobus de Wet"
 				desc = "POLITICS_NJ_DE_WET_DESC"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Nicolaas_Jacobus_de_Wet.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Nicolaas_Jacobus_de_Wet.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 			}
@@ -3812,7 +3797,7 @@ country_event = {
 			create_country_leader = {
 				name = "Nicolaas Jacobus de Wet"
 				desc = "POLITICS_NJ_DE_WET_DESC"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Nicolaas_Jacobus_de_Wet.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Nicolaas_Jacobus_de_Wet.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 			}
@@ -3824,7 +3809,7 @@ country_event = {
 			create_country_leader = {
 				name = "Nicolaas Jacobus de Wet"
 				desc = "POLITICS_NJ_DE_WET_DESC	"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Nicolaas_Jacobus_de_Wet.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Nicolaas_Jacobus_de_Wet.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 			}
@@ -3836,7 +3821,7 @@ country_event = {
 			create_country_leader = {
 				name = "Nicolaas Jacobus de Wet"
 				desc = "POLITICS_NJ_DE_WET_DESC"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Nicolaas_Jacobus_de_Wet.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Nicolaas_Jacobus_de_Wet.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 			}
@@ -3848,7 +3833,7 @@ country_event = {
 			create_country_leader = {
 				name = "Nicolaas Jacobus de Wet"
 				desc = "POLITICS_NJ_DE_WET_DESC"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Nicolaas_Jacobus_de_Wet.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Nicolaas_Jacobus_de_Wet.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 			}
@@ -3857,7 +3842,7 @@ country_event = {
 			create_country_leader = {
 				name = "Nicolaas Jacobus de Wet"
 				desc = "POLITICS_NJ_DE_WET_DESC"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Nicolaas_Jacobus_de_Wet.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Nicolaas_Jacobus_de_Wet.png"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 			}
@@ -3872,9 +3857,6 @@ country_event = {
 		trigger = {
 			has_authoritarian_government = yes
 		}
-		hidden_effect = {
-			kill_country_leader = yes
-		}
 		if = {
 			limit = {
 				has_government = social_democrat
@@ -3882,7 +3864,7 @@ country_event = {
 			create_country_leader = {
 				name = "Ernest Janssen"
 				desc = "POLITICS_ERNEST_JANSEN_DESC"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Ernest_Jansen.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Ernest_Jansen.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 			}
@@ -3894,7 +3876,7 @@ country_event = {
 			create_country_leader = {
 				name = "Ernest Janssen"
 				desc = "POLITICS_ERNEST_JANSEN_DESC"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Ernest_Jansen.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Ernest_Jansen.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 			}
@@ -3906,7 +3888,7 @@ country_event = {
 			create_country_leader = {
 				name = "Ernest Janssen"
 				desc = "POLITICS_ERNEST_JANSEN_DESC	"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Ernest_Jansen.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Ernest_Jansen.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 			}
@@ -3918,7 +3900,7 @@ country_event = {
 			create_country_leader = {
 				name = "Ernest Janssen"
 				desc = "POLITICS_ERNEST_JANSEN_DESC"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Ernest_Jansen.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Ernest_Jansen.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 			}
@@ -3930,7 +3912,7 @@ country_event = {
 			create_country_leader = {
 				name = "Ernest Janssen"
 				desc = "POLITICS_ERNEST_JANSEN_DESC"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Ernest_Jansen.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Ernest_Jansen.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 			}
@@ -3939,7 +3921,7 @@ country_event = {
 			create_country_leader = {
 				name = "Ernest Janssen"
 				desc = "POLITICS_ERNEST_JANSEN_DESC"
-				picture = "gfx/leaders/SAF/Portrait_SAF_Ernest_Jansen.tga"
+				picture = "gfx/leaders/SAF/Portrait_SAF_Ernest_Jansen.png"
 				expire = "1965.1.1"
 				ideology = paternal_autocrat_subtype
 			}
@@ -4429,7 +4411,7 @@ country_event = { #La Guma denounces ISL
 	}
 }
 
-country_event = { #Totalist coup
+country_event = { #Amandla awethu! The South African people triumph over the false socialists!
 	id = saf.116
 	immediate = { log = "[GetDateText]: [Root.GetName]: event saf.116" }
 	title = saf.116.t
@@ -4457,6 +4439,14 @@ country_event = { #Totalist coup
 			country_event = { id = saf.117 days = 120 } 
 			country_event = { id = saf.119 days = 60 }
 		}
+	}
+	
+	option = { #The army and the ISL militias win by a narrow margin!
+		name = saf.116.b
+		ai_chance = { factor = 50 }
+		
+		add_popularity = { ideology = totalist popularity = -0.3 }
+		add_popularity = { ideology = radical_socialist popularity = 0.2 }
 	}
 }
 
@@ -5405,7 +5395,7 @@ country_event = { #South Africa demands we retreat from Zambia
 			}
 		}
 		FROM = { country_event = saf.129 }
-		KTG = {
+		COG = {
 			every_owned_state = {
 				limit = {
 					OR = {
@@ -5427,7 +5417,7 @@ country_event = { #South Africa demands we retreat from Zambia
 	}
 }
 
-country_event = { #KTG concedes
+country_event = { #COG concedes
 	id = saf.129
 	immediate = { log = "[GetDateText]: [Root.GetName]: event saf.129" }
 	title = saf.129.t
@@ -5439,7 +5429,7 @@ country_event = { #KTG concedes
 	option = { #Good
 		name = saf.129.a
 		effect_tooltip = {
-			KTG = {
+			COG = {
 				every_owned_state = {
 					limit = {
 						OR = {
@@ -5533,7 +5523,7 @@ country_event = { #South Africa demands we retreat from Zambia
 	}
 }
 
-country_event = { #KTG concedes
+country_event = { #COG concedes
 	id = saf.132
 	immediate = { log = "[GetDateText]: [Root.GetName]: event saf.132" }
 	title = saf.132.t
@@ -8672,3 +8662,126 @@ country_event = { #Riversdal
 		}
 	}
 }
+
+country_event = { #Out with old, in with the new
+	id = saf.321
+	immediate = { log = "[GetDateText]: [Root.GetName]: event saf.321 FROM = [From.GetName]" }
+	title = saf.321.t
+	desc = saf.321.d
+	picture = GFX_report_event_SAF_black_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = { #
+		name = saf.321.a
+		create_corps_commander = {
+			name = "James La Guma"
+			portrait_path = "gfx/leaders/SAF/Portrait_SAF_James_La_Guma.png"
+			traits = {
+				politically_connected
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		create_corps_commander = {
+			name = "Govan Mbeki"
+			portrait_path = "gfx/leaders/Generic/Portrait_Africa_Generic_land_new_7.png"
+			traits = {
+				infantry_leader
+			}
+			skill = 1
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		create_corps_commander = {
+			name = "Jack Hodson"
+			portrait_path = "gfx/leaders/SAF/Portrait_SAF_Jack_Hodgson.png"
+			traits = {
+				trickster
+			}
+			skill = 1
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+			id = 98010
+		}
+		create_field_marshal = {
+			name = "William H. Andrews"
+			portrait_path = "gfx/leaders/SAF/William_H._Andrews_I.png"
+			traits = {
+				politically_connected
+				thorough_planner
+				organizer
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+			id = 98010
+		}		
+		add_ideas = SAF_SOC_purge_idea_1
+		add_political_power = -50
+		add_stability = 0.05
+		custom_effect_tooltip = SAF_SOC_CO_Purge
+		hidden_effect = {
+			country_lock_all_division_template = no
+			every_unit_leader = {
+				limit = {
+					OR = {
+						has_id = 970 #Jan Smuts
+						has_id = 971 #Leonard Beyers
+						has_id = 972 #George Brink
+						has_id = 973 #Dan Pienaar
+						has_id = 974 #Hendrik Klopper
+						has_id = 975 #Isaac Pierre de Villiers
+						has_id = 976 #Nick Bierman
+						has_id = 977 #Evered Poole
+						has_id = 978 #Christiaan du Toit
+						has_id = 979 # Christoffel Venter
+						has_id = 9802 #Guy Hallifax
+					}
+				}
+				set_nationality = NSW
+			}
+			if = {
+				limit = { has_template = "Infantry Division" }
+				delete_unit_template_and_units = { division_template = "Infantry Division" }
+			}
+			if = {
+				limit = { has_template = "Command Garrison" }
+				delete_unit_template_and_units = { division_template = "Command Garrison" }
+			}
+			if = {
+				limit = { has_template = "Cavalry Division" }
+				delete_unit_template_and_units = { division_template = "Cavalry Division" }
+			}
+			if = {
+				limit = { has_template = "Light Infantry Division" }
+				delete_unit_template_and_units = { division_template = "Light Infantry Division" }
+			}
+			if = {
+				limit = { has_template = "Armored-Division" }
+				delete_unit_template_and_units = { division_template = "Armored-Division" }
+			}
+			if = {
+				limit = { has_template = "Motorised Brigade" }
+				delete_unit_template_and_units = { division_template = "Motorised Brigade" }
+			}
+			load_oob = "SAF_syn"
+		}
+		set_country_flag = Jan_C_Smuts_dead
+		set_country_flag = Leonard_Beyers_dead
+		set_country_flag = Pierre_van_Ryneveld_dead
+		set_country_flag = Christian_du_Toit_dead
+		set_country_flag = JF_Naude_dead
+		set_country_flag = Christoffel_Venter_dead
+	}
+}
+

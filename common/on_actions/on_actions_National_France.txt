@@ -146,13 +146,23 @@ on_actions = {
 				set_state_flag = nfa_state_colonial_resistance_flag
 				force_update_dynamic_modifier = yes
 			}
-			
-			# Disable Resistance in Malta #
-			116 = {
-				cancel_resistance = yes
-				force_disable_resistance = NFA
+			968 = { #Add a full garrison to Adrar
+				set_garrison_strength = 1.0
+				add_dynamic_modifier = { modifier = NFA_colonial_resistance }
+				set_variable = { NFA_colonial_resistance_target_var = 0.25 }
+				set_variable = { NFA_colonial_resistance_compliance_var = -0.02 }
+				set_state_flag = nfa_state_colonial_resistance_flag
+				force_update_dynamic_modifier = yes
 			}
-			
+			1192 = { #Add a full garrison to Maradi
+				set_garrison_strength = 1.0
+				add_dynamic_modifier = { modifier = NFA_colonial_resistance }
+				set_variable = { NFA_colonial_resistance_target_var = 0.25 }
+				set_variable = { NFA_colonial_resistance_compliance_var = -0.02 }
+				set_state_flag = nfa_state_colonial_resistance_flag
+				force_update_dynamic_modifier = yes
+			}
+						
 			# Transsaharian Railroad #
 			set_global_flag = TRANSSAHARIAN_ROUTE_DISABLED
 
@@ -334,6 +344,135 @@ on_actions = {
 						add_to_variable = { NFA_colonial_resistance_compliance_var = 0.01 }
 					}
 					force_update_dynamic_modifier = yes
+				}
+			}
+		}
+	}
+	# Bonk NFA if they are declaring war against the GER
+	#FROM is war target
+	on_declare_war = {
+		effect = {
+			# NFA intervenes in the weltkrieg
+			if = {
+				limit = { tag = NFA }
+				if = {
+					limit = { FROM = { tag = FRA } }
+					news_event = {
+						id = worldnews.470
+						days = 2
+					}
+				}
+				# Alsace Lorraine War
+				else_if = {
+					limit = { FROM = { tag = GER } }
+					NFA_Breaking_Lyon_Effect = yes
+					every_owned_state = {
+						limit = {
+							is_core_of = FRA
+							NOT = { is_core_of = NFA }
+						}
+						add_resistance = 25
+						add_compliance = -25
+						if = {
+							limit = {
+								resistance > 75
+							}
+							damage_building = {
+								type = infrastructure
+								damage = 4
+							}
+							if = {
+								limit = {
+									non_damaged_building_level = {
+										building = arms_factory
+										level > 0
+									}
+								}
+								damage_building = {
+									type = arms_factory
+									damage = 2.7
+								}
+							}
+							if = {
+								limit = {
+									non_damaged_building_level = {
+										building = industrial_complex
+										level > 0
+									}
+								}
+								damage_building = {
+									type = industrial_complex
+									damage = 2.7
+								}
+							}
+						}
+						else_if = {
+							limit = {
+								resistance > 50
+							}
+							damage_building = {
+								type = infrastructure
+								damage = 3.4
+							}
+							if = {
+								limit = {
+									non_damaged_building_level = {
+										building = arms_factory
+										level > 0
+									}
+								}
+								damage_building = {
+									type = arms_factory
+									damage = 1.9
+								}
+							}
+							if = {
+								limit = {
+									non_damaged_building_level = {
+										building = industrial_complex
+										level > 0
+									}
+								}
+								damage_building = {
+									type = industrial_complex
+									damage = 1.9
+								}
+							}
+						}
+						else_if = {
+							limit = {
+								resistance > 25
+							}
+							damage_building = {
+								type = infrastructure
+								damage = 2.9
+							}
+							if = {
+								limit = {
+									non_damaged_building_level = {
+										building = arms_factory
+										level > 0
+									}
+								}
+								damage_building = {
+									type = arms_factory
+									damage = 1.6
+								}
+							}
+							if = {
+								limit = {
+									non_damaged_building_level = {
+										building = industrial_complex
+										level > 0
+									}
+								}
+								damage_building = {
+									type = industrial_complex
+									damage = 1.6
+								}
+							}
+						}
+					}
 				}
 			}
 		}

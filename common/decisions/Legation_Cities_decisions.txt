@@ -212,6 +212,41 @@ LEC_votes_category = {
 				}
 				has_global_flag = LEC_transamur_vote
 			}
+			modifier = {
+				factor = 15
+				tag = USA
+				has_global_flag = LEC_america_vote
+			}
+			modifier = {
+				factor = 15
+				tag = CAN
+				has_global_flag = LEC_america_vote
+			}
+			modifier = {
+				factor = 15
+				tag = AST
+				has_global_flag = LEC_america_vote
+			}
+			modifier = {
+				factor = 15
+				tag = GBR
+				has_global_flag = LEC_america_vote
+			}
+			modifier = {
+				factor = 15
+				tag = BEL
+				has_global_flag = LEC_america_vote
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_war_with = USA
+					has_war_with = TEX
+					has_war_with = CAL
+					has_war_with = COR
+				}
+				has_global_flag = LEC_america_vote
+			}
 		}
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision LEC_vote_yes"
@@ -363,6 +398,16 @@ LEC_votes_category = {
 				factor = 15
 				tag = GER
 				has_global_flag = LEC_transamur_vote
+			}
+			modifier = {
+				factor = 5
+				tag = GER
+				has_global_flag = LEC_america_vote
+			}
+			modifier = {
+				factor = 15
+				tag = JAP
+				has_global_flag = LEC_america_vote
 			}
 		}
 		complete_effect = {
@@ -919,7 +964,7 @@ LEC_votes_category = {
 			}
 		}
 		ai_will_do = {
-			factor = 200
+			factor = 2000
 		}
 	}
 
@@ -1020,7 +1065,7 @@ LEC_votes_category = {
 				}
 			}
 			NOT = {
-				country_exists = SOV
+				soviets_exist = yes
 			}
 			NOT = {
 				has_global_flag = legation_vote_ongoing
@@ -1050,6 +1095,7 @@ LEC_votes_category = {
 		}
 		available = {
 			country_exists = TRM
+			TRM = { has_socialist_government = no }
 			OR = {
 				NOT = {
 					country_exists = RUS
@@ -1247,11 +1293,27 @@ LEC_military_aid_category = {
 				add_command_power = -50
 				add_political_power = -100
 			}
-			add_equipment_to_stockpile = {
-				type = light_tank_equipment_1
-				amount = 250
-				producer = JAP
+			if = {
+				limit = {
+					NOT = { has_dlc = "No Step Back" }
+				}
+				add_equipment_to_stockpile = {
+					type = light_tank_equipment_1
+					amount = 250
+					producer = JAP
+				}
 			}
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = {
+					type = light_tank_chassis_1
+					amount = 250
+					producer = JAP
+				}
+			}
+			
 		}
 	}
 }
@@ -2150,6 +2212,46 @@ LEC_influence_category = {
 	}
 
 ### LEC - Helping Out Influencers ###
+
+	LEC_join_fengtian = {
+		icon = generic_agreement
+		allowed = {
+			original_tag = LEC
+		}
+		available = {
+			FNG = {
+				OR = {
+					AND = {
+						has_cosmetic_tag = FNG_ROC
+						FNG_JAP_hostile = no
+					}
+					is_subject_of = JAP
+				}
+			}
+		}
+		visible = {
+			has_government = national_populist
+			has_completed_focus = LEC_shanghai_in_japanese_china
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				set_temp_variable = { LEC_help_japan_desire = party_popularity@national_populist }
+				multiply_temp_variable = { LEC_help_japan_desire = 100 }
+				add = LEC_help_japan_desire
+			}
+		}
+		cost = 50
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision LEC_join_fengtian"
+			JAP = {
+				country_event = {
+					id = lec.144
+				}
+			}
+		}
+	}
 
 	LEC_return_jap_guns = {
 
@@ -4577,7 +4679,7 @@ LEC_triads_category = {
 				log = "[GetDateText]: [Root.GetName]: Decision LEC_france_macao"
 				custom_effect_tooltip = LEC_decrease_human_profit_2
 				add_to_variable = {
-					var = LEC_Human_Traffic_Profits = -2
+					LEC_Human_Traffic_Profits = -2
 				}
 				random_owned_state = {
 					add_extra_state_shared_building_slots = 1

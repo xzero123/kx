@@ -12,19 +12,27 @@ on_actions = {
 			}
 			for_each_scope_loop = {
 				array = TRK.owned_states
-				add_to_array = { RUS.RUS_turkestan_region = THIS }
+				add_to_array = { RUS.RUS_bukhara_region = THIS }
 			}
 			for_each_scope_loop = {
 				array = UZB.owned_states
-				add_to_array = { RUS.RUS_turkestan_region = THIS }
+				add_to_array = { RUS.RUS_khiva_region = THIS }
 			}
 			for_each_scope_loop = {
 				array = KYR.owned_states
-				add_to_array = { RUS.RUS_turkestan_region = THIS }
+				add_to_array = { RUS.RUS_kokand_region = THIS }
 			}
 			880 = { #Dvinsk
 				add_dynamic_modifier = { modifier = BAT_Latgale_autonomous_region }
 			}
+			RUS = {
+				if = {
+					limit = {
+						is_ai = yes
+					}
+					add_political_power = 500
+				}
+			}			
 		}
 	}
 
@@ -42,9 +50,147 @@ on_actions = {
 					random = 720
 				}
 			}
+			if = {
+				limit = {
+					AND = {
+						tag = RUS
+						FROM = { tag = TRM }
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = SOV_restored_in_transamur }
+					}
+					country_event = {
+						id = tram.400
+						days = 2
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						ROOT = {
+							tag = BRY 
+							NOT = { country_exists = TRM }
+							NOT = { country_exists = SIB }
+							has_global_flag = TRM_civil_war
+							BRY = { 
+								OR = {
+									has_government = paternal_autocrat
+									has_government = totalist
+								}
+								owns_state = 408
+							}
+						}
+						FROM = { tag = TRM }
+					}
+				}
+				ROOT = { country_event = tram.303 }
+			}
+			if = {
+				limit = {
+					AND = {
+						ROOT = {
+							tag = JAP
+							NOT = { country_exists = TRM }
+							NOT = { country_exists = SIB }
+							has_global_flag = TRM_civil_war
+							has_global_flag = JAP_will_support_BRY
+							BRY = { 
+								exists = yes
+								has_government = paternal_autocrat
+							}
+						}
+						FROM = { tag = TRM }
+					}
+				}
+				ROOT = { country_event = tram.304 }
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = CRM
+						has_socialist_government = yes
+					}
+					FROM = {
+						tag = UKR
+					}
+				}
+				CRM = { set_cosmetic_tag = CRM_SOV_UKR }
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = CRM
+						has_government = paternal_autocrat
+					}
+					FROM = {
+						tag = UKR
+					}
+				}
+				CRM = {
+					set_global_flag = CRM_khazars_wiped_out_ukraine
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = CRM
+						has_socialist_government = yes
+						NOT = { has_cosmetic_tag = CRM_SOV_UKR }
+					}
+					FROM = {
+						tag = KUB
+					}
+				}
+				CRM = { set_cosmetic_tag = CRM_SOV_KUB }
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = CRM
+						has_socialist_government = yes
+						NOT = { has_cosmetic_tag = CRM_SOV_UKR }
+						NOT = { has_cosmetic_tag = CRM_SOV_KUB }
+					}
+					FROM = {
+						tag = DKB
+					}
+				}
+				CRM = { set_cosmetic_tag = CRM_SOV_DKB }
+			}
+		}
+	} 
+	on_capitulation = {
+		effect = {
+			# Disable SOV civil war unit lock
+			if = {
+				limit = {
+					ROOT = {
+						has_idea = SOV_chaotic_revolution
+					}
+				}
+				ROOT = {
+					remove_ideas = SOV_chaotic_revolution
+					country_lock_all_division_template = no
+				}
+			}
+			# Disband the Russian Academy of Sciences
+			if = {
+				limit = {
+					tag = RUS
+					is_in_tech_sharing_group = russian_research
+				}
+				remove_from_tech_sharing_group = russian_research
+				every_other_country = {
+					limit = { is_in_tech_sharing_group = russian_research }
+					remove_from_tech_sharing_group = russian_research
+				}
+			}
 		}
 	}
-
+	
 	# ROOT is capitulated country, FROM is winner
 	on_capitulation = {
 		effect = {
@@ -111,56 +257,195 @@ on_actions = {
 					}
 				}
 			}
+			if = {
+				limit = {
+					tag = RUS
+					FROM = {
+						tag = UTR
+					}
+				}
+				RUS = {
+					country_event = {
+						id = rusfor.1464
+						days = 180
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = CRM
+					FROM = {
+						OR = {
+							tag = UKR
+							tag = ROM
+							tag = RUS
+							tag = DKB
+							tag = KUB
+							tag = OTT
+						}
+					}
+				}
+				hidden_effect = {
+					FROM = {
+						country_event = {
+							id = crm.200
+							days = 180
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = BRY
+					}
+					FROM = {
+						tag = TRM
+					}
+				}
+				ROOT = {
+					if = {
+						limit = {
+							OR = {
+								has_government = totalist
+								has_government = paternal_autocrat
+							}
+						}
+						set_global_flag = TRM_civil_war
+						every_state = {
+							limit = {
+								is_core_of = TRM
+								is_owned_by = TRM
+							}
+							add_claim_by = ROOT
+						}
+					}					
+				}
+				FROM = {
+					country_event = {
+						id = transbaikalia.30
+						days = 90
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							tag = TRM
+							FROM = {
+								tag = RUS
+							}
+						}
+						AND = {
+							tag = RUS
+							FROM = { tag = TRM }
+						}
+					}
+				}
+				if = {
+					limit = {
+						TRM = { is_ai = no }
+					}
+					TRM = { add_ideas = TRM_Siberian_War_Buff }
+					hidden_effect = {
+						RUS = { add_ideas = RUS_Siberian_War_Debuff }
+					}
+				}
+				else = {
+					TRM = { add_ideas = TRM_Siberian_War_Debuff }
+					hidden_effect = {
+						RUS = { add_ideas = RUS_Siberian_War_Buff }
+					}
+				}
+				hidden_effect = { 
+					RUS = { 
+						country_event = { 
+							id = russia.1920 
+							days = 400
+						}
+					}
+					TRM = { 
+						country_event = { 
+							id = russia.1921
+							days = 400
+						}
+						country_event = { 
+							id = russia.1922
+							days = 400
+						}
+					}
+				}
+			}
 		}
 	}
 
 	#ROOT is winner #FROM is loser
-	on_peaceconference_ended = {
+	on_state_control_changed = {
 		effect = {
 			if = {
 				limit = {
-					ROOT = { tag = SOV }
-					FROM = { tag = RUS }
+					ROOT = {
+						tag = RUS
+						NOT = {
+							OR = {
+								has_government = paternal_autocrat
+								has_country_flag = RUS_DPROM
+								has_completed_focus = RUS_Black_Tsar
+								has_country_flag = RUS_SAVI
+								has_country_flag = RUS_SOLIDARISTS
+								has_country_flag = RUS_ABAKUMOV
+								has_country_flag = RUS_GORGULOV
+								has_country_flag = RUS_KER_DICT
+								has_country_flag = RUS_PUR
+								has_country_flag = RUS_CLE
+								has_country_flag = RUS_duma_dissolved
+								has_cosmetic_tag = RUS_EUR
+								has_cosmetic_tag = RUS_EUR_national_maximalist
+								has_cosmetic_tag = RUS_EUR_empire
+								has_cosmetic_tag = RUS_EUR_bolshevist
+							}
+						}
+					}		
+					FROM = {
+						OR = {
+							tag = TRM
+							tag = FIN
+							tag = ALO
+							tag = UKR
+							tag = WHR
+							tag = KUB
+							tag = DKB
+							tag = KLY
+							tag = GEO
+							tag = ARM
+							tag = POL
+							tag = LIT
+							tag = BAT
+							tag = GAL
+							tag = ROM
+							tag = MTR
+							tag = AZE
+							tag = KYR
+							tag = TRK
+							tag = UZB
+							tag = MON
+							tag = CRM
+						}
+					}
 				}
-				ROOT = {
-					country_event = { id = russia.1949 days = 1 random = 30 }
-				}
-			}
-			if = {
-				limit = {
-					ROOT = { tag = RUS }
-					FROM = { tag = SOV }
-				}
-				ROOT = {
-					country_event = { id = russia.1951 days = 1 random = 30 }
+				FROM.FROM = {
+					RUS_adjusted_state_pops = yes
+					log = "[GetDateText]: [THIS.Owner.GetName]:  [THIS.GetName]: S [?RUS_state_plsr_popularity]- R [?RUS_state_nsp_popularity] - DS [?RUS_state_psr_popularity] - SD [?RUS_state_rsdrp_popularity]"
+					log = "[GetDateText]: [THIS.Owner.GetName]:  [THIS.GetName]: SL [?RUS_state_lkdp_popularity]- ML [?RUS_state_rkdp_popularity] - SC [?RUS_state_vns_popularity] - A [?RUS_state_ep_popularity]"
+					log = "[GetDateText]: [THIS.Owner.GetName]:  [THIS.GetName]: NP [?RUS_state_nrpr_popularity]- SLD [?RUS_state_nsnp_popularity] - IND [?RUS_state_independent_popularity]"
 				}
 			}
 		}
 	}
-	
 	#ROOT is new controller #FROM is old controller #FROM.FROM is state ID
 	on_state_control_changed = {
 		effect = {
-			### RUS/SOV control array
-			if = {
-				limit = {
-					OR = {
-						tag = RUS
-						tag = SOV
-					}
-					NOT = { is_in_array = { ROOT.enemy_controlled_states = FROM.FROM } }
-					FROM.FROM = {
-						owner = { has_war_with = ROOT }
-						OR = {
-							is_on_continent = europe
-							is_on_continent = middle_east
-						}
-					}
-				}
-				set_country_flag = has_enemy_control_array
-				add_to_array = { ROOT.enemy_controlled_states = FROM.FROM }
-			}
-
 			### A New 1812/1328 (event)
 			if = {
 				limit = {
@@ -183,16 +468,83 @@ on_actions = {
 				}
 			}
 
-			# Fall of Yekaterinburg (event)
+			# TCW - Japanese-controlled Vladivostok(event)
 			if = {
 				limit = {
-					tag = SOV
-					FROM = { tag = RUS }
-					FROM.FROM = { state = 653 } #Yekaterinburg
-					ROOT = { controls_province = 6338 }
+					OR = {
+						tag = SIB
+						tag = TRM
+					}
+					FROM = { 
+						tag = JAP
+					}
+					FROM.FROM = { state = 408 } #Yekaterinburg
+					ROOT = { controls_province = 957 }
+					FROM = { NOT = { owns_state = 408 } }
 				}
-				country_event = russia.1947
-				FROM = { country_event = russia.1948 }
+				custom_effect_tooltip = KR_separate_peace
+				FROM = { white_peace = ROOT }
+			}
+			# TCW - Buryatia
+			if = {
+				limit = {
+					ROOT = {
+						tag = BRY
+						NOT = { has_government = totalist }
+						NOT = { has_government = paternal_autocrat }
+					}
+					FROM = { 
+						tag = TRM
+					}
+					FROM.FROM = { state = 408 } #Yekaterinburg
+					ROOT = { controls_province = 957 }
+				}
+				custom_effect_tooltip = KR_separate_peace
+				FROM = { white_peace = ROOT }
+				BRY = { transfer_state = 565 }
+				if = {
+					limit = {
+						NOT = { country_exists = YAK }
+					}
+					YAK = {
+						transfer_state = 574
+						add_state_core = 574
+						set_country_flag = YAK_secured_its_independence
+						white_peace = TRM
+					}
+				}
+				FROM = {
+					add_war_support = -0.25
+					add_stability = -0.25
+					add_popularity = {
+						ideology = authoritarian_democrat
+						popularity = 0.15
+					}
+					remove_ideas = TRM_dream
+					diplomatic_relation = {
+						country = ROOT
+						relation = non_aggression_pact
+						active = yes
+					}
+					diplomatic_relation = {
+						country = YAK
+						relation = non_aggression_pact
+						active = yes
+					}						
+				}
+			}
+			if = {
+				limit = {
+					tag = TRM
+					FROM = { 
+						tag = RUS
+					}
+					FROM.FROM = { state = 653 } #Yekaterinburg
+					ROOT = { controls_province = 1821 }
+				}
+				ROOT = {
+					country_event = tram.309
+				}
 			}
 			
 			# RUS-FIN peace
@@ -228,9 +580,22 @@ on_actions = {
 				}
 				ROM = { country_event = rusfor.1236 }
 			}
+			if = {
+				limit = {
+					tag = CRM
+					FROM = { 
+						tag = UKR
+					}
+					FROM.FROM = { state = 202 } #Kiev
+					ROOT = { controls_province = 525 }
+				}
+				FROM = {
+					country_event = crm.179
+				}
+			}
 		}
 	}
-	on_daily_SOV = {
+	on_daily = {
 		effect = {
 			if = {
 				limit = {
@@ -241,5 +606,265 @@ on_actions = {
 				SOV_update_cultural_effects = yes
 			}
 		}
+	}
+	on_daily_RUS = {
+		effect = {
+			if = {
+				limit = {
+					has_country_flag = monarchy_referendum_accepted
+				}
+				add_to_variable = { RUS.RUS_days_till_referendum = -1 }
+			}
+		}
+	}
+	on_weekly_RUS = {
+		effect = {
+			if = {
+				limit = {
+					has_country_flag = monarchy_referendum_accepted
+				}
+				set_variable = { RUS_monarchy_popular_support = popular_support }
+				add_to_variable = { RUS_monarchy_popular_support = RUS_monarchy_popular_support_bonus }
+				if = {
+					limit = {
+						has_completed_focus = RUS_Monarchist_Propaganda
+					}
+					add_to_variable = { RUS_monarchy_popular_support = 0.2 }
+				}
+				set_variable = { RUS_monarchy_referendum_legitimacy = popular_support }
+				if = {
+					limit = {
+						has_completed_focus = RUS_Blame_Kerensky
+					}
+					add_to_variable = { RUS_monarchy_referendum_legitimacy = 0.15 }
+				}
+				add_to_variable = { RUS_monarchy_referendum_legitimacy = RUS_monarchy_referendum_legitimacy_bonus }
+				RUS_calculate_expected_monarchy_referendum = yes
+			}
+			if = {
+				limit = {
+					RUS = {
+						NOT = {
+							OR = {
+								has_government = paternal_autocrat
+								has_country_flag = RUS_DPROM
+								has_country_flag = RUS_VRA_TSAR
+								has_country_flag = RUS_SAVI
+								has_country_flag = RUS_SOLIDARISTS
+								has_country_flag = RUS_ABAKUMOV
+								has_country_flag = RUS_GORGULOV
+								has_country_flag = RUS_KER_DICT
+								has_country_flag = RUS_PUR
+								has_country_flag = RUS_CLE
+								has_cosmetic_tag = RUS_EUR
+								has_cosmetic_tag = RUS_EUR_national_maximalist
+								has_cosmetic_tag = RUS_EUR_empire
+								has_cosmetic_tag = RUS_EUR_bolshevist
+							}
+						}
+					}
+				}
+				RUS_calculate_government_variables = yes
+			}
+		}
+	}
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					RUS = {
+						exists = yes
+					}
+				}
+				if = {
+					limit = {
+						AND = {
+							has_idea = rus_industry_lack
+							num_of_factories < 221
+						}
+					}
+					RUS = { recalculate_backward_industry_debuff = yes }
+				}
+				else_if = {
+					limit = {
+						has_idea = rus_industry_lack
+						num_of_factories > 220
+					}
+					RUS = { country_event = rusd.224 }
+				}
+			}
+		}
+	}
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					RUS = {
+						exists = yes
+					}
+				}
+				RUS = { recalculate_monthly_industrialisation_rate = yes }
+			}
+		}
+	}
+	on_government_change = {
+		effect = {
+			if = {
+				limit = {
+					tag = TRM
+					OR = {
+						has_government = social_liberal
+						has_government = social_democrat
+					}
+				}
+				set_cosmetic_tag = TRM_SIB
+				if = {
+					limit = {
+						country_exists = SIB
+						SIB = { has_democratic_government = yes }
+					}
+					hidden_effect = {
+						TRM = {
+							every_unit_leader = {
+								retire = yes
+							}
+						}
+					}
+					SIB = {
+						every_unit_leader = {
+							set_nationality = TRM
+						}
+					}
+					TRM = {
+						annex_country = { target = SIB transfer_troops = yes }
+						add_stability = 0.1
+						add_war_support = -0.1
+						clr_country_flag = TRM_Yui
+						clr_country_flag = TRM_Moryaki_Coup
+						clr_country_flag = TRM_NRA_coup
+						clr_country_flag = TRM_Semyonov_Coup
+						clr_country_flag = TRM_Kolchak_alive
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = TRM
+					has_socialist_government = yes
+					has_country_flag = TRM_NRA_coup
+				}
+				if = {
+					limit = {
+						country_exists = SIB
+						SIB = { has_socialist_government = yes }
+					}
+					TRM = {
+						annex_country = { target = SIB transfer_troops = yes }
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = TRM
+					NOT = {
+						OR = {
+							has_government = social_liberal
+							has_government = social_democrat
+						}
+					}
+					has_cosmetic_tag = TRM_SIB
+				}
+				drop_cosmetic_tag = yes
+			}
+			if = {
+				limit = {
+					tag = TRM
+					NOT = {
+						has_country_leader = {
+							name = "Aleksandr Kolchak"
+							ruling_only = yes
+						}
+					}
+				}
+				if = {
+					limit = {
+						country_exists = BRY
+						BRY = { is_subject_of = TRM }
+					}
+					BRY = {
+						country_event = {
+							id = bry.50
+							days = 4
+						}
+					}
+				}
+			}
+		}
+	}
+	on_government_change = {
+		effect = {
+			if = {
+				limit = {
+					tag = RUS
+					russia_is_democratic = yes
+					date > 1936.4.4
+				}
+				parties_mp_recalc = yes
+				RUS_recheck_president_subideology = yes
+			}
+			if = {
+				limit = {
+					tag = RUS
+					has_country_flag = soviet_russia_restored
+					has_government = totalist
+				}
+				country_event = {
+					id = russoc.111
+					days = 180
+				}
+			}
+		}
+	}	
+	on_monthly_CRM = {
+		effect = {
+			if = {
+				limit = {
+					tag = CRM
+					OR = {
+						has_idea = CRM_water_shortage
+						has_idea = CRM_severe_water_shortage
+					}
+				}
+				set_temp_variable = { CRM_this_month_water_resources = 0 }
+				if = {
+					limit = {
+						has_idea = CRM_water_shortage
+					}
+					add_to_variable = { CRM_this_month_water_resources = -30 }
+				}
+				else_if = {
+					limit = {
+						has_idea = CRM_severe_water_shortage
+					}
+					add_to_variable = { CRM_this_month_water_resources = -50 }
+				}
+				add_to_variable = { CRM_water_supplies = CRM_this_month_water_resources }
+				add_to_variable = { CRM_water_resources = CRM_water_supplies }
+				if = {
+					limit = {
+						check_variable = { CRM_water_resources < 0 }
+						NOT = { has_idea = CRM_severe_water_shortage }
+					}
+					swap_ideas = {
+						remove_idea = CRM_water_shortage
+						add_idea = CRM_severe_water_shortage
+					}
+					country_event = {
+						id = crm.142
+						days = 0
+					}
+				}
+			}
+		}				
 	}
 }

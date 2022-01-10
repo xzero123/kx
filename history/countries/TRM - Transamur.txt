@@ -2,10 +2,9 @@
 
 oob = "TRM"
 set_naval_oob= "TRM_naval"
-
+starting_train_buffer = 1.5
 set_technology = {
-	#### Tanks ####
-	gwtank = 1
+	basic_train = 1
 	#### INF ####
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -21,33 +20,73 @@ set_technology = {
 	naval_bomber1 = 1
 	fighter1 = 1
 }
-
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		light_tank_chassis = 1
+		armored_train = 1
+	}
+	create_equipment_variant = {
+		name = "Type 94 Tankette"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 1
+			tank_nsb_armor_upgrade = 1
+		}
+		obsolete = yes
+		icon = "gfx/interface/technologies/JAP_imp_light_tank.png"
+	}
+}
 ### Navy - MtG ###
 if = {
 	limit = {
 		has_dlc = "Man the Guns"
 	}
 	set_technology = {
-		weltkrieg_light_ship_hull = 1
-		contact_mine = 1
-		light_ship_hull_1936 = 1
-		weltkrieg_cruiser_hull = 1
-		cruiser_hull_1936 = 1
-		weltkrieg_submarine_hull = 1
-		submarine_hull_1936 = 1
-		cruiser_submarine = 1
-		ship_hull_revived_ac = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		cruiser_submarines = 1
+		early_ship_hull_heavy = 1
+		
+		basic_naval_mines = 1
 
 		## Modules##
-		early_torpedo = 1
-		weltkrieg_naval_gunnery = 1
-		naval_ammo_one = 1
-		light_battery_one = 1
-		light_battery_two = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_medium_battery = 1
+		basic_secondary_battery = 1
+		improved_secondary_battery = 1
+		basic_depth_charges = 1
+		basic_torpedo = 1
 		improved_ship_torpedo_launcher = 1
 		basic_cruiser_armor_scheme = 1
-		weltkrieg_naval_gunnery = 1
-		weltkrieg_naval_gunnery = 1
+		basic_heavy_armor_scheme = 1
+
+		### Transport ###
+		mtg_transport = 1
 	}
 }
 
@@ -59,29 +98,40 @@ if = {
 		}
 	}
 	set_technology = {
-		weltkrieg_destroyer_nonmtg = 1
-		interwar_destroyer_nonmtg = 1
-		weltkrieg_cruiser_nonmtg = 1
-		interwar_cruiser_nonmtg = 1
-		weltkrieg_submarine_nonmtg = 1
-		interwar_submarine_nonmtg = 1
-		weltkrieg_armored_cruiser_nonmtg = 1
-		interwar_armored_cruiser_nonmtg = 1
-		weltkrieg_dreadnought_nonmtg = 1
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+		early_submarine = 1
+		basic_submarine = 1
+		early_heavy_cruiser = 1
+		basic_heavy_cruiser = 1
+		early_battlecruiser = 1
+		early_battleship = 1
+		basic_battleship = 1
+		heavy_battleship = 1
+		early_carrier = 1
+
+		### Transport ###
+		transport = 1
 	}
 }
 
 country_event = { id = tram.intro days = 1 }
-country_event = { id = tramsem.1 days = 250 }
-country_event = { id = trmnra.1 days = 120 }
-country_event = { id = tram.2 days = 646 }
-country_event = { id = tram.3 days = 646 }
-country_event = { id = tram.4 days = 771 }
+country_event = { id = tram.2 days = 696 }
+country_event = { id = tram.3 days = 696 }
+country_event = { id = tram.4 days = 720 }
 country_event = { # Kyril's Death
 	id = tram.5
 	days = 1014 # 10.10.1938
 	random = 720
 }
+country_event = { # Vologodksy Death
+	id = tram.217
+	days = 1014 # 19.11.1938
+	random = 759
+}
+
 set_stability = 0.5
 set_war_support = 0.55
 set_research_slots = 3
@@ -89,7 +139,14 @@ set_convoys = 45
 set_cosmetic_tag = TRM_FE
 set_country_flag = TRM_oblastniki_operate
 set_country_flag = RUS_can_integrate
-
+set_country_flag = RUS_can_integrate
+set_variable = { OblastnikiPromises = 1 }
+set_variable = { rus_core_integration_cost_compliance = 30 } #Initial
+set_variable = { rus_core_integration_time_to_remove = 150 } #Initial
+add_to_array = { RUS_integration_array = TRM }
+add_to_array = { RUS_integration_array = MTR }	
+add_to_array = { RUS_integration_array = TTR }	
+add_to_array = { RUS_integration_array = YAK }	
 
 add_ideas = {
 	SIB_Pyetr_Vologodsky_hog_pau
@@ -99,6 +156,8 @@ add_ideas = {
 	extensive_conscription
 	TRM_anti_kolchak
 	TRM_dream
+	TRM_dream_1
+	TRM_Siberian_Army
 	TRM_oblastniki_influence_idea
 	TRM_japanese_influence_idea
 }
@@ -124,11 +183,11 @@ set_popularities = {
 	syndicalist = 0
 	social_democrat = 4
 	social_liberal = 15
-	market_liberal = 7
-	social_conservative = 11
+	market_liberal = 8
+	social_conservative = 13
 	authoritarian_democrat = 13
-	paternal_autocrat = 41
-	national_populist = 5
+	paternal_autocrat = 43
+	national_populist = 0
 }
 
 add_dynamic_modifier = {
@@ -140,34 +199,48 @@ add_dynamic_modifier = {
 }
 TRM_recalculate_japanese_effects = yes
 
+TRM_setup_spheres_of_influence = yes
+
+add_ai_strategy = {
+	type = ignore_claim
+	id = "RUS"
+	value = 1
+}
+add_ai_strategy = {
+	type = ignore_claim
+	id = "YAK"
+	value = 1
+}
+
+
 create_country_leader = {
-	name = "Alexander Kazem-Bek"
-	desc = "POLITICS_KAZEMBEK_DESC"
-	picture = "Portrait_TRM_Alexander_Kazembek.tga"
+	name = "Vasily Blyukher"
+	desc = "POLITICS_BLYUKHER_DESC"
+	picture = "gfx/leaders/TRM/TRM_Vasily_Blyukher.png"
 	expire = "1965.1.1"
-	ideology = totalist_subtype
+	ideology = red_junta_subtype
 }
 
 create_country_leader = {
 	name = "Aleksandr Krasnoshchyekov"
 	desc = "POLITICS_KRASNOSHCHYEKOV_DESC"
-	picture = "gfx/leaders/RUS/Portrait_Transamur_Alexander_Krasnoshchyokov.tga"
-	expire = "1965.1.1"
-	ideology = syndicalist_subtype
-}
-
-create_country_leader = {
-	name = "Boris Shumyatskiy"
-	desc = "POLITICS_SHUMYATSKY_DESC"
-	picture = "gfx/leaders/RUS/Portrait_Transamur_Boris_Shumyatsky.tga"
+	picture = "gfx/leaders/TRM/Portrait_TRM_Alexander_Krasnoshchyokov.png"
 	expire = "1965.1.1"
 	ideology = radical_socialist_subtype
 }
 
 create_country_leader = {
+	name = "Boris Shumyatskiy"
+	desc = "POLITICS_SHUMYATSKY_DESC"
+	picture = "gfx/leaders/TRM/Portrait_TRM_Boris_Shumyatsky.png"
+	expire = "1965.1.1"
+	ideology = syndicalist_subtype
+}
+
+create_country_leader = {
 	name = "Ivan Lavrov"
 	desc = "POLITICS_LAVROV_DESC"
-	picture = "gfx/leaders/RUS/Portrait_RUS_Ivan_Lavrov.tga"
+	picture = "gfx/leaders/RUS/Portrait_RUS_Ivan_Lavrov.png"
 	expire = "1965.1.1"
 	ideology = social_liberal_subtype
 }
@@ -175,7 +248,7 @@ create_country_leader = {
 create_country_leader = {
 	name = "Evgeniy Kolosov"
 	desc = "POLITICS_DERBER_DESC"
-	picture = "gfx/leaders/RUS/Portrait_RUS_Evgeniy_Kolosov.tga"
+	picture = "gfx/leaders/RUS/Portrait_RUS_Evgeniy_Kolosov.png"
 	expire = "1965.1.1"
 	ideology = social_democrat_subtype
 }
@@ -183,7 +256,7 @@ create_country_leader = {
 create_country_leader = {
 	name = "Viktor Pepelyayev"
 	desc = "POLITICS_PEPELYAYEV_DESC"
-	picture = "gfx/leaders/RUS/Portrait_Transamur_Victor_Pepelyaev.tga"
+	picture = "gfx/leaders/TRM/Portrait_TRM_Victor_Pepelyaev.png"
 	expire = "1965.1.1"
 	ideology = market_liberal_subtype
 }
@@ -191,14 +264,14 @@ create_country_leader = {
 create_country_leader = {
 	name = "Spiridon Merkulov"
 	desc = "POLITICS_MERKULOV_DESC"
-	picture = "gfx/leaders/RUS/Portrait_Transamur_Spiridon_Merkulov.tga"
+	picture = "gfx/leaders/TRM/Portrait_TRM_Spiridon_Merkulov.png"
 	expire = "1965.1.1"
 	ideology = social_conservative_subtype
 }
 create_country_leader = {
 	name = "Yui Mitsue"
 	desc = "POLITICS_YUI_DESC"
-	picture = "gfx/leaders/RUS/Portrait_JAP_Yui_Mitsue.tga"
+	picture = "gfx/leaders/RUS/Portrait_JAP_Yui_Mitsue.png"
 	expire = "1965.1.1"
 	ideology = authoritarian_democrat_subtype
 }
@@ -206,26 +279,29 @@ create_country_leader = {
 create_country_leader = {
 	name = "Aleksandr Kolchak"
 	desc = "POLITICS_ALEXANDR_KOLCHAK_DESC"
-	picture = "gfx/leaders/RUS/Portrait_Transamur_Alexandr_Kolchak.tga"
+	picture = "gfx/leaders/TRM/Portrait_TRM_Aleksandr_Kolchak.png"
 	expire = "1965.1.1"
-	ideology = paternal_autocrat_subtype
-	traits = { admiral_dictator }
+	ideology = junta_subtype
+	traits = { admiral_dictator supreme_ruler }
 }
 create_country_leader = {
 	name = "Sergey Voytsekhovskiy"
 	desc = "POLITICS_WOJ_DESC"
-	picture = "gfx/leaders/RUS/Portrait_Transamur_Sergey_Wojciechowski.tga"
+	picture = "gfx/leaders/TRM/Portrait_TRM_Sergey_Wojciechowski.png"
 	expire = "1965.1.1"
-	ideology = national_populist_subtype
+	ideology = militarism_subtype
 }
 
 ### Field Marshals ###
 create_field_marshal = {
 	name = "Anatoliy Pepelyaev"
-	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Anatoliy_Pepelyaev.tga"
+	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Anatoliy_Pepelyaev.png"
+	id = 505060
 	traits = {
 		offensive_doctrine
 		career_officer
+		old_guard
+		skilled_staffer
 	}
 	skill = 3
 	attack_skill = 4
@@ -234,13 +310,20 @@ create_field_marshal = {
 	logistics_skill = 2
 }
 
-create_field_marshal = {
+
+
+
+### Corps Commanders ###
+
+create_corps_commander = {
 	name = "Grigoriy Semyenov"
-	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Grigory_Semyonov.tga"
+	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Grigory_Semyonov.png"
 	id = 243910
 	traits = {
-		defensive_doctrine
 		cavalry_leader
+		cavalry_expert
+		media_personality
+		politically_connected
 	}
 	skill = 3
 	attack_skill = 2
@@ -248,30 +331,9 @@ create_field_marshal = {
 	planning_skill = 2
 	logistics_skill = 3
 }
-
-create_field_marshal = {
-	name = "Radola Gajda"
-	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Radola_Gajda.tga"
-	id = 243911
-	traits = {
-		offensive_doctrine
-		trickster
-		winter_specialist
-		fast_planner
-	}
-	skill = 4
-	attack_skill = 4
-	defense_skill = 2
-	planning_skill = 1
-	logistics_skill = 3
-}
-
-
-
-### Corps Commanders ###
 create_corps_commander = {
 	name = "Sergey Baranovskiy"
-	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Sergey_Baranovskiy.tga"
+	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Sergey_Baranovskiy.png"
 	traits = { }
 	skill = 2
 	attack_skill = 2
@@ -279,11 +341,40 @@ create_corps_commander = {
 	planning_skill = 2
 	logistics_skill = 2
 }
+create_corps_commander = {
+	name = "Innokentiy Smolin"
+	id = 505053
+	portrait_path = "gfx/leaders/TRM/TRM_Innokentiy_Smolin.png"
+	traits = {
+		infantry_leader
+		winter_specialist
+		old_guard
+	}
+	skill = 3
+	attack_skill = 3
+	defense_skill = 1
+	planning_skill = 2
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = "Ivan Gamov"
+	id = 505054
+	portrait_path = "gfx/leaders/TRM/TRM_Ivan_Gamov.png"
+	traits = {
+		cavalry_leader
+		cavalry_expert
+	}
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 1
+}
 
 create_corps_commander = {
 	name = "Mikhail Khanzhin"
 	id = 50004
-	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Mikhail_Khanzhin.tga"
+	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Mikhail_Khanzhin.png"
 	traits = {
 		old_guard
 	}
@@ -296,10 +387,11 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Dmitriy Semyenov"
-	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Dmitriy_Semyenov.tga"
+	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Dmitriy_Semyenov.png"
 	traits = {
 		organizer
 	}
+	id = 243912
 	skill = 2
 	attack_skill = 1
 	defense_skill = 2
@@ -309,7 +401,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Vladimir Gulidov"
-	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Vladimir_Gulidov.tga"
+	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Vladimir_Gulidov.png"
 	traits = {
 		commando
 	}
@@ -319,11 +411,29 @@ create_corps_commander = {
 	planning_skill = 2
 	logistics_skill = 2
 }
-
+create_corps_commander = {
+	name = "Aleksey Grishin-Almazov"
+	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Aleksey_Grishin_Almazov.png"
+	id = 505055
+	traits = {
+		skilled_staffer
+		organizer
+		war_hero
+	}
+	skill = 2
+	attack_skill = 1
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 2
+}
 create_corps_commander = {
 	name = "Vladimir Tolstov"
-	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Vladimir_Tolstov.tga"
-	traits = { }
+	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Vladimir_Tolstov.png"
+	traits = {
+		cavalry_leader
+		cavalry_expert
+	}
+	id = 505056
 	skill = 2
 	attack_skill = 3
 	defense_skill = 1
@@ -333,10 +443,11 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Leonid Skipetrov"
-	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Leonid_Skipetrov.tga"
+	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Leonid_Skipetrov.png"
 	traits = {
 		commando
 	}
+	id = 243911
 	skill = 3
 	attack_skill = 3
 	defense_skill = 2
@@ -345,24 +456,30 @@ create_corps_commander = {
 }
 
 create_corps_commander = {
-	name = "Vasiliy Boldyrev"
-	id = 50003
-	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Vasiliy_Boldyrev.tga"
-	traits = { }
+	name = "Mikhail Diterikhs"
+	id = 505058
+	portrait_path = "gfx/leaders/TRM/Portrait_TRM_Diterikhs.png"
+	traits = {
+		politically_connected
+		infantry_leader
+		infantry_expert 
+	}
 	skill = 3
 	attack_skill = 2
-	defense_skill = 3
-	planning_skill = 3
+	defense_skill = 2
+	planning_skill = 2
 	logistics_skill = 2
 }
 
 create_corps_commander = {
-	name = "Aleksandr Kolchak"
+	name = "Aleksandr Kolchak "
 	id = 50000
-	portrait_path = "gfx/leaders/RUS/Portrait_Transamur_Alexandr_Kolchak.tga"
+	portrait_path = "gfx/leaders/TRM/Portrait_TRM_Aleksandr_Kolchak.png"
 	traits = {
+		war_hero 
 		media_personality
 		politically_connected
+		naval_invader 
 	}
 	skill = 4
 	attack_skill = 4
@@ -373,9 +490,10 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Yakov Slashchov"
-	portrait_path = "gfx/leaders/TRM/Portrait_TRM_Yakov_Slashchov.tga"
+	portrait_path = "gfx/leaders/TRM/Portrait_TRM_Yakov_Slashchov.png"
 	traits = {
 		old_guard
+		cavalry_leader
 	}
 	skill = 3
 	attack_skill = 2
@@ -384,24 +502,12 @@ create_corps_commander = {
 	logistics_skill = 1
 }
 
-create_corps_commander = {
-	name = "Nikolai Skoblin"
-	portrait_path = "gfx/leaders/TRM/Portrait_TRM_Nikolai_Skoblin.tga"
-	traits = {
-		commando
-	}
-	skill = 1
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 2
-}
 
 ### Admirals ###
 create_navy_leader = {
 	name = "Georgiy Stark"
 	id = 50002
-	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Georgiy_Stark.tga"
+	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Georgiy_Stark.png"
 	traits = { }
 	skill = 3
 	maneuvering_skill = 2
@@ -411,11 +517,12 @@ create_navy_leader = {
 }
 
 create_navy_leader = {
-	name = "Aleksandr Kolchak"
+	name = "Aleksandr V. Kolchak"
 	id = 50001
-	portrait_path = "gfx/leaders/RUS/Portrait_Transamur_Alexandr_Kolchak.tga"
+	portrait_path = "gfx/leaders/TRM/Portrait_TRM_Aleksandr_Kolchak.png"
 	traits = {
 		superior_tactician
+		war_hero 
 	}
 	skill = 4
 	maneuvering_skill = 3
@@ -426,7 +533,7 @@ create_navy_leader = {
 
 create_navy_leader = {
 	name = "Aleksandr Gerasimov"
-	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Aleksandr_Gerasimov.tga"
+	portrait_path = "gfx/leaders/RUS/Portrait_RUS_Aleksandr_Gerasimov.png"
 	traits = { }
 	skill = 1
 	maneuvering_skill = 1

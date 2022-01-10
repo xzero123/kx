@@ -609,7 +609,7 @@ focus_tree = {
 		id = KLY_Foreign_Policy
 		icon = GFX_goal_foreign_diplomacy
 		cost = 3
-		x = 11
+		x = 12
 		y = 0
 		available = {
 			OR = {
@@ -641,6 +641,9 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
+		mutually_exclusive = {
+			focus = KLY_Looking_For_Protection
+		}
 		completion_reward = {
 			set_country_flag = KLY_neutral
 			custom_effect_tooltip = KLY_neutral_tooltip
@@ -658,6 +661,9 @@ focus_tree = {
 		y = 1
 		ai_will_do = {
 			factor = 100
+		}
+		mutually_exclusive = {
+			focus = KLY_Neutrality
 		}
 		available = {
 			NOT = { has_country_flag = KLY_neutral }
@@ -686,7 +692,7 @@ focus_tree = {
 			}
 			modifier = {
 				factor = 2
-				country_exists = SOV
+				soviets_exist = yes
 				SOV = { same_government_type_as_ROOT  = yes }
 			}
 		}
@@ -696,10 +702,12 @@ focus_tree = {
 				AND = {
 					country_exists = RUS
 					RUS = { is_faction_leader = yes }
+					has_socialist_government = no
 				}
 				AND = {
-					country_exists = SOV
+					soviets_exist = yes
 					SOV = { is_faction_leader = yes }
+					has_socialist_government = yes
 				}
 			}
 			has_war = no
@@ -756,8 +764,8 @@ focus_tree = {
 			focus = KLY_Looking_For_Protection
 		}
 		relative_position_id = KLY_Foreign_Policy
-		x = 2
-		y = 3
+		x = -1
+		y = 2
 		ai_will_do = {
 			factor = 50
 			modifier = {
@@ -786,22 +794,45 @@ focus_tree = {
 		icon = GFX_KLY_greater_kalmykia
 		cost = 5
 		prerequisite = {
-			focus = KLY_Foreign_Policy
+			focus = KLY_Eurasian_Brotherhood
+		}
+		prerequisite = {
+			focus = KLY_The_Buddhist_Law
 		}
 		relative_position_id = KLY_Foreign_Policy
-		x = 0
-		y = 3
+		x = -2
+		y = 4
 		ai_will_do = {
 			factor = 20
+			modifier = {
+				factor = 0.2
+				is_in_faction_with = GER
+			}
 		}
+		will_lead_to_war_with = DKB
+		will_lead_to_war_with = KUB
+		will_lead_to_war_with = RUS
 		available = {
 			NOT = { has_country_flag = KLY_neutral }
 			is_subject = no
+			NOT = { is_in_faction_with = GER }
 		}
 		completion_reward = {
 			235 = { add_claim_by = ROOT }
 			238 = { add_claim_by = ROOT }
 			1189 = { add_claim_by = ROOT }
+			declare_war_on = {
+				target = 235.owner
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = 238.owner
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = 1189.owner
+				type = annex_everything
+			}
 		}
 	}
 	focus = {
@@ -812,11 +843,18 @@ focus_tree = {
 			focus = KLY_Greater_Kalmykia
 		}
 		relative_position_id = KLY_Foreign_Policy
-		x = 0
-		y = 4
+		x = -1
+		y = 5
 		ai_will_do = {
 			factor = 20
+			modifier = {
+				factor = 0.2
+				is_in_faction_with = GER
+			}
 		}
+		will_lead_to_war_with = DKB
+		will_lead_to_war_with = ALO
+		will_lead_to_war_with = RUS
 		available = {
 			OR = {
 				235 = { is_owned_and_controlled_by = KLY }
@@ -825,6 +863,21 @@ focus_tree = {
 			}
 			is_subject = no
 			245 = {
+				owner = {
+					has_war = yes
+				}
+			}
+			265 = {
+				owner = {
+					has_war = yes
+				}
+			}
+			406 = {
+				owner = {
+					has_war = yes
+				}
+			}
+			236 = {
 				owner = {
 					has_war = yes
 				}
@@ -838,13 +891,25 @@ focus_tree = {
 			265 = { add_claim_by = KLY }
 			217 = { add_claim_by = KLY }
 			239 = { add_claim_by = KLY }
+			declare_war_on = {
+				target = 245.owner
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = 236.owner
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = 406.owner
+				type = annex_everything
+			}
 		}
 	}
 	focus = {
 		id = KLY_Form_The_Kalmyk_Army
 		icon = GFX_KLY_army
 		cost = 5
-		x = 17
+		x = 18
 		y = 0
 		ai_will_do = {
 			factor = 70
@@ -878,11 +943,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			remove_ideas = KLM_Cossack_army
-			add_tech_bonus = {
-				name = KLY_Search_For_New_Methods
-				bonus = 1
-				uses = 2
-				category = cat_superior_firepower
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_superior_firepower
 			}
 		}
 	}
@@ -903,11 +968,11 @@ focus_tree = {
 			factor = 70
 		}
 		completion_reward = {
-			add_tech_bonus = {
-				name = KLY_Cossack_Tactics
-				bonus = 1
-				uses = 2
-				category = cat_grand_battle_plan  
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_grand_battle_plan  
 			}
 		}
 	}
@@ -929,9 +994,9 @@ focus_tree = {
 			factor = 60
 		}
 		completion_reward = {
-			add_tech_bonus = {
-				name = KLY_Focus_Defence
-				bonus = 1
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
 				uses = 1
 				category = land_doctrine
 			}
@@ -955,9 +1020,9 @@ focus_tree = {
 			factor = 60
 		}
 		completion_reward = {
-			add_tech_bonus = {
-				name = KLY_Focus_Offense
-				bonus = 1
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
 				uses = 1
 				category = land_doctrine
 			}

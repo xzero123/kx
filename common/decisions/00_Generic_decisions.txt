@@ -383,6 +383,96 @@ political_actions = {
 		}
 	}
 
+	real_life = {
+
+		icon = GFX_decision_go_outside
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			has_global_flag = have_sex_flag
+		}
+
+		visible = {
+			is_ai = no
+			has_global_flag = have_sex_flag
+		}
+
+		cancel_trigger = {
+			
+		}
+
+		fire_only_once = yes
+		
+
+		cost = 100
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision real_life"
+			load_focus_tree = reallife
+		}
+
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	have_sex = {
+
+		icon = GFX_decision_sex
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			NOT = {
+				has_country_flag = having_sex
+			}
+		}
+
+		visible = {
+			is_ai = no
+			has_country_flag = ready_for_sex
+		}
+
+		cancel_trigger = {
+			
+		}
+
+		fire_only_once = no
+		
+		days_remove = 1
+		days_re_enable = 20
+
+		cost = 100
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision have_sex"
+			set_country_flag = having_sex
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove have_sex"
+			clr_country_flag = having_sex
+			custom_effect_tooltip = Sex_TT
+			random_list = {
+				50 = {
+					add_manpower = 1
+				}
+				50 = {
+					
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
 	AI_set_up_templates = {
 		icon = oppression
 
@@ -425,7 +515,10 @@ political_actions = {
 			}
 			if = {
 				limit = {
-					has_tech = gwtank
+					OR = {
+						has_tech = gwtank
+						has_tech = gwtank_chassis
+					}
 					NOT = { ai_has_role_template = armor }
 					NOT = { has_tech = motorised_infantry }
 				}

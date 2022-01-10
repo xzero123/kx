@@ -252,8 +252,22 @@ USA_release_CSA = {
 		set_country_flag = Paul_Mattick_dead
 		set_country_flag = John_Abt_dead
 
-		remove_unit_leader = 100 #Smedley Butler
-		remove_unit_leader = 61 #Herbert Holdridge
+		every_unit_leader = { #Smedley Butler
+			limit = {
+				has_id = 100
+			}
+			set_nationality = CSA
+			set_leader_portrait = GFX_Portrait_CSA_smedly_butler_G
+			promote_leader = yes
+		}
+		
+		every_unit_leader = { 
+			limit = { 
+				has_id = 102 #Herbert Holdridge 
+			} 
+			set_nationality = CSA 
+		}
+
 
 		CSA = {
 			load_oob = "USA_civil_war_csa_army"
@@ -953,8 +967,23 @@ USA_release_COR = {
 			add_claim_by = COR
 		}
 
-		remove_unit_leader = 992 #George S. Patton
-		remove_unit_leader = 990 #George Van Horn Moseley
+		every_unit_leader = { #Patton
+			limit = {
+				has_id = 992
+			}
+			set_nationality = COR
+			set_leader_portrait = GFX_Portrait_COR_George_Patton
+			promote_leader = yes
+		}
+		
+		every_unit_leader = { #Moseley
+			limit = {
+				has_id = 990
+			}
+			set_nationality = COR
+			set_leader_portrait = GFX_Portrait_TEX_George_Van_Horn_Moseley
+			promote_leader = yes
+		}
 
 		set_country_flag = John_Sparkman_dead
 		set_country_flag = James_Eastland_dead
@@ -966,11 +995,6 @@ USA_release_COR = {
 		set_country_flag = Henry_Ford_dead
 		set_country_flag = Joseph_T_McNarney_dead
 		set_country_flag = Nathan_Bedford_Forrest_III_dead
-		
-		every_navy_leader = {
-			limit = { has_id = 63 } #William Halsey Jr.
-			set_nationality = COR
-		}
 
 		COR = {
 			load_oob = "USA_civil_war_car_army"
@@ -1211,7 +1235,7 @@ USA_release_WCC = {
 			}
 			create_corps_commander = {#More Unit Leaders to deal with WCC staff
 				name = "Hugh S. Johnson"
-				portrait_path = "gfx/leaders/USA/Portrait_Hugh_S_Johnson.tga"
+				portrait_path = "gfx/leaders/USA/Portrait_Hugh_S_Johnson.png"
 				traits = { 
 					politically_connected 
 					trait_cautious 
@@ -1224,7 +1248,7 @@ USA_release_WCC = {
 			}
 			create_corps_commander = {#More Unit Leaders to deal with WCC staff
 				name = "John R. Hodge"
-				portrait_path = "gfx/leaders/USA/Portrait_john_r_hodge.tga"
+				portrait_path = "gfx/leaders/USA/Portrait_john_r_hodge.png"
 				traits = { 
 					air_commander 
 					naval_invader 
@@ -1237,14 +1261,48 @@ USA_release_WCC = {
 			}
 		
 		
-		remove_unit_leader = 88 #Bradley
-		remove_unit_leader = 90 #Ike
-		remove_unit_leader = 68 #Keyes
-		remove_unit_leader = 96 #Ord
-		remove_unit_leader = 98 #Harding
-		remove_unit_leader = 82 #Griswold
-		remove_unit_leader = 74 #Gerow
-
+		every_unit_leader = { 
+			limit = { 
+				has_id = 88 #Bradley 
+			} 
+			set_nationality = WCC 
+		}
+		every_unit_leader = { 
+			limit = { 
+				has_id = 90 #Ike 
+			} 
+			set_nationality = WCC 
+		}
+		every_unit_leader = { 
+			limit = { 
+				has_id = 68 #Keyes 
+			} 
+			set_nationality = WCC 
+		}
+		every_unit_leader = { 
+			limit = { 
+				has_id = 96 #Ord 
+			} 
+			set_nationality = WCC 
+		}
+		every_unit_leader = { 
+			limit = { 
+				has_id = 98 #Harding 
+			}
+			set_nationality = WCC 
+		}
+		every_unit_leader = { 
+			limit = {
+				has_id = 82 #Griswold 
+			}
+			set_nationality = WCC 
+		}
+		every_unit_leader = { 
+			limit = { 
+				has_id = 74 #Gerow 
+			} set_nationality = WCC 
+		}
+		
 		set_country_flag = Martin_Dies_Jr_dead
 		set_country_flag = Walter_Bedell_'Beetle'_Smith_dead
 		set_country_flag = Joseph_Raymond_McCarthy_dead
@@ -1389,11 +1447,29 @@ USA_release_CAL = {
 			add_claim_by = CAL
 		}
 
-		remove_unit_leader = 84 #Walter Krueger
-		remove_unit_leader = 76 #Leslie McNair
-		remove_unit_leader = 62 #Arnold
-		remove_unit_leader = 60 #George Marshall
-		remove_unit_leader = 86 #George Marshall
+		every_unit_leader = { 
+			limit = { 
+				has_id = 84 #Walter Krueger 
+			}
+			set_nationality = CAL 
+		}
+		every_unit_leader = { 
+			limit = { 
+				has_id = 76 #Leslie McNair 
+			} set_nationality = CAL 
+		}
+		every_unit_leader = { 
+			limit = { 
+				has_id = 62 #Arnold 
+			} 
+			set_nationality = CAL 
+		}
+		every_unit_leader = { 
+			limit = { 
+				has_id = 60 #George Marshall 
+			} 
+			set_nationality = CAL 
+		}
 
 		set_country_flag = Glen_H_Taylor_dead
 		set_country_flag = Henry_Wallace_dead
@@ -1782,7 +1858,15 @@ USA_civil_war_begins = {
 			CSA = { declare_war_on = { target = WCC type = annex_everything	} }
 		}
 		if = {
-			limit = { country_exists = CAL 	}
+			limit = { 
+				country_exists = CAL
+				NOT = {
+					OR = {
+						has_global_flag = CAl_peaceoutgang
+						has_global_flag = CAL_fuckit_free_cali
+					}
+				}
+			}
 			CAL = { declare_war_on = { target = USA type = annex_everything	} }
 			CAL = { declare_war_on = { target = WCC type = annex_everything	} }
 		}
@@ -1800,7 +1884,10 @@ USA_civil_war_begins = {
 				country_exists = COR
 				country_exists = CAL
 				NOT = {
-				has_global_flag = PSA_COR_TREATY
+					OR = {
+						has_global_flag = PSA_COR_TREATY
+						has_global_flag = CAL_fuckit_free_cali
+					}
 				}
 			}
 			CAL = { declare_war_on = { target = COR type = annex_everything	} }
@@ -1846,7 +1933,7 @@ USA_civil_war_begins = {
 				country_exists = COR
 				country_exists = CAL
 				NOT = {
-				has_country_flag = PSA_COR_TREATY
+				has_global_flag = PSA_COR_TREATY
 				}
 			}
 			CSA = { declare_war_on = { target = COR type = annex_everything	} }
@@ -1855,7 +1942,10 @@ USA_civil_war_begins = {
 		if = {
 			limit = { country_exists = CAL 
 			NOT = {
-			has_country_flag = PSA_CSA_TREATY
+				OR = {
+						has_global_flag = PSA_CSA_TREATY
+						has_global_flag = CAL_fuckit_free_cali
+					}
 				}
 			}
 			CSA = {
@@ -1865,7 +1955,10 @@ USA_civil_war_begins = {
 		if = {
 			limit = { 
 			NOT = {
-			has_global_flag = PSA_AUS_TREATY
+			OR = {
+				has_global_flag = PSA_AUS_TREATY
+				has_global_flag = CAL_fuckit_free_cali
+			}
 				} 
 			}
 			TEX = {
@@ -1957,7 +2050,6 @@ USA_civil_war_begins = {
 
 		USA = {
 			country_event = { id = amcivwar.61 days = 2 random = 72 } # Conscription
-			country_event = { id = amcivwar.63 days = 2 random = 72 } # Panama Garrison
 			country_event = { id = amcivwar.62 days = 30 } # Recall the China Marines?
 			country_event = { id = amcivwar.93 days = 90 }
 			add_ideas = {
@@ -2042,6 +2134,7 @@ USA_civil_war_begins = {
 			country_event = { id = amcivwar.67 days = 150 random = 20 } # Native American Code talkers
 			country_event = { id = amcivwar.69 days = 180 random = 20 } # Double V Campaign
 			country_event = { id = amcivwar.70 days = 200 random = 20 } # Militarize the WASPs?
+			country_event = { id = ustates.1284 days = 80 random = 20 } # Militarize the WASPs?
 
 			news_event = { id = worldnews.1 hours = 4 } #main news event
 		}
@@ -2092,11 +2185,9 @@ USA_civil_war_begins = {
 			}
 		}
 		BRA = {
-			country_event = {
-				id = bra.108
-				days = 20
-				random_days = 20
-			}
+			country_event = { id = bra.108 days = 20 random_days = 20 } #Volunteers to the ACW
+			country_event = { id = bra.203 days = 45 random_days = 180 } #Refugees from the ACW
+			country_event = { id = bra.215 days = 90 random = 270 } #Increasing German Alignment
 		}
 		HOL = {
 			country_event = {
@@ -2288,8 +2379,22 @@ USA_civil_war_ends = {
 					random_days = 5
 				}
 			}
+			
 		}
 		set_global_flag = USA_civil_war_over_flag
+		IRE = {
+			country_event = { id = ire.209 days = 2 random_days = 5 }
+		}
+		BRA = {
+			country_event = { id = bra.204 days = 15 random_days = 45 } #The Last Democracy?
+			country_event = { id = bra.205 days = 30 random_days = 90 } #Send Osvaldo Aranha to the United States?
+		}
+		TEX = {
+			country_event = {
+				id = unionstate.1
+				days = 10
+			}
+		}
 	}
 }
 
@@ -3026,21 +3131,21 @@ NEE_decrease_republican_resistance = {
 			add_idea = NEE_post_war_devestation2
 		}
 	}
-	if = {
+	else_if = {
 		limit = { has_idea = NEE_post_war_devestation2 }
 		swap_ideas = {
 			remove_idea = NEE_post_war_devestation2
 			add_idea = NEE_post_war_devestation3
 		}
 	}
-	if = {
+	else_if = {
 		limit = { has_idea = NEE_post_war_devestation3 }
 		swap_ideas = {
 			remove_idea = NEE_post_war_devestation3
 			add_idea = NEE_post_war_devestation4
 		}
 	}
-	if = {
+	else_if = {
 		limit = { 
 			NOT = {
 				has_idea = NEE_post_war_devestation 
@@ -3066,14 +3171,14 @@ NEE_decrease_republican_systems = {
 			add_idea = NEE_republican_political_system2
 		}
 	}
-	if = {
+	else_if = {
 		limit = { has_idea = NEE_republican_political_system2 }
 		swap_ideas = {
 			remove_idea = NEE_republican_political_system2
 			add_idea = NEE_republican_political_system3
 		}
 	}
-	if = {
+	else_if = {
 		limit = { has_idea = NEE_republican_political_system3 }
 		swap_ideas = {
 			remove_idea = NEE_republican_political_system3
@@ -3332,7 +3437,7 @@ USA_take_psa_leader = {
 		create_country_leader = {
 				name = "Alf Landon"
 				desc = "POLITICS_ALF_LANDON_DESC"
-				picture = "gfx/leaders/USA/Portrait_USA_Alf_Landon_KR.tga"
+				picture = "gfx/leaders/USA/Portrait_USA_Alf_Landon_KR.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 				traits = { economic_reformer }
@@ -3356,7 +3461,7 @@ USA_take_psa_leader = {
 		create_country_leader = {
 				name = "Charles Curtis"
 				desc = "POLITICS_CHARLES_CURTIS_DESC"
-				picture = "gfx/leaders/USA/Portrait_USA_Charles_Curtis.tga"
+				picture = "gfx/leaders/USA/Portrait_USA_Charles_Curtis.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 				traits = { the_great_compromiser }
@@ -3380,7 +3485,7 @@ USA_take_psa_leader = {
 		create_country_leader = {# John Nance Garner
 			name = "John Nance Garner"
 			desc = "POLITICS_JOHN_NANCE_GARNER_DESC"
-			picture = "gfx/leaders/USA/Garner.tga"
+			picture = "gfx/leaders/USA/Garner.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 			traits = { cactus_jack }
@@ -3404,7 +3509,7 @@ USA_take_psa_leader = {
 			create_country_leader = {
 				name = "Henry Wallace"
 				desc = "POLITICS_HENRY_WALLACE_DESC"
-				picture = "gfx/leaders/USA/Portrait_USA_Henry_Wallace.tga"
+				picture = "gfx/leaders/USA/Portrait_USA_Henry_Wallace.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 				traits = { great_survivor }
@@ -3428,7 +3533,7 @@ USA_take_psa_leader = {
 			create_country_leader = {
 				name = "Charles McNary"
 				desc = "POLITICS_CHARLES_MCNARY_DESC"
-				picture = "gfx/leaders/USA/Portrait_USA_Charles_L_McNary.tga"
+				picture = "gfx/leaders/USA/Portrait_USA_Charles_L_McNary.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 				traits = { fortification_engineer }
@@ -3452,7 +3557,7 @@ USA_take_psa_leader = {
 			create_country_leader = {
 				name = "Hiram Johnson"
 				desc = "POLITICS_HIRAM_JOHNSON_DESC"
-				picture = "Portrait_CAL_Hiram_Johnson.tga"
+				picture = "gfx/leaders/CAL/Portrait_CAL_Hiram_Johnson.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 				traits = { captain_of_industry }
@@ -3476,7 +3581,7 @@ USA_take_psa_leader = {
 			create_country_leader = {
 				name = "C.C. Young"
 				desc = "POLITICS_CC_YOUNG_DESC"
-				picture = "gfx/leaders/CAL/CAL_CC_Young.tga"
+				picture = "gfx/leaders/CAL/CAL_CC_Young.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 				traits = { diehard_progressive }
@@ -3500,7 +3605,7 @@ USA_take_psa_leader = {
 			create_country_leader = {
 				name = "Earl Warren"
 				desc = "POLITICS_EARL_WARREN_DESC"
-				picture = "Portrait_CAL_Earl_Warren.tga"
+				picture = "gfx/leaders/CAL/Portrait_CAL_Earl_Warren.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 				traits = { backroom_backstabber }
@@ -3524,7 +3629,7 @@ USA_take_psa_leader = {
 			create_country_leader = {
 				name = "William Gibbs McAdoo"
 				desc = "POLITICS_WILLIAM_GIBBS_MCADOO_DESC"
-				picture = "gfx/leaders/CAL/CAL_William_Gibbs_Mcaddo.tga"
+				picture = "gfx/leaders/CAL/CAL_William_Gibbs_Mcaddo.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 				traits = { eco_bank_president }
@@ -3548,7 +3653,7 @@ USA_take_psa_leader = {
 			create_country_leader = {
 				name = "Clarence D. Martin"
 				desc = "POLITICS_CLARENCE_MARTIN_DESC"
-				picture = "Portrait_CAL_Clarence_Martin.tga"
+				picture = "gfx/leaders/CAL/Portrait_CAL_Clarence_Martin.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 				traits = { fortification_engineer }
@@ -3572,7 +3677,7 @@ USA_take_psa_leader = {
 			create_country_leader = {
 				name = "Charles A. Sprague"
 				desc = "POLITICS_CHARLES_SPRAGUE_DESC"
-				picture = "Portrait_CAL_Charles_A_Sprague.tga"
+				picture = "gfx/leaders/CAL/Portrait_CAL_Charles_A_Sprague.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 				traits = { economic_reformer }
@@ -3596,7 +3701,7 @@ USA_take_psa_leader = {
 			create_country_leader = {
 				name = "Manchester Boddy"
 				desc = "POLITICS_MANCHESTOR_BODDY_DESC"
-				picture = "gfx/leaders/CAL/CAL_Manchester_Boddy.tga"
+				picture = "gfx/leaders/CAL/CAL_Manchester_Boddy.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 				traits = { editor }
@@ -3620,7 +3725,7 @@ USA_take_psa_leader = {
 			create_country_leader = {
 				name = "Robert Taft"
 				desc = "POLITICS_Robert_Taft_DESC"
-				picture = "gfx/leaders/CAL/CAL_R_A_Taft.tga"
+				picture = "gfx/leaders/CAL/CAL_R_A_Taft.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 				traits = { staunch_constitutionalist }
@@ -3644,7 +3749,7 @@ USA_take_psa_leader = {
 			create_country_leader = {
 				name = "Harry Chandler"
 				desc = "POLITICS_HARRY_CHANDLER_DESC"
-				picture = "gfx/leaders/CAL/CAL_HarryChandler.tga.tga"
+				picture = "gfx/leaders/CAL/CAL_HarryChandler.png.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 				traits = { eco_industrialiser }
@@ -3668,7 +3773,7 @@ USA_take_psa_leader = {
 			create_country_leader = {
 				name = "Howard Hughes"
 				desc = "POLITICS_HOWARD_HUGES_DESC"
-				picture = "gfx/leaders/CAL/CAL_Howard Hughes.tga"
+				picture = "gfx/leaders/CAL/CAL_Howard Hughes.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 				traits = { captain_of_industry }
@@ -3692,7 +3797,7 @@ USA_take_psa_leader = {
 			create_country_leader = {
 				name = "Frank Merriam"
 				desc = "POLITICS_FRANK_MERRIAM_DESC"
-				picture = "Portrait_CAL_Frank_Merrimam.tga"
+				picture = "gfx/leaders/CAL/Portrait_CAL_Frank_Merrimam.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 				traits = { prince_of_terror }
@@ -3716,7 +3821,7 @@ USA_take_psa_leader = {
 			create_country_leader = {
 				name = "Frank Knox"
 				desc = "POLITICS_FRANK_KNOX_DESC"
-				picture = "Portrait_CAL_Frank_Knox.tga"
+				picture = "gfx/leaders/CAL/Portrait_CAL_Frank_Knox.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 				traits = { sec_media_magnate }
@@ -3740,7 +3845,7 @@ USA_take_psa_leader = {
 			create_country_leader = {
 				name = "Louis B. Meyer"
 				desc = "POLITICS_LOUIS_B_MEYER_DESC"
-				picture = "gfx/leaders/CAL/CAL_Louis_B._Mayer.tga"
+				picture = "gfx/leaders/CAL/CAL_Louis_B._Mayer.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 				traits = { sec_media_magnate }
@@ -3764,7 +3869,7 @@ USA_take_psa_leader = {
 			create_country_leader = {
 			name = "Charles Martin"
 			desc = "POLITICS_CHARLES_MARTIN_DESC"
-			picture = "gfx/leaders/CAL/CAL_Charles_Henry_Martin.tga"
+			picture = "gfx/leaders/CAL/CAL_Charles_Henry_Martin.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 			traits = { hog_reformist_soldier }
@@ -3788,7 +3893,7 @@ USA_take_psa_leader = {
 			create_country_leader = {
 			name = "Henry J. Kaiser"
 			desc = "POLITICS_HENRY_J_KAISER_DESC"
-			picture = "gfx/leaders/CAL/CAL_Henry_J_kaiser.tga"
+			picture = "gfx/leaders/CAL/CAL_Henry_J_kaiser.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 			traits = { eco_industrialiser }
@@ -3812,7 +3917,7 @@ USA_take_psa_leader = {
 			create_country_leader = {
 			name = "Walt Disney"
 			desc = "POLITICS_WALT_DISNEY_DESC"
-			picture = "gfx/leaders/CAL/CAL_Walt_Disney.tga"
+			picture = "gfx/leaders/CAL/CAL_Walt_Disney.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 			traits = { propaganda_expert }
@@ -3840,7 +3945,7 @@ CAL_take_usa_leader = {
 			create_country_leader = {
 				name = "George Norris"
 				desc = "POLITICS_GEORGE_NORRIS_DESC"
-				picture = "gfx/leaders/USA/Portrait_George_W_Norris.tga"
+				picture = "gfx/leaders/USA/Portrait_George_W_Norris.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 				traits = { the_fighting_liberal }
@@ -3865,7 +3970,7 @@ CAL_take_usa_leader = {
 			create_country_leader = {
 					name = "Henry Wilson Temple"
 					desc = "POLITICS_HENRY_WILSON_TEMPLE_DESC"
-					picture = "Portrait_USA_quentin_roosevelt.tga"
+					picture = "gfx/leaders/USA/Portrait_USA_quentin_roosevelt.png"
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 					traits = { tenacious_negotiator }
@@ -3890,7 +3995,7 @@ CAL_take_usa_leader = {
 			create_country_leader = {
 					name = "Quentin Roosevelt"
 					desc = "POLITICS_QUENTIN_ROOSEVELT_DESC"
-					picture = "Portrait_USA_quentin_roosevelt.tga"
+					picture = "gfx/leaders/USA/Portrait_USA_quentin_roosevelt.png"
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 					traits = { tenacious_negotiator }
@@ -3915,7 +4020,7 @@ CAL_take_usa_leader = {
 			create_country_leader = {
 				name = "Alf Landon"
 				desc = "POLITICS_ALF_LANDON_DESC"
-				picture = "gfx/leaders/USA/Portrait_USA_Alf_Landon_KR.tga"
+				picture = "gfx/leaders/USA/Portrait_USA_Alf_Landon_KR.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 				traits = { economic_reformer }
@@ -3940,7 +4045,7 @@ CAL_take_usa_leader = {
 			create_country_leader = {
 					name = "Theodore Roosevelt Jr."
 					desc = "POLITICS_THEODORE_ROOSEVELT_DESC"
-					picture = "gfx/leaders/WCC/Portrait_WCC_Teddy_Roosevelt_Jr.tga"
+					picture = "gfx/leaders/WCC/Portrait_WCC_Teddy_Roosevelt_Jr.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = { great_war_hero }
@@ -3965,7 +4070,7 @@ CAL_take_usa_leader = {
 			create_country_leader = {
 					name = "Arthur Vandenberg"
 					desc = "POLITICS_ARTHUR_VANDENBERG_DESC"
-					picture = "gfx/leaders/USA/Portrait_USA_John_Bricker.tga"
+					picture = "gfx/leaders/USA/Portrait_USA_John_Bricker.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = { staunch_constitutionalist }
@@ -3990,7 +4095,7 @@ CAL_take_usa_leader = {
 			create_country_leader = {
 					name = "John Bricker"
 					desc = "POLITICS_JOHN_BRICKER_DESC"
-					picture = "gfx/leaders/USA/Portrait_USA_John_W_Bricker.tga"
+					picture = "gfx/leaders/USA/Portrait_USA_John_W_Bricker.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = { staunch_constitutionalist }
@@ -4015,7 +4120,7 @@ CAL_take_usa_leader = {
 			create_country_leader = {
 					name = "Alben W. Barkley"
 					desc = "POLITICS_ALBEN_BARKLEY_DESC"
-					picture = "Portrait_USA_Alben_Barkley.tga"
+					picture = "gfx/leaders/USA/Portrait_USA_Alben_Barkley.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = { silent_workhorse }
@@ -4040,7 +4145,7 @@ CAL_take_usa_leader = {
 			create_country_leader = {
 					name = " Adlai Stevenson"
 					desc = "POLITICS_ADLAI_STEVENSON_DESC"
-					picture = "Portrait_USA_Adlai_Stevenson.tga"
+					picture = "gfx/leaders/USA/Portrait_USA_Adlai_Stevenson.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = { tenacious_negotiator }
@@ -4065,7 +4170,7 @@ CAL_take_usa_leader = {
 			create_country_leader = {
 				name = "Martin Dies Jr."
 				desc = "POLITICS_MARTIN_DIES_DESC"
-				picture = "Portrait_USA_Martin_Dies_Jr.tga"
+				picture = "gfx/leaders/USA/Portrait_USA_Martin_Dies_Jr.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 				traits = { silent_workhorse }
@@ -4090,7 +4195,7 @@ CAL_take_usa_leader = {
 			create_country_leader = {
 					name = "Happy Chandler"
 					desc = "POLITICS_HAPPY_CHANDLER_DESC"
-					picture = "Portrait_USA_Happy_Chandler.tga"
+					picture = "gfx/leaders/USA/Portrait_USA_Happy_Chandler.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = { economic_reformer }

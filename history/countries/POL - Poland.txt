@@ -7,6 +7,7 @@ set_research_slots = 3
 ### Starting Technologies ###
 set_technology = {
 	infantry_weapons = 1
+	basic_train = 1
 	infantry_weapons1 = 1
 	tech_mountaineers = 1
 	tech_support = 1
@@ -14,12 +15,28 @@ set_technology = {
 	tech_recon = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	gwtank = 1
 	early_fighter = 1
 	early_bomber = 1
 	CAS1 = 1
 	trench_warfare = 1
 }
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+	}
+}
+set_country_flag = KX_no_naval_tech_decision_enable
 
 set_politics = {
 	ruling_party = social_conservative
@@ -29,16 +46,16 @@ set_politics = {
 }
 
 set_popularities = {
-	totalist = 8
-	radical_socialist = 0
+	totalist = 3
+	radical_socialist = 6
 	syndicalist = 2
 	social_democrat = 6
 	social_liberal = 13
 	market_liberal = 7
-	social_conservative = 27
-	authoritarian_democrat = 13
+	social_conservative = 26
+	authoritarian_democrat = 19
 	paternal_autocrat = 7
-	national_populist = 17
+	national_populist = 11
 }
 
 add_ideas = {
@@ -59,14 +76,13 @@ country_event = { id = poland.215 days = 309 } #20th Anniversary of Poland
 country_event = { id = poland.222 days = 335 random_days = 25 } #Expansion of Polskie Radio S.A. - Raszyn
 country_event = { id = poland.193 days = 366 random = 2880 } #Death of Josef Pilsudski
 country_event = { id = poland.220 days = 425 random_days = 25 } #Renovating Modlin Fortress
-country_event = { id = poland.52 days = 475 } #Comrade Dzierzynski Passes Away
+country_event = { id = poland.52 days = 475 } #The Central Committe elects it's Chairman
 country_event = { id = poland.42 days = 645 random_days = 2 } #Cabinet Crisis
-country_event = { id = poland.74 days = 933 } #Dzierzynski Dies
 country_event = { id = poland.73 days = 949 } #Rozwadowski Dies
 country_event = { id = poland.75 days = 1093 } #Kakowski Dies
 country_event = { id = poland.63 days = 1097 } #Dwomski Passes Away
-country_event = { id = poland.91 days = 1097 } #Dwomski Dies
 country_event = { id = poland.205 days = 1461 random_days = 150 } #Monarchist Coup
+country_event = { id = poland.300 days = 36 } #LOP intro
 
 ### PLC-only events
 country_event = { id = plcommon.40 days = 182 } #Anniversary of the Lublin Union
@@ -95,147 +111,92 @@ add_to_array = { potential_cores = 776 } #West Prussia
 add_to_array = { potential_cores = 777 } #Masuria
 
 create_country_leader = {
-	name = "Feliks Kon"
-	picture = "Portrait_POL_Feliks_Kon.tga"
+	name = "Komitet Centralny"
+	picture = "gfx/leaders/POL/Portrait_POL_Komitet_Centralny.png"
 	expire = "1965.1.1"
-	ideology = totalist_subtype
+	ideology = authcom_subtype
 }
 
 create_country_leader = {
-	name = "Feliks Dzierzynski"
-	desc = "POLITICS_FELIKIS_DZIERZYNSKI_DESC"
-	picture = "Portrait_Poland_Feliks_Dzierzynski.tga"
+	name = "Komitet Centralny"
+	picture = "gfx/leaders/POL/Portrait_POL_Komitet_Centralny.png"
 	expire = "1965.1.1"
-	ideology = totalist_subtype
+	ideology = centralized_syndicalism_subtype
 }
 
 create_country_leader = {
-	name = "Róża Luksemburg"
-	desc = "POLITICS_ROZA_LUKSEMBURG_DESC"
-	picture = "Portriat_Poland_Roza_Luksemburg.tga"
+	name = "Komitet Centralny"
+	picture = "gfx/leaders/POL/Portrait_POL_Komitet_Centralny.png"
 	expire = "1965.1.1"
-	ideology = syndicalist_subtype
-	female = yes
-}
-
-create_country_leader = {
-	name = "Jakub Hanecki"
-	desc = "POLITICS_JAKUB_HANECKI_DESC"
-	picture = "Portrait_Poland_Jakub_Hanceki.tga"
-	expire = "1965.1.1"
-	ideology = radical_socialist_subtype
+	ideology = radsoc_communism_subtype
 }
 
 create_country_leader = {
 	name = "Norbert Barlicki"
-	picture = "Portrait_POL_Norbert_Barlicki.tga"
+	picture = "gfx/leaders/POL/Portrait_POL_Norbert_Barlicki.png"
 	expire = "1965.1.1"
-	ideology = social_democrat_subtype
+	ideology = socdem_democratic_socialism_subtype
 }
 
 create_country_leader = {
-	name = "Stanislaw Wojciechowski"
-	desc = "POLITICS_STANISLAW_WOJCIECHOWSKI_DESC"
-	picture = "Portrait_Poland_Stanislaw_Wojciechowski.tga"
+	name = "Tomasz Nocznicki"
+	picture = "gfx/leaders/POL/Portrait_POL_Tomasz_Nocznicki.png"
 	expire = "1965.1.1"
-	ideology = social_liberal_subtype
+	ideology = radical_liberalism_subtype
 }
 
 create_country_leader = {
-	name = "Mieczyslaw Michalowicz"
-	desc = "POLITICS_MIECZYSLAW_MICHALOWICZ_DESC"
-	picture = "Portrait_POL_Mieczyslaw_Michalowicz.tga"
+	name = "Stefan Przanowski"
+	picture = "gfx/leaders/POL/Portrait_POL_Stefan_Przanowski.png"
 	expire = "1965.1.1"
-	ideology = market_liberal_subtype
+	ideology = marlib_national_liberalism_subtype
 }
 
 create_country_leader = {
-	name = "Wojciech Korfanty"
-	picture = "Portrait_POL_Wojciech_Korfanty.tga"
+	name = "Rada Regencyjna"
+	desc = "POLITICS_POL_RADA_REGENCYJNA_DESC"
+	picture = "gfx/leaders/POL/Portrait_POL_Rada_Regencyjna.png"
 	expire = "1965.1.1"
-	ideology = social_conservative_subtype
-}
-
-create_country_leader = {
-	name = "Regency Council"
-	desc = "POLITICS_POL_REGENCY_COUNCIL_DESC"
-	picture = "Portrait_Poland_Regency_Council.tga"
-	expire = "1965.1.1"
-	ideology = social_conservative_subtype
+	ideology = christian_democracy_subtype
         traits = {
 		useless_committee
                 humiliating_symbol
 	}
-}
-
-
-create_country_leader = {
-	name = "Eustachy Sapieha"
-	picture = "Portrait_POL_Eustachy_Sapieha.tga"
-	expire = "1965.1.1"
-	ideology = authoritarian_democrat_subtype
-}
-
-create_country_leader = {
-	name = "Regency Council"
-	desc = "POLITICS_POL_REGENCY_COUNCIL_DESC"
-	picture = "Portrait_Poland_Regency_Council.tga"
-	expire = "1965.1.1"
-	ideology = authoritarian_democrat_subtype
-        traits = {
-		useless_committee
-                humiliating_symbol
-	}
-}
-
-create_country_leader = {
-	name = "Regency Council"
-	desc = "POLITICS_POL_REGENCY_COUNCIL_DESC"
-	picture = "Portrait_Poland_Regency_Council.tga"
-	expire = "1965.1.1"
-	ideology = paternal_autocrat_subtype
-        traits = {
-		useless_committee
-                humiliating_symbol
-	}
-}
-
-create_country_leader = {
-	name = "Adam Doboszyñski"
-	desc = "POLITICS_ADAM_DOBOSZYNSKI_DESC"
-	picture = "Portrait_Poland_Adam_Doboszynski.tga"
-	expire = "1965.1.1"
-	ideology = national_populist_subtype
 }
 
 create_country_leader = {
 	name = "Roman Dmowski"
 	desc = "POLITICS_ROMAN_DWOWSKI_DESC"
-	picture = "Portrait_Poland_Roman_Dmowski.tga"
+	picture = "gfx/leaders/POL/Portrait_POL_Roman_Dmowski_kr.png"
 	expire = "1965.1.1"
-	ideology = national_populist_subtype
+	ideology = national_democracy_subtype
+}
+
+create_country_leader = {
+	name = "Rada Regencyjna"
+	desc = "POLITICS_POL_RADA_REGENCYJNA_DESC"
+	picture = "gfx/leaders/POL/Portrait_POL_Rada_Regencyjna.png"
+	expire = "1965.1.1"
+	ideology = absolute_monarchy_subtype
+        traits = {
+		useless_committee
+                humiliating_symbol
+	}
+}
+
+create_country_leader = {
+	name = "Roman Dmowski"
+	desc = "POLITICS_ROMAN_DWOWSKI_DESC"
+	picture = "gfx/leaders/POL/Portrait_POL_Roman_Dmowski_kr.png"
+	expire = "1965.1.1"
+	ideology = national_radicalism_subtype
 }
 
 ### Field Marshals ###
 
 create_field_marshal = {
-	name = "Władysław Sikorski"
-	portrait_path = "gfx/leaders/POL/Portrait_Poland_Sikorski.tga"
-	traits = {
-		politically_connected
-		career_officer
-		defensive_doctrine
-	}
-	skill = 3
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 4
-	logistics_skill = 2
-}
-
-create_field_marshal = {
 	name = "Józef Piłsudski"
-	portrait_path = "gfx/leaders/POL/Portrait_Poland_Jozef_Pilsudski.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Jozef_Pilsudski.png"
 	id = 19859
 	traits = {
 		war_hero
@@ -252,7 +213,7 @@ create_field_marshal = {
 
 create_field_marshal = {
 	name = "Tadeusz Rozwadowski"
-	portrait_path = "gfx/leaders/POL/Portrait_Poland_Tadeusz_Rozwadowski.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Tadeusz_Rozwadowski_kr.png"
 	id = 19860
 	traits = {
 		infantry_officer
@@ -266,7 +227,7 @@ create_field_marshal = {
 
 create_field_marshal = {
 	name = "Edward Rydz-Śmigły"
-	portrait_path = "gfx/leaders/POL/Portrait_Poland_Edward_Smigy_Rydz.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Edward_Rydz_Smigly_kr.png"
 	traits = {
 		trait_cautious
 		skilled_staffer
@@ -280,10 +241,9 @@ create_field_marshal = {
 
 ### Corps Commanders ###
 
-FRA = {
-	create_corps_commander = {
+create_corps_commander = {
 		name = "Konstanty Rokossowski"
-		portrait_path = "gfx/leaders/POL/Portrait_POL_Konstanty_Rokossowski.tga"
+		portrait_path = "gfx/leaders/POL/Portrait_POL_Konstanty_Rokossowski.png"
 		desc = "POLITICS_KONSTANTIN_ROKOSSOVSKY_DESC"
 		id = 490
 		traits = {
@@ -295,17 +255,12 @@ FRA = {
 		attack_skill = 3
 		defense_skill = 2
 		planning_skill = 3
-		logistics_skill = 2
-	}
-	random_unit_leader = {
-		limit = { has_id = 490 }
-		save_global_event_target_as = POL_Konstanty_Rokossowski
-	}
+		logistics_skill = 2	
 }
 
 create_corps_commander = {
 	name = "Walery Sławek"
-	portrait_path = "gfx/leaders/POL/Portrait_POL_Walery_Slawek.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Walery_Slawek_kx.png"
 	traits = {
 		old_guard
 		politically_connected
@@ -318,8 +273,51 @@ create_corps_commander = {
 }
 
 create_corps_commander = {
+	name = "Adam Koc"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Adam_Koc.png"
+	traits = {
+		politically_connected
+		infantry_leader
+		organizer
+	}
+	skill = 2
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 3
+	logistics_skill = 2
+}
+
+create_corps_commander = {
+	name = "Leon Berbecki"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Leon_Berbecki.png"
+	traits = {
+		war_hero
+		infantry_officer
+	}
+	skill = 3
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 3
+}
+
+create_corps_commander = {
+	name = "Wincenty Kowalski"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Wincenty_Kowalski_kx.png"
+	traits = {
+	      trickster
+	      expert_improviser
+	}
+	skill = 2
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 2
+}
+
+create_corps_commander = {
 	name = "Mikołaj Bołtuć"
-	portrait_path = "gfx/leaders/POL/Portrait_POL_Mikolaj_Boltuc.dds"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Mikolaj_Boltuc.png"
 	traits = {
 		infantry_officer
 		inflexible_strategist
@@ -333,7 +331,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Zbigniew Antonowicz"
-	portrait_path = "gfx/leaders/POL/Portrait_Poland_Zbigniew_Antonowicz.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Zbigniew_Antonowicz.png"
 	traits = {
 		urban_assault_specialist
 	}
@@ -346,7 +344,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Józef Dowbor-Muśnicki"
-	portrait_path = "gfx/leaders/POL/Portrait_POL_Jozef_Dowbor_Musnicki.dds"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Jozef_Dowbor_Musnicki.png"
 	traits = {
 		infantry_officer
 		brilliant_strategist
@@ -360,7 +358,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Marian Januszajtis-Żegota"
-	portrait_path = "gfx/leaders/POL/Portrait_POL_Januszajtis_Zegota.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Marian_Januszajtis_Zegota.png"
 	traits = {
 		infantry_officer
 		offensive_doctrine
@@ -375,7 +373,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Stanisław Sosabowski"
-	portrait_path = "gfx/leaders/POL/Portrait_Poland_Stanislaw_Sosabowski.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Stanislaw_Sosabowski_kr.png"
 	traits = {
 		commando
 		camouflage_expert
@@ -389,7 +387,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Witold Pilecki"
-	portrait_path = "gfx/leaders/POL/Portrait_Poland_Witold_Pilecki.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Witold_Pilecki_kr.png"
 	traits = {
 		trait_reckless
 		trickster
@@ -404,7 +402,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Władysław Anders"
-	portrait_path = "gfx/leaders/POL/Portrait_Poland_Wladyslaw_Anders.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Wladyslaw_Anders_kx.png"
 	traits = {
 		armor_officer
 	}
@@ -416,8 +414,19 @@ create_corps_commander = {
 }
 
 create_corps_commander = {
+	name = "Roman Abraham"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Roman_Abraham_kx.png"
+	traits = {  }
+	skill = 2
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 3
+}
+
+create_corps_commander = {
 	name = "Stanisław Magnuszewski"
-	portrait_path = "gfx/leaders/POL/Portrait_Poland_Stanislaw_Magnuszewski.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Stanislaw_Magnuszewski.png"
 	traits = { }
 	skill = 2
 	attack_skill = 2
@@ -428,7 +437,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Artur Górski"
-	portrait_path = "gfx/leaders/POL/Portrait_Poland_Artur_Gorski.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Artur_Gorski.png"
 	traits = {
 		artillery_officer
 	}
@@ -441,7 +450,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Henryk Dobrzański"
-	portrait_path = "gfx/leaders/POL/Portrait_Poland_Henryk_Dobrzanski.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Henryk_Dobrzanski.png"
 	traits = {
 		inflexible_strategist
 		ranger
@@ -455,7 +464,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Kazimierz Sosnkowski"
-	portrait_path = "gfx/leaders/POL/Portrait_Poland_Kazimierz_Sosnkowski.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Kazimierz_Sosnkowski_kr.png"
 	traits = {
 		old_guard
 	}
@@ -467,8 +476,21 @@ create_corps_commander = {
 }
 
 create_corps_commander = {
+	name = "Władysław Bortnowski"
+	portrait_path = "gfx/leaders/POL/Portrait_Pol_Wladyslaw_Bortnowski_kx.png"
+	traits = {  
+              thorough_planner
+        }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 2
+}
+
+create_corps_commander = {
 	name = "Juliusz Rómmel"
-	portrait_path = "gfx/leaders/POL/Portrait_Poland_Juliusz_Rommel.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Juliusz_Rommel.png"
 	traits = {
 		armor_officer
 		panzer_leader
@@ -482,7 +504,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Wacław Stachiewicz"
-	portrait_path = "gfx/leaders/POL/Portrait_Poland_Waclaw_Stachiewicz.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Waclaw_Stachiewicz.png"
 	traits = { }
 	skill = 2
 	attack_skill = 3
@@ -493,7 +515,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Antoni Szylling"
-	portrait_path = "gfx/leaders/POL/Portrait_Poland_Antoni_Szylling.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Antoni_Szylling.png"
 	traits = {
 		old_guard
 		politically_connected
@@ -507,7 +529,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Bolesław Wieniawa-Długoszewski"
-	portrait_path = "gfx/leaders/POL/Portrait_Poland_Bolesaw_Wieniawa_Dugoszewski.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Boleslaw_Wieniawa_Dlugoszewski_kr.png"
 	traits = { }
 	skill = 2
 	attack_skill = 2
@@ -519,7 +541,7 @@ create_corps_commander = {
 ### Admirals ###
 create_navy_leader = {
 	name = "Józef Unrug"
-	portrait_path = "gfx/leaders/POL/Portrait_POL_Jozef_Unrug.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Jozef_Unrug_kx.png"
 	traits = {
 		blockade_runner
 	}
@@ -532,7 +554,7 @@ create_navy_leader = {
 
 create_navy_leader = {
 	name = "Kazimierz Porębski"
-	portrait_path = "gfx/leaders/POL/Portrait_POL_Kazimierz_Porebski.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Kazimierz_Porebski.png"
 	traits = {
 		superior_tactician
 	}
@@ -545,12 +567,29 @@ create_navy_leader = {
 
 create_navy_leader = {
 	name = "Jerzy Świrski"
-	portrait_path = "gfx/leaders/POL/Portrait_POL_Jerzy_Swirski.tga"
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Jerzy_Swirski.png"
 	traits = { }
 	skill = 2
 	attack_skill = 2
 	defense_skill = 2
 	maneuvering_skill = 2
 	coordination_skill = 1
+}
+
+### Operatives ###
+if = {
+	limit = { has_dlc = "La Resistance" }
+	create_operative_leader = {
+		name = "Krystyna Skarbek"
+		GFX = GFX_portrait_kr_krystyna_skarbek
+		traits = {
+			operative_escape_artist
+			operative_infiltrator
+		}
+		bypass_recruitment = no
+		available_to_spy_master = yes
+		female = yes
+		nationalities = { POL }
+	}
 }
 

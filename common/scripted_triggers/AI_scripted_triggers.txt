@@ -8,6 +8,7 @@
 
 willing_to_send_volunteers_to_FROM = {
 	OR = {
+		anglo_afghan_war_volunteers = yes
 		spanish_civil_war_volunteers = yes
 		american_civil_war_volunteers = yes
 		russian_civil_war_volunteers = yes
@@ -23,6 +24,9 @@ willing_to_send_volunteers_to_FROM = {
 		csa_internationale_volunteers = yes
 		league_collapse_volunteers = yes
 		northwest_war_volunteers = yes
+		siberian_war_volunteers = yes
+		assyrian_war_volunteers = yes
+		german_civil_war_volunteers = yes
 	}
 	NOT = {
 		AND = {
@@ -34,6 +38,18 @@ willing_to_send_volunteers_to_FROM = {
 		}
 	}
 }
+
+anglo_afghan_war_volunteers = {
+	has_global_flag = anglo_afghan_war
+		AND = {
+			FROM = { tag = AFG }
+			OR = {
+				tag = OTT
+				tag = GER
+			}
+		}
+	}
+
 
 spanish_civil_war_volunteers = {
 	has_global_flag = spanish_civil_war
@@ -92,7 +108,29 @@ american_civil_war_volunteers = {
 }
 
 russian_civil_war_volunteers = {
-	RUS = { has_war_with = TRM }
+	RUS = { has_war_with = SOV }
+	OR = {
+		AND = {
+			FROM = { tag = SOV }
+			has_socialist_government = yes
+			num_of_military_factories > 8
+		}
+		AND = {
+			FROM = { tag = RUS }
+			OR = {
+				tag = FIN
+				tag = GER
+				tag = CAN
+				tag = NFA
+			}
+		}
+	}
+}
+siberian_war_volunteers = {
+	OR = {
+		RUS = { has_war_with = TRM }
+		TRM = { has_war_with = SOV }
+	}
 	OR = {
 		AND = {
 			FROM = { 
@@ -113,22 +151,35 @@ russian_civil_war_volunteers = {
 				tag = CAN
 				tag = NFA
 				tag = AUS
+				tag = UKR
 			}
+		}
+		AND = {
+			FROM = { 
+				tag = RUS
+				RUS = { has_socialist_government = yes }
+			}
+			has_socialist_government = yes
+			num_of_military_factories > 8
+		}
+		AND = {
+			FROM = { tag = SOV }
+			has_socialist_government = yes
+			num_of_military_factories > 8
 		}
 		AND = {
 			FROM = { 
 				tag = TRM
 				has_socialist_government = no
+				NOT = { country_exists = RUS }
 			}
-			tag = JAP
-		}
-		AND = {
-			FROM = { 
-				tag = TRM
-				RUS = { has_socialist_government = yes }
+			OR = {
+				tag = FIN
+				tag = CAN
+				tag = NFA
+				tag = JAP
+				tag = UKR				
 			}
-			has_socialist_government = yes
-			num_of_military_factories > 8
 		}
 	}
 }
@@ -396,6 +447,28 @@ csa_internationale_volunteers = {
 	}
 }
 
+assyrian_war_volunteers = {
+	ASY = {
+		has_war_with = OTT
+		NOT = {
+			has_completed_focus = ASS_New_Assur
+			has_completed_focus = ASS_Frontline_Imperialism
+			has_completed_focus = ASS_Resettlement_Immigration_Bureau
+			has_completed_focus = ASS_Reform_Assyrian_Levies
+		}
+	}
+	AND = {
+		NOT = { has_global_flag = ASY_no_entente_support }
+		FROM = { tag = ASY }
+		OR = {
+			tag = CAN
+			tag = NFA
+			tag = DEH
+			tag = SAF
+		}
+	}
+}
+
 league_collapse_volunteers = {
 	OR = {
 		LEP = {
@@ -510,6 +583,68 @@ northwest_war_volunteers = {
 			FROM = { has_government = social_democrat }
 			tag = CHI
 		}
+	}
+}
+
+german_civil_war_volunteers = {
+	GRU = { 
+		has_war_with = GER
+		NOT = { has_completed_focus = GRU_GCW_VICTORY }
+	}
+	OR = {
+		AND = {
+			FROM = { tag = GER }
+			GER_is_in_mitteleuropa = yes
+			num_of_military_factories > 8
+		}
+		AND = {
+			FROM = { tag = GRU }
+			has_socialist_government = yes
+			num_of_military_factories > 8
+		}
+	}
+}
+
+### Technology AI checks
+anti_submarine_strategy_required_trigger = {
+	OR = {
+		convoy_threat > 0.3
+		AND = {
+			has_war = yes
+			any_enemy_country = {
+				has_navy_size = {
+					type = submarine
+					size > 30
+				}
+			}
+		}
+	}
+}
+
+ai_air_doctrine_tier_1_trigger = {
+	OR = {
+		has_tech = naval_strike_tactics
+		has_tech = direct_ground_support
+		has_tech = low_echelon_support
+	}
+}
+
+ai_air_doctrine_tier_2_trigger = {
+	OR = {
+		has_tech = multialtitude_flying
+		has_tech = hunt_and_destroy
+		has_tech = operational_destruction
+	}
+}
+
+ai_is_naval_invader_trigger = {
+	OR = {
+		tag = CAN
+		tag = NFA
+		tag = JAP
+		tag = GBR
+		tag = ENG
+		tag = SRD
 	}
 }
 
@@ -633,5 +768,91 @@ has_unattained_important_goals = {
 }
 
 has_reached_maximum_divisions = {
-	check_variable = { num_divisions > max_divisions }
+	if = {
+		limit = { has_variable = num_actual_divisions }
+		check_variable = { num_actual_divisions > max_divisions }
+	}
+	else = {
+		check_variable = { num_divisions > max_divisions }
+	}
+}
+
+### Common AI checks, for use in attack decisions
+ROOT_is_threatened = {
+	OR = {
+		enemies_strength_ratio > 0.5
+		surrender_progress > 0
+		has_country_flag = imminent_war
+	}
+}
+
+is_stronger_than_ROOT_and_not_vulnerable = {
+	FROM = {
+		strength_ratio = { tag = ROOT ratio > 1 }
+		OR = {
+			enemies_strength_ratio < 1
+			surrender_progress < 0.1
+		}
+	}
+}
+
+faction_leader_is_stronger_than_ROOT_and_not_vulnerable = {
+	if = {
+		limit = { has_war = yes }
+		FROM = {
+			is_in_faction = yes
+			is_faction_leader = no
+			faction_leader = {
+				is_actual_major = yes
+				OR = {
+					enemies_strength_ratio < 1.5
+					surrender_progress < 0.2
+				}
+			}
+		}
+	}
+	else = {
+		FROM = {
+			is_in_faction = yes
+			is_faction_leader = no
+			faction_leader = {
+				strength_ratio = { tag = ROOT ratio > 0.7 }
+				OR = {
+					enemies_strength_ratio < 1
+					surrender_progress < 0.2
+				}
+			}
+		}
+	}
+}
+
+overlord_is_stronger_than_ROOT_and_not_vulnerable = {
+	FROM = {
+		is_subject = yes
+		overlord = {
+			strength_ratio = { tag = ROOT ratio > 0.8 }
+			OR = {
+				enemies_strength_ratio < 1
+				surrender_progress < 0.2
+			}
+		}
+	}
+}
+
+guarantor_is_stronger_than_ROOT_and_not_vulnerable = {
+	FROM = {
+		has_guarantor = yes
+		any_of_scopes = {
+			array = guarantor_array
+			has_guaranteed = PREV
+			OR = {
+				strength_ratio = { tag = ROOT ratio > 0.8 }
+				is_in_faction = yes
+			}
+			OR = {
+				enemies_strength_ratio < 1
+				surrender_progress < 0.2
+			}
+		}
+	}
 }

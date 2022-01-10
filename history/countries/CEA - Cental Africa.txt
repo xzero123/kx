@@ -4,10 +4,26 @@ set_research_slots = 2
 set_technology = {
 	### Infantry ###
 	infantry_weapons = 1
+	basic_train = 1
 	motorised_infantry = 1
-	### Tanks ###
-	gwtank = 1
 }
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+	}
+}
+set_country_flag = KX_no_naval_tech_decision_enable
 
 set_politics = {
 	ruling_party = paternal_autocrat
@@ -18,27 +34,39 @@ set_politics = {
 
 set_popularities = {
 	totalist = 0
-	radical_socialist = 0
 	syndicalist = 0
-	social_democrat = 2
-	social_liberal = 47
-	market_liberal = 15
-	social_conservative = 12
+	radical_socialist = 0
+	social_democrat = 23
+	social_liberal = 5
+	market_liberal = 5
+	social_conservative = 25
 	authoritarian_democrat = 0
-	paternal_autocrat = 0
-	national_populist = 24
+	paternal_autocrat = 42
+	national_populist = 0
+}
+
+add_ideas = {
+	CEA_split_larp
+	CEA_inferiority_complex
+	CEA_fresh_meat
+	### Ministers ###
+	CEA_Jean-Bedel_Bokassa_hog_pau
+	CEA_Barthelemy_Boganda_for_sli
+	CEA_Barthelemy_Boganda_eco_sli
+	CEA_Jean-Bedel_Bokassa_sec_pau
 }
 
 create_country_leader = {
-	name = "Ben Aissa"
-	picture = "gfx/leaders/Generic/Portrait_Arabia_Generic_land_new_2.tga"
+	name = "Jean-Bédel Bokassa"
+	desc = "POLITICS_BOKASSA_LEADER_DESC"
+	picture = "gfx/leaders/CEA/Portrait_CEA_Jean_Bedel_Bokassa.png"
 	expire = "1965.1.1"
-	ideology = paternal_autocrat_subtype
+	ideology = junta_subtype
 }
 
 create_country_leader = {
 	name = "Barthélemy Boganda"
-	picture = "gfx/leaders/Generic/Portrait_Africa_Generic_new_5.tga"
+	picture = "gfx/leaders/Generic/Portrait_Africa_Generic_new_5.png"
 	expire = "1965.1.1"
 	ideology = social_liberal_subtype
 }

@@ -2,6 +2,7 @@
 # North Rhodesia Focus Tree
 # By Joseph Robinette Biden Jr.
 # And Foppe
+# fair lads, jocn too
 ##################################
 
 focus_tree = {
@@ -538,8 +539,33 @@ focus_tree = {
 				ideology = national_populist
 				popularity = -0.5
 			}
-			remove_unit_leader = 67708
-			remove_unit_leader = 67707
+			random_unit_leader = {
+						limit = { has_id = 67708 }	
+						remove_unit_leader = yes
+					}
+			random_unit_leader = {
+						limit = { has_id = 67707 }	
+						remove_unit_leader = yes
+					}
+			hidden_effect = {
+				ZIM = {
+					create_corps_commander = {
+						name = "Evelyn Baring"
+						portrait_path = "gfx/leaders/ZIM/Portrait_ZIM_Evelyn_Baring.png"
+						traits = {
+							politically_connected
+							desert_fox
+							harsh_leader
+							trickster
+						}
+						skill = 2
+						attack_skill = 3
+						defense_skill = 2
+						planning_skill = 3
+						logistics_skill = 1
+					}
+				}
+			}
 		}
 	}
 	
@@ -570,7 +596,11 @@ focus_tree = {
 					days = 23
 				}
 			}
-			add_autonomy_ratio = { value = 0.5 localization = ZAM_support_from_ostafrika }
+			MAF = {
+				add_to_variable = { MAF_nordrhodesia_centralized_var = 1 }
+			}
+			custom_effect_tooltip = MAF_increase_ZAM_centralization_1
+			add_autonomy_ratio = { value = -0.5 localization = ZAM_support_from_ostafrika }
 		}
 	}
 	
@@ -595,6 +625,10 @@ focus_tree = {
 				ideology = paternal_autocrat
 				popularity = 0.12
 			}
+			MAF = {
+				add_to_variable = { MAF_nordrhodesia_centralized_var = 1 }
+			}
+			custom_effect_tooltip = MAF_increase_ZAM_centralization_1
 		}
 	}
 	
@@ -1096,7 +1130,7 @@ focus_tree = {
 	
 	focus = {
 		id = ZAM_expel_the_germans
-		icon = GFX_goal_ZAM_expel_germans
+		icon = GFX_goal_ZAM_expel_german_soldiers
 		x = 1
 		y = 2
 		prerequisite = {
@@ -1110,6 +1144,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ZAM_expel_the_germans"
+			every_unit_leader = {
+				limit = {
+					has_id = 67709
+				}
+				set_nationality = MAF
+			}
+			every_unit_leader = {
+				limit = {
+					has_id = 65709
+				}
+				set_nationality = MAF
+			}
 			add_popularity = {
 				ideology = national_populist
 				popularity = 0.04
@@ -1295,9 +1341,6 @@ focus_tree = {
 		prerequisite = {
 			focus = ZAM_the_spearhead
 		}
-		available = {
-			country_exists = MAF
-		}
 		relative_position_id = ZAM_barings_coup
 		cost = 5
 		available_if_capitulated = yes
@@ -1363,7 +1406,11 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ZAM_final_order_to_MAF"
 			custom_effect_tooltip = ZAM_epic_battle_with_maf_tt
-			declare_war_on = {
+			if = {
+				limit = {
+				country_exists = MAF
+				}
+				declare_war_on = {
 				target = MAF
 				type = annex_everything
 			}
@@ -1402,10 +1449,270 @@ focus_tree = {
 					}
 				}
 				news_event = {
-					id = worldnews.557
+					id = worldnews.2557
 					days = 1
 				}
 			}
+				
+			}
+			if = {
+				limit = {
+					NOT = {
+						country_exists = MAF
+					}
+				}
+				every_country = {
+					limit = { is_in_array = { global.MAF_collapse_tags = THIS } }
+					ROOT = {
+						create_wargoal = {
+							type = annex_everything target = PREV
+						}
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ZAM_baring_victory
+		icon = GFX_goal_ZAM_victory_in_africa
+		x = 39
+		y = 0
+		cost = 1
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			always = no
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ZAM_baring_victory"
+			custom_effect_tooltip = ZAM_baring_won
+		}
+	}
+
+	focus = {
+		id = ZAM_legitimate_afrikan_borders
+		prerequisite = { focus = ZAM_baring_victory }
+		icon = GFX_goal_ZAM_true_borders
+		x = 1
+		y = 1
+		relative_position_id = ZAM_baring_victory
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ZAM_baring_victory"
+			add_ideas = ZAM_legitimate_administration1
+			country_event = nrho.30
+		}
+	}
+
+	focus = {
+		id = ZAM_expel_german_settlers
+		prerequisite = { focus = ZAM_baring_victory }
+		icon = GFX_goal_ZAM_expel_germans
+		x = -1
+		y = 1
+		relative_position_id = ZAM_baring_victory
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		select_effect = {
+			country_event = { id = nrho.35 days = 10 }
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ZAM_baring_victory"
+			add_ideas = ZAM_anglo_dominance1
+			add_manpower = -30000
+			add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.1
+		    }
+			add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.1
+		    }
+		}
+	}
+
+	focus = {
+		id = ZAM_british_rule_secured
+		prerequisite = { focus = ZAM_expel_german_settlers }
+		prerequisite = { focus = ZAM_legitimate_afrikan_borders }
+		icon = GFX_goal_ZAM_hold_secure
+		x = 0
+		y = 2
+		relative_position_id = ZAM_baring_victory
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ZAM_baring_victory"
+			remove_ideas = ZAM_postwar_instability
+			add_stability = 0.08
+			add_political_power = 55
+            add_popularity = {
+			ideology = national_populist
+			popularity = 0.06
+		    }
+			hidden_effect = {
+				country_event = { id = nrho.36 days = 10 }
+			}
+		}
+	}
+
+	focus = {
+		id = ZAM_topple_native_leaders
+		prerequisite = { focus = ZAM_british_rule_secured }
+		icon = GFX_goal_ZAM_topple_leaders
+		x = -2
+		y = 3
+		relative_position_id = ZAM_baring_victory
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ZAM_baring_victory"
+			swap_ideas = {
+				remove_idea = ZAM_anglo_dominance1
+				add_idea = ZAM_anglo_dominance2
+			}
+			hidden_effect = {
+				country_event = { id = nrho.37 days = 10 }
+			}
+		}
+	}
+
+	focus = {
+		id = ZAM_supply_the_entente
+		prerequisite = { focus = ZAM_british_rule_secured }
+		icon = GFX_goal_ZAM_shipments
+		x = 2
+		y = 3
+		relative_position_id = ZAM_baring_victory
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ZAM_baring_victory"
+			add_ideas = ZAM_entente_obligations1
+			ENT = {
+				country_event = nrho.33
+			}
+		}
+	}
+
+	focus = {
+		id = ZAM_the_best_ye_breed #about afrika becoming an attractive destination for british officers, administrators, settlers, etc
+		prerequisite = { focus = ZAM_british_rule_secured }
+		icon = GFX_goal_ZAM_best_ye_breed
+		x = 0
+		y = 3
+		relative_position_id = ZAM_baring_victory
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		select_effect = {
+			country_event = { id = nrho.38 days = 15 }
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ZAM_baring_victory"
+			swap_ideas = {
+				remove_idea = ZAM_legitimate_administration1
+				add_idea = ZAM_legitimate_administration2
+			}
+			add_manpower = 10000
+			add_popularity = {
+			ideology = national_populist
+			popularity = 0.04
+		    }
+		}
+	}
+
+	focus = {
+		id = ZAM_royal_tours
+		prerequisite = { focus = ZAM_the_best_ye_breed }
+		prerequisite = { focus = ZAM_supply_the_entente }
+		icon = GFX_goal_ZAM_royal_tours
+		x = 1
+		y = 4
+		relative_position_id = ZAM_baring_victory
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ZAM_baring_victory"
+			add_political_power = 35
+			add_stability = 0.04
+			country_event = { id = nrho.34 days = 5 }
+		}
+	}
+
+	focus = {
+		id = ZAM_punitive_communal_labour
+		prerequisite = { focus = ZAM_the_best_ye_breed }
+		prerequisite = { focus = ZAM_topple_native_leaders }
+		icon = GFX_goal_ZAM_punitive_camps
+		x = -1
+		y = 4
+		relative_position_id = ZAM_baring_victory
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ZAM_baring_victory"
+			swap_ideas = {
+				remove_idea = ZAM_anglo_dominance2
+				add_idea = ZAM_anglo_dominance3
+			}
+			add_stability = -0.08
+		}
+	}
+
+	focus = {
+		id = ZAM_our_place_in_the_liberation
+		prerequisite = { focus = ZAM_punitive_communal_labour }
+		prerequisite = { focus = ZAM_royal_tours }
+		icon = GFX_goal_ZAM_liberation
+		x = 0
+		y = 5
+		relative_position_id = ZAM_baring_victory
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ZAM_baring_victory"
+			swap_ideas = {
+				remove_idea = ZAM_entente_obligations1
+				add_idea = ZAM_entente_obligations2
+			}
+			add_popularity = {
+			    ideology = national_populist
+			    popularity = 0.08
+		    }
+			add_manpower = 10000
+			add_command_power = 30
+			country_event = nrho.39
 		}
 	}
 	
@@ -1413,7 +1720,7 @@ focus_tree = {
 	focus = {
 		id = ZAM_adress_our_shitty_army
 		icon = GFX_goal_ZAM_our_army
-		x = 41
+		x = 48
 		y = 0
 
 		mutually_exclusive = {
@@ -1601,6 +1908,7 @@ focus_tree = {
 
 			if = {
 				limit = {
+					is_in_faction_with = GER					
 					GER = {
 						has_tech = infantry_weapons1
 						NOT = { has_tech = improved_infantry_weapons  }
@@ -1618,6 +1926,7 @@ focus_tree = {
 			}
 			if = {
 				limit = {
+					is_in_faction_with = GER
 					GER = {
 						has_tech = improved_infantry_weapons
 						NOT = { has_tech = advanced_infantry_weapons  }
@@ -1635,11 +1944,66 @@ focus_tree = {
 			}
 			if = {
 				limit = {
+					is_in_faction_with = GER
 					GER = {
 						has_tech = advanced_infantry_weapons
 					}
 				}
 				GER = {
+					create_production_license = {
+						target = ZAM
+						equipment = {
+							type = infantry_equipment_3
+						}
+						cost_factor = 0
+					}
+				}
+			}
+			
+			if = {
+				limit = {
+					is_in_faction_with = CAN
+					CAN = {
+						has_tech = infantry_weapons1
+						NOT = { has_tech = improved_infantry_weapons  }
+					}
+				}
+				CAN = {
+					create_production_license = {
+						target = ZAM
+						equipment = {
+							type = infantry_equipment_1
+						}
+						cost_factor = 0
+					}
+				}
+			}
+			if = {
+				limit = {
+					is_in_faction_with = CAN
+					CAN = {
+						has_tech = improved_infantry_weapons
+						NOT = { has_tech = advanced_infantry_weapons  }
+					}
+				}
+				CAN = {
+					create_production_license = {
+						target = ZAM
+						equipment = {
+							type = infantry_equipment_2
+						}
+						cost_factor = 0
+					}
+				}
+			}
+			if = {
+				limit = {
+					is_in_faction_with = CAN
+					CAN = {
+						has_tech = advanced_infantry_weapons
+					}
+				}
+				CAN = {
 					create_production_license = {
 						target = ZAM
 						equipment = {
@@ -1693,6 +2057,7 @@ focus_tree = {
 
 			if = {
 				limit = {
+					is_in_faction_with = SAF
 					SAF = {
 						has_tech = gw_artillery
 						NOT = { has_tech = artillery1 }
@@ -1710,6 +2075,7 @@ focus_tree = {
 			}
 			if = {
 				limit = {
+					is_in_faction_with = SAF
 					SAF = {
 						has_tech = artillery1
 						NOT = { has_tech = artillery4 }
@@ -1727,11 +2093,66 @@ focus_tree = {
 			}
 			if = {
 				limit = {
+					is_in_faction_with = SAF
 					SAF = {
 						has_tech = artillery4
 					}
 				}
 				SAF = {
+					create_production_license = {
+						target = ZAM
+						equipment = {
+							type = artillery_equipment_3
+						}
+						cost_factor = 0
+					}
+				}
+			}
+			
+			if = {
+				limit = {
+					is_in_faction_with = MAF
+					MAF = {
+						has_tech = gw_artillery
+						NOT = { has_tech = artillery1 }
+					}
+				}
+				MAF = {
+					create_production_license = {
+						target = ZAM
+						equipment = {
+							type = artillery_equipment_1
+						}
+						cost_factor = 0
+					}
+				}
+			}
+			if = {
+				limit = {
+					is_in_faction_with = MAF
+					MAF = {
+						has_tech = artillery1
+						NOT = { has_tech = artillery4 }
+					}
+				}
+				MAF = {
+					create_production_license = {
+						target = ZAM
+						equipment = {
+							type = artillery_equipment_2
+						}
+						cost_factor = 0
+					}
+				}
+			}
+			if = {
+				limit = {
+					is_in_faction_with = MAF
+					MAF = {
+						has_tech = artillery4
+					}
+				}
+				MAF = {
 					create_production_license = {
 						target = ZAM
 						equipment = {
@@ -1917,11 +2338,11 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus KTG_Learn_From_The_Past"
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 1
-				uses = 2
-				category = cat_grand_battle_plan
+			add_doctrine_cost_reduction = {
+	name = land_doc_bonus
+	cost_reduction = 0.5
+	uses = 1
+	category = cat_grand_battle_plan
 			}
 		}
 	}

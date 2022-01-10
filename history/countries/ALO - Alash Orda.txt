@@ -1,13 +1,28 @@
-﻿capital = 589
+﻿capital = 810
 
 OOB = "ALO"
 
 set_research_slots = 3
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+	}
+}
 set_technology = {
-	### Tanks ###
-	gwtank = 1
 	### INF ###
 	infantry_weapons = 1
+	basic_train = 1
 	tech_support = 1
 	tech_engineers = 1
 	gw_artillery = 1
@@ -15,6 +30,8 @@ set_technology = {
 	early_fighter = 1
 	early_bomber = 1
 }
+
+set_country_flag = KX_no_naval_tech_decision_enable
 
 set_war_support = 0.15
 
@@ -27,13 +44,13 @@ set_politics = {
 set_cosmetic_tag = ALO_autonomy
 set_popularities = {
 	totalist = 0
-	radical_socialist = 14
+	radical_socialist = 18
 	syndicalist = 0
-	social_democrat = 17
-	social_liberal = 40
+	social_democrat = 23
+	social_liberal = 46
 	market_liberal = 0
 	social_conservative = 0
-	authoritarian_democrat = 16
+	authoritarian_democrat = 0
 	paternal_autocrat = 13
 	national_populist = 0
 }
@@ -48,48 +65,78 @@ add_ideas = {
 }
 create_country_leader = {
 	name = "Smagul Sadvakasov"
-	picture = "Portrait_ALO_Sadvakasov.tga"
+	picture = "gfx/leaders/ALO/Portrait_ALO_Sadvakasov.png"
 	expire = "1965.1.1"
 	ideology = social_democrat_subtype
 }
 create_country_leader = {
 	name = "Mirzhakip Dulatov"
-	picture = "Portrait_ALO_Dulatov.tga"
+	picture = "gfx/leaders/ALO/Portrait_ALO_Dulatov.png"
 	expire = "1965.1.1"
-	ideology = social_liberal_subtype
+	ideology = jadidism_subtype
 }
 create_country_leader = {
 	name = "Alikhan Bukeikhanov"
 	desc = "POLITICS_ALIKHAN_BUKEIKHANOV_DESC"
-	picture = "Portrait_ALO_Bukeikhanov.tga"
+	picture = "gfx/leaders/ALO/Portrait_ALO_Bukeikhanov.png"
 	expire = "1965.1.1"
-	ideology = social_liberal_subtype
+	ideology = jadidism_subtype
 }
+
+create_country_leader = {
+	name = "Alimkhan Yermekov"
+	picture = "gfx/leaders/ALO/Portrait_ALO_Alimkhan_Yermekov.png"
+	expire = "1965.1.1"
+	ideology = market_liberal_subtype
+}
+
 create_country_leader = {
 	name = "Alikhan Bukeikhanov"
 	desc = "POLITICS_ALIKHAN_BUKEIKHANOV_DESC"
-	picture = "Portrait_ALO_Bukeikhanov.tga"
+	picture = "gfx/leaders/ALO/Portrait_ALO_Bukeikhanov.png"
 	expire = "1965.1.1"
 	ideology = social_conservative_subtype
 }
 create_country_leader = {
 	name = "Zhumabay Shayakhmetov"
-	picture = "Portrait_ALO_Zhumabay_Shayakhmetov.tga"
+	picture = "gfx/leaders/ALO/Portrait_ALO_Zhumabay_Shayakhmetov.png"
 	expire = "1965.1.1"
-	ideology = radical_socialist_subtype
+	ideology = agrarian_socialism_subtype
+}
+
+create_country_leader = {
+	name = "Zhumabay Shayakhmetov"
+	picture = "gfx/leaders/ALO/Portrait_ALO_Zhumabay_Shayakhmetov.png"
+	expire = "1965.1.1"
+	ideology = totalist_subtype
+}
+
+create_country_leader = {
+	name = "Saken Seifullin"
+	picture = "gfx/leaders/ALO/Portrait_ALO_Saken_Seifullin.png"
+	expire = "1965.1.1"
+	ideology = syndicalist_subtype
+}
+
+create_country_leader = {
+	name = "Amanzholov Sadyk Ayukevich"
+	desc = "POLITICS_AMANZHOLOV_SADYK_AYUKEVICH_DESC"
+	picture = "gfx/leaders/ALO/Portrait_ALO_Amanzholov_Sadyk_Ayukevich.png"
+	expire = "1965.1.1"
+	ideology = authoritarian_democrat_subtype
 }
 
 create_country_leader = {
 	name = "Aleksandr Dutov"
-	picture = "Portrait_ALO_Dutov.tga"
+	picture = "gfx/leaders/ALO/Portrait_ALO_Dutov.png"
 	expire = "1965.1.1"
-	ideology = paternal_autocrat_subtype
+	ideology = pataut_cossack_subtype
 }
 ### Field Marshals
 
 create_field_marshal = {
 	name = "Aleksandr Dutov"
-	portrait_path = "gfx/leaders/ALO/Portrait_ALO_Dutov.tga"
+	portrait_path = "gfx/leaders/ALO/Portrait_ALO_Dutov.png"
 	traits = {
 		old_guard inflexible_strategist offensive_doctrine
 	}
@@ -98,25 +145,27 @@ create_field_marshal = {
 	defense_skill = 1
 	planning_skill = 1
 	logistics_skill = 2
+	id = 68666
 }
 
 create_field_marshal = {
-	name = "Ivan Susaikov"
-	portrait_path = "gfx/leaders/Generic/Portrait_Europe_Generic_land_new_2.tga"
+	name = "Sadyk Amanzholov"
+	portrait_path = "gfx/leaders/ALO/Portrait_ALO_Amanzholov_Sadyk_Ayukevich.png"
 	traits = {
-		fast_planner
+		trait_reckless
+		organizer
 	}
-	skill = 1
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 2
 	logistics_skill = 1
 }
 
 ### Corps Commander
 create_corps_commander = {
 	name = "Bauyrzhan Momyshuly"
-	portrait_path = "gfx/leaders/ALO/Portrait_ALO_Bauyrzhan_Momyshuly.tga"
+	portrait_path = "gfx/leaders/ALO/Portrait_ALO_Bauyrzhan_Momyshuly.png"
 	traits = {
 		cavalry_officer
 		trickster
@@ -127,3 +176,91 @@ create_corps_commander = {
 	planning_skill = 2
 	logistics_skill = 1
 }
+
+create_corps_commander = {
+	name = "Bazarbay Mamentov"
+	portrait_path = "gfx/leaders/ALO/Portrait_ALO_Bazarbay_Mamentov.png"
+	traits = {
+	}
+	skill = 1
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Mukhamedzhan Tynyshpaev"
+	portrait_path = "gfx/leaders/ALO/Portrait_ALO_Mukhamedzhan_Tynyshpaev.png"
+	traits = {
+		trait_engineer
+	}
+	skill = 1
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Smagul Sadwakasov"
+	portrait_path = "gfx/leaders/ALO/Portrait_ALO_Smagul_Sadwakasov.png"
+	traits = {}
+	skill = 1
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Sultanbek Khojanov"
+	portrait_path = "gfx/leaders/ALO/Portrait_ALO_Sultanbek_Khojanuly_Khojanov.png"
+	traits = {}
+	skill = 1
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Zhumabay Shayakhmetuly"
+	portrait_path = "gfx/leaders/ALO/Portrait_ALO_Zhumabay_Shayakhmetov.png"
+	traits = {
+		organizer
+	}
+	skill = 2
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 2
+	logistics_skill = 2
+}
+random_unit_leader = {
+	limit = { has_id = 68666 }
+	save_global_event_target_as = ALO_Aleksandr_Dutov
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "Reno-Putilov"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_wheeled_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = additional_machine_guns
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 1
+			tank_nsb_armor_upgrade = 1
+		}
+	}
+	
+}
+

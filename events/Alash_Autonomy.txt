@@ -82,11 +82,8 @@ country_event = {
 			target = RUS
 			modifier = KR_outraged
 		}
-		RUS = {
-			set_autonomy = {
-				target = ROOT
-				autonomy_state = autonomy_free
-			}
+		ALO = {
+			clear_all_relations = yes		
 		}
 		RUS = {
 			country_event = {
@@ -200,11 +197,8 @@ country_event = {
 			target = RUS
 			modifier = KR_outraged
 		}
-		RUS = {
-			set_autonomy = {
-				target = ROOT
-				autonomy_state = autonomy_free
-			}
+		ALO = {
+			clear_all_relations = yes		
 		}
 		RUS = {
 			country_event = {
@@ -225,44 +219,8 @@ country_event = {
 			target = RUS
 			modifier = KR_outraged
 		}
-		RUS = {
-			set_autonomy = {
-				target = ROOT
-				autonomy_state = autonomy_free
-			}
-		}
-		RUS = {
-			country_event = {
-				id = alash.2
-				days = 1
-			}
-		}
-	}
-	option = {
-		name = alash.304.c
-		ai_chance = {
-			factor = 30
-		}
-		set_politics = {
-			ruling_party = authoritarian_democrat
-			elections_allowed = no
-		}
-		add_popularity = {
-			ideology = authoritarian_democrat
-			popularity = 0.2
-		}
-		drop_cosmetic_tag = yes
-		clr_country_flag = ALO_RUS
-		set_country_flag = ALO_IND
-		reverse_add_opinion_modifier = {
-			target = RUS
-			modifier = KR_outraged
-		}
-		RUS = {
-			set_autonomy = {
-				target = ROOT
-				autonomy_state = autonomy_free
-			}
+		ALO = {
+			clear_all_relations = yes		
 		}
 		RUS = {
 			country_event = {
@@ -339,7 +297,8 @@ country_event = { # Alash autonomous region declares independence !
 	title = alash.2.t
 	desc = alash.2.d
 	picture = GFX_report_event_spain_civil_war_soldiers
-
+	
+	fire_only_once = yes
 	is_triggered_only = yes
 
 	option = {
@@ -355,7 +314,7 @@ country_event = { # Cossacks are oppresed
 	fire_only_once = yes
 	is_triggered_only = yes
 	trigger = {
-		ALO = { has_government = social_liberal }
+		ALO = { has_left_democratic_government = yes }
 	}
 	option = {
 		name = alash.4.b
@@ -424,7 +383,7 @@ country_event = { # DKB secures cossacks
 		hidden_effect = {
 			country_event = {
 				id = alash.61
-				days = 7
+				days = 15
 			}
 		}
 	}
@@ -437,7 +396,8 @@ country_event = { # Kyrgyz are oppresed
 	fire_only_once = yes
 	is_triggered_only = yes
 	trigger = {
-		ALO = { has_government = social_liberal }
+		ALO = { has_left_democratic_government = yes }
+		589 = { is_owned_by = ALO }
 	}
 	option = {
 		name = alash.6.a
@@ -488,7 +448,7 @@ country_event = { # Russians oppresed
 	fire_only_once = yes
 	is_triggered_only = yes
 	trigger = {
-		ALO = { has_government = social_liberal }
+		ALO = { has_left_democratic_government = yes }
 	}
 	option = {
 		name = alash.7.a
@@ -547,6 +507,7 @@ country_event = { # Russia separatism
 		}
 		RUS = {
 			transfer_state = 406
+			transfer_state = 1208
 		}
 		406 = {
 			remove_core_of = ALO
@@ -580,14 +541,14 @@ country_event = {
 			RUS = {
 				country_event = {
 					id = alash.7
-					days = 80
+					days = 120
 					random = 48
 				}
 			}
-			TRK = {
+			KYR = {
 				country_event = {
 					id = alash.6
-					days = 120
+					days = 80
 					random = 48
 				}
 			}
@@ -795,7 +756,7 @@ country_event = {
 	
 	option = {
 		name = alash.49.a
-		TRK = {
+		KYR = {
 			country_event = {
 				id = alash.6
 				days = 40
@@ -1146,7 +1107,7 @@ country_event = { # Help from Russia ?
 		surrender_progress > 0.7
 		is_subject = no
 		is_in_faction = no
-		NOT = { country_exists = SOV }
+		NOT = { soviets_exist = yes }
 		RUS = {
 			NOT = {
 				has_war_with = ROOT
@@ -1157,10 +1118,6 @@ country_event = { # Help from Russia ?
 				has_completed_focus = RUS_Expansionism
 			}
 		}
-	}
-
-	mean_time_to_happen = {
-		days = 2
 	}
 
 	option = {
@@ -1414,14 +1371,22 @@ country_event = { # Socialist Riot in Verniy
 	option = {
 		name = alash.30.a 
 		ai_chance = {
-			factor = 25
+			factor = 35
 		}
 		set_politics = {
 			ruling_party = radical_socialist
 			elections_allowed = no
 		}
-		clr_country_flag = ALO_IND
+		drop_cosmetic_tag = yes
 		clr_country_flag = ALO_RUS
+		set_country_flag = ALO_IND
+		reverse_add_opinion_modifier = {
+			target = RUS
+			modifier = KR_outraged
+		}
+		ALO = {
+			clear_all_relations = yes		
+		}
 		remove_all_ministers = yes
 		add_ideas = {
 				ALO_Zhumabay_Shayakmetov_hog_rso
@@ -1449,7 +1414,7 @@ country_event = { # Socialist Riot in Verniy
 	option = {
 		name = alash.30.c
 		ai_chance = {
-			factor = 40
+			factor = 30
 		}
 	}
 	option = {
@@ -1461,18 +1426,27 @@ country_event = { # Socialist Riot in Verniy
 		clr_country_flag = ALO_IND
 		clr_country_flag = ALO_RUS
 		set_country_flag = ALO_DUTOV
+		set_capital = { state = 1208 }
 		set_politics = {
 			ruling_party = paternal_autocrat
 			last_election = "1930.11.9"
 			election_frequency = 48
 			elections_allowed = no
 		}
+		drop_cosmetic_tag = yes
+		reverse_add_opinion_modifier = {
+			target = RUS
+			modifier = KR_outraged
+		}
+		ALO = {
+			clear_all_relations = yes		
+		}
 		remove_all_ministers = yes
 		add_ideas = {
 				ALO_Aleksandr_Dutov_hog_ade
-				ALO_Vasiliy_Blyuher_for_npo
-				ALO_Gervasiy_Zhukov_eco_npo
-				ALO_Andrei_Bakich_sec_npo
+				ALO_Mirzhakip_Dulatov_for_ade #is actually sli
+				ALO_Gabiden_Mustafin_eco_ade
+				ALO_Mustafa_Shokay_sec_ade
 		}
 		583 = {
 			add_claim_by = ALO
@@ -1513,27 +1487,10 @@ country_event = { # Reconciliation with Soviet Russia?
 		ai_chance = {
 			factor = 90
 		}
-		if = {
-			limit = {
-				country_exists = SOV
-			}
-			SOV = {
-				country_event = {
-					id = alash.33
-					days = 1
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				country_exists = RUS
-				RUS = { has_socialist_government = yes }
-			}
-			RUS = {
-				country_event = {
-					id = alash.33
-					days = 1
-				}
+		RUS = {
+			country_event = {
+				id = alash.33
+				days = 1
 			}
 		}
 		hidden_effect = {
@@ -1687,43 +1644,21 @@ country_event = { # Join SOV?
 	
 	option = {
 		name = alash.100.a
-		if = {
+		every_owned_state = {
 			limit = {
-				country_exists = SOV
+				is_core_of = ROOT
 			}
-			every_owned_state = {
-				limit = {
-					is_core_of = ROOT
-				}
-				add_core_of = SOV
-			}
-			SOV = {
-				annex_country = {
-					target = ALO
-					transfer_troops = yes
-				}
-			}
+			add_core_of = RUS
 		}
-		else_if = {
-			limit = {
-				country_exists = RUS
-				RUS = { has_socialist_government = yes }
-			}
-			every_owned_state = {
-				limit = {
-					is_core_of = ROOT
-				}
-				add_core_of = RUS
-			}
-			RUS = {
-				annex_country = {
-					target = ALO
-					transfer_troops = yes
-				}
+		RUS = {
+			annex_country = {
+				target = ALO
+				transfer_troops = yes
 			}
 		}
 	}
 }
+
 country_event = { #Union with DKB
 	id = alash.57
 	immediate = { log = "[GetDateText]: [Root.GetName]: event alash.57" }
@@ -1860,18 +1795,22 @@ country_event = { #Dutov coup
 		clr_country_flag = ALO_IND
 		clr_country_flag = ALO_RUS
 		set_country_flag = ALO_DUTOV
+		set_capital = { state = 1208 }
 		set_politics = {
 			ruling_party = paternal_autocrat
 			last_election = "1930.11.9"
 			election_frequency = 48
 			elections_allowed = no
 		}
+		ALO = {
+			clear_all_relations = yes		
+		}
 		remove_all_ministers = yes
 		add_ideas = {
 				ALO_Aleksandr_Dutov_hog_ade
-				ALO_Vasiliy_Blyuher_for_npo
-				ALO_Gervasiy_Zhukov_eco_npo
-				ALO_Andrei_Bakich_sec_npo
+				ALO_Mirzhakip_Dulatov_for_ade #is actually sli
+				ALO_Gabiden_Mustafin_eco_ade
+				ALO_Mustafa_Shokay_sec_ade
 		}
 		583 = {
 			add_claim_by = ALO

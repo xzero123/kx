@@ -106,7 +106,7 @@ country_event = {
 		create_field_marshal = {
 			name = "Chiang Kai-shek"
 			desc = "POLITICS_CHIANG_KAI_SHEK_DESC"
-			portrait_path = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.tga"
+			portrait_path = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.png"
 			traits = {
 				brilliant_strategist
 				politically_connected
@@ -173,7 +173,7 @@ country_event = {
 		create_country_leader = {
 			name = "Dai Chunfeng"
 			desc = "POLITICS_CHI_DAI_CHUNFENG_DESC"
-			picture = "gfx/leaders/CHI/Portrait_CHI_Dai_Chunfeng.tga"
+			picture = "gfx/leaders/CHI/Portrait_CHI_Dai_Chunfeng.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
 			traits = {
@@ -238,7 +238,7 @@ country_event = {
 		create_country_leader = {
 			name = "Dai Chunfeng"
 			desc = "POLITICS_CHI_DAI_CHUNFENG_DESC"
-			picture = "gfx/leaders/CHI/Portrait_CHI_Dai_Chunfeng.tga"
+			picture = "gfx/leaders/CHI/Portrait_CHI_Dai_Chunfeng.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 			traits = {
@@ -248,7 +248,7 @@ country_event = {
 		create_country_leader = {
 			name = "Dai Chunfeng"
 			desc = "POLITICS_CHI_DAI_CHUNFENG_DESC"
-			picture = "gfx/leaders/CHI/Portrait_CHI_Dai_Chunfeng.tga"
+			picture = "gfx/leaders/CHI/Portrait_CHI_Dai_Chunfeng.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 			traits = {
@@ -718,7 +718,10 @@ country_event = {
 			limit = {
 				has_unit_leader = 2000
 			}
-			remove_unit_leader = 2000
+			random_unit_leader = {
+				limit = { has_id = 2000 }			
+				remove_unit_leader = yes
+			}
 		}
 
 		add_ideas = KR_CHI_Unrest_1
@@ -731,9 +734,9 @@ country_event = {
 			create_country_leader = {
 				name = "Dai Chunfeng"
 				desc = "POLITICS_CHI_DAI_CHUNFENG_DESC"
-				picture = "gfx/leaders/CHI/Portrait_CHI_Dai_Chunfeng.tga"
+				picture = "gfx/leaders/CHI/Portrait_CHI_Dai_Chunfeng.png"
 				expire = "1965.1.1"
-				ideology = totalist_subtype
+				ideology = autocratic_socialist_subtype
 				traits = {
 								CHI_hooded_chairman_dai
 				}
@@ -757,9 +760,9 @@ country_event = {
 		create_country_leader = {
 			name = "Chiang Kai-shek"
 			desc = "POLITICS_CHIANG_KAI_SHEK_DESC"
-			picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.tga"
+			picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.png"
 			expire = "1965.1.1"
-			ideology = totalist_subtype
+			ideology = red_junta_subtype
 			traits = {
 							CHI_generalissimo_chiang
 			}
@@ -784,7 +787,7 @@ country_event = {
 		create_country_leader = {
 			name = "Chiang Kai-shek"
 			desc = "POLITICS_CHIANG_KAI_SHEK_DESC"
-			picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.tga"
+			picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
 			traits = {
@@ -794,7 +797,7 @@ country_event = {
 		create_country_leader = {
 			name = "Chiang Kai-shek"
 			desc = "POLITICS_CHIANG_KAI_SHEK_DESC"
-			picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.tga"
+			picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 			traits = {
@@ -804,7 +807,7 @@ country_event = {
 		create_country_leader = {
 			name = "Chiang Kai-shek"
 			desc = "POLITICS_CHIANG_KAI_SHEK_DESC"
-			picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.tga"
+			picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 			traits = {
@@ -879,14 +882,17 @@ country_event = {
 			limit = {
 				has_unit_leader = 3000
 			}
-			remove_unit_leader = 3000
+			random_unit_leader = {
+				limit = { has_id = 3000 }			
+				remove_unit_leader = yes
+			}
 		}
 		custom_effect_tooltip = KMT_Dai_Dairect_Marshal
 		hidden_effect = {
 		create_field_marshal = {
 			name = "Dai Chunfeng"
 			desc = "POLITICS_CHI_DAI_CHUNFENG_ARMY_DESC"
-			portrait_path = "gfx/leaders/CHI/Portrait_CHI_Dai_Chunfeng.tga"
+			portrait_path = "gfx/leaders/CHI/Portrait_CHI_Dai_Chunfeng.png"
 			traits = {
 				old_guard
 				politically_connected
@@ -926,20 +932,26 @@ country_event = {
 			limit = {
 				has_unit_leader = 3001
 			}
-			remove_unit_leader = 3001
+			random_unit_leader = {
+				limit = { has_id = 3001 }			
+				remove_unit_leader = yes
+			}
 		}
 		if = {
 			limit = {
 				has_unit_leader = 2201
 			}
-			remove_unit_leader = 2201
+			random_unit_leader = {
+				limit = { has_id = 2201 }			
+				remove_unit_leader = yes
+			}
 		}
 		custom_effect_tooltip = KMT_Chiangs_Subordinates
 		hidden_effect = {
 	  	create_corps_commander = {
 	  		name = "Chen Guofu"
 	  		desc = "POLITICS_CHI_CHEN_GUOFU_ARMY_DESC"
-	  		portrait_path = "gfx/leaders/CHI/Portrait_KMT_Chen_Guofu.tga"
+	  		portrait_path = "gfx/leaders/CHI/Portrait_KMT_Chen_Guofu.png"
 	  		traits = {
 	  			politically_connected
 	  			harsh_leader
@@ -954,7 +966,7 @@ country_event = {
 	  			create_corps_commander = {
 	  				name = "Chen Lifu"
 	  				desc = "POLITICS_CHI_CHEN_LIFU_ARMY_DESC"
-	  				portrait_path = "gfx/leaders/CHI/Portrait_KMT_Chen_Lifu.tga"
+	  				portrait_path = "gfx/leaders/CHI/Portrait_KMT_Chen_Lifu.png"
 	  				traits = {
 	  					politically_connected
 	  								 }
@@ -1122,7 +1134,7 @@ country_event = {
 		create_country_leader = {
 			name = "Chiang Kai-shek"
 			desc = "POLITICS_CHIANG_KAI_SHEK_DESC"
-			picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.tga"
+			picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 			traits = {
@@ -1256,7 +1268,7 @@ country_event = {
 		create_country_leader = {
 			name = "Chiang Kai-shek"
 			desc = "POLITICS_CHIANG_KAI_SHEK_DESC"
-			picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.tga"
+			picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 			traits = {
@@ -1310,7 +1322,7 @@ country_event = {
 		create_country_leader = {
 			name = "Chiang Kai-shek"
 			desc = "POLITICS_CHIANG_KAI_SHEK_DESC"
-			picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.tga"
+			picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 			traits = {
@@ -1390,7 +1402,7 @@ country_event = {
 		create_country_leader = {
 			name = "Fang Junying"
 			desc = "POLITICS_FANG_JUNYING_DESC"
-			picture = "gfx/leaders/CHI/Portrait_KMT_Fang_Junying.tga"
+			picture = "gfx/leaders/CHI/Portrait_KMT_Fang_Junying.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 			traits = {
@@ -1435,7 +1447,7 @@ country_event = {
 		create_country_leader = {
 			name = "Li Liejun"
 			desc = "POLITICS_LI_LIEJUN_DESC"
-			picture = "gfx/leaders/CHI/Portrait_KMT_Li_Liejun.tga"
+			picture = "gfx/leaders/CHI/Portrait_KMT_Li_Liejun.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 			traits = {
@@ -1480,7 +1492,7 @@ country_event = {
 		create_country_leader = {
 			name = "Chiang Kai-shek"
 			desc = "POLITICS_CHIANG_KAI_SHEK_DESC"
-			picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.tga"
+			picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 			traits = {
@@ -1525,7 +1537,7 @@ country_event = {
 		create_country_leader = {
 			name = "Chen Gongbo"
 			desc = "POLITICS_CHEN_GONGBO_DESC"
-			picture = "gfx/leaders/CHI/Portrait_CHI_Chen_Gongbo.tga"
+			picture = "gfx/leaders/CHI/Portrait_CHI_Chen_Gongbo.png"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
 			traits = {
@@ -1596,7 +1608,7 @@ country_event = {
 			create_country_leader = {
 				name = "Fang Junying"
 				desc = "POLITICS_FANG_JUNYING_DESC"
-				picture = "gfx/leaders/CHI/Portrait_KMT_Fang_Junying.tga"
+				picture = "gfx/leaders/CHI/Portrait_KMT_Fang_Junying.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 				traits = {
@@ -1641,7 +1653,7 @@ country_event = {
 			create_country_leader = {
 				name = "Li Liejun"
 				desc = "POLITICS_LI_LIEJUN_DESC"
-				picture = "gfx/leaders/CHI/Portrait_KMT_Li_Liejun.tga"
+				picture = "gfx/leaders/CHI/Portrait_KMT_Li_Liejun.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 				traits = {
@@ -1686,7 +1698,7 @@ country_event = {
 			create_country_leader = {
 				name = "Chiang Kai-shek"
 				desc = "POLITICS_CHIANG_KAI_SHEK_DESC"
-				picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.tga"
+				picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 				traits = {
@@ -1731,7 +1743,7 @@ country_event = {
 			create_country_leader = {
 				name = "Chen Gongbo"
 				desc = "POLITICS_CHEN_GONGBO_DESC"
-				picture = "gfx/leaders/CHI/Portrait_CHI_Chen_Gongbo.tga"
+				picture = "gfx/leaders/CHI/Portrait_CHI_Chen_Gongbo.png"
 				expire = "1965.1.1"
 				ideology = radical_socialist_subtype
 				traits = {
@@ -1802,7 +1814,7 @@ country_event = {
 				create_country_leader = {
 					name = "Fang Junying"
 					desc = "POLITICS_FANG_JUNYING_DESC"
-					picture = "gfx/leaders/CHI/Portrait_KMT_Fang_Junying.tga"
+					picture = "gfx/leaders/CHI/Portrait_KMT_Fang_Junying.png"
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 					traits = {
@@ -1844,7 +1856,7 @@ country_event = {
 				create_country_leader = {
 					name = "Li Liejun"
 					desc = "POLITICS_LI_LIEJUN_DESC"
-					picture = "gfx/leaders/CHI/Portrait_KMT_Li_Liejun.tga"
+					picture = "gfx/leaders/CHI/Portrait_KMT_Li_Liejun.png"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = {
@@ -1886,7 +1898,7 @@ country_event = {
 				create_country_leader = {
 					name = "Chiang Kai-shek"
 					desc = "POLITICS_CHIANG_KAI_SHEK_DESC"
-					picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.tga"
+					picture = "gfx/leaders/CHI/Portrait_KMT_Chiang_Kai_shek.png"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {
@@ -1928,7 +1940,7 @@ country_event = {
 				create_country_leader = {
 					name = "Chen Gongbo"
 					desc = "POLITICS_CHEN_GONGBO_DESC"
-					picture = "gfx/leaders/CHI/Portrait_CHI_Chen_Gongbo.tga"
+					picture = "gfx/leaders/CHI/Portrait_CHI_Chen_Gongbo.png"
 					expire = "1965.1.1"
 					ideology = radical_socialist_subtype
 					traits = {
@@ -2406,13 +2418,41 @@ country_event = {
 		add_stability = 0.01
 		custom_effect_tooltip = KMT_Family
 		hidden_effect = {
-		set_country_flag = KMT_Chiang_Family
-		remove_ideas_with_trait = head_of_government
-		remove_ideas_with_trait = foreign_minister
-		add_ideas = CHI_Chiang_Ching_Kuo_hog_tot
-		add_ideas = CHI_Chiang_Wei_Kuo_for_tot
+			set_country_flag = KMT_Chiang_Family
+			remove_ideas_with_trait = head_of_government
+			remove_ideas_with_trait = foreign_minister
+			add_ideas = CHI_Chiang_Ching_Kuo_hog_tot
+			add_ideas = CHI_Chiang_Wei_Kuo_for_tot
+	  		create_corps_commander = {
+	  			name = "Chiang Ching-kuo"
+	  			#desc = "POLITICS_CHI_CHEN_LIFU_ARMY_DESC"
+	  			portrait_path = "gfx/leaders/CHI/Portrait_KMT_Chiang_Ching_kuo.png"
+	  			traits = {
+	  				politically_connected
+	  			}
+	  			skill = 1
+	  			attack_skill = 1
+	  			defense_skill = 1
+	  			planning_skill = 2
+	  			logistics_skill = 1
+	  			id = 3004
+	  		}
+			create_corps_commander = {
+	  			name = "Chiang Wei-kuo"
+	  			#desc = "POLITICS_CHI_CHEN_LIFU_ARMY_DESC"
+	  			portrait_path = "gfx/leaders/CHI/Portrait_KMT_Chiang_Wei_kuo.png"
+	  			traits = {
+	  				politically_connected
+	  			}
+	  			skill = 1
+	  			attack_skill = 1
+	  			defense_skill = 1
+	  			planning_skill = 2
+	  			logistics_skill = 1
+	  			id = 3005
+	  		}
 		}
-		}
+	}
 }
 
 #############################

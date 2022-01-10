@@ -1,13 +1,33 @@
 ﻿capital = 378
 OOB = "empty"
+starting_train_buffer = 2.0
 
 # Starting tech
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+		basic_light_tank = 1
+		basic_heavy_tank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+		improved_light_tank_chassis = 1
+		basic_heavy_tank_chassis = 1
+		engine_tech_1 = 1
+	}
+}
 set_technology = {
+	basic_train = 1
 	### MOD ###
-	### Tanks ###
-	gwtank = 1
-	basic_light_tank = 1
-	basic_heavy_tank = 1
 	### INF ###
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -28,6 +48,48 @@ set_technology = {
 	cv_CAS1 = 1
 }
 
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "M1921"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 3
+			tank_nsb_engine_upgrade = 1
+		}
+		obsolete = yes
+		icon = "gfx/interface/technologies/USA_gwtank.png"
+	}
+	create_equipment_variant = {
+		name = "M2"
+		type = light_tank_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 5
+		}
+		icon = "gfx/interface/technologies/USA_basic_light_tank.dds"
+	}
+}
+
 ### Navy - MtG ###
 
 if = {
@@ -35,37 +97,37 @@ if = {
 		has_dlc = "Man the Guns"
 	}
 	set_technology = {
-		weltkrieg_light_ship_hull = 1
-		contact_mine = 1
-		light_ship_hull_1936 = 1
-		weltkrieg_cruiser_hull = 1
-		cruiser_hull_1936 = 1
-		weltkrieg_submarine_hull = 1
-		submarine_hull_1936 = 1
-		cruiser_submarine = 1
-		carrier_conversion = 1
-		carrier_hull_1936 = 1
-		ship_hull_revived_ac = 1
-		weltkrieg_heavy_ship_hull = 1
-		heavy_ship_hull_1936 = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		panzerschiffe = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		cruiser_submarines = 1
+		early_ship_hull_carrier = 1
+		basic_ship_hull_carrier = 1
+		early_ship_hull_heavy = 1
+		basic_ship_hull_heavy = 1
 		ship_hull_super_heavy = 1
+		
+		basic_naval_mines = 1
 
 		## Modules##
-		early_torpedo = 1
-		weltkrieg_naval_gunnery = 1
-		naval_ammo_one = 1
-		light_battery_one = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_medium_battery = 1
+		basic_heavy_battery = 1
+		basic_secondary_battery = 1
+		improved_secondary_battery = 1
+		basic_depth_charges = 1
+		basic_torpedo = 1
 		improved_ship_torpedo_launcher = 1
 		basic_cruiser_armor_scheme = 1
-		weltkrieg_naval_gunnery = 1
-		naval_ammo_one = 1
 		basic_heavy_armor_scheme = 1
-		capital_gunnery_one = 1
-		weltkrieg_naval_gunnery = 1
-		naval_ammo_one = 1
 
 		### Transport ###
-		transport = 1
+		mtg_transport = 1
 	}
 }
 
@@ -78,24 +140,23 @@ if = {
 		}
 	}
 	set_technology = {
-		weltkrieg_destroyer_nonmtg = 1
-		interwar_destroyer_nonmtg = 1
-		weltkrieg_cruiser_nonmtg = 1
-		interwar_cruiser_nonmtg = 1
-		weltkrieg_submarine_nonmtg = 1
-		interwar_submarine_nonmtg = 1
-		weltkrieg_armored_cruiser_nonmtg = 1
-		interwar_armored_cruiser_nonmtg = 1
-		weltkrieg_fast_battleship_nonmtg = 1
-		interwar_fast_battleship_nonmtg = 1
-		weltkrieg_dreadnought_nonmtg = 1
-		super_heavy_dreadnought_nonmtg = 1
-		weltkrieg_carrier_nonmtg = 1
-		interwar_carrier_nonmtg = 1
-		heavy_carrier_nonmtg = 1
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+		early_submarine = 1
+		basic_submarine = 1
+		early_heavy_cruiser = 1
+		basic_heavy_cruiser = 1
+		early_battlecruiser = 1
+		early_battleship = 1
+		basic_battleship = 1
+		heavy_battleship = 1
+		early_carrier = 1
+		basic_carrier = 1
 
 		### Transport ###
-		transport_n = 1
+		transport = 1
 	}
 }
 
@@ -137,7 +198,7 @@ add_ideas = {
 create_country_leader = {# Hiram Johnson
 	name = "Hiram Johnson"
 	desc = "POLITICS_HIRAM_JOHNSON_DESC"
-	picture = "Portrait_CAL_Hiram_Johnson.tga"
+	picture = "gfx/leaders/CAL/Portrait_CAL_Hiram_Johnson.png"
 	expire = "1965.1.1"
 	ideology = social_democrat_subtype
 	traits = { captain_of_industry }
@@ -145,7 +206,7 @@ create_country_leader = {# Hiram Johnson
 create_country_leader = {# Earl Warren
 	name = "Earl Warren"
 	desc = "POLITICS_EARL_WARREN_DESC"
-	picture = "Portrait_CAL_Earl_Warren.tga"
+	picture = "gfx/leaders/CAL/Portrait_CAL_Earl_Warren.png"
 	expire = "1965.1.1"
 	ideology = social_liberal_subtype
 	traits = { backroom_backstabber }
@@ -153,7 +214,7 @@ create_country_leader = {# Earl Warren
 create_country_leader = {# Pacific Congress
 	name = "Pacific Congress"
 	desc = "POLITICS_PACIFIC_CONGRESS_DESC"
-	picture = "gfx/leaders/CAL/CAL_pacific_congress.tga"
+	picture = "gfx/leaders/CAL/CAL_pacific_congress.png"
 	expire = "1965.1.1"
 	ideology = social_conservative_subtype
 	traits = { provisional_congress }
@@ -161,7 +222,7 @@ create_country_leader = {# Pacific Congress
 create_country_leader = {# Frank Merriam
 	name = "Frank Merriam"
 	desc = "POLITICS_FRANK_MERRIAM_DESC"
-	picture = "Portrait_CAL_Frank_Merrimam.tga"
+	picture = "gfx/leaders/CAL/Portrait_CAL_Frank_Merrimam.png"
 	expire = "1965.1.1"
 	ideology = market_liberal_subtype
 	traits = { prince_of_terror }
@@ -169,70 +230,20 @@ create_country_leader = {# Frank Merriam
 create_country_leader = {
 	name = "Upton Sinclair"
 	desc = "POLITICS_UPTON_SINCLAIR_DESC"
-	picture = "gfx/leaders/CAL/Portrait_CAL_Upton_Sinclair.tga"
+	picture = "gfx/leaders/CAL/Portrait_CAL_Upton_Sinclair.png"
 	expire = "1965.1.1"
-	ideology = radical_socialist_subtype
+	ideology = radical_progressivism_subtype
 	traits = { author }
 }
 
 
 ###Field Commander####
-create_field_marshal = {# Henry H. Arnold
-	name = "Henry H. Arnold"
-	desc = "CAL_HENRY_ARNOLD_ARMY_DESC"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_Henry_Arnold.tga"
-	traits = {
-		career_officer
-		politically_connected
-		inspirational_leader
-		organizer
-	}
-	skill = 4
-	attack_skill = 4
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 3
-	id = 938
-}
-create_field_marshal = {# George Marshall
-	name = "George Marshall"
-	desc = "CAL_DADDY_MARSHALL_ARMY_DESC"
-	portrait_path = "gfx/leaders/USA/Portrait_USA_george_marshall.tga"
-	traits = {
-		career_officer
-		politically_connected
-		offensive_doctrine
-		organizer
-	}
-	skill = 4
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 4
-	logistics_skill = 3
-	id = 937
-}
-### Corps Commander
-create_corps_commander = {# Leslie McNair
-	name = "Leslie McNair"
-	desc = "USA_LESLIE_MCNAIR_ARMY_DESC"
-	portrait_path = "gfx/leaders/USA/Portrait_USA_gen_Leslie_Mcnair.tga"
-	traits = {
-		old_guard
-		career_officer
-		artillery_officer
-	}
-	skill = 3
 
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 4
-	logistics_skill = 2
-	id = 958
-}
+### Corps Commander
 create_corps_commander = {# Alexander Patch
 	name = "Alexander Patch"
 	desc = "CAL_ALEXANDER_PATCH_ARMY_DESC"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_Alexander_Patch.tga"
+	portrait_path = "gfx/leaders/CAL/Portrait_CAL_Alexander_Patch.png"
 	traits = {
 		commando
 		infantry_officer
@@ -247,7 +258,7 @@ create_corps_commander = {# Alexander Patch
 create_corps_commander = {# Lewis H. Brereton
 	name = "Lewis H. Brereton"
 	desc = "CAL_LEWIS_BRERETON_ARMY_DESC"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_lewis_brereton.tga"
+	portrait_path = "gfx/leaders/CAL/Portrait_CAL_lewis_brereton.png"
 	traits = {
 		career_officer
 		politically_connected
@@ -263,7 +274,7 @@ create_corps_commander = {# Lewis H. Brereton
 create_corps_commander = {# Isaac D. White
 	name = "Isaac D. White"
 	desc = "CAL_ISAAC_WHITE_ARMY_DESC"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_isaac_white.tga"
+	portrait_path = "gfx/leaders/CAL/Portrait_CAL_isaac_white.png"
 	traits = {
 		career_officer
 		armor_officer
@@ -279,7 +290,7 @@ create_corps_commander = {# Isaac D. White
 create_corps_commander = {# Albert Coady Wedemeyer
 	name = "Albert Coady Wedemeyer"
 	desc = "CAL_ALBERT_WEDEMEYER_ARMY_DESC"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_albert_wedemeyer.tga"
+	portrait_path = "gfx/leaders/CAL/Portrait_CAL_albert_wedemeyer.png"
 	traits = {
 		politically_connected
 		trait_cautious
@@ -295,7 +306,7 @@ create_corps_commander = {# Albert Coady Wedemeyer
 create_corps_commander = {# Alexander Vandegrift
 	name = "Alexander Vandegrift"
 	desc = "CAL_ALEXANDER_VANDEGRIFT_ARMY_DESC"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_alexander_vandergrift.tga"
+	portrait_path = "gfx/leaders/CAL/Portrait_CAL_alexander_vandergrift.png"
 	traits = {
 		career_officer
 		trait_cautious
@@ -311,7 +322,7 @@ create_corps_commander = {# Alexander Vandegrift
 create_corps_commander = {# George Windle Read, Jr.
 	name = "George Windle Read, Jr."
 	desc = "CAL_GEORGE_WINDLE_READ_ARMY_DESC"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_george_read.tga"
+	portrait_path = "gfx/leaders/CAL/Portrait_CAL_george_read.png"
 	traits = {
 		politically_connected
 		armor_officer
@@ -327,7 +338,7 @@ create_corps_commander = {# George Windle Read, Jr.
 create_corps_commander = {# Jimmy Doolittle
 	name = "James H. Doolittle"
 	desc = "CAL_JIMMY_DOOLITTLE_ARMY_DESC"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_Jimmy_Doolittle.tga"
+	portrait_path = "gfx/leaders/CAL/Portrait_CAL_Jimmy_Doolittle.png"
 	traits = {
 		politically_connected
 		career_officer
@@ -343,7 +354,7 @@ create_corps_commander = {# Jimmy Doolittle
 create_corps_commander = {# Ross E. Rowell
 	name = "Ross E. Rowell"
 	desc = "CAL_ROSS_ROWELL_ARMY_DESC"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_Ross_E_Rowell.tga"
+	portrait_path = "gfx/leaders/CAL/Portrait_CAL_Ross_E_Rowell.png"
 	traits = {
 		career_officer
 		air_commander
@@ -358,7 +369,7 @@ create_corps_commander = {# Ross E. Rowell
 create_corps_commander = {# Harry B. Liversedge
 	name = "Harry B. Liversedge"
 	desc = "CAL_HARRY_LIVERSEDGE_ARMY_DESC"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_Harry_B_Liversedge.tga"
+	portrait_path = "gfx/leaders/CAL/Portrait_CAL_Harry_B_Liversedge.png"
 	traits = {
 		media_personality
 		naval_invader
@@ -373,7 +384,7 @@ create_corps_commander = {# Harry B. Liversedge
 create_corps_commander = {# Millard Fillmore Harmon
 	name = "Millard Fillmore Harmon"
 	desc = "CAL_MILLARD_FILLMORE_HARMON_ARMY_DESC"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_Millard_Fillmore_Harmon_Jr.tga"
+	portrait_path = "gfx/leaders/CAL/Portrait_CAL_Millard_Fillmore_Harmon_Jr.png"
 	traits = {
 		air_commander
 		skilled_staffer
@@ -389,7 +400,7 @@ create_corps_commander = {# Millard Fillmore Harmon
 create_corps_commander = {# George C. Shaw
 	name = "George C. Shaw"
 	desc = "CAL_GEORGE_SHAW_ARMY_DESC"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_George_c_shaw.tga"
+	portrait_path = "gfx/leaders/CAL/Portrait_CAL_George_c_shaw.png"
 	traits = {
 		war_hero
 		career_officer
@@ -404,7 +415,7 @@ create_corps_commander = {# George C. Shaw
 create_corps_commander = {# Herbert B. Powell
 	name = "Herbert B. Powell"
 	desc = "CAL_HERBERT_POWELL_ARMY_DESC"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_herbert_powell.tga"
+	portrait_path = "gfx/leaders/CAL/Portrait_CAL_herbert_powell.png"
 	traits = {
 		politically_connected
 		infantry_officer
@@ -420,7 +431,7 @@ create_corps_commander = {# Herbert B. Powell
 ### Navy Leader
 create_navy_leader = {# Chester W. Nimitz
 	name = "Chester W. Nimitz"
-	portrait_path = "gfx/leaders/USA/Portrait_USA_Chester_W_Nimitz.dds"
+	portrait_path = "gfx/leaders/USA/Portrait_USA_Chester_Nimitz_KR.png"
 	traits = {
 		superior_tactician
 		spotter
@@ -433,7 +444,7 @@ create_navy_leader = {# Chester W. Nimitz
 }
 create_navy_leader = {# Felix Stump
 	name = "Felix Stump"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_felix_stump.tga"
+	portrait_path = "gfx/leaders/CAL/Portrait_CAL_felix_stump.png"
 	traits = {}
 	skill = 2
 	attack_skill = 2
@@ -443,7 +454,7 @@ create_navy_leader = {# Felix Stump
 }
 create_navy_leader = {# Harvey Overesch
 	name = "Harvey Overesch"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_harvey_overesch.tga"
+	portrait_path = "gfx/leaders/CAL/Portrait_CAL_harvey_overesch.png"
 	traits = {}
 	skill = 2
 	attack_skill = 1
@@ -451,19 +462,9 @@ create_navy_leader = {# Harvey Overesch
 	maneuvering_skill = 2
 	coordination_skill = 2
 }
-create_navy_leader = {# Lloyd M. Mustin
-	name = "Lloyd M. Mustin"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_Lloyd_Mustin.tga"
-	traits = {fly_swatter}
-	skill = 3
-	attack_skill = 2
-	defense_skill = 3
-	maneuvering_skill = 2
-	coordination_skill = 3
-}
 create_navy_leader = {# Daniel E. Barbey
 	name = "Daniel E. Barbey"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_daniel_barbey.tga"
+	portrait_path = "gfx/leaders/CAL/Portrait_CAL_daniel_barbey.png"
 	traits = {superior_tactician}
 	skill = 3
 	attack_skill = 3
@@ -473,7 +474,7 @@ create_navy_leader = {# Daniel E. Barbey
 }
 create_navy_leader = {# James H. Doyle
 	name = "James H. Doyle"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_james_doyle.tga"
+	portrait_path = "gfx/leaders/CAL/Portrait_CAL_james_doyle.png"
 	traits = {}
 	skill = 2
 	attack_skill = 2
@@ -483,7 +484,7 @@ create_navy_leader = {# James H. Doyle
 }
 create_navy_leader = {# Harry W. Hill
 	name = "Harry W. Hill"
-	portrait_path = "gfx/leaders/CAL/Portrait_CAL_harry_hill.tga"
+	portrait_path = "gfx/leaders/CAL/Portrait_CAL_harry_hill.png"
 	traits = {ironside}
 	skill = 3
 	attack_skill = 2

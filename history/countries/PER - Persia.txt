@@ -3,18 +3,33 @@ OOB = "PER"
 set_naval_oob= "PER_naval"
 set_convoys = 30
 set_research_slots = 2
+starting_train_buffer = 1.0
 set_technology = {
-	### Tanks ###
-	gwtank = 1
 	### Infantry ###
 	infantry_weapons = 1
 	tech_mountaineers = 1
 	gw_artillery = 1
+	basic_train = 1
 	### Air ###
 	early_fighter = 1
 	early_bomber = 1
 }
-
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+	}
+}
 ### Navy - MtG ###
 
 if = {
@@ -22,15 +37,16 @@ if = {
 		has_dlc = "Man the Guns"
 	}
 	set_technology = {
-		weltkrieg_light_ship_hull = 1
-		contact_mine = 1
-		light_ship_hull_1936 = 1
-		weltkrieg_cruiser_hull = 1
-		cruiser_hull_1936 = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		
+		basic_naval_mines = 1
 
 		## Modules##
-		weltkrieg_naval_gunnery = 1
-		light_battery_one = 1
+		basic_battery = 1
+		basic_light_battery = 1
 		smoke_generator = 1
 	}
 }
@@ -44,10 +60,10 @@ if = {
 		}
 	}
 	set_technology = {
-		weltkrieg_destroyer_nonmtg = 1
-		interwar_destroyer_nonmtg = 1
-		weltkrieg_cruiser_nonmtg = 1
-		interwar_cruiser_nonmtg = 1
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
 	}
 }
 
@@ -133,7 +149,7 @@ country_event = {
 
 create_country_leader = {
 	name = "Bahram Ariana"
-	picture = "Portrait_Persia_Bahram_Aryiana.tga"
+	picture = "gfx/leaders/PER/Portrait_Persia_Bahram_Aryiana.png"
 	expire = "1965.1.1"
 	ideology = national_populist_subtype
 }
@@ -141,15 +157,15 @@ create_country_leader = {
 create_country_leader = {
 	name = "Ahmad Shah Qajar"
 	desc = "POLITICS_AHMAD_SHAH_QAJAR_DESC"
-	picture = "Portrait_Persia_Ahmad_Shah_Qajar.tga"
+	picture = "gfx/leaders/PER/Portrait_Persia_Ahmad_Shah_Qajar.png"
 	expire = "1965.1.1"
-	ideology = paternal_autocrat_subtype
+	ideology = absolute_monarchy_subtype
 }
 
 create_country_leader = {
 	name = "Ahmad Shah Qajar"
 	desc = "POLITICS_AHMAD_SHAH_QAJAR_DESC"
-	picture = "Portrait_Persia_Ahmad_Shah_Qajar.tga"
+	picture = "gfx/leaders/PER/Portrait_Persia_Ahmad_Shah_Qajar.png"
 	expire = "1965.1.1"
 	ideology = authoritarian_democrat_subtype
 }
@@ -157,21 +173,21 @@ create_country_leader = {
 create_country_leader = {
 	name = "Ahmad Shah Qajar"
 	desc = "POLITICS_AHMAD_SHAH_QAJAR_DESC"
-	picture = "Portrait_Persia_Ahmad_Shah_Qajar.tga"
+	picture = "gfx/leaders/PER/Portrait_Persia_Ahmad_Shah_Qajar.png"
 	expire = "1965.1.1"
 	ideology = social_conservative_subtype
 }
 
 create_country_leader = {
 	name = "Mohammad Ali Foroughi Zoka-ol-Molk"
-	picture = "Portrait_Persia_Mohammad_Ali_Foroughi.tga"
+	picture = "gfx/leaders/PER/Portrait_Persia_Mohammad_Ali_Foroughi.png"
 	expire = "1965.1.1"
 	ideology = market_liberal_subtype
 }
 
 create_country_leader = {
 	name = "Mohammad Mosaddegh"
-	picture = "Portrait_Persia_Mohammad_Mosaddegh.tga"
+	picture = "gfx/leaders/PER/Portrait_Persia_Mohammad_Mosaddegh.png"
 	expire = "1965.1.1"
 	ideology = social_liberal_subtype
 }
@@ -179,7 +195,7 @@ create_country_leader = {
 create_country_leader = {
 	name = "Ahmad Shah Qajar"
 	desc = "POLITICS_AHMAD_SHAH_QAJAR_DESC"
-	picture = "Portrait_Persia_Ahmad_Shah_Qajar.tga"
+	picture = "gfx/leaders/PER/Portrait_Persia_Ahmad_Shah_Qajar.png"
 	expire = "1965.1.1"
 	ideology = social_democrat_subtype
 }
@@ -187,21 +203,21 @@ create_country_leader = {
 create_country_leader = {
 	name = "Iraj Eskandari"
 	desc = "POLITICS_IRAJ_ESKANDARI_DESC"
-	picture = "Portrait_Persia_Iraj_Eskandari.tga"
+	picture = "gfx/leaders/PER/Portrait_Persia_Iraj_Eskandari.png"
 	expire = "1965.1.1"
 	ideology = radical_socialist_subtype
 }
 
 create_country_leader = {
 	name = "Ja'far Pishevari"
-	picture = "Portrait_Persia_Ja'far_Pishevari.tga"
+	picture = "gfx/leaders/PER/Portrait_Persia_Ja'far_Pishevari.png"
 	expire = "1965.1.1"
 	ideology = syndicalist_subtype
 }
 
 create_country_leader = {
 	name = "Avetis Soltanzadeh"
-	picture = "Portrait_Persia_Avetis_Soltanzade.tga"
+	picture = "gfx/leaders/PER/Portrait_Persia_Avetis_Soltanzade.png"
 	expire = "1965.1.1"
 	ideology = totalist_subtype
 }
@@ -223,7 +239,7 @@ add_ideas = {
 ### Field Marshals ###
 create_field_marshal = {
 	name = "Reza Khan"
-	portrait_path = "gfx/leaders/PER/Portrait_Persia_Reza_Khan.tga"
+	portrait_path = "gfx/leaders/PER/Portrait_Persia_Reza_Khan.png"
 	traits = {
 		offensive_doctrine
 		old_guard
@@ -241,7 +257,7 @@ create_field_marshal = {
 
 create_field_marshal = {
 	name = "Hassan Mirza Qajar"
-	portrait_path = "gfx/leaders/PER/Portrait_Persia_Hassan_Mirza_Qajar.tga"
+	portrait_path = "gfx/leaders/PER/Portrait_Persia_Hassan_Mirza_Qajar.png"
 	traits = {
 		inspirational_leader
 		politically_connected
@@ -258,7 +274,7 @@ create_field_marshal = {
 ### Corps Commanders ###
 create_corps_commander = {
 	name = "Bahram Ariana"
-	portrait_path = "gfx/leaders/PER/Portrait_Persia_Bahram_Aryiana.tga"
+	portrait_path = "gfx/leaders/PER/Portrait_Persia_Bahram_Aryiana.png"
 	traits = {
 		panzer_leader
 		career_officer
@@ -272,7 +288,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Karim Agha Khan Buzarjomehri"
-	portrait_path = "gfx/leaders/PER/Portrait_Persia_Bouzahr_Jahromi.tga"
+	portrait_path = "gfx/leaders/PER/Portrait_Persia_Bouzahr_Jahromi.png"
 	traits = {
 		infantry_leader
 		career_officer
@@ -286,7 +302,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Sardar Homayoun"
-	portrait_path = "gfx/leaders/PER/Portrait_Persia_Sardar_Homayoun.tga"
+	portrait_path = "gfx/leaders/PER/Portrait_Persia_Sardar_Homayoun.png"
 	traits = {
 		fortress_buster
 	}
@@ -299,7 +315,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Amir Ahmadi"
-	portrait_path = "gfx/leaders/PER/Portrait_Persia_Amir_Ahmadi.tga"
+	portrait_path = "gfx/leaders/PER/Portrait_Persia_Amir_Ahmadi.png"
 	traits = {
 		desert_fox
 	}
@@ -312,7 +328,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Abdollah Khan Amir Tahmasebi"
-	portrait_path = "gfx/leaders/PER/Portrait_Persia_Amir_Tahmabsi.tga"
+	portrait_path = "gfx/leaders/PER/Portrait_Persia_Amir_Tahmabsi.png"
 	traits = {
 		trait_mountaineer
 		hill_fighter
@@ -326,7 +342,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Feridum Djam"
-	portrait_path = "gfx/leaders/PER/Portrait_Persia_Feridum_Jam.tga"
+	portrait_path = "gfx/leaders/PER/Portrait_Persia_Feridum_Jam.png"
 	traits = {
 		harsh_leader
 	}
@@ -339,7 +355,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Mohammad Pouladin"
-	portrait_path = "gfx/leaders/PER/Portrait_Persia_Mohammad_Pouladin.tga"
+	portrait_path = "gfx/leaders/PER/Portrait_Persia_Mohammad_Pouladin.png"
 	traits = { }
 	skill = 1
 	attack_skill = 1
@@ -350,7 +366,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Amanollah Jahanbani"
-	portrait_path = "gfx/leaders/PER/Portrait_Persia_Amanollah_Jahanbani.tga"
+	portrait_path = "gfx/leaders/PER/Portrait_Persia_Amanollah_Jahanbani.png"
 	traits = {
 		trait_engineer
 	}
@@ -363,7 +379,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Fazlollah Zahedi"
-	portrait_path = "gfx/leaders/PER/Portrait_Persia_Fazlollah_Zahedi.tga"
+	portrait_path = "gfx/leaders/PER/Portrait_Persia_Fazlollah_Zahedi.png"
 	traits = {
 		commando
 		guerilla_fighter
@@ -377,7 +393,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Mohammad Taqi-Khan Pessian"
-	portrait_path = "gfx/leaders/PER/Portrait_Persia_Mohammad_Taqi-Khan_Pessian.tga"
+	portrait_path = "gfx/leaders/PER/Portrait_Persia_Mohammad_Taqi-Khan_Pessian.png"
 	traits = {
 		trickster
 		trait_engineer
@@ -394,7 +410,7 @@ create_corps_commander = {
 ### Admirals ###
 create_navy_leader = {
 	name = "Gholamali Bayandor"
-	portrait_path = "gfx/leaders/PER/Portrait_Persia_Gholamali_Bayandor.tga"
+	portrait_path = "gfx/leaders/PER/Portrait_Persia_Gholamali_Bayandor.png"
 	traits = { }
 	skill = 1
 	coordination_skill = 1

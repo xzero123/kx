@@ -1030,7 +1030,7 @@ country_event = {
 		create_country_leader = {
 			name = "Juan III"
 			desc = "POLITICS_JUAN_BOURBON_DESC"
-			picture = "Portrait_SPR_Juan_III.tga"
+			picture = "gfx/leaders/SPR/Portrait_SPR_Juan_III.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 		}
@@ -1048,9 +1048,9 @@ country_event = {
 		create_country_leader = {
 			name = "Francisco Franco Bahamonde"
 			desc = "POLITICS_FRANSISCO_FRANCO_DESC"
-			picture = "Portrait_SPR_Franco_Bahamonde.tga"
+			picture = "gfx/leaders/SPR/Portrait_SPR_Franco_Bahamonde.png"
 			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
+			ideology = authdem_junta_subtype
 		}
 		custom_effect_tooltip = SPR_become_republic
 		set_cosmetic_tag = SPR_republic
@@ -1081,7 +1081,7 @@ country_event = {
 		create_country_leader = {
 			name = "Jaime I"
 			desc = "POLITICS_JAIME_BOURBON_DESC"
-			picture = "Portrait_SPR_Jaime_I.tga"
+			picture = "gfx/leaders/SPR/Portrait_SPR_Jaime_I.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 		}
@@ -1107,9 +1107,9 @@ country_event = {
 		create_country_leader = {
 			name = "Francisco Franco Bahamonde"
 			desc = "POLITICS_FRANSISCO_FRANCO_DESC"
-			picture = "Portrait_SPR_Franco_Bahamonde.tga"
+			picture = "gfx/leaders/SPR/Portrait_SPR_Franco_Bahamonde.png"
 			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
+			ideology = authdem_junta_subtype
 		}
 		custom_effect_tooltip = SPR_become_republic
 		set_cosmetic_tag = SPR_republic
@@ -1207,6 +1207,13 @@ country_event = {
 		name = sprd.30.b #It's not a good idea
 		ai_chance = {
 			factor = 1
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = CAR_foreign_policy
+					option = CAR_ENTENTE
+				}
+			}
 		}
 		add_political_power = -20
 		FROM = {
@@ -1545,10 +1552,13 @@ country_event = {
 							CAR_Joaquin_Bau_Nolla_eco_npo
 							CAR_Tomas_Conde_de_Redezno_sec_pau
 						}
-						remove_unit_leader = 3110
+						random_unit_leader = {
+							limit = { has_id = 3110 }			
+							remove_unit_leader = yes
+						}
 						create_field_marshal = { #Auto-Generated
 							name = "Carlos VIII"
-							portrait_path = "gfx/leaders/CAR/Portrait_CAR_Carlos_VIII.tga"
+							portrait_path = "gfx/leaders/CAR/Portrait_CAR_Carlos_VIII.png"
 							traits = {
 								media_personality
 								trait_reckless
@@ -2031,10 +2041,13 @@ country_event = {
 					CAR_Joaquin_Bau_Nolla_eco_npo
 					CAR_Jose_Luis_Arrese_Magra_sec_pau
 				}
-				remove_unit_leader = 3110
+				random_unit_leader = {
+					limit = { has_id = 3110 }			
+					remove_unit_leader = yes
+				}
 				create_field_marshal = { #Auto-Generated
 					name = "Carlos VIII"
-					portrait_path = "gfx/leaders/CAR/Portrait_CAR_Carlos_VIII.tga"
+					portrait_path = "gfx/leaders/CAR/Portrait_CAR_Carlos_VIII.png"
 					traits = {
 						media_personality
 						trait_reckless
@@ -2119,7 +2132,7 @@ country_event = {
 			limit = {
 				owns_state = 176
 			}
-			set_capital = 176
+			set_capital = { state = 176 }
 		}
 		declare_war_on = {
 			target = SPR
@@ -2436,7 +2449,7 @@ country_event = {
 			limit = {
 				owns_state = 165
 			}
-			set_capital = 165
+			set_capital = { state = 165 }
 		}
 		declare_war_on = {
 			target = SPR
@@ -2950,7 +2963,7 @@ country_event = {
 			factor = 80
 		}
 		add_political_power = 20
-		set_capital = 41
+		set_capital = { state = 41 }
 		hidden_effect = {
 			country_event = {
 				id = sprc.255
@@ -3132,9 +3145,9 @@ country_event = {
 		create_country_leader = {
 			name = "Miguel Cabanellas Ferrer"
 			desc = "POLITICS_MIGUEL_FERRER_DESC"
-			picture = "Portrait_SPR_Miguel_Cabanellas_Ferrer.tga"
+			picture = "gfx/leaders/SPR/Portrait_SPR_Miguel_Cabanellas_Ferrer.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = junta_subtype
 		}
 		set_politics = {
 			ruling_party = paternal_autocrat
@@ -3169,9 +3182,9 @@ country_event = {
 		create_country_leader = {
 			name = "Francisco Franco Bahamonde"
 			desc = "POLITICS_FRANSISCO_FRANCO_DESC"
-			picture = "Portrait_SPR_Franco_Bahamonde.tga"
+			picture = "gfx/leaders/SPR/Portrait_SPR_Franco_Bahamonde.png"
 			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
+			ideology = authdem_junta_subtype
 		}
 		hidden_effect = {
 			CNT = {
@@ -3195,7 +3208,7 @@ country_event = {
 		create_country_leader = {
 			name = "J.M. Gil-Robles Quiñones"
 			desc = "POLITICS_GIL_ROBLES_QUINONES_DESC"
-			picture = "Portrait_SPR_J_M_Gil_Robles_Quinones.tga"
+			picture = "gfx/leaders/SPR/Portrait_SPR_J_M_Gil_Robles_Quinones.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 		}
@@ -3281,7 +3294,7 @@ country_event = {
 			factor = 100
 		}
 		add_political_power = 20
-		set_capital = 41
+		set_capital = { state = 41 }
 	}
 	option = {
 		name = sprc.321.b
@@ -3416,25 +3429,25 @@ country_event = {
 			limit = { tag = CAR }
 			create_country_leader = {
 				name = "Niceto Alcalá-Zamora"
-				picture = "gfx/leaders/CNT/Portrait_CNT_Niceto_Alcala_Zamora.tga"
+				picture = "gfx/leaders/CNT/Portrait_CNT_Niceto_Alcala_Zamora.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 			}
 			create_country_leader = {
 				name = "Manuel Azaña Díaz"
-				picture = "gfx/leaders/CNT/Portrait_CNT_Manuel_Azana_Diaz.tga"
+				picture = "gfx/leaders/CNT/Portrait_CNT_Manuel_Azana_Diaz.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 			}
 			create_country_leader = {
 				name = "José Díaz Ramos"
-				picture = "gfx/leaders/SPR/Portrait_SPR_Jose_Diaz_Ramos.tga"
+				picture = "gfx/leaders/SPR/Portrait_SPR_Jose_Diaz_Ramos.png"
 				expire = "1965.1.1"
 				ideology = syndicalist_subtype
 			}
 			create_country_leader = {
 				name = "Dolores Ibáurri Gómez"
-				picture = "gfx/leaders/CNT/Portrait_CNT_Dolores_Ibaurri_Gomez.tga"
+				picture = "gfx/leaders/CNT/Portrait_CNT_Dolores_Ibaurri_Gomez.png"
 				expire = "1965.1.1"
 				ideology = totalist_subtype
 			}
@@ -3455,20 +3468,20 @@ country_event = {
 			create_country_leader = {
 				name = "Francisco Franco Bahamonde"
 				desc = "POLITICS_FRANSISCO_FRANCO_DESC"
-				picture = "gfx/leaders/SPR/Portrait_SPR_Franco_Bahamonde.tga"
+				picture = "gfx/leaders/SPR/Portrait_SPR_Franco_Bahamonde.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = junta_subtype
 			}
 			create_country_leader = {
 				name = "Jaime I"
 				desc = "POLITICS_JAIME_BOURBON_DESC"
-				picture = "gfx/leaders/SPR/Portrait_SPR_Jaime_I.tga"
+				picture = "gfx/leaders/SPR/Portrait_SPR_Jaime_I.png"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
 			}
 			create_country_leader = {
 				name = "José Díaz Ramos"
-				picture = "gfx/leaders/SPR/Portrait_SPR_Jose_Diaz_Ramos.tga"
+				picture = "gfx/leaders/SPR/Portrait_SPR_Jose_Diaz_Ramos.png"
 				expire = "1965.1.1"
 				ideology = syndicalist_subtype
 			}
@@ -3489,37 +3502,37 @@ country_event = {
 			limit = { tag = SPR }
 			create_country_leader = {
 				name = "Niceto Alcalá-Zamora"
-				picture = "gfx/leaders/CNT/Portrait_CNT_Niceto_Alcala_Zamora.tga"
+				picture = "gfx/leaders/CNT/Portrait_CNT_Niceto_Alcala_Zamora.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 			}
 			create_country_leader = {
 				name = "Ramón Otero Pedrayo"
-				picture = "gfx/leaders/CAR/Portrait_CAR_Ramon_Otero_Pedrayo.tga"
+				picture = "gfx/leaders/CAR/Portrait_CAR_Ramon_Otero_Pedrayo.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 			}
 			create_country_leader = {
 				name = "Manuel Azaña Díaz"
-				picture = "gfx/leaders/CNT/Portrait_CNT_Manuel_Azana_Diaz.tga"
+				picture = "gfx/leaders/CNT/Portrait_CNT_Manuel_Azana_Diaz.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 			}
 			create_country_leader = {
 				name = "Augusto Barcia Trelles"
-				picture = "gfx/leaders/CNT/Portrait_CNT_Augusto_Barcia_Trelles.tga"
+				picture = "gfx/leaders/CNT/Portrait_CNT_Augusto_Barcia_Trelles.png"
 				expire = "1965.1.1"
 				ideology = social_democrat_subtype
 			}
 			create_country_leader = {
 				name = "Julián Besteiro Fernández"
-				picture = "gfx/leaders/CNT/Portrait_CNT_Julian_Besteiro_Fernandez.tga"
+				picture = "gfx/leaders/CNT/Portrait_CNT_Julian_Besteiro_Fernandez.png"
 				expire = "1965.1.1"
 				ideology = radical_socialist_subtype
 			}
 			create_country_leader = {
 				name = "Dolores Ibáurri Gómez"
-				picture = "gfx/leaders/CNT/Portrait_CNT_Dolores_Ibaurri_Gomez.tga"
+				picture = "gfx/leaders/CNT/Portrait_CNT_Dolores_Ibaurri_Gomez.png"
 				expire = "1965.1.1"
 				ideology = totalist_subtype
 			}
@@ -3644,34 +3657,41 @@ country_event = { #Constitutional monarchy?
 
 	option = { #Yes.
 		name = sprd.100.a
-		#ai_chance = {
-			#factor = 1
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = SPR_politics
+					option = SPR_POLITICS_AUTHDEM
+				}
+			}
 			#modifier = {
 				#factor = 3
 				#has_country_flag = { SPR_new_constitution }
 			#}
-		#}
+		}
 		add_stability = 0.05
 		hidden_effect = {
 			set_country_flag = SPR_constitutional_monarchy
 			create_country_leader = {
 				name = "Jaime I"
 				desc = "POLITICS_JAIME_BOURBON_DESC"
-				picture = "Portrait_SPR_Jaime_I.tga"
+				picture = "gfx/leaders/SPR/Portrait_SPR_Jaime_I.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 			}
 			create_country_leader = {
 				name = "Jaime I"
 				desc = "POLITICS_JAIME_BOURBON_DESC"
-				picture = "Portrait_SPR_Jaime_I.tga"
+				picture = "gfx/leaders/SPR/Portrait_SPR_Jaime_I.png"
 				expire = "1965.1.1"
 				ideology = market_liberal_subtype
 			}
 			create_country_leader = {
 				name = "Jaime I"
 				desc = "POLITICS_JAIME_BOURBON_DESC"
-				picture = "Portrait_SPR_Jaime_I.tga"
+				picture = "gfx/leaders/SPR/Portrait_SPR_Jaime_I.png"
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 			}
@@ -3680,7 +3700,7 @@ country_event = { #Constitutional monarchy?
 				create_country_leader = {
 					name = "Jaime I"
 					desc = "POLITICS_JAIME_BOURBON_DESC"
-					picture = "Portrait_SPR_Jaime_I.tga"
+					picture = "gfx/leaders/SPR/Portrait_SPR_Jaime_I.png"
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 				}
@@ -3689,13 +3709,34 @@ country_event = { #Constitutional monarchy?
 	}
 	option = { #No.
 		name = sprd.100.b
-		#ai_chance = {
-			#factor = 1
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_SOCCON
+					}
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_MARLIB
+					}
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_SOCLIB
+					}
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_SOCDEM
+					}
+				}
+			}
 			#modifier = {
 				#factor = 3
 				#has_country_flag = { SPR_leaders_arrested }
 			#}
-		#}
+		}
 		add_stability = -0.05
 		set_country_flag = SPR_absolute_monarchy
 	}
@@ -3730,6 +3771,23 @@ country_event = {
 		name = sprd.101.a #Partido Liberal Moderado
 		ai_chance = {
 			factor = 15
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_SOCCON
+					}
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_SOCLIB
+					}
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_SOCDEM
+					}
+				}
+			}
 		}
 		set_country_flag = SPR_had_election
 		meta_effect = {
@@ -3759,6 +3817,23 @@ country_event = {
 		trigger	= { has_country_flag = SPR_allow_psoe }
 		ai_chance = {
 			factor = 25
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_SOCCON
+					}
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_MARLIB
+					}
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_SOCLIB
+					}
+				}
+			}
 		}
 		set_country_flag = SPR_had_election
 		meta_effect = {
@@ -3787,6 +3862,23 @@ country_event = {
 		name = sprd.101.c #Acción Popular
 		ai_chance = {
 			factor = 45
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_MARLIB
+					}
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_SOCLIB
+					}
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_SOCDEM
+					}
+				}
+			}
 		}
 		set_country_flag = SPR_had_election
 		add_stability = 0.05
@@ -3816,6 +3908,23 @@ country_event = {
 		name = sprd.101.e #Izquierda Republicana
 		ai_chance = {
 			factor = 15
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_SOCCON
+					}
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_MARLIB
+					}
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_SOCDEM
+					}
+				}
+			}
 			#modifier = {
 				#add = 25
 				#NOT = { has_country_flag = { SPR_allow_psoe } }
@@ -3850,7 +3959,7 @@ country_event = {
 country_event = { #Subsequent Elections
 	id = sprd.102
 	title = sprd.101.t
-	desc = sprd.101.d
+	desc = sprd.102.d
 	picture = GFX_report_event_HOL_election_1937
 
 	is_triggered_only = yes
@@ -3999,13 +4108,20 @@ country_event = { #Constitutional republic?
 	is_triggered_only = yes
 
 	option = { #Yes.
-		#ai_chance = {
-			#factor = 1
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = SPR_politics
+					option = SPR_POLITICS_AUTHDEM
+				}
+			}
 			#modifier = {
 				#factor = 3
 				#has_country_flag = { SPR_new_constitution }
 			#}
-		#}
+		}
 		name = sprd.103.a
 		add_stability = 0.05
 		hidden_effect = {
@@ -4013,20 +4129,41 @@ country_event = { #Constitutional republic?
 			create_country_leader = {
 				name = "Francisco Franco Bahamonde"
 				desc = "POLITICS_FRANSISCO_FRANCO_DESC"
-				picture = "Portrait_SPR_Franco_Bahamonde.tga"
+				picture = "gfx/leaders/SPR/Portrait_SPR_Franco_Bahamonde.png"
 				expire = "1965.1.1"
-				ideology = social_conservative_subtype
+				ideology = christian_democracy_subtype
 			}
 		}
 	}
 	option = { #No.
-		#ai_chance = {
-			#factor = 1
-			##modifier = {
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_SOCCON
+					}
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_MARLIB
+					}
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_SOCLIB
+					}
+					has_game_rule = {
+						rule = SPR_politics
+						option = SPR_POLITICS_SOCDEM
+					}
+				}
+			}
+			#modifier = {
 				#factor = 3
 				#has_country_flag = { SPR_leaders_arrested }
 			#}
-		#}
+		}
 		name = sprd.103.b
 		add_stability = -0.05
 		set_country_flag = SPR_francoism
@@ -4044,13 +4181,13 @@ country_event = { #Reconcile with moderate socialists
 
 	option = { #Yes.
 		name = sprd.104.a
-		#ai_chance = {
-			#factor = 1
+		ai_chance = {
+			factor = 1
 			#modifier = {
 				#factor = 3
 				#has_country_flag = { SPR_new_constitution }
 			#}
-		#}
+		}
 		add_stability = 0.01
 		set_party_name = {
 			ideology = social_democrat
@@ -4063,13 +4200,20 @@ country_event = { #Reconcile with moderate socialists
 	}
 	option = { #No.
 		name = sprd.104.b
-		#ai_chance = {
-			#factor = 1
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = SPR_politics
+					option = SPR_POLITICS_SOCDEM
+				}
+			}
 			#modifier = {
 				#factor = 3
 				#has_country_flag = { SPR_leaders_arrested }
 			#}
-		#}
+		}
 		add_stability = -0.01
 	}
 }
@@ -4090,8 +4234,9 @@ country_event = { #Franco's Speech
 			popularity = 0.05
 		}
 		add_stability = 0.1
-		}
 	}
+}
+
 country_event = { #The King's Speech
 	id = sprd.106
 	immediate = { log = "[GetDateText]: [Root.GetName]: event sprd.106" }
@@ -4110,6 +4255,35 @@ country_event = { #The King's Speech
 		add_stability = 0.1
 	}
 }
+
+country_event = { #Autonomous Communities
+	id = sprd.107
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sprd.106" }
+	title = sprd.107.t
+	desc = sprd.107.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #flavor
+		name = sprd.107.a
+	}
+}
+
+country_event = { #A Stable Spain
+	id = sprd.108
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sprd.106" }
+	title = sprd.108.t
+	desc = sprd.108.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #flavor
+		name = sprd.108.a
+	}
+}
+
 
 # The Cuban Gambit
 country_event = {
@@ -4264,5 +4438,48 @@ country_event = {
 		name = sprc.335.a
 		add_war_support = 0.05
 		add_stability = 0.05
+	}
+}
+
+country_event = {
+	id = sprd.109
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sprd.109" }
+	title = sprd.109.t
+	desc = sprd.109.d
+	picture = GFX_report_event_SPR_civwar
+
+	is_triggered_only = yes
+
+	option = {
+		name = sprd.109.a
+		set_cosmetic_tag = SPR_BOURBON
+		hidden_effect = {
+		28 = { add_claim_by = SPR }
+		}
+		every_state = {
+				limit = { is_core_of = FRA }
+				add_core_of = SPR
+				}
+				}
+	option = {
+		name = sprd.109.b
+		set_cosmetic_tag = SPR_FRANCO_SPAIN
+		hidden_effect = {
+		28 = { add_claim_by = SPR }
+		}
+		every_state = {
+				limit = { is_core_of = FRA }
+				add_core_of = SPR
+				}
+				}
+	option = {
+		name = sprd.109.c
+		hidden_effect = {
+		28 = { add_claim_by = SPR }
+		}
+		every_state = {
+			limit = { is_core_of = FRA }
+			add_core_of = SPR
+		}
 	}
 }

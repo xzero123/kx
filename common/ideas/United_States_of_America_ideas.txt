@@ -51,6 +51,17 @@ ideas = {
 				consumer_goods_factor = 0.1
 			}
 		}
+		USA_debt = { #The Debt
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_debt"}
+			picture = usa_great_depression_2
+			modifier = {
+				production_factory_max_efficiency_factor = -0.05
+				industrial_capacity_factory = -0.05
+				stability_factor = -0.03
+				consumer_goods_factor = 0.2
+				local_resources = -0.06
+			}
+   }				
 		USA_black_monday = { #Black Monday
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_black_monday"}
 			picture = usa_great_depression_3
@@ -115,7 +126,7 @@ ideas = {
 		}
 		USA_army_expanionism_garner = { #The Great Depression
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_great_depression_garner_1"}
-			picture = usa_great_depression_2
+			picture = federalist_activity
 			modifier = {
 				conscription_factor = 0.02
 				dig_in_speed_factor	= 0.05
@@ -271,10 +282,10 @@ ideas = {
 			}
 			modifier = {
 				war_support_factor = 0.20
-				training_time_army_factor = -0.10
-				conscription_factor = 0.25
-				out_of_supply_factor = -0.30
-				no_supply_grace = 120
+				training_time_army_factor = -0.1
+				conscription_factor = 0.2
+				out_of_supply_factor = -0.15
+				no_supply_grace = 60
 			}
 			removal_cost = -1
 			picture = USA_fighting_for_america
@@ -1433,7 +1444,7 @@ ideas = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_american_caeser_idea"}
 			picture = USA_lifetime_president_1
 			modifier = {
-				political_power_gain = 0.005
+				political_power_gain = 0.05
 				max_command_power = 25
 				conscription = 0.01
 				production_speed_buildings_factor = 0.05
@@ -1445,7 +1456,7 @@ ideas = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_american_caeser_idea_2"}
 			picture = USA_lifetime_president_2
 			modifier = {
-				political_power_gain = 0.008
+				political_power_gain = 0.08
 				max_command_power = 40
 				stability_weekly = 0.002
 				conscription = 0.02
@@ -1458,7 +1469,7 @@ ideas = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_american_caeser_idea_3"}
 			picture = USA_cic_1
 			modifier = {
-				political_power_gain = 0.01
+				political_power_gain = 0.1
 				max_command_power = 70
 				stability_weekly = 0.005
 				conscription = 0.03
@@ -1470,7 +1481,7 @@ ideas = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_american_caeser_idea_4"}
 			picture = USA_cic_2
 			modifier = {
-				political_power_gain = 0.015
+				political_power_gain = 0.15
 				max_command_power = 100
 				stability_weekly = 0.01
 				conscription = 0.05
@@ -1482,7 +1493,7 @@ ideas = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_american_caeser_idea_5"}
 			picture = USA_american_chief
 			modifier = {
-				political_power_gain = 0.02
+				political_power_gain = 0.2
 				max_command_power = 150
 				stability_weekly = 0.015
 				war_support_weekly = 0.005
@@ -1872,6 +1883,139 @@ ideas = {
 				radical_socialist_drift = 0.01
 				syndicalist_drift = 0.01
 				totalist_drift = 0.01
+			}
+		}	
+		
+		### NPP and PP Content ###
+		USA_parochial_police = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea USA_parochial_police"}
+			allowed = { always = no }
+			removal_cost = -1
+			picture = controlled_klan
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.06
+				local_intel_to_enemies = -0.1
+				resistance_activity = -0.05
+			}
+		}
+		
+		USA_Liberia_plan_idea = {# Liberia Plan-NPP
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea USA_Liberia_plan_idea"}
+			allowed = { always = yes }
+			available = { 
+				OR = {
+					has_government = social_conservative
+					has_government = authoritarian_democrat
+					has_government = paternal_autocrat
+					has_government = national_populist
+				} 	
+			}
+			removal_cost = -1
+			picture = liberia_plan
+			modifier = {
+				monthly_population = -1.50
+				production_factory_efficiency_gain_factor = -0.06
+				encryption_factor = 0.05
+				local_resources_factor = -0.05
+				political_power_gain = -0.03
+				stability_factor = -0.05
+			}
+		}
+		
+		USA_Liberian_trade = {# Liberia Plan Trade-NPP
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea USA_Liberian_trade"}
+			allowed = { always = no }
+			available = {   
+				OR = {
+					has_government = social_liberal
+					has_government = market_liberal
+					has_government = social_conservative
+					has_government = authoritarian_democrat
+					has_government = paternal_autocrat
+					has_government = national_populist
+				}
+			}
+			removal_cost = -1
+			picture = yk_liberian_trade
+			modifier = {
+				consumer_goods_factor = -0.01
+				production_factory_start_efficiency_factor	= 0.02
+				production_factory_efficiency_gain_factor = 0.02
+				political_power_gain = -0.01
+				research_speed_factor = 0.01
+				industrial_capacity_dockyard = 0.05
+			}
+		}
+		
+		USA_black_patronage_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_black_patronage_idea"}
+			allowed = { always = no }
+			removal_cost = -1
+			picture = BBR_civil_rights_act_idea
+			modifier = {
+				recruitable_population_factor = 0.02
+				monthly_population = 0.05
+				production_lack_of_resource_penalty_factor = -0.03
+				political_power_gain = 0.02
+				local_resources = 0.02
+			}
+		}
+		
+		USA_black_patronage_idea_2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_black_patronage_idea_2"}
+			allowed = { always = no }
+			removal_cost = -1
+			picture = BBR_civil_rights_act_idea
+			modifier = {
+				recruitable_population_factor = 0.03
+				monthly_population = 0.06
+				production_lack_of_resource_penalty_factor = -0.03
+				political_power_gain = 0.05
+				stability_weekly = 0.002
+				party_popularity_stability_factor = 0.05
+				local_resources = 0.02
+			}
+		}
+		
+		USA_patronage_machine_idea = { # Patronage Machine
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_patronage_machine_idea"}
+			allowed = { always = no }
+			removal_cost = -1
+			picture = recruitment_campaign
+			modifier = {
+				political_power_gain = 0.02
+				consumer_goods_factor = 0.01
+				party_popularity_stability_factor = 0.05
+			}
+		}
+		USA_patronage_machine_idea_2 = { # PP Machine
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_patronage_machine_idea_2"}
+			allowed = { always = no }
+			removal_cost = -1
+			picture = recruitment_campaign
+			modifier = {
+				political_power_gain = 0.05
+				conscription = 0.01
+				max_command_power = 10
+				recruitable_population = 0.02
+				party_popularity_stability_factor = 0.1
+				consumer_goods_factor = 0.01
+			}
+		}
+		USA_wealth_cap = { # Wealth Cap
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_wealth_cap"}
+			allowed = { always = no }
+			removal_cost = -1
+			picture = wealth_cap
+			modifier = {
+				consumer_goods_factor = -0.02
+				political_power_gain = 0.05
+				production_factory_efficiency_gain_factor = -0.06
+				production_factory_max_efficiency_factor = -0.08
+				production_speed_buildings_factor = 0.03
+				stability_weekly = 0.005
+				research_speed_factor = -0.03
 			}
 		}
 		### Army Focus Tree ###
@@ -2800,7 +2944,6 @@ ideas = {
 			modifier = { 
 				army_morale_factor = -0.06
 				army_speed_factor = -0.06
-				army_morale_factor = -0.06
 				experience_gain_army_factor = -0.10
 			}
 			picture = jap_interservice_rivalry_navy_dominant
@@ -2810,7 +2953,6 @@ ideas = {
 			modifier = { 
 				army_morale_factor = -0.03
 				army_speed_factor = -0.03
-				army_morale_factor = -0.03
 				experience_gain_army_factor = -0.05
 			}
 			picture = jap_interservice_rivalry_navy_strengthened
@@ -3132,7 +3274,18 @@ ideas = {
 				consumer_goods_factor = -0.05
 			}
 		}
-
+		USA_african_trade_idea = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea USA_african_trade_idea"}
+			allowed = { always = no }
+			removal_cost = -1
+			picture = COR_fighting_for_america
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+				local_resources	= 0.03
+				consumer_goods_factor = -0.01
+				experience_gain_army = 0.03
+			}
+		}
 		### Flavor ideas ###
 		USA_great_migration1 = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_great_migration1"}
@@ -3338,7 +3491,7 @@ ideas = {
 				if = {
 					limit = {
 						NOT = {
-							tag = USA
+							is_federal_tag = yes
 							tag = LEC
 						}
 					}
@@ -3375,10 +3528,10 @@ ideas = {
 		kr_dupont = { #DuPont
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_dupont"}
 			allowed = { is_american_tag = yes }
-			available = { owns_state = 930 }
+			available = { owns_state = 934 }
 			visible = {
 				if = {
-					limit = { NOT = { tag = USA } }
+					limit = { NOT = { tag = NEE } }
 					OR = {
 						has_country_flag = USA_industrial_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
@@ -3433,7 +3586,7 @@ ideas = {
 						has_country_flag = USA_industrial_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
 						AND = {
-							tag = USA
+							is_federal_tag = yes
 							NOT = { has_global_flag = ACW_pacific_states_revolted }
 						}
 					}
@@ -3492,7 +3645,7 @@ ideas = {
 			available = { owns_state = 380 }
 			visible = {
 				if = {
-					limit = { NOT = { tag = USA } }
+					limit = { NOT = { is_federal_tag = yes } }
 					OR = {
 						has_country_flag = USA_weapon_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
@@ -3524,7 +3677,7 @@ ideas = {
 			available = { owns_state = 361 }
 			visible = {
 				if = {
-					limit = { NOT = { tag = USA } }
+					limit = { NOT = { is_federal_tag = yes } }
 					has_country_flag = USA_weapon_companies_allowed
 				}
 				else = {
@@ -3588,7 +3741,7 @@ ideas = {
 			available = { owns_state = 382 }
 			visible = {
 				if = {
-					limit = { NOT = { tag = USA } }
+					limit = { NOT = { is_federal_tag = yes } }
 					OR = {
 						has_country_flag = USA_weapon_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
@@ -3720,7 +3873,7 @@ ideas = {
 			}
 			visible = {
 				if = {
-					limit = { NOT = { tag = USA } }
+					limit = { NOT = { is_federal_tag = yes } }
 					OR = {
 						has_country_flag = USA_heavy_equipment_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
@@ -4193,11 +4346,27 @@ ideas = {
 		}
 		kr_newport_news_shipbuilding = { #Newport News Shipbuilding
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_newport_news_shipbuilding"}
-			allowed = {	original_tag = USA	}
+			allowed = {	is_federal_tag = yes	}
 			available = { owns_state = 362 }
 			visible = {
 				if = {
-					limit = { NOT = { tag = USA } }
+					limit = { NOT = { is_federal_tag = yes } }
+					OR = {
+						has_country_flag = USA_naval_companies_allowed
+						NOT = { has_global_flag = USA_civil_war_begun_flag }
+					}
+				}
+			}
+			traits = { capital_ship_producer_offense_2 }
+			research_bonus = { naval_equipment = 0.1 }
+		}
+		us_naval_academy = { #Newport News Shipbuilding
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea us_naval_academy"}
+			allowed = {	is_federal_tag = yes	}
+			available = { owns_state = 361 }
+			visible = {
+				if = {
+					limit = { NOT = { is_federal_tag = yes } }
 					OR = {
 						has_country_flag = USA_naval_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
@@ -4228,7 +4397,7 @@ ideas = {
 				if = {
 					limit = {
 						NOT = {
-							tag = USA
+							is_federal_tag = yes
 							tag = LEC
 						}
 					}
@@ -4252,7 +4421,7 @@ ideas = {
 						has_country_flag = USA_naval_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
 						AND = {
-							tag = USA
+							is_federal_tag = yes
 							NOT = { has_global_flag = ACW_pacific_states_revolted }
 						}
 					}
@@ -4320,7 +4489,7 @@ ideas = {
 						has_country_flag = USA_naval_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
 						AND = {
-							tag = USA
+							is_federal_tag = yes
 							NOT = { has_global_flag = ACW_pacific_states_revolted }
 						}
 					}
@@ -4425,7 +4594,7 @@ ideas = {
 						has_country_flag = USA_aviation_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
 						AND = {
-							tag = USA
+							is_federal_tag = yes
 							NOT = { has_global_flag = ACW_pacific_states_revolted }
 						}
 					}
@@ -4440,7 +4609,23 @@ ideas = {
 			available = { owns_state = 361 }
 			visible = {
 				if = {
-					limit = { NOT = { tag = USA } }
+					limit = { NOT = { is_federal_tag = yes } }
+					OR = {
+						has_country_flag = USA_aviation_companies_allowed
+						NOT = { has_global_flag = USA_civil_war_begun_flag }
+					}
+				}
+			}
+			traits = { fighter_producer_offense_2 }
+			research_bonus = { air_equipment = 0.1 }
+		}
+		Naval_Aircraft_Factory = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea Naval_Aircraft_Factory"}
+			allowed = { is_american_tag = yes }
+			available = { owns_state = 361 }
+			visible = {
+				if = {
+					limit = { NOT = { is_federal_tag = yes } }
 					OR = {
 						has_country_flag = USA_aviation_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
@@ -4487,7 +4672,7 @@ ideas = {
 						has_country_flag = USA_aviation_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
 						AND = {
-							tag = USA
+							is_federal_tag = yes
 							NOT = { has_global_flag = ACW_pacific_states_revolted }
 						}
 					}
@@ -4534,7 +4719,7 @@ ideas = {
 			available = { owns_state = 361 }
 			visible = {
 				if = {
-					limit = { NOT = { tag = USA } }
+					limit = { NOT = { is_federal_tag = yes } }
 					OR = {
 						has_country_flag = USA_aviation_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
@@ -4555,7 +4740,7 @@ ideas = {
 						has_country_flag = USA_aviation_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
 						AND = {
-							tag = USA
+							is_federal_tag = yes
 							NOT = { has_global_flag = ACW_pacific_states_revolted }
 						}
 					}
@@ -4575,7 +4760,7 @@ ideas = {
 						has_country_flag = USA_aviation_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
 						AND = {
-							tag = USA
+							is_federal_tag = yes
 							NOT = { has_global_flag = ACW_pacific_states_revolted }
 						}
 					}
@@ -4606,7 +4791,7 @@ ideas = {
 			available = { owns_state = 930 }
 			visible = {
 				if = {
-					limit = { NOT = { tag = USA } }
+					limit = { NOT = { is_federal_tag = yes } }
 					OR = {
 						has_country_flag = USA_aviation_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
@@ -4627,7 +4812,7 @@ ideas = {
 						has_country_flag = USA_aviation_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
 						AND = {
-							tag = USA
+							is_federal_tag = yes
 							NOT = { has_global_flag = ACW_pacific_states_revolted }
 						}
 					}
@@ -4647,7 +4832,7 @@ ideas = {
 						has_country_flag = USA_aviation_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
 						AND = {
-							tag = USA
+							is_federal_tag = yes
 							NOT = { has_global_flag = ACW_pacific_states_revolted }
 						}
 					}

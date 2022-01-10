@@ -6,14 +6,34 @@ set_research_slots = 3
 set_convoys = 50
 set_stability = 0.5
 set_war_support = 0.20
+starting_train_buffer = 1
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+		basic_light_tank = 1
+		basic_heavy_tank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+		improved_light_tank_chassis = 1
+		basic_heavy_tank_chassis = 1
+		engine_tech_1 = 1
+	}
+}
+
 set_technology = {
 	### General ###
+	basic_train = 1
 	electronic_mechanical_engineering = 1
-
-	### Tanks ###
-	gwtank = 1
-	basic_light_tank = 1
-	basic_heavy_tank = 1
 
 	### Infantry ###
 	infantry_weapons = 1
@@ -48,37 +68,36 @@ if = {
 	}
 
 	set_technology = {
-		weltkrieg_light_ship_hull = 1
-		contact_mine = 1
-		light_ship_hull_1936 = 1
-		weltkrieg_cruiser_hull = 1
-		cruiser_hull_1936 = 1
-		weltkrieg_submarine_hull = 1
-		submarine_hull_1936 = 1
-		cruiser_submarine = 1
-		carrier_conversion = 1
-		carrier_hull_1936 = 1
-		ship_hull_revived_ac = 1
-		weltkrieg_heavy_ship_hull = 1
-		heavy_ship_hull_1936 = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		panzerschiffe = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		cruiser_submarines = 1
+		early_ship_hull_carrier = 1
+		basic_ship_hull_carrier = 1
+		early_ship_hull_heavy = 1
+		basic_ship_hull_heavy = 1
+		
+		basic_naval_mines = 1
 
 		## Modules##
-		early_torpedo = 1
-		weltkrieg_naval_gunnery = 1
-		naval_ammo_one = 1
-		light_battery_one = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_medium_battery = 1
+		basic_heavy_battery = 1
+		basic_secondary_battery = 1
+		improved_secondary_battery = 1
+		basic_depth_charges = 1
+		basic_torpedo = 1
 		improved_ship_torpedo_launcher = 1
 		basic_cruiser_armor_scheme = 1
-		weltkrieg_naval_gunnery = 1
-		naval_ammo_one = 1
 		basic_heavy_armor_scheme = 1
-		capital_gunnery_one = 1
-		weltkrieg_naval_gunnery = 1
-		naval_ammo_one = 1
-		naval_ammo_two = 1
 
 		### Transport ###
-		transport = 1
+		mtg_transport = 1
 	}
 }
 
@@ -90,18 +109,21 @@ if = {
 		}
 	}
 	set_technology = {
-		weltkrieg_destroyer_nonmtg = 1
-		interwar_destroyer_nonmtg = 1
-		weltkrieg_cruiser_nonmtg = 1
-		interwar_cruiser_nonmtg = 1
-		weltkrieg_submarine_nonmtg = 1
-		interwar_submarine_nonmtg = 1
-		weltkrieg_armored_cruiser_nonmtg = 1
-		interwar_armored_cruiser_nonmtg = 1
-		weltkrieg_dreadnought_nonmtg = 1
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+		early_submarine = 1
+		basic_submarine = 1
+		early_heavy_cruiser = 1
+		basic_heavy_cruiser = 1
+		early_battlecruiser = 1
+		early_battleship = 1
+		basic_battleship = 1
+		heavy_battleship = 1
 
 		### Transport ###
-		transport_n = 1
+		transport = 1
 	}
 }
 
@@ -147,7 +169,7 @@ add_ideas = {
 create_country_leader = {
 	name = "Emil Helfferich"
 	desc = "POLITICS_HELFFRICH_DESC"
-	picture = "Portrait_GEA_Emil_Helfferich.tga"
+	picture = "gfx/leaders/GEA/Portrait_GEA_Emil_Helfferich.png"
 	expire = "1965.1.1"
 	ideology = market_liberal_subtype
 	traits = {}
@@ -156,25 +178,25 @@ create_country_leader = {
 create_country_leader = {
 	name = "Board of Directors"
 	desc = "POLITICS_AOG_BOARD_DESC"
-	picture = "Portrait_AOG_Board.tga"
+	picture = "gfx/leaders/AOG/Portrait_AOG_Board.png"
 	expire = "1965.1.1"
-	ideology = paternal_autocrat_subtype
+	ideology = corporatocracy_subtype
 	traits = {}
 }
 
 create_country_leader = {
 	name = "Alexander von Falkenhausen"
 	desc = "POLITICS_ALEXANDER_VON_FALKENHAUSEN_DESC"
-	picture = "Portrait_AOG_Alexander_von_Falkenhausen.tga"
+	picture = "gfx/leaders/AOG/Portrait_AOG_Alexander_von_Falkenhausen.png"
 	expire = "1965.1.1"
-	ideology = authoritarian_democrat_subtype
+	ideology = colonial_govt_subtype
 	traits = {}
 }
 
 ### Field Marshal
 create_field_marshal = {
 	name = "Alexander von Falkenhausen"
-	portrait_path = "gfx/leaders/AOG/Portrait_AOG_Alexander_von_Falkenhausen_general.tga"
+	portrait_path = "gfx/leaders/AOG/Portrait_AOG_Alexander_von_Falkenhausen_general.png"
 	traits = {
 		offensive_doctrine
 	}
@@ -188,7 +210,7 @@ create_field_marshal = {
 ### Corps Commander
 create_corps_commander = {
 	name = "Hermann Voigt-Ruscheweyh"
-	portrait_path = "gfx/leaders/AOG/Portrait_AOG_Hermann_Voigt_Ruscheweyh.tga"
+	portrait_path = "gfx/leaders/AOG/Portrait_AOG_Hermann_Voigt_Ruscheweyh.png"
 	traits = {
 		hill_fighter
 	}
@@ -200,7 +222,7 @@ create_corps_commander = {
 }
 create_corps_commander = {
 	name = "Dietrich von Saucken"
-	portrait_path = "gfx/leaders/GEA/Portrait_GEA_Dietrich_von_Saucken.tga"
+	portrait_path = "gfx/leaders/GEA/Portrait_GEA_Dietrich_von_Saucken.png"
 	traits = {
 		cavalry_officer
 	}
@@ -212,7 +234,7 @@ create_corps_commander = {
 }
 create_corps_commander = {
 	name = "Fritz Sachße"
-	portrait_path = "gfx/leaders/GEA/Portrait_GEA_Fritz_Sachsse.tga"
+	portrait_path = "gfx/leaders/GEA/Portrait_GEA_Fritz_Sachsse.png"
 	traits = {
 		naval_invader
 	}
@@ -224,7 +246,7 @@ create_corps_commander = {
 }
 create_corps_commander = {
 	name = "Chiang Wei-kuo"
-	portrait_path = "gfx/leaders/GXC/Portrait_GXC_Chiang_Wei_kuo.tga"
+	portrait_path = "gfx/leaders/GXC/Portrait_GXC_Chiang_Wei_kuo.png"
 	traits = {
 		media_personality
 		armor_officer
@@ -239,7 +261,7 @@ create_corps_commander = {
 
 create_navy_leader = {
 	name = "Alfred Meyer-Waldeck" # "Sea Devil"
-	portrait_path = "gfx/leaders/GEA/Portrait_GEA_Alfred_Meyer-Waldeck.tga"
+	portrait_path = "gfx/leaders/GEA/Portrait_GEA_Alfred_Meyer-Waldeck.png"
 	traits = { superior_tactician politically_connected }
 	skill = 3
 	attack_skill = 2
@@ -250,7 +272,7 @@ create_navy_leader = {
 
 create_navy_leader = {
 	name = "Gunther Plüschow" # 
-	portrait_path = "gfx/leaders/GEA/Portrait_GEA_Gunther_Pluschow.tga"
+	portrait_path = "gfx/leaders/GEA/Portrait_GEA_Gunther_Pluschow.png"
 	traits = { air_controller superior_tactician }
 	skill = 3
 	attack_skill = 2
@@ -261,7 +283,7 @@ create_navy_leader = {
 
 #create_corps_commander = { #Auto-Generated
 #	name = "Chen Jitang"
-#	portrait_path = "gfx/leaders/AOG/Portrait_AOG_Chen_Jitang.tga"
+#	portrait_path = "gfx/leaders/AOG/Portrait_AOG_Chen_Jitang.png"
 #	traits = {
 #		old_guard
 #	}
@@ -274,7 +296,7 @@ create_navy_leader = {
 
 #create_corps_commander = { #Auto-Generated
 #	name = "Li Jishen"
-#	portrait_path = "gfx/leaders/AOG/Portrait_AOG_Li_Jishen.tga"
+#	portrait_path = "gfx/leaders/AOG/Portrait_AOG_Li_Jishen.png"
 #	traits = {
 #		trickster
 #	}
@@ -287,7 +309,7 @@ create_navy_leader = {
 
 #create_corps_commander = { #Auto-Generated
 #	name = "Bauer"
-#	portrait_path = "gfx/leaders/AOG/Portrait_AOG_Bauer.tga"
+#	portrait_path = "gfx/leaders/AOG/Portrait_AOG_Bauer.png"
 #	traits = {
 #		fortress_buster
 #	}

@@ -10,6 +10,44 @@ add_namespace = swiss
 
 country_event = { # Guisan makes the speech
 
+	id = swiss.9954
+	immediate = { log = "[GetDateText]: [Root.GetName]: event swiss.1" }
+	title = swiss.1.t
+	desc = swiss.1.d
+	picture = GFX_SWI_guisan
+
+	is_triggered_only = yes
+	hidden = yes
+	fire_only_once = yes
+
+	option = { # ok
+
+		name = swiss.1.a
+
+		random_list = {
+			98 = {
+			
+			}
+			2 = {
+				random_list = {
+					34 = {
+						set_cosmetic_tag = SWI_subtract
+					}
+					33 = {
+						set_cosmetic_tag = SWI_multiply
+					}
+					33 = {
+						set_cosmetic_tag = SWI_divide
+					}
+				}
+			}
+		}
+	}
+}
+
+
+country_event = { # Guisan makes the speech
+
 	id = swiss.1
 	immediate = { log = "[GetDateText]: [Root.GetName]: event swiss.1" }
 	title = swiss.1.t
@@ -761,10 +799,10 @@ country_event = { # Referendum: Army - WIN
 
 		name = swiss.21.a
 		add_political_power = 10
-		add_tech_bonus = {
-			name = SWI_army_reorganization
-			bonus = 1
-			uses = 2
+		add_doctrine_cost_reduction = {
+			name = land_doc_bonus
+			cost_reduction = 0.5
+			uses = 1
 			category = land_doctrine
 		}
 	}
@@ -1120,14 +1158,11 @@ country_event = { # Referendum: Reform the Government - WIN
 			elections_allowed = no
 		}
 
-		hidden_effect = {
-			kill_country_leader = yes
-		}
 
 		create_country_leader = {
 			name = "Federal Union Council"
 			desc = "POLITICS_SWI_UNION_DESC"
-			picture = "Portrait_Switzerland_Syndicalist_Union_Council.tga"
+			picture = "gfx/leaders/SWI/Portrait_Switzerland_Syndicalist_Union_Council.png"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 		}
@@ -1561,14 +1596,11 @@ country_event = { # People's Republic
 			elections_allowed = no
 		}
 
-		hidden_effect = {
-			kill_country_leader = yes
-		}
 
 		create_country_leader = { # WIP
 			name = "Executive Directory"
 			desc = "POLITICS_EXECUTIVE_DIRECTORY_DESC"
-			picture = "Portrait_Switzerland_Syndicalist_Union_Council.tga"
+			picture = "gfx/leaders/SWI/Portrait_Switzerland_Syndicalist_Union_Council.png"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 		}
@@ -1603,16 +1635,13 @@ country_event = { # Totalist Regime
 			elections_allowed = no
 		}
 
-		hidden_effect = {
-			kill_country_leader = yes
-		}
 
 		create_country_leader = { # WIP
 			name = "Georges Oltramare"
 			desc = "POLITICS_OLTRAMARE_DESC"
-			picture = "Portrait_Switzerland_Georges_Oltramare.tga"
+			picture = "gfx/leaders/SWI/Portrait_Switzerland_Georges_Oltramare.png"
 			expire = "1965.1.1"
-			ideology = totalist_subtype
+			ideology = natsynd_subtype
 		}
 
 		add_ideas = {
@@ -1660,7 +1689,7 @@ country_event = { # Move the Capital to Geneva
 		ai_chance = {
 			factor = 90
 		}
-		set_capital = 760
+		set_capital = { state = 760 }
 		add_political_power = 5
 	}
 
@@ -1669,7 +1698,7 @@ country_event = { # Move the Capital to Geneva
 		ai_chance = {
 			factor = 10
 		}
-		set_capital = 3
+		set_capital = { state = 3 }
 		add_political_power = 10
 	}
 }
@@ -1727,14 +1756,11 @@ country_event = { # Swiss Election Event
 			election_frequency = 48
 			elections_allowed = yes
 		}
-		hidden_effect = {
-			kill_country_leader = yes
-		}
 
 		create_country_leader = {
 			name = "Swiss Federal Council"
 			desc = "POLITICS_SWITZERLAND_COUNCIL_DESC"
-			picture = "Portrait_Switzerland_Council.tga"
+			picture = "gfx/leaders/SWI/Portrait_Switzerland_Council.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 		}
@@ -1785,14 +1811,11 @@ country_event = { # Swiss Election Event
 			election_frequency = 48
 			elections_allowed = yes
 		}
-		hidden_effect = {
-			kill_country_leader = yes
-		}
 
 		create_country_leader = {
 			name = "Swiss Federal Council"
 			desc = "POLITICS_SWITZERLAND_COUNCIL_DESC"
-			picture = "Portrait_Switzerland_Council.tga"
+			picture = "gfx/leaders/SWI/Portrait_Switzerland_Council.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}
@@ -1843,14 +1866,11 @@ country_event = { # Swiss Election Event
 			election_frequency = 48
 			elections_allowed = yes
 		}
-		hidden_effect = {
-			kill_country_leader = yes
-		}
 
 		create_country_leader = {
 			name = "Swiss Federal Council"
 			desc = "POLITICS_SWITZERLAND_COUNCIL_DESC"
-			picture = "Portrait_Switzerland_Council.tga"
+			picture = "gfx/leaders/SWI/Portrait_Switzerland_Council.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 		}
@@ -1901,14 +1921,11 @@ country_event = { # Swiss Election Event
 			election_frequency = 48
 			elections_allowed = yes
 		}
-		hidden_effect = {
-			kill_country_leader = yes
-		}
 
 		create_country_leader = {
 			name = "Swiss Federal Council"
 			desc = "POLITICS_SWITZERLAND_COUNCIL_DESC"
-			picture = "Portrait_Switzerland_Council.tga"
+			picture = "gfx/leaders/SWI/Portrait_Switzerland_Council.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 		}
@@ -1959,14 +1976,11 @@ country_event = { # Swiss Election Event
 #			election_frequency = 48
 #			elections_allowed = yes
 #		}
-#		hidden_effect = {
-#			kill_country_leader = yes
-#		}
 #
 #		create_country_leader = {
 #			name = "Swiss Federal Council"
 #			desc = "POLITICS_SWITZERLAND_COUNCIL_DESC"
-#			picture = "Portrait_Switzerland_Council.tga"
+#			picture = "gfx/leaders/SWI/Portrait_Switzerland_Council.png"
 #			expire = "1965.1.1"
 #			ideology = authoritarian_democrat_subtype
 #		}
@@ -2723,13 +2737,13 @@ country_event = { # Government moves to Geneva
 
 	option = {
 		name = swiss.78.a
-		set_capital = 760
+		set_capital = { state = 760 }
 		add_political_power = 10
 		add_stability = 0.01
 		create_country_leader = {
 			name = "Geneva Council of State"
 			desc = "POLITICS_GENEVA_DESC"
-			picture = "Portrait_Switzerland_Geneva_Council_of_State.tga"
+			picture = "gfx/leaders/SWI/Portrait_Switzerland_Geneva_Council_of_State.png"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 		}
@@ -2928,7 +2942,10 @@ country_event = { # Cleaning House - Combe
 			limit = {
 				has_unit_leader = 26702
 			}
-			remove_unit_leader = 26702
+			random_unit_leader = {
+				limit = { has_id = 26702 }			
+				remove_unit_leader = yes
+			}
 		}
 	}
 
@@ -2982,7 +2999,10 @@ country_event = { # Cleaning House - Louis de Montmollin
 			limit = {
 				has_unit_leader = 26703
 			}
-			remove_unit_leader = 26703
+			random_unit_leader = {
+				limit = { has_id = 26703 }			
+				remove_unit_leader = yes
+			}
 		}
 	}
 
@@ -3060,7 +3080,7 @@ country_event = { # Cleaning House - Henri Guisan
 			event_target:SWI_Henri_Guisan = { retire = yes }
 		}
 		hidden_effect = {
-			event_target:SWI_Henri_Guisan = { set_nationality = XXA }
+			event_target:SWI_Henri_Guisan = { set_nationality = NSW }
 		}
 	}
 
@@ -3249,7 +3269,10 @@ country_event = { # Defection
 			limit = {
 				has_unit_leader = 26703
 			}
-			remove_unit_leader = 26703
+			random_unit_leader = {
+				limit = { has_id = 26703 }			
+				remove_unit_leader = yes
+			}
 		}
 		FRA = {
 			country_event = swiss.93
@@ -5913,8 +5936,7 @@ country_event = { # Coup Failed
 		}
 		hidden_effect = {
 			drop_cosmetic_tag = yes
-			event_target:SWI_Eugen_Bircher = { set_nationality = XXA }
-			kill_country_leader = yes
+			event_target:SWI_Eugen_Bircher = { set_nationality = NSW }
 			remove_all_ministers = yes
 			add_ideas = { #WIP need more ministers for SCO, now featuring 2 other MLI and 1 PAU instead of all other cabinet members outside of SCO being the exact MLI copy
 				SWI_Oskar_Leimgruber_hog_sco
@@ -5926,7 +5948,7 @@ country_event = { # Coup Failed
 		create_country_leader = {
 			name = "Swiss Federal Council"
 			desc = "POLITICS_SWITZERLAND_COUNCIL_DESC"
-			picture = "Portrait_Switzerland_Council.tga"
+			picture = "gfx/leaders/SWI/Portrait_Switzerland_Council.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 		}
@@ -6311,7 +6333,7 @@ country_event = { # SYN - Generals Flee
 						has_id = 26708
 					}
 				}
-				set_nationality = XXA
+				set_nationality = NSW
 			}
 		}
 		add_ideas = SWI_disorganised_army
@@ -6343,8 +6365,14 @@ country_event = { # Old Generals
 			popularity = 0.025
 		}
 		army_experience = -25
-		remove_unit_leader = 26702
-		remove_unit_leader = 26703
+		random_unit_leader = {
+				limit = { has_id = 26702 }			
+				remove_unit_leader = yes
+			}
+		random_unit_leader = {
+				limit = { has_id = 26703 }			
+				remove_unit_leader = yes
+			}
 	}
 
 	option = { # we need them, but keep an eye on them
@@ -6409,4 +6437,23 @@ country_event = { #Liechtenstein loves the Swiss
 			factor = 0
 		}
 	}
+}
+
+country_event = { #drugs
+	id = swiss.203
+	immediate = { log = "[GetDateText]: [Root.GetName]: event swiss.203" }
+	title = swiss.203.t
+	desc = swiss.203.d
+
+	fire_only_once = yes
+	trigger = {
+		tag = SWI
+		date > 1943.04.19
+	}
+
+	option = {
+		name = swiss.203.a
+		add_political_power = 50
+	}
+
 }

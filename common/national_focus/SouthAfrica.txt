@@ -1,0 +1,6575 @@
+###South Africa Focus Tree###
+### By Foppe              ###
+
+focus_tree = {
+	id = SAF_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = SAF
+		}
+	}
+
+	#Focus for Black Monday Hits the Rand
+	focus = {
+		id = SAF_blackmondayhitstherand
+		icon = GFX_blackmondayhitstherand
+		x = 10
+		y = 0
+		cost = 4
+		available = { }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_blackmondayhitstherand"
+			country_event = saf.4
+		}
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Finding Economic Solutions
+	focus = {
+		id = SAF_findingeconomicsolutions
+		icon = GFX_findingeconomicsolutions
+		x = 15
+		y = 1
+		cost = 1
+		available = { }
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_blackmondayhitstherand }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Representation of the Natives Act
+	focus = {
+		id = SAF_representationofthenativesact
+		icon = GFX_representationofthenativesact
+		x = 5
+		y = 1
+		cost = 1
+		available = { }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_representationofthenativesact"
+			country_event = saf.10
+		}
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_blackmondayhitstherand }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Native Trust and Land Act
+	focus = {
+		id = SAF_nativetrustandlandact
+		icon = GFX_nativetrustandlandact
+		x = 2
+		y = 2
+		cost = 4
+		available = { }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_nativetrustandlandact"
+			add_stability = 0.10
+			decrease_ruling_party_popularity_by_10 = yes
+			if = {
+				limit = { has_idea = SAF_native_labour_idea }
+				remove_ideas = SAF_native_labour_idea
+			}
+			if = {
+				limit = { has_idea = SAF_apartheid_1 }
+				swap_ideas = {
+					remove_idea = SAF_apartheid_1
+					add_idea = SAF_segregation_4
+				}
+			}
+			if = {
+				limit = { has_idea = SAF_apartheid_2 }
+				swap_ideas = {
+					remove_idea = SAF_apartheid_2
+					add_idea = SAF_segregation_4
+				}
+			}
+			if = {
+				limit = { has_idea = SAF_segregation_1 }
+				swap_ideas = {
+					remove_idea = SAF_segregation_1
+					add_idea = SAF_segregation_4
+				}
+			}
+			if = {
+				limit = { has_idea = SAF_segregation_2 }
+				swap_ideas = {
+					remove_idea = SAF_segregation_2
+					add_idea = SAF_segregation_4
+				}
+			}
+			if = {
+				limit = { has_idea = SAF_segregation_3 }
+				swap_ideas = {
+					remove_idea = SAF_segregation_3
+					add_idea = SAF_segregation_4
+				}
+			}
+		}
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_representationofthenativesact }
+		mutually_exclusive = { focus = SAF_afrikanersettlementintheprotectorates }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Afrikaner Settlement in the Protectorates
+	focus = {
+		id = SAF_afrikanersettlementintheprotectorates
+		icon = GFX_afrikanersettlementintheprotectorates
+		x = 8
+		y = 2
+		cost = 4
+		available = { }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_nuweveld_settlements"
+			add_political_power = 50
+			if = {
+				limit = {
+					542 = {
+						is_owned_and_controlled_by = SAF
+						free_building_slots = { building = infrastructure size > 1 }
+					}
+				}
+				542 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					545 = {
+						is_owned_and_controlled_by = ZIM
+						free_building_slots = { building = infrastructure size > 1 }
+					}
+				}
+				545 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					719 = {
+						is_owned_and_controlled_by = SAF
+						free_building_slots = { building = infrastructure size > 1 }
+					}
+				}
+				719 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_representationofthenativesact }
+		mutually_exclusive = { focus = SAF_nativetrustandlandact }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Purchasing Land
+	focus = {
+		id = SAF_purchasingland
+		icon = GFX_purchasingland
+		x = 2
+		y = 3
+		cost = 4
+		available = { }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_purchasingland"
+			add_political_power = -30
+			if = {
+				limit = { has_idea = SAF_native_labour_idea }
+				remove_ideas = SAF_native_labour_idea
+			}
+			if = {
+				limit = { has_idea = SAF_apartheid_1 }
+				swap_ideas = {
+					remove_idea = SAF_apartheid_1
+					add_idea = SAF_segregation_4
+				}
+			}
+			if = {
+				limit = { has_idea = SAF_apartheid_2 }
+				swap_ideas = {
+					remove_idea = SAF_apartheid_2
+					add_idea = SAF_segregation_4
+				}
+			}
+			if = {
+				limit = { has_idea = SAF_segregation_1 }
+				swap_ideas = {
+					remove_idea = SAF_segregation_1
+					add_idea = SAF_segregation_4
+				}
+			}
+			if = {
+				limit = { has_idea = SAF_segregation_2 }
+				swap_ideas = {
+					remove_idea = SAF_segregation_2
+					add_idea = SAF_segregation_4
+				}
+			}
+			if = {
+				limit = { has_idea = SAF_segregation_3 }
+				swap_ideas = {
+					remove_idea = SAF_segregation_3
+					add_idea = SAF_segregation_4
+				}
+			}
+		}
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_nativetrustandlandact }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Extending Native Autonomy
+	focus = {
+		id = SAF_extendingnativeautonomy
+		icon = GFX_extendingnativeautonomy
+		x = 2
+		y = 4
+		cost = 4
+		available = { }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_extendingnativeautonomy"
+			country_event = saf.11
+			increase_ruling_party_popularity_by_10 = yes
+		}
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_purchasingland }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Compensate White Settlers
+	focus = {
+		id = SAF_compensatewhitesettlers
+		icon = GFX_compensatewhitesettlers
+		x = 2
+		y = 5
+		cost = 4
+		available = { }
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_extendingnativeautonomy }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_compensatewhitesettlers"
+			add_ideas = SAF_white_compensation_idea
+		}
+	}
+
+	#Focus for The Paramount Chiefs
+	focus = {
+		id = SAF_theparamountchiefs
+		icon = GFX_theparamountchiefs
+		x = 2
+		y = 6
+		cost = 8
+		available = { }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_theparamountchiefs"
+			modify_country_flag = { flag = SAF_segregation_reform value = 1 }
+			add_political_power = 20
+			SAF_reform_segregation_1 = yes
+			decrease_ruling_party_popularity_by_10 = yes
+		}
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_compensatewhitesettlers }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Developing the Protectorates
+	focus = {
+		id = SAF_developingtheprotectorates
+		icon = GFX_developingtheprotectorates
+		x = 5
+		y = 3
+		cost = 4
+		available = { }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_developingtheprotectorates"
+			if = {
+				limit = { 947 = { is_owned_and_controlled_by = SAF } }
+				add_resource = {
+					type = steel
+					amount = 10
+					state = 947
+				}
+			}
+			if = {
+				limit = { 681 = { is_owned_and_controlled_by = SAF } }
+				add_resource = {
+					type = chromium
+					amount = 12
+					state = 681
+				}
+			}
+		}
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_nativetrustandlandact 
+			focus = SAF_afrikanersettlementintheprotectorates 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Hopetown Railport
+	focus = {
+		id = SAF_hopetownrailport
+		icon = GFX_hopetownrailport
+		x = 5
+		y = 4
+		cost = 4
+		available = { }
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_developingtheprotectorates }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_hopetownrailport"
+			add_ideas = SAF_hopetown_idea
+		}
+	}
+
+	#Focus for Vanderbijlpark Industrial Complex
+	focus = {
+		id = SAF_vanderbijlparkindustrialcomplex
+		icon = GFX_vanderbijlparkindustrialcomplex
+		x = 5
+		y = 5
+		cost = 4
+		available = { }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_expand_steelworks"
+			add_resource = {
+				type = steel
+				amount = 15
+				state = 275
+			}
+			275 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_hopetownrailport }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for The Kariba Dam
+	focus = {
+		id = SAF_thekaribadam
+		icon = GFX_thekaribadam
+		x = 5
+		y = 6
+		cost = 15
+		available = { }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_kariba_dam"
+			add_political_power = 100
+			545 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_vanderbijlparkindustrialcomplex }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Expropriating Land
+	focus = {
+		id = SAF_expropriatingland
+		icon = GFX_expropriatingland
+		x = 8
+		y = 3
+		cost = 4
+		available = { }
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_expropriatingland"
+			modify_country_flag = { flag = SAF_segregation_reform value = -1 }
+			increase_ruling_party_popularity_by_5 = yes
+			add_ideas = SAF_native_labour_idea
+			SAF_increase_segregation_1 = yes
+		}
+		prerequisite = { focus = SAF_afrikanersettlementintheprotectorates }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Approach Mittelafrika
+	focus = {
+		id = SAF_approachmittelafrika
+		icon = GFX_approachmittelafrika
+		x = 15
+		y = 2
+		cost = 4
+		available = { 
+		country_exists = MAF
+		}
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_findingeconomicsolutions }
+		mutually_exclusive = { 
+			focus = SAF_workwithourallies 
+		}
+		mutually_exclusive = { 
+			focus = SAF_therandlordssolution 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_approachmittelafrika"
+			country_event = saf.304
+			add_stability = 0.03
+			add_political_power = -5
+		}
+	}
+
+	#Focus for Extending the Natives Act
+	focus = {
+		id = SAF_extendingthenativesact
+		icon = GFX_extendingthenativesact
+		x = 8
+		y = 4
+		cost = 4
+		available = { }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_extendingthenativesact"
+			modify_country_flag = { flag = SAF_segregation_reform value = -1 }
+			SAF_increase_segregation_1 = yes
+		}
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_expropriatingland }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Nuwe Voortrekkers
+	focus = {
+		id = SAF_nuwevoortrekkers
+		icon = GFX_nuwevoortrekkers
+		x = 8
+		y = 5
+		cost = 4
+		available = { }
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_extendingthenativesact }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_nuwevoortrekkers"
+			add_ideas = SAF_voortrekkers_idea
+		}
+	}
+
+	#Focus for The Nuweveld
+	focus = {
+		id = SAF_thenuweveld
+		icon = GFX_thenuweveld
+		x = 8
+		y = 6
+		cost = 8
+		available = { }
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_thenuweveld"
+			modify_country_flag = { flag = SAF_segregation_reform value = -1 }
+			add_political_power = 50
+			SAF_increase_segregation_1 = yes
+			increase_ruling_party_popularity_by_10 = yes
+		}
+		prerequisite = { focus = SAF_nuwevoortrekkers }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Work With Our Allies
+	focus = {
+		id = SAF_workwithourallies
+		icon = GFX_focus_chi_british_cooperation
+		x = 13
+		y = 2
+		cost = 4
+		available = { }
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_findingeconomicsolutions }
+		mutually_exclusive = { 
+			focus = SAF_approachmittelafrika 
+		}
+		mutually_exclusive = { 
+			focus = SAF_therandlordssolution 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_workwithourallies"
+			country_event = saf.301
+			add_stability = 0.02
+			add_political_power = 10
+		}
+	}
+
+	#Focus for The Randlords' Solution
+	focus = {
+		id = SAF_therandlordssolution
+		icon = GFX_therandlordssolution
+		x = 17
+		y = 2
+		cost = 4
+		available = { }
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_findingeconomicsolutions }
+		mutually_exclusive = { 
+			focus = SAF_workwithourallies 
+		}
+		mutually_exclusive = { 
+			focus = SAF_approachmittelafrika 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_gottmituns"
+			country_event = saf.307 
+			add_stability = 0.02
+			add_political_power = 5
+		}
+	}
+
+	#Focus for Open For Business
+	focus = {
+		id = SAF_openforbusiness
+		icon = GFX_openforbusiness
+		x = 17
+		y = 6
+		cost = 4
+		available = { }
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_liberalisethemarket }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_openforbusiness"
+			swap_ideas = {
+			remove_idea = SAF_black_monday_3_rich
+			add_idea = SAF_recovering_economy_rich
+			}
+			add_stability = 0.02
+			add_political_power = 5
+		}
+	}
+
+	#Focus for Attract American Capital
+	focus = {
+		id = SAF_attractamericancapital
+		icon = GFX_attractamericancapital
+		x = 17
+		y = 3
+		cost = 4
+		available = { }
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_therandlordssolution }
+		mutually_exclusive = { focus = SAF_therandlordssolution }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_attractamericancapital"
+			add_ideas = SAF_america_idea
+			add_stability = 0.02
+			add_political_power = -5
+		}
+	}
+
+	#Focus for Ons Familie
+	focus = {
+		id = SAF_onsfamilie
+		icon = GFX_onsfamilie
+		x = 17
+		y = 4
+		cost = 4
+		available = { }
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_attractamericancapital }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_onsfamilie"
+			swap_ideas = {
+			remove_idea = SAF_black_monday_2_rich
+			add_idea = SAF_black_monday_3_rich
+			}
+			add_stability = 0.05
+			add_political_power = 15
+		}
+	}
+
+	#Focus for Liberalise the Market
+	focus = {
+		id = SAF_liberalisethemarket
+		icon = GFX_focus_mex_privatisation
+		x = 17
+		y = 5
+		cost = 4
+		available = { }
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_onsfamilie }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_liberalisethemarket"
+		every_owned_state = {
+				limit = {
+					is_controlled_by = SAF
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		increase_ruling_party_popularity_by_5 = yes
+		add_political_power = 10
+		}
+	}
+
+	#Focus for Get Our Boys Out
+	focus = {
+		id = SAF_getourboysout
+		icon = GFX_getourboysout
+		x = 15
+		y = 4
+		cost = 4
+		available = { }
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_thervaasapoliceforce }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_getourboysout"
+			if = {
+				limit = { is_in_faction = yes }
+				leave_faction = yes
+			}
+			separate_peace_all_wars = yes
+			CAN = {
+			add_opinion_modifier = { target = SAF modifier = KR_hates_govt }
+			}
+			NFA = {
+			add_opinion_modifier = { target = SAF modifier = KR_hates_govt }
+			}
+		}
+	}
+
+	#Focus for Ex Unitate Vires
+	focus = {
+		id = SAF_exunitatevires
+		icon = GFX_exunitatevires
+		x = 13
+		y = 6
+		cost = 4
+		available = { }
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_aroyalcommission }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_exunitatevires"
+			swap_ideas = {
+			remove_ideas = SAF_black_monday_3_entente
+			add_ideas = SAF_recovering_economy_entente
+			}
+		}
+	}
+
+	#Focus for A Royal Commission
+	focus = {
+		id = SAF_aroyalcommission
+		icon = GFX_aroyalcommission
+		x = 13
+		y = 5
+		cost = 4
+		available = { }
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_merchantfleetmodernisation }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_aroyalcommission"
+			swap_ideas = {
+			remove_idea = SAF_black_monday_2
+			add_idea = SAF_black_monday_3_entente
+			}
+			add_stability = 0.03
+		}
+	}
+
+	#Focus for Gott Mit Uns
+	focus = {
+		id = SAF_gottmituns
+		icon = GFX_gottmituns
+		x = 15
+		y = 6
+		cost = 4
+		available = { }
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_grantthembasingrights }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_gottmituns"
+			swap_ideas = {
+			remove_idea = SAF_black_monday_3_german
+			add_idea = SAF_recovering_economy_german
+			}
+			add_stability = 0.02
+			add_political_power = 20
+		}
+	}
+
+	#Focus for French Investment
+	focus = {
+		id = SAF_frenchinvestment
+		icon = GFX_focus_chi_reach_out_to_france
+		x = 13
+		y = 3
+		cost = 4
+		available = { }
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_workwithourallies }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_frenchinvestment"
+			custom_effect_tooltip = SAF_reach_out_to_french_tooltip
+			if = {
+			limit = {
+				has_idea = SAF_black_monday_trade
+			}
+			swap_ideas = {
+				remove_idea = SAF_black_monday_trade
+				add_idea = SAF_black_monday_2
+				}
+			}
+			else_if = {
+			limit = {
+				has_idea = SAF_black_monday_loans
+			}
+			swap_ideas = {
+				remove_idea = SAF_black_monday_loans
+				add_idea = SAF_black_monday_2
+				}
+			}
+			else_if = {
+			limit = {
+				has_idea = SAF_black_monday_investment
+			}
+			swap_ideas = {
+				remove_idea = SAF_black_monday_investment
+				add_idea = SAF_black_monday_2
+				}
+			}
+			increase_ruling_party_popularity_by_5 = yes
+			add_political_power = 15
+			army_experience = 5
+		}
+	}
+
+	#Focus for Merchant Fleet Modernisation
+	focus = {
+		id = SAF_merchantfleetmodernisation
+		icon = GFX_focus_generic_navy_battleship2
+		x = 13
+		y = 4
+		cost = 4
+		available = { }
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_frenchinvestment }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_merchantfleetmodernisation"
+			add_tech_bonus = {
+				name = SAF_modern_merchants
+				bonus = 1
+				uses = 1
+				category = tp_tech
+			}
+			add_tech_bonus = {
+				name = SAF_modern_merchants
+				bonus = 1
+				uses = 1
+				category = naval_equipment
+			}
+		}
+	}
+
+	#Focus for Grant Them Basing Rights
+	focus = {
+		id = SAF_grantthembasingrights
+		icon = GFX_grantthembasingrights
+		x = 15
+		y = 5
+		cost = 4
+		available = { }
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_getourboysout }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_grantthembasingrights"
+			swap_ideas = {
+			remove_idea = SAF_black_monday_2_german
+			add_idea = SAF_black_monday_3_german
+			}
+			GER = {
+			add_opinion_modifier = { target = SAF modifier = ITA_likes_govt }
+			}
+			give_military_access = MAF
+			give_military_access = GER
+		}
+	}
+	
+	
+	focus = {
+		id = SAF_update_army
+		icon = GFX_goal_generic_army_doctrines
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 35
+		y = 0
+		cost = 8
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_update_army"
+			army_experience = 25
+		}
+	}
+
+	focus = {
+		id = SAF_weltkrieg_relics
+		icon = GFX_focus_secret_rearmament
+		relative_position_id = SAF_update_army
+		prerequisite = {
+			focus = SAF_update_army
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = -2
+		y = 1
+		cost = 8
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_weltkrieg_relics"
+			add_tech_bonus = {
+				name = infantry_weapons_bonus
+				bonus = 1
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_upgrade_artillery
+		icon = GFX_goal_generic_army_artillery2
+		relative_position_id = SAF_update_army
+		prerequisite = {
+			focus = SAF_weltkrieg_relics
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = -2
+		y = 2
+		cost = 8
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_upgrade_artillery"
+			add_tech_bonus = {
+				name = artillery_bonus
+				bonus = 1
+				uses = 1
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_q_corps
+		icon = GFX_goal_military_academy
+		relative_position_id = SAF_update_army
+		prerequisite = {
+			focus = SAF_update_army
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+			has_tech = motorised_infantry
+		}
+		x = 0
+		y = 1
+		cost = 8
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_q_corps"
+			if = {
+				limit = { NOT = { has_tech = tech_logistics_company } }
+				set_technology = { tech_logistics_company = 1 }
+			}
+			add_tech_bonus = {
+				name = support_bonus
+				bonus = 1
+				uses = 1
+				category = support_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_army_production
+		icon = GFX_goal_generic_construct_mil_factory
+		relative_position_id = SAF_update_army
+		prerequisite = {
+			focus = SAF_q_corps
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 0
+		y = 2
+		cost = 8
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_army_production"
+			add_ideas = SAF_army_production_idea
+		}
+	}
+
+	focus = {
+		id = SAF_military_college
+		icon = GFX_goal_generic_military_sphere
+		relative_position_id = SAF_update_army
+		prerequisite = {
+			focus = SAF_update_army
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 2
+		y = 1
+		cost = 8
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_military_college"
+			army_experience = 25
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_call_for_recruits
+		icon = GFX_goal_generic_propaganda
+		relative_position_id = SAF_update_army
+		prerequisite = {
+			focus = SAF_military_college
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 2
+		y = 2
+		cost = 8
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_call_for_recruits"
+			add_ideas = SAF_new_recruits
+		}
+	}
+
+	focus = {
+		id = SAF_elite_force
+		icon = GFX_goal_generic_axis_build_infantry
+		relative_position_id = SAF_update_army
+		prerequisite = { focus = SAF_upgrade_artillery }
+		prerequisite = { focus = SAF_army_production }
+		prerequisite = { focus = SAF_call_for_recruits }
+		mutually_exclusive = {
+			focus = SAF_mobile_force
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = -2
+		y = 3
+		cost = 8
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_elite_force"
+			army_experience = 25
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_native_ncos
+		icon = GFX_goal_generic_army_doctrines
+		relative_position_id = SAF_update_army
+		prerequisite = {
+			focus = SAF_elite_force
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = -3
+		y = 4
+		cost = 8
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_native_ncos"
+			swap_ideas = {
+				remove_idea = SAF_new_recruits
+				add_idea = SAF_native_nco_focus
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_special_forces
+		icon = GFX_goal_generic_special_forces
+		relative_position_id = SAF_update_army
+		prerequisite = {
+			focus = SAF_native_ncos
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = -3
+		y = 5
+		cost = 8
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_special_forces"
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 1
+				uses = 1
+				category = para_tech
+				category = marine_tech
+				category = mountaineers_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_special_equip
+		icon = GFX_goal_generic_army_artillery
+		relative_position_id = SAF_update_army
+		prerequisite = {
+			focus = SAF_elite_force
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = -1
+		y = 4
+		cost = 8
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_special_equip"
+			add_tech_bonus = {
+				name = infantry_weapons_bonus
+				bonus = 1
+				uses = 1
+				category = artillery
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_army_support
+		icon = GFX_goal_continuous_reduce_training_time
+		relative_position_id = SAF_update_army
+		prerequisite = {
+			focus = SAF_special_equip
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = -1
+		y = 5
+		cost = 8
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_army_support"
+			add_tech_bonus = {
+				name = support_bonus
+				bonus = 1
+				uses = 1
+				category = support_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_mobile_force
+		icon = GFX_goal_generic_build_tank
+		relative_position_id = SAF_update_army
+		prerequisite = { focus = SAF_upgrade_artillery }
+		prerequisite = { focus = SAF_army_production }
+		prerequisite = { focus = SAF_call_for_recruits }
+		mutually_exclusive = {
+			focus = SAF_elite_force
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 2
+		y = 3
+		cost = 8
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_mobile_force"
+			army_experience = 25
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_mech_focus
+		icon = GFX_goal_generic_army_motorized
+		relative_position_id = SAF_update_army
+		prerequisite = {
+			focus = SAF_mobile_force
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 1
+		y = 4
+		cost = 8
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_mech_focus"
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 1
+				uses = 1
+				category = motorized_equipment
+				technology = rocket_artillery
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_armored_corps
+		icon = GFX_goal_generic_army_tanks
+		relative_position_id = SAF_update_army
+		prerequisite = {
+			focus = SAF_mech_focus
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 1
+		y = 5
+		cost = 8
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_armored_corps"
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 1
+				uses = 1
+				category = armor
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_mech_production
+		icon = GFX_goal_continuous_repairments
+		relative_position_id = SAF_update_army
+		prerequisite = {
+			focus = SAF_mobile_force
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 3
+		y = 4
+		cost = 8
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_mech_production"
+			add_ideas = SAF_armor_production_idea
+		}
+	}
+
+	focus = {
+		id = SAF_mech_support
+		icon = GFX_goal_continuous_non_factory_construct
+		relative_position_id = SAF_update_army
+		prerequisite = {
+			focus = SAF_mech_production
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 3
+		y = 5
+		cost = 8
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_mech_support"
+			add_tech_bonus = {
+				name = support_bonus
+				bonus = 1
+				uses = 1
+				category = maintenance_company_tech
+				category = engineers_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_new_army
+		icon = GFX_goal_generic_build_tank
+		relative_position_id = SAF_update_army
+		prerequisite = {
+			focus = SAF_special_forces
+			focus = SAF_armored_corps
+		}
+		prerequisite = {
+			focus = SAF_army_support
+			focus = SAF_mech_support
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 0
+		y = 6
+		cost = 8
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_new_army"
+			add_ideas = SAF_army_focus
+		}
+	}
+
+
+### AIR FORCE
+
+	focus = {
+		id = SAF_update_air_force
+		icon = GFX_goal_generic_build_airforce
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 42
+		y = 0
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_update_air_force"
+			air_experience = 25
+			capital_scope = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = SAF_commit_to_the_five_year_plan
+				bonus = 1
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_hartbees
+		icon = GFX_goal_generic_air_fighter
+		relative_position_id = SAF_update_air_force
+		prerequisite = {
+			focus = SAF_update_air_force
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = -1
+		y = 1
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_hartbees"
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1
+				uses = 1
+				category = light_fighter
+				category = cat_heavy_fighter
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_blenheim
+		icon = GFX_goal_generic_air_bomber
+		relative_position_id = SAF_update_air_force
+		prerequisite = {
+			focus = SAF_update_air_force
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 1
+		y = 1
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_blenheim"
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 1
+				uses = 1
+				category = tactical_bomber
+				category = cat_strategic_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_air_school
+		icon = GFX_goal_generic_air_doctrine
+		relative_position_id = SAF_update_air_force
+		prerequisite = { focus = SAF_hartbees }
+		prerequisite = { focus = SAF_blenheim }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 0
+		y = 2
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_air_school"
+			air_experience = 25
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_air_defense
+		icon = GFX_focus_generic_air_defense
+		relative_position_id = SAF_update_air_force
+		prerequisite = {
+			focus = SAF_air_school
+		}
+		mutually_exclusive = {
+			focus = SAF_air_production
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = -1
+		y = 3
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_air_defense"
+			if = {
+				limit = { NOT = { has_tech = interwar_antiair } }
+				set_technology = { interwar_antiair = 1 }
+			}
+			if = {
+				limit = { owns_state = 275 }
+				275 = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = { owns_state = 681 }
+				681 = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			add_tech_bonus = {
+				name = SAF_air_defense
+				bonus = 1
+				uses = 1
+				technology = antiair1
+				technology = antiair2
+				technology = antiair3
+				technology = antiair4
+				technology = antiair5
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_air_production
+		icon = GFX_goal_continuous_air_production
+		relative_position_id = SAF_update_air_force
+		prerequisite = {
+			focus = SAF_air_school
+		}
+		mutually_exclusive = {
+			focus = SAF_air_defense
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 1
+		y = 3
+		cost = 8
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_air_production"
+			add_ideas = SAF_air_production_idea
+		}
+	}
+
+	focus = {
+		id = SAF_desert_air_force
+		icon = GFX_goal_generic_CAS
+		relative_position_id = SAF_update_air_force
+		prerequisite = {
+			focus = SAF_air_defense
+			focus = SAF_air_production
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = -1
+		y = 4
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_desert_air_force"
+			add_tech_bonus = {
+				name = SAF_desert_air_force
+				bonus = 1
+				uses = 1
+				category = cas_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_secure_cape
+		icon = GFX_goal_generic_air_naval_bomber
+		relative_position_id = SAF_update_air_force
+		prerequisite = {
+			focus = SAF_air_defense
+			focus = SAF_air_production
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 1
+		y = 4
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_secure_cape"
+			add_tech_bonus = {
+				name = SAF_secure_cape
+				bonus = 1
+				uses = 1
+				category = naval_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_rule_the_skies
+		icon = GFX_goal_generic_air_doctrine
+		relative_position_id = SAF_update_air_force
+		prerequisite = { focus = SAF_desert_air_force }
+		prerequisite = { focus = SAF_secure_cape }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 0
+		y = 5
+		cost = 8
+
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				any_owned_state = { is_coastal = yes }
+				NOT = {
+					has_completed_focus = SAF_overseas_offensive
+					has_completed_focus = SAF_cape_garrison
+				}
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_rule_the_skies"
+			add_ideas = SAF_air_focus
+		}
+	}
+
+
+### TECHNOLOGY
+
+	focus = {
+		id = SAF_tech_school
+		icon = GFX_goal_continuous_research
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 46
+		y = 0
+		cost = 8
+
+		ai_will_do = {
+			factor = 3
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_tech_school"
+			add_ideas = SAF_tech_school_idea
+		}
+	}
+
+	focus = {
+		id = SAF_electronics_focus
+		icon = GFX_goal_generic_consumer_goods
+		relative_position_id = SAF_tech_school
+		prerequisite = {
+			focus = SAF_tech_school
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 0
+		y = 1
+		cost = 8
+
+		ai_will_do = {
+			factor = 3
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_electronics_focus"
+			add_tech_bonus = {
+				name = electronics_bonus
+				bonus = 1
+				uses = 1
+				category = electronics
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_state_security
+		icon = GFX_goal_secret_agents
+		relative_position_id = SAF_tech_school
+		prerequisite = {
+			focus = SAF_electronics_focus
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = -1
+		y = 2
+		cost = 8
+
+		ai_will_do = {
+			factor = 3
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_state_security"
+			add_tech_bonus = {
+				name = secret_bonus
+				bonus = 1
+				uses = 1
+				category = encryption_tech
+				category = decryption_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_radio_africa
+		icon = GFX_goal_generic_radar
+		relative_position_id = SAF_tech_school
+		prerequisite = {
+			focus = SAF_electronics_focus
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = 1
+		y = 2
+		cost = 8
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 0.4
+				NOT = { has_tech = radio }
+				date < 1938.1.1
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_radio_africa"
+			add_tech_bonus = {
+				name = radar_tech_bonus
+				bonus = 1
+				uses = 1
+				category = radar_tech
+			}
+			if = {
+				limit = { has_tech = radio_detection }
+				capital_scope = {
+					add_building_construction = {
+						type = radar_station
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_tech = radio_detection }
+					has_tech = radio
+				}
+				set_technology = {
+					radio_detection = 1
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = radar_station
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_tech = radio_detection }
+					NOT = { has_tech = radio }
+				}
+				set_technology = {
+					radio = 1
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_expand_tech
+		icon = GFX_focus_research
+		relative_position_id = SAF_tech_school
+		prerequisite = { focus = SAF_radio_africa }
+		prerequisite = { focus = SAF_state_security }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+			NOT = { has_idea = SAF_black_monday_1 }
+			NOT = { has_idea = SAF_black_monday_2 }
+		}
+		x = 0
+		y = 3
+		cost = 8
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_expand_tech"
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = SAF_rocketry_focus
+		icon = GFX_focus_rocketry
+		relative_position_id = SAF_tech_school
+		prerequisite = { focus = SAF_secure_cape }
+		prerequisite = { focus = SAF_desert_air_force }
+		prerequisite = { focus = SAF_expand_tech }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+		}
+		x = -1
+		y = 5
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_rocketry_focus"
+			add_tech_bonus = {
+				name = secret_bonus
+				bonus = 1
+				uses = 1
+				category = rocketry
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_advanced_refinery
+		icon = GFX_goal_generic_oil_refinery
+		relative_position_id = SAF_tech_school
+		prerequisite = { focus = SAF_overseas_offensive }
+		prerequisite = { focus = SAF_cape_garrison }
+		prerequisite = { focus = SAF_expand_tech }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+			275 = { is_owned_and_controlled_by = SAF } #Transvaal
+		}
+		x = 1
+		y = 5
+		cost = 8
+
+		ai_will_do = {
+			factor = 3
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+			NOT = { owns_state = 275 }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_advanced_refinery"
+			add_tech_bonus = {
+				name = refinery_bonus
+				bonus = 1
+				uses = 1
+				category = synth_resources
+			}
+			275 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_new_minds
+		icon = GFX_goal_generic_scientific_exchange
+		relative_position_id = SAF_tech_school
+		prerequisite = {
+			focus = SAF_advanced_refinery
+			focus = SAF_rocketry_focus
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+			num_of_factories > 50
+		}
+		x = 0
+		y = 6
+		cost = 8
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_new_minds"
+			add_research_slot = 1
+		}
+	}
+
+
+### NAVY
+
+	focus = {
+		id = SAF_seaward_defense
+		icon = GFX_goal_generic_build_navy
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+			any_owned_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+		x = 50
+		y = 0
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_seaward_defense"
+			navy_experience = 25
+			681 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					province = 12589
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_naval_academy
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		relative_position_id = SAF_seaward_defense
+		prerequisite = {
+			focus = SAF_seaward_defense
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+			any_owned_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+		x = 0
+		y = 1
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_naval_academy"
+			add_tech_bonus = {
+				name = SAF_naval_academy
+				bonus = 1
+				uses = 1
+				category = naval_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_submarine_focus
+		icon = GFX_goal_generic_navy_submarine
+		relative_position_id = SAF_seaward_defense
+		prerequisite = {
+			focus = SAF_naval_academy
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+			any_owned_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+		x = -1
+		y = 2
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_submarine_focus"
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1
+				uses = 1
+				category = ss_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_destroyer_focus
+		icon = GFX_goal_generic_navy_anti_submarine
+		relative_position_id = SAF_seaward_defense
+		prerequisite = {
+			focus = SAF_naval_academy
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+			any_owned_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+		x = 1
+		y = 2
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_destroyer_focus"
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 1
+				uses = 1
+				category = dd_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_expand_simons_town
+		icon = GFX_goal_generic_construct_naval_dockyard
+		relative_position_id = SAF_seaward_defense
+		prerequisite = { focus = SAF_submarine_focus }
+		prerequisite = { focus = SAF_destroyer_focus }
+		mutually_exclusive = {
+			focus = SAF_navy_production
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+			681 = { is_owned_and_controlled_by = SAF } #Cape
+		}
+		x = -1
+		y = 3
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+			NOT = { owns_state = 681 }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_expand_simons_town"
+			random_owned_controlled_state = {
+				prioritize = { 681 }
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			681 = {
+				add_building_construction = {
+					type = coastal_bunker
+					province = 12589
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_navy_production
+		icon = GFX_goal_continuous_naval_production
+		relative_position_id = SAF_seaward_defense
+		prerequisite = { focus = SAF_submarine_focus }
+		prerequisite = { focus = SAF_destroyer_focus }
+		mutually_exclusive = {
+			focus = SAF_expand_simons_town
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+			any_owned_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+		x = 1
+		y = 3
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_navy_production"
+			add_ideas = SAF_navy_production_idea
+		}
+	}
+
+	focus = {
+		id = SAF_overseas_offensive
+		icon = GFX_goal_generic_sea_focused_navy
+		relative_position_id = SAF_seaward_defense
+		prerequisite = {
+			focus = SAF_expand_simons_town
+			focus = SAF_navy_production
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+			any_owned_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+		x = -1
+		y = 4
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_overseas_offensive"
+			add_tech_bonus = {
+				name = SAF_overseas_offensive
+				bonus = 1
+				uses = 1
+				category = tp_tech
+			}
+			add_tech_bonus = {
+				name = naval_equipment_bonus
+				bonus = 1
+				uses = 1
+				category = naval_equipment
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_cape_garrison
+		icon = GFX_goal_generic_construct_military
+		relative_position_id = SAF_seaward_defense
+		prerequisite = {
+			focus = SAF_expand_simons_town
+			focus = SAF_navy_production
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+			any_owned_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+		x = 1
+		y = 4
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_cape_garrison"
+			every_owned_state = {
+				limit = {
+					is_controlled_by = ROOT
+					is_in_home_area = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = {
+						all_provinces = yes
+						limit_to_coastal = yes
+					}
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+					}
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SAF_rule_the_seas
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		relative_position_id = SAF_seaward_defense
+		prerequisite = { focus = SAF_overseas_offensive }
+		prerequisite = { focus = SAF_cape_garrison }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SAF_not_has_civil_war
+				NOT = { country_exists = SFR }
+			}
+			any_owned_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+		x = 0
+		y = 5
+		cost = 8
+
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				NOT = {
+					has_completed_focus = SAF_desert_air_force
+					has_completed_focus = SAF_secure_cape
+				}
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_rule_the_seas"
+			add_ideas = SAF_navy_focus
+		}
+	}
+	
+	focus = {
+		id = SAF_thervaasapoliceforce
+		icon = GFX_thervaasapoliceforce
+		x = 15
+		y = 3
+		cost = 4
+
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_approachmittelafrika }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_thervaasapoliceforce"
+			add_ideas = SAF_royal_veterans_idea
+			add_command_power = 10
+			add_stability = 0.01
+		}
+	}
+
+	#Focus for Slaan Terug!
+	focus = {
+		id = SAF_slaanterug
+		icon = GFX_slaanterug
+		x = 75
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for The Front Nasionaal Cabinet of 1938
+	focus = {
+		id = SAF_thefrontnasionaalcabinetof1938
+		icon = GFX_thefrontnasionaalcabinetof1938
+		x = 0
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_slaanterug }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Deputy PM: Daniel Malan
+	focus = {
+		id = SAF_deputypmdanielmalan
+		icon = GFX_deputypmdanielmalan
+		x = -5
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_thefrontnasionaalcabinetof1938 }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_deputypmdanielmalan"
+			add_ideas = SAF_DPM_Malan_idea
+		}
+	}
+
+	#Focus for Minister of Labour: Barend Schoeman
+	focus = {
+		id = SAF_ministeroflabourbarendschoeman
+		icon = GFX_ministeroflabourbarendschoeman
+		x = -1
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_thefrontnasionaalcabinetof1938 }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_ministeroflabourbarendschoeman"
+			add_ideas = SAF_MOL_Schoeman_idea
+		}
+	}
+
+	#Focus for Minister of Interior Affairs: Theophilus Dönges
+	focus = {
+		id = SAF_ministerofinterioraffairstheophilusdnges
+		icon = GFX_ministerofinterioraffairstheophilusdnges
+		x = 1
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_thefrontnasionaalcabinetof1938 }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_ministerofinterioraffairstheophilusdnges"
+			add_ideas = SAF_MOI_Donges_idea
+		}
+	}
+
+	#Focus for Minister of Social Welfare: Walter Madeley
+	focus = {
+		id = SAF_ministerofsocialwelfarewaltermadeley
+		icon = GFX_ministerofsocialwelfarewaltermadeley
+		x = 3
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_thefrontnasionaalcabinetof1938 }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_ministerofsocialwelfarewaltermadeley"
+			add_ideas = SAF_MSW_Madeley_idea
+		}
+	}
+
+	#Focus for Minister of Native Affairs: Deneys Reitz
+	focus = {
+		id = SAF_ministerofnativeaffairsdeneysreitz
+		icon = GFX_ministerofnativeaffairsdeneysreitz
+		x = 5
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_thefrontnasionaalcabinetof1938 }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_ministerofnativeaffairsdeneysreitz"
+			add_ideas = SAF_MNA_Reitz_idea
+		}
+	}
+
+	#Focus for Table the Surpression of Syndicalism Act
+	focus = {
+		id = SAF_tablethesurpressionofsyndicalismact
+		icon = GFX_tablethesurpressionofsyndicalismact
+		x = 0
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_ministeroflabourbarendschoeman 
+		}
+		prerequisite = { 
+			focus = SAF_ministerofinterioraffairstheophilusdnges 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Table the Population Registration Act
+	focus = {
+		id = SAF_tablethepopulationregistrationact
+		icon = GFX_tablethepopulationregistrationact
+		x = -2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_ministeroflabourbarendschoeman
+		}
+		prerequisite = { 
+			focus = SAF_ministerofargiculturestephanusleroux
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for The Fork in the Road
+	focus = {
+		id = SAF_theforkintheroad
+		icon = GFX_theforkintheroad
+		x = 0
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_formalisetherepublicanstructure 
+		}
+		prerequisite = { 
+			focus = SAF_limitnativerepresentation 
+		}
+		prerequisite = { 
+			focus = SAF_tablethesurpressionofsyndicalismact 
+		}
+		prerequisite = { 
+			focus = SAF_tablethepopulationregistrationact 
+		}
+		prerequisite = { 
+			focus = SAF_tablethewhitewelfareact 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Table the White Welfare Act
+	focus = {
+		id = SAF_tablethewhitewelfareact
+		icon = GFX_tablethewhitewelfareact
+		x = 2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_ministerofinterioraffairstheophilusdnges
+		}
+		prerequisite = { 
+			focus = SAF_ministerofsocialwelfarewaltermadeley 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Nasionale: Baasskap
+	focus = {
+		id = SAF_nasionalebaasskap
+		icon = GFX_nasionalebaasskap
+		x = -4
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_theforkintheroad }
+		mutually_exclusive = { 
+			focus = SAF_labourwelsyn 
+		}
+		mutually_exclusive = { 
+			focus = SAF_gesuiwerdevolkstaat 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {	
+				custom_trigger_tooltip = {
+					tooltip = SAF_crisis_defused
+						OR = {
+						has_country_flag = SAF_civil_war_over
+						has_country_flag = SAF_civil_war_avoided
+						     }
+					}
+				has_government = authoritarian_democrat
+			     }
+		relative_position_id = SAF_slaanterug
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_nasionalebaasskap"
+			unlock_decision_category_tooltip = SAF_nasionale_parliament
+			hidden_effect = { SAF_create_legislation = yes }
+		}
+	}
+
+	#Focus for Expand the White Welfare Act
+	focus = {
+		id = SAF_expandthewhitewelfareact
+		icon = GFX_expandthewhitewelfareact
+		x = -1
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_labourwelsyn }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Nation-Wide Colour Bar
+	focus = {
+		id = SAF_nationwidecolourbar
+		icon = GFX_nationwidecolourbar
+		x = 1
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_labourwelsyn }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for The Separate Representation of Voters Act
+	focus = {
+		id = SAF_theseparaterepresentationofvotersact
+		icon = GFX_theseparaterepresentationofvotersact
+		x = -5
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_nasionalebaasskap }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_theseparaterepresentationofvotersact"
+				country_event = {
+					id = saf.215
+					days = 2
+								}
+		}
+	}
+
+	#Focus for The Group Areas Act
+	focus = {
+		id = SAF_thegroupareasact
+		icon = GFX_thegroupareasact
+		x = -3
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_nasionalebaasskap }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_thegroupareasact"
+				country_event = {
+					id = saf.217
+					days = 2
+								}
+		}		
+	}
+
+	#Focus for Hertzog the Moderator
+	focus = {
+		id = SAF_hertzogthemoderator
+		icon = GFX_hertzogthemoderator
+		x = -5
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_theseparaterepresentationofvotersact }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_hertzogthemoderator"
+			add_country_leader_trait = hertzog_moderator
+		}	
+	}
+
+	#Focus for Patching up the Cracks
+	focus = {
+		id = SAF_patchingupthecracks
+		icon = GFX_patchingupthecracks
+		x = -3
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_thegroupareasact }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Decouple the Legislature
+	focus = {
+		id = SAF_decouplethelegislature
+		icon = GFX_decouplethelegislature
+		x = 3
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_gesuiwerdevolkstaat }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Introduce Separate Development
+	focus = {
+		id = SAF_introduceseparatedevelopment
+		icon = GFX_introduceseparatedevelopment
+		x = 5
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_gesuiwerdevolkstaat }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Afrikaner Social Security
+	focus = {
+		id = SAF_afrikanersocialsecurity
+		icon = GFX_afrikanersocialsecurity
+		x = -1
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_expandthewhitewelfareact }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Codify our Preference
+	focus = {
+		id = SAF_codifyourpreference
+		icon = GFX_codifyourpreference
+		x = 1
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_remembering1922 }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Yes, You Too
+	focus = {
+		id = SAF_yesyoutoo
+		icon = GFX_focus_chi_british_cooperation
+		x = -1
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_afrikanersocialsecurity }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Workers Unite for a White South Africa
+	focus = {
+		id = SAF_workersuniteforawhitesouthafrica
+		icon = GFX_workersuniteforawhitesouthafrica
+		x = 0
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_codifyourpreference 
+		}
+		prerequisite = { 
+			focus = SAF_yesyoutoo 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Fight Seditious Activities
+	focus = {
+		id = SAF_fightseditiousactivities
+		icon = GFX_focus_AST_never_gallipoli
+		x = 3
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_decouplethelegislature }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Good Neighbourliness
+	focus = {
+		id = SAF_goodneighbourliness
+		icon = GFX_goodneighbourliness
+		x = 5
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_introduceseparatedevelopment }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Consider the Consequences
+	focus = {
+		id = SAF_considertheconsequences
+		icon = GFX_focus_attack_britain
+		x = 3
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_fightseditiousactivities }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Minister of Argiculture: Stephanus le Roux
+	focus = {
+		id = SAF_ministerofargiculturestephanusleroux
+		icon = GFX_ministerofargiculturestephanusleroux
+		x = -3
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_thefrontnasionaalcabinetof1938 }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_ministerofargiculturestephanusleroux"
+			add_ideas = SAF_MOA_Roux_idea
+		}
+	}
+
+	#Focus for Formalise the Republican Structure
+	focus = {
+		id = SAF_formalisetherepublicanstructure
+		icon = GFX_formalisetherepublicanstructure
+		x = -4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_deputypmdanielmalan 
+		}
+		prerequisite = { 
+			focus = SAF_ministerofargiculturestephanusleroux 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Limit Native Representation
+	focus = {
+		id = SAF_limitnativerepresentation
+		icon = GFX_limitnativerepresentation
+		x = 4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_ministerofnativeaffairsdeneysreitz
+		}
+		prerequisite = { 
+			focus = SAF_ministerofsocialwelfarewaltermadeley
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Labour: Welsyn
+	focus = {
+		id = SAF_labourwelsyn
+		icon = GFX_labourwelsyn
+		x = 0
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_theforkintheroad }
+		mutually_exclusive = { 
+			focus = SAF_gesuiwerdevolkstaat 
+		}
+		mutually_exclusive = { 
+			focus = SAF_nasionalebaasskap 
+		}
+		mutually_exclusive = { 
+			focus = SAF_ 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {	
+				custom_trigger_tooltip = {
+					tooltip = SAF_crisis_defused
+						OR = {
+						has_country_flag = SAF_civil_war_over
+						has_country_flag = SAF_civil_war_avoided
+						     }
+					}
+				has_government = social_democrat
+			     }
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Gesuiwerde: Volkstaat
+	focus = {
+		id = SAF_gesuiwerdevolkstaat
+		icon = GFX_gesuiwerdevolkstaat
+		x = 4
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_theforkintheroad }
+		mutually_exclusive = { 
+			focus = SAF_labourwelsyn 
+		}
+		mutually_exclusive = { 
+			focus = SAF_nasionalebaasskap 
+		}
+		mutually_exclusive = { 
+			focus = SAF_ 
+		}
+		available = {	
+				custom_trigger_tooltip = {
+					tooltip = SAF_crisis_defused
+						OR = {
+						has_country_flag = SAF_civil_war_over
+						has_country_flag = SAF_civil_war_avoided
+						     }
+					}
+				has_government = paternal_autocrat
+			     }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Remembering 1922
+	focus = {
+		id = SAF_remembering1922
+		icon = GFX_remembering1922
+		x = 1
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_nationwidecolourbar }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Learn from the Freistaat
+	focus = {
+		id = SAF_learnfromthefreistaat
+		icon = GFX_learnfromthefreistaat
+		x = 5
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_goodneighbourliness }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for The Port Elizabeth Declaration
+	focus = {
+		id = SAF_theportelizabethdeclaration
+		icon = GFX_theportelizabethdeclaration
+		x = 4
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_considertheconsequences 
+		}
+		prerequisite = { 
+			focus = SAF_learnfromthefreistaat 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Investing in the Rand
+	focus = {
+		id = SAF_investingintherand
+		icon = GFX_investingintherand
+		x = -5
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_hertzogthemoderator }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Placating the Randlords
+	focus = {
+		id = SAF_placatingtherandlords
+		icon = GFX_placatingtherandlords
+		x = -3
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_patchingupthecracks }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Apartheid Realised
+	focus = {
+		id = SAF_apartheidrealised
+		icon = GFX_apartheidrealised
+		x = -4
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_investingintherand 
+		}
+		prerequisite = { 
+			focus = SAF_placatingtherandlords 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_slaanterug
+	}
+
+	#Focus for Africa Must be Secured
+	focus = {
+		id = SAF_africamustbesecured
+		icon = GFX_africamustbesecured
+		x = 5
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_jointhereclamationeffort }
+		mutually_exclusive = { focus = SAF_boernativefight }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_africamustbesecured"
+			add_timed_idea = {
+					idea = SAF_native_resistance
+					days = 180
+					 }
+			hidden_effect = {
+				country_event = {
+					id = saf.190
+					days = 180
+					}
+				
+				}
+			
+		}
+		
+	}
+
+	#Focus for Boer Native Fight
+	focus = {
+		id = SAF_boernativefight
+		icon = GFX_SAF_beornativefight
+		x = 7
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_jointhereclamationeffort }
+		mutually_exclusive = { focus = SAF_africamustbesecured }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_boernativefight"
+			custom_effect_tooltip = SAF_boernativefight_tooltip
+			country_event = saf.205
+					}
+		
+	}
+
+	#Focus for Elevate the English Language
+	focus = {
+		id = SAF_elevate_english_language
+		icon = GFX_SAF_englishlang
+		x = 6
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+		focus = SAF_africamustbesecured 
+		focus = SAF_boernativefight 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_elevate_english_language"
+			add_ideas = SAF_english_elevated
+				}
+	}
+
+	#Focus for Increased Royal Presence
+	focus = {
+		id = SAF_increased_royal_presence
+		icon = GFX_SAF_increased_royals
+		x = 6
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_elevate_english_language }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_increased_royal_presence"
+			add_manpower = 10000
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+			custom_effect_tooltip = SAF_add_marines
+			hidden_effect = { load_oob = SAF_marines }
+		
+		}
+			
+			
+	}
+
+	#Focus for Eliminate Boer Nationalism
+	focus = {
+		id = SAF_eliminate_boer_nationalism
+		icon = GFX_SAF_eliminate_boer
+		x = 4
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_increased_royal_presence }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_eliminate_boer_nationalism"
+			add_timed_idea = {
+					idea = SAF_suppressing_boers
+					days = 180
+					 }
+			hidden_effect = {
+				country_event = {
+					id = saf.190
+					days = 180
+					}
+				
+				}
+			}
+	}
+
+	#Focus for Back the Tea Industry
+	focus = {
+		id = SAF_back_tea_industry
+		icon = GFX_SAF_back_tea
+		x = 6
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_increased_royal_presence }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_back_tea_industry"
+			add_ideas = SAF_tea_profit
+			unlock_decision_category_tooltip = SAF_tea_supremacy
+			country_event = saf.tea.1
+			hidden_effect = {
+				country_event = {
+					id = saf.tea.5
+					days = 24
+				}
+			}
+		}
+	}
+
+
+	#Focus for Steeds Getrou Op Die Pad
+	focus = {
+		id = SAF_steedsgetrouopdiepad
+		icon = GFX_steedsgetrouopdiepad
+		x = 8
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_increased_royal_presence }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: SAF_steedsgetrouopdiepad"
+			add_ideas = SAF_all_faithful
+			681 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+					}
+				}
+			}
+	}
+
+
+	#Focus for Join the Reclamation Effort?
+	focus = {
+		id = SAF_jointhereclamationeffort
+		icon = GFX_jointhereclamationeffort
+		x = 6
+		y = 5
+		cost = 10
+		available = {	
+				custom_trigger_tooltip = {
+					tooltip = SAF_crisis_defused
+						OR = {
+						has_country_flag = SAF_civil_war_over
+						has_country_flag = SAF_civil_war_avoided
+						     }
+					}
+				has_government = authoritarian_democrat
+			     }
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_tablethefederalconsitutionact 
+		}
+		prerequisite = { 
+			focus = SAF_establishthethreecapitals 
+		}
+		prerequisite = { 
+			focus = SAF_tablethecapequalifiedfranchiseact
+		}
+		prerequisite = { 
+			focus = SAF_expandallotedrepresentatives
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: SAF_jointhereclamationeffort"
+			add_popularity = {
+				ideology = authoritarian_democrat popularity = 0.05
+			}
+		}	
+	}
+
+	#Focus for Reconcile with the Afrikaners 
+	focus = {
+		id = SAF_reconcile_with_afrikaners
+		icon = GFX_SAF_afrikaanreconciliation
+		x = -5
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_embraceourliberalwing }
+		mutually_exclusive = { focus = SAF_boer_crackdown }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_reconcile_with_afrikaners"
+			custom_effect_tooltip = SAF_reconcile_with_afrikaners_tooltip
+			add_stability = 0.05
+			add_political_power = -50
+			country_event = saf.191
+		}
+		
+		
+	}
+	
+
+	#Focus for Extensive Native Reform
+	focus = {
+		id = SAF_extensive_native_reform
+		icon = GFX_SAF_native_reform
+		x = -6
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+		focus = SAF_boer_crackdown 
+		focus = SAF_reconcile_with_afrikaners 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_extensive_native_reform"
+			add_political_power = -50
+			add_manpower = 7500
+			add_ideas = SAF_native_reform
+		hidden_effect = {
+			country_event = {
+				id = saf.199
+				days = 10
+					}
+				}
+			}
+	}
+
+	#Focus for Shining African Democracy
+	focus = {
+		id = SAF_shining_african_democracy
+		icon = GFX_SAF_shining_democracy
+		x = -6
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_extensive_native_reform }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_shining_african_democracy"
+			add_popularity = { ideology = social_liberal popularity = 0.05 }
+			add_popularity = { ideology = market_liberal popularity = 0.05 }
+			add_stability = 0.05
+		}
+	}
+
+	#Focus for Support the Universities
+	focus = {
+		id = SAF_support_the_universities
+		icon = GFX_goal_great_science
+		x = -8
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_shining_african_democracy }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_support_the_universities"
+			add_political_power = 35
+			add_research_slot = 1
+		}
+	}
+
+	#Focus for Joint Councils 
+	focus = {
+		id = SAF_joint_councils
+		icon = GFX_SAF_race_council
+		x = -6
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_shining_african_democracy }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: SAF_steadyasshegoes"
+			add_ideas = SAF_jointcouncils
+		}
+	}
+
+	#Focus for Promote the SAIRR
+	focus = {
+		id = SAF_promote_sairr
+		icon = GFX_SAF_sairr_promotion
+		x = -4
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_shining_african_democracy }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: SAF_promote_sairr"
+			country_event = saf.189
+		}
+	}
+
+	#Focus for Table the Federal Consitution Act
+	focus = {
+		id = SAF_tablethefederalconsitutionact
+		icon = GFX_tablethefederalconsitutionact
+		x = 1
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_reaffirmthestatuteofwestminster 
+		}
+		prerequisite = { 
+			focus = SAF_tablethenativeserviceact 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+	}
+
+	#Focus for Establish the Three Capitals
+	focus = {
+		id = SAF_establishthethreecapitals
+		icon = GFX_establishthethreecapitals
+		x = 3
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_tablethenativeserviceact 
+		}
+		prerequisite = { 
+			focus = SAF_preparethenortherncampaign 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking 
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_establishthethreecapitals"
+			275 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			947 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			681 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}	
+		}
+	}
+
+	#Focus for Embrace our Liberal wing?
+	focus = {
+		id = SAF_embraceourliberalwing
+		icon = GFX_embraceourliberalwing
+		x = -6
+		y = 5
+		cost = 10
+		available = {
+			custom_trigger_tooltip = {
+					tooltip = SAF_crisis_defused
+						OR = {
+						has_country_flag = SAF_civil_war_over
+						has_country_flag = SAF_civil_war_avoided
+						     }
+					}
+			OR = {
+				has_government = social_liberal
+				has_government = market_liberal
+			 	}
+			     }
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_tablethefederalconsitutionact 
+		}
+		prerequisite = { 
+			focus = SAF_establishthethreecapitals 
+		}
+		prerequisite = { 
+			focus = SAF_tablethecapequalifiedfranchiseact
+		}
+		prerequisite = { 
+			focus = SAF_expandallotedrepresentatives
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: SAF_embraceourliberalwing"
+			add_popularity = {
+				ideology = social_liberal popularity = 0.05
+			}
+			add_popularity = {
+				ideology = market_liberal popularity = 0.05
+			}
+		}	
+	}
+
+	#Focus for Table the Native Service Act
+	focus = {
+		id = SAF_tablethenativeserviceact
+		icon = GFX_tablethenativeserviceact
+		x = 2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_ministerofinterioraffairscharlesclarkson 
+		}
+		prerequisite = { 
+			focus = SAF_ministerofmobilisationharrylawrence 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+	}
+
+	#Focus for Table the Cape Qualified Franchise Act
+	focus = {
+		id = SAF_tablethecapequalifiedfranchiseact
+		icon = GFX_tablethecapequalifiedfranchiseact
+		x = -3
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_tablethenativestrustact 
+		}
+		prerequisite = { 
+			focus = SAF_enactlimitedlandreform 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+	}
+
+	#Focus for Expand Alloted Representatives
+	focus = {
+		id = SAF_expandallotedrepresentatives
+		icon = GFX_expandallotedrepresentatives
+		x = -1
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_enactlimitedlandreform 
+		}
+		prerequisite = { 
+			focus = SAF_reaffirmthestatuteofwestminster 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_expandallotedrepresentatives"
+			decrease_ruling_party_popularity_by_5 = yes
+			add_political_power = -25
+			add_stability = 0.03
+		}
+	}
+
+	#Focus for Crack Down on Boers
+	focus = {
+		id = SAF_boer_crackdown
+		icon = GFX_SAF_boercrack
+		x = -7
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_embraceourliberalwing }
+		mutually_exclusive = { focus = SAF_reconcile_with_afrikaners }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_boer_crackdown"
+			add_timed_idea = {
+					idea = SAF_suppressing_boers
+					days = 180
+					 }
+			hidden_effect = {
+				country_event = {
+					id = saf.190
+					days = 180
+					}
+				
+				}
+			}
+	}
+
+
+	#Focus for Prepare the Northern Campaign
+	focus = {
+		id = SAF_preparethenortherncampaign
+		icon = GFX_preparethenortherncampaign
+		x = 4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_ministerofmobilisationharrylawrence 
+		}
+		prerequisite = { 
+			focus = SAF_ministerofdefensejanchristiaansmuts 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_preparethenortherncampaign"
+			country_event = saf.126
+		}
+	}
+
+	#Focus for Reaffirm the Statute of Westminster
+	focus = {
+		id = SAF_reaffirmthestatuteofwestminster
+		icon = GFX_reaffirmthestatuteofwestminster
+		x = 0
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_ministeroflabourcolinsteyn 
+		}
+		prerequisite = { 
+			focus = SAF_ministerofinterioraffairscharlesclarkson 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+	}
+
+	#Focus for Minister of Mobilisation: Harry Lawrence
+	focus = {
+		id = SAF_ministerofmobilisationharrylawrence
+		icon = GFX_ministerofmobilisationharrylawrence
+		x = 3
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_thedominionistcabinetof1938 }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_ministerofmobilisationharrylawrence"
+			add_ideas = SAF_MOM_Lawrence_idea
+		}
+	}
+
+	#Focus for Minister of Defense: Jan Christiaan Smuts
+	focus = {
+		id = SAF_ministerofdefensejanchristiaansmuts
+		icon = GFX_ministerofdefensejanchristiaansmuts
+		x = 5
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_thedominionistcabinetof1938 }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_ministerofdefensejanchristiaansmuts"
+			add_ideas = SAF_MOD_Smuts_idea
+		}
+	}
+
+	#Focus for The Dominionist Cabinet of 1938
+	focus = {
+		id = SAF_thedominionistcabinetof1938
+		icon = GFX_thedominionistcabinetof1938
+		x = 0
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_godsaveking }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+	}
+
+	#Focus for Minister of Argiculture: Jacobus Strauss
+	focus = {
+		id = SAF_ministerofargiculturejacobusstrauss
+		icon = GFX_ministerofargiculturejacobusstrauss
+		x = -3
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_thedominionistcabinetof1938 }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_ministerofargiculturejacobusstrauss"
+			add_ideas = SAF_MOA_Strauss_idea
+		}
+	}
+
+	#Focus for Minister of Interior Affairs: Charles Clarkson
+	focus = {
+		id = SAF_ministerofinterioraffairscharlesclarkson
+		icon = GFX_ministerofinterioraffairscharlesclarkson
+		x = 1
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_thedominionistcabinetof1938 }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_ministerofinterioraffairscharlesclarkson"
+			add_ideas = SAF_MOI_Clarkson_idea
+		}
+	}
+
+	#Focus for God Save the King!
+	focus = {
+		id = SAF_godsaveking
+		icon = GFX_godsaveking
+		x = 60
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_godsaveking"
+		}
+	}
+
+	#Focus for Table the Natives Trust Act
+	focus = {
+		id = SAF_tablethenativestrustact
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = -4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_deputypmjfhhofmeyr 
+		}
+		prerequisite = { 
+			focus = SAF_ministerofargiculturejacobusstrauss 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+	}
+
+	#Focus for Enact Limited Land Reform
+	focus = {
+		id = SAF_enactlimitedlandreform
+		icon = GFX_enactlimitedlandreform
+		x = -2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_ministerofargiculturejacobusstrauss 
+		}
+		prerequisite = { 
+			focus = SAF_ministeroflabourcolinsteyn 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+	}
+
+	#Focus for Deputy PM: J.F.H. Hofmeyr
+	focus = {
+		id = SAF_deputypmjfhhofmeyr
+		icon = GFX_deputypmjfhhofmeyr
+		x = -5
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_thedominionistcabinetof1938 }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_deputypmjfhhofmeyr"
+			add_ideas = SAF_DPM_Hofmeyr_idea
+		}
+	}
+
+	#Focus for Minister of Labour: Colin Steyn
+	focus = {
+		id = SAF_ministeroflabourcolinsteyn
+		icon = GFX_ministeroflabourcolinsteyn
+		x = -1
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_thedominionistcabinetof1938 }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_ministeroflabourcolinsteyn"
+			add_ideas = SAF_MOL_Steyn_idea
+		}
+	}
+
+	#Focus for Steady as she Goes
+	focus = {
+		id = SAF_steadyasshegoes
+		icon = GFX_steadyasshegoes
+		x = 0
+		y = 5
+		cost = 10
+		available = {
+				custom_trigger_tooltip = {
+					tooltip = SAF_crisis_defused
+						OR = {
+						has_country_flag = SAF_civil_war_over
+						has_country_flag = SAF_civil_war_avoided
+						     }
+					}
+				has_government = social_conservative
+			     }
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_tablethefederalconsitutionact 
+		}
+		prerequisite = { 
+			focus = SAF_establishthethreecapitals 
+		}
+		prerequisite = { 
+			focus = SAF_tablethecapequalifiedfranchiseact
+		}
+		prerequisite = { 
+			focus = SAF_expandallotedrepresentatives
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_godsaveking
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: SAF_steadyasshegoes"
+			add_popularity = {
+				ideology = social_conservative popularity = 0.05
+			}
+		}	
+	}
+
+	#Focus for Racial Status Quo
+	focus = {
+		id = SAF_racial_status_quo
+		icon = GFX_SAF_racial_statusquo
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_steadyasshegoes }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_steadyasshegoes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: SAF_racial_status_quo"
+			add_ideas = SAF_partial_segregation_maintained
+			}
+	}
+
+	#Focus for Anglo-Boer Harmony
+	focus = {
+		id = SAF_anglo_boer_harmony
+		icon = GFX_SAF_angloboer_harmony
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_steadyasshegoes }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_steadyasshegoes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: SAF_anglo_boer_harmony"
+			country_event = saf.200
+			}
+	}
+
+	#Focus for Protect the Savannah
+	focus = {
+		id = SAF_protect_the_savannah
+		icon = GFX_SAF_protect_savannah
+		x = 0
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_racial_status_quo }
+		prerequisite = { focus = SAF_anglo_boer_harmony }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_steadyasshegoes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_protect_the_savannah"
+			add_ideas = SAF_smuts_savannah_idea
+		}
+	}
+
+	#Focus for The Special Relationship
+	focus = {
+		id = SAF_the_special_relationship
+		icon = GFX_SAF_special_relationship
+		x = 0
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_protect_the_savannah }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_steadyasshegoes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_the_special_relationship"
+			add_ideas = SAF_dedicated_to_the_entente1
+			add_opinion_modifier = {
+				target = CAN
+				modifier = KR_close_allies
+					}
+			CAN = {
+				add_ideas = SAF_dedicated_to_the_entente1
+				add_opinion_modifier = {
+				target = SAF
+				modifier = KR_close_allies
+					}
+			}
+			hidden_effect = {
+				country_event = {
+					id = saf.203
+					days = 7
+						}
+					}
+		}
+	}
+
+	#Focus for Remember the Mountaineers
+	focus = {
+		id = SAF_remember_the_mountaineers
+		icon = GFX_SAF_remembering_mountaineers
+		x = -2
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_the_special_relationship }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_steadyasshegoes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_remember_the_mountaineers"
+			country_event = {
+				id = saf.201
+				days = 3
+					}
+			}
+	}
+
+	#Focus for Unite the Country
+	focus = {
+		id = SAF_unite_the_country
+		icon = GFX_SAF_unity_country
+		x = 0
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_the_special_relationship }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_steadyasshegoes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_remember_the_mountaineers"
+			add_stability = 0.075
+			add_political_power = 50
+			country_event = saf.202
+			}
+	}
+
+	#Focus for Imperial Commitment 
+	focus = {
+		id = SAF_imperial_commitment
+		icon = GFX_goal_british_monarchy
+		x = 2
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_the_special_relationship }
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = SAF_steadyasshegoes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_imperial_commitment"
+			army_experience = 25
+			navy_experience = 25
+			air_experience = 25
+			swap_ideas = {
+			remove_idea = SAF_dedicated_to_the_entente1
+			add_idea = SAF_dedicated_to_the_entente2
+			}
+			CAN = {
+			army_experience = 25
+			navy_experience = 25
+			air_experience = 25
+			swap_ideas = {
+			remove_idea = SAF_dedicated_to_the_entente1
+			add_idea = SAF_dedicated_to_the_entente2
+			}
+		}
+	
+			
+	  }
+	}
+
+	#Focus for The government is secure!
+	focus = {
+		id = SAF_thegovernmentissecure
+		icon = GFX_thegovernmentissecure
+		x = 3
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_findtheterrorists 
+		}
+		prerequisite = { 
+			focus = SAF_findthedissidents 
+		}
+		prerequisite = { 
+			focus = SAF_findtheagitators 
+		}
+		relative_position_id = SAF_antiwindsorprotests
+	}
+
+	#Focus for Find the agitators
+	focus = {
+		id = SAF_findtheagitators
+		icon = GFX_findtheagitators
+		x = 5
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_demandorderinthemedia }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_findtheagitators"
+			custom_effect_tooltip = SAF_suppress_tooltip
+			SAF_suppress_riots = yes
+			decrease_ruling_party_popularity_by_5 = yes
+		}
+	}
+
+	#Focus for The 1938 South African elections
+	focus = {
+		id = SAF_the1938southafricanelections
+		icon = GFX_the1938southafricanelections
+		x = 0
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_nasionalelabourgesuiwerdeelectoralpact }
+		prerequisite = { focus = SAF_thedominionistpartyforms }
+		relative_position_id = SAF_antiwindsorprotests
+	}
+
+	#Focus for Promise Afrikaner repesentation
+	focus = {
+		id = SAF_promiseafrikanerrepesentation
+		icon = GFX_promiseafrikanerrepesentation
+		x = -3
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_talktothenphavenga }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_promiseafrikanerrepesentation"
+			custom_effect_tooltip = SAF_placate_tooltip
+			SAF_placate_riots = yes
+			add_stability = 0.02
+		}
+	}
+
+	#Focus for Promise Boer autonomy
+	focus = {
+		id = SAF_promiseboerautonomy
+		icon = GFX_promiseboerautonomy
+		x = -1
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_talktothegnpmalan }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_promiseafrikanerrepesentation"
+			custom_effect_tooltip = SAF_placate_tooltip
+			SAF_placate_riots = yes
+			add_manpower = -1000
+			add_war_support = 0.02
+		}
+	}
+
+	#Focus for Hint at more native rights
+	focus = {
+		id = SAF_hintatmorenativerights
+		icon = GFX_hintatmorenativerights
+		x = -5
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_promiseworkerprotection }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_hintatmorenativerights"
+			custom_effect_tooltip = SAF_placate_tooltip
+			SAF_placate_riots = yes
+			add_stability = 0.03
+			increase_ruling_party_popularity_by_5 = yes
+		}
+	}
+
+	#Focus for Hint at less Entente involvement
+	focus = {
+		id = SAF_hintatlessententeinvolvement
+		icon = GFX_hintatlessententeinvolvement
+		x = -3
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_promiseafrikanerrepesentation }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_hintatlessententeinvolvement"
+			custom_effect_tooltip = SAF_placate_tooltip
+			SAF_placate_riots = yes
+			add_war_support = -0.05
+			increase_ruling_party_popularity_by_5 = yes
+		}
+	}
+
+	#Focus for Hint at a republican option
+	focus = {
+		id = SAF_hintatarepublicanoption
+		icon = GFX_hintatarepublicanoption
+		x = -1
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_promiseboerautonomy }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_hintatarepublicanoption"
+			custom_effect_tooltip = SAF_placate_tooltip
+			SAF_placate_riots = yes
+			add_political_power = 20
+			increase_ruling_party_popularity_by_5 = yes
+		}
+	}
+
+	#Focus for Use the Secret Service
+	focus = {
+		id = SAF_usethesecretservice
+		icon = GFX_usethesecretservice
+		x = 3
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_crackdownonthem }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_usethesecretservice"
+			custom_effect_tooltip = SAF_suppress_tooltip
+			SAF_suppress_riots = yes
+			decrease_ruling_party_popularity_by_5 = yes
+			add_stability = 0.02
+		}
+	}
+
+	#Focus for Demand order in the streets
+	focus = {
+		id = SAF_demandorderinthestreets
+		icon = GFX_demandorderinthestreets
+		x = 1
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_usethesapolice }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_demandorderinthestreets"
+			custom_effect_tooltip = SAF_suppress_tooltip
+			SAF_suppress_riots = yes
+			decrease_ruling_party_popularity_by_5 = yes
+			add_manpower = -200
+		}
+	}
+
+	#Focus for Talk to the ISL - Dadoo
+	focus = {
+		id = SAF_talktotheisldadoo
+		icon = GFX_talktotheisldadoo
+		x = -5
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_placatethem }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_talktotheisldadoo"
+			custom_effect_tooltip = SAF_placate_tooltip
+			SAF_placate_riots = yes
+			add_popularity = { ideology = radical_socialist popularity = 0.03 }
+		}
+	}
+
+	#Focus for Talk to the NP - Havenga
+	focus = {
+		id = SAF_talktothenphavenga
+		icon = GFX_talktothenphavenga
+		x = -3
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_placatethem }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_talktothenphavenga"
+			custom_effect_tooltip = SAF_placate_tooltip
+			SAF_placate_riots = yes
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.03 }
+		}
+	}
+
+	#Focus for Promise worker protection
+	focus = {
+		id = SAF_promiseworkerprotection
+		icon = GFX_promiseworkerprotection
+		x = -5
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_talktotheisldadoo }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_promiseworkerprotection"
+			custom_effect_tooltip = SAF_placate_tooltip
+			SAF_placate_riots = yes
+			add_political_power = 10
+		}
+	}
+
+	#Focus for Use the SA Police
+	focus = {
+		id = SAF_usethesapolice
+		icon = GFX_usethesapolice
+		x = 1
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_crackdownonthem }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_usethesapolice"
+			custom_effect_tooltip = SAF_suppress_tooltip
+			SAF_suppress_riots = yes
+			add_stability = 0.02
+		}
+	}
+
+	#Focus for Use the Newspapers
+	focus = {
+		id = SAF_usethenewspapers
+		icon = GFX_usethenewspapers
+		x = 5
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_crackdownonthem }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_usethenewspapers"
+			custom_effect_tooltip = SAF_suppress_tooltip
+			SAF_suppress_riots = yes
+			add_political_power = 15
+		}
+	}
+
+	#Focus for The Dominionist Party forms
+	focus = {
+		id = SAF_thedominionistpartyforms
+		icon = GFX_thedominionistpartyforms
+		x = -1
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_scheduleareferendum }
+		relative_position_id = SAF_antiwindsorprotests
+	}
+
+	#Focus for Nasionale - Labour - Gesuiwerde Electoral Pact
+	focus = {
+		id = SAF_nasionalelabourgesuiwerdeelectoralpact
+		icon = GFX_nasionalelabourgesuiwerdeelectoralpact
+		x = 1
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_scheduleareferendum }
+		relative_position_id = SAF_antiwindsorprotests
+	}
+
+	#Focus for Edward ascends the throne
+	focus = {
+		id = SAF_edwardascendsthethrone
+		icon = GFX_edwardascendsthethrone
+		x = -1
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_the1938southafricanelections }
+		mutually_exclusive = { focus = SAF_birthofthesuidafrikaanserepubliek }
+		relative_position_id = SAF_antiwindsorprotests
+	}
+
+	#Focus for Birth of the Suid-Afrikaanse Republiek
+	focus = {
+		id = SAF_birthofthesuidafrikaanserepubliek
+		icon = GFX_birthofthesuidafrikaanserepubliek
+		x = 1
+		y = 9
+		cost = 11
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_the1938southafricanelections }
+		mutually_exclusive = { focus = SAF_edwardascendsthethrone }
+		relative_position_id = SAF_antiwindsorprotests
+	}
+
+	#Focus for Schedule a Referendum
+	focus = {
+		id = SAF_scheduleareferendum
+		icon = GFX_scheduleareferendum
+		x = 0
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_therabblerousersarequiet 
+			focus = SAF_thegovernmentissecure 
+		}
+		relative_position_id = SAF_antiwindsorprotests
+	}
+
+	#Focus for The rabble-rousers are quiet!
+	focus = {
+		id = SAF_therabblerousersarequiet
+		icon = GFX_therabblerousersarequiet
+		x = -3
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_hintatmorenativerights 
+		}
+		prerequisite = { 
+			focus = SAF_hintatlessententeinvolvement 
+		}
+		prerequisite = { 
+			focus = SAF_hintatarepublicanoption 
+		}
+		relative_position_id = SAF_antiwindsorprotests
+	}
+
+	#Focus for Demand order in the rank and file
+	focus = {
+		id = SAF_demandorderintherankandfile
+		icon = GFX_demandorderintherankandfile
+		x = 3
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_usethesecretservice }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_demandorderinthestreets"
+			custom_effect_tooltip = SAF_suppress_tooltip
+			SAF_suppress_riots = yes
+			add_war_support = -0.05
+			add_political_power = 10
+		}
+	}
+
+	#Focus for Demand order in the media
+	focus = {
+		id = SAF_demandorderinthemedia
+		icon = GFX_demandorderinthemedia
+		x = 5
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_usethenewspapers }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_demandorderinthemedia"
+			custom_effect_tooltip = SAF_suppress_tooltip
+			SAF_suppress_riots = yes
+			add_political_power = -5
+			add_stability = 0.03
+		}
+	}
+
+	#Focus for Find the terrorists
+	focus = {
+		id = SAF_findtheterrorists
+		icon = GFX_findtheterrorists
+		x = 1
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_demandorderinthestreets }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_findtheterrorists"
+			custom_effect_tooltip = SAF_suppress_tooltip
+			SAF_suppress_riots = yes
+			add_political_power = 10
+		}
+	}
+
+	#Focus for Find the dissidents
+	focus = {
+		id = SAF_findthedissidents
+		icon = GFX_findthedissidents
+		x = 3
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_demandorderintherankandfile }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_findthedissidents"
+			custom_effect_tooltip = SAF_suppress_tooltip
+			SAF_suppress_riots = yes
+			add_stability = 0.01
+		}
+	}
+
+	#Focus for Placate them
+	focus = {
+		id = SAF_placatethem
+		icon = GFX_placatethem
+		x = -3
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		available = {
+			has_country_flag = SAF_riots_placated
+		}
+		prerequisite = { focus = SAF_antiwindsorprotests }
+		mutually_exclusive = { focus = SAF_crackdownonthem }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_placatethem"
+			add_political_power = -25
+			decrease_ruling_party_popularity_by_5 = yes
+		}
+	}
+
+	#Focus for Talk to the GNP - Malan
+	focus = {
+		id = SAF_talktothegnpmalan
+		icon = GFX_talktothegnpmalan
+		x = -1
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SAF_placatethem }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_talktothegnpmalan"
+			custom_effect_tooltip = SAF_placate_tooltip
+			SAF_placate_riots = yes
+			add_popularity = { ideology = paternal_autocrat popularity = 0.03 }
+		}
+	}
+
+	#Focus for Anti-Windsor Protests
+	focus = {
+		id = SAF_antiwindsorprotests
+		icon = GFX_antiwindsorprotests
+		x = 75
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		available = {
+			has_country_flag = SAF_riots_are_here
+		}
+		bypass = {
+			has_country_flag = SAF_riots_are_here
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_antiwindsorprotests"
+			add_political_power = -10
+		}
+	}
+
+	#Focus for Crack down on them
+	focus = {
+		id = SAF_crackdownonthem
+		icon = GFX_crackdownonthem
+		x = 3
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		available = {
+			has_country_flag = SAF_riots_suppressed
+		}
+		prerequisite = { focus = SAF_antiwindsorprotests }
+		mutually_exclusive = { focus = SAF_placatethem }
+		relative_position_id = SAF_antiwindsorprotests
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_crackdownonthem"
+			add_stability = -0.05
+			add_manpower = -5000
+		}
+	}
+
+	#Focus for Our Cousins in the West
+	focus = {
+		id = SAF_our_cousins_in_the_west
+		icon = GFX_our_cousins_in_the_west
+		x = 26
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		available = {
+			has_global_flag = USA_civil_war_over_flag
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_our_cousins_in_the_west"
+			unlock_decision_tooltip = SAF_join_america_decision
+			leave_faction = yes
+			separate_peace_all_wars = yes
+		}
+	}
+
+	#Focus for Learn from the South
+	focus = {
+		id = SAF_learn_from_south
+		icon = GFX_learn_from_south
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_our_cousins_in_the_west
+		}
+		relative_position_id = SAF_our_cousins_in_the_west
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_learn_from_south"
+			add_ideas = SAF_southern_influence_idea
+			add_political_power = 10
+		}
+	}
+
+	#Focus for Lessons of the Second Civil War
+	focus = {
+		id = SAF_lessons_of_civil_war
+		icon = GFX_lessons_of_civil_war
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_our_cousins_in_the_west
+		}
+		relative_position_id = SAF_our_cousins_in_the_west
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_learn_from_south"
+			add_tech_bonus = {
+				name = doctrine_bonus
+				bonus = 1.5
+				uses = 1
+				category = land_doctrine
+			}
+			add_command_power = 5
+			army_experience = 15
+		}
+	}
+
+	#Focus for New Financial Ties 
+	focus = {
+		id = SAF_new_financial_ties
+		icon = GFX_new_financial_ties
+		x = 0
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_learn_from_south
+		}
+		prerequisite = { 
+			focus = SAF_lessons_of_civil_war
+		}
+		bypass = {
+			OR = {
+			has_global_flag = SAF_COR_ties
+			has_global_flag = SAF_USA_ties
+			}
+		}
+		relative_position_id = SAF_our_cousins_in_the_west
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_new_financial_ties"
+			custom_effect_tooltip = SAF_will_work_with_USA_tooltip
+			if = {
+			limit = {
+			country_exists = COR
+			has_global_flag = USA_civil_war_over_flag
+			}
+			set_global_flag = SAF_COR_ties
+			army_experience = 15
+			add_political_power = 30
+			add_equipment_to_stockpile = {
+			type = infantry_equipment_1
+			amount = 80
+			producer = COR
+			}
+			give_guarantee = COR
+			add_ideas = COR_south_african_trade_idea
+			COR = {
+			add_ideas = COR_south_african_trade_idea
+			add_stability = 0.03
+			give_guarantee = SAF
+			}
+			}
+			else_if = {
+			limit = {
+			country_exists = USA
+			has_global_flag = USA_civil_war_over_flag
+			USA = {
+			has_country_leader = { ruling_only = yes name = "Douglas MacArthur" } 
+			}
+			}
+			set_global_flag = SAF_USA_ties
+			army_experience = 15
+			add_political_power = 30
+			add_equipment_to_stockpile = {
+			type = infantry_equipment_1
+			amount = 80
+			producer = USA
+			}
+			give_guarantee = USA
+			add_ideas = COR_south_african_trade_idea
+			USA = {
+			add_ideas = COR_south_african_trade_idea
+			add_stability = 0.03
+			give_guarantee = SAF
+			}
+			}
+			else_if = {
+			limit = {
+			country_exists = CAL
+			has_global_flag = USA_civil_war_over_flag
+			CAL = {
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
+			}
+			}
+			army_experience = 15
+			add_political_power = 30
+			add_equipment_to_stockpile = {
+			type = infantry_equipment_1
+			amount = 80
+			producer = CAL
+			}
+			give_guarantee = CAL
+			add_ideas = COR_south_african_trade_idea
+			CAL = {
+			add_ideas = COR_south_african_trade_idea
+			add_stability = 0.03
+			give_guarantee = SAF
+			}
+			}
+		}
+	}
+
+	#Focus for Pioneer Spirit
+	focus = {
+		id = SAF_pioneering_spirit
+		icon = GFX_pioneering_spirit
+		x = 0
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_new_financial_ties
+		}
+		relative_position_id = SAF_our_cousins_in_the_west
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_pioneering_spirit"
+		add_ideas = SAF_the_pioneers_idea
+		increase_ruling_party_popularity_by_5 = yes
+		}
+	}
+
+	#Focus for Seek More Allies
+	focus = {
+		id = SAF_seek_more_allies
+		icon = GFX_seek_more_allies
+		x = -2
+		y = 4
+		cost = 10
+		available = {
+			HOL = {
+			OR = {
+				has_government = authoritarian_democrat
+				has_government = paternal_autocrat
+				has_government = national_populist
+			}
+			is_in_faction = no
+			}
+		}
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_pioneering_spirit
+		}
+		mutually_exclusive = { focus = SAF_defend_our_culture }	
+		mutually_exclusive = { focus = SAF_our_manifest_destiny }
+		relative_position_id = SAF_our_cousins_in_the_west
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_seek_more_allies"
+		HOL = {
+		country_event = saf.117
+		}
+		}
+	}
+
+	#Focus for Defend Our Culture
+	focus = {
+		id = SAF_defend_our_culture
+		icon = GFX_defend_our_culture
+		x = 0
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_pioneering_spirit
+		}
+		mutually_exclusive = { focus = SAF_seek_more_allies }	
+		mutually_exclusive = { focus = SAF_our_manifest_destiny }
+		relative_position_id = SAF_our_cousins_in_the_west
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_defend_our_culture"
+		add_ideas = SAF_defensive_mindset_idea
+		add_stability = 0.05
+		}
+	}
+
+	#Focus for Our Manifest Destiny
+	focus = {
+		id = SAF_our_manifest_destiny
+		icon = GFX_our_manifest_destiny
+		x = 2
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_pioneering_spirit
+		}
+		mutually_exclusive = { focus = SAF_seek_more_allies }	
+		mutually_exclusive = { focus = SAF_defend_our_culture }
+		relative_position_id = SAF_our_cousins_in_the_west
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_our_manifest_destiny"
+		unlock_decision_tooltip = SAF_conquests_in_africa
+		unlock_decision_tooltip = SAF_claim_portugeuse_africa
+		add_war_support = 0.05
+		}
+	}
+
+	#Focus for Go Our Own Way
+	focus = {
+		id = SAF_go_our_own_way
+		icon = GFX_go_our_own_way
+		x = 54
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+	}
+
+	#Focus for Secure the northern border
+	focus = {
+		id = SAF_securethenorthernborder
+		icon = GFX_securethenorthernborder
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_go_our_own_way
+		}
+		relative_position_id = SAF_go_our_own_way
+	}
+
+	#Focus for Debate intervention in Sudwest
+	focus = {
+		id = SAF_debateinterventioninsudwest
+		icon = GFX_debateinterventioninsudwest
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_go_our_own_way
+		}
+		relative_position_id = SAF_go_our_own_way
+	}
+
+	#Focus for Where do we go from here
+	focus = {
+		id = SAF_wheredowegofromhere
+		icon = GFX_wheredowegofromhere
+		x = 0
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_debateinterventioninsudwest
+		}
+		prerequisite = { 
+			focus = SAF_securethenorthernborder
+		}
+		relative_position_id = SAF_go_our_own_way
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_wheredowegofromhere"
+		country_event = saf.188
+		add_stability = 0.05
+		}
+	}
+
+	#Focus for The volksraad decides that
+	focus = {
+		id = SAF_decisionofthevolksraad
+		icon = GFX_decisionofthevolksraad
+		x = 0
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_wheredowegofromhere
+		}
+		relative_position_id = SAF_go_our_own_way
+	}
+
+	#Focus for Find African Allies
+	focus = {
+		id = SAF_find_african_allies
+		icon = GFX_find_african_allies
+		x = -2
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_decisionofthevolksraad
+		}
+		mutually_exclusive = { focus = SAF_fortify_the_zambezi }	
+		mutually_exclusive = { focus = SAF_forward_into_the_savannah }
+		relative_position_id = SAF_go_our_own_way
+	}
+
+	#Focus for Fortify the Zambezi
+	focus = {
+		id = SAF_fortify_the_zambezi
+		icon = GFX_fortify_the_zambezi
+		x = 0
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_decisionofthevolksraad
+		}
+		mutually_exclusive = { focus = SAF_forward_into_the_savannah }	
+		mutually_exclusive = { focus = SAF_find_african_allies }
+		relative_position_id = SAF_go_our_own_way
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_fortify_the_zambezi"
+		add_ideas = SAF_guard_zambezi_idea
+		add_stability = 0.05
+		if = {
+		limit = {
+		owns_state = 950
+		}
+		950 = {
+			add_building_construction = {
+				type = bunker
+				level = 3
+				instant_build = yes
+				province = {
+					all_provinces = yes
+					limit_to_border = yes
+				}
+			}
+		}
+		}
+		if = {
+		limit = {
+		owns_state = 545
+		}
+		545 = {
+			add_building_construction = {
+				type = bunker
+				level = 3
+				instant_build = yes
+				province = {
+					all_provinces = yes
+					limit_to_border = yes
+				}
+			}
+		}
+		}
+		if = {
+		limit = {
+		owns_state = 542
+		}
+		542 = {
+			add_building_construction = {
+				type = bunker
+				level = 3
+				instant_build = yes
+				province = {
+					all_provinces = yes
+					limit_to_border = yes
+				}
+			}
+		}
+		}
+		if = {
+		limit = {
+		owns_state = 964
+		}
+		964 = {
+			add_building_construction = {
+				type = bunker
+				level = 3
+				instant_build = yes
+				province = {
+					all_provinces = yes
+					limit_to_border = yes
+					}
+				}
+			}
+		}
+		}
+	}
+
+	#Focus for Forward Into the Savannah
+	focus = {
+		id = SAF_forward_into_the_savannah
+		icon = GFX_forward_into_the_savannah
+		x = 2
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_decisionofthevolksraad
+		}
+		mutually_exclusive = { focus = SAF_fortify_the_zambezi }	
+		mutually_exclusive = { focus = SAF_find_african_allies }
+		relative_position_id = SAF_go_our_own_way
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_forward_into_the_savannah"
+		add_stability = 0.05
+		}
+	}
+
+	#Focus for A directive from berlin/ottawa/london
+	focus = {
+		id = SAF_adirectivefromberlinottawalondon
+		icon = GFX_adirectivefromberlinottawalondon
+		x = 35
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+	}
+
+	#Focus for The question of sudan and egypt
+	focus = {
+		id = SAF_thequestionofmittelafrika
+		icon = GFX_thequestionofmittelafrika
+		x = 0
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_adirectivefromberlinottawalondon
+		}
+		relative_position_id = SAF_adirectivefromberlinottawalondon
+	}
+
+	#Focus for Cape to cairo once more
+	focus = {
+		id = SAF_capetocairooncemore
+		icon = GFX_capetocairooncemore
+		x = -2
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_thequestionofmittelafrika
+		}
+		mutually_exclusive = { focus = SAF_londoncomesfirst }
+		relative_position_id = SAF_adirectivefromberlinottawalondon
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_capetocairooncemore"
+		add_ideas = SAF_cape_cairo_idea
+		add_war_support = 0.05
+		}
+	}
+
+	#Focus for French Military Exercises
+	focus = {
+		id = SAF_french_military_exercises
+		icon = GFX_french_military_exercises
+		x = -3
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_capetocairooncemore
+		}
+		relative_position_id = SAF_adirectivefromberlinottawalondon
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_french_military_exercises"
+		NFA = {
+			add_opinion_modifier = { target = SAF modifier = small_increase }
+			}
+		SAF = {
+			add_opinion_modifier = { target = NFA modifier = small_increase }
+			}
+		}
+		army_experience = 15
+		air_experience = 15
+		add_command_power = 10
+		NFA = {
+			army_experience = 15
+			air_experience = 15
+			add_command_power = 10
+		}
+	}
+
+	#Focus for A Grand Army
+	focus = {
+		id = SAF_grand_army
+		icon = GFX_grand_army
+		x = -3
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_french_military_exercises
+		}
+		relative_position_id = SAF_adirectivefromberlinottawalondon
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_grand_army"
+		add_ideas = SAF_grand_army_idea
+		add_war_support = 0.02
+		}
+	}
+
+	#Focus for Rally the British Colonials
+	focus = {
+		id = SAF_rally_british_colonists
+		icon = GFX_rally_british_colonists
+		x = -1
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_capetocairooncemore
+		}
+		relative_position_id = SAF_adirectivefromberlinottawalondon
+	}
+
+	#Focus for African Logistics
+	focus = {
+		id = SAF_african_logistics
+		icon = GFX_african_logistics
+		x = -1
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_rally_british_colonists
+		}
+		relative_position_id = SAF_adirectivefromberlinottawalondon
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_african_logistics"
+		add_ideas = SAF_new_logistics_idea
+		add_war_support = 0.02
+		}
+	}
+
+	#Focus for We Move North
+	focus = {
+		id = SAF_we_move_north
+		icon = GFX_we_move_north
+		x = -2
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_grand_army
+		}
+		prerequisite = { 
+			focus = SAF_african_logistics
+		}
+		relative_position_id = SAF_adirectivefromberlinottawalondon
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_we_move_north"
+		custom_effect_tooltip = SAF_cape_tooltip
+		increase_ruling_party_popularity_by_5 = yes
+		add_political_power = 20
+		}
+	}
+
+	#Focus for Liberate French Colonies
+	focus = {
+		id = SAF_liberate_french_colonies
+		icon = GFX_liberate_french_colonies
+		x = -3
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_we_move_north
+		}
+		mutually_exclusive = { focus = SAF_secure_the_suez }
+		relative_position_id = SAF_adirectivefromberlinottawalondon
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_liberate_french_colonies"
+		custom_effect_tooltip = SAF_french_liberation_tooltip
+		increase_ruling_party_popularity_by_5 = yes
+		add_stability = 0.05
+		}
+	}
+
+	#Focus for Secure the Suez
+	focus = {
+		id = SAF_secure_the_suez
+		icon = GFX_secure_the_suez
+		x = -1
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_we_move_north
+		}
+		mutually_exclusive = { focus = SAF_liberate_french_colonies }
+		relative_position_id = SAF_adirectivefromberlinottawalondon
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_secure_the_suez"
+		custom_effect_tooltip = SAF_egyptian_liberation_tooltip
+		increase_ruling_party_popularity_by_5 = yes
+		add_war_support = 0.05
+		}
+	}
+
+	#Focus for London comes first
+	focus = {
+		id = SAF_londoncomesfirst
+		icon = GFX_londoncomesfirst
+		x = 2
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_thequestionofmittelafrika
+		}
+		mutually_exclusive = { focus = SAF_capetocairooncemore }
+		relative_position_id = SAF_adirectivefromberlinottawalondon
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_londoncomesfirst"
+		add_ideas = SAF_london_first_idea
+		add_stability = 0.05
+		}
+	}
+
+	#Focus for Marine Training
+	focus = {
+		id = SAF_marine_training
+		icon = GFX_marine_training
+		x = 1
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_londoncomesfirst
+		}
+		relative_position_id = SAF_adirectivefromberlinottawalondon
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_marine_training"
+		add_ideas = SAF_marines_idea
+		navy_experience = 10
+		}
+	}
+
+	#Focus for New Ports
+	focus = {
+		id = SAF_new_ports
+		icon = GFX_new_ports
+		x = 1
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_marine_training
+		}
+		relative_position_id = SAF_adirectivefromberlinottawalondon
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_new_ports"
+		681 = {
+				limit = {
+					is_core_of = SAF
+					is_controlled_by = SAF
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					province = 12589
+					instant_build = yes
+				}
+		}
+		945 = {
+				limit = {
+					is_core_of = SAF
+					is_controlled_by = SAF
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					province = 4528
+					instant_build = yes
+				}
+		}
+		719 = {
+				limit = {
+					is_core_of = SAF
+					is_controlled_by = SAF
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					province = 1468
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	#Focus for Steel and Gold
+	focus = {
+		id = SAF_steel_and_gold
+		icon = GFX_steel_and_gold
+		x = 3
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_londoncomesfirst
+		}
+		relative_position_id = SAF_adirectivefromberlinottawalondon
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_steel_and_gold"
+			add_resource = {
+				type = steel
+				amount = 6
+				state = 275
+			}
+			add_resource = {
+				type = steel
+				amount = 6
+				state = 947
+			}
+		}
+	}
+
+	#Focus for Feed the Troops
+	focus = {
+		id = SAF_feed_the_troops
+		icon = GFX_feed_the_troops
+		x = 3
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_steel_and_gold
+		}
+		relative_position_id = SAF_adirectivefromberlinottawalondon
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_feed_the_troops"
+		add_ideas = SAF_troop_support_idea
+		increase_ruling_party_popularity_by_5 = yes
+		}
+	}
+
+	#Focus for Commitment to Liberation
+	focus = {
+		id = SAF_commit_to_liberation
+		icon = GFX_commit_to_liberation
+		x = 2
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_new_ports
+		}
+		prerequisite = { 
+			focus = SAF_feed_the_troops
+		}
+		relative_position_id = SAF_adirectivefromberlinottawalondon
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_commit_to_liberation"
+		add_ideas = SAF_liberation_effort_idea
+		add_manpower = 20000
+		add_war_support = 0.05
+		}
+	}
+
+	#Focus for A Deal with France
+	focus = {
+		id = SAF_french_deal
+		icon = GFX_french_deal
+		x = 1
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_commit_to_liberation
+		}
+		mutually_exclusive = { focus = SAF_splendid_isolation_in_africa }
+		relative_position_id = SAF_adirectivefromberlinottawalondon
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_fruits_of_loyalty"
+		country_event = saf.190
+		}
+	}
+
+	#Focus for Splendid Isolation in Africa
+	focus = {
+		id = SAF_splendid_isolation_in_africa
+		icon = GFX_splendid_isolation_in_africa
+		x = 3
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_commit_to_liberation
+		}
+		mutually_exclusive = { focus = SAF_french_deal }
+		relative_position_id = SAF_adirectivefromberlinottawalondon
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_splendid_isolation_in_africa"
+		add_ideas = SAF_splendid_isolation_idea
+		add_political_power = 20
+		}
+	}
+
+	#Focus for A Tense Alliance
+	focus = {
+		id = SAF_tense_alliance
+		icon = GFX_tense_alliance
+		x = 10
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = SAF_adirectivefromberlinottawalondon
+	}
+
+	#Focus for Leave the Entente
+	focus = {
+		id = SAF_leave_entente
+		icon = GFX_leave_entente
+		x = 0
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_tense_alliance
+		}
+		relative_position_id = SAF_tense_alliance
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SAF_leave_entente"
+			if = {
+				limit = { is_in_faction = yes }
+				country_event = saf.120
+				separate_peace_all_wars = yes
+			}
+			GER = {
+			add_opinion_modifier = { target = SAF modifier = ITA_likes_govt }
+			}
+			SAF = {
+			add_opinion_modifier = { target = GER modifier = ITA_likes_govt }
+			}
+			add_political_power = -5
+		}
+	}
+
+	#Focus for Stand with the Kaiserreich
+	focus = {
+		id = SAF_stand_with_the_kaiser
+		icon = GFX_stand_with_the_kaiser
+		x = -2
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_leave_entente
+		}
+		mutually_exclusive = { focus = SAF_pick_up_the_pieces }
+		relative_position_id = SAF_tense_alliance
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_stand_with_the_kaiser"
+		add_ideas = SAF_loyal_to_kaiser_idea
+		add_political_power = 20
+		}
+	}
+
+	#Focus for A New Breadbasket
+	focus = {
+		id = SAF_a_new_breadbasket
+		icon = GFX_a_new_breadbasket
+		x = -3
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_stand_with_the_kaiser
+		}
+		relative_position_id = SAF_tense_alliance
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_a_new_breadbasket"
+		add_ideas = SAF_breadbasket_idea
+		}
+	}
+
+	#Focus for Exercises in the Sky
+	focus = {
+		id = SAF_exercises_in_the_sky
+		icon = GFX_exercises_in_the_sky
+		x = -3
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_a_new_breadbasket
+		}
+		relative_position_id = SAF_tense_alliance
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_exercises_in_the_sky"
+		add_tech_bonus = {
+				name = SAF_air_corps
+				bonus = 1.5
+				uses = 1
+				category = air_doctrine
+		}
+		air_experience = 15
+		}
+	}
+
+	#Focus for German Army Advisors 
+	focus = {
+		id =  SAF_german_army_advisors
+		icon = GFX_german_army_advisors
+		x = -1
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_stand_with_the_kaiser
+		}
+		relative_position_id = SAF_tense_alliance
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_german_army_advisors"
+		add_ideas = SAF_german_advisors_idea
+		add_tech_bonus = {
+				name = doctrine_bonus
+				bonus = 1
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Boer Volunteers
+	focus = {
+		id = SAF_boer_volunteers
+		icon = GFX_boer_volunteers
+		x = -1
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_german_army_advisors
+		}
+		relative_position_id = SAF_tense_alliance
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_boer_volunteers"
+		GER = {
+			add_opinion_modifier = { target = SAF modifier = small_increase }
+		}
+		SAF = {
+			add_opinion_modifier = { target = GER modifier = small_increase }
+		}
+		add_ideas = SAF_boer_idea
+		}
+	}
+
+	#Focus for Vanguard Against Syndicalism
+	focus = {
+		id = SAF_vanguard_against_syndicalism
+		icon = GFX_goal_HOL_crackdown_totalist
+		x = -2
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_boer_volunteers
+		}
+		prerequisite = { 
+			focus = SAF_exercises_in_the_sky
+		}
+		relative_position_id = SAF_tense_alliance
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_vanguard_against_syndicalism"
+		add_ideas = SAF_vanguard_against_syndicalism_idea
+		add_stability = 0.02
+		}
+	}
+
+	#Focus for Fruits of Loyalty
+	focus = {
+		id = SAF_fruits_of_loyalty
+		icon = GFX_fruits_of_loyalty
+		x = -1
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_vanguard_against_syndicalism
+		}
+		mutually_exclusive = { focus = SAF_the_fallen_kaiser }
+		relative_position_id = SAF_tense_alliance
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_fruits_of_loyalty"
+		country_event = saf.189
+		}
+	}
+
+	#Focus for The Fallen Kaiser
+	focus = {
+		id = SAF_the_fallen_kaiser
+		icon = GFX_the_fallen_kaiser
+		x = -3
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_vanguard_against_syndicalism
+		}
+		mutually_exclusive = { focus = SAF_fruits_of_loyalty }
+		relative_position_id = SAF_tense_alliance
+	}
+
+	#Focus for Destiny with Dar Es Salaam
+	focus = {
+		id = SAF_pick_up_the_pieces
+		icon = GFX_destiny_with_daressalaam
+		x = 2
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_leave_entente
+		}
+		mutually_exclusive = { focus = SAF_stand_with_the_kaiser }
+		relative_position_id = SAF_tense_alliance
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_pick_up_the_pieces"
+		add_ideas = SAF_pick_up_pieces_idea
+		army_experience = 20
+		}
+	}
+
+	#Focus for Restore Order in Rhodesia 
+	focus = {
+		id = SAF_order_in_rhodesia
+		icon = GFX_order_in_rhodesia
+		x = 1
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_pick_up_the_pieces
+		}
+		relative_position_id = SAF_tense_alliance
+	}
+
+	#Focus for Guerilla Warfare
+	focus = {
+		id = SAF_guerilla_warfare
+		icon = GFX_GEA_counter_insurgency
+		x = 1
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_order_in_rhodesia
+		}
+		relative_position_id = SAF_tense_alliance
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_guerilla_warfare"
+		add_ideas = SAF_guerillas_idea
+		army_experience = 5
+		}
+	}
+
+	#Focus for An Offer for Sudwestafrika
+	focus = {
+		id = SAF_offer_for_sudwestafrika
+		icon = GFX_offer_for_sudwestafrika
+		x = 3
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_pick_up_the_pieces
+		}
+		relative_position_id = SAF_tense_alliance
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_offer_for_sudwestafrika"
+		if = {
+			limit = {
+				NOT = {
+				country_exists = NMB
+				}
+				owns_state = 541
+				owns_state = 964
+			}
+			country_event = saf.122
+		}
+		else_if = {
+			limit = {
+				OR = {
+				country_exists = NMB
+				NOT = {
+				owns_state = 541
+				owns_state = 964
+				}
+				}
+			}
+			country_event = saf.179
+			}
+		add_political_power = 10
+		}
+	}
+
+	#Focus for Court British Colonies
+	focus = {
+		id = SAF_court_british_colonies
+		icon = GFX_court_british_colonies
+		x = 3
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_offer_for_sudwestafrika
+		}
+		relative_position_id = SAF_tense_alliance
+	}
+
+	#Focus for Into The Heart of Afrika
+	focus = {
+		id = SAF_heart_of_afrika
+		icon = GFX_heart_of_afrika
+		x = 2
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_guerilla_warfare
+		}
+		prerequisite = { 
+			focus = SAF_court_british_colonies
+		}
+		relative_position_id = SAF_tense_alliance
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_heart_of_afrika"
+		add_ideas = SAF_heart_of_afrika_idea
+		add_stability = 0.02
+		}
+	}
+
+	#Focus for Opportunistic Alliance
+	focus = {
+		id = SAF_opportunistic_alliance
+		icon = GFX_opportunistic_alliance
+		x = 1
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_heart_of_afrika
+		}
+		mutually_exclusive = { focus = SAF_colonial_unity }
+		relative_position_id = SAF_tense_alliance
+	}	
+
+	#Focus for Colonial Unity
+	focus = {
+		id = SAF_colonial_unity
+		icon = GFX_colonial_unity
+		x = 3
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_heart_of_afrika
+		}
+		mutually_exclusive = { focus = SAF_opportunistic_alliance }
+		relative_position_id = SAF_tense_alliance
+	}
+
+	#Focus for The united party in 1936
+	focus = {
+		id = SAF_theunitedpartyin1936
+		icon = GFX_theunitedpartyin1936
+		x = 10
+		y = 10
+		cost = 1
+		available_if_capitulated = yes
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_theunitedpartyin1936"
+		country_event = saf.107
+		}
+	}
+
+	#Focus for Deputy PM: JBM Hertzog
+	focus = {
+		id = SAF_deputypmjbmhertzog
+		icon = GFX_deputypmjbmhertzog
+		x = -5
+		y = 1
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_theunitedpartyin1936
+		}
+		relative_position_id = SAF_theunitedpartyin1936
+
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_deputypmjbmhertzog"
+		add_ideas = SAF_DPM_Hertzog_idea
+		add_political_power = 5
+		}
+	}
+
+	#Focus for Minister of Agriculture: Jan Kemp
+	focus = {
+		id = SAF_ministerofargiculturejankemp
+		icon = GFX_ministerofargiculturejankemp
+		x = -3
+		y = 1
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_theunitedpartyin1936
+		}
+		relative_position_id = SAF_theunitedpartyin1936
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_ministerofargiculturejankemp"
+		add_ideas = SAF_MOA_Kemp_idea
+		add_political_power = 5
+		}
+	}
+
+	#Focus for Minister of Labour: Adriaan Fourie
+	focus = {
+		id = SAF_ministeroflabouradriaanfourie
+		icon = GFX_ministeroflabouradriaanfourie
+		x = -1
+		y = 1
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_theunitedpartyin1936
+		}
+		relative_position_id = SAF_theunitedpartyin1936
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_ministeroflabouradriaanfourie"
+		add_ideas = SAF_MOL_Fourie_idea
+		add_political_power = 5
+		}
+	}
+
+	#Focus for Minister of Interior Affairs: JFH Hofmeyer
+	focus = {
+		id = SAF_ministerofinterioraffairsjfhhofmeyer
+		icon = GFX_ministerofinterioraffairsjfhhofmeyer
+		x = 1
+		y = 1
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_theunitedpartyin1936
+		}
+		relative_position_id = SAF_theunitedpartyin1936
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_ministerofinterioraffairsjfhhofmeyer"
+		add_ideas = SAF_MOI_Hofmeyer_idea
+		add_political_power = 5
+		}
+	}
+
+	#Focus for Minister of Finance: Nicolaas Havenga
+	focus = {
+		id = SAF_ministeroffinancenicolaashavenga
+		icon = GFX_ministeroffinancenicolaashavenga
+		x = 3
+		y = 1
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_theunitedpartyin1936
+		}
+		relative_position_id = SAF_theunitedpartyin1936
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_ministeroffinancenicolaashavenga"
+		add_ideas = SAF_MOF_Havenga_idea
+		add_political_power = 5
+		}
+	}
+
+	#Focus for Minister Without Portfolio: FC Sturrock
+	focus = {
+		id = SAF_ministerwithoutportfoliofcsturrock
+		icon = GFX_ministerwithoutportfoliofcsturrock
+		x = 5
+		y = 1
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_theunitedpartyin1936
+		}
+		relative_position_id = SAF_theunitedpartyin1936
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_ministerwithoutportfoliofcsturrock"
+		add_ideas = SAF_MWP_Sturrock_idea
+		add_political_power = 5
+		}
+	}
+
+	#Focus for The union post great war
+	focus = {
+		id = SAF_theunionpostgreatwar
+		icon = GFX_theunionpostgreatwar
+		x = -4
+		y = 2
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_deputypmjbmhertzog
+		}
+		prerequisite = { 
+			focus = SAF_ministerofargiculturejankemp
+		}
+		relative_position_id = SAF_theunitedpartyin1936
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_thedeathofgeorgev"
+		country_event = {
+			id = saf.108
+			days = 3
+			}
+		}
+	}
+
+	#Focus for The bechuanaland protectorate
+	focus = {
+		id = SAF_thebechuanalandprotectorate
+		icon = GFX_thebechuanalandprotectorate
+		x = -2
+		y = 2
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_ministeroflabouradriaanfourie
+		}
+		prerequisite = { 
+			focus = SAF_ministerofargiculturejankemp
+		}
+		relative_position_id = SAF_theunitedpartyin1936
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_thebechuanalandprotectorate"
+		country_event = saf.109
+		}
+	}
+
+	#Focus for The rhodesian situation
+	focus = {
+		id = SAF_therhodesiansituation
+		icon = GFX_therhodesiansituation
+		x = 0
+		y = 2
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_ministeroflabouradriaanfourie
+		}
+		prerequisite = { 
+			focus = SAF_ministerofinterioraffairsjfhhofmeyer
+		}
+		relative_position_id = SAF_theunitedpartyin1936
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_therhodesiansituation"
+		country_event = saf.110
+		}
+	}
+
+	#Focus for The state of the economy
+	focus = {
+		id = SAF_thestateoftheeconomy
+		icon = GFX_thestateoftheeconomy
+		x = 2
+		y = 2
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_ministeroffinancenicolaashavenga
+		}
+		prerequisite = { 
+			focus = SAF_ministerofinterioraffairsjfhhofmeyer
+		}
+		relative_position_id = SAF_theunitedpartyin1936
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_thestateoftheeconomy"
+		add_stability = -0.02
+		}
+	}
+
+	#Focus for The looming threat of mittelafrika
+	focus = {
+		id = SAF_theloomingthreatofmittelafrika
+		icon = GFX_theloomingthreatofmittelafrika
+		x = 4
+		y = 2
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_ministeroffinancenicolaashavenga
+		}
+		prerequisite = { 
+			focus = SAF_ministerwithoutportfoliofcsturrock
+		}
+		relative_position_id = SAF_theunitedpartyin1936
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_thewoesoftheafricans"
+		add_stability = -0.02
+		add_war_support = 0.05
+		}
+	}
+
+	#Focus for The state of the entente
+	focus = {
+		id = SAF_thestateoftheentente
+		icon = GFX_thestateoftheentente
+		x = -3
+		y = 3
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_theunionpostgreatwar
+		}
+		prerequisite = { 
+			focus = SAF_thebechuanalandprotectorate
+		}
+		relative_position_id = SAF_theunitedpartyin1936
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_thestateoftheentente"
+		SAF = {
+		add_opinion_modifier = { target = ENT modifier = small_decrease }
+		}
+		ENT = {
+		add_opinion_modifier = { target = SAF modifier = small_decrease }
+		}
+		add_stability = -0.02
+		}
+	}
+
+	#Focus for The woes of the africans
+	focus = {
+		id = SAF_thewoesoftheafricans
+		icon = GFX_thewoesoftheafricans
+		x = -1
+		y = 3
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_therhodesiansituation
+		}
+		prerequisite = { 
+			focus = SAF_thebechuanalandprotectorate
+		}
+		relative_position_id = SAF_theunitedpartyin1936
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_thewoesoftheafricans"
+		add_ideas = SAF_native_anger_idea
+		}
+	}
+
+	#Focus for The threat of syndicalism
+	focus = {
+		id = SAF_thethreatofsyndicalism
+		icon = GFX_thethreatofsyndicalism
+		x = 1
+		y = 3
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_therhodesiansituation
+		}
+		prerequisite = { 
+			focus = SAF_thestateoftheeconomy
+		}
+		relative_position_id = SAF_theunitedpartyin1936
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_thethreatofsyndicalism"
+		add_timed_idea = { idea = SAF_lefty_threat_idea days = 90 }
+		add_stability = 0.02
+		}
+	}
+
+	#Focus for The funeral of wilhelm solf
+	focus = {
+		id = SAF_thefuneralofwilhelmsolf
+		icon = GFX_thefuneralofwilhelmsolf
+		x = 3
+		y = 3
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_theloomingthreatofmittelafrika
+		}
+		prerequisite = { 
+			focus = SAF_thestateoftheeconomy
+		}
+		relative_position_id = SAF_theunitedpartyin1936
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_thefuneralofwilhelmsolf"
+		country_event = saf.112
+		}
+	}
+
+	#Focus for The death of george v
+	focus = {
+		id = SAF_thedeathofgeorgev
+		icon = GFX_thedeathofgeorgev
+		x = -2
+		y = 4
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_thestateoftheentente
+		}
+		prerequisite = { 
+			focus = SAF_thewoesoftheafricans
+		}
+		relative_position_id = SAF_theunitedpartyin1936
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_thedeathofgeorgev"
+		country_event = saf.111
+		}
+	}
+
+	#Focus for The writing on the wall
+	focus = {
+		id = SAF_thewritingonthewall
+		icon = GFX_thewritingonthewall
+		x = 2
+		y = 4
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_thethreatofsyndicalism
+		}
+		prerequisite = { 
+			focus = SAF_thefuneralofwilhelmsolf
+		}
+		relative_position_id = SAF_theunitedpartyin1936
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_thewritingonthewall"
+		country_event = saf.113
+		}
+	}
+
+	#Focus for The end of the united party
+	focus = {
+		id = SAF_theendoftheunitedparty
+		icon = GFX_theendoftheunitedparty
+		x = 0
+		y = 5
+		cost = 1
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SAF_thedeathofgeorgev
+		}
+		prerequisite = { 
+			focus = SAF_thewritingonthewall
+		}
+		relative_position_id = SAF_theunitedpartyin1936
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SAF_theendoftheunitedparty"
+		country_event = saf.114
+		hidden_effect = {
+			country_event = {
+			id = saf.124
+			days = 5
+			}
+		}
+		}
+	}
+}

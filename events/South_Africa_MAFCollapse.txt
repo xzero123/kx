@@ -21,9 +21,13 @@ country_event = {
 		set_global_flag = SAF_MAF_collapse
 		}
 		SAF = {
-				country_event = {
-					id = saf.collapse.7
-					days = 3
+				country_event = saf.collapse.7
+				days = 3
+				hidden_effect = {
+				if = {
+					limit = { NOT = { has_cosmetic_tag = SAF_federation } }
+					set_cosmetic_tag = SAF_federation
+				}
 				}
 			}
 	}
@@ -89,7 +93,7 @@ country_event = {
 	        puppet = MLW
 	    }
 	    MLW = {
-	        set_capital = { state = 813 }
+	        set_capital = 813
 	        set_cosmetic_tag = ZAM
 	    }
 	}
@@ -111,7 +115,7 @@ country_event = {
 	
 	option = {
 		name = saf.collapse.3.a
-		NMB = {
+		NAM = {
 		       transfer_state = 964
 			   transfer_state = 541
 			 
@@ -120,12 +124,12 @@ country_event = {
 		
 	}
 	SAF = {
-	puppet = NMB
+	puppet = NAM
 	}
 	SAF = {
-	puppet = NMB
+	puppet = NAM
 	}
-	NMB = {
+	NAM = {
 			     country_event = {
 				id = swa.1
 				days = 1
@@ -146,7 +150,7 @@ country_event = {
 	
 	option = {
 		name = saf.collapse.4.a
-		TZN = {
+		TNZ = {
 		    transfer_state = 546
 			transfer_state = 965
 			transfer_state = 918
@@ -155,19 +159,19 @@ country_event = {
 			add_state_core = 918
 	    }
 	    SAF = {
-	        puppet = TZN
+	        puppet = TNZ
 	    }
-	    TZN = {
+	    TNZ = {
 	        create_country_leader = {
 				name = "Lionel de Rothschild"
 				desc = "POLITICS_LIONEL_ROTHSCHILD_DESC"
-				picture = "gfx/leaders/TZN/TZN_Lionel_de_Rothschild.png"
+				picture = "TNZ_Lionel_de_Rothschild.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 				traits = {}
 			}
 		    hidden_effect = {
-				set_cosmetic_tag = TZN
+				set_cosmetic_tag = TNZ
 			}
 	    }
 	}
@@ -175,11 +179,11 @@ country_event = {
 	    name = saf.collapse.4.b
 	    if = {
 	        limit = {
-	            NMB = { 
+	            NAM = { 
 				    exists = yes 
 				}
 			}
-	        TZN = {
+	        TNZ = {
 		       transfer_state = 546
 			   transfer_state = 965
 			   transfer_state = 918
@@ -188,8 +192,8 @@ country_event = {
 			   add_state_core = 918
 		
 	        }
-	        NMB = {
-	            puppet = TZN
+	        NAM = {
+	            puppet = TNZ
 	        }
 	    }
 	    else = {
@@ -210,10 +214,10 @@ country_event = {
 	
 	option = {
 	    name = saf.collapse.5.a
-	    COG = {
+	    KTG = {
 	        country_event = saf.collapse.6
 	    }
-		set_global_flag = COG_is_in_civil_war
+		set_global_flag = KTG_is_in_civil_war
 	}
 }
 	
@@ -227,25 +231,25 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	trigger = {
-	    has_global_flag = COG_is_in_civil_war
+	    has_global_flag = KTG_is_in_civil_war
 	}
 	
 	option = {
 	    name = saf.collapse.6.a
 	    CAN = {
-	        add_to_faction = COG
+	        add_to_faction = KTG
 	    }
-	    COG = {
+	    KTG = {
 	        add_ideas = GBR_Colonial_Government
 	    }
 	    if = {
 		    limit = {
-	            MSF = { 
+	            KSV = { 
 				    exists = yes 
 				}
 	        }
 			declare_war_on = {
-			    target = MSF
+			    target = KSV
 			    type = annex_everything
 		    }
 		}
@@ -264,18 +268,18 @@ country_event = {
 	
 	option = {
 	    name = saf.collapse.6.b
-	    COG = {
+	    KTG = {
 	        give_military_access = SAF
 	    }
 	    SAF = {
 	        if = {
 			    limit = {
-	                MSF = { 
+	                KSV = { 
 				        exists = yes 
 				    }
 			    }
 	            declare_war_on = {
-			        target = MSF
+			        target = KSV
 			        type = annex_everything
 		        }
 		    }
@@ -310,7 +314,7 @@ country_event = {
 		create_country_leader = {
 				name = "John Ronald Reuel Tolkien"
 				desc = "POLITICS_TOLKIEN_DESC"
-				picture = "gfx/leaders/SAF/SAF_JRR_Tolkien.png"
+				picture = "SAF_JRR_Tolkien.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 				traits = {}
@@ -323,7 +327,7 @@ country_event = {
 		create_country_leader = {
 	name = "Adolf Malan"
 	desc = "POLITICS_NICOLAAS_HAVENGA_DESC"
-	picture = "gfx/leaders/SAF/SAF_Adolf_Malan.png"
+	picture = "SAF_Adolf_Malan.png"
 	expire = "1965.1.1"
 	ideology = social_conservative_subtype
 	traits = {}
@@ -331,7 +335,7 @@ country_event = {
 create_country_leader = {
 	name = "Jan Hendrik Hofmeyr"
 	desc = "POLITICS_NICOLAAS_HAVENGA_DESC"
-	picture = "gfx/leaders/SAF/Jan_Hendrik_Hofmeyr_I.png"
+	picture = "Jan_Hendrik_Hofmeyr_I.png"
 	expire = "1965.1.1"
 	ideology = market_liberal_subtype
 	traits = {}
@@ -344,7 +348,7 @@ option = {
 		create_country_leader = {
 				name = "Jan Hendrik Hofmeyr"
 				desc = "POLITICS_TOLKIEN_DESC"
-				picture = "gfx/leaders/SAF/Jan_Hendrik_Hofmeyr_I.png"
+				picture = "Jan_Hendrik_Hofmeyr_I.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 				traits = {}
@@ -376,7 +380,8 @@ country_event = {
 				set_cosmetic_tag = GAB_NFA
 				add_ideas = GBR_Colonial_Government
 				SAF = {
-				country_event = { id = saf.collapse.10 days = 3 }
+				country_event = saf.collapse.10
+				days = 3
 			}
 			}
 	}
@@ -420,7 +425,7 @@ country_event = {
 			create_country_leader = {
 				name = "Andrew Cohen"
 				desc = "POLITICS_COHEN_DESC"
-				picture = "gfx/leaders/UGA/Portrait_Uganda_Cohen.png"
+				picture = "Portrait_Uganda_Cohen.png"
 				expire = "1965.1.1"
 				ideology = social_conservative_subtype
 				traits = {}
@@ -470,38 +475,38 @@ country_event = {
 	    }
 		if = {
 			limit = {
-	            KOG = { 
+	            COG = { 
 				    exists = yes 
 				}
 			}
 			SAF = {
 	            declare_war_on = {
-			        target = KOG
+			        target = COG
 			        type = annex_everything
 		        }
 		    }
 			GAB = {
 	            declare_war_on = {
-			        target = KOG
+			        target = COG
 			        type = annex_everything
 		        }
 		    }
 	    }
 		if = {
 			limit = {
-	            CMR = { 
+	            KAM = { 
 				    exists = yes 
 				}
 			}
 			SAF = {
 	            declare_war_on = {
-			        target = CMR
+			        target = KAM
 			        type = annex_everything
 		        }
 		    }
 			GAB = {
 	            declare_war_on = {
-			        target = CMR
+			        target = KAM
 			        type = annex_everything
 		        }
 		    }

@@ -1637,7 +1637,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DKB_Transitional_Military_Government
-		icon = GFX_RUS_Strong_Government
+		icon = GFX_RUS_National_Salvation_Commitee
 		cost = 5
 		relative_position_id = DKB_new_russia
 		x = 5
@@ -9620,25 +9620,26 @@ focus = {
 			set_cosmetic_tag = DKB_vlasov_RUS_alt
 			every_owned_state = {
 				limit = {
+					OR = {
 					is_core_of = RUS
 					is_core_of = TRM
+					}
 				}
 				add_core_of = ROOT
 			}
 			add_ideas = DKB_aftermath_uch_idea
 			add_ideas = DKB_aftermath_uch_economic_idea
 			add_stability = -0.20
+			if = {
+			limit = { is_in_faction_with = TRM }
+			country_event = vlasov.24
+			}
 			hidden_effect = {
 			remove_ideas = DKB_All_For_The_Liberation
 			remove_ideas = DKB_Rostov_Manifesto_2
 			remove_ideas = DKB_Cossack_Autonomy
-			random_other_country = {
-				news_event = {
-					id = worldnews.1247
-				}
-			}
-			}
 		}
+	}
 	}
 	
 	focus = {
@@ -9882,8 +9883,18 @@ focus = {
           }
 		  add_stability = 0.05
 		  add_political_power = 50
+		  hidden_effect = {
+		  country_event = {
+          id = vlasov.28
+          days = 25
+          }
+		  country_event = {
+          id = vlasov.27
+          days = 45
+          }
+		 }
 	    }
-	
+	    
     }
 	
 	focus = {

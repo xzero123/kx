@@ -187,7 +187,7 @@ add_namespace = germans
 		}
 	}
  }
- country_event = { #Krasnov Ded
+  country_event = { #Krasnov Ded
 
 	id = dkb.210
 	immediate = { log = "[GetDateText]: [Root.GetName]: event dkb.7" }
@@ -299,10 +299,10 @@ add_namespace = germans
 		set_country_flag = DKB_vlasov_coup
 		set_party_name = { 
         ideology = authoritarian_democrat
-       long_name = DKB_paternal_autocrat_vlasov_long
+        long_name = DKB_paternal_autocrat_vlasov_long
         name = DKB_paternal_autocrat_vlasov
         }
-		#unlock_national_focus = DKB_vlasov
+		unlock_national_focus = DKB_KONR_in_Power
 		hidden_effect = {
 		create_country_leader = {
 			name = "Bronislav Kaminski"
@@ -1194,7 +1194,7 @@ country_event = { #vlasov ded
 	option = { 
 		name = vlasov.1.a
 		add_political_power = 100
-		add_stability = 0.10
+		add_stability = 0.05
 		add_war_support = 0.10
 		add_ideas = DKB_Rostov_Manifesto_idea
 		remove_ideas = DON_Cossack_state
@@ -1351,7 +1351,114 @@ country_event = { #vlasov ded
 		name = vlasov.8.a
 	  }
     }
+	country_event = { #Fate of Transamur
+    id = vlasov.24
+	title = vlasov.24.t
+	desc = vlasov.24.d
+	fire_only_once = yes
+	is_triggered_only = yes
 	
+	option = { #They should submit to us!
+		name = vlasov.24.a
+		add_war_support = 0.10
+		dismantle_faction = yes
+		TRM = {
+		country_event = {
+         id = vlasov.25
+         days = 4
+         }
+		 }
+		ai_chance = {
+			factor = 70
+	    }
+	   }
+	option = { #We should remain loyal to Kolchak
+		name = vlasov.24.b
+		ai_chance = {
+			factor = 5
+	   }
+	   dismantle_faction = yes
+	   DKB = {
+			every_unit_leader = {
+				set_nationality = TRM
+				}
+			 }
+	   TRM = {
+	   annex_country = {
+        target = DKB
+        transfer_troops = yes
+       }
+	   change_tag_from = DKB
+	  }
+	  }
+	 }
+	 
+	country_event = { #Vlasov demands we submit!
+    id = vlasov.25
+	title = vlasov.25.t
+	desc = vlasov.25.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { #We have no choice
+		name = vlasov.25.a
+		ai_chance = {
+			factor = 40
+	    }
+		DKB = {
+		annex_country = {
+        target = TRM
+        transfer_troops = yes
+         }
+		change_tag_from = TRM
+		 }
+		every_unit_leader = {
+			set_nationality = DKB
+	     }
+		}
+	option = { #Never!
+		name = vlasov.25.b
+		ai_chance = {
+			factor = 50
+	   }
+	   add_war_support = 0.10
+	   DKB = {
+	   country_event = {
+         id = vlasov.26
+         days = 4
+          }
+		 }
+	   }
+	} 
+	
+	country_event = { #TRM refused
+    id = vlasov.26
+	title = vlasov.26.t
+	desc = vlasov.26.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { #Attack them!
+		name = vlasov.26.a
+		ai_chance = {
+			factor = 70
+	     }
+		declare_war_on = {
+          target = TRM
+          type = annex_everything
+         }
+		}
+	option = { #Okay..
+		name = vlasov.26.b
+		ai_chance = {
+			factor = 20
+	   }
+	   add_war_support = -0.10
+        }
+	}
+	   
+	 
+	 
 	country_event = { #Trials
     id = vlasov.9
 	title = vlasov.9.t
@@ -1371,7 +1478,6 @@ country_event = { #vlasov ded
 	  }
 	  
     }
-	
 	country_event = { #A New Revolution?
     id = vlasov.14
 	title = vlasov.14.t
@@ -1490,11 +1596,6 @@ country_event = { #vlasov ded
           id = vlasov.13
           days = 3
           }
-          random_other_country = {
-				news_event = {
-					id = worldnews.1249
-				}
-			}
 		}
 	  }
 	  
@@ -1521,6 +1622,7 @@ country_event = { #vlasov ded
 				elections_allowed = no
 			}
 			set_country_flag = DKB_Kaminski_Coup_flag
+			unlock_national_focus = DKB_The_Putsch_Succeeds
 	    }
 	option = { #Sheifton
 		name = vlasov.13.b
@@ -1535,18 +1637,35 @@ country_event = { #vlasov ded
 				elections_allowed = no
 			}
 			set_country_flag = DKB_Kolchakites_in_Power
+			unlock_national_focus = DKB_Liberation_Army_Coup
 	    }
 		option = { #Bunya
 		name = vlasov.13.c
 			add_stability = 0.05
+			unlock_national_focus = DKB_Bunyachenko_Steps_In
 			set_country_flag = DKB_Bunyachenko_in_Power
 			create_country_leader = {
 				name = "Sergei Bunyachenko"
 				picture = "gfx/leaders/DKB/Portrait_DKB_Sergei_Bunyachenko.png"
 				expire = "1965.1.1"
-				ideology = authoritarian_democrat_subtype
+				ideology = junta_subtype 
 			 }
-			 set_cosmetic_tag = DKB_vlasov_RUS_alt3
+			add_popularity = {
+             ideology = paternal_autocrat
+             popularity = 0.05
+             }
+			set_politics = {
+			ruling_party = paternal_autocrat
+				elections_allowed = no
+			 }
+			set_party_name = { 
+            ideology = paternal_autocrat
+            long_name = DKB_National_Salvation_party_long
+            name = DKB_National_Salvation_party
+	         }
+			hidden_effect = {
+             set_cosmetic_tag = DKB_vlasov_RUS_alt
+             }			 
 	    }
 		
 	  
@@ -1592,10 +1711,13 @@ country_event = { #vlasov ded
 	     }
 		 create_country_leader = {
 				name = "Andrey Vlasov"
-				picture = "gfx/leaders/DKB/Portrait_DKB_Andrey_Vlasov_suit.png"
+				picture = "gfx/leaders/DKB/Portrait_DKB_Andrey_Vlasov.png"
 				expire = "1965.1.1"
 				ideology = vlasovism_socdem_subtype
 			 }
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/DKB/Portrait_DKB_Andrey_Vlasov_suit.png"
+			} 
 		 }
 	  }
 	  
@@ -1631,10 +1753,13 @@ country_event = { #vlasov ded
 	     }
 		 create_country_leader = {
 				name = "Andrey Vlasov"
-				picture = "gfx/leaders/DKB/Portrait_DKB_Andrey_Vlasov_suit.png"
+				picture = "gfx/leaders/DKB/Portrait_DKB_Andrey_Vlasov.png"
 				expire = "1965.1.1"
 				ideology = vlasovism_soccon_subtype
 			 }
+		   set_country_leader_portrait = {
+				portrait = "gfx/leaders/DKB/Portrait_DKB_Andrey_Vlasov_suit.png"
+			}	 
 		 }
 	  }
 	  
@@ -1644,7 +1769,6 @@ country_event = { #vlasov ded
     id = vlasov.16
 	title = vlasov.16.t
 	desc = vlasov.16.d
-	fire_only_once = yes
 	is_triggered_only = yes
 	
 	option = { #Eagle
@@ -1834,6 +1958,7 @@ country_event = { #vlasov ded
 	
 	option = { 
 		name = vlasov.21.a
+		set_country_flag = DKB_nationalists_banned
 		add_political_power = -25
 		add_popularity = {
              ideology = national_populist
@@ -1858,6 +1983,117 @@ country_event = { #vlasov ded
             long_name = DKB_LDPR_party_long
             name = DKB_LDPR_party
 	     }
+	   }
+	 }
+	 
+	country_event = { #birth of VKP
+    id = vlasov.27
+	title = vlasov.27.t
+	desc = vlasov.27.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { 
+		name = vlasov.27.a
+		add_political_power = -25
+		add_popularity = {
+             ideology = radical_socialist
+             popularity = 0.05
+          }
+		add_popularity = {
+             ideology = totalist
+             popularity = 0.03
+          }
+		set_party_name = { 
+            ideology = radical_socialist
+            long_name = DKB_Young_Communist_party_long
+            name = DKB_Young_Communist_party
+	     }
+		 create_country_leader = {
+				name = "Aleksey Kosygin"
+			    picture = "gfx/leaders/RUS/Portrait_RUS_Aleksey_Kosygin.png"
+			    expire = "1965.1.1"
+			    ideology = radsoc_communism_subtype
+			 }
+		hidden_effect = {
+		set_party_name = { 
+            ideology = totalist
+            long_name = DKB_Young_Communist_party_long
+            name = DKB_Young_Communist_party
+	      }
+		 create_country_leader = {
+				name = "Aleksey Kosygin"
+			    picture = "gfx/leaders/RUS/Portrait_RUS_Aleksey_Kosygin.png"
+			    expire = "1965.1.1"
+			    ideology = authcom_subtype
+			 }
+		 }
+	   }
+	   option = { #ban them
+		name = vlasov.27.b
+		add_stability = -0.05
+		set_country_flag = DKB_communists_banned
+		add_popularity = {
+             ideology = radical_socialist
+             popularity = -0.05
+          }
+		  set_party_name = { 
+            ideology = radical_socialist
+            long_name = KB_Young_Communist_party_long
+            name = KB_Young_Communist_party
+	     }
+		create_country_leader = {
+				name = "Aleksey Kosygin"
+			    picture = "gfx/leaders/RUS/Portrait_RUS_Aleksey_Kosygin.png"
+			    expire = "1965.1.1"
+			    ideology = radsoc_communism_subtype
+			 }
+		hidden_effect = {
+		  set_party_name = { 
+            ideology = totalist
+            long_name = KB_Young_Communist_party_long
+            name = KB_Young_Communist_party
+	       }
+		 create_country_leader = {
+				name = "Aleksey Kosygin"
+			    picture = "gfx/leaders/RUS/Portrait_RUS_Aleksey_Kosygin.png"
+			    expire = "1965.1.1"
+			    ideology = communism_subtype
+			 }
+		 }
+	   }
+	 }
+	 
+	country_event = { #birth of PNS
+    id = vlasov.28
+	title = vlasov.28.t
+	desc = vlasov.28.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { 
+		name = vlasov.28.a
+		add_political_power = -25
+		add_popularity = {
+             ideology = social_liberal
+             popularity = 0.05
+          }
+		add_popularity = {
+             ideology = market_liberal
+             popularity = 0.03
+          }
+		set_party_name = { 
+            ideology = social_liberal
+            long_name = DKB_Anti_Vlasov_party_long
+            name = DKB_Anti_Vlasov_party
+	     }
+		hidden_effect = {
+		set_party_name = { 
+            ideology = market_liberal
+            long_name = DKB_Anti_Vlasov_party_long
+            name = DKB_Anti_Vlasov_party
+	      }
+		 }
 	   }
 	 }
 	 

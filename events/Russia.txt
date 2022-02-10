@@ -29536,6 +29536,12 @@ country_event = { #Unlock political decisions
 			id = russoc.50
 			days = 2
 		}
+		hidden_effect = {
+			set_political_party = {
+				ideology = national_populist
+				popularity = 0
+			}
+		}
 	}
 	
 	option = {#Zhukov invites bolsheviks
@@ -29659,6 +29665,12 @@ country_event = { #Unlock political decisions
 		}
 		complete_national_focus = RUS_Bolsheviks_In_Power
 		set_country_flag = zhukov_invites_bolsheviks
+		hidden_effect = {
+			set_political_party = {
+				ideology = national_populist
+				popularity = 0
+			}
+		}
 	}
 	
 }
@@ -45774,6 +45786,31 @@ country_event = { #Vladivostok is Russian!
 		}
 		hidden_effect = {
 			RUS_EVENT_CV01_naval_variant = yes
+			set_technology = {
+				naval_bomber1 = 1
+				cv_naval_bomber1 = 1
+				popup = no
+			}
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				set_technology = {
+					early_ship_hull_carrier = 1
+					popup = no
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "Man the Guns"
+					}
+				}
+				set_technology = {
+					early_carrier = 1
+					popup = no
+				}
+			}
 		}
 		if = {
 			limit = {
@@ -52962,6 +52999,7 @@ country_event = { #soviet generals
 			ENG = {
 				random_unit_leader = {
 					limit = { has_id = 1955 }
+					set_nationality = ROOT
 					unit_leader_event = {
 						id = russia.1924
 						days = 2
@@ -52971,6 +53009,7 @@ country_event = { #soviet generals
 			FRA = {
 				every_unit_leader = {
 					limit = { has_id = 1954 }
+					set_nationality = ROOT
 					unit_leader_event = {
 						id = russia.1925
 						days = 5
@@ -52987,6 +53026,7 @@ country_event = { #soviet generals
 			ENG = {
 				random_unit_leader = {
 					limit = { has_id = 1955 }
+					set_nationality = ROOT
 					unit_leader_event = {
 						id = russia.1924
 						days = 2
@@ -52996,6 +53036,7 @@ country_event = { #soviet generals
 			FRA = {
 				every_unit_leader = {
 					limit = { has_id = 1954 }
+					set_nationality = ROOT
 					unit_leader_event = {
 						id = russia.1925
 						days = 5
@@ -53022,18 +53063,20 @@ unit_leader_event = { #soviet generals
 			ideology = totalist
 			popularity = 0.05
 		}
-		FRA = {
-			every_unit_leader = {
-				limit = { has_id = 1954 }
-				remove_unit_leader_trait = SOV_bolshevik_officer
-				set_nationality = RUS
-			}
+		every_unit_leader = {
+			limit = { has_id = 1954 }
+			remove_unit_leader_trait = SOV_bolshevik_officer
+			set_nationality = RUS
 		}
 	}
 	option = {
 		name = russia.1924.b
 		add_stability = 0.05
 		add_political_power = 15
+		every_unit_leader = {
+			limit = { has_id = 1954 }
+			set_nationality = FRA
+		}
 	}
 }
 unit_leader_event = { #soviet generals
@@ -53053,18 +53096,20 @@ unit_leader_event = { #soviet generals
 			ideology = totalist
 			popularity = 0.05
 		}
-		ENG = {
-			every_unit_leader = {
-				limit = { has_id = 1955 }
-				remove_unit_leader_trait = SOV_bolshevik_officer
-				set_nationality = RUS
-			}
+		every_unit_leader = {
+			limit = { has_id = 1955 }
+			remove_unit_leader_trait = SOV_bolshevik_officer
+			set_nationality = RUS
 		}
 	}
 	option = {
 		name = russia.1924.b
 		add_stability = 0.05
 		add_political_power = 15
+		every_unit_leader = {
+			limit = { has_id = 1955 }
+			set_nationality = FRA
+		}
 	}
 }
 

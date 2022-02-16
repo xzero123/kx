@@ -529,6 +529,12 @@ country_event = { #sexy oraange NEE or nah
 	option = { # yes
 		name = newyork_prewar.10.b
 		set_cosmetic_tag = NYC_NEE
+		hidden_effect = {
+			country_event = {
+				id = newengland.2009
+				days = 15
+			}
+		}
 		
 	}
 }
@@ -1064,9 +1070,9 @@ country_event = {  #Flavour
 
 country_event = {  #Tammany
 	id = NYC.500
-	immediate = {log = "[GetDateText]: [Root.GetName]: NYC.50"}
-	title = NYC.50.t
-	desc = NYC.50.d
+	immediate = {log = "[GetDateText]: [Root.GetName]: NYC.500"}
+	title = NYC.500.t
+	desc = NYC.500.d
 	picture = GFX_report_event_NYC_tammany_hall_1
 
 	is_triggered_only = yes
@@ -1074,7 +1080,7 @@ country_event = {  #Tammany
 	fire_only_once = yes
 
 	option = { #Bad
-		name = NYC.50.a
+		name = NYC.500.a
 		ai_chance = {
 			factor = 40
 		}
@@ -1087,7 +1093,7 @@ country_event = {  #Tammany
 	}
 	
 	option = { #Good
-		name = NYC.50.b
+		name = NYC.500.b
 		ai_chance = {
 			factor = 60
 		}
@@ -5376,6 +5382,42 @@ country_event = { # PT boat
 	}	
 }
 
+country_event = { # Empire State Building
+	id = NYC_flavor.60
+	immediate = {log = "[GetDateText]: [Root.GetName]: NYC_flavor.60"}
+	title = NYC_flavor.60.t
+	desc = NYC_flavor.60.d
+	picture = GFX_report_event_NYC_empire_state_building
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # Flavour
+		name = NYC_flavor.60.a
+        news_event = {
+			id = NYC_flavor.61
+			days = 5
+		}
+	}	
+}
+
+news_event = { # Empire State Building News
+	id = NYC_flavor.61
+	immediate = {log = "[GetDateText]: [Root.GetName]: NYC_flavor.61"}
+	title = NYC_flavor.61.t
+	desc = NYC_flavor.61.d
+	picture = GFX_news_event_NYC_empire_state
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # Flavour
+		name = NYC_flavor.61.a
+	}	
+}
+
 country_event = { # dutch prevention
 	id = NYC_flavor.6970
 	immediate = {log = "[GetDateText]: [Root.GetName]: NYC_flavor.1"}
@@ -5393,7 +5435,7 @@ country_event = { # dutch prevention
 	
 	hidden = yes
 	
-	fire_only_once = yes
+
 	
 
 	option = { # 

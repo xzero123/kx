@@ -33,6 +33,16 @@ country_event = {
 
 	option = {
 		name = sikkim.2.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+                factor = 0
+                has_game_rule = {
+                    rule = SKM_path
+                    option = SKM_PATH_RADSOC
+                }
+            }
+		}
 		
 		set_country_flag = tashi_reforms
 		complete_national_focus = skm_tashis_triumph
@@ -64,6 +74,16 @@ country_event = {
 		}
 	option = {
 		name = sikkim.2.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+                factor = 0
+                has_game_rule = {
+                    rule = SKM_path
+                    option = SKM_PATH_MONARCHY
+                }
+            }
+		}
 		set_politics = {
 			ruling_party = paternal_autocrat
 			elections_allowed = no
@@ -608,6 +628,9 @@ country_event = {
 		}
 		add_stability = -.1
 		add_political_power = -50
+		hidden_effect = {
+		Tashi_removed = yes
+			}
 		}
 	option = {
 		name = sikkim.22.b
@@ -616,10 +639,16 @@ country_event = {
 			popularity = 0.05
 		}
 		add_stability = .05
+		hidden_effect = {
+		Tashi_removed = yes
+			}
 		}
 	option = {
 		name = sikkim.22.c
 		add_political_power = 100
+		hidden_effect = {
+		Tashi_removed = yes
+			}
 		}
 	}
 country_event = {
@@ -728,12 +757,101 @@ country_event = {
 
 	option = {
 		name = sikkim.28.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+                factor = 0
+                has_game_rule = {
+                    rule = SKM_fp
+                    option = SKM_FP_NEUTRAL
+                }
+            }
+		}
 		set_country_flag = sikkim_intervention
 			}
 	option = {
 		name = sikkim.28.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+                factor = 0
+                has_game_rule = {
+                    rule = SKM_fp
+                    option = SKM_FP_CONQUEST
+                }
+            }
+		}
 		set_country_flag = sikkim_isolation
 			}
 		}
-}
+country_event = { #Sikkim Peace Event
+	id = sikkim.29
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sikkim.29 FROM = [From.GetName]" }
+	title = sikkim.29.t
+	desc = sikkim.29.d
+	picture = GFX_news_sikkim_mountain
 
+	fire_only_once = yes
+
+	trigger = {
+		tag = BHC
+		has_war_with = TIB
+		BHC = {
+			owns_state = 888
+		}
+		controls_state = 888
+	}
+
+	option = {
+		name = sikkim.29.a
+		ai_chance = {
+			base = 100
+		}
+
+		TIB = {
+			country_event = sikkim.30
+		}
+	}
+
+	option = {
+		name = sikkim.29.b
+		ai_chance = {
+			base = 0
+		}
+
+		add_political_power = -50
+	}
+}
+country_event = { #Sikkim Peace Event
+	id = sikkim.30
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sikkim.30 FROM = [From.GetName]" }
+	title = sikkim.30.t
+	desc = sikkim.30.d
+	picture = GFX_news_tashi_sitting
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = sikkim.30.a
+		ai_chance = {
+			base = 100
+		}
+
+		TIB = {
+			BHC = {
+			white_peace_with_ROOT = yes
+			transfer_state = 888
+			}
+		}
+	}
+
+	option = {
+		name = sikkim.30.b
+		ai_chance = {
+			base = 0
+		}
+
+		add_political_power = -50
+	}
+}

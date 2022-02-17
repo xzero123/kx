@@ -2330,6 +2330,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Kalmendis_Last_Days"
             country_event = { id = albsoc.3 days = 1 }
+			add_manpower = -1
 		}
 	}
     focus = {
@@ -2382,6 +2383,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Formalize_Liberation_Army"
 			army_experience = 100
 			add_command_power = 100
+			add_manpower = 200
 		}
 	}
     focus = {
@@ -2542,6 +2544,7 @@ focus_tree = {
         relative_position_id = ALB_Hurl_Reaction
         available = { 
 			has_government = syndicalist
+			has_completed_focus = ALB_Unified_Church
 		}
         prerequisite = {
 			focus = ALB_Hurl_Reaction
@@ -2557,6 +2560,10 @@ focus_tree = {
 			add_popularity = {
 				ideology = syndicalist
 				popularity = 0.05
+			}
+			swap_ideas = {
+				remove_idea = ALB_Unified_Church
+				add_idea = ALB_Unified_Church2
 			}
 		}
 	}
@@ -2589,6 +2596,9 @@ focus_tree = {
 			add_popularity = {
 				ideology = radical_socialist
 				popularity = 0.05
+			}
+			INT = {
+				add_to_faction = ALB
 			}
 		}
 	}
@@ -2681,6 +2691,10 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Thousand_Voices"
 			add_manpower = 2500
+			swap_ideas = {
+				remove_idea = ALB_youth_leauges_idea
+				add_idea = ALB_Thousand_Voices
+			}
 		}
 	}
     focus = {
@@ -2708,6 +2722,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			add_ideas = ALB_Shelter_Citizens
 		}
 	}
     focus = {
@@ -2734,6 +2749,12 @@ focus_tree = {
 					level = 2
 					instant_build = yes
 				}
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
 			}
 		}
 	}
@@ -2757,6 +2778,10 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Agrarian_Reforms"
 			every_owned_state = {
 				add_extra_state_shared_building_slots = 1
+			}
+			swap_ideas = {
+				remove_idea = ALB_Shelter_Citizens
+				add_idea = ALB_Shelter_Citizens2
 			}
 		}
 	}
@@ -2793,6 +2818,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_No_Other_Way"
+			country_event = {
+				id = albsoc.7
+				days = 4
+			}
 		}
 	}
     focus = {
@@ -2857,6 +2886,15 @@ focus_tree = {
 				bonus = 0.5
 				uses = 2
 				category = industry
+			}
+			effect_tooltip = {
+				remove_idea = ALB_black_monday_idea
+			}
+			hidden_effect = {
+				remove_idea = ALB_black_monday_idea
+				remove_idea = ALB_black_monday_idea2
+				remove_idea = ALB_black_monday_idea3
+				remove_idea = ALB_black_monday_idea4
 			}
 		}
 	}
@@ -2954,6 +2992,13 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Women_Sky"
 			add_manpower = 12000
+			effect_tooltip = {
+				remove_ideas = ALB_illiteracy
+			}
+			hidden_effect = {
+				remove_ideas = ALB_illiteracy
+				remove_ideas = ALB_illiteracy2
+			}
 			if = {
 				limit = {
 					has_government = totalist
@@ -2988,6 +3033,14 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Grab_Pickaxe"
 			add_stability = 0.05
 			add_war_support = 0.05
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 	}
     focus = {
@@ -3011,6 +3064,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Kickstart_Nationalization"
+			add_timed_idea = {
+				idea = ALB_Nationalization_idea
+				days = 450
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 	}
     focus = {
@@ -3043,6 +3108,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Rejuvenation_Classes"
+			swap_ideas = {
+				remove_idea = ALB_Flowers_Socialism 
+				add_idea = ALB_Rejuvenation_Classes
+			}
 		}
 	}
     focus = {
@@ -3113,6 +3182,20 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Chasing_Plan"
+			add_ideas = ALB_Chasing_Plan
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 	}
     focus = {
@@ -3133,6 +3216,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_No_Village_Escape"
+			swap_ideas = {
+				remove_idea = ALB_Chasing_Plan
+				add_idea = ALB_Chasing_Plan2
+			}
 		}
 	}
     focus = {
@@ -3143,6 +3230,7 @@ focus_tree = {
         relative_position_id = ALB_Chasing_Plan
         available = { 
             has_government = totalist
+			has_completed_focus = ALB_No_Village_Escape
 		}
         prerequisite = {
 			focus = ALB_Chasing_Plan
@@ -3153,6 +3241,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Trade_Unions_Arise"
+			swap_ideas = {
+				remove_idea = ALB_Chasing_Plan2
+				add_idea = ALB_Chasing_Plan3
+			}
 		}
 	}
     focus = {
@@ -3176,6 +3268,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Citizen_Guardian"
+			swap_ideas = {
+				remove_idea = ALB_Chasing_Plan3
+				add_idea = ALB_Chasing_Plan4
+			}
 		}
 	}
     focus = {
@@ -3196,6 +3292,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Constitution_55"
+			add_ideas = ALB_Constitution_55
 		}
 	}
     focus = {
@@ -3216,6 +3313,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Per_Popullin_Me_Popullin"
+			swap_ideas = {
+				remove_idea = ALB_Constitution_55
+				add_idea = ALB_Per_Popullin_Me_Popullin
+			}
 		}
 	}
     focus = {
@@ -3241,6 +3342,11 @@ focus_tree = {
                 long_name = "Vërtëta Partia e Punës e Shqipërisë"
                 name = "VPPSh"
             }
+			add_manpower = -2000
+			add_popularity = {
+				ideology = totalist
+				popularity = 0.2
+			}
 		}
 	}
     focus = {

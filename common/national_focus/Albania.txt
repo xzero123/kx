@@ -3367,6 +3367,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Cultural_Ideological_Revolution"
+			add_ideas = ALB_Cultural_Ideological_Revolution
 		}
 	}
     focus = {
@@ -3387,6 +3388,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Pioneers_Enver"
+			swap_ideas = {
+				remove_idea = ALB_Cultural_Ideological_Revolution
+				add_idea = ALB_Pioneers_Enver
+			}
 		}
 	}
     focus = {
@@ -3397,6 +3402,7 @@ focus_tree = {
         relative_position_id = ALB_Cultural_Ideological_Revolution
         available = { 
             has_government = totalist
+			has_idea = ALB_Pioneers_Enver 
 		}
         prerequisite = {
 			focus = ALB_Cultural_Ideological_Revolution
@@ -3407,6 +3413,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Decouple_Skanderbeg"
+			swap_ideas = {
+				remove_idea = ALB_Pioneers_Enver
+				add_idea = ALB_Decouple_Skanderbeg
+			}
 		}
 	}
     focus = {
@@ -3430,6 +3440,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Worship_Albania_Venerate_Hoxha"
+			swap_ideas = {
+				remove_idea = ALB_Decouple_Skanderbeg
+				add_idea = ALB_Worship_Albania_Venerate_Hoxha
+			}
 		}
 	}
     focus = {
@@ -3456,7 +3470,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Enver_Star_Era"
-                        add_country_leader_trait = socialism_star
+            add_country_leader_trait = socialism_star
 		}
 	}
     focus = {
@@ -3468,10 +3482,10 @@ focus_tree = {
         prerequisite = {
 			focus = ALB_No_Other_Way
 		}
-                mutually_exclusive = {
+        mutually_exclusive = {
 			focus = ALB_Chairman_Maleshova
 		}
-                mutually_exclusive = {
+        mutually_exclusive = {
 			focus = ALB_Chairman_Fundo
 		}
 		cost = 1
@@ -3480,36 +3494,36 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Chairman_Xoxe"
-                        create_country_leader = {
+            create_country_leader = {
 				name = "Koçi Xoxe"
 				picture = "gfx/leaders/ALB/Portrait_ALB_Koci_Xoxe.png"
 				expire = "1965.1.1"
 				ideology = authcom_subtype
-		        }
-                        set_party_name = {
-                            ideology = totalist
-                            long_name = "Lidhja e Komunisteve të Shqipërisë"
-                            name = "LKSh"
-                        }
-                        set_politics = {
+		    }
+            set_party_name = {
+                ideology = totalist
+                long_name = "Lidhja e Komunisteve të Shqipërisë"
+                name = "LKSh"
+            }
+            set_politics = {
 				ruling_party = totalist
 				election_frequency = 48
 				elections_allowed = no
-		        }
-                        custom_effect_tooltip = ALB_Xoxe_Cabinet_tt
-                        hidden_effect = {
-                        add_popularity = {
-				ideology = totalist
-				popularity = 0.3
-			}
-                        remove_all_ministers = yes
-			add_ideas = {
-				ALB_Koci_Xoxe_hog_tot
-				ALB_Hysni_Kapo_for_tot
-				ALB_Koco_Theodhosi_eco_tot
-				ALB_Koci_Xoxe_sec_tot
-			}
-                        }
+		    }
+            custom_effect_tooltip = ALB_Xoxe_Cabinet_tt
+            hidden_effect = {
+                add_popularity = {
+					ideology = totalist
+					popularity = 0.3
+				}
+				remove_all_ministers = yes
+				add_ideas = {
+					ALB_Koci_Xoxe_hog_tot
+					ALB_Hysni_Kapo_for_tot
+					ALB_Koco_Theodhosi_eco_tot
+					ALB_Koci_Xoxe_sec_tot
+				}
+            }
 		}
 	}
     focus = {
@@ -3530,6 +3544,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Yugophilism"
+			add_ideas = ALB_Yugophilism
 		}
 	}
     focus = {
@@ -3550,6 +3565,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_New_Hardline_Methods"
+			add_popularity = {
+				ideology = totalist
+				popularity = 0.06
+			}
+			add_command_power = 50
+			add_war_support = 0.05
 		}
 	}
     focus = {
@@ -3573,6 +3594,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Pact_Conviction"
+			unlock_decision_tooltip = ALB_join_soviet_faction
+			unlock_decision_tooltip = ALB_union_with_illyria
 		}
 	}
     focus = {
@@ -3593,6 +3616,36 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Expand_USSR"
+			if = {
+				limit = {
+					is_in_faction_with = CRO
+				}
+				CRO = {
+					country_event = {
+						id = albsoc.10
+						days = 4
+					}
+				}
+			}
+			else = {
+				create_wargoal = {
+					type = annex_everything
+					target = CRO
+				}
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = SER
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = BUL
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = ROM
+			}
+			set_cosmetic_tag = ALB_USSR
 		}
 	}
     focus = {
@@ -3604,10 +3657,10 @@ focus_tree = {
         prerequisite = {
 			focus = ALB_No_Other_Way
 		} 
-                mutually_exclusive = {
+        mutually_exclusive = {
 			focus = ALB_Chairman_Xoxe
 		}
-                mutually_exclusive = {
+        mutually_exclusive = {
 			focus = ALB_Chairman_Fundo
 		}
 		cost = 1
@@ -3616,31 +3669,31 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Chairman_Maleshova"
-                        create_country_leader = {
+            create_country_leader = {
 				name = "Sejfulla Malëshova"
 				picture = "gfx/leaders/ALB/Portrait_ALB_Sejfulla_Maleshova.png"
 				expire = "1965.1.1"
 				ideology = liberalized_syndicalism_subtype
-		        }
-                        set_party_name = {
-                            ideology = syndicalist
-                            long_name = "Partia Sindikaliste e Shqipërisë"
-                            name = "PSSh"
-                        }
-                        custom_effect_tooltip = ALB_Maleshova_Cabinet_tt
-                        hidden_effect = {
-                        add_popularity = {
-				ideology = syndicalist
-				popularity = 0.3
-			}
-                        remove_all_ministers = yes
-			add_ideas = {
-				ALB_Koco_Tashko_hog_syn
-				ALB_Omer_Nishani_for_syn
-				ALB_Rita_Marko_eco_syn
-				ALB_Sejfulla_Maleshova_sec_syn
-			}
-                        }
+		    }
+            set_party_name = {
+                ideology = syndicalist
+                long_name = "Partia Sindikaliste e Shqipërisë"
+                name = "PSSh"
+            }
+            custom_effect_tooltip = ALB_Maleshova_Cabinet_tt
+            hidden_effect = {
+                add_popularity = {
+					ideology = syndicalist
+					popularity = 0.3
+				}
+                remove_all_ministers = yes
+				add_ideas = {
+					ALB_Koco_Tashko_hog_syn
+					ALB_Omer_Nishani_for_syn
+					ALB_Rita_Marko_eco_syn
+					ALB_Sejfulla_Maleshova_sec_syn
+				}
+            }
 		}
 	}
     focus = {
@@ -3650,7 +3703,7 @@ focus_tree = {
 		y = 1
         relative_position_id = ALB_Chairman_Maleshova
         available = { 
-                        has_government = syndicalist
+            has_government = syndicalist
 		}
         prerequisite = {
 			focus = ALB_Chairman_Maleshova
@@ -3661,6 +3714,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Reinforce_Syndicalist_System"
+			add_stability = 0.05
+			add_political_power = 100
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.07
+			}
 		}
 	}
     focus = {
@@ -3670,7 +3729,7 @@ focus_tree = {
 		y = 1
         relative_position_id = ALB_Chairman_Maleshova
         available = { 
-                        has_government = syndicalist
+            has_government = syndicalist
 		}
         prerequisite = {
 			focus = ALB_Chairman_Maleshova
@@ -3681,6 +3740,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Cooperate_Chief_Capital"
+			add_ideas = ALB_Cooperate_Chief_Capital
 		}
 	}
     focus = {
@@ -3690,7 +3750,7 @@ focus_tree = {
 		y = 2
         relative_position_id = ALB_Chairman_Maleshova
         available = { 
-                        has_government = syndicalist
+            has_government = syndicalist
 		}
         prerequisite = {
 			focus = ALB_Reinforce_Syndicalist_System
@@ -3704,6 +3764,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Western_Diplomatic_Approach"
+			unlock_decision_tooltip = ALB_join_entente
+			unlock_decision_tooltip = ALB_stay_with_3rd_int
 		}
 	}
     focus = {
@@ -3713,7 +3775,7 @@ focus_tree = {
 		y = 1
         relative_position_id = ALB_Western_Diplomatic_Approach
         available = { 
-                        has_government = syndicalist
+            has_government = syndicalist
 		}
         prerequisite = {
 			focus = ALB_Western_Diplomatic_Approach
@@ -3724,6 +3786,13 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Appeal_Northern_Epirus"
+			add_state_core = 185
+			GRE = {
+				country_event = {
+					id = albsoc.12
+					days = 5
+				}
+			}
 		}
 	}
     focus = {
@@ -3735,10 +3804,10 @@ focus_tree = {
         prerequisite = {
 			focus = ALB_No_Other_Way
 		} 
-                mutually_exclusive = {
+        mutually_exclusive = {
 			focus = ALB_Chairman_Xoxe
 		}
-                mutually_exclusive = {
+        mutually_exclusive = {
 			focus = ALB_Chairman_Maleshova
 		}
 		cost = 1
@@ -3747,25 +3816,25 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Chairman_Fundo"
-                        set_politics = {
+            set_politics = {
 				ruling_party = radical_socialist
 				election_frequency = 48
 				elections_allowed = no
-		        }
-                        custom_effect_tooltip = ALB_Fundo_Cabinet_tt
-                        hidden_effect = {
-                        add_popularity = {
-				ideology = radical_socialist
-				popularity = 0.3
-			}
-                        remove_all_ministers = yes
-			add_ideas = {
-				ALB_Llazar_Fundo_hog_rso
-				ALB_Zef_Mala_for_rso
-				ALB_Kostandin_Boshnjaku_eco_rso
-				ALB_Ymer_Dishnica_sec_rso
-			}
-                        }
+		    }
+            custom_effect_tooltip = ALB_Fundo_Cabinet_tt
+            hidden_effect = {
+                add_popularity = {
+					ideology = radical_socialist
+					popularity = 0.3
+				}
+                remove_all_ministers = yes
+				add_ideas = {
+					ALB_Llazar_Fundo_hog_rso
+					ALB_Zef_Mala_for_rso
+					ALB_Kostandin_Boshnjaku_eco_rso
+					ALB_Ymer_Dishnica_sec_rso
+				}
+            }
 		}
 	}
     focus = {
@@ -3775,7 +3844,7 @@ focus_tree = {
 		y = 1
         relative_position_id = ALB_Chairman_Fundo
         available = { 
-                        has_government = radical_socialist
+            has_government = radical_socialist
 		}
         prerequisite = {
 			focus = ALB_Chairman_Fundo
@@ -3786,6 +3855,16 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Rehabilitate_Bashkimi"
+			add_stability = 0.05
+			add_political_power = 100
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.07
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.07
+			}
 		}
 	}
     focus = {
@@ -3795,7 +3874,7 @@ focus_tree = {
 		y = 1
         relative_position_id = ALB_Chairman_Fundo
         available = { 
-                        has_government = radical_socialist
+            has_government = radical_socialist
 		}
         prerequisite = {
 			focus = ALB_Chairman_Fundo
@@ -3806,6 +3885,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Transform_Rigid_Structure"
+			add_ideas = ALB_Transform_Rigid_Structure
 		}
 	}
     focus = {
@@ -3815,7 +3895,7 @@ focus_tree = {
 		y = 2
         relative_position_id = ALB_Chairman_Fundo
         available = { 
-                        has_government = radical_socialist
+            has_government = radical_socialist
 		}
         prerequisite = {
 			focus = ALB_Rehabilitate_Bashkimi
@@ -3829,6 +3909,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Moderate_Men_Treaty"
+			unlock_decision_tooltip = ALB_join_russia
+			unlock_decision_tooltip = ALB_join_austria
 		}
 	}
     focus = {
@@ -3838,7 +3920,7 @@ focus_tree = {
 		y = 1
         relative_position_id = ALB_Moderate_Men_Treaty
         available = { 
-                        has_government = radical_socialist
+            has_government = radical_socialist
 		}
         prerequisite = {
 			focus = ALB_Moderate_Men_Treaty
@@ -3849,6 +3931,15 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Vouch_Dardania"
+			add_state_core = 765
+			765 = {
+				owner = {
+					country_event = {
+						id = albsoc.16
+						days = 5
+					}
+				}
+			}
 		}
 	}
     focus = {
@@ -3863,7 +3954,7 @@ focus_tree = {
         prerequisite = {
 			focus = ALB_Enver_Star_Era
 		} 
-                mutually_exclusive = {
+        mutually_exclusive = {
 			focus = ALB_Utopia_Perfected
 		}
 		cost = 1
@@ -3872,6 +3963,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_We_Follow"
+			add_ideas = ALB_We_Follow
 		}
 	}
     focus = {
@@ -3892,6 +3984,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Arme_Municion"
+			swap_ideas = {
+				remove_idea = ALB_We_Follow
+				add_idea = ALB_We_Follow2
+			}
 		}
 	}
     focus = {
@@ -3906,10 +4002,10 @@ focus_tree = {
         prerequisite = {
 			focus = ALB_Arme_Municion
 		} 
-                mutually_exclusive = {
+        mutually_exclusive = {
 			focus = ALB_Hypothesize_Thraco_Dacians
 		}
-                mutually_exclusive = {
+        mutually_exclusive = {
 			focus = ALB_Theory_Pelasagians
 		}
 		cost = 1
@@ -3918,6 +4014,23 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Illyrian_Thesis"
+			add_ideas = ALB_Illyrian_Thesis
+			every_state = {
+				limit = {
+					is_owned_by = CRO
+				}
+				ALB = {
+					add_state_claim = PREV
+				}
+			}
+			every_state = {
+				limit = {
+					is_owned_by = SER
+				}
+				ALB = {
+					add_state_claim = PREV
+				}
+			}
 		}
 	}
     focus = {
@@ -3938,6 +4051,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Courage_Teuta"
+			add_country_leader_trait = courage_teuta
 		}
 	}
     focus = {
@@ -3958,6 +4072,14 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Remove_Squatting_Menace"
+			create_wargoal = {
+				type = annex_everything
+				target = SER
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = CRO
+			}
 		}
 	}
     focus = {
@@ -3968,6 +4090,12 @@ focus_tree = {
         relative_position_id = ALB_Illyrian_Thesis
         available = { 
             has_government = totalist
+			owns_state = 109
+			owns_state = 107
+			NOT = {
+				country_exists = SER
+				country_exists = CRO
+			}	
 		}
         prerequisite = {
 			focus = ALB_Courage_Teuta
@@ -3981,6 +4109,23 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Ardlyria_Comes_Life"
+			every_state = {
+				limit = {
+					is_claimed_by = CRO
+				}
+				ALB = {
+					add_state_core = PREV
+				}
+			}
+			every_state = {
+				limit = {
+					is_claimed_by = SER
+				}
+				ALB = {
+					add_state_core = PREV
+				}
+			}
+			set_cosmetic_tag = ALB_Ardlyria
 		}
 	}
     focus = {
@@ -3995,10 +4140,10 @@ focus_tree = {
         prerequisite = {
 			focus = ALB_Arme_Municion
 		} 
-                mutually_exclusive = {
+        mutually_exclusive = {
 			focus = ALB_Illyrian_Thesis
 		}
-                mutually_exclusive = {
+        mutually_exclusive = {
 			focus = ALB_Theory_Pelasagians
 		}
 		cost = 1
@@ -4007,6 +4152,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Illyrian_Thesis"
+			add_ideas = ALB_Hypothesize_Thraco_Dacians
 		}
 	}
     focus = {
@@ -4027,6 +4173,31 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Natural_Extension"
+			every_state = {
+				limit = {
+					is_claimed_by = BUL
+				}
+				ALB = {
+					add_state_claim = PREV
+				}
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = BUL
+			}
+			if = {
+				limit = {
+					BUL = {
+						NOT = {
+							owns_state = 106
+						}
+					}
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = 106.owner
+				}
+			}
 		}
 	}
     focus = {
@@ -4047,6 +4218,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Like_Maximinus_Thrax"
+			add_country_leader_trait = like_maximinus_thrax
 		}
 	}
     focus = {
@@ -4057,6 +4229,11 @@ focus_tree = {
         relative_position_id = ALB_Hypothesize_Thraco_Dacians
         available = { 
             has_government = totalist
+			owns_state = 48
+			owns_state = 106
+			NOT = {
+				country_exists = BUL
+			}
 		}
         prerequisite = {
 			focus = ALB_Natural_Extension
@@ -4070,6 +4247,15 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Odrysia_Stands_One"
+			set_cosmetic_tag = ALB_Odrysia
+			every_state = {
+				limit = {
+					is_claimed_by = BUL
+				}
+				ALB = {
+					add_state_core = PREV
+				}
+			}
 		}
 	}
     focus = {
@@ -4084,10 +4270,10 @@ focus_tree = {
         prerequisite = {
 			focus = ALB_Arme_Municion
 		} 
-                mutually_exclusive = {
+        mutually_exclusive = {
 			focus = ALB_Illyrian_Thesis
 		}
-                mutually_exclusive = {
+        mutually_exclusive = {
 			focus = ALB_Hypothesize_Thraco_Dacians
 		}
 		cost = 1
@@ -4096,6 +4282,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Theory_Pelasagians"
+			add_ideas = ALB_Theory_Pelasagians
 		}
 	}
     focus = {
@@ -4116,6 +4303,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Learn_Good_Pyrrhus"
+			add_country_leader_trait = good_of_pyrrhus
 		}
 	}
     focus = {
@@ -4136,6 +4324,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Rescue_Arvanite_Brothers"
+			every_state = {
+				limit = {
+					is_claimed_by = GRE
+				}
+				ALB = {
+					add_state_claim = PREV
+				}
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = GRE
+			}
 		}
 	}
     focus = {
@@ -4159,6 +4359,15 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Pelasagia_Ashes"
+			every_state = {
+				limit = {
+					is_claimed_by = GRE
+				}
+				ALB = {
+					add_state_core = PREV
+				}
+			}
+			set_cosmetic_tag = ALB_Pelasagia
 		}
 	}
     focus = {
@@ -4173,7 +4382,7 @@ focus_tree = {
         prerequisite = {
 			focus = ALB_Enver_Star_Era
 		} 
-                mutually_exclusive = {
+        mutually_exclusive = {
 			focus = ALB_We_Follow
 		}
 		cost = 1
@@ -4182,6 +4391,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Utopia_Perfected"
+			add_ideas = ALB_Utopia_Perfected
 		}
 	}
     focus = {
@@ -4202,6 +4412,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Socialisms_Orchard"
+			swap_ideas = {
+				remove_idea = ALB_Utopia_Perfected
+				add_idea = ALB_Socialisms_Orchard
+			}
 		}
 	}
     focus = {
@@ -4222,6 +4436,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Explore_Wealth"
+			add_resource = { type = steel amount = 5 state = 463 }
+			add_resource = { type = aluminium amount = 5 state = 463 }
+			add_resource = { type = chromium amount = 5 state = 463 }
+			add_resource = { type = rubber amount = 5 state = 463 }
+			add_resource = { type = oil amount = 5 state = 463 }
 		}
 	}
     focus = {
@@ -4245,6 +4464,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Prosperity_Shared"
+			swap_ideas = {
+				remove_idea = ALB_Socialisms_Orchard
+				add_idea = ALB_Prosperity_Shared
+			}
 		}
 	}
 

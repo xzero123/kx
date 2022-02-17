@@ -3518,3 +3518,307 @@ country_event = {
 		}
 	}
 }
+
+### Ally with SOV
+
+country_event = {
+	id = albsoc.8
+	immediate = { log = "[GetDateText]: [Root.GetName]: event albsoc.8" }
+	title = albsoc.8.t
+	desc = albsoc.8.d
+	picture = GFX_report_event_soldiers_marching
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #yes
+		name = albsoc.8.a
+		ai_chance = {
+			factor = 100
+		}
+		ALB = {
+			add_to_faction = yes
+		}
+	}
+	
+	option = { #no
+		name = albsoc.8.b
+		ai_chance = {
+			factor = 0
+		}
+		
+	}
+}
+
+### Ally with CRO
+
+country_event = {
+	id = albsoc.9
+	immediate = { log = "[GetDateText]: [Root.GetName]: event albsoc.9" }
+	title = albsoc.9.t
+	desc = albsoc.9.d
+	picture = GFX_report_event_soldiers_marching
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #yes
+		name = albsoc.9.a
+		ai_chance = {
+			factor = 100
+		}
+		ALB = {
+			leave_faction = yes
+			create_faction = "Union of Southern Socialist Republics"
+		}
+		CRO = {
+			add_to_faction = yes
+		}
+	}
+	
+	option = { #no
+		name = albsoc.9.b
+		ai_chance = {
+			factor = 0
+		}
+		
+	}
+}
+
+### Ally with CRO
+
+country_event = {
+	id = albsoc.10
+	immediate = { log = "[GetDateText]: [Root.GetName]: event albsoc.10" }
+	title = albsoc.10.t
+	desc = albsoc.10.d
+	picture = GFX_report_event_soldiers_marching
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #yes
+		name = albsoc.10.a
+		ai_chance = {
+			factor = 100
+		}
+		ALB = {
+			annex_country = {
+				target = CRO
+				transfer_troops = yes
+			}
+		}
+	}
+	
+	option = { #no
+		name = albsoc.10.b
+		ai_chance = {
+			factor = 0
+		}
+		
+	}
+}
+
+### Ally with the Entente
+
+country_event = {
+	id = albsoc.11
+	immediate = { log = "[GetDateText]: [Root.GetName]: event albsoc.11" }
+	title = albsoc.11.t
+	desc = albsoc.11.d
+	picture = GFX_report_event_soldiers_marching
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #yes
+		name = albsoc.11.a
+		ai_chance = {
+			factor = 80
+		}
+		ALB = {
+			add_to_faction = yes
+		}
+	}
+	
+	option = { #no
+		name = albsoc.11.b
+		ai_chance = {
+			factor = 20
+		}
+		
+	}
+}
+
+### Request Northern Eprius
+
+country_event = {
+	id = albsoc.12
+	immediate = { log = "[GetDateText]: [Root.GetName]: event albsoc.11" }
+	title = albsoc.12.t
+	desc = albsoc.12.d
+	picture = GFX_report_event_soldiers_marching
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #hell no
+		name = albsoc.12.a
+		ai_chance = {
+			factor = 70
+		}
+		ALB = {
+			country_event = {
+				id = albsoc.14
+				days = 12
+			}
+		}
+	}
+	
+	option = { #fine
+		name = albsoc.12.b
+		ai_chance = {
+			factor = 30
+		}
+		ALB = {
+			transfer_state = 185
+		}
+	}
+}
+
+### War or nah
+
+country_event = {
+	id = albsoc.14
+	immediate = { log = "[GetDateText]: [Root.GetName]: event albsoc.14" }
+	title = albsoc.14.t
+	desc = albsoc.14.d
+	picture = GFX_report_event_soldiers_marching
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #war
+		name = albsoc.14.a
+		ai_chance = {
+			factor = 70
+		}
+		ALB = {
+			declare_war_on = {
+				target = GRE
+				type = annex_everything
+			}
+		}
+	}
+	
+	option = { #fine
+		name = albsoc.14.b
+		ai_chance = {
+			factor = 30
+		}
+		add_political_power = -10
+	}
+}
+
+### Ally with the moderate people
+
+country_event = {
+	id = albsoc.15
+	immediate = { log = "[GetDateText]: [Root.GetName]: event albsoc.15" }
+	title = albsoc.15.t
+	desc = albsoc.15.d
+	picture = GFX_report_event_soldiers_marching
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #yes
+		name = albsoc.15.a
+		ai_chance = {
+			factor = 80
+		}
+		ALB = {
+			add_to_faction = yes
+		}
+	}
+	
+	option = { #no
+		name = albsoc.15.b
+		ai_chance = {
+			factor = 20
+		}
+		
+	}
+}
+
+
+### Request Kosovo
+
+country_event = {
+	id = albsoc.16
+	immediate = { log = "[GetDateText]: [Root.GetName]: event albsoc.11" }
+	title = albsoc.16.t
+	desc = albsoc.16.d
+	picture = GFX_report_event_soldiers_marching
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #hell no
+		name = albsoc.16.a
+		ai_chance = {
+			factor = 70
+		}
+		ALB = {
+			country_event = {
+				id = albsoc.17
+				days = 16
+			}
+		}
+	}
+	
+	option = { #fine
+		name = albsoc.16.b
+		ai_chance = {
+			factor = 30
+		}
+		ALB = {
+			transfer_state = 765
+		}
+	}
+}
+
+### War or nah
+
+country_event = {
+	id = albsoc.17
+	immediate = { log = "[GetDateText]: [Root.GetName]: event albsoc.17" }
+	title = albsoc.17.t
+	desc = albsoc.17.d
+	picture = GFX_report_event_soldiers_marching
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #war
+		name = albsoc.17.a
+		ai_chance = {
+			factor = 70
+		}
+		ALB = {
+			declare_war_on = {
+				target = 765.owner
+				type = annex_everything
+			}
+		}
+	}
+	
+	option = { #fine
+		name = albsoc.17.b
+		ai_chance = {
+			factor = 30
+		}
+		add_political_power = -10
+	}
+}
+

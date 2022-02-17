@@ -3337,14 +3337,14 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
-                custom_effect_tooltip = ALB_Hoist_Red_Flag
+        custom_effect_tooltip = ALB_Hoist_Red_Flag
 		hidden_effect = {
-                        set_politics = {
+            set_politics = {
 				ruling_party = syndicalist
 				election_frequency = 48
 				elections_allowed = no
-		        }
-                        set_country_flag = ALB_Socialist_Takeover
+		    }
+            set_country_flag = ALB_Socialist_Takeover
 			remove_all_ministers = yes
 			add_ideas = {
 				ALB_Workers_Congress_hog_syn
@@ -3356,7 +3356,7 @@ country_event = {
 				ideology = totalist
 				popularity = 0.05
 			}
-                        add_popularity = {
+            add_popularity = {
 				ideology = syndicalist
 				popularity = 0.05
 			}
@@ -3381,13 +3381,13 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
-                create_country_leader = {
-				name = "Workers' Congress of Albania"
-				picture = "gfx/leaders/ALB/Portrait_ALB_Workers_Congress.png"
-				expire = "1965.1.1"
-				ideology = syndicalist_subtype
+        create_country_leader = {
+			name = "Workers' Congress of Albania"
+			picture = "gfx/leaders/ALB/Portrait_ALB_Workers_Congress.png"
+			expire = "1965.1.1"
+			ideology = syndicalist_subtype
 		}
-                add_political_power = -100
+        add_political_power = -100
 	}
 }
 
@@ -3407,16 +3407,88 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
-                create_country_leader = {
-				name = "Enver Hoxha"
-				picture = "gfx/leaders/ALB/Portrait_ALB_Enver_Hoxha.png"
-				expire = "1965.1.1"
-				ideology = syndicalist_subtype
+        create_country_leader = {
+			name = "Enver Hoxha"
+			picture = "gfx/leaders/ALB/Portrait_ALB_Enver_Hoxha.png"
+			expire = "1965.1.1"
+			ideology = syndicalist_subtype
 		}
-                set_party_name = {
-                            ideology = syndicalist
-                            long_name = "Kongresi i Punëtorëve të Shqipërisë"
-                            name = "KPSh"
-                }
+        set_party_name = {
+            ideology = syndicalist
+            long_name = "Kongresi i Punëtorëve të Shqipërisë"
+            name = "KPSh"
+        }
+	}
+}
+
+### Appoint Nexhmije as HOG?
+
+country_event = {
+	id = albsoc.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event albsoc.5" }
+	title = albsoc.5.t
+	desc = albsoc.5.d
+	picture = GFX_report_event_soldiers_marching
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #:YES:
+		name = albsoc.5.a
+		ai_chance = {
+			factor = 50
+		}
+		remove_ideas_with_trait = head_of_government
+        add_ideas = ALB_Nexhmije_Hoxha_hog_tot
+		hidden_effect = {
+			country_event = {
+				id = albsoc.6
+				days = 130
+			}
+		}
+	}
+	
+	option = { #no
+		name = albsoc.5.b
+		ai_chance = {
+			factor = 50
+		}
+        add_ideas = ALB_Nexhmije_Hoxha_hog_tot
+	}
+}
+
+### Hoxa Assasination
+
+country_event = {
+	id = albsoc.6
+	immediate = { log = "[GetDateText]: [Root.GetName]: event albsoc.6" }
+	title = albsoc.6.t
+	desc = albsoc.6.d
+	picture = GFX_report_event_soldiers_marching
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #He dead
+		name = albsoc.6.a
+		ai_chance = {
+			factor = 50
+		}
+		create_country_leader = {
+			name = "Nexhmije Hoxha" 
+			picture = "gfx/leaders/ALB/Portrait_ALB_Nexhmije_Hoxha.png"
+			expire = "1965.1.1"
+			ideology = ultra_hoxhaism_subtype
+		}
+		set_cosmetic_tag = ALB_Nexhmije
+		add_stability = -0.05
+	}
+	
+	option = { #no
+		name = albsoc.6.b
+		ai_chance = {
+			factor = 50
+		}
+        add_political_power = 10
 	}
 }

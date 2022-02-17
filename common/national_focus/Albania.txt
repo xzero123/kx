@@ -1928,14 +1928,14 @@ focus_tree = {
 		prerequisite = {
 			focus = ALB_King_Zog
 		}
-                select_effect = {
-                     hidden_effect = {
-                        country_event = {
-                             id = albsoc.1
-                             days = 4
-                        }
-                     }
-                }
+        select_effect = {
+            hidden_effect = {
+                country_event = {
+                    id = albsoc.1
+                    days = 4
+				}
+            }
+        }
 		cost = 7
 		ai_will_do = {
 			factor = 50
@@ -2290,8 +2290,8 @@ focus_tree = {
 			country_event = albania.71
 		}
 	}
-        ###################
-	### Hoxha Path ###
+    ###################
+	### Hoxha Path ####
 	###################
 
 	focus = {
@@ -2299,7 +2299,7 @@ focus_tree = {
 		icon = GFX_goal_ALB_Triumphant_Flag
 		x = 33
 		y = 6
-                available = { 
+        available = { 
 			has_government = syndicalist
 			has_country_flag = ALB_Socialist_Takeover
 		}
@@ -2311,16 +2311,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Triumphant_Flag"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Kalmendis_Last_Days
 		icon = GFX_goal_ALB_Kalmendi_Last_Days
 		x = -2
 		y = 1
-                relative_position_id = ALB_Triumphant_Flag
-                available = { 
+        relative_position_id = ALB_Triumphant_Flag
+        available = { 
 			has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Triumphant_Flag
 		}
 		cost = 2.1
@@ -2329,19 +2329,19 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Kalmendis_Last_Days"
-                        country_event = { id = albsoc.3 days = 1 }
+            country_event = { id = albsoc.3 days = 1 }
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Tragedy_Zogu
 		icon = GFX_goal_ALB_Tragedy_Zogu
 		x = 0
 		y = 1
-                relative_position_id = ALB_Triumphant_Flag
-                available = { 
+        relative_position_id = ALB_Triumphant_Flag
+        available = { 
 			has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Triumphant_Flag
 		}
 		cost = 3.6
@@ -2350,18 +2350,28 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Tragedy_Zogu"
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.5
+			}
+			create_country_leader = {
+				name = "House of Zogu - Vacant Head"
+				picture = "gfx/leaders/ALB/Portrait_ALB_Ruins_Zogu.png"
+				expire = "1965.1.1"
+				ideology = absolute_monarchy_subtype
+			}
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Formalize_Liberation_Army
 		icon = GFX_goal_ALB_Liberation_Army
 		x = 2
 		y = 1
-                relative_position_id = ALB_Triumphant_Flag
-                available = { 
+        relative_position_id = ALB_Triumphant_Flag
+        available = { 
 			has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Triumphant_Flag
 		}
 		cost = 4.7
@@ -2370,25 +2380,27 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Formalize_Liberation_Army"
+			army_experience = 100
+			add_command_power = 100
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Congress_Permet
 		icon = GFX_goal_ALB_Congress_Permet
 		x = 0
 		y = 1
-                relative_position_id = ALB_Tragedy_Zogu
-                available = { 
+        relative_position_id = ALB_Tragedy_Zogu
+        available = { 
 			has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Kalmendis_Last_Days
 		}
-                prerequisite = {
-                        focus = ALB_Tragedy_Zogu
+        prerequisite = {
+            focus = ALB_Tragedy_Zogu
 		}
-                prerequisite = {
-                        focus = ALB_Formalize_Liberation_Army
+        prerequisite = {
+            focus = ALB_Formalize_Liberation_Army
 		}
 		cost = 5.8
 		ai_will_do = {
@@ -2396,26 +2408,26 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Congress_Permet"
-                        country_event = { id = albsoc.4 days = 7 }
+            country_event = { id = albsoc.4 days = 7 }
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Chairman_Hoxha
 		icon = GFX_goal_ALB_Chairman_Hoxha
 		x = 0
 		y = 1
-                relative_position_id = ALB_Congress_Permet
-                available = { 
+        relative_position_id = ALB_Congress_Permet
+        available = { 
 			has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Congress_Permet
 		}
-                bypass = {
+        bypass = {
 			has_country_leader = {
-			name = "Enver Hoxha"
-			ruling_only = yes
-		        }
+				name = "Enver Hoxha"
+				ruling_only = yes
+		    }
 		}
 		cost = 0
 		ai_will_do = {
@@ -2423,18 +2435,19 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Chairman_Hoxha"
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Succession_Concession
 		icon = GFX_goal_ALB_Expected_Successor
 		x = -11
 		y = 1
-                relative_position_id = ALB_Chairman_Hoxha
-                available = { 
-                        NOT = { has_completed_focus = ALB_No_Vision_Mine }
+        relative_position_id = ALB_Chairman_Hoxha
+        available = { 
+            NOT = { has_completed_focus = ALB_No_Vision_Mine }
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Chairman_Hoxha
 		}
 		cost = 1
@@ -2443,33 +2456,33 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Succession_Concession"
-                        add_country_leader_trait = honor_bound
-                        custom_effect_tooltip = ALB_Hoxha_Bound_tt
-                        hidden_effect = {
-                        create_country_leader = {
-				name = "Mehmet Shehu"
-				picture = "gfx/leaders/ALB/Portrait_ALB_Mehmet_Shehu.png"
-				expire = "1965.1.1"
-				ideology = autocratic_socialist_subtype
+            add_country_leader_trait = honor_bound
+            custom_effect_tooltip = ALB_Hoxha_Bound_tt
+            hidden_effect = {
+                create_country_leader = {
+					name = "Mehmet Shehu"
+					picture = "gfx/leaders/ALB/Portrait_ALB_Mehmet_Shehu.png"
+					expire = "1965.1.1"
+					ideology = autocratic_socialist_subtype
 		        }
-                        set_party_name = {
-                            ideology = totalist
-                            long_name = "Militantët Pararojë"
-                            name = "MP"
-                        }
-                        }
+                set_party_name = {
+                    ideology = totalist
+                    long_name = "Militantët Pararojë"
+                    name = "MP"
+                }
+            }
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Hurl_Reaction
 		icon = GFX_goal_ALB_Reaction_Fire
 		x = -4
 		y = 1
-                relative_position_id = ALB_Succession_Concession
-                available = { 
+        relative_position_id = ALB_Succession_Concession
+        available = { 
 			has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Succession_Concession
 		}
 		cost = 1
@@ -2478,18 +2491,38 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Hurl_Reaction"
+			add_popularity = {
+				ideology = social_conservative 
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat 
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = market_liberal 
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = social_liberal 
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = national_populist 
+				popularity = -0.2
+			}
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Unified_Church
 		icon = GFX_goal_ALB_Church
 		x = -1
 		y = 1
-                relative_position_id = ALB_Hurl_Reaction
-                available = { 
+        relative_position_id = ALB_Hurl_Reaction
+        available = { 
 			has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Hurl_Reaction
 		}
 		cost = 1
@@ -2498,18 +2531,19 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Unified_Church"
+			add_ideas = ALB_Unified_Church
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Reform_Tribes
 		icon = GFX_goal_ALB_Albanian_Tribes
 		x = 1
 		y = 1
-                relative_position_id = ALB_Hurl_Reaction
-                available = { 
+        relative_position_id = ALB_Hurl_Reaction
+        available = { 
 			has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Hurl_Reaction
 		}
 		cost = 1
@@ -2518,18 +2552,24 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Reform_Tribes"
+			add_political_power = 50
+			add_stability = 0.05
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.05
+			}
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Communes_Son
 		icon = GFX_goal_FRA_future_of_commune
 		x = 0
 		y = 1
-                relative_position_id = ALB_Succession_Concession
-                available = { 
+        relative_position_id = ALB_Succession_Concession
+        available = { 
 			has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Succession_Concession
 		}
 		cost = 1
@@ -2538,18 +2578,30 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Communes_Son"
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = totalist
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.05
+			}
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Syndicate_Development
 		icon = GFX_goal_FRA_communal_enterprises
 		x = -1
 		y = 1
-                relative_position_id = ALB_Communes_Son
-                available = { 
+        relative_position_id = ALB_Communes_Son
+        available = { 
 			has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Communes_Son
 		}
 		cost = 1
@@ -2558,18 +2610,26 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Syndicate_Development"
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Organize_CTU
 		icon = GFX_goal_ALB_CTU
 		x = 0
 		y = 1
-                relative_position_id = ALB_Syndicate_Development
-                available = { 
+        relative_position_id = ALB_Syndicate_Development
+        available = { 
 			has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Syndicate_Development
 		}
 		cost = 1
@@ -2578,18 +2638,19 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Organize_CTU"
+			add_ideas = ALB_Organize_CTU_idea
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Rini_Rini
 		icon = GFX_goal_ALB_Rini_Rini
 		x = 1
 		y = 1
-                relative_position_id = ALB_Communes_Son
-                available = { 
+        relative_position_id = ALB_Communes_Son
+        available = { 
 			has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Communes_Son
 		}
 		cost = 1
@@ -2598,18 +2659,19 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Rini_Rini"
+			add_ideas = ALB_youth_leauges_idea
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Thousand_Voices
 		icon = GFX_goal_ALB_Thousand_Voices
 		x = 0
 		y = 1
-                relative_position_id = ALB_Rini_Rini
-                available = { 
+        relative_position_id = ALB_Rini_Rini
+        available = { 
 			has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Rini_Rini
 		}
 		cost = 1
@@ -2618,18 +2680,19 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Thousand_Voices"
+			add_manpower = 2500
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Shelter_Citizens
 		icon = GFX_goal_ALB_Bunker
 		x = 4
 		y = 1
-                relative_position_id = ALB_Succession_Concession
-                available = { 
+        relative_position_id = ALB_Succession_Concession
+        available = { 
 			has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Succession_Concession
 		}
 		cost = 1
@@ -2638,18 +2701,25 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Shelter_Citizens"
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Shores_Adriatic
 		icon = GFX_goal_ALB_Shores_Adriatic
 		x = -1
 		y = 1
-                relative_position_id = ALB_Shelter_Citizens
-                available = { 
+        relative_position_id = ALB_Shelter_Citizens
+        available = { 
 			has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Shelter_Citizens
 		}
 		cost = 1
@@ -2658,18 +2728,25 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Shores_Adriatic"
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Agrarian_Reforms
 		icon = GFX_goal_ALB_Albanian_Farmers
 		x = 1
 		y = 1
-                relative_position_id = ALB_Shelter_Citizens
-                available = { 
+        relative_position_id = ALB_Shelter_Citizens
+        available = { 
 			has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Shelter_Citizens
 		}
 		cost = 1
@@ -2678,33 +2755,36 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Agrarian_Reforms"
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_No_Other_Way
 		icon = GFX_goal_ALB_No_Other_Way
 		x = 0
 		y = 3
-                relative_position_id = ALB_Communes_Son
-                available = { 
+        relative_position_id = ALB_Communes_Son
+        available = { 
 			has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Unified_Church
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Reform_Tribes
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Organize_CTU
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Thousand_Voices
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Shores_Adriatic
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Agrarian_Reforms
 		}
 		cost = 1
@@ -2715,21 +2795,21 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_No_Other_Way"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Foundation_Peoples_Army
 		icon = GFX_goal_ALB_People_Army
 		x = 0
 		y = 2
-                relative_position_id = ALB_Chairman_Hoxha
-                available = { 
-                        OR = {
-			has_government = syndicalist
-                        has_government = totalist
-                        }
+        relative_position_id = ALB_Chairman_Hoxha
+        available = { 
+            OR = {
+				has_government = syndicalist
+				has_government = totalist
+            }
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Succession_Concession
-                        focus = ALB_No_Vision_Mine
+            focus = ALB_No_Vision_Mine
 		}
 		cost = 1
 		ai_will_do = {
@@ -2737,21 +2817,29 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Foundation_Peoples_Army"
+			add_command_power = 100
+			army_experience = 100
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Bringing_Albania_Century
 		icon = GFX_goal_ALB_Modernization
 		x = -3
 		y = 1
-                relative_position_id = ALB_Foundation_Peoples_Army
-                available = { 
-                        OR = {
-			has_government = syndicalist
-                        has_government = totalist
-                        }
+        relative_position_id = ALB_Foundation_Peoples_Army
+        available = { 
+            OR = {
+				has_government = syndicalist
+				has_government = totalist
+            }
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Foundation_Peoples_Army
 		}
 		cost = 1
@@ -2760,21 +2848,31 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Bringing_Albania_Century"
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = construction_tech
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Never_Another_Famine
 		icon = GFX_goal_ALB_No_Famine
 		x = 0
 		y = 1
-                relative_position_id = ALB_Bringing_Albania_Century
-                available = { 
-                        OR = {
-			has_government = syndicalist
-                        has_government = totalist
-                        }
+        relative_position_id = ALB_Bringing_Albania_Century
+        available = { 
+            OR = {
+				has_government = syndicalist
+				has_government = totalist
+            }
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Bringing_Albania_Century
 		}
 		cost = 1
@@ -2783,21 +2881,22 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Never_Another_Famine"
+			add_ideas = ALB_Never_Another_Famine
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Flowers_Socialism
 		icon = GFX_goal_ALB_Flowers_Socialism
 		x = 0
 		y = 1
-                relative_position_id = ALB_Foundation_Peoples_Army
-                available = { 
-                        OR = {
-			has_government = syndicalist
-                        has_government = totalist
-                        }
+        relative_position_id = ALB_Foundation_Peoples_Army
+        available = { 
+            OR = {
+				has_government = syndicalist
+				has_government = totalist
+            }
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Foundation_Peoples_Army
 		}
 		cost = 1
@@ -2806,21 +2905,22 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Flowers_Socialism"
+			add_ideas = ALB_Flowers_Socialism
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_University_Tirana
 		icon = GFX_goal_ALB_University_Tirana
 		x = -1
 		y = 1
-                relative_position_id = ALB_Flowers_Socialism
-                available = { 
-                        OR = {
-			has_government = syndicalist
-                        has_government = totalist
-                        }
+        relative_position_id = ALB_Flowers_Socialism
+        available = { 
+            OR = {
+				has_government = syndicalist
+				has_government = totalist
+            }
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Flowers_Socialism
 		}
 		cost = 1
@@ -2829,21 +2929,22 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_University_Tirana"
+			add_research_slot = 1
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Women_Sky
 		icon = GFX_goal_ALB_Women
 		x = 1
 		y = 1
-                relative_position_id = ALB_Flowers_Socialism
-                available = { 
-                        OR = {
-			has_government = syndicalist
-                        has_government = totalist
-                        }
+        relative_position_id = ALB_Flowers_Socialism
+        available = { 
+            OR = {
+				has_government = syndicalist
+				has_government = totalist
+            }
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Flowers_Socialism
 		}
 		cost = 1
@@ -2852,21 +2953,31 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Women_Sky"
+			add_manpower = 12000
+			if = {
+				limit = {
+					has_government = totalist
+				}
+				country_event = {
+					id = albsoc.5
+					days = 5
+				}
+			}
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Grab_Pickaxe
 		icon = GFX_goal_ALB_Pickaxe
 		x = 3
 		y = 1
-                relative_position_id = ALB_Foundation_Peoples_Army
-                available = { 
-                        OR = {
-			has_government = syndicalist
-                        has_government = totalist
-                        }
+        relative_position_id = ALB_Foundation_Peoples_Army
+        available = { 
+            OR = {
+				has_government = syndicalist
+				has_government = totalist
+            }
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Foundation_Peoples_Army
 		}
 		cost = 1
@@ -2875,21 +2986,23 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Grab_Pickaxe"
+			add_stability = 0.05
+			add_war_support = 0.05
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Kickstart_Nationalization
 		icon = GFX_goal_ALB_Nationalization
 		x = 0
 		y = 1
-                relative_position_id = ALB_Grab_Pickaxe
-                available = { 
-                        OR = {
-			has_government = syndicalist
-                        has_government = totalist
-                        }
+        relative_position_id = ALB_Grab_Pickaxe
+		available = { 
+            OR = {
+				has_government = syndicalist
+				has_government = totalist
+            }
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Grab_Pickaxe
 		}
 		cost = 1
@@ -2900,28 +3013,28 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Kickstart_Nationalization"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Rejuvenation_Classes
 		icon = GFX_goal_ALB_Rejuvenation
 		x = 0
 		y = 2
-                relative_position_id = ALB_Flowers_Socialism
-                available = { 
-                        OR = {
-			has_government = syndicalist
-                        has_government = totalist
-                        }
+        relative_position_id = ALB_Flowers_Socialism
+        available = { 
+            OR = {
+				has_government = syndicalist
+				has_government = totalist
+            }
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Never_Another_Famine
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_University_Tirana
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Women_Sky
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Kickstart_Nationalization
 		}
 		cost = 1
@@ -2932,16 +3045,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Rejuvenation_Classes"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_No_Vision_Mine
 		icon = GFX_goal_ALB_No_Vision_Mine
 		x = 10
 		y = 1
-                relative_position_id = ALB_Chairman_Hoxha
-                available = { 
-                        NOT = { has_completed_focus = ALB_Succession_Concession }
+        relative_position_id = ALB_Chairman_Hoxha
+        available = { 
+            NOT = { has_completed_focus = ALB_Succession_Concession }
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Chairman_Hoxha
 		}
 		cost = 1
@@ -2950,48 +3063,48 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_No_Vision_Mine"
-                        set_politics = {
+            set_politics = {
 				ruling_party = totalist
 				election_frequency = 48
 				elections_allowed = no
+		    }
+            set_party_name = {
+                ideology = totalist
+                long_name = "Partia e Punës e Shqipërisë"
+                name = "PPSh"
+            }
+            custom_effect_tooltip = ALB_Hoxha_Destiny_tt
+            hidden_effect = {
+				add_popularity = {
+					ideology = totalist
+					popularity = 0.1
+				}
+				remove_all_ministers = yes
+				add_ideas = {
+					ALB_Enver_Hoxha_hog_tot
+					ALB_Haxhi_Lleshi_for_tot
+					ALB_Nako_Spiru_eco_tot
+					ALB_Koci_Xoxe_sec_tot
+				}
+				create_country_leader = {
+					name = "Workers' Congress of Albania"
+					picture = "gfx/leaders/ALB/Portrait_ALB_Workers_Congress.png"
+					expire = "1965.1.1"
+					ideology = syndicalist_subtype
 		        }
-                        set_party_name = {
-                            ideology = totalist
-                            long_name = "Partia e Punës e Shqipërisë"
-                            name = "PPSh"
-                        }
-                        custom_effect_tooltip = ALB_Hoxha_Destiny_tt
-                        hidden_effect = {
-                        add_popularity = {
-				ideology = totalist
-				popularity = 0.1
-			}
-                        remove_all_ministers = yes
-			add_ideas = {
-				ALB_Enver_Hoxha_hog_tot
-				ALB_Haxhi_Lleshi_for_tot
-				ALB_Nako_Spiru_eco_tot
-				ALB_Koci_Xoxe_sec_tot
-			}
-                        create_country_leader = {
-				name = "Workers' Congress of Albania"
-				picture = "gfx/leaders/ALB/Portrait_ALB_Workers_Congress.png"
-				expire = "1965.1.1"
-				ideology = syndicalist_subtype
-		        }
-                        }
+            }
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Chasing_Plan
 		icon = GFX_goal_CSA_great_sprint
 		x = -3
 		y = 1
-                relative_position_id = ALB_No_Vision_Mine
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_No_Vision_Mine
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_No_Vision_Mine
 		}
 		cost = 1
@@ -3002,16 +3115,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Chasing_Plan"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_No_Village_Escape
 		icon = GFX_goal_ALB_Village_Collectivization
 		x = -1
 		y = 1
-                relative_position_id = ALB_Chasing_Plan
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Chasing_Plan
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Chasing_Plan
 		}
 		cost = 1
@@ -3022,16 +3135,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_No_Village_Escape"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Trade_Unions_Arise
 		icon = GFX_goal_ALB_Trade_Unions_Arise
 		x = 1
 		y = 1
-                relative_position_id = ALB_Chasing_Plan
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Chasing_Plan
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Chasing_Plan
 		}
 		cost = 1
@@ -3042,19 +3155,19 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Trade_Unions_Arise"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Citizen_Guardian
 		icon = GFX_goal_ALB_Guardians
 		x = 0
 		y = 2
-                relative_position_id = ALB_Chasing_Plan
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Chasing_Plan
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_No_Village_Escape
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Trade_Unions_Arise
 		}
 		cost = 1
@@ -3065,16 +3178,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Citizen_Guardian"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Constitution_55
 		icon = GFX_goal_ALB_Constitution
 		x = 0
 		y = 1
-                relative_position_id = ALB_No_Vision_Mine
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_No_Vision_Mine
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_No_Vision_Mine
 		}
 		cost = 1
@@ -3085,16 +3198,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Constitution_55"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Per_Popullin_Me_Popullin
 		icon = GFX_goal_ALB_Sigurimi
 		x = 0
 		y = 1
-                relative_position_id = ALB_Constitution_55
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Constitution_55
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Constitution_55
 		}
 		cost = 1
@@ -3105,16 +3218,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Per_Popullin_Me_Popullin"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Purify_Party
 		icon = GFX_goal_ALB_Purify_Party
 		x = 0
 		y = 1
-                relative_position_id = ALB_Per_Popullin_Me_Popullin
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Per_Popullin_Me_Popullin
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Per_Popullin_Me_Popullin
 		}
 		cost = 1
@@ -3123,23 +3236,23 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Purify_Party"
-                        set_party_name = {
-                            ideology = totalist
-                            long_name = "Vërtëta Partia e Punës e Shqipërisë"
-                            name = "VPPSh"
-                        }
+            set_party_name = {
+                ideology = totalist
+                long_name = "Vërtëta Partia e Punës e Shqipërisë"
+                name = "VPPSh"
+            }
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Cultural_Ideological_Revolution
 		icon = GFX_goal_ALB_Cultural_Revolution
 		x = 3
 		y = 1
-                relative_position_id = ALB_No_Vision_Mine
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_No_Vision_Mine
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_No_Vision_Mine
 		}
 		cost = 1
@@ -3150,16 +3263,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Cultural_Ideological_Revolution"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Pioneers_Enver
 		icon = GFX_goal_ALB_Pioneers_Enver
 		x = -1
 		y = 1
-                relative_position_id = ALB_Cultural_Ideological_Revolution
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Cultural_Ideological_Revolution
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Cultural_Ideological_Revolution
 		}
 		cost = 1
@@ -3170,16 +3283,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Pioneers_Enver"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Decouple_Skanderbeg
 		icon = GFX_goal_ALB_Skanderbeg
 		x = 1
 		y = 1
-                relative_position_id = ALB_Cultural_Ideological_Revolution
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Cultural_Ideological_Revolution
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Cultural_Ideological_Revolution
 		}
 		cost = 1
@@ -3190,19 +3303,19 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Decouple_Skanderbeg"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Worship_Albania_Venerate_Hoxha
 		icon = GFX_goal_ALB_Venerate_Hoxha
 		x = 0
 		y = 2
-                relative_position_id = ALB_Cultural_Ideological_Revolution
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Cultural_Ideological_Revolution
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Pioneers_Enver
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Decouple_Skanderbeg
 		}
 		cost = 1
@@ -3213,22 +3326,22 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Worship_Albania_Venerate_Hoxha"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Enver_Star_Era
 		icon = GFX_goal_ALB_Hoxha_Star
 		x = 0
 		y = 3
-                relative_position_id = ALB_Constitution_55
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Constitution_55
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Citizen_Guardian
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Purify_Party
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Worship_Albania_Venerate_Hoxha
 		}
 		cost = 1
@@ -3240,13 +3353,13 @@ focus_tree = {
                         add_country_leader_trait = socialism_star
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Chairman_Xoxe
 		icon = GFX_goal_ALB_Chairman_Xoxe
 		x = -5
 		y = 1
-                relative_position_id = ALB_No_Other_Way
-                prerequisite = {
+        relative_position_id = ALB_No_Other_Way
+        prerequisite = {
 			focus = ALB_No_Other_Way
 		}
                 mutually_exclusive = {
@@ -3293,16 +3406,16 @@ focus_tree = {
                         }
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Yugophilism
 		icon = GFX_goal_SER_Immortal_Yugoslavism
 		x = -1
 		y = 1
-                relative_position_id = ALB_Chairman_Xoxe
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Chairman_Xoxe
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Chairman_Xoxe
 		}
 		cost = 1
@@ -3313,16 +3426,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Yugophilism"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_New_Hardline_Methods
 		icon = GFX_goal_CSA_all_for_revolution
 		x = 1
 		y = 1
-                relative_position_id = ALB_Chairman_Xoxe
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Chairman_Xoxe
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Chairman_Xoxe
 		}
 		cost = 1
@@ -3333,19 +3446,19 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_New_Hardline_Methods"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Pact_Conviction
 		icon = GFX_goal_ALB_Communist_Internationalism
 		x = 0
 		y = 2
-                relative_position_id = ALB_Chairman_Xoxe
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Chairman_Xoxe
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Yugophilism
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_New_Hardline_Methods
 		}
 		cost = 1
@@ -3356,16 +3469,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Pact_Conviction"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Expand_USSR
 		icon = GFX_goal_ALB_Expand_USSR
 		x = 0
 		y = 1
-                relative_position_id = ALB_Pact_Conviction
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Pact_Conviction
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Pact_Conviction
 		}
 		cost = 1
@@ -3376,13 +3489,13 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Expand_USSR"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Chairman_Maleshova
 		icon = GFX_goal_ALB_Chairman_Maleshova
 		x = 0
 		y = 1
-                relative_position_id = ALB_No_Other_Way
-                prerequisite = {
+        relative_position_id = ALB_No_Other_Way
+        prerequisite = {
 			focus = ALB_No_Other_Way
 		} 
                 mutually_exclusive = {
@@ -3424,16 +3537,16 @@ focus_tree = {
                         }
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Reinforce_Syndicalist_System
 		icon = GFX_goal_CSA_centralist_reorganization
 		x = -1
 		y = 1
-                relative_position_id = ALB_Chairman_Maleshova
-                available = { 
+        relative_position_id = ALB_Chairman_Maleshova
+        available = { 
                         has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Chairman_Maleshova
 		}
 		cost = 1
@@ -3444,16 +3557,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Reinforce_Syndicalist_System"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Cooperate_Chief_Capital
 		icon = GFX_goal_CSA_class_fusion
 		x = 1
 		y = 1
-                relative_position_id = ALB_Chairman_Maleshova
-                available = { 
+        relative_position_id = ALB_Chairman_Maleshova
+        available = { 
                         has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Chairman_Maleshova
 		}
 		cost = 1
@@ -3464,19 +3577,19 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Cooperate_Chief_Capital"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Western_Diplomatic_Approach
 		icon = GFX_goal_ALB_Europe
 		x = 0
 		y = 2
-                relative_position_id = ALB_Chairman_Maleshova
-                available = { 
+        relative_position_id = ALB_Chairman_Maleshova
+        available = { 
                         has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Reinforce_Syndicalist_System
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Cooperate_Chief_Capital
 		}
 		cost = 1
@@ -3487,16 +3600,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Western_Diplomatic_Approach"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Appeal_Northern_Epirus
 		icon = GFX_goal_ALB_Northern_Epirus
 		x = 0
 		y = 1
-                relative_position_id = ALB_Western_Diplomatic_Approach
-                available = { 
+        relative_position_id = ALB_Western_Diplomatic_Approach
+        available = { 
                         has_government = syndicalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Western_Diplomatic_Approach
 		}
 		cost = 1
@@ -3507,13 +3620,13 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Appeal_Northern_Epirus"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Chairman_Fundo
 		icon = GFX_goal_ALB_Chairman_Fundo
 		x = 5
 		y = 1
-                relative_position_id = ALB_No_Other_Way
-                prerequisite = {
+        relative_position_id = ALB_No_Other_Way
+        prerequisite = {
 			focus = ALB_No_Other_Way
 		} 
                 mutually_exclusive = {
@@ -3549,16 +3662,16 @@ focus_tree = {
                         }
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Rehabilitate_Bashkimi
 		icon = GFX_goal_ALB_Rustemi
 		x = -1
 		y = 1
-                relative_position_id = ALB_Chairman_Fundo
-                available = { 
+        relative_position_id = ALB_Chairman_Fundo
+        available = { 
                         has_government = radical_socialist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Chairman_Fundo
 		}
 		cost = 1
@@ -3569,16 +3682,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Rehabilitate_Bashkimi"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Transform_Rigid_Structure
 		icon = GFX_goal_CSA_equality
 		x = 1
 		y = 1
-                relative_position_id = ALB_Chairman_Fundo
-                available = { 
+        relative_position_id = ALB_Chairman_Fundo
+        available = { 
                         has_government = radical_socialist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Chairman_Fundo
 		}
 		cost = 1
@@ -3589,19 +3702,19 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Transform_Rigid_Structure"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Moderate_Men_Treaty
 		icon = GFX_goal_ALB_Red_Flag
 		x = 0
 		y = 2
-                relative_position_id = ALB_Chairman_Fundo
-                available = { 
+        relative_position_id = ALB_Chairman_Fundo
+        available = { 
                         has_government = radical_socialist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Rehabilitate_Bashkimi
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Transform_Rigid_Structure
 		}
 		cost = 1
@@ -3612,16 +3725,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Moderate_Men_Treaty"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Vouch_Dardania
 		icon = GFX_goal_ALB_Dardania
 		x = 0
 		y = 1
-                relative_position_id = ALB_Moderate_Men_Treaty
-                available = { 
+        relative_position_id = ALB_Moderate_Men_Treaty
+        available = { 
                         has_government = radical_socialist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Moderate_Men_Treaty
 		}
 		cost = 1
@@ -3632,16 +3745,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Vouch_Dardania"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_We_Follow
 		icon = GFX_goal_ALB_We_Follow
 		x = -5
 		y = 1
-                relative_position_id = ALB_Enver_Star_Era
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Enver_Star_Era
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Enver_Star_Era
 		} 
                 mutually_exclusive = {
@@ -3655,16 +3768,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_We_Follow"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Arme_Municion
 		icon = GFX_goal_ALB_Arme_Municion
 		x = 0
 		y = 1
-                relative_position_id = ALB_We_Follow
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_We_Follow
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_We_Follow
 		}
 		cost = 1
@@ -3675,16 +3788,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Arme_Municion"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Illyrian_Thesis
 		icon = GFX_goal_ALB_Illyrians
 		x = -5
 		y = 1
-                relative_position_id = ALB_Arme_Municion
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Arme_Municion
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Arme_Municion
 		} 
                 mutually_exclusive = {
@@ -3701,16 +3814,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Illyrian_Thesis"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Courage_Teuta
 		icon = GFX_goal_ALB_Teuta
 		x = -1
 		y = 1
-                relative_position_id = ALB_Illyrian_Thesis
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Illyrian_Thesis
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Illyrian_Thesis
 		}
 		cost = 1
@@ -3721,16 +3834,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Courage_Teuta"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Remove_Squatting_Menace
 		icon = GFX_goal_ALB_Remove_Squat
 		x = 1
 		y = 1
-                relative_position_id = ALB_Illyrian_Thesis
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Illyrian_Thesis
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Illyrian_Thesis
 		}
 		cost = 1
@@ -3741,19 +3854,19 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Remove_Squatting_Menace"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Ardlyria_Comes_Life
 		icon = GFX_goal_ALB_Ardlyria
 		x = 0
 		y = 2
-                relative_position_id = ALB_Illyrian_Thesis
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Illyrian_Thesis
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Courage_Teuta
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Remove_Squatting_Menace
 		}
 		cost = 1
@@ -3764,16 +3877,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Ardlyria_Comes_Life"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Hypothesize_Thraco_Dacians
 		icon = GFX_goal_ALB_Thraco_Dacians
 		x = 0
 		y = 1
-                relative_position_id = ALB_Arme_Municion
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Arme_Municion
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Arme_Municion
 		} 
                 mutually_exclusive = {
@@ -3790,16 +3903,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Illyrian_Thesis"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Natural_Extension
 		icon = GFX_goal_ALB_Extension_Albania
 		x = -1
 		y = 1
-                relative_position_id = ALB_Hypothesize_Thraco_Dacians
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Hypothesize_Thraco_Dacians
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Hypothesize_Thraco_Dacians
 		}
 		cost = 1
@@ -3810,16 +3923,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Natural_Extension"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Like_Maximinus_Thrax
 		icon = GFX_goal_ALB_Maximinus_Thrax
 		x = 1
 		y = 1
-                relative_position_id = ALB_Hypothesize_Thraco_Dacians
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Hypothesize_Thraco_Dacians
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Hypothesize_Thraco_Dacians
 		}
 		cost = 1
@@ -3830,19 +3943,19 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Like_Maximinus_Thrax"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Odrysia_Stands_One
 		icon = GFX_goal_ALB_Odrysia
 		x = 0
 		y = 2
-                relative_position_id = ALB_Hypothesize_Thraco_Dacians
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Hypothesize_Thraco_Dacians
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Natural_Extension
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Like_Maximinus_Thrax
 		}
 		cost = 1
@@ -3853,16 +3966,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Odrysia_Stands_One"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Theory_Pelasagians
 		icon = GFX_goal_ALB_Pelasagians
 		x = 5
 		y = 1
-                relative_position_id = ALB_Arme_Municion
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Arme_Municion
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Arme_Municion
 		} 
                 mutually_exclusive = {
@@ -3879,16 +3992,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Theory_Pelasagians"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Learn_Good_Pyrrhus
 		icon = GFX_goal_ALB_Pyrrhus
 		x = -1
 		y = 1
-                relative_position_id = ALB_Theory_Pelasagians
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Theory_Pelasagians
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Theory_Pelasagians
 		}
 		cost = 1
@@ -3899,16 +4012,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Learn_Good_Pyrrhus"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Rescue_Arvanite_Brothers
 		icon = GFX_goal_ALB_Rescue_Arvanites
 		x = 1
 		y = 1
-                relative_position_id = ALB_Theory_Pelasagians
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Theory_Pelasagians
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Theory_Pelasagians
 		}
 		cost = 1
@@ -3919,19 +4032,19 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Rescue_Arvanite_Brothers"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Pelasagia_Ashes
 		icon = GFX_goal_ALB_Pelasagia
 		x = 0
 		y = 2
-                relative_position_id = ALB_Theory_Pelasagians
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Theory_Pelasagians
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Learn_Good_Pyrrhus
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Rescue_Arvanite_Brothers
 		}
 		cost = 1
@@ -3942,16 +4055,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Pelasagia_Ashes"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Utopia_Perfected
 		icon = GFX_goal_ALB_Utopia_Perfected
 		x = 5
 		y = 1
-                relative_position_id = ALB_Enver_Star_Era
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Enver_Star_Era
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Enver_Star_Era
 		} 
                 mutually_exclusive = {
@@ -3965,16 +4078,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Utopia_Perfected"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Socialisms_Orchard
 		icon = GFX_goal_ALB_Socialism_Orchard
 		x = -1
 		y = 1
-                relative_position_id = ALB_Utopia_Perfected
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Utopia_Perfected
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Utopia_Perfected
 		}
 		cost = 1
@@ -3985,16 +4098,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Socialisms_Orchard"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Explore_Wealth
 		icon = GFX_goal_ALB_Resource_Miner
 		x = 1
 		y = 1
-                relative_position_id = ALB_Utopia_Perfected
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Utopia_Perfected
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Utopia_Perfected
 		}
 		cost = 1
@@ -4005,19 +4118,19 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Explore_Wealth"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Prosperity_Shared
 		icon = GFX_goal_ALB_Bring_Prosperity
 		x = 0
 		y = 2
-                relative_position_id = ALB_Utopia_Perfected
-                available = { 
-                        has_government = totalist
+        relative_position_id = ALB_Utopia_Perfected
+        available = { 
+            has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Socialisms_Orchard
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Explore_Wealth
 		}
 		cost = 1
@@ -4029,8 +4142,8 @@ focus_tree = {
 		}
 	}
 
-        #####################
-        ### Nexhmije Path ###
+    #####################
+    ### Nexhmije Path ###
 	#####################
 
 	focus = {
@@ -4038,7 +4151,7 @@ focus_tree = {
 		icon = GFX_goal_ALB_My_Enver
 		x = 6
 		y = 10
-                available = { 
+        available = { 
 			has_government = totalist
 			has_country_leader = {
 				name = "Nexhmije Hoxha"
@@ -4053,16 +4166,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_My_Sweet_Enver"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Sorrows_Aria
 		icon = GFX_goal_ALB_Sorrows_Aria
 		x = -1
 		y = 1
-                relative_position_id = ALB_My_Sweet_Enver
-                available = { 
+        relative_position_id = ALB_My_Sweet_Enver
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_My_Sweet_Enver
 		}
 		cost = 1
@@ -4073,17 +4186,17 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Sorrows_Aria"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Piercing_Fury
 		icon = GFX_goal_ALB_Piercing_Fury
 		x = 1
 		y = 1
-                relative_position_id = ALB_My_Sweet_Enver
-                available = { 
+        relative_position_id = ALB_My_Sweet_Enver
+        available = { 
 			has_government = totalist
                         has_completed_focus = ALB_Sorrows_Aria
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_My_Sweet_Enver
 		}
 		cost = 1
@@ -4094,19 +4207,19 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Piercing_Fury"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Strangle_Traitors
 		icon = GFX_goal_ALB_Strangle_Traitors
 		x = 0
 		y = 2
-                relative_position_id = ALB_My_Sweet_Enver
-                available = { 
+        relative_position_id = ALB_My_Sweet_Enver
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Sorrows_Aria
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Piercing_Fury
 		}
 		cost = 1
@@ -4117,16 +4230,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Strangle_Traitors"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Renewed_Vision_Albania
 		icon = GFX_goal_ALB_Renewed_Vision
 		x = 0
 		y = 1
-                relative_position_id = ALB_Strangle_Traitors
-                available = { 
+        relative_position_id = ALB_Strangle_Traitors
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Strangle_Traitors
 		}
 		cost = 1
@@ -4137,16 +4250,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Renewed_Vision_Albania"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Created_Paradise
 		icon = GFX_goal_ALB_Created_Paradise
 		x = -7
 		y = 1
-                relative_position_id = ALB_Renewed_Vision_Albania
-                available = { 
+        relative_position_id = ALB_Renewed_Vision_Albania
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Renewed_Vision_Albania
 		}
 		cost = 1
@@ -4157,16 +4270,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Created_Paradise"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Worthy_Enver
 		icon = GFX_goal_ALB_Worthy_Enver
 		x = -5
 		y = 1
-                relative_position_id = ALB_Renewed_Vision_Albania
-                available = { 
+        relative_position_id = ALB_Renewed_Vision_Albania
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Renewed_Vision_Albania
 		}
 		cost = 1
@@ -4177,19 +4290,19 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Worthy_Enver"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Deification_Enver_Hoxha
 		icon = GFX_goal_ALB_Enver_God
 		x = 1
 		y = 1
-                relative_position_id = ALB_Created_Paradise
-                available = { 
+        relative_position_id = ALB_Created_Paradise
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Created_Paradise
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Worthy_Enver
 		}
 		cost = 1
@@ -4200,16 +4313,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Deification_Enver_Hoxha"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Progress_Waits_Noone
 		icon = GFX_goal_ALB_Progress_Train
 		x = -3
 		y = 1
-                relative_position_id = ALB_Renewed_Vision_Albania
-                available = { 
+        relative_position_id = ALB_Renewed_Vision_Albania
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Renewed_Vision_Albania
 		}
 		cost = 1
@@ -4220,16 +4333,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Progress_Waits_Noone"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Collectives_Militarization
 		icon = GFX_goal_ALB_Collective_Militarization
 		x = -1
 		y = 1
-                relative_position_id = ALB_Renewed_Vision_Albania
-                available = { 
+        relative_position_id = ALB_Renewed_Vision_Albania
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Renewed_Vision_Albania
 		}
 		cost = 1
@@ -4240,19 +4353,19 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Collectives_Militarization"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Vanguard_Reborn_Leninism
 		icon = GFX_goal_ALB_Vanguard
 		x = 1
 		y = 1
-                relative_position_id = ALB_Progress_Waits_Noone
-                available = { 
+        relative_position_id = ALB_Progress_Waits_Noone
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Progress_Waits_Noone
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Collectives_Militarization
 		}
 		cost = 1
@@ -4263,16 +4376,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Vanguard_Reborn_Leninism"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Expansion_Sigurimi_Directorate
 		icon = GFX_goal_ALB_Expand_Sigurimi
 		x = 1
 		y = 1
-                relative_position_id = ALB_Renewed_Vision_Albania
-                available = { 
+        relative_position_id = ALB_Renewed_Vision_Albania
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Renewed_Vision_Albania
 		}
 		cost = 1
@@ -4283,16 +4396,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Expansion_Sigurimi_Directorate"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Who_Purges_Purgers
 		icon = GFX_goal_ALB_Purge_Purgers
 		x = 3
 		y = 1
-                relative_position_id = ALB_Renewed_Vision_Albania
-                available = { 
+        relative_position_id = ALB_Renewed_Vision_Albania
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Renewed_Vision_Albania
 		}
 		cost = 1
@@ -4303,19 +4416,19 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Who_Purges_Purgers"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_State_Permanent_Purification
 		icon = GFX_goal_ALB_Permanent_Purge
 		x = 1
 		y = 1
-                relative_position_id = ALB_Expansion_Sigurimi_Directorate
-                available = { 
+        relative_position_id = ALB_Expansion_Sigurimi_Directorate
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Expansion_Sigurimi_Directorate
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Who_Purges_Purgers
 		}
 		cost = 1
@@ -4326,16 +4439,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_State_Permanent_Purification"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Liquidate_Revisionist_Factionalism
 		icon = GFX_goal_ALB_Smash_Reaction
 		x = 5
 		y = 1
-                relative_position_id = ALB_Renewed_Vision_Albania
-                available = { 
+        relative_position_id = ALB_Renewed_Vision_Albania
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Renewed_Vision_Albania
 		}
 		cost = 1
@@ -4346,16 +4459,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Liquidate_Revisionist_Factionalism"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Dissolve_Party
 		icon = GFX_goal_ALB_Smashing_Communism
 		x = 7
 		y = 1
-                relative_position_id = ALB_Renewed_Vision_Albania
-                available = { 
+        relative_position_id = ALB_Renewed_Vision_Albania
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Renewed_Vision_Albania
 		}
 		cost = 1
@@ -4366,19 +4479,19 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Dissolve_Party"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_My_Will_Alone
 		icon = GFX_goal_ALB_My_Will_Alone
 		x = 1
 		y = 1
-                relative_position_id = ALB_Liquidate_Revisionist_Factionalism
-                available = { 
+        relative_position_id = ALB_Liquidate_Revisionist_Factionalism
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Liquidate_Revisionist_Factionalism
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Dissolve_Party
 		}
 		cost = 1
@@ -4389,25 +4502,25 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_My_Will_Alone"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Legacy_Eternal
 		icon = GFX_goal_ALB_Enver_Legacy
 		x = 0
 		y = 3
-                relative_position_id = ALB_Renewed_Vision_Albania
-                available = { 
+        relative_position_id = ALB_Renewed_Vision_Albania
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Deification_Enver_Hoxha
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Vanguard_Reborn_Leninism
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_State_Permanent_Purification
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_My_Will_Alone
 		}
 		cost = 1
@@ -4418,16 +4531,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Legacy_Eternal"
 		}
 	} 
-        focus = {
+    focus = {
 		id = ALB_Certain_Sense_Catharsis
 		icon = GFX_goal_ALB_Catharsis
 		x = -1
 		y = 1
-                relative_position_id = ALB_Legacy_Eternal
-                available = { 
+        relative_position_id = ALB_Legacy_Eternal
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Legacy_Eternal
 		}
 		cost = 1
@@ -4438,16 +4551,16 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Certain_Sense_Catharsis"
 		}
 	} 
-        focus = {
+    focus = {
 		id = ALB_Behold_Red_Horse
 		icon = GFX_goal_ALB_Red_Horse
 		x = 1
 		y = 1
-                relative_position_id = ALB_Legacy_Eternal
-                available = { 
+        relative_position_id = ALB_Legacy_Eternal
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Legacy_Eternal
 		}
 		cost = 1
@@ -4458,19 +4571,19 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus ALB_Behold_Red_Horse"
 		}
 	}
-        focus = {
+    focus = {
 		id = ALB_Plunge_Dagger_Rotten_Heart
 		icon = GFX_goal_ALB_Dagger_Heart
 		x = 0
 		y = 2
-                relative_position_id = ALB_Legacy_Eternal
-                available = { 
+        relative_position_id = ALB_Legacy_Eternal
+        available = { 
 			has_government = totalist
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Certain_Sense_Catharsis
 		}
-                prerequisite = {
+        prerequisite = {
 			focus = ALB_Behold_Red_Horse
 		}
 		cost = 1

@@ -1685,7 +1685,10 @@ focus = {
 		factor = 100
 	}
 	completion_reward = {
-		# event + idea purge
+		country_event = {
+			id = russia.450
+			days = 1
+		}
 	}
 }
 focus = {
@@ -1776,6 +1779,12 @@ focus = {
 			remove_idea = rus_siloviki_1
 			add_idea = rus_siloviki_2
 		}
+		if = {
+			limit = {
+				has_idea = rus_unfinished_land_reform
+			}
+			destroy_unfinished_land_reform = yes
+		}
 	}
 }
 focus = {
@@ -1792,6 +1801,56 @@ focus = {
 		factor = 60
 	}
 	completion_reward = {
+                random_owned_state = {
+			limit = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+				free_building_slots = {
+					building = arms_factory
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_state = {
+			limit = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+				free_building_slots = {
+					building = arms_factory
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
 	}
 }	
 focus = {

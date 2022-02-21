@@ -17,13 +17,13 @@ focus_tree = {
 		y = 0
 		cost = 5
 
-		available = {
-			
+		bypass = {
+			always = yes
 		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			custom_effect_tooltip = ARZ_rebellion_begin
 		}
 	}
 	
@@ -45,8 +45,12 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_find_weaponry"
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 5000
+				producer = MEX
+			}
 		}
 	}
 	
@@ -68,8 +72,81 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_conscript_WCC_stragglers"
+			add_manpower = 2500
+			if = {
+				limit = {
+					NOT = {
+						country_exists = WCC
+					}
+				}
+				create_corps_commander = {# Oscar Griswold
+					name = "Oscar Griswold"
+					desc = "USA_OSCAR_GRISWOLD_ARMY_DESC"
+					portrait_path = "gfx/leaders/USA/Portrait_USA_oscar_griswold_HOTB.png"
+					traits = { infantry_officer  }
+					skill = 2
+					attack_skill = 2
+					defense_skill = 1
+					planning_skill = 2
+					logistics_skill = 2
+				}
+				create_corps_commander = {#John K. Cannon
+					name = "John K. Cannon"
+					portrait_path = "gfx/leaders/WCC/Portrait_WCC_John_K_Cannon.png"
+					traits = { 
+						air_commander  
+						skilled_staffer  
+					}
+					skill = 2
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 2
+					logistics_skill = 2
+				}
+				create_corps_commander = {#
+					name = "Theodore Roosevelt Jr."
+					portrait_path = "gfx/leaders/WCC/Portrait_WCC_Teddy_Roosevelt_Jr.png"
+					traits = {
+						trait_reckless
+						politically_connected
+						war_hero
+					}
+					skill = 3
+					attack_skill = 3
+					defense_skill = 2
+					planning_skill = 2
+					logistics_skill = 1
+				}
+				create_corps_commander = {#
+					name = "Archibald Bulloch Roosevelt"
+					portrait_path = "gfx/leaders/WCC/Portrait_WCC_Archibald_Bulloch_Roosevelt.png"
+					traits = {
+						infantry_officer
+						war_hero
+						
+					}
+					skill = 2
+					attack_skill = 2
+					defense_skill = 3
+					planning_skill = 2
+					logistics_skill = 2
+				}
+
+				create_corps_commander = {# Walter Bedell Smith
+					name = "Walter Bedell Smith"
+					portrait_path = "gfx/leaders/WCC/Portrait_WCC_Walter_Bedell_Smith.png"
+					traits = { 
+						skilled_staffer 
+						trait_engineer 
+					}
+					skill = 3
+					attack_skill = 2
+					defense_skill = 1
+					planning_skill = 2
+					logistics_skill = 3
+				}
+			}
 		}
 	}
 	
@@ -91,8 +168,19 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_raise_SWLF_militias"
+			random_owned_state = {
+				create_unit = {
+					division = "division_template = \"SWLA Brigade\" start_experience_factor = 0.5"
+					owner = ARZ
+				}
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "division_template = \"SWLA Brigade\" start_experience_factor = 0.5"
+					owner = ARZ
+				}
+			}
 		}
 	}
 	
@@ -117,8 +205,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_arizona_rangers"
+			add_ideas = ARZ_arizona_rangers
 		}
 	}
 	
@@ -140,8 +228,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_goldwater_government"
+			add_country_leader_trait = ARZ_golden_water
 		}
 	}
 	
@@ -163,8 +251,10 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_state_of_emergency"
+			add_stability = 0.05
+			add_command_power = 100
+			army_experience = 100
 		}
 	}
 	
@@ -186,8 +276,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_legacy_of_guerilla_war"
+			add_ideas = ARZ_legacy_of_guerilla_war
 		}
 	}
 	
@@ -209,8 +299,11 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_use_our_terrain"
+			swap_ideas = {
+				remove_idea = ARZ_legacy_of_guerilla_war
+				add_idea = ARZ_legacy_of_guerilla_war2
+			}
 		}
 	}
 	
@@ -236,12 +329,15 @@ focus_tree = {
 		}
 
 		available = {
-			
+			has_country_flag = ARZ_war_over
+		}
+		bypass = {
+			has_country_flag = ARZ_war_over
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_independence_secured"
+			custom_effect_tooltip = ARZ_secured_independence_tt
 		}
 	}
 	
@@ -263,8 +359,11 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_state_of_the_SWLF"
+			country_event = {
+				id = arizona.3
+				days = 5
+			}
 		}
 	}
 	
@@ -288,12 +387,16 @@ focus_tree = {
 		}
 
 		available = {
-			
+			has_country_flag = ARZ_goldwater_supreme
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_extended_state_of_emergency"
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
+			}
+			add_stability = 0.05
 		}
 	}
 	
@@ -311,12 +414,15 @@ focus_tree = {
 		}
 
 		available = {
-			
+			has_government = paternal_autocrat
 		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			swap_ideas = {
+				remove_idea = ARZ_Extremism_In_The_Defense_of_Liberty_MEX
+				add_idea = ARZ_Extremism_In_The_Defense_of_Liberty_MEX2
+			}
 		}
 	}
 	
@@ -334,12 +440,16 @@ focus_tree = {
 		}
 
 		available = {
-			
+			has_government = paternal_autocrat
+			has_idea = ARZ_Extremism_In_The_Defense_of_Liberty_MEX2
 		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			swap_ideas = {
+				remove_idea = ARZ_Extremism_In_The_Defense_of_Liberty_MEX2
+				add_idea = ARZ_Extremism_In_The_Defense_of_Liberty_MEX3
+			}
 		}
 	}
 	
@@ -360,12 +470,15 @@ focus_tree = {
 		}
 
 		available = {
-			
+			has_government = paternal_autocrat
 		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			swap_ideas = {
+				remove_idea = ARZ_arizona_rangers
+				add_idea = ARZ_cowboy_country
+			}
 		}
 	}
 	
@@ -386,12 +499,12 @@ focus_tree = {
 		}
 
 		available = {
-			
+			has_government = paternal_autocrat
 		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			add_ideas = ARZ_goldwater_personality_cult
 		}
 	}
 	focus = {
@@ -416,7 +529,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			add_ideas = ARZ_anti_conservatism
 		}
 	}
 	focus = {
@@ -441,7 +554,10 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			swap_ideas = {
+				remove_idea = ARZ_anti_conservatism
+				add_idea = ARZ_authoritarian_libertarianism
+			}
 		}
 	}
 	
@@ -489,12 +605,15 @@ focus_tree = {
 		}
 
 		available = {
-			
+			has_country_flag = ARZ_elections_called
+		}
+		bypass = {
+			has_country_flag = ARZ_elections_called
 		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	

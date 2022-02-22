@@ -1127,12 +1127,91 @@ focus_tree = {
 		}
 
 		available = {
-			
+			has_global_flag = USA_civil_war_over_flag
 		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ARZ_rejoin_america"
-			
+			custom_effect_tooltip = ARZ_rejoin_america_tt
+			hidden_effect = {
+				if = {
+					limit = {
+						country_exists = CAL
+					}
+					CAL = {
+						annex_country = {
+							target = ARZ
+							transfer_troops = yes
+						}
+						change_tag_from = ROOT
+					}
+				}
+				
+				if = {
+					limit = {
+						country_exists = USA
+					}
+					USA = {
+						annex_country = {
+							target = ARZ
+							transfer_troops = yes
+						}
+						change_tag_from = ROOT
+					}
+				}
+				
+				if = {
+					limit = {
+						country_exists = TEX
+					}
+					TEX = {
+						annex_country = {
+							target = ARZ
+							transfer_troops = yes
+						}
+						change_tag_from = ROOT
+					}
+				}
+				
+				if = {
+					limit = {
+						country_exists = COR
+					}
+					COR = {
+						annex_country = {
+							target = ARZ
+							transfer_troops = yes
+						}
+						change_tag_from = ROOT
+					}
+				}
+				
+				if = {
+					limit = {
+						country_exists = CSA
+					}
+					CSA = {
+						annex_country = {
+							target = ARZ
+							transfer_troops = yes
+						}
+						change_tag_from = ROOT
+					}
+				}
+				
+				if = {
+					limit = {
+						country_exists = WCC
+					}
+					WCC = {
+						annex_country = {
+							target = ARZ
+							transfer_troops = yes
+						}
+						change_tag_from = ROOT
+					}
+				}
+			}
 		}
 	}
 	
@@ -1159,7 +1238,22 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus ARZ_greater_arizona"
-			
+			create_wargoal = {
+				type = annex_everything target = TXS
+			}
+			create_wargoal = {
+				type = annex_everything target = DSR
+			}
+			create_wargoal = {
+				type = annex_everything target = CAL
+			}
+			add_state_core = 1096
+			add_state_core = 1161
+			add_state_core = 380
+			add_state_core = 380
+			add_state_core = 379
+			add_state_core = 1165
+			add_state_core = 1166
 		}
 	}
 	

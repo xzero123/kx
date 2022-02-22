@@ -10825,6 +10825,27 @@ country_event = { ######Arizona Revolt
 			}
 		}
 	}
+	
+	option = { ####YAY
+		name = mexico_req.590.b
+		ai_chance = {
+			factor = 0
+		}
+		ARZ = {
+			transfer_state = 376
+			transfer_state = 377
+			load_oob = ARZMIL
+			declare_war_on = {	
+				target = MEX
+				type = annex_everything
+			}
+			hidden_effect = {
+				remove_ideas = ARZ_Extremism_In_The_Defense_of_Liberty
+				add_ideas = ARZ_Extremism_In_The_Defense_of_Liberty_MEX
+			}
+			change_tag_from = MEX
+		}
+	}
 }
 
 country_event = { ######Utah Revolt

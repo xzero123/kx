@@ -418,7 +418,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_extremism_defense_of_liberty"
 			swap_ideas = {
 				remove_idea = ARZ_Extremism_In_The_Defense_of_Liberty_MEX
 				add_idea = ARZ_Extremism_In_The_Defense_of_Liberty_MEX2
@@ -445,7 +445,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_always_on_alert"
 			swap_ideas = {
 				remove_idea = ARZ_Extremism_In_The_Defense_of_Liberty_MEX2
 				add_idea = ARZ_Extremism_In_The_Defense_of_Liberty_MEX3
@@ -474,7 +474,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_cowboy_country"
 			swap_ideas = {
 				remove_idea = ARZ_arizona_rangers
 				add_idea = ARZ_cowboy_country
@@ -503,7 +503,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_goldwater_personality_cult"
 			add_ideas = ARZ_goldwater_personality_cult
 		}
 	}
@@ -528,7 +528,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_anti_conservatism"
 			add_ideas = ARZ_anti_conservatism
 		}
 	}
@@ -553,7 +553,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_authoritarian_libertarianism"
 			swap_ideas = {
 				remove_idea = ARZ_anti_conservatism
 				add_idea = ARZ_authoritarian_libertarianism
@@ -581,12 +581,15 @@ focus_tree = {
 		}
 
 		available = {
-			
+			has_country_flag = ARZ_elections_called
+		}
+		bypass = {
+			has_country_flag = ARZ_elections_called
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_arizonan_democracy"
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	
@@ -605,15 +608,25 @@ focus_tree = {
 		}
 
 		available = {
-			has_country_flag = ARZ_elections_called
-		}
-		bypass = {
-			has_country_flag = ARZ_elections_called
+			OR = {
+				has_government = market_liberal
+				has_government = social_conservative
+			}
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			custom_effect_tooltip = unlock_focuses
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_secure_democracy"
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = ARZ_Extremism_In_The_Defense_of_Liberty_MEX
+					add_idea = ARZ_secure_democracy
+				}
+			}
+			hidden_effect = {
+				remove_ideas = ARZ_Extremism_In_The_Defense_of_Liberty_MEX
+				remove_ideas = ARZ_Extremism_In_The_Defense_of_Liberty
+				add_ideas = ARZ_secure_democracy
+			}
 		}
 	}
 	
@@ -637,12 +650,16 @@ focus_tree = {
 		}
 
 		available = {
-			
+			has_government = social_conservative
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_president_taylor"
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.05
+			}
+			add_stability = 0.05
 		}
 	}
 	
@@ -664,8 +681,9 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_railway_construction"
+			add_country_leader_trait = eco_railway_magnate
+			random_owned_state = { add_building_construction = { type = infrastructure level = 2 instant_build = yes } }
 		}
 	}
 	
@@ -687,8 +705,18 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_discredit_goldwater"
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.1
+			}
+			add_political_power = 100
+			add_stability = 0.05
+			add_war_support = 0.05
 		}
 	}
 	
@@ -713,8 +741,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_pharmaceutical_companies"
+			add_ideas = ARZ_pharmaceutical_companies
 		}
 	}
 	
@@ -739,8 +767,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_democratic_arizona"
+			add_ideas = ARZ_democratic_arizona
 		}
 	}
 	
@@ -764,12 +792,16 @@ focus_tree = {
 		}
 
 		available = {
-			
+			has_government = market_liberal
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_president_goldwater"
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.05
+			}
+			add_stability = 0.05
 		}
 	}
 	
@@ -787,12 +819,12 @@ focus_tree = {
 		}
 
 		available = {
-			
+			has_government = market_liberal
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_libertarian_politics"
+			add_ideas = ARZ_libertarian_politics
 		}
 	}
 	
@@ -810,12 +842,22 @@ focus_tree = {
 		}
 
 		available = {
-			
+			has_government = market_liberal
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_hoovers_legacy"
+			add_popularity = {
+				ideology = social_conservative
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.1
+			}
+			add_political_power = 100
+			add_stability = 0.05
+			add_war_support = 0.05
 		}
 	}
 	
@@ -836,12 +878,15 @@ focus_tree = {
 		}
 
 		available = {
-			
+			has_government = market_liberal
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_desegregation"
+			swap_ideas = {
+				remove_idea = ARZ_libertarian_politics
+				add_idea = ARZ_libertarian_politics2
+			}
 		}
 	}
 	
@@ -862,12 +907,12 @@ focus_tree = {
 		}
 
 		available = {
-			
+			has_government = market_liberal
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_republican_arizona"
+			add_ideas = ARZ_republican_arizona
 		}
 	}
 	
@@ -891,8 +936,10 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_reform_the_SWLF"
+			add_command_power = 100
+			army_experience = 100
+			custom_effect_tooltip = ARZ_reform_SWLF_tt
 		}
 	}
 	
@@ -914,8 +961,14 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_new_air_force"
+			air_experience = 100
+			add_doctrine_cost_reduction = {
+				name = air_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
 		}
 	}
 	
@@ -937,8 +990,26 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_rolling_thunder"
+			every_owned_state = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+				technology = heavy_fighter1
+				technology = heavy_fighter2
+				technology = heavy_fighter3
+			}
+			add_equipment_to_stockpile = { type = fighter_equipment_0 amount = 200 producer = USA }
 		}
 	}
 	
@@ -960,8 +1031,15 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_increase_arms_production"
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 	
@@ -983,8 +1061,16 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_new_economy"
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_ideas = ARZ_new_economy
 		}
 	}
 	
@@ -1006,8 +1092,20 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
-			
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_old_dogs"
+			add_command_power = 100
+			add_tech_bonus = {
+				name = ARG_Modernised_Equipement
+				bonus = 1
+				uses = 1
+				category = infantry_weapons
+			}
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
 		}
 	}
 	
@@ -1033,7 +1131,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_rejoin_america"
 			
 		}
 	}
@@ -1060,7 +1158,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus ARZ_to_arms"
+			log = "[GetDateText]: [Root.GetName]: Focus ARZ_greater_arizona"
 			
 		}
 	}

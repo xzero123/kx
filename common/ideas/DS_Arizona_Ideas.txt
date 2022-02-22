@@ -191,5 +191,90 @@ ideas = {
 			removal_cost = -1
 			picture = BBR_vanguard_party
 		}
+		
+		ARZ_pharmaceutical_companies = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea ARZ_pharmaceutical_companies"}
+			picture = medicare
+			modifier = {
+				monthly_population = 0.3
+				army_morale_factor = 0.1
+			}
+			equipment_bonus = {
+				field_hospital = {
+					casualty_trickleback = 0.05
+					instant = yes
+				}
+			}
+		}
+		
+		ARZ_democratic_arizona = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea ARZ_democratic_arizona"}
+			picture = medicare
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.05
+				social_conservative_drift = 0.02
+			}
+		}
+		
+		ARZ_secure_democracy = {
+			picture = extremism2
+			modifier = {
+				attrition = -0.07
+				supply_consumption_factor  = -0.05
+				army_speed_factor = 0.15
+				army_org_Factor = -0.05
+				planning_speed = 0.02
+				paternal_autocrat_drift = -0.03
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+			}
+		}
+		
+		ARZ_libertarian_politics = { 
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea ARZ_libertarian_politics"}
+			modifier = {
+				political_power_gain = 0.05
+				production_speed_buildings_factor = 0.05
+			}
+			removal_cost = -1
+			picture = BBR_vanguard_party
+		}
+		
+		ARZ_libertarian_politics2 = { 
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea ARZ_libertarian_politics"}
+			name = ARZ_libertarian_politics
+			modifier = {
+				political_power_gain = 0.05
+				production_speed_buildings_factor = 0.05
+				conscription_factor = 0.05
+				army_defence_factor = 0.05
+			}
+			removal_cost = -1
+			picture = BBR_vanguard_party
+		}
+		
+		ARZ_republican_arizona = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea ARZ_republican_arizona"}
+			picture = medicare
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.05
+				social_conservative_drift = 0.02
+			}
+		}
+		
+		ARZ_new_economy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea ARZ_new_economy"}
+			picture = great_depression
+			modifier = {
+				production_factory_max_efficiency_factor = -0.15
+				production_factory_efficiency_gain_factor = -0.15
+				production_speed_buildings_factor = -0.20
+				consumer_goods_factor = 0.05
+				local_resources_factor = 0.10
+				min_export = -0.30
+			}
+		}
 	}
 }

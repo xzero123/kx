@@ -392,8 +392,8 @@ ideas = {
 			removal_cost = -1
 			picture = Knights_of_the_Grail
 			modifier = {
-				justify_war_goal_time = 0.3
-				generate_wargoal_tension = 0.4
+				justify_war_goal_time = -0.3
+				generate_wargoal_tension = -0.4
 			}
 		}
 		BRG_revolutionary_threat  = {
@@ -546,6 +546,19 @@ ideas = {
 			}
 		}
 		
+		
+		BRG_hobart_cult = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea BRG_hobart_cult"}
+			allowed = { always = no }
+			removal_cost = -1
+			picture = BRG_Hobart_Cult
+			modifier = {
+				stability_factor = 0.10
+				war_support_factor = 0.10
+				political_power_gain = 0.15
+
+			}
+		}
 		BRG_mil_dom = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea BRG_mil_dom"}
 			allowed = { always = no }

@@ -5,64 +5,297 @@
 ###########################
 
 add_namespace = ukraine
+add_namespace = ukrpol
+add_namespace = ukreco
 add_namespace = monsocukr
 
 country_event = { # Our Kingdom
-	id = ukraine.1
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.1" }
-	title = ukraine.1.t
-	desc = ukraine.1.d
+	id = ukrpol.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.1" }
+	title = ukrpol.1.t
+	desc = ukrpol.1.d
 	is_triggered_only = yes
 
 	option = {
-		name = ukraine.1.a
-
-		country_event = ukraine.2
+		name = ukrpol.1.a
+		country_event = {
+			id = ukrpol.2
+			days = 1
+		}
 	}
 }
-
-country_event = { # The Ukrainian Government
-	id = ukraine.2
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.2" }
-	title = ukraine.2.t
-	desc = ukraine.2.d
-
+country_event = { # Our Kingdom
+	id = ukrpol.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.2" }
+	title = ukrpol.2.t
+	desc = ukrpol.2.d
 	is_triggered_only = yes
 
 	option = {
-		name = ukraine.2.a
+		name = ukrpol.2.a
+		country_event = {
+			id = ukrpol.3
+			days = 1
+		}
 	}
+}
+country_event = { # Our Kingdom
+	id = ukrpol.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.3" }
+	title = ukrpol.3.t
+	desc = ukrpol.3.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.3.a
+		country_event = {
+			id = ukrpol.4
+			days = 1
+		}
+	}
+}
+country_event = { # Our Kingdom
+	id = ukrpol.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.4" }
+	title = ukrpol.4.t
+	desc = ukrpol.4.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.4.a
+	}
+}
+country_event = { # King Opens the Soim
+	id = ukrpol.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.5" }
+	title = ukrpol.5.t
+	desc = ukrpol.5.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.5.a
+		UKR_increase_king = yes
+		hidden_effect = {
+			country_event = {
+				id = ukrpol.7
+				days = 3
+			}
+		}
+	}
+}
+country_event = { # Strike
+	id = ukrpol.6
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.6" }
+	title = ukrpol.6.t
+	desc = ukrpol.6.d
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_strike
+
+	option = {
+		name = ukrpol.6.a
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0.5
+				has_country_flag = UKR_hetman_path
+			}
+		}
+		UKR_decrease_direktoria = yes
+		add_timed_idea = {
+			idea = UKR_minor_concessions
+			days = 90
+		}
+		if = {
+			limit = { has_country_flag = UKR_king_path }
+			UKR_increase_king = yes
+		}
+		else = {
+			UKR_increase_hetman = yes
+		}
+	}
+	option = {
+		name = ukrpol.6.b
+		ai_chance = {
+			base = 35
+		}
+		227 = {
+			damage_building = {
+				type = industrial_complex
+				damage = 1
+			}
+		}
+		add_stability = -0.07
+		UKR_increase_direktoria = yes
+		add_timed_idea = {
+			idea = UKR_general_strike
+			days = 14
+		}
+		if = {
+			limit = { has_country_flag = UKR_king_path }
+			UKR_decrease_king = yes
+		}
+		else = {
+			UKR_decrease_hetman = yes
+		}
+	}
+	option = {
+		name = ukrpol.6.c
+		ai_chance = {
+			base = 15
+		}
+		227 = {
+			damage_building = {
+				type = infrastructure
+				damage = 1
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 1
+			}
+		}
+		UKR_increase_direktoria = yes
+		add_timed_idea = {
+			idea = UKR_general_strike_big
+			days = 30
+		}
+		if = {
+			limit = { has_country_flag = UKR_king_path }
+			UKR_decrease_king = yes
+		}
+		else = {
+			UKR_decrease_hetman = yes
+		}
+	}
+}
+country_event = { # Derzhavna Varta Report
+	id = ukrpol.7
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.7" }
+	title = ukrpol.7.t
+	desc = ukrpol.7.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.7.a
+		UKR_increase_hetman = yes
+		hidden_effect = {
+			country_event = {
+				id = ukrpol.8
+				days = 14
+				random_days = 50
+			}
+		}
+	}
+}
+country_event = { # Anti-Monarchist propaganda
+	id = ukrpol.8
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.8" }
+	title = ukrpol.8.t
+	desc = ukrpol.8.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.8.a
+		UKR_increase_direktoria = yes
+		UKR_decrease_hetman = yes
+		UKR_decrease_king = yes		
+	}
+}
+country_event = { # German Garrison leaves
+	id = ukrpol.9
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.9" }
+	title = ukrpol.9.t
+	desc = ukrpol.9.d
+	is_triggered_only = yes
+	picture = GFX_report_event_GER_march
+
+	option = {
+		name = ukrpol.9.a
+		custom_effect_tooltip = UKR_GER_garrison_leaves
+		unlock_national_focus = UKR_Our_Future
+		GER = {
+			add_ai_strategy = {
+				type = dont_defend_ally_borders
+				id = UKR
+				value = 200
+			}
+			add_ai_strategy = {
+				type = ignore
+				id = UKR
+				value = 200
+			}
+		}
+		country_event = {
+			id = ukrpol.10
+			days = 2
+		}
+	}
+}
+country_event = { # Dualism
+	id = ukrpol.10
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.9" }
+	title = ukrpol.9.t
+	desc = ukrpol.9.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.10.a
+		ai_chance = {
+			base = 50
+		}			
+		set_country_flag = UKR_king_path
+		complete_national_focus = UKR_King_Path
+	}
+	option = {
+		name = ukrpol.10.b
+		ai_chance = {
+			base = 50
+		}			
+		set_country_flag = UKR_hetman_path
+		complete_national_focus = UKR_Hetman_Path
+	}
+	
 }
 
 country_event = { # Black Monday Hits Ukraine!
-	id = ukraine.3
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.3" }
-	title = ukraine.3.t
-	desc = ukraine.3.d
+	id = ukreco.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukreco.1" }
+	title = ukreco.1.t
+	desc = ukreco.1.d
 	is_triggered_only = yes
 
 	option = {
-		name = ukraine.3.a
-
-		add_ideas = {
-			UKR_black_monday
-		}
+		name = ukreco.1.a
+		add_ideas = UKR_black_monday
 		set_country_flag = UKR_BLMON
+		hidden_effect = {
+			country_event = {
+				id = ukreco.4
+				days = 5
+			}
+			country_event = {
+				id = ukrpol.9
+				days = 14
+			}
+			country_event = {
+				id = ukrpol.6
+				days = 20
+			}
+		}
 	}
 }
 
 country_event = { # Agricultural crisis!
-	id = ukraine.4
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.4" }
-	title = ukraine.4.t
-	desc = ukraine.4.d
+	id = ukreco.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukreco.2" }
+	title = ukreco.2.t
+	desc = ukreco.2.d
 
 	fire_only_once = yes
 
 	is_triggered_only = yes
 
 	option = {
-		name = ukraine.4.a
+		name = ukreco.2.a
 
 		add_opinion_modifier = {
 			target = GER
@@ -100,15 +333,32 @@ country_event = { # Agricultural crisis!
 		add_stability = -0.2
 		hidden_effect = {
 			country_event = {
-				id = ukraine.5
-				days = 12
-			}
-			country_event = {
 				id = crm.3
 				days = 5
 			}
 		}
 		set_country_flag = UKR_agriculture_crisis
+	}
+}
+country_event = { # Germany Saves Us
+	id = ukreco.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukreco.3" }
+	title = ukreco.3.t
+	desc = ukreco.3.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = ukreco.3.a
+
+		add_opinion_modifier = {
+			target = GER
+			modifier = UKR_GER_help_agr_crisis
+		} # 10
+		
+		add_stability = 0.03
 	}
 }
 
@@ -4473,7 +4723,7 @@ country_event = { # Memories of the Republic
 
 country_event = { # Vasil Shot
 	id = monsocukr.1
-	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.1" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.1" }
 	title = monsocukr.1.t
 	desc = monsocukr.1.d
 
@@ -4534,7 +4784,7 @@ country_event = { # Vasil Shot
 
 country_event = { # Khruhschev Trial
 	id = monsocukr.2
-	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.2" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.2" }
 	title = monsocukr.2.t
 	desc = monsocukr.2.d
 
@@ -4568,7 +4818,7 @@ country_event = { # Khruhschev Trial
 
 country_event = { # Shumsky Bro
 	id = monsocukr.3
-	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.3" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.3" }
 	title = monsocukr.3.t
 	desc = monsocukr.3.d
 
@@ -4604,7 +4854,7 @@ country_event = { # Shumsky Bro
 
 country_event = { # Ukrainian Culture
 	id = monsocukr.4
-	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.4" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.4" }
 	title = monsocukr.4.t
 	desc = monsocukr.4.d
 
@@ -4620,7 +4870,7 @@ country_event = { # Ukrainian Culture
 
 country_event = { # No Russian
 	id = monsocukr.5
-	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.5" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.5" }
 	title = monsocukr.5.t
 	desc = monsocukr.5.d
 
@@ -4633,7 +4883,7 @@ country_event = { # No Russian
              add_war_support = 0.03
              hidden_effect = {
 		    country_event = {
-			  id = monsocukr.11
+			  id = ukraine.11
 			  days = 8
 		    }
 	     }
@@ -4642,7 +4892,7 @@ country_event = { # No Russian
 
 country_event = { # Khmelnystky Raids
 	id = monsocukr.6
-	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.6" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.6" }
 	title = monsocukr.6.t
 	desc = monsocukr.6.d
 
@@ -4665,7 +4915,7 @@ country_event = { # Khmelnystky Raids
 
 country_event = { # Raid on Akerman
 	id = monsocukr.7
-	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.7" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.7" }
 	title = monsocukr.7.t
 	desc = monsocukr.7.d
 
@@ -4699,7 +4949,7 @@ country_event = { # Raid on Akerman
 
 country_event = { # Romanian Response 
 	id = monsocukr.8
-	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.8" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.8" }
 	title = monsocukr.8.t
 	desc = monsocukr.8.d
 
@@ -4729,7 +4979,7 @@ country_event = { # Romanian Response
 
 country_event = { # Ukraine Alliance
 	id = monsocukr.9
-	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.9" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.9" }
 	title = monsocukr.9.t
 	desc = monsocukr.9.d
 
@@ -4760,7 +5010,7 @@ country_event = { # Ukraine Alliance
 
 country_event = { # Monbol WHR Response
 	id = monsocukr.10
-	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.10" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.10" }
 	title = monsocukr.10.t
 	desc = monsocukr.10.d
 
@@ -4774,7 +5024,7 @@ country_event = { # Monbol WHR Response
 
 country_event = { # No Russianer
 	id = monsocukr.11
-	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.11" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.11" }
 	title = monsocukr.11.t
 	desc = monsocukr.1.d
 

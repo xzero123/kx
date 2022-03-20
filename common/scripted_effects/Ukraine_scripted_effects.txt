@@ -1,3 +1,227 @@
+UKR_setup_breadbasket = {
+	add_dynamic_modifier = { modifier = UKR_breadbasket_of_europe_modifier	} 
+	add_ideas = UKR_breadbasket_of_europe_idea
+}
+UKR_setup_political_variables = {
+	set_variable = { UKR_Direktoriia_Strength = 1 }
+	set_variable = { UKR_King_Strength = 2 }
+	set_variable = { UKR_Hetman_Strenth = 3 }
+	recalculate_ukrainian_political_variables = yes
+}
+recalculate_ukrainian_political_variables = {
+	clamp_variable = {
+		var = UKR_Direktoriia_Strength
+		min = 1
+		max = 5
+	}
+	clamp_variable = {
+		var = UKR_King_Strength
+		min = 1
+		max = 5
+	}
+	clamp_variable = {
+		var = UKR_Hetman_Strenth
+		min = 1
+		max = 5
+	}
+	set_variable = { UKR_Direktoriia_Strength_real = UKR.party_popularity@social_democrat }
+	add_to_variable = { UKR_Direktoriia_Strength_real = UKR.party_popularity@social_liberal }
+	add_to_variable = { UKR_Direktoriia_Strength_real = UKR.party_popularity@syndicalist }
+	add_to_variable = { UKR_Direktoriia_Strength_real = UKR.party_popularity@radical_socialist }
+	add_to_variable = { UKR_Direktoriia_Strength_real = UKR.party_popularity@totalist }
+	multiply_variable = { UKR_Direktoriia_Strength_real = UKR_Direktoriia_Strength }
+	
+	set_variable = { UKR_King_Strength_real = UKR.party_popularity@social_conservative }
+	add_to_variable = { UKR_King_Strength_real = UKR.party_popularity@authoritarian_democrat }
+	if = {
+		limit = {
+			set_temp_variable = { coalition_target = token:national_populist }
+			has_coalition_with_target = yes
+		}
+		add_to_variable = { UKR_King_Strength_real = UKR.party_popularity@national_populist }
+	}
+	multiply_variable = { UKR_King_Strength_real = UKR_King_Strength }
+	
+	
+	set_variable = { UKR_Hetman_Strenth_real = UKR.party_popularity@paternal_autocrat }
+	if = {
+		limit = {
+			set_temp_variable = { coalition_target = token:social_liberal }
+			has_coalition_with_target = yes
+		}
+		add_to_variable = { UKR_Hetman_Strenth_real = UKR.party_popularity@social_liberal }
+	}
+	multiply_variable = { UKR_Hetman_Strenth_real = UKR_Hetman_Strenth }
+}
+	
+UKR_increase_king = {
+	custom_effect_tooltip = UKR_increase_king_tt
+	hidden_effect = {
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.02
+		}
+		if = {
+			limit = {
+				set_temp_variable = { coalition_target = token:authoritarian_democrat }
+				has_coalition_with_target = yes
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.01
+			}
+		}
+		if = {
+			limit = {
+				set_temp_variable = { coalition_target = token:social_liberal }
+				has_coalition_with_target = yes
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.01
+			}
+		}
+		if = {
+			limit = {
+				set_temp_variable = { coalition_target = token:national_populist }
+				has_coalition_with_target = yes
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.01
+			}
+		}
+		add_to_variable = { UKR_King_Strength = 1 }
+	}
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_king = {
+	custom_effect_tooltip = UKR_decrease_king_tt
+	hidden_effect = {
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.02
+		}
+		if = {
+			limit = {
+				set_temp_variable = { coalition_target = token:authoritarian_democrat }
+				has_coalition_with_target = yes
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.01
+			}
+		}
+		if = {
+			limit = {
+				set_temp_variable = { coalition_target = token:social_liberal }
+				has_coalition_with_target = yes
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.01
+			}
+		}
+		if = {
+			limit = {
+				set_temp_variable = { coalition_target = token:national_populist }
+				has_coalition_with_target = yes
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.01
+			}
+		}
+		add_to_variable = { UKR_King_Strength = -1 }
+	}
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_hetman = {
+	custom_effect_tooltip = UKR_increase_hetman_tt
+	hidden_effect = {
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		}
+		if = {
+			limit = {
+				set_temp_variable = { coalition_target = token:market_liberal }
+				has_coalition_with_target = yes
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.01
+			}
+		}
+		if = {
+			limit = {
+				set_temp_variable = { coalition_target = token:national_populist }
+				has_coalition_with_target = yes
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.01
+			}
+		}
+		add_to_variable = { UKR_Hetman_Strenth = 1 }
+	}
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_hetman = {
+	custom_effect_tooltip = UKR_decrease_hetman_tt
+	hidden_effect = {
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.02
+		}
+		if = {
+			limit = {
+				set_temp_variable = { coalition_target = token:market_liberal }
+				has_coalition_with_target = yes
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.01
+			}
+		}
+		if = {
+			limit = {
+				set_temp_variable = { coalition_target = token:national_populist }
+				has_coalition_with_target = yes
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.01
+			}
+		}
+		add_to_variable = { UKR_Hetman_Strenth = -1 }
+	}
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_direktoria = {
+	custom_effect_tooltip = UKR_increase_direktoria_tt
+	hidden_effect = {
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.02
+		}
+		add_to_variable = { UKR_Direktoriia_Strength = 1 }
+	}
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_direktoria = {
+	custom_effect_tooltip = UKR_decrease_direktoria_tt
+	hidden_effect = {
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.02
+		}
+		add_to_variable = { UKR_Direktoriia_Strength = -1 }
+	}
+	recalculate_ukrainian_political_variables = yes
+}
+
+
 UKR_remove_king = {
 	hidden_effect = {
 		UKR = {

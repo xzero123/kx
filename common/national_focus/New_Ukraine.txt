@@ -1,0 +1,508 @@
+###Monsocs by Nickay###
+
+focus_tree = {
+	id = UKR_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = UKR
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 2250 y = 3550 }
+
+	focus = {
+		id = UKR_Our_Future
+		icon = GFX_goal_Deutsches_Heer
+		cost = 1
+		x = 8
+		y = 0
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		bypass = {
+			has_country_flag = UKR_Our_Future
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Our_Future"
+			custom_effect_tooltip = our_future_tooltip
+		}
+	}
+	focus = {
+		id = UKR_King_Path
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 0
+		relative_position_id = UKR_Our_Future
+		x = -4
+		y = 1
+		prerequisite = {
+			focus = UKR_Our_Future
+		}
+		mutually_exclusive = {
+			focus = UKR_Hetman_Path
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_King_Path"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {
+		id = UKR_Coalition_With_UVO
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 0
+		relative_position_id = UKR_King_Path
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = UKR_King_Path
+		}
+		mutually_exclusive = {
+			focus = UKR_Coalition_Of_Monarchists
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Coalition_With_UVO"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {
+		id = UKR_OUN_Nationalists
+		icon = GFX_goal_PAL_Irrigation_Program
+		cost = 0
+		relative_position_id = UKR_King_Path
+		x = 1
+		y = 2
+		prerequisite = {
+			focus = UKR_Coalition_With_UVO
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_OUN_Nationalists"
+			add_stability = 0.03
+			259 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			201 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			203 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_Recall_Melnyk_From_Galicia
+		icon = GFX_goal_PAL_Irrigation_Program
+		cost = 0
+		relative_position_id = UKR_King_Path
+		x = 3
+		y = 2
+		prerequisite = {
+			focus = UKR_Coalition_With_UVO
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Recall_Melnyk_From_Galicia"
+		}
+	}
+	focus = {
+		id = UKR_Fully_Equip_Sich_Streltsy
+		icon = GFX_goal_PAL_Irrigation_Program
+		cost = 0
+		relative_position_id = UKR_King_Path
+		x = 2
+		y = 3
+		prerequisite = {
+			focus = UKR_Recall_Melnyk_From_Galicia
+		}
+		prerequisite = {
+			focus = UKR_OUN_Nationalists
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Fully_Equip_Sich_Streltsy"
+		}
+	}
+	focus = {
+		id = UKR_Coalition_Of_Monarchists
+		icon = GFX_goal_PAL_Irrigation_Program
+		cost = 0
+		relative_position_id = UKR_King_Path
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = UKR_King_Path
+		}
+		mutually_exclusive = {
+			focus = UKR_Coalition_With_UVO
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Coalition_Of_Monarchists"
+		}
+	}
+	focus = {
+		id = UKR_Grant_Lypynsky_An_Upper_Hand
+		icon = GFX_goal_PAL_Irrigation_Program
+		cost = 0
+		relative_position_id = UKR_King_Path
+		x = -1
+		y = 2
+		prerequisite = {
+			focus = UKR_Coalition_Of_Monarchists
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Grant_Lypynsky_An_Upper_Hand"
+		}
+	}
+	focus = {
+		id = UKR_Relieve_The_Landowners_Tax_Burden
+		icon = GFX_goal_PAL_Irrigation_Program
+		cost = 0
+		relative_position_id = UKR_King_Path
+		x = -3
+		y = 2
+		prerequisite = {
+			focus = UKR_Coalition_Of_Monarchists
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Relieve_The_Landowners_Tax_Burden"
+		}
+	}
+	focus = {
+		id = UKR_Call_For_Austrian_Intervention
+		icon = GFX_goal_PAL_Irrigation_Program
+		cost = 0
+		relative_position_id = UKR_King_Path
+		x = -2
+		y = 3
+		prerequisite = {
+			focus = UKR_Relieve_The_Landowners_Tax_Burden
+		}
+		prerequisite = {
+			focus = UKR_Grant_Lypynsky_An_Upper_Hand
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Call_For_Austrian_Intervention"
+		}
+	}
+	focus = {
+		id = UKR_Prepare_The_Anti_Hetman_Coup
+		icon = GFX_goal_PAL_Irrigation_Program
+		cost = 0
+		relative_position_id = UKR_King_Path
+		x = 0
+		y = 4
+		prerequisite = {
+			focus = UKR_Call_For_Austrian_Intervention
+			focus = UKR_Fully_Equip_Sich_Streltsy
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Prepare_The_Anti_Hetman_Coup"
+		}
+	}
+	focus = {
+		id = UKR_Hetman_Path
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 0
+		relative_position_id = UKR_Our_Future
+		x = 4
+		y = 1
+		prerequisite = {
+			focus = UKR_Our_Future
+		}
+		mutually_exclusive = {
+			focus = UKR_King_Path
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Hetman_Path"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {
+		id = UKR_Coalition_Wih_UDP
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 0
+		relative_position_id = UKR_Hetman_Path
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = UKR_Hetman_Path
+		}
+		mutually_exclusive = {
+			focus = UKR_Dissolve_Sejm
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Coalition_Wih_UDP"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {
+		id = UKR_Concessions_To_The_National_Democrats
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 0
+		relative_position_id = UKR_Hetman_Path
+		x = -1
+		y = 2
+		prerequisite = {
+			focus = UKR_Coalition_Wih_UDP
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Concessions_To_The_National_Democrats"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {
+		id = UKR_Ease_The_Pressure_On_Peasants
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 0
+		relative_position_id = UKR_Hetman_Path
+		x = -3
+		y = 2
+		prerequisite = {
+			focus = UKR_Coalition_Wih_UDP
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Ease_The_Pressure_On_Peasants"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {
+		id = UKR_Discredit_Moderate_Monarchists
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 0
+		relative_position_id = UKR_Hetman_Path
+		x = -2
+		y = 3
+		prerequisite = {
+			focus = UKR_Ease_The_Pressure_On_Peasants
+		}
+		prerequisite = {
+			focus = UKR_Concessions_To_The_National_Democrats
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Discredit_Moderate_Monarchists"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {
+		id = UKR_Dissolve_Sejm
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 0
+		relative_position_id = UKR_Hetman_Path
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = UKR_Hetman_Path
+		}
+		mutually_exclusive = {
+			focus = UKR_Coalition_Wih_UDP
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Dissolve_Sejm"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {
+		id = UKR_Extend_State_Powers
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 0
+		relative_position_id = UKR_Hetman_Path
+		x = 1
+		y = 2
+		prerequisite = {
+			focus = UKR_Dissolve_Sejm
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Extend_State_Powers"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {
+		id = UKR_Disarm_The_Sich_Streltsy
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 0
+		relative_position_id = UKR_Hetman_Path
+		x = 3
+		y = 2
+		prerequisite = {
+			focus = UKR_Dissolve_Sejm
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Disarm_The_Sich_Streltsy"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {
+		id = UKR_Empower_Derzhavna_Varta
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 0
+		relative_position_id = UKR_Hetman_Path
+		x = 2
+		y = 3
+		prerequisite = {
+			focus = UKR_Extend_State_Powers
+		}
+		prerequisite = {
+			focus = UKR_Disarm_The_Sich_Streltsy
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Empower_Derzhavna_Varta"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {
+		id = UKR_Hetmanate_Is_Not_Yet_Lost
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 0
+		relative_position_id = UKR_Hetman_Path
+		x = 0
+		y = 4
+		prerequisite = {
+			focus = UKR_Discredit_Moderate_Monarchists
+			focus = UKR_Empower_Derzhavna_Varta
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Hetmanate_Is_Not_Yet_Lost"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	
+	
+	
+}

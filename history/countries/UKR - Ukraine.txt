@@ -104,33 +104,37 @@ add_opinion_modifier = { target = FRA modifier = embargo }
 add_opinion_modifier = { target = ENG modifier = embargo }
 add_opinion_modifier = { target = SRI modifier = embargo }
 
-country_event = { id = ukraine.1 days = 2 }
-country_event = { id = ukraine.76 days = 40 }
-country_event = { id = ukraine.77 days = 190 }
+country_event = { id = ukrpol.1 days = 2 }
+country_event = { id = ukrpol.5 days = 9 }
+
+UKR_setup_political_variables = yes
 
 set_politics = {
-	ruling_party = authoritarian_democrat
+	ruling_party = paternal_autocrat
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	totalist = 0
-	radical_socialist = 0
-	syndicalist = 19
-	social_democrat = 1
-	social_liberal = 0
-	market_liberal = 1
+	totalist = 1
+	radical_socialist = 3
+	syndicalist = 2
+	social_democrat = 9
+	social_liberal = 3
+	market_liberal = 6
 	social_conservative = 13
-	authoritarian_democrat = 36
-	paternal_autocrat = 15
-	national_populist = 15
+	authoritarian_democrat = 14
+	paternal_autocrat = 33
+	national_populist = 16
 }
+#UKR_setup_breadbasket = yes
 
 add_ideas = {
-	Hetman_Army
-	language_issue
+	UKR_breadbasket_of_europe_idea
+	UKR_derzhavna_varta
+	UKR_urban_rural_divide
+	UKR_lingering_ukrainisation
 	UKR_Pavlo_Skoropadsky_hog_pau
 	UKR_Dmitri_Doroshenko_for_npo
 	UKR_Andrey_Livytskyi_eco_ade
@@ -138,47 +142,57 @@ add_ideas = {
 }
 
 create_country_leader = {
-	name = "Nikita Khrushchev"
-	desc = "POLITICS_NIKITA_KRUSCHEV_DESC"
-	picture = "gfx/leaders/UKR/Portrait_UKR_Nikita_Kruschev.png"
+	name = "Andriy Richytskyi"
+	desc = "POLITICS_ANDRIY_RYCHYTSKYI_DESC"
+	picture = "gfx/leaders/UKR/Portrait_UKR_Andriy_Richytskyi.png"
 	expire = "1965.1.1"
-	ideology = authcom_subtype
+	ideology = national_communism_subtype
 }
 
 create_country_leader = {
 	name = "Oleksander Shumsky"
+	desc = "POLITICS_YAKIV_BRAUN_DESC"
 	picture = "gfx/leaders/UKR/Portrait_Ukraine_Oleksander_Shumsky.png" 
 	expire = "1965.1.1"
-	ideology = syndicalist_subtype
+	ideology = anarcho_syndicalist_subtype
+}
+
+create_country_leader = {
+	name = "Oleksander Shumsky"
+	desc = "POLITICS_OLEKSANDR_SHUMSKYI_DESC"
+	picture = "gfx/leaders/UKR/Portrait_Ukraine_Oleksander_Shumsky.png" 
+	expire = "1965.1.1"
+	ideology = radsoc_communism_subtype
 }
 
 create_country_leader = {
 	name = "Volodymyr Vynnychenko"
+	desc = "POLITICS_VOLODYMYR_VYNNYCHENKO_DESC"
 	picture = "gfx/leaders/UKR/Portrait_UKR_Volodymyr_Vynnychenko.png" 
 	expire = "1965.1.1"
-	ideology = radical_socialist_subtype
+	ideology = socdem_democratic_socialism_subtype
 }
 
 create_country_leader = {
-	name = "Vasyl"
-	desc = "POLITICS_VASYL_DESC"
-	picture = "gfx/leaders/UKR/Portrait_UKR_Vasyl_Habsburg.png"
+	name = "Volodymyr Vynnychenko"
+	desc = "POLITICS_VOLODYMYR_VYNNYCHENKO_DESC"
+	picture = "gfx/leaders/UKR/Portrait_UKR_Volodymyr_Vynnychenko.png" 
 	expire = "1965.1.1"
-	ideology = social_democrat_subtype
+	ideology = socdem_democratic_socialism_subtype
 }
 
 create_country_leader = {
-	name = "Vasyl"
-	desc = "POLITICS_VASYL_DESC"
-	picture = "gfx/leaders/UKR/Portrait_UKR_Vasyl_Habsburg.png"
+	name = "Mykola Mikhnovskyi"
+	desc = "POLITICS_MYKOLA_MIKHHNOVSKY_DESC"
+	picture = "gfx/leaders/UKR/Portrait_UKR_Mykola_Mikhnovsky.png"
 	expire = "1965.1.1"
-	ideology = soclib_agrarianism_subtype
+	ideology = national_liberalism_subtype
 }
 
 create_country_leader = {
-	name = "Vasyl"
-	desc = "POLITICS_VASYL_DESC"
-	picture = "gfx/leaders/UKR/Portrait_UKR_Vasyl_Habsburg.png"
+	name = "Dmytro Doroshenko"
+	desc = "POLITICS_DMYTRO_DOROSHENKO_DESC"
+	picture = "gfx/leaders/UKR/Portrait_UKR_Dmitri_Doroshenko.png"
 	expire = "1965.1.1"
 	ideology = marlib_national_liberalism_subtype
 }
@@ -188,7 +202,7 @@ create_country_leader = {
 	desc = "POLITICS_VASYL_DESC"
 	picture = "gfx/leaders/UKR/Portrait_UKR_Vasyl_Habsburg.png"
 	expire = "1965.1.1"
-	ideology = christian_democracy_subtype
+	ideology = national_conservative_subtype
 }
 
 create_country_leader = {
@@ -204,18 +218,19 @@ create_country_leader = {
 	desc = "POLITICS_VASYL_DESC"
 	picture = "gfx/leaders/UKR/Portrait_UKR_Vasyl_Habsburg.png"
 	expire = "1965.1.1"
-	ideology = absolute_monarchy_subtype
+	ideology = pataut_cossack_subtype
 }
 
 create_country_leader = {
-	name = "Dmytro Dontsov"
-	picture = "gfx/leaders/UKR/Portrait_Ukraine_Dmitri_Dontsov.png"
+	name = "Yevhen Konovalets"
+	desc = "POLITICS_YEVHEN_KONOVALETS_DESC"
+	picture = "gfx/leaders/UKR/Portrait_UKR_Yevhen_Konovalets.png"
 	expire = "1965.1.1"
-	ideology = national_populist_subtype
+	ideology = militarism_subtype
 }
 
 create_field_marshal = {
-	name = "Pavlo Skoropadskyi"
+	name = "Pavlo Skoropadskyi "
 	portrait_path = "gfx/leaders/UKR/Portrait_Ukraine_Pavlo_Skoropadsky.png"
 	traits = { organizer thorough_planner old_guard cavalry_officer }
 	skill = 4
@@ -238,16 +253,16 @@ create_field_marshal = {
 	logistics_skill = 3
 }
 
-create_corps_commander = {
-	name = "Symon Petliura"
-	portrait_path = "gfx/leaders/UKR/Portrait_Ukraine_Symon_Petliura.png"
-	traits = { trickster politically_connected }
-	skill = 3
-	attack_skill = 1
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 4
-}
+#create_corps_commander = {
+#	name = "Symon Petliura"
+#	portrait_path = "gfx/leaders/UKR/Portrait_Ukraine_Symon_Petliura.png"
+#	traits = { trickster politically_connected }
+#	skill = 3
+#	attack_skill = 1
+#	defense_skill = 3
+#	planning_skill = 2
+#	logistics_skill = 4
+#}
 
 create_corps_commander = {
 	name = "Oleksandr Rogoza"
@@ -262,8 +277,8 @@ create_corps_commander = {
 }
 
 create_corps_commander = {
-	name = "Yevhen Konovalets"
-	portrait_path = "gfx/leaders/UKR/Portrait_Ukraine_Yevhen_Konovalets.png"
+	name = "Yevhen Konovalets "
+	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Yevhen_Konovalets.png"
 	traits = { winter_specialist hill_fighter politically_connected }
 	skill = 4
 	attack_skill = 4
@@ -283,16 +298,16 @@ create_corps_commander = {
 	logistics_skill = 1
 }
 
-create_corps_commander = {
-	name = "Andriy Melnyk"
-	portrait_path = "gfx/leaders/UKR/Portrait_Ukraine_Andriy_Melnyk.png"
-	traits = { trait_engineer organizer thorough_planner }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 3
-}
+#create_corps_commander = {
+#	name = "Andriy Melnyk"
+#	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Andriy_Melnyk.png"
+#	traits = { trait_engineer organizer thorough_planner }
+#	skill = 3
+#	attack_skill = 2
+#	defense_skill = 2
+#	planning_skill = 3
+#	logistics_skill = 3
+#}
 
 create_corps_commander = {
 	name = "Dmytro Vitovsky"

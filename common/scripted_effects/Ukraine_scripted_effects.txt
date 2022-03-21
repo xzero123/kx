@@ -55,151 +55,139 @@ recalculate_ukrainian_political_variables = {
 }
 	
 UKR_increase_king = {
-	custom_effect_tooltip = UKR_increase_king_tt
-	hidden_effect = {
-		add_popularity = {
-			ideology = social_conservative
-			popularity = 0.02
-		}
-		if = {
-			limit = {
-				set_temp_variable = { coalition_target = token:authoritarian_democrat }
-				has_coalition_with_target = yes
-			}
-			add_popularity = {
-				ideology = authoritarian_democrat
-				popularity = 0.01
-			}
-		}
-		if = {
-			limit = {
-				set_temp_variable = { coalition_target = token:social_liberal }
-				has_coalition_with_target = yes
-			}
-			add_popularity = {
-				ideology = social_liberal
-				popularity = 0.01
-			}
-		}
-		if = {
-			limit = {
-				set_temp_variable = { coalition_target = token:national_populist }
-				has_coalition_with_target = yes
-			}
-			add_popularity = {
-				ideology = national_populist
-				popularity = 0.01
-			}
-		}
-		add_to_variable = { UKR_King_Strength = 1 }
+	add_popularity = {
+		ideology = social_conservative
+		popularity = 0.02
 	}
+	if = {
+		limit = {
+			has_completed_focus = UKR_Coalition_Of_Monarchists
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.01
+		}
+	}
+	if = {
+		limit = {
+			has_completed_focus = UKR_Coalition_With_UVO
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.01
+		}
+	}
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_king_strength = {
+	custom_effect_tooltip = UKR_increase_king_tt
+	add_to_variable = { UKR_King_Strength = 1 }
 	recalculate_ukrainian_political_variables = yes
 }
 UKR_decrease_king = {
-	custom_effect_tooltip = UKR_decrease_king_tt
-	hidden_effect = {
-		add_popularity = {
-			ideology = social_conservative
-			popularity = -0.02
-		}
-		if = {
-			limit = {
-				set_temp_variable = { coalition_target = token:authoritarian_democrat }
-				has_coalition_with_target = yes
-			}
-			add_popularity = {
-				ideology = authoritarian_democrat
-				popularity = -0.01
-			}
-		}
-		if = {
-			limit = {
-				set_temp_variable = { coalition_target = token:social_liberal }
-				has_coalition_with_target = yes
-			}
-			add_popularity = {
-				ideology = social_liberal
-				popularity = -0.01
-			}
-		}
-		if = {
-			limit = {
-				set_temp_variable = { coalition_target = token:national_populist }
-				has_coalition_with_target = yes
-			}
-			add_popularity = {
-				ideology = national_populist
-				popularity = -0.01
-			}
-		}
-		add_to_variable = { UKR_King_Strength = -1 }
+	add_popularity = {
+		ideology = social_conservative
+		popularity = -0.02
 	}
+	if = {
+		limit = {
+			has_completed_focus = UKR_Coalition_Of_Monarchists
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.01
+		}
+	}
+	if = {
+		limit = {
+			has_completed_focus = UKR_Coalition_With_UVO
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.01
+		}
+	}
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_king_strength = {
+	custom_effect_tooltip = UKR_decrease_king_tt
+	add_to_variable = { UKR_King_Strength = -1 }
 	recalculate_ukrainian_political_variables = yes
 }
 UKR_increase_hetman = {
-	custom_effect_tooltip = UKR_increase_hetman_tt
-	hidden_effect = {
+	add_popularity = {
+		ideology = paternal_autocrat
+		popularity = 0.02
+	}
+	if = {
+		limit = {
+			set_temp_variable = { coalition_target = token:market_liberal }
+			has_coalition_with_target = yes
+		}
 		add_popularity = {
-			ideology = paternal_autocrat
-			popularity = 0.02
+			ideology = market_liberal
+			popularity = 0.01
 		}
-		if = {
-			limit = {
-				set_temp_variable = { coalition_target = token:market_liberal }
-				has_coalition_with_target = yes
-			}
-			add_popularity = {
-				ideology = market_liberal
-				popularity = 0.01
-			}
+	}
+	if = {
+		limit = {
+			set_temp_variable = { coalition_target = token:national_populist }
+			has_coalition_with_target = yes
 		}
-		if = {
-			limit = {
-				set_temp_variable = { coalition_target = token:national_populist }
-				has_coalition_with_target = yes
-			}
-			add_popularity = {
-				ideology = national_populist
-				popularity = 0.01
-			}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.01
 		}
-		add_to_variable = { UKR_Hetman_Strenth = 1 }
 	}
 	recalculate_ukrainian_political_variables = yes
 }
+UKR_increase_hetman_strength = {
+	custom_effect_tooltip = UKR_increase_hetman_tt
+	add_to_variable = { UKR_Hetman_Strenth = 1 }
+	recalculate_ukrainian_political_variables = yes
+}
 UKR_decrease_hetman = {
-	custom_effect_tooltip = UKR_decrease_hetman_tt
-	hidden_effect = {
-		add_popularity = {
-			ideology = paternal_autocrat
-			popularity = -0.02
-		}
-		if = {
-			limit = {
-				set_temp_variable = { coalition_target = token:market_liberal }
-				has_coalition_with_target = yes
-			}
-			add_popularity = {
-				ideology = market_liberal
-				popularity = -0.01
-			}
-		}
-		if = {
-			limit = {
-				set_temp_variable = { coalition_target = token:national_populist }
-				has_coalition_with_target = yes
-			}
-			add_popularity = {
-				ideology = national_populist
-				popularity = -0.01
-			}
-		}
-		add_to_variable = { UKR_Hetman_Strenth = -1 }
+	add_popularity = {
+		ideology = paternal_autocrat
+		popularity = -0.02
 	}
+	if = {
+		limit = {
+			set_temp_variable = { coalition_target = token:market_liberal }
+			has_coalition_with_target = yes
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = -0.01
+		}
+	}
+	if = {
+		limit = {
+			set_temp_variable = { coalition_target = token:national_populist }
+			has_coalition_with_target = yes
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.01
+		}
+	}
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_hetman_strength = {
+	custom_effect_tooltip = UKR_decrease_hetman_tt
+	add_to_variable = { UKR_Hetman_Strenth = -1 }
 	recalculate_ukrainian_political_variables = yes
 }
 UKR_increase_direktoria = {
 	custom_effect_tooltip = UKR_increase_direktoria_tt
+	UPR = {
+		add_stability = 0.05
+		add_war_support = 0.05
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.02
+		}
+	}
 	hidden_effect = {
 		add_popularity = {
 			ideology = social_democrat
@@ -211,6 +199,14 @@ UKR_increase_direktoria = {
 }
 UKR_decrease_direktoria = {
 	custom_effect_tooltip = UKR_decrease_direktoria_tt
+	UPR = {
+		add_stability = -0.05
+		add_war_support = -0.05
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.02
+		}
+	}
 	hidden_effect = {
 		add_popularity = {
 			ideology = social_democrat
@@ -225,53 +221,28 @@ UKR_decrease_direktoria = {
 UKR_remove_king = {
 	hidden_effect = {
 		UKR = {
-			if = {
-				limit = {
-					OR = {
-						has_country_leader = { name = "Vasyl" ruling_only = no }
-						has_country_leader = { name = "Danylo" ruling_only = no }
-						has_country_leader = { name = "Leo Stefan" ruling_only = no }
-					}
-				}
+			create_country_leader = {
+				name = "Vyacheslav Lypynsky"
+				desc = "POLITICS_VYACHESLAV_LYPYNSKY_DESC"
+				picture = "gfx/leaders/UKR/Portrait_UKR_Vyacheslav_Lypynsky.png"
+				expire = "1965.1.1"
+				ideology = national_conservative_subtype
 			}
-                create_country_leader = {
-		name = "Symon Petliura"
-		picture = "gfx/leaders/UKR/Portrait_Ukraine_Symon_Petliura.png"
-		expire = "1965.1.1"
-		ideology = social_democrat_subtype
-	     }
-             create_country_leader = {
-		name = "Dmitri Doroshenko"
-		picture = "gfx/leaders/UKR/Portrait_Ukraine_Dmitri_Doroshenko.png"
-		expire = "1965.1.1"
-		ideology = social_liberal_subtype
-	     }
-             create_country_leader = {
-		name = "Boris Martos"
-		picture = "gfx/leaders/UKR/Portrait_Ukraine_Boris_Martos.png"
-		expire = "1965.1.1"
-		ideology = market_liberal_subtype
-	     }
-             create_country_leader = {
-		name = "Vyacheslav Lypynsky"
-		picture = "gfx/leaders/UKR/Portrait_UKR_Vyacheslav_Lypynsky.png"
-		expire = "1965.1.1"
-		ideology = social_conservative_subtype
-	     }
-             create_country_leader = {
-		name = "Pavlo Skoropadskyi"
-		picture = "gfx/leaders/UKR/Portrait_Ukraine_Pavlo_Skoropadsky.png"
-		expire = "1965.1.1"
-		ideology = authoritarian_democrat_subtype
-	     }
-             create_country_leader = {
-		name = "Danylo Skoropadsky"
-                desc = "POLITICS_DANIIL_I_DESC"
-		picture = "gfx/leaders/UKR/Portrait_UKR_Danylo_Skoropadsky.png"
-		expire = "1965.1.1"
-		ideology = paternal_autocrat_subtype
-	     }
-		}
+            create_country_leader = {
+				name = "Vyacheslav Lypynsky"
+				desc = "POLITICS_VYACHESLAV_LYPYNSKY_DESC"
+				picture = "gfx/leaders/UKR/Portrait_UKR_Vyacheslav_Lypynsky.png"
+				expire = "1965.1.1"
+				ideology = oligarchy_subtype
+			}
+			create_country_leader = {
+				name = "Pavlo Skoropadskyi"
+				desc = "POLITICS_PAVLO_SKOROPADSKYI_DESC"
+				picture = "gfx/leaders/UKR/Portrait_UKR_Pavlo_Skoropadsky.png"
+				expire = "1965.1.1"
+				ideology = pataut_cossack_subtype
+			}
+        }
 	}
 }
 

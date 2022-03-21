@@ -11,16 +11,35 @@ ideas = {
 			allowed = { always = no }
 			picture = UKR_breadbasket
 			modifier = {
-				political_power_gain = 0.15
+				political_power_gain = 0.09
 				monthly_population = 0.05
 				trade_opinion_factor = -0.15
 				production_lack_of_resource_penalty_factor = -0.05
 				consumer_goods_factor = 0.15
 				global_building_slots_factor = 0.1
 				supply_node_range = 0.1
-				civilian_intel_to_others = 0
-				out_of_supply_factor = -0.2 
-				supply_consumption_factor = -0.15
+				civilian_intel_to_others = 10
+				out_of_supply_factor = -0.11
+				supply_consumption_factor = -0.07
+				production_factory_efficiency_gain_factor = -0.15
+			}
+		}	
+		UKR_agricultural_crisis_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_agricultural_crisis_idea"}
+			on_remove = {
+				UKR_setup_breadbasket = yes
+			}
+			allowed = { always = no }
+			picture = RUS_unfinished_land_reform
+			modifier = {
+				political_power_gain = -0.15
+				monthly_population = -0.05
+				production_lack_of_resource_penalty_factor = 0.1
+				consumer_goods_factor = 0.25
+				global_building_slots_factor = 0.1
+				out_of_supply_factor = 0.05
+				supply_consumption_factor = 0.03
+				custom_modifier_tooltip = UKR_agricultural_crisis_idea_tooltip
 			}
 		}	
 		UKR_derzhavna_varta = {
@@ -83,7 +102,70 @@ ideas = {
 			name = UKR_general_strike
 			picture = NOR_labour_conflicts
 		}	
-		
+		UKR_paying_polish_concessions = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_paying_polish_concessions"}
+			picture = capital_outflow
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.02
+				political_power_gain = -0.02
+			}
+		}	
+		UKR_POL_polish_concessions = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_POL_polish_concessions"}
+			picture = SPR_seize_the_gold_reserves
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.02
+				political_power_gain = 0.02
+			}
+		}	
+		UKR_peasant_unrest = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_peasant_unrest"}
+			picture = DEI_abandoned_ethical_policy
+			allowed = { always = no }
+			modifier = {
+				local_resources_factor = -0.04
+			}
+		}	
+		UKR_negot_peasants = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_negot_peasants"}
+			picture = generic_agrarian_reform
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.03
+				production_factory_max_efficiency_factor = -0.03				
+			}
+		}	
+		UKR_dualism = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_dualism"}
+			picture = UKR_dualism
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = -0.05
+				social_conservative_drift = 0.03
+				paternal_autocrat_drift = 0.03
+				custom_modifier_tooltip = cannot_mobilise_tt
+				hidden_modifier = {
+					disabled_ideas = 1
+				}	
+			}
+		}	
+		UKR_political_instability = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_political_instability"}
+			picture = SPR_political_violence
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = -0.05
+				social_conservative_drift = -0.02
+				paternal_autocrat_drift = -0.02
+				stability_weekly_factor = -0.1
+				custom_modifier_tooltip = cannot_mobilise_tt
+				hidden_modifier = {
+					disabled_ideas = 1
+				}	
+			}
+		}	
 		
 		
 		
@@ -518,13 +600,51 @@ ideas = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_black_monday"}
 			allowed = { always = no }
 			picture = great_depression
-			removal_cost = -1
+			name = UKR_black_monday
 			modifier = {
-				production_factory_max_efficiency_factor = -0.10
+				production_factory_max_efficiency_factor = -0.25
+				production_factory_efficiency_gain_factor = -0.20
 				industrial_capacity_factory = -0.25
+				stability_factor = -0.3
 			}
 		}
-
+		UKR_black_monday_1 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_black_monday_1"}
+			allowed = { always = no }
+			picture = great_depression
+			name = UKR_black_monday
+			modifier = {
+				production_factory_max_efficiency_factor = -0.2
+				production_factory_efficiency_gain_factor = -0.15
+				industrial_capacity_factory = -0.20
+				stability_factor = -0.25
+			}
+		}
+		UKR_black_monday_2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_black_monday_2"}
+			allowed = { always = no }
+			picture = great_depression
+			name = UKR_black_monday
+			modifier = {
+				production_factory_max_efficiency_factor = -0.15
+				production_factory_efficiency_gain_factor = -0.1
+				industrial_capacity_factory = -0.15
+				stability_factor = -0.2
+			}
+		}
+		UKR_black_monday_3 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_black_monday_3"}
+			allowed = { always = no }
+			picture = great_depression
+			name = UKR_black_monday
+			modifier = {
+				production_factory_max_efficiency_factor = -0.1
+				production_factory_efficiency_gain_factor = -0.05
+				industrial_capacity_factory = -0.10
+				stability_factor = -0.15
+			}
+		}
+		
 		UKR_Ties_Germany = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_Ties_Germany"}
 			allowed = { always = no }

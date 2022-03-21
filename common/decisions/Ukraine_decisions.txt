@@ -1,3 +1,116 @@
+UKR_dyrektoria_uprising = {
+	UKR_rivne_uprising = {
+		icon = GFX_decision_revolt
+		
+		allowed = { always = no } #manually activated
+		
+		cancel_trigger = {
+			OR = {
+				has_completed_focus = UKR_Prepare_The_Anti_Hetman_Coup
+				has_completed_focus = UKR_Hetmanate_Is_Not_Yet_Lost
+			}
+		}
+		available = {
+			OR = {
+				has_completed_focus = UKR_Prepare_The_Anti_Hetman_Coup
+				has_completed_focus = UKR_Hetmanate_Is_Not_Yet_Lost
+			}
+		}
+		
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 220
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_rivne_uprising"
+			custom_effect_tooltip = "Dyrektoria uprising would be crushed"
+		}
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout UKR_rivne_uprising"
+			custom_effect_tooltip = "Gets event: Fall of Rivne"
+		}
+	}
+}
+UKR_economy = {
+	UKR_resume_dnipro = {
+		icon = GFX_decision_electrify
+		visible = { has_country_flag = UKR_dnipro_flag }
+		fire_only_once = yes
+
+		ai_will_do = { factor = 100 }
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 226
+			}
+		}
+		cost = freedec?0
+		available = { #failure condition
+			#dnipro
+			controls_state = 226
+			NOT = { has_idea = UKR_agricultural_crisis_idea }
+			NOT = { has_idea = UKR_black_monday }
+			num_of_civilian_factories_available_for_projects > 2
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout UKR_resume_dnipro"
+			activate_mission = UKR_finish_dnipro
+		}
+	}
+	UKR_finish_dnipro = {
+		icon = GFX_decision_electrify
+
+		fire_only_once = yes
+
+		ai_will_do = { factor = 100 }
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 226
+			}
+		}
+
+		allowed = { always = no } #manually activated
+		
+		available = { #failure condition
+			NOT = {
+				#dnipro
+				controls_state = 226
+			}
+		}
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		days_remove = 100
+		days_mission_timeout = 287
+		is_good = yes
+		
+		cancel_effect = {
+			add_stability = -0.05
+			decrease_ruling_party_popularity_by_5 = yes
+		}
+		
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout UKR_finish_dnipro"
+			226 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_stability = 0.05
+			increase_ruling_party_popularity_by_10 = yes
+		}
+	}
+}
 political_actions = {
 	UKR_crush_the_ukrainian_revolt = {
 		icon = GFX_decision_generic_agreement

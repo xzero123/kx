@@ -99,6 +99,7 @@ if = {
 }
 
 set_research_slots = 3
+set_cosmetic_tag = UKR_kingdom
 
 add_opinion_modifier = { target = FRA modifier = embargo }
 add_opinion_modifier = { target = ENG modifier = embargo }
@@ -106,6 +107,16 @@ add_opinion_modifier = { target = SRI modifier = embargo }
 
 country_event = { id = ukrpol.1 days = 2 }
 country_event = { id = ukrpol.5 days = 9 }
+country_event = { id = ukrmisc.2 days = 187 }   				# kupala holiday
+country_event = { id = ukrmisc.3 days = 883 }   				# ivan ilyich
+country_event = { id = ukrmisc.5 days = 88 }   					# Concert
+country_event = { id = ukrmisc.6 days = 193 random = 600 }   	# Ivan Chernyakhovskyi returns from Afrika
+country_event = { id = ukrmisc.7 days = 611 random = 300 }   	# White Guard
+country_event = { id = ukrmisc.8 days = 1155 random = 720 }  	# 10.03.1940 Death of Bulhakov
+country_event = { id = ukrmisc.10 days = 424 }   				# Serhiy Korolev
+country_event = { id = ukrmisc.11 days = 243 random = 600 }   	# Yaponchik flavour
+country_event = { id = ukrmisc.16 days = 157 }   				# Yuzivka Stadium opens
+country_event = { id = ukrmisc.17 months = 157 }   				# 1949 monument
 
 UKR_setup_political_variables = yes
 
@@ -139,6 +150,52 @@ add_ideas = {
 	UKR_Dmitri_Doroshenko_for_npo
 	UKR_Andrey_Livytskyi_eco_ade
 	UKR_Igor_Kistyakovsky_sec_ade
+}
+
+### IMRO setup ###
+create_dynamic_country = {
+	original_tag = WSU
+	copy_tag = UKR
+
+	save_global_event_target_as = UKR_dyrektoria_headquarters
+	set_cosmetic_tag = UKR_dyrektoria
+
+	set_politics = {
+		ruling_party = social_democrat
+		elections_allowed = no
+	}
+	set_war_support = 0.9
+	set_popularities = {
+		totalist = 10
+		radical_socialist = 20
+		syndicalist = 5
+		social_democrat = 45
+		social_liberal = 15
+		market_liberal = 0
+		social_conservative = 0
+		authoritarian_democrat = 0
+		paternal_autocrat = 0
+		national_populist = 15
+	}
+	every_state = {
+		limit = {
+			is_core_of = event_target:UKR_dyrektoria_headquarters
+		}
+		remove_core_of = event_target:UKR_dyrektoria_headquarters
+	}
+	create_field_marshal = {
+		name = "Dyrektoria Joint Command"
+		portrait_path = "gfx/leaders/UKR/UKR_Dyrektoria_Joint_Command.png"
+		traits = {
+			offensive_doctrine
+		}
+		skill = 1
+		attack_skill = 1
+		defense_skill = 1
+		planning_skill = 1
+		logistics_skill = 1
+	}	
+	reserve_dynamic_country = yes
 }
 
 create_country_leader = {
@@ -231,17 +288,18 @@ create_country_leader = {
 
 create_field_marshal = {
 	name = "Pavlo Skoropadskyi "
-	portrait_path = "gfx/leaders/UKR/Portrait_Ukraine_Pavlo_Skoropadsky.png"
+	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Pavlo_Skoropadsky.png"
 	traits = { organizer thorough_planner old_guard cavalry_officer }
 	skill = 4
 	attack_skill = 4
 	defense_skill = 3
 	planning_skill = 3
 	logistics_skill = 3
+	id = 17909
 }
 
 create_field_marshal = {
-	name = "Konstantin Prisovsky"
+	name = "Konstantin Prisovskyi"
 	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Konstantin_Prisovsky.png"
 	traits = {
 		old_guard
@@ -251,18 +309,20 @@ create_field_marshal = {
 	defense_skill = 3
 	planning_skill = 3
 	logistics_skill = 3
+	id = 17911
 }
 
-#create_corps_commander = {
-#	name = "Symon Petliura"
-#	portrait_path = "gfx/leaders/UKR/Portrait_Ukraine_Symon_Petliura.png"
-#	traits = { trickster politically_connected }
-#	skill = 3
-#	attack_skill = 1
-#	defense_skill = 3
-#	planning_skill = 2
-#	logistics_skill = 4
-#}
+create_corps_commander = {
+	name = "Symon Petliura "
+	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Symon_Petliura.png"
+	traits = { trickster organizer politically_connected }
+	skill = 3
+	attack_skill = 1
+	defense_skill = 3
+	planning_skill = 2
+	logistics_skill = 4
+	id = 17908
+}
 
 create_corps_commander = {
 	name = "Oleksandr Rogoza"
@@ -285,39 +345,47 @@ create_corps_commander = {
 	defense_skill = 4
 	planning_skill = 2
 	logistics_skill = 3
+	id = 17907
 }
 
 create_corps_commander = {
 	name = "Hnat Stefaniv"
-	portrait_path = "gfx/leaders/UKR/Portrait_Ukraine_Hnat_Stefaniv.png"
+	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Hnat_Stefaniv_GAL.png"
 	traits = { commando organizer }
 	skill = 2
 	attack_skill = 2
 	defense_skill = 2
 	planning_skill = 2
 	logistics_skill = 1
+	id = 17906
 }
 
-#create_corps_commander = {
-#	name = "Andriy Melnyk"
-#	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Andriy_Melnyk.png"
-#	traits = { trait_engineer organizer thorough_planner }
-#	skill = 3
-#	attack_skill = 2
-#	defense_skill = 2
-#	planning_skill = 3
-#	logistics_skill = 3
-#}
+create_corps_commander = {
+	name = "Andriy Melnyk"
+	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Andriy_Melnyk.png"
+	traits = { trait_engineer organizer thorough_planner }
+	skill = 3
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 3
+	logistics_skill = 3
+	id = 17905
+}
 
 create_corps_commander = {
 	name = "Dmytro Vitovsky"
-	portrait_path = "gfx/leaders/UKR/Portrait_Ukraine_Dmytro_Vitovsky.png"
-	traits = { trait_engineer }
-	skill = 2
-	attack_skill = 2
+	portrait_path = "gfx/leaders/GAL/Portrait_GAL_Dmytro_Vitovsky.png"
+	traits = {
+		infantry_leader
+		organizer
+		commando
+	}
+	id = 28001
+	skill = 3
+	attack_skill = 3
 	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 1
+	planning_skill = 3
+	logistics_skill = 2
 }
 
 create_corps_commander = {
@@ -329,32 +397,57 @@ create_corps_commander = {
 	defense_skill = 1
 	planning_skill = 3
 	logistics_skill = 1
+	id = 17911
 }
 
 create_corps_commander = {
 	name = "Mykola Kapustyanskyi"
 	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Mykola_Kapustyanskyi.png"
-	traits = { }
-	skill = 1
-	attack_skill = 1
-	defense_skill = 1
+	traits = { trickster politically_connected }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
 	planning_skill = 1
-	logistics_skill = 1
+	logistics_skill = 2
+	id = 17912
 }
 
 create_corps_commander = {
 	name = "Ivan Poltavets-Ostrianytsia"
 	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Ivan_Poltavets_Ostrianytsia.png"
-	traits = { }
-	skill = 1
+	traits = { career_officer cavalry_leader politically_connected }
+	skill = 3
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 3
+	logistics_skill = 1
+	id = 17913
+}
+create_corps_commander = {
+	name = "Olena Stepaniv"
+	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Olena_Stepaniv.png"
+	traits = { hill_fighter }
+	skill = 2
 	attack_skill = 1
 	defense_skill = 1
 	planning_skill = 1
 	logistics_skill = 1
+	id = 17916
+}
+create_corps_commander = {
+	name = "Mykola Stsiborskyi"
+	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Mykola_Stsiborskyi.png"
+	traits = { organizer }
+	skill = 2
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 2
+	id = 17917
 }
 
 create_navy_leader = {
-	name = "Andriy Pokrovsky"
+	name = "Andriy Pokrovskyi"
 	portrait_path = "gfx/leaders/UKR/Portrait_Ukraine_Andriy_Pokrovsky.png"
 	traits = { old_guard_navy superior_tactician }
 	skill = 3
@@ -362,6 +455,7 @@ create_navy_leader = {
 	defense_skill = 3
 	maneuvering_skill = 2
 	coordination_skill = 3
+	id = 17914
 }
 
 create_navy_leader = {
@@ -374,5 +468,85 @@ create_navy_leader = {
 	maneuvering_skill = 2
 	coordination_skill = 2
 }
+
+create_navy_leader = {
+	name = "Yurii Svirskyi" 
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Jerzy_Swirski.png"
+	traits = { }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	maneuvering_skill = 2
+	coordination_skill = 1
+	id = 17915
+}
+
+
+random_unit_leader = {
+	limit = { has_id = 17909 }
+	save_global_event_target_as = UKR_Pavlo_Skoropadskyi
+}
+random_unit_leader = {
+	limit = { has_id = 17905 }
+	save_global_event_target_as = UKR_Andriy_Melnyk
+	add_unit_leader_trait = UKR_uvo_officer
+	set_nationality = UPR
+}
+random_unit_leader = {
+	limit = { has_id = 17906 }
+	save_global_event_target_as = UKR_Hnat_Stefaniv
+	add_unit_leader_trait = UKR_uga_officer
+	set_nationality = GAL
+}
+random_unit_leader = {
+	limit = { has_id = 17907 }
+	save_global_event_target_as = UKR_Yevhen_Konovalets
+	add_unit_leader_trait = UKR_uvo_officer
+}
+random_unit_leader = {
+	limit = { has_id = 17908 }
+	save_global_event_target_as = UKR_Symon_Petliura
+	set_nationality = UPR
+}
+random_unit_leader = {
+	limit = { has_id = 28001 }
+	save_global_event_target_as = UKR_Dmytro_Vitovskyi
+	add_unit_leader_trait = UKR_uga_officer
+	set_nationality = GAL
+}
+random_unit_leader = {
+	limit = { has_id = 17911 }
+	save_global_event_target_as = UKR_Mykhailo_Pavlenko
+}
+random_unit_leader = {
+	limit = { has_id = 17912 }
+	save_global_event_target_as = UKR_Mykola_Kapustyanskyi
+	add_unit_leader_trait = UKR_uvo_officer
+}
+random_unit_leader = {
+	limit = { has_id = 17913 }
+	save_global_event_target_as = UKR_Ivan_Poltavets
+}
+random_unit_leader = {
+	limit = { has_id = 17914 }
+	save_global_event_target_as = UKR_Andriy_Pokrovskyi
+}
+random_unit_leader = {
+	limit = { has_id = 17915 }
+	save_global_event_target_as = UKR_Yurii_Svirskyi
+}
+random_unit_leader = {
+	limit = { has_id = 17916 }
+	save_global_event_target_as = UKR_Olena_Stepaniv
+	add_unit_leader_trait = UKR_uga_officer
+	set_nationality = GAL
+}
+random_unit_leader = {
+	limit = { has_id = 17917 }
+	save_global_event_target_as = UKR_Mykola_Stsiborskyi
+	add_unit_leader_trait = UKR_uvo_officer
+	set_nationality = UPR
+}
+
 
 UKR_start_naval_variant = yes

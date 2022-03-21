@@ -21,7 +21,7 @@ focus_tree = {
 		available = {
 			always = no
 		}
-		ai_will_do = {
+		ai_will_do = { 
 			factor = 10
 		}
 		bypass = {
@@ -34,7 +34,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_King_Path
-		icon = GFX_goal_UKR_coat_of_arms_hetman
+		icon = GFX_goal_UKR_king
 		cost = 0
 		relative_position_id = UKR_Our_Future
 		x = -4
@@ -58,7 +58,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Coalition_With_UVO
-		icon = GFX_goal_UKR_coat_of_arms_hetman
+		icon = GFX_goal_UKR_king
 		cost = 0
 		relative_position_id = UKR_King_Path
 		x = 1
@@ -83,37 +83,25 @@ focus_tree = {
 	focus = {
 		id = UKR_OUN_Nationalists
 		icon = GFX_goal_PAL_Irrigation_Program
-		cost = 0
+		cost = 3
 		relative_position_id = UKR_King_Path
 		x = 1
 		y = 2
 		prerequisite = {
 			focus = UKR_Coalition_With_UVO
 		}
-		available = {
-			always = no
-		}
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_OUN_Nationalists"
-			add_stability = 0.03
+			POL = { country_event = ukrpol.14 }
+			add_stability = -0.03
 			259 = {
 				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
 			}
 			201 = {
 				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
 			}
 			203 = {
 				add_extra_state_shared_building_slots = 1
@@ -127,28 +115,32 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Recall_Melnyk_From_Galicia
-		icon = GFX_goal_PAL_Irrigation_Program
-		cost = 0
+		icon = GFX_goal_UKR_king
+		cost = 3
 		relative_position_id = UKR_King_Path
 		x = 3
 		y = 2
 		prerequisite = {
 			focus = UKR_Coalition_With_UVO
 		}
-		available = {
-			always = no
-		}
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Recall_Melnyk_From_Galicia"
+			country_event = ukrpol.13
+			hidden_effect = {
+				country_event = {
+					id = ukrpol.28
+					days = 7
+				}
+			}
 		}
 	}
 	focus = {
 		id = UKR_Fully_Equip_Sich_Streltsy
-		icon = GFX_goal_PAL_Irrigation_Program
-		cost = 0
+		icon = GFX_goal_UKR_king
+		cost = 3
 		relative_position_id = UKR_King_Path
 		x = 2
 		y = 3
@@ -158,19 +150,17 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_OUN_Nationalists
 		}
-		available = {
-			always = no
-		}
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Fully_Equip_Sich_Streltsy"
+			country_event = ukrpol.16
 		}
 	}
 	focus = {
 		id = UKR_Coalition_Of_Monarchists
-		icon = GFX_goal_PAL_Irrigation_Program
+		icon = GFX_goal_UKR_king
 		cost = 0
 		relative_position_id = UKR_King_Path
 		x = -1
@@ -189,52 +179,59 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Coalition_Of_Monarchists"
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	focus = {
 		id = UKR_Grant_Lypynsky_An_Upper_Hand
-		icon = GFX_goal_PAL_Irrigation_Program
-		cost = 0
+		icon = GFX_goal_UKR_king
+		cost = 3
 		relative_position_id = UKR_King_Path
 		x = -1
 		y = 2
 		prerequisite = {
 			focus = UKR_Coalition_Of_Monarchists
 		}
-		available = {
-			always = no
-		}
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Grant_Lypynsky_An_Upper_Hand"
+			country_event = ukrpol.18
+			hidden_effect = {
+				country_event = {
+					id = ukrpol.19
+					days = 5
+				}
+				country_event = {
+					id = ukrpol.20
+					days = 15
+				}
+			}
 		}
 	}
 	focus = {
 		id = UKR_Relieve_The_Landowners_Tax_Burden
-		icon = GFX_goal_PAL_Irrigation_Program
-		cost = 0
+		icon = GFX_goal_UKR_king
+		cost = 3
 		relative_position_id = UKR_King_Path
 		x = -3
 		y = 2
 		prerequisite = {
 			focus = UKR_Coalition_Of_Monarchists
 		}
-		available = {
-			always = no
-		}
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Relieve_The_Landowners_Tax_Burden"
+			country_event = ukrpol.17
 		}
 	}
 	focus = {
 		id = UKR_Call_For_Austrian_Intervention
-		icon = GFX_goal_PAL_Irrigation_Program
-		cost = 0
+		icon = GFX_goal_UKR_king
+		cost = 3
 		relative_position_id = UKR_King_Path
 		x = -2
 		y = 3
@@ -244,20 +241,26 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_Grant_Lypynsky_An_Upper_Hand
 		}
-		available = {
-			always = no
+		select_effect = {
+			hidden_effect = {
+				country_event = {
+					id = ukrpol.21
+					days = 5
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Call_For_Austrian_Intervention"
+			custom_effect_tooltip = "We will attempt to ask for Austrian help"
 		}
 	}
 	focus = {
 		id = UKR_Prepare_The_Anti_Hetman_Coup
 		icon = GFX_goal_PAL_Irrigation_Program
-		cost = 0
+		cost = 3
 		relative_position_id = UKR_King_Path
 		x = 0
 		y = 4
@@ -265,14 +268,12 @@ focus_tree = {
 			focus = UKR_Call_For_Austrian_Intervention
 			focus = UKR_Fully_Equip_Sich_Streltsy
 		}
-		available = {
-			always = no
-		}
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Prepare_The_Anti_Hetman_Coup"
+			country_event = ukrpol.25
 		}
 	}
 	focus = {
@@ -341,7 +342,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Concessions_To_The_National_Democrats"
-			custom_effect_tooltip = unlock_focuses
+			country_event = ukrpol.27
 		}
 	}
 	focus = {
@@ -362,7 +363,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Ease_The_Pressure_On_Peasants"
-			custom_effect_tooltip = unlock_focuses
+			country_event = ukrpol.17
 		}
 	}
 	focus = {
@@ -386,12 +387,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Discredit_Moderate_Monarchists"
-			custom_effect_tooltip = unlock_focuses
+			country_event = ukrpol.28
 		}
 	}
 	focus = {
 		id = UKR_Dissolve_Sejm
-		icon = GFX_goal_UKR_coat_of_arms_hetman
+		icon = GFX_goal_DEI_focus_disband_volksraad
 		cost = 0
 		relative_position_id = UKR_Hetman_Path
 		x = 1
@@ -431,7 +432,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Extend_State_Powers"
-			custom_effect_tooltip = unlock_focuses
+			country_event = ukrpol.26
 		}
 	}
 	focus = {
@@ -452,7 +453,17 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Disarm_The_Sich_Streltsy"
-			custom_effect_tooltip = unlock_focuses
+			country_event = ukrpol.19
+			hidden_effect = {
+				country_event = {
+					id = ukrpol.18
+					days = 5
+				}
+				country_event = {
+					id = ukrpol.20
+					days = 15
+				}
+			}
 		}
 	}
 	focus = {
@@ -476,7 +487,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Empower_Derzhavna_Varta"
-			custom_effect_tooltip = unlock_focuses
+			country_event = ukrpol.31
 		}
 	}
 	focus = {
@@ -498,7 +509,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Hetmanate_Is_Not_Yet_Lost"
-			custom_effect_tooltip = unlock_focuses
+			custom_effect_tooltip = "The enemies of our state will have no chances..."
+			hidden_effect = { country_event = ukrpol.32 }
 		}
 	}
 	

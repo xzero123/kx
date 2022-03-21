@@ -7,6 +7,7 @@
 add_namespace = ukraine
 add_namespace = ukrpol
 add_namespace = ukreco
+add_namespace = ukrmisc
 add_namespace = monsocukr
 
 country_event = { # Our Kingdom
@@ -15,7 +16,7 @@ country_event = { # Our Kingdom
 	title = ukrpol.1.t
 	desc = ukrpol.1.d
 	is_triggered_only = yes
-
+	picture = GFX_report_event_UKR_mapa
 	option = {
 		name = ukrpol.1.a
 		country_event = {
@@ -30,7 +31,7 @@ country_event = { # Our Kingdom
 	title = ukrpol.2.t
 	desc = ukrpol.2.d
 	is_triggered_only = yes
-
+	picture = GFX_report_event_UKR_skoropadsky
 	option = {
 		name = ukrpol.2.a
 		country_event = {
@@ -45,7 +46,7 @@ country_event = { # Our Kingdom
 	title = ukrpol.3.t
 	desc = ukrpol.3.d
 	is_triggered_only = yes
-
+	picture = GFX_report_event_UKR_vasyl
 	option = {
 		name = ukrpol.3.a
 		country_event = {
@@ -74,7 +75,7 @@ country_event = { # King Opens the Soim
 
 	option = {
 		name = ukrpol.5.a
-		UKR_increase_king = yes
+		UKR_increase_king_strength = yes
 		hidden_effect = {
 			country_event = {
 				id = ukrpol.7
@@ -107,10 +108,10 @@ country_event = { # Strike
 		}
 		if = {
 			limit = { has_country_flag = UKR_king_path }
-			UKR_increase_king = yes
+			UKR_increase_king_strength = yes
 		}
 		else = {
-			UKR_increase_hetman = yes
+			UKR_increase_hetman_strength = yes
 		}
 	}
 	option = {
@@ -132,9 +133,11 @@ country_event = { # Strike
 		}
 		if = {
 			limit = { has_country_flag = UKR_king_path }
+			UKR_decrease_king_strength = yes
 			UKR_decrease_king = yes
 		}
 		else = {
+			UKR_decrease_hetman_strength = yes
 			UKR_decrease_hetman = yes
 		}
 	}
@@ -160,9 +163,11 @@ country_event = { # Strike
 		}
 		if = {
 			limit = { has_country_flag = UKR_king_path }
+			UKR_decrease_king_strength = yes
 			UKR_decrease_king = yes
 		}
 		else = {
+			UKR_decrease_hetman_strength = yes
 			UKR_decrease_hetman = yes
 		}
 	}
@@ -176,7 +181,7 @@ country_event = { # Derzhavna Varta Report
 
 	option = {
 		name = ukrpol.7.a
-		UKR_increase_hetman = yes
+		UKR_increase_hetman_strength = yes
 		hidden_effect = {
 			country_event = {
 				id = ukrpol.8
@@ -206,12 +211,14 @@ country_event = { # German Garrison leaves
 	title = ukrpol.9.t
 	desc = ukrpol.9.d
 	is_triggered_only = yes
-	picture = GFX_report_event_GER_march
+	picture = GFX_report_event_UKR_german_garrison
 
 	option = {
 		name = ukrpol.9.a
 		custom_effect_tooltip = UKR_GER_garrison_leaves
 		unlock_national_focus = UKR_Our_Future
+		set_country_flag = UKR_dyrektoria_uprising_active
+		activate_mission = UKR_rivne_uprising
 		GER = {
 			add_ai_strategy = {
 				type = dont_defend_ally_borders
@@ -232,9 +239,9 @@ country_event = { # German Garrison leaves
 }
 country_event = { # Dualism
 	id = ukrpol.10
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.9" }
-	title = ukrpol.9.t
-	desc = ukrpol.9.d
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.10" }
+	title = ukrpol.10.t
+	desc = ukrpol.10.d
 	is_triggered_only = yes
 
 	option = {
@@ -244,6 +251,11 @@ country_event = { # Dualism
 		}			
 		set_country_flag = UKR_king_path
 		complete_national_focus = UKR_King_Path
+		add_ideas = UKR_dualism
+		country_event = {
+			id = ukrpol.12
+			days = 5
+		}
 	}
 	option = {
 		name = ukrpol.10.b
@@ -252,8 +264,614 @@ country_event = { # Dualism
 		}			
 		set_country_flag = UKR_hetman_path
 		complete_national_focus = UKR_Hetman_Path
+		add_ideas = UKR_dualism
+		country_event = {
+			id = ukrpol.26
+			days = 5
+		}
 	}
 	
+}
+country_event = { # Dualism
+	id = ukrpol.11
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.11" }
+	title = ukrpol.11.t
+	desc = ukrpol.11.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.11.a
+		ai_chance = {
+			base = 50
+		}			
+		complete_national_focus = UKR_Coalition_Of_Monarchists
+		UKR_increase_king_strength = yes
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.02
+		}
+	}
+	option = {
+		name = ukrpol.11.b
+		ai_chance = {
+			base = 50
+		}			
+		complete_national_focus = UKR_Coalition_With_UVO
+		UKR_increase_king_strength = yes
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.02
+		}
+	}	
+}
+country_event = { # Dualism
+	id = ukrpol.12
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.12" }
+	title = ukrpol.12.t
+	desc = ukrpol.12.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.12.a
+		add_stability = -0.03
+		add_political_power = 15
+		country_event = {
+			id = ukrpol.11
+			days = 2
+		}
+	}		
+}
+country_event = { # Melnyk Returns
+	id = ukrpol.13
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.13" }
+	title = ukrpol.13.t
+	desc = ukrpol.13.d
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_melnyk
+	option = {
+		name = ukrpol.13.a
+		event_target:UKR_Andriy_Melnyk = {
+			set_nationality = ROOT
+		}
+		UPR = {
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = totalist
+				popularity = 0.03
+			}
+			effect_tooltip = {
+				event_target:UKR_Mykola_Stsiborskyi = {
+					promote = yes
+					custom_effect_tooltip = will_become_uvo_leader_galicia
+				}
+				custom_effect_tooltip = leftist_uvo_becomes_dominant_galicia
+			}
+		}
+	}		
+}
+country_event = { # Polish farms
+	id = ukrpol.14
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.14" }
+	title = ukrpol.14.t
+	desc = ukrpol.14.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.14.a
+		add_political_power = 5
+		FROM = {
+			country_event = {
+				id = ukrpol.15
+				days = 3
+			}
+		}
+	}		
+}
+country_event = { # Polish farms
+	id = ukrpol.15
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.15" }
+	title = ukrpol.15.t
+	desc = ukrpol.15.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.15.a
+		ai_chance = {
+			base = 50
+		}
+		UKR_decrease_king_strength = yes
+		POL = {
+			add_opinion_modifier = {
+				target = UKR
+				modifier = UKR_polish_concessions
+			}
+		}
+		add_timed_idea = {
+			idea = UKR_paying_polish_concessions
+			days = 180
+		}
+		POL = {
+			add_timed_idea = {
+				idea = UKR_POL_polish_concessions
+				days = 180
+			}
+		}
+	}	
+	option = {
+		name = ukrpol.15.b
+		ai_chance = {
+			base = 50
+		}
+		UKR_increase_king_strength = yes
+		POL = {
+			add_opinion_modifier = {
+				target = UKR
+				modifier = KR_outraged
+			}
+		}
+		hidden_effect = { embargo_FROM = yes }
+	}		
+}
+country_event = { # Arming the Striltsy
+	id = ukrpol.16
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.16" }
+	title = ukrpol.16.t
+	desc = ukrpol.16.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.16.a
+		add_political_power = 5
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.03
+		}
+		random_owned_controlled_state = {
+			prioritize = { 202 }
+			create_unit = {
+				division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
+				owner = ROOT
+				prioritize_location = 504
+			}
+		}
+	}				
+}
+country_event = { # Peasant Discontent
+	id = ukrpol.17
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.17" }
+	title = ukrpol.17.t
+	desc = ukrpol.17.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.17.king
+		trigger = {	has_completed_focus = UKR_King_Path }
+		add_stability = -0.02
+		UKR_increase_king_strength = yes
+		UKR_decrease_king = yes
+		add_timed_idea = {
+			idea = UKR_peasant_unrest
+			days = 30
+		}
+	}
+	option = {
+		name = ukrpol.17.hetman
+		trigger = {	NOT = { has_completed_focus = UKR_King_Path } }
+		add_stability = 0.02
+		UKR_decrease_hetman_strength = yes
+		UKR_increase_hetman = yes
+		add_timed_idea = {
+			idea = UKR_negot_peasants
+			days = 90
+		}
+	}				
+}
+country_event = { # Advisor Lypynskyi
+	id = ukrpol.18
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.18" }
+	title = ukrpol.18.t
+	desc = ukrpol.18.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.18.king
+		trigger = {	has_completed_focus = UKR_King_Path }
+		UKR_decrease_hetman_strength = yes
+		UKR_increase_king = yes
+	}
+	option = {
+		name = ukrpol.18.hetman
+		trigger = {	NOT = { has_completed_focus = UKR_King_Path } }
+		UKR_increase_king_strength = yes
+		UKR_decrease_hetman = yes
+	}				
+}
+country_event = { # Sich Streltsy disbanded!
+	id = ukrpol.19
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.19" }
+	title = ukrpol.19.t
+	desc = ukrpol.19.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.19.king
+		trigger = {	has_completed_focus = UKR_King_Path }
+		UKR_increase_hetman_strength = yes
+		delete_unit_template_and_units = {
+			division_template = "Sichovi Striltsi"
+			disband = yes #will refund equipment and manpower
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.03
+		}
+	}
+	option = {
+		name = ukrpol.19.hetman
+		trigger = {	NOT = { has_completed_focus = UKR_King_Path } }
+		UKR_increase_hetman_strength = yes
+		delete_unit_template_and_units = {
+			division_template = "Sichovi Striltsi"
+			disband = yes #will refund equipment and manpower
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.03
+		}
+	}				
+}
+country_event = { # Konovalets Dead
+	id = ukrpol.20
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.20" }
+	title = ukrpol.20.t
+	desc = ukrpol.20.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.20.king
+		trigger = {	has_completed_focus = UKR_King_Path }
+		effect_tooltip = { kill_ideology_leader = national_populist }
+		event_target:UKR_Yevhen_Konovalets = { remove_unit_leader = yes }
+		event_target:UKR_Mykola_Kapustyanskyi = { set_nationality = UPR }
+		create_country_leader = {
+			name = "Dmytro Dontsov"
+			desc = "POLITICS_DMITRI_DONTSOV_DESC"
+			picture = "gfx/leaders/UKR/Portrait_UKR_Dmitri_Dontsov.png"
+			expire = "1965.1.1"
+			ideology = integralism_subtype
+		}
+		set_party_name = {
+			ideology = national_populist
+			name = UKR_national_populist_party2
+			long_name = UKR_national_populist_party2_long
+		}		
+	}
+	option = {
+		name = ukrpol.20.hetman
+		trigger = {	NOT = { has_completed_focus = UKR_King_Path } }
+		effect_tooltip = { kill_ideology_leader = national_populist }
+		event_target:UKR_Yevhen_Konovalets = { remove_unit_leader = yes }
+		event_target:UKR_Mykola_Kapustyanskyi = { set_nationality = UPR }
+		create_country_leader = {
+			name = "Dmytro Dontsov"
+			desc = "POLITICS_DMITRI_DONTSOV_DESC"
+			picture = "gfx/leaders/UKR/Portrait_UKR_Dmitri_Dontsov.png"
+			expire = "1965.1.1"
+			ideology = integralism_subtype
+		}
+		set_party_name = {
+			ideology = national_populist
+			name = UKR_national_populist_party2
+			long_name = UKR_national_populist_party2_long
+		}
+	}				
+}
+country_event = { # Royal visit to austria
+	id = ukrpol.21
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.21" }
+	title = ukrpol.21.t
+	desc = ukrpol.21.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.21.a
+		UKR_increase_king = yes
+		AUS = {
+			country_event = {
+				id = ukrpol.22
+				days = 7
+			}
+		}
+	}					
+}
+country_event = { # Royal visit to austria
+	id = ukrpol.22
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.22" }
+	title = ukrpol.22.t
+	desc = ukrpol.22.d
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_vasyl
+	option = {
+		name = ukrpol.22.a
+		ai_chance = {
+			base = 95
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.23
+				days = 3
+			}
+		}
+	}
+	option = {
+		name = ukrpol.22.b
+		ai_chance = {
+			base = 5
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.24
+				days = 3
+			}
+		}
+	}					
+}
+country_event = { # Royal visit to austria
+	id = ukrpol.23
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.23" }
+	title = ukrpol.23.t
+	desc = ukrpol.23.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.23.a
+		UKR_increase_king_strength = yes
+		UKR_increase_king = yes
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_pleased
+		}
+	}						
+}
+country_event = { # Royal visit to austria
+	id = ukrpol.24
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.24" }
+	title = ukrpol.24.t
+	desc = ukrpol.24.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.24.a
+		UKR_decrease_king_strength = yes
+		UKR_decrease_king = yes
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_disapproves_of_govt
+		}
+	}						
+}
+country_event = { # End of the Hetmanate
+	id = ukrpol.25
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.25" }
+	title = ukrpol.25.t
+	desc = ukrpol.25.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.25.a
+		set_global_flag = UKR_hetmanate_is_over
+		UKR_decrease_hetman_strength = yes
+		UKR_decrease_hetman = yes
+		event_target:UKR_Pavlo_Skoropadskyi = { retire = yes }
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.15
+		}
+		add_stability = 0.02
+		remove_ideas = UKR_derzhavna_varta
+		remove_all_ministers = yes
+		if = {
+			limit = { has_completed_focus = UKR_Coalition_With_UVO }
+			#add natpop ministers
+			#country_event UVO counter-coup
+		}
+		else = {
+			#add soccon-authdem ministers
+			#country_event finally a free kingdom
+		}
+		swap_ideas = {
+			remove_idea = UKR_dualism
+			add_idea = UKR_political_instability
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = yes
+		}
+		load_focus_tree = UKR_after_coup_focus
+	}						
+}
+country_event = { # Dualism
+	id = ukrpol.26
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.26" }
+	title = ukrpol.26.t
+	desc = ukrpol.26.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.26.a
+		ai_chance = {
+			base = 50
+		}			
+		complete_national_focus = UKR_Coalition_Wih_UDP
+		UKR_increase_hetman_strength = yes
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.02
+		}
+		#swap_ideas = {
+		#	remove_idea = 
+		#	add_idea = UKR_Dmitri_Doroshenko_for_npo
+		#}
+		hidden_effect = {
+			set_temp_variable = { coalition_partner_var = token:market_liberal }
+			add_to_coalition = yes
+		}
+	}
+	option = {
+		name = ukrpol.26.b
+		ai_chance = {
+			base = 50
+		}			
+		complete_national_focus = UKR_Dissolve_Sejm
+		UKR_increase_hetman_strength = yes
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		}
+		country_event = {
+			id = ukrpol.29
+			days = 3
+		}
+	}	
+}
+country_event = { # New governors
+	id = ukrpol.27
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.27" }
+	title = ukrpol.27.t
+	desc = ukrpol.27.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.27.a
+		UKR_decrease_hetman_strength = yes
+		UKR_increase_hetman = yes
+		hidden_effect = {
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.02
+			}
+		}
+		201 = {
+			add_state_modifier = {
+				modifier = {
+					recruitable_population = 0.03
+					resistance_growth = -0.3
+				}
+			}
+		}
+		792 = {
+			add_state_modifier = {
+				modifier = {
+					recruitable_population = 0.03
+					resistance_growth = -0.3
+				}
+			}
+		}
+	}	
+}
+country_event = { # Discredit Lypynskyi
+	id = ukrpol.28
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.28" }
+	title = ukrpol.28.t
+	desc = ukrpol.28.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.28.hetman
+		trigger = { has_completed_focus = UKR_Hetman_Path }
+		UKR_decrease_king_strength = yes
+		add_stability = -0.01
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.04
+		}
+	}
+	option = {
+		name = ukrpol.28.king
+		trigger = { NOT = { has_completed_focus = UKR_Hetman_Path } }
+		UKR_decrease_king_strength = yes
+		add_stability = -0.01
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.04
+		}
+	}	
+}
+country_event = { # Soim Dissolved
+	id = ukrpol.29
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.29" }
+	title = ukrpol.29.t
+	desc = ukrpol.29.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.29.a
+		UKR_increase_hetman_strength = yes
+		UKR_decrease_king_strength = yes
+		add_stability = -0.06
+		add_ideas = UKR_Rada_diss		
+	}	
+}
+country_event = { # Soim Dissolved
+	id = ukrpol.30
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.30" }
+	title = ukrpol.30.t
+	desc = ukrpol.30.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.30.a
+		UKR_increase_hetman_strength = yes
+		UKR_increase_hetman = yes
+		add_stability = -0.03
+	}	
+}
+country_event = { # Soim Dissolved
+	id = ukrpol.31
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.31" }
+	title = ukrpol.31.t
+	desc = ukrpol.31.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.31.a
+		UKR_increase_hetman = yes
+		UKR_decrease_king_strength = yes
+		UKR_decrease_direktoria = yes
+		add_stability = 0.03
+		hidden_effect = {
+			set_politics = {
+				ideology = paternal_autocrat
+				election_allowed = no
+			}
+		}
+	}	
+}
+country_event = { # Boom
+	id = ukrpol.32
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.32" }
+	title = ukrpol.32.t
+	desc = ukrpol.32.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.32.a
+		set_global_flag = UKR_dnieper_explosion
+		add_stability = -0.1
+		swap_ideas = {
+			remove_idea = UKR_dualism
+			add_idea = UKR_political_instability
+		}
+		effect_tooltip = { kill_country_leader = yes }
+		UKR_remove_king = yes		
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.15
+		}
+	}	
 }
 
 country_event = { # Black Monday Hits Ukraine!
@@ -338,6 +956,11 @@ country_event = { # Agricultural crisis!
 			}
 		}
 		set_country_flag = UKR_agriculture_crisis
+		remove_dynamic_modifier = { modifier = UKR_breadbasket_of_europe_modifier }
+		swap_ideas = {
+			remove_idea = UKR_breadbasket_of_europe_idea
+			add_idea = UKR_agricultural_crisis_idea
+		}
 	}
 }
 country_event = { # Germany Saves Us
@@ -357,10 +980,284 @@ country_event = { # Germany Saves Us
 			target = GER
 			modifier = UKR_GER_help_agr_crisis
 		} # 10
-		
-		add_stability = 0.03
+		add_stability = 0.07
 	}
 }
+country_event = { # Dnieper hydro stops
+	id = ukreco.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukreco.4" }
+	title = ukreco.4.t
+	desc = ukreco.4.d
+	picture = GFX_report_event_UKR_dnipro_construction
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = ukreco.4.a
+		add_stability = -0.02
+		set_country_flag = UKR_dnipro_flag
+		unlock_decision_tooltip = UKR_resume_dnipro
+	}
+}
+country_event = { # Monument
+	id = ukrmisc.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.1" }
+	title = ukrmisc.1.t
+	desc = ukrmisc.1.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.1.a
+		add_stability = 0.01
+		add_political_power = 5
+	}
+}
+country_event = { # Kupala holiday
+	id = ukrmisc.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.2" }
+	title = ukrmisc.2.t
+	desc = ukrmisc.2.d
+	picture = GFX_report_event_UKR_kupala
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.2.a
+		add_political_power = 5
+		hidden_effect = {
+			country_event = {
+				id = ukrmisc.2
+				months = 12
+			}
+		}
+	}
+}
+country_event = { # Ivan Ilyich
+	id = ukrmisc.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.3" }
+	title = ukrmisc.3.t
+	desc = ukrmisc.3.d
+	picture = GFX_report_event_UKR_bulhakov
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.3.a		
+	}
+}
+country_event = { # Dovzhenko
+	id = ukrmisc.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.4" }
+	title = ukrmisc.4.t
+	desc = ukrmisc.4.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.4.a		
+	}
+}
+country_event = { # Concert
+	id = ukrmisc.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.5" }
+	title = ukrmisc.5.t
+	desc = ukrmisc.5.d
+	picture = GFX_report_event_UKR_orchestra
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.5.a
+		add_political_power = 7
+	}
+}
+country_event = { # Chernyakhovsky
+	id = ukrmisc.6
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.6" }
+	title = ukrmisc.6.t
+	desc = ukrmisc.6.d
+	picture = GFX_report_event_UKR_chernyakhovsky
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.6.a
+		add_stability = 0.02		
+	}
+}
+country_event = { # White Guard
+	id = ukrmisc.7
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.7" }
+	title = ukrmisc.7.t
+	desc = ukrmisc.7.d
+	picture = GFX_report_event_UKR_bulhakov
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.7.a
+		add_stability = 0.03	
+	}
+}
+country_event = { # Bulhakov passes away
+	id = ukrmisc.8
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.8" }
+	title = ukrmisc.8.t
+	desc = ukrmisc.8.d
+	picture = GFX_report_event_UKR_bulhakov_2
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.8.a
+		add_stability = -0.03	
+	}
+}
+country_event = { # Korolev
+	id = ukrmisc.10
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.10" }
+	title = ukrmisc.10.t
+	desc = ukrmisc.10.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.10.a
+		add_stability = 0.02
+		add_tech_bonus = {
+			bonus = 0.15
+			uses = 1
+			category = rocketry
+		}
+	}
+}
+country_event = { # Yaponchik
+	id = ukrmisc.11
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.11" }
+	title = ukrmisc.11.t
+	desc = ukrmisc.11.d
+	picture = GFX_report_event_UKR_yaponchik
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.11.a
+		add_stability = -0.03
+		192 = {
+			damage_building = {
+				type = infrastructure
+				damage = 1
+			}
+		}
+	}
+}
+country_event = { # Bilokur
+	id = ukrmisc.12
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.12" }
+	title = ukrmisc.12.t
+	desc = ukrmisc.12.d
+	picture = GFX_report_event_UKR_katerina
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.12.a
+		add_stability = 0.02
+		add_political_power = 5
+	}
+}
+country_event = { # Crimean Wine
+	id = ukrmisc.13
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.13" }
+	title = ukrmisc.13.t
+	desc = ukrmisc.13.d
+	picture = GFX_report_event_UKR_massandra
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.13.a
+		add_stability = 0.02
+		137 = { add_extra_state_shared_building_slots = 1 }
+		add_ideas = CRM_wine_production
+	}
+}
+country_event = { # Renaming Stanislav
+	id = ukrmisc.14
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.14" }
+	title = ukrmisc.14.t
+	desc = ukrmisc.14.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.14.a
+	}
+}
+country_event = { # Ukrainka award
+	id = ukrmisc.15
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.15" }
+	title = ukrmisc.15.t
+	desc = ukrmisc.15.d
+	picture = GFX_report_event_UKR_ukrainka
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.15.a
+		add_political_power = 15
+		add_stability = 0.01
+	}
+}
+country_event = { # Stadium
+	id = ukrmisc.16
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.16" }
+	title = ukrmisc.16.t
+	desc = ukrmisc.16.d
+	picture = GFX_report_event_UKR_stadium
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.16.a
+		add_political_power = 15
+		227 = { increase_state_category_by_one_level = yes }
+	}
+}
+country_event = { # 1949 monument
+	id = ukrmisc.17
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.17" }
+	title = ukrmisc.17.t
+	desc = ukrmisc.17.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.17.a
+		add_stability = 0.03
+		increase_ruling_party_popularity_by_10 = yes
+	}
+}
+country_event = { # Demolish Mazepa
+	id = ukrmisc.18
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.18" }
+	title = ukrmisc.18.t
+	desc = ukrmisc.18.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.18.a
+		add_political_power = 15
+	}
+}
+country_event = { # Utesov visit
+	id = ukrmisc.19
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.19" }
+	title = ukrmisc.19.t
+	desc = ukrmisc.19.d
+	picture = GFX_report_event_UKR_utesov
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.19.a
+		add_war_support = 0.03
+	}
+}
+
 
 country_event = { # Faith and Nation
 	id = ukraine.5

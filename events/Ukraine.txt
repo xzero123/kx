@@ -526,6 +526,10 @@ country_event = { # Sich Streltsy disbanded!
 country_event = { # Konovalets Dead
 	id = ukrpol.20
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.20" }
+	immediate = { 
+		set_country_flag = Yevhen_Konovalets_dead
+		set_country_flag = UPR_uvo_openly_joins_dyrektoria
+	}
 	title = ukrpol.20.t
 	desc = ukrpol.20.d
 	is_triggered_only = yes
@@ -547,7 +551,7 @@ country_event = { # Konovalets Dead
 			ideology = national_populist
 			name = UKR_national_populist_party2
 			long_name = UKR_national_populist_party2_long
-		}		
+		}
 	}
 	option = {
 		name = ukrpol.20.hetman
@@ -676,7 +680,10 @@ country_event = { # End of the Hetmanate
 		if = {
 			limit = { has_completed_focus = UKR_Coalition_With_UVO }
 			#add natpop ministers
-			#country_event UVO counter-coup
+			country_event = {
+				id = ukrpol.34
+				days = 6
+			}
 		}
 		else = {
 			#add soccon-authdem ministers
@@ -690,7 +697,7 @@ country_event = { # End of the Hetmanate
 			ruling_party = authoritarian_democrat
 			elections_allowed = yes
 		}
-		load_focus_tree = UKR_after_coup_focus
+		mark_focus_tree_layout_dirty = yes
 	}						
 }
 country_event = { # Dualism
@@ -844,7 +851,7 @@ country_event = { # Soim Dissolved
 		add_stability = 0.03
 		hidden_effect = {
 			set_politics = {
-				ideology = paternal_autocrat
+				ruling_party = paternal_autocrat
 				election_allowed = no
 			}
 		}
@@ -871,6 +878,161 @@ country_event = { # Boom
 			ideology = social_conservative
 			popularity = -0.15
 		}
+		mark_focus_tree_layout_dirty = yes
+	}	
+}
+country_event = { # Konovalets Coup Beginning
+	id = ukrpol.34
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.34" }
+	title = ukrpol.34.t
+	desc = ukrpol.34.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.34.a
+		add_stability = -0.01
+		hidden_effect = {
+			country_event = {
+				id = ukrpol.35
+				days = 3
+			}
+		}
+	}	
+}
+country_event = { # Konovalets Counter-Coup
+	id = ukrpol.35
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.35" }
+	title = ukrpol.35.t
+	desc = ukrpol.35.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.35.a
+		set_global_flag = UKR_konovalets_counet_coup
+		UKR_decrease_king_strength = yes
+		UKR_decrease_king = yes
+		event_target:UKR_Yevhen_Konovalets = { promote = yes }
+		hidden_effect = {
+			division_template = {
+				name = "Halytskyi korpus Sichovykh Striltsiv"
+				division_names_group = UKR_ELI_02
+				regiments = {
+					elite_infantry = { x = 0 y = 0 }
+					elite_infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+				}
+				support = {
+					artillery = { x = 0 y = 0 }
+					engineer = { x = 0 y = 1 }
+					recon = { x = 0 y = 2 }
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 792 }
+				create_unit = {
+					division = "division_template = \"Halytskyi korpus Sichovykh Striltsiv\" start_experience_factor = 0.2"
+					owner = ROOT
+					prioritize_location = 11543
+				}
+				create_unit = {
+					division = "division_template = \"Halytskyi korpus Sichovykh Striltsiv\" start_experience_factor = 0.2"
+					owner = ROOT
+					prioritize_location = 6435
+				}
+				create_unit = {
+					division = "division_template = \"Halytskyi korpus Sichovykh Striltsiv\" start_experience_factor = 0.2"
+					owner = ROOT
+					prioritize_location = 572
+				}
+				create_unit = {
+					division = "division_template = \"Halytskyi korpus Sichovykh Striltsiv\" start_experience_factor = 0.2"
+					owner = ROOT
+					prioritize_location = 474
+				}
+			}
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.12
+		}
+		add_stability = 0.02
+		remove_ideas = UKR_derzhavna_varta
+		remove_all_ministers = yes
+		set_politics = {
+			ruling_party = national_populist
+			elections_allowed = no
+		}
+		UPR = {
+			every_unit_leader = {
+				limit = { has_trait = UKR_uvo_officer }
+				set_nationality = ROOT
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.5
+			}
+			add_war_support = -0.15
+		}		
+		mark_focus_tree_layout_dirty = yes
+	}	
+}
+country_event = { # Dyrektoria Uprising
+	id = ukrpol.36
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.36" }
+	title = ukrpol.36.t
+	desc = ukrpol.36.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.36.a
+		trigger = { is_ai = no }
+		effect_tooltip = { UPR = { change_tag_from = ROOT }
+		set_global_flag = UPR_dyrektoria_uprising_UPR
+		UPR_create_ROOT_dyrektoria = yes
+		complete_national_focus = UPR_Fall_Of_Rivne
+		mark_focus_tree_layout_dirty = yes
+	}
+	option = {
+		name = ukrpol.36.b
+		set_global_flag = UPR_dyrektoria_uprising_UPR
+		UPR_create_dyrektoria = yes
+		complete_national_focus = UKR_Fall_Of_Rivne
+		mark_focus_tree_layout_dirty = yes
+	}	
+}
+country_event = { # Dyrektoria Uprising
+	id = ukrpol.37
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.37" }
+	title = ukrpol.37.t
+	desc = ukrpol.37.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.37.a
+		set_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+		hidden_effect = {
+			if = {
+				limit = { has_dlc = "Man the Guns" }
+				UPR = { become_exiled_in = { target = GAL legitimacy = 0.35 } }
+			}
+			UPR = {
+				event_target:UPR_Joint_Command = { retire = yes }
+				every_unit_leader = {
+					add_unit_leader_trait = UKR_uga_officer
+					set_nationality = GAL
+				}
+			}
+			GAL = {
+				annex_country = {
+					target = UPR
+					transfer_troops = yes
+				}
+			}
+			clear_variable = UKR_Direktoriia_Strength
+			clear_global_event_target = UKR_dyrektoria_headquarters
+		}
+		mark_focus_tree_layout_dirty = yes
 	}	
 }
 
@@ -981,6 +1143,7 @@ country_event = { # Germany Saves Us
 			modifier = UKR_GER_help_agr_crisis
 		} # 10
 		add_stability = 0.07
+		unlock_national_focus = UKR_Agricultural_Crisis
 	}
 }
 country_event = { # Dnieper hydro stops

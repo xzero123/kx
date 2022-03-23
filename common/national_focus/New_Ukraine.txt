@@ -16,10 +16,14 @@ focus_tree = {
 		id = UKR_Our_Future
 		icon = GFX_goal_Deutsches_Heer
 		cost = 1
-		x = 8
+		x = 4
 		y = 0
 		available = {
 			always = no
+		}
+		allow_branch = {
+			UKR_vasyl_in_power = yes
+			has_government = paternal_autocrat
 		}
 		ai_will_do = { 
 			factor = 10
@@ -118,8 +122,8 @@ focus_tree = {
 		icon = GFX_goal_UKR_king
 		cost = 3
 		relative_position_id = UKR_King_Path
-		x = 3
-		y = 2
+		x = 2
+		y = 3
 		prerequisite = {
 			focus = UKR_Coalition_With_UVO
 		}
@@ -142,8 +146,8 @@ focus_tree = {
 		icon = GFX_goal_UKR_king
 		cost = 3
 		relative_position_id = UKR_King_Path
-		x = 2
-		y = 3
+		x = 1
+		y = 4
 		prerequisite = {
 			focus = UKR_Recall_Melnyk_From_Galicia
 		}
@@ -233,7 +237,7 @@ focus_tree = {
 		icon = GFX_goal_UKR_king
 		cost = 3
 		relative_position_id = UKR_King_Path
-		x = -2
+		x = 0
 		y = 3
 		prerequisite = {
 			focus = UKR_Relieve_The_Landowners_Tax_Burden
@@ -260,10 +264,10 @@ focus_tree = {
 	focus = {
 		id = UKR_Prepare_The_Anti_Hetman_Coup
 		icon = GFX_goal_PAL_Irrigation_Program
-		cost = 3
+		cost = 5
 		relative_position_id = UKR_King_Path
 		x = 0
-		y = 4
+		y = 5
 		prerequisite = {
 			focus = UKR_Call_For_Austrian_Intervention
 			focus = UKR_Fully_Equip_Sich_Streltsy
@@ -281,7 +285,7 @@ focus_tree = {
 		icon = GFX_goal_UKR_coat_of_arms_hetman
 		cost = 0
 		relative_position_id = UKR_Our_Future
-		x = 4
+		x = 2
 		y = 1
 		prerequisite = {
 			focus = UKR_Our_Future
@@ -327,15 +331,12 @@ focus_tree = {
 	focus = {
 		id = UKR_Concessions_To_The_National_Democrats
 		icon = GFX_goal_UKR_coat_of_arms_hetman
-		cost = 0
+		cost = 3
 		relative_position_id = UKR_Hetman_Path
 		x = -1
 		y = 2
 		prerequisite = {
 			focus = UKR_Coalition_Wih_UDP
-		}
-		available = {
-			always = no
 		}
 		ai_will_do = {
 			factor = 10
@@ -348,15 +349,12 @@ focus_tree = {
 	focus = {
 		id = UKR_Ease_The_Pressure_On_Peasants
 		icon = GFX_goal_UKR_coat_of_arms_hetman
-		cost = 0
+		cost = 3
 		relative_position_id = UKR_Hetman_Path
 		x = -3
 		y = 2
 		prerequisite = {
 			focus = UKR_Coalition_Wih_UDP
-		}
-		available = {
-			always = no
 		}
 		ai_will_do = {
 			factor = 10
@@ -369,7 +367,7 @@ focus_tree = {
 	focus = {
 		id = UKR_Discredit_Moderate_Monarchists
 		icon = GFX_goal_UKR_coat_of_arms_hetman
-		cost = 0
+		cost = 3
 		relative_position_id = UKR_Hetman_Path
 		x = -2
 		y = 3
@@ -378,9 +376,6 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = UKR_Concessions_To_The_National_Democrats
-		}
-		available = {
-			always = no
 		}
 		ai_will_do = {
 			factor = 10
@@ -417,36 +412,30 @@ focus_tree = {
 	focus = {
 		id = UKR_Extend_State_Powers
 		icon = GFX_goal_UKR_coat_of_arms_hetman
-		cost = 0
+		cost = 3
 		relative_position_id = UKR_Hetman_Path
-		x = 1
-		y = 2
+		x = 0
+		y = 3
 		prerequisite = {
 			focus = UKR_Dissolve_Sejm
-		}
-		available = {
-			always = no
 		}
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Extend_State_Powers"
-			country_event = ukrpol.26
+			country_event = ukrpol.30
 		}
 	}
 	focus = {
 		id = UKR_Disarm_The_Sich_Streltsy
 		icon = GFX_goal_UKR_coat_of_arms_hetman
-		cost = 0
+		cost = 3
 		relative_position_id = UKR_Hetman_Path
-		x = 3
+		x = 2
 		y = 2
 		prerequisite = {
 			focus = UKR_Dissolve_Sejm
-		}
-		available = {
-			always = no
 		}
 		ai_will_do = {
 			factor = 10
@@ -469,18 +458,15 @@ focus_tree = {
 	focus = {
 		id = UKR_Empower_Derzhavna_Varta
 		icon = GFX_goal_UKR_coat_of_arms_hetman
-		cost = 0
+		cost = 3
 		relative_position_id = UKR_Hetman_Path
-		x = 2
-		y = 3
+		x = 1
+		y = 4
 		prerequisite = {
 			focus = UKR_Extend_State_Powers
 		}
 		prerequisite = {
 			focus = UKR_Disarm_The_Sich_Streltsy
-		}
-		available = {
-			always = no
 		}
 		ai_will_do = {
 			factor = 10
@@ -493,16 +479,13 @@ focus_tree = {
 	focus = {
 		id = UKR_Hetmanate_Is_Not_Yet_Lost
 		icon = GFX_goal_UKR_coat_of_arms_hetman
-		cost = 0
+		cost = 5
 		relative_position_id = UKR_Hetman_Path
-		x = 0
-		y = 4
+		x = -1
+		y = 5
 		prerequisite = {
 			focus = UKR_Discredit_Moderate_Monarchists
 			focus = UKR_Empower_Derzhavna_Varta
-		}
-		available = {
-			always = no
 		}
 		ai_will_do = {
 			factor = 10
@@ -515,6 +498,3495 @@ focus_tree = {
 	}
 	
 	
+	focus = {
+		id = UKR_UMP_USKhD_Coalition
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		x = 4
+		y = 0
+		allow_branch = {
+			UKR_ump_uskhd_in_power = yes
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_UMP_USKhD_Coalition"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {
+		id = UKR_New_Heir
+		icon = GFX_goal_UKR_king
+		cost = 5
+		prerequisite = {
+			focus = UKR_UMP_USKhD_Coalition
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_UMP_USKhD_Coalition
+		ai_will_do = {
+				factor = 10
+			}
+		completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus UKR_New_Heir"
+			UKR = {
+				country_event = ukraine.52
+			}
+		}
+	}
+	focus = {
+		id = UKR_Liberalize_The_Regime
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_UMP_USKhD_Coalition
+		x = -2
+		y = 2
+		mutually_exclusive = {
+			focus = UKR_Principles_Of_Classocracy
+		}
+		prerequisite = {
+			focus = UKR_New_Heir
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Liberalize_The_Regime"
+		}
+	}
+	focus = {
+		id = UKR_Legalize_Prosvita
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_UMP_USKhD_Coalition
+		x = -3
+		y = 3
+		prerequisite = {
+			focus = UKR_Liberalize_The_Regime
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Legalize_Prosvita"
+			UKR_improve_ukrainisation = yes
+		}
+	}
+	focus = {
+		id = UKR_Cripple_Radicalism
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_UMP_USKhD_Coalition
+		x = -4
+		y = 4
+		prerequisite = {
+			focus = UKR_Legalize_Prosvita
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Cripple_Radicalism"
+		}
+	}
+	focus = {
+		id = UKR_Constitutional_Amendments
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_UMP_USKhD_Coalition
+		x = -4
+		y = 5
+		prerequisite = {
+			focus = UKR_Cripple_Radicalism
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Constitutional_Amendments"
+		}
+	}
+	focus = {
+		id = UKR_Form_National_Rada
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_UMP_USKhD_Coalition
+		x = -3
+		y = 6
+		prerequisite = {
+			focus = UKR_Constitutional_Amendments
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Constitutional_Amendments"
+		}
+	}
+	focus = {
+		id = UKR_Trade_Agreement_With_Austria
+		icon = GFX_goal_LIC_austrian_customs
+		cost = 1
+		relative_position_id = UKR_UMP_USKhD_Coalition
+		x = -2
+		y = 4
+		prerequisite = {
+			focus = UKR_Liberalize_The_Regime
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Trade_Agreement_With_Austria"
+		}
+	}
+	focus = {
+		id = UKR_Ternopil_Agreement
+		icon = GFX_goal_LIC_austrian_customs
+		cost = 1
+		relative_position_id = UKR_UMP_USKhD_Coalition
+		x = -2
+		y = 5
+		prerequisite = {
+			focus = UKR_Trade_Agreement_With_Austria
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Ternopil_Agreement"
+		}
+	}
+	focus = {
+		id = UKR_Principles_Of_Classocracy
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_UMP_USKhD_Coalition
+		x = 2
+		y = 2
+		mutually_exclusive = {
+			focus = UKR_Liberalize_The_Regime
+		}
+		prerequisite = {
+			focus = UKR_New_Heir
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Principles_Of_Classocracy"
+		}
+	}
+	focus = {
+		id = UKR_Monarchy_Rebranding
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_UMP_USKhD_Coalition
+		x = 3
+		y = 3
+		prerequisite = {
+			focus = UKR_Principles_Of_Classocracy
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Monarchy_Rebranding"
+		}
+	}
+	focus = {
+		id = UKR_Support_Khliborobs
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_UMP_USKhD_Coalition
+		x = 2
+		y = 4
+		prerequisite = {
+			focus = UKR_Principles_Of_Classocracy
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Support_Khliborobs"
+		}
+	}
+	focus = {
+		id = UKR_Ukrainian_Agrarism
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_UMP_USKhD_Coalition
+		x = 2
+		y = 5
+		prerequisite = {
+			focus = UKR_Support_Khliborobs
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Ukrainian_Agrarism"
+		}
+	}
+	focus = {
+		id = UKR_Adopt_The_Moral_Code
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_UMP_USKhD_Coalition
+		x = 4
+		y = 4
+		prerequisite = {
+			focus = UKR_Monarchy_Rebranding
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Adopt_The_Moral_Code"
+			UKR_improve_ukrainisation = yes
+		}
+	}
+	focus = {
+		id = UKR_God_Hetman_Ukraine
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_UMP_USKhD_Coalition
+		x = 4
+		y = 5
+		prerequisite = {
+			focus = UKR_Adopt_The_Moral_Code
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_God_Hetman_Ukraine"
+		}
+	}
+	focus = {
+		id = UKR_New_Monarchy
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_UMP_USKhD_Coalition
+		x = 3
+		y = 6
+		prerequisite = {
+			focus = UKR_God_Hetman_Ukraine
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_New_Monarchy"
+		}
+	}
+
+	focus = {
+		id = UKR_Konovalets_Counter_Coup
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		x = 4
+		y = 0
+		allow_branch = {
+			UKR_yevhen_konovalets_in_power = yes
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Konovalets_Counter_Coup"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {
+		id = UKR_Assume_Vozhd_Title
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Konovalets_Counter_Coup
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = UKR_Konovalets_Counter_Coup
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Assume_Vozhd_Title"
+		}
+	}
+	focus = {
+		id = UKR_Convene_Great_Assembly_OUN
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Konovalets_Counter_Coup
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = UKR_Assume_Vozhd_Title
+			focus = UKR_Assume_Vozhd_Title_Melnyk
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Convene_Great_Assembly_OUN"
+		}
+	}
+	focus = {
+		id = UKR_Fight_Leftism_in_UVO
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Konovalets_Counter_Coup
+		x = -2
+		y = 2
+		prerequisite = {
+			focus = UKR_Assume_Vozhd_Title
+			focus = UKR_Assume_Vozhd_Title_Melnyk
+		}
+		available = {
+			has_completed_focus = UKR_Convene_Great_Assembly_OUN
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Fight_Leftism_in_UVO"
+		}
+	}
+	focus = {
+		id = UKR_Undercut_Dontsov_Fanatism
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Konovalets_Counter_Coup
+		x = 2
+		y = 2
+		prerequisite = {
+			focus = UKR_Assume_Vozhd_Title
+			focus = UKR_Assume_Vozhd_Title_Melnyk
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Undercut_Dontsov_Fanatism"
+		}
+	}
+	focus = {
+		id = UKR_Ideological_Foundations
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Konovalets_Counter_Coup
+		x = 0
+		y = 3
+		prerequisite = {
+			focus = UKR_Fight_Leftism_in_UVO
+		}
+		prerequisite = {
+			focus = UKR_Convene_Great_Assembly_OUN
+		}
+		prerequisite = {
+			focus = UKR_Undercut_Dontsov_Fanatism
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Ideological_Foundations"
+		}
+	}
+	focus = {
+		id = UKR_Connections_With_AntiGerman_Movements
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Ideological_Foundations
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = UKR_Ideological_Foundations
+		}
+		mutually_exclusive = {
+			focus = UKR_Use_The_Kaisers_Protection
+			focus = UKR_Secret_Collusion_With_Russia
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Connections_With_AntiGerman_Movements"
+		}
+	}
+	focus = {
+		id = UKR_Use_The_Kaisers_Protection
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Ideological_Foundations
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = UKR_Ideological_Foundations
+		}
+		mutually_exclusive = {
+			focus = UKR_Secret_Collusion_With_Russia
+			focus = UKR_Connections_With_AntiGerman_Movements
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Use_The_Kaisers_Protection"
+		}
+	}
+	focus = {
+		id = UKR_Secret_Collusion_With_Russia
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Ideological_Foundations
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = UKR_Ideological_Foundations
+		}
+		mutually_exclusive = {
+			focus = UKR_Use_The_Kaisers_Protection
+			focus = UKR_Connections_With_AntiGerman_Movements
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Secret_Collusion_With_Russia"
+		}
+	}
+	focus = {
+		id = UKR_Nationalisation_Of_Key_Industries
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Ideological_Foundations
+		x = 1
+		y = 2
+		prerequisite = {
+			focus = UKR_Connections_With_AntiGerman_Movements
+			focus = UKR_Use_The_Kaisers_Protection
+			focus = UKR_Secret_Collusion_With_Russia
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Nationalisation_Of_Key_Industries"
+		}
+	}
+	focus = {
+		id = UKR_Limited_Worker_Autonomy
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Ideological_Foundations
+		x = 3
+		y = 3
+		prerequisite = {
+			focus = UKR_Nationalisation_Of_Key_Industries
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Limited_Worker_Autonomy"
+		}
+	}
+	focus = {
+		id = UKR_Bread_Problem
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Ideological_Foundations
+		x = 1
+		y = 3
+		prerequisite = {
+			focus = UKR_Nationalisation_Of_Key_Industries
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Bread_Problem"
+		}
+	}
+	focus = {
+		id = UKR_Cheap_Loans_For_Peasants
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Ideological_Foundations
+		x = 1
+		y = 4
+		prerequisite = {
+			focus = UKR_Bread_Problem
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Cheap_Loans_For_Peasants"
+		}
+	}
+	focus = {
+		id = UKR_Encourage_Production_Cooperation
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Ideological_Foundations
+		x = 3
+		y = 4
+		prerequisite = {
+			focus = UKR_Limited_Worker_Autonomy
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Encourage_Production_Cooperation"
+		}
+	}
+	focus = {
+		id = UKR_Ukrainization_Efforts
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Ideological_Foundations
+		x = -1
+		y = 2
+		prerequisite = {
+			focus = UKR_Connections_With_AntiGerman_Movements
+			focus = UKR_Use_The_Kaisers_Protection
+			focus = UKR_Secret_Collusion_With_Russia
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Ukrainization_Efforts"
+			UKR_improve_ukrainisation = yes
+		}
+	}
+	focus = {
+		id = UKR_Plast_Cooperation
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Ideological_Foundations
+		x = -1
+		y = 3
+		prerequisite = {
+			focus = UKR_Ukrainization_Efforts
+		}
+		mutually_exclusive = {
+			focus = UKR_SUNM
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Plast_Cooperation"
+		}
+	}
+	focus = {
+		id = UKR_SUNM
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Ideological_Foundations
+		x = -3
+		y = 3
+		prerequisite = {
+			focus = UKR_Ukrainization_Efforts
+		}
+		mutually_exclusive = {
+			focus = UKR_Plast_Cooperation
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_SUNM"
+		}
+	}
+	focus = {
+		id = UKR_Local_Self_Government
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Ideological_Foundations
+		x = 0
+		y = 5
+		prerequisite = {
+			focus = UKR_Nationalisation_Of_Key_Industries
+		}
+		prerequisite = {
+			focus = UKR_Ukrainization_Efforts
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Bread_Problem"
+		}
+	}
 	
+	focus = {
+		id = UKR_Melnyk_In_Power
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		x = 4
+		y = 0
+		allow_branch = {
+			UKR_andriy_melnyk_in_power = yes
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Melnyk_In_Power"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
 	
+	focus = {
+		id = UKR_Assume_Vozhd_Title_Melnyk
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Melnyk_In_Power
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = UKR_Melnyk_In_Power
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Assume_Vozhd_Title_Melnyk"
+		}
+	}
+	
+
+	focus = {
+		id = UKR_Explosion_Dnieper
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		x = 4
+		y = 0
+		allow_branch = {
+			UKR_pavlo_skoropadsky_in_power = yes
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Explosion_Dnieper"
+			custom_effect_tooltip = UKR_Explosion_Dnieper_tooltip					
+		}
+	}
+	focus = {
+		id = UKR_Skoropadsky_Policy
+		icon = GFX_goal_UKR_iron_republic
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = UKR_Explosion_Dnieper
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Skoropadsky_Policy"
+			add_war_support = 0.05
+			add_stability = 0.05					
+		}
+	}
+	focus = {
+		id = UKR_Outlaw_Radicalism
+		icon = GFX_goal_UKR_iron_republic
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = UKR_Explosion_Dnieper
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Outlaw_Radicalism"
+		}
+	}
+	focus = {
+		id = UKR_Settle_the_Austrian_Issues
+		icon = GFX_goal_UKR_iron_republic
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = UKR_Explosion_Dnieper
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Settle_the_Austrian_Issues"
+		}
+	}
+	focus = {
+		id = UKR_Prohibit_Syndicalism
+		icon = GFX_goal_UK_ban_unions
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = -3
+		y = 2
+		prerequisite = {
+			focus = UKR_Outlaw_Radicalism
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Prohibit_Syndicalism"
+		}
+	}
+	focus = {
+		id = UKR_Threaten_Germany
+		icon = GFX_goal_UK_ban_unions
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = -1
+		y = 2
+		prerequisite = {
+			focus = UKR_Outlaw_Radicalism
+		}
+		prerequisite = {
+			focus = UKR_Skoropadsky_Policy
+		}
+		prerequisite = {
+			focus = UKR_Settle_the_Austrian_Issues
+		}
+		mutually_exclusive = {
+			focus = UKR_Look_Out_To_Russia
+		}
+		available = {
+			NOT = { has_idea = UKR_black_monday }
+			GER = {
+				has_completed_focus = GER_black_monday_finish
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Threaten_Germany"
+		}
+	}
+	focus = {
+		id = UKR_Look_Out_To_Russia
+		icon = GFX_goal_UK_ban_unions
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = 1
+		y = 2
+		prerequisite = {
+			focus = UKR_Outlaw_Radicalism
+		}
+		prerequisite = {
+			focus = UKR_Skoropadsky_Policy
+		}
+		prerequisite = {
+			focus = UKR_Settle_the_Austrian_Issues
+		}
+		mutually_exclusive = {
+			focus = UKR_Threaten_Germany
+		}
+		available = {
+			NOT = { has_idea = UKR_black_monday }
+			GER = {
+				has_completed_focus = GER_black_monday_finish
+			}
+			RUS = {
+				has_socialist_government = no
+				NOT = { has_government = social_democrat }
+				NOT = { has_government = national_populist }
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Look_Out_To_Russia"
+		}
+	}
+	focus = {
+		id = UKR_Federalisation
+		icon = GFX_goal_OTT_Land_Reform
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = 3
+		y = 2
+		prerequisite = {
+			focus = UKR_Settle_the_Austrian_Issues
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Look_Out_To_Russia"			
+		}
+	}
+	focus = {
+		id = UKR_Army_Reforms
+		icon = GFX_goal_generic_army_training
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = 2
+		y = 3
+		prerequisite = {
+			focus = UKR_Federalisation
+		}
+		prerequisite = {
+			focus = UKR_Skoropadsky_Policy
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Army_Reforms"			
+		}
+	}
+	focus = {
+		id = UKR_Peasant_State
+		icon = GFX_RUS_Emergence_Of_Farmers
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = -2
+		y = 3
+		prerequisite = {
+			focus = UKR_Prohibit_Syndicalism
+		}
+		prerequisite = {
+			focus = UKR_Skoropadsky_Policy
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Peasant_State"
+			add_ideas = UKR_Peasant_state			
+		}
+	}
+	focus = {
+		id = UKR_End_The_Martial_Law
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = 0
+		y = 3
+		prerequisite = {
+			focus = UKR_Threaten_Germany
+			focus = UKR_Look_Out_To_Russia
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_End_The_Martial_Law"
+		}
+	}
+	focus = {
+		id = UKR_Revive_Ukrainisation
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 4
+		relative_position_id = UKR_Explosion_Dnieper
+		x = -1
+		y = 4
+		prerequisite = {
+			focus = UKR_Peasant_State
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Revive_Ukrainisation"
+			UKR_improve_ukrainisation = yes
+		}
+	}
+	focus = {
+		id = UKR_Restore_Vilne_Kozatstvo
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = 1
+		y = 4
+		prerequisite = {
+			focus = UKR_Army_Reforms
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Restore_Vilne_Kozatstvo"
+		}
+	}
+	focus = {
+		id = UKR_Regency_Council
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = 0
+		y = 5
+		prerequisite = {
+			focus = UKR_End_The_Martial_Law
+		}
+		prerequisite = {
+			focus = UKR_Revive_Ukrainisation
+		}
+		prerequisite = {
+			focus = UKR_Restore_Vilne_Kozatstvo
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Regency_Council"
+		}
+	}
+	focus = {
+		id = UKR_Hetman_Of_All_Ukraine
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = 0
+		y = 6
+		prerequisite = {
+			focus = UKR_Regency_Council
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Hetman_Of_All_Ukraine"
+		}
+	}	
+	focus = {
+		id = UKR_Legacy_Of_Imperial_Russia
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = 3
+		y = 7
+		prerequisite = {
+			focus = UKR_Hetman_Of_All_Ukraine
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Legacy_Of_Imperial_Russia"
+		}
+	}
+	focus = {
+		id = UKR_Reform_Derzhavna_Varta
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = -3
+		y = 7
+		prerequisite = {
+			focus = UKR_Hetman_Of_All_Ukraine
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Reform_Derzhavna_Varta"
+		}
+	}
+	focus = {
+		id = UKR_Restructure_The_Bureaucracy
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = 0
+		y = 7
+		prerequisite = {
+			focus = UKR_Hetman_Of_All_Ukraine
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Restructure_The_Bureaucracy"
+		}
+	}
+	focus = {
+		id = UKR_Support_The_Protofis
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = 1
+		y = 8
+		prerequisite = {
+			focus = UKR_Restructure_The_Bureaucracy
+		}
+		mutually_exclusive = {
+			focus = UKR_New_German_Contracts
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Support_The_Protofis"
+		}
+	}
+	focus = {
+		id = UKR_New_German_Contracts
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = -1
+		y = 8
+		available = {
+			has_completed_focus = UKR_Threaten_Germany
+		}
+		prerequisite = {
+			focus = UKR_Restructure_The_Bureaucracy
+		}
+		mutually_exclusive = {
+			focus = UKR_Support_The_Protofis
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_New_German_Contracts"
+		}
+	}
+	focus = {
+		id = UKR_The_New_Ukrainian_Aristocracy
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = 3
+		y = 8
+		prerequisite = {
+			focus = UKR_Legacy_Of_Imperial_Russia
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_The_New_Ukrainian_Aristocracy"
+		}
+	}
+	focus = {
+		id = UKR_Ukrainian_Agrarism_Skoropadsky
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = 2
+		y = 9
+		prerequisite = {
+			focus = UKR_The_New_Ukrainian_Aristocracy
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Ukrainian_Agrarism_Skoropadsky"
+		}
+	}
+	focus = {
+		id = UKR_Finish_The_Banditry
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = -3
+		y = 8
+		prerequisite = {
+			focus = UKR_Reform_Derzhavna_Varta
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Finish_The_Banditry"
+		}
+	}
+	focus = {
+		id = UKR_Ukrainian_Church_Significant
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = -2
+		y = 9
+		prerequisite = {
+			focus = UKR_Finish_The_Banditry
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Ukrainian_Church_Significant"
+			UKR_improve_ukrainisation = yes
+		}
+	}
+	focus = {
+		id = UKR_Invest_In_Industry
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = 0
+		y = 9
+		prerequisite = {
+			focus = UKR_New_German_Contracts
+			focus = UKR_Support_The_Protofis
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Invest_In_Industry"
+		}
+	}
+	focus = {
+		id = UKR_Science_Development_Grants
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = -1
+		y = 10
+		prerequisite = {
+			focus = UKR_Invest_In_Industry
+			focus = UKR_Ukrainian_Church_Significant
+		}
+		prerequisite = {
+			focus = UKR_Invest_In_Industry
+			focus = UKR_Ukrainian_Agrarism_Skoropadsky
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Science_Development_Grants"
+		}
+	}
+	focus = {
+		id = UKR_Smallholding_Aspiration
+		icon = GFX_goal_UKR_coat_of_arms_hetman
+		cost = 1
+		relative_position_id = UKR_Explosion_Dnieper
+		x = 1
+		y = 10
+		prerequisite = {
+			focus = UKR_Invest_In_Industry
+			focus = UKR_Ukrainian_Church_Significant
+		}
+		prerequisite = {
+			focus = UKR_Invest_In_Industry
+			focus = UKR_Ukrainian_Agrarism_Skoropadsky
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Smallholding_Aspiration"
+		}
+	}
+
+
+
+
+	### Economy ###
+
+	focus = {
+		id = UKR_Stabilize_Hryvnia
+		icon = GFX_goal_generic_financial_markets
+		cost = 5
+		x = 9
+		y = 0
+		available = {
+			UKR_has_black_monday = yes
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Stabilize_Hryvnia"
+			UKR_reduce_black_monday = yes
+		}
+	}
+
+	focus = {
+		id = UKR_Agricultural_Crisis
+		icon = GFX_goal_generic_financial_markets
+		cost = 5
+		x = 12
+		y = 0
+		available = {
+			has_country_flag = UKR_agriculture_crisis
+		}
+		bypass = {
+			has_country_flag = UKR_agriculture_crisis
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_agriculture_crisis"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = UKR_deposit_protection_law
+		icon = GFX_goal_generic_financial_markets
+		cost = 5
+		relative_position_id = UKR_Stabilize_Hryvnia
+		x = 1
+		y = 1
+		available = {
+			UKR_has_black_monday = yes
+		}
+		prerequisite = {
+			focus = UKR_Stabilize_Hryvnia
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_deposit_protection_law"
+		}
+	}
+	
+	focus = {
+		id = UKR_Rural_Credit_Banks
+		icon = GFX_goal_agricultural_aid
+		cost = 5
+		relative_position_id = UKR_Stabilize_Hryvnia
+		x = 2
+		y = 2
+		available = {
+			OR = {
+				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+				has_global_flag = UPR_ukrainian_civil_war_ended
+			}
+		}
+		prerequisite = {
+			focus = UKR_deposit_protection_law
+		}
+		prerequisite = {
+			focus = UKR_Agricultural_Crisis
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Rural_Credit_Banks"
+			UKR_reduce_black_monday = yes
+			UKR_reduce_agricultural_crisis = yes
+		}
+	}
+	focus = {
+		id = UKR_rural_development
+		icon = GFX_goal_agricultural_aid
+		cost = 5
+		relative_position_id = UKR_Stabilize_Hryvnia
+		x = 3
+		y = 1
+		prerequisite = {
+			focus = UKR_Agricultural_Crisis
+		}
+		available = {
+			OR = {
+				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+				has_global_flag = UPR_ukrainian_civil_war_ended
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_rural_development"
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_valid_state_for_development = yes
+					free_building_slots = { building = infrastructure size > 0 include_locked = yes }
+					NOT = { state = 202 } #Kyiv
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_valid_state_for_development = yes
+					free_building_slots = { building = infrastructure size > 0 include_locked = yes }
+					NOT = { state = 202 } #Kyiv
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_valid_state_for_development = yes
+					free_building_slots = { building = infrastructure size > 0 include_locked = yes }
+					NOT = { state = 202 } #Kyiv
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	focus = {
+		id = UKR_State_Sponsored_Construction_Works
+		icon = GFX_goal_agricultural_aid
+		cost = 5
+		relative_position_id = UKR_Stabilize_Hryvnia
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = UKR_Stabilize_Hryvnia
+		}
+		available = {
+			OR = {
+				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+				has_global_flag = UPR_ukrainian_civil_war_ended
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_State_Sponsored_Construction_Works"
+			random_owned_controlled_state = {
+				increase_state_category_by_one_level = yes
+			}
+			add_tech_bonus = {
+				name = UKR_State_Sponsored_Construction_Works
+				bonus = 1
+				uses = 1
+				category = construction_tech
+			}
+		}
+	}
+	focus = {
+		id = UKR_Continue_The_Mechanisation_Efforts
+		icon = GFX_goal_generic_agriculture2
+		cost = 5
+		relative_position_id = UKR_Stabilize_Hryvnia
+		x = 4
+		y = 2
+		prerequisite = {
+			focus = UKR_Agricultural_Crisis
+		}
+		available = {
+			OR = {
+				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+				has_global_flag = UPR_ukrainian_civil_war_ended
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Continue_The_Mechanisation_Efforts"
+			add_tech_bonus = {
+				name = UKR_Continue_The_Mechanisation_Efforts
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+		}
+	}
+	focus = {
+		id = UKR_Invest_In_KhTZ
+		icon = GFX_goal_generic_agriculture2
+		cost = 5
+		relative_position_id = UKR_Stabilize_Hryvnia
+		x = 3
+		y = 3
+		prerequisite = {
+			focus = UKR_Rural_Credit_Banks
+		}
+		prerequisite = {
+			focus = UKR_rural_development
+		}
+		prerequisite = {
+			focus = UKR_Continue_The_Mechanisation_Efforts
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Invest_In_KhTZ"
+			221 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = UKR_unlock_khtz
+		}
+	}
+	focus = {
+		id = UKR_Nationalize_NUSK
+		icon = GFX_goal_generic_agriculture2
+		cost = 5
+		relative_position_id = UKR_Stabilize_Hryvnia
+		x = 1
+		y = 3
+		available = {
+			has_country_flag = UKR_agriculture_crisis
+			UKR_ump_uskhd_in_power = no
+			GER_is_in_mitteleuropa = no
+		}
+		prerequisite = {
+			focus = UKR_Rural_Credit_Banks
+		}
+		prerequisite = {
+			focus = UKR_Continue_The_Mechanisation_Efforts
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Nationalize_NUSK"
+			221 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = UKR_unlock_khtz
+		}
+	}
+	focus = {
+		id = UKR_Resume_Cash_Crop_Exportation
+		icon = GFX_goal_TEX_Power_to_Farmers
+		cost = 5
+		relative_position_id = UKR_Stabilize_Hryvnia
+		x = 4
+		y = 4
+		available = {
+			NOT = { has_idea = UKR_agricultural_crisis_idea }
+		}
+		prerequisite = {
+			focus = UKR_Invest_In_KhTZ
+		}
+		prerequisite = {
+			focus = UKR_State_Sponsored_Construction_Works
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Resume_Cash_Crop_Exportation"
+			UKR_reduce_black_monday = yes
+		}
+	}
+	focus = {
+		id = UKR_Ukrainian_Recovery
+		icon = GFX_goal_generic_cash_stimulus_plan
+		cost = 5
+		relative_position_id = UKR_Stabilize_Hryvnia
+		x = 2
+		y = 4
+		available = {
+			NOT = { has_idea = UKR_agricultural_crisis_idea }
+			NOT = { has_idea = UKR_black_monday }
+		}
+		prerequisite = {
+			focus = UKR_Invest_In_KhTZ
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Ukrainian_Recovery"
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = UKR_First_Loan
+		icon = GFX_RUS_Rural_Electro
+		cost = 5
+		relative_position_id = UKR_Stabilize_Hryvnia
+		x = 3
+		y = 5
+		available = {
+			OR = {
+				is_in_faction_with = GER
+				GER_is_in_mitteleuropa = yes
+			}
+			NOT = { has_completed_focus = UKR_Nationalize_NUSK }
+		}
+		mutually_exclusive = {
+			focus = UKR_First_TaxHike
+		}
+		prerequisite = {
+			focus = UKR_Ukrainian_Recovery
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_First_Loan"
+			GER = {
+				country_event = {
+						days = 4
+						id = ukraine.23
+					}
+			}
+		}
+	}
+	focus = {
+		id = UKR_Second_Loan
+		icon = GFX_goal_generic_german_construction
+		cost = 5
+		prerequisite = {
+			focus = UKR_First_Loan
+		}
+		x = 1
+		y = 2
+		relative_position_id = UKR_Ukrainian_Recovery
+		available = {
+			has_country_flag = UKR_RECOV
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Second_Loan"
+			GER = {
+				country_event = {
+					days = 4
+					id = ukraine.28
+				}
+			}
+		}
+	}	
+	focus = {
+		id = UKR_First_TaxHike
+		icon = GFX_goal_generic_lightbulb
+		cost = 5
+		relative_position_id = UKR_Stabilize_Hryvnia
+		x = 1
+		y = 5
+		available = {
+			OR = {
+				is_in_faction_with = GER
+				GER_is_in_mitteleuropa = yes
+			}
+			NOT = { has_completed_focus = UKR_Nationalize_NUSK }
+		}
+		mutually_exclusive = {
+			focus = UKR_First_Loan
+		}
+		prerequisite = {
+			focus = UKR_Ukrainian_Recovery
+		}
+		prerequisite = {
+			focus = UKR_Nationalize_NUSK
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_First_TaxHike"
+			add_stability = -0.1
+			add_timed_idea = {
+					idea = increase_taxes
+					days = 90
+				}
+			UKR = {
+				country_event = {
+					days = 90
+					id = ukraine.27
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_Second_TaxHike
+		icon = GFX_goal_CSA_capital_investments
+		cost = 5
+		prerequisite = {
+			focus = UKR_First_TaxHike
+		}
+        x = -1
+		y = 2
+		relative_position_id = UKR_Ukrainian_Recovery
+		available = {
+			has_country_flag = UKR_RECOV
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Second_TaxHike"
+			add_stability = -0.06
+			add_timed_idea = {
+					idea = increase_taxes_2
+					days = 180
+				}
+			set_country_flag = UKR_IND
+			UKR = {
+				country_event = {
+					days = 180
+					id = ukraine.32
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = UKR_Electrification
+		icon = GFX_all_resource
+		cost = 5
+		prerequisite = {
+			focus = UKR_Second_TaxHike
+			focus = UKR_Second_Loan
+		}
+		x = 0
+		y = 3
+		relative_position_id = UKR_Ukrainian_Recovery
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			controls_state = 221
+			controls_state = 227
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Electrification"
+			add_resource = {
+				type = aluminium
+				amount = 10
+				state = 221
+			}
+			add_resource = {
+				type = tungsten
+				amount = 8
+				state = 227
+			}
+		}
+	}
+	focus = {
+		id = UKR_Prospecting_In_Donbas
+		icon = GFX_goal_production
+		cost = 5
+		prerequisite = {
+			focus = UKR_Electrification
+		}
+		x = -1
+		y = 4
+		relative_position_id = UKR_Ukrainian_Recovery
+		available = {
+			controls_state = 227
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Prospecting_In_Donbas"
+			227 = {
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	focus = {
+		id = UKR_Kharkov_Industry
+		icon = GFX_RUS_Industrial_Expansion
+		cost = 5
+		prerequisite = {
+			focus = UKR_Electrification
+		}
+		mutually_exclusive = {
+			focus = UKR_Yekaterinoslav_Industry
+		}
+		available = {
+			controls_state = 221
+		}
+		x = 1
+		y = 4
+		relative_position_id = UKR_Ukrainian_Recovery
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Kharkov_Industry"
+			221 = {
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	focus = {
+		id = UKR_Yekaterinoslav_Industry
+		icon = GFX_RUS_Industrial_Expansion
+		cost = 5
+		prerequisite = {
+			focus = UKR_Electrification
+		}
+		mutually_exclusive = {
+			focus = UKR_Kharkov_Industry
+		}
+		available = {
+			controls_state = 226
+		}
+		x = 3
+		y = 4
+		relative_position_id = UKR_Ukrainian_Recovery
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Yekaterinoslav_Industry"
+			226 = {
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	focus = {
+		id = UKR_Stab_econ
+		icon = GFX_goal_TEX_keynesian_economics
+		cost = 5
+		prerequisite = {
+			focus = UKR_Electrification
+		}
+		prerequisite = {
+			focus = UKR_Prospecting_In_Donbas
+		}
+		x = 0
+		y = 5
+		relative_position_id = UKR_Ukrainian_Recovery
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Stab_econ"
+			
+		}
+	}	
+
+	### Army ###
+	focus = {
+		id = UKR_army_internal_structure_review
+		icon = GFX_goal_UKR_army
+		x = 21
+		y = 0
+		cost = 6
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_army_internal_structure_review"
+			army_experience = 50
+		}
+	}
+	focus = {
+		id = UKR_doctrinal_experimentation
+		icon = MON_doctrines_I
+		prerequisite = { focus = UKR_army_internal_structure_review }
+		mutually_exclusive = { focus = UKR_lessons_of_the_weltkrieg }
+		x = -5
+		y = 1
+		allow_branch = {
+			OR = {
+				UKR_pavlo_skoropadsky_in_power = yes
+				AND = {
+					UKR_vasyl_in_power = yes
+					has_government = paternal_autocrat
+				}
+			}
+		}
+		available = { has_completed_focus = UKR_Army_Reforms }
+		relative_position_id = UKR_army_internal_structure_review
+		cost = 6
+		ai_will_do = {
+			factor = 25
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_doctrinal_experimentation"
+			add_doctrine_cost_reduction = {
+				name = UKR_doctrinal_experimentation
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+			swap_ideas = {
+				remove_idea = Hetman_army
+				add_idea = UKR_Reformed_Military
+			}
+		}
+	}
+	focus = {
+		id = UKR_rapid_mobility_drills
+		icon = GFX_goal_generic_army_mobile_warfare
+		prerequisite = { focus = UKR_doctrinal_experimentation }
+		x = -1
+		y = 1
+		relative_position_id = UKR_doctrinal_experimentation
+		cost = 6
+		ai_will_do = {
+			factor = 25
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_rapid_mobility_drills"
+			swap_ideas = {
+				remove_idea = UKR_Reformed_Military
+				add_idea = UKR_Reformed_Military_2
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_logistical_warfare
+		icon = GFX_goal_ATH_logistics
+		prerequisite = { focus = UKR_rapid_mobility_drills }
+		x = 0
+		y = 2
+		relative_position_id = UKR_rapid_mobility_drills
+		cost = 6
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_logistical_warfare"
+			swap_ideas = {
+				remove_idea = UKR_Reformed_Military_2
+				add_idea = UKR_Reformed_Military_3
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_concentrated_firepower
+		icon = GFX_goal_COR_militant_hoosiers
+		prerequisite = { focus = UKR_logistical_warfare }
+		x = -1
+		y = 1
+		relative_position_id = UKR_logistical_warfare
+		cost = 6
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_concentrated_firepower"
+			if = {
+				limit = { has_idea = UKR_Reformed_Military_5 } #if completed UKR_shock_artillery_fire
+				swap_ideas = {
+					remove_idea = UKR_Reformed_Military_5
+					add_idea = UKR_Reformed_Military_6
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = UKR_Reformed_Military_3
+					add_idea = UKR_Reformed_Military_4
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_shock_artillery_fire
+		icon = GFX_goal_generic_army_superior_firepower
+		prerequisite = { focus = UKR_logistical_warfare }
+		x = 1
+		y = 1
+		relative_position_id = UKR_logistical_warfare
+		cost = 6
+		ai_will_do = {
+			factor = 25
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_shock_artillery_fire"
+			if = {
+				limit = { has_idea = UKR_Reformed_Military_4 } #if completed UKR_concentrated_firepower
+				swap_ideas = {
+					remove_idea = UKR_Reformed_Military_4
+					add_idea = UKR_Reformed_Military_6
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = UKR_Reformed_Military_3
+					add_idea = UKR_Reformed_Military_5
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_army_research_bureau
+		icon = GFX_HUN_new_warfighting_technology
+		prerequisite = { focus = UKR_doctrinal_experimentation }
+		x = 1
+		y = 1
+		relative_position_id = UKR_doctrinal_experimentation
+		cost = 6
+		ai_will_do = {
+			factor = 25
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_army_research_bureau"
+			add_tech_bonus = {
+				name = UKR_army_research_bureau
+				bonus = 0.5
+				uses = 2
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_reverse_engineer_artillery
+		icon = GFX_goal_generic_artillery_factories
+		prerequisite = { focus = UKR_army_research_bureau }
+		x = -1
+		y = 1
+		relative_position_id = UKR_army_research_bureau
+		cost = 6
+		ai_will_do = {
+			factor = 25
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_reverse_engineer_artillery"
+			add_tech_bonus = {
+				name = UKR_reverse_engineer_artillery
+				bonus = 1
+				uses = 2
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_deploy_new_tanks
+		icon = GFX_goal_TEX_a_better_tank
+		prerequisite = { focus = UKR_army_research_bureau }
+		x = 1
+		y = 1
+		relative_position_id = UKR_army_research_bureau
+		cost = 6
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_deploy_new_tanks"
+			# NSB effect
+			if = {
+				limit = { has_dlc = "No Step Back" }
+				if = {
+					limit = { NOT = { has_tech = basic_light_tank_chassis }}
+					set_technology = { basic_light_tank_chassis = 1 }
+				}
+				else = {
+					add_tech_bonus = {
+						name = UKR_deploy_new_tanks
+						bonus = 0.75
+						uses = 1
+						category = armor
+					}
+				}
+				create_equipment_variant = {
+					name = "Panzer I Ausf.C"
+					type = light_tank_chassis_1
+					parent_version = 0
+					modules = {
+						main_armament_slot = tank_auto_cannon
+						turret_type_slot = tank_light_one_man_tank_turret
+						suspension_type_slot = tank_christie_suspension
+						armor_type_slot = tank_riveted_armor
+						engine_type_slot = tank_gasoline_engine
+						special_type_slot_1 = tank_radio_1
+					}
+					upgrades = {
+						tank_nsb_engine_upgrade = 5
+						tank_nsb_armor_upgrade = 1
+					}
+					icon = "gfx/interface/equipmentdesigner/tanks/designer/Reichspact/EE_basic_light_tank.png"
+				}
+			}
+			# Non-NSB effect
+			else = {
+				if = {
+					limit = { NOT = { has_tech = basic_light_tank } }
+					set_technology = { basic_light_tank = 1 }
+				}
+				else = {
+					add_tech_bonus = {
+						name = UKR_deploy_new_tanks
+						bonus = 0.75
+						uses = 1
+						category = armor
+					}
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = light_tank_chassis
+				amount = 500
+			}
+			# Template
+			custom_effect_tooltip = UKR_tank_div_unit_tooltip
+			hidden_effect = {
+				division_template = {
+					name = "Tankova Dyviziya"
+					division_names_group = UKR_ARM_01
+					priority = 2
+					regiments = {
+						light_armor = { x = 0 y = 0 }
+						light_armor = { x = 0 y = 1 }
+						light_armor = { x = 0 y = 2 }
+						light_armor = { x = 0 y = 3 }
+						motorized = { x = 1 y = 0 }
+						motorized = { x = 1 y = 1 }
+						motorized = { x = 1 y = 2 }
+						motorized = { x = 1 y = 3 }
+					}
+					support = {
+						mot_recon = { x = 0 y = 0 }
+						engineer = { x = 0 y = 1 }
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_lessons_of_the_weltkrieg
+		icon = GFX_goal_NFA_Verdun_memories
+		prerequisite = { focus = UKR_army_internal_structure_review }
+		mutually_exclusive = { focus = UKR_doctrinal_experimentation }
+		x = 0
+		y = 1
+		allow_branch = {
+			OR = {
+				UKR_pavlo_skoropadsky_in_power = yes
+				AND = {
+					UKR_vasyl_in_power = yes
+					has_government = paternal_autocrat
+				}
+			}
+		}
+		available = { has_completed_focus = UKR_Army_Reforms }
+		relative_position_id = UKR_army_internal_structure_review
+		cost = 6
+		ai_will_do = {
+			factor = 25
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_lessons_of_the_weltkrieg"
+			add_doctrine_cost_reduction = {
+				name = UKR_lessons_of_the_weltkrieg
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+			swap_ideas = {
+				remove_idea = Hetman_army
+				add_idea = UKR_Lessons_of_the_Weltkrieg
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_refurbish_odessa_military_academy
+		icon = GFX_goal_UKR_Ukrainian_Officers
+		prerequisite = { focus = UKR_lessons_of_the_weltkrieg }
+		x = -2
+		y = 1
+		relative_position_id = UKR_lessons_of_the_weltkrieg
+		cost = 6
+		ai_will_do = {
+			factor = 25
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_refurbish_odessa_military_academy"
+			if = { # has radio
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_3 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_3
+					add_idea = UKR_Lessons_of_the_Weltkrieg_4
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg
+					add_idea = UKR_Lessons_of_the_Weltkrieg_2
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_adopt_new_infantry_designs
+		icon = GFX_goal_mass_concentration_of_army
+		prerequisite = { focus = UKR_lessons_of_the_weltkrieg }
+		x = 0
+		y = 1
+		relative_position_id = UKR_lessons_of_the_weltkrieg
+		cost = 6
+		ai_will_do = {
+			factor = 25
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_adopt_new_infantry_designs"
+			add_tech_bonus = {
+				name = UKR_adopt_new_infantry_designs
+				bonus = 0.5
+				uses = 2
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_adopt_modern_radio_technology
+		icon = GFX_goal_radio
+		prerequisite = { focus = UKR_lessons_of_the_weltkrieg }
+		x = 2
+		y = 1
+		relative_position_id = UKR_lessons_of_the_weltkrieg
+		cost = 6
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_adopt_modern_radio_technology"
+			if = { # has academy
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_2 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_2
+					add_idea = UKR_Lessons_of_the_Weltkrieg_4
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg
+					add_idea = UKR_Lessons_of_the_Weltkrieg_3
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_expand_kyiv_officer_school
+		icon = GFX_goal_UKR_Expand_the_Kyiv_Officer_School
+		prerequisite = { focus = UKR_refurbish_odessa_military_academy }
+		prerequisite = { focus = UKR_adopt_new_infantry_designs }
+		prerequisite = { focus = UKR_adopt_modern_radio_technology }
+		x = 0
+		y = 1
+		relative_position_id = UKR_adopt_new_infantry_designs
+		cost = 6
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_expand_kyiv_officer_school"
+			swap_ideas = {
+				remove_idea = UKR_Lessons_of_the_Weltkrieg_4
+				add_idea = UKR_Lessons_of_the_Weltkrieg_5
+			}
+		}
+	}
+	focus = {
+		id = UKR_entrenchment_and_fortification_training
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = UKR_expand_kyiv_officer_school }
+		x = -1
+		y = 1
+		relative_position_id = UKR_expand_kyiv_officer_school
+		cost = 6
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_entrenchment_and_fortification_training"
+			add_tech_bonus = {
+				name = UKR_entrenchment_and_fortification_training
+				bonus = 1
+				uses = 1
+				category = engineers_tech
+			}
+			if = { # has war_games
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_7 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_7
+					add_idea = UKR_Lessons_of_the_Weltkrieg_10
+				}
+			}
+			else_if = { # has reserves
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_8 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_8
+					add_idea = UKR_Lessons_of_the_Weltkrieg_11
+				}
+			}
+			else_if = { # has 48h_plan
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_9 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_9
+					add_idea = UKR_Lessons_of_the_Weltkrieg_12
+				}
+			}
+			else_if = { # has war_games + reserves
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_13 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_13
+					add_idea = UKR_Lessons_of_the_Weltkrieg_20
+				}
+			}
+			else_if = { # has war_games + 48h_plan
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_14 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_14
+					add_idea = UKR_Lessons_of_the_Weltkrieg_18
+				}
+			}
+			else_if = { # has reserves + 48h_plan
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_15 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_15
+					add_idea = UKR_Lessons_of_the_Weltkrieg_17
+				}
+			}
+			else_if = { # has war_games + reserves + 48h_plan
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_16 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_16
+					add_idea = UKR_Lessons_of_the_Weltkrieg_19
+				}
+			}
+			else = { # has Kyiv_school
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_5
+					add_idea = UKR_Lessons_of_the_Weltkrieg_6
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_war_games
+		icon = MON_doctrine_IV
+		prerequisite = { focus = UKR_expand_kyiv_officer_school }
+		x = 0
+		y = 2
+		relative_position_id = UKR_expand_kyiv_officer_school
+		cost = 6
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_war_games"
+			if = { # has entrenchment
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_6 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_6
+					add_idea = UKR_Lessons_of_the_Weltkrieg_10
+				}
+			}
+			else_if = { # has reserves
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_8 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_8
+					add_idea = UKR_Lessons_of_the_Weltkrieg_13
+				}
+			}
+			else_if = { # has 48h_plan
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_9 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_9
+					add_idea = UKR_Lessons_of_the_Weltkrieg_14
+				}
+			}
+			else_if = { # entrenchment + reserves
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_11 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_11
+					add_idea = UKR_Lessons_of_the_Weltkrieg_20
+				}
+			}
+			else_if = { # has entrenchment + 48h_plan
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_12 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_12
+					add_idea = UKR_Lessons_of_the_Weltkrieg_18
+				}
+			}
+			else_if = { # has reserves + 48h_plan
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_15 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_15
+					add_idea = UKR_Lessons_of_the_Weltkrieg_16
+				}
+			}
+			else_if = { # has entrenchment + reserves + 48h_plan
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_17 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_17
+					add_idea = UKR_Lessons_of_the_Weltkrieg_19
+				}
+			}
+			else = { # has Kyiv_school
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_5
+					add_idea = UKR_Lessons_of_the_Weltkrieg_7
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_consolidate_the_reserve_forces
+		icon = GFX_goal_army_guy_2
+		prerequisite = { focus = UKR_expand_kyiv_officer_school }
+		x = 1
+		y = 1
+		relative_position_id = UKR_expand_kyiv_officer_school
+		cost = 6
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_consolidate_the_reserve_forces"
+			if = { # has entrenchment
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_6 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_6
+					add_idea = UKR_Lessons_of_the_Weltkrieg_11
+				}
+			}
+			else_if = { # has war_games
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_7 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_7
+					add_idea = UKR_Lessons_of_the_Weltkrieg_13
+				}
+			}
+			else_if = { # has 48h_plan
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_9 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_9
+					add_idea = UKR_Lessons_of_the_Weltkrieg_15
+				}
+			}
+			else_if = { # entrenchment + war_games
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_10 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_10
+					add_idea = UKR_Lessons_of_the_Weltkrieg_20
+				}
+			}
+			else_if = { # has entrenchment + 48h_plan
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_12 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_12
+					add_idea = UKR_Lessons_of_the_Weltkrieg_17
+				}
+			}
+			else_if = { # has war_games + 48h_plan
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_14 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_14
+					add_idea = UKR_Lessons_of_the_Weltkrieg_16
+				}
+			}
+			else_if = { # has entrenchment + war_games + 48h_plan
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_18 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_18
+					add_idea = UKR_Lessons_of_the_Weltkrieg_19
+				}
+			}
+			else = { # has Kyiv_school
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_5
+					add_idea = UKR_Lessons_of_the_Weltkrieg_8
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_implement_48_hour_plan
+		icon = GFX_goal_UKR_48_Hour_Plan
+		prerequisite = { focus = UKR_expand_kyiv_officer_school }
+		x = 2
+		y = 2
+		relative_position_id = UKR_expand_kyiv_officer_school
+		cost = 6
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_implement_48_hour_plan"
+			add_war_support = 0.15
+			if = { # has entrenchment
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_6 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_6
+					add_idea = UKR_Lessons_of_the_Weltkrieg_12
+				}
+			}
+			else_if = { # has war_games
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_7 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_7
+					add_idea = UKR_Lessons_of_the_Weltkrieg_14
+				}
+			}
+			else_if = { # has reserves
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_8 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_8
+					add_idea = UKR_Lessons_of_the_Weltkrieg_15
+				}
+			}
+			else_if = { # entrenchment + war_games
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_10 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_10
+					add_idea = UKR_Lessons_of_the_Weltkrieg_18
+				}
+			}
+			else_if = { # has entrenchment + reserves
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_11 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_11
+					add_idea = UKR_Lessons_of_the_Weltkrieg_17
+				}
+			}
+			else_if = { # has war_games + reserves
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_13 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_13
+					add_idea = UKR_Lessons_of_the_Weltkrieg_16
+				}
+			}
+			else_if = { # has entrenchment + war_games + reserves
+				limit = { has_idea = UKR_Lessons_of_the_Weltkrieg_20 }
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_20
+					add_idea = UKR_Lessons_of_the_Weltkrieg_19
+				}
+			}
+			else = { # has Kyiv_school
+				swap_ideas = {
+					remove_idea = UKR_Lessons_of_the_Weltkrieg_5
+					add_idea = UKR_Lessons_of_the_Weltkrieg_9
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_aviation_board
+		icon = GFX_goal_UKR_airforce
+		relative_position_id = UKR_army_internal_structure_review
+		x = 4
+		y = 1
+		offset = {
+			x = -4
+			y = 0
+			trigger = {
+				NOT = { has_government = paternal_autocrat }
+			}
+		}
+		cost = 5
+		prerequisite = { focus = UKR_army_internal_structure_review }
+		available = {
+			OR = {
+				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+				has_global_flag = UPR_ukrainian_civil_war_ended
+			}
+		}		
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_aviation_board"
+			air_experience = 50
+			random_owned_state = {
+				prioritize = { 202 }
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_doctrine_cost_reduction = {
+				name = UKR_aviation_board
+				cost_reduction = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+		}
+		ai_will_do = {
+			factor = 25
+		}
+	}
+	focus = {
+		id = UKR_flying_clubs
+		icon = GFX_focus_SOV_flying_clubs
+		prerequisite = { focus = UKR_aviation_board }
+		x = 0
+		y = 1
+		relative_position_id = UKR_aviation_board
+		cost = 5
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_flying_clubs"
+			add_doctrine_cost_reduction = {
+				name = UKR_flying_clubs
+				cost_reduction = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	focus = {
+		id = UKR_deploy_new_fighter_prototypes
+		icon = GFX_goal_generic_air_fighter_new
+		prerequisite = { focus = UKR_aviation_board }
+		x = -1
+		y = 2
+		relative_position_id = UKR_aviation_board
+		cost = 5
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_deploy_new_fighter_prototypes"
+			add_tech_bonus = {
+				name = UKR_deploy_new_fighter_prototypes
+				bonus = 1
+				uses = 1
+				category = fighter_techs
+			}
+			add_equipment_to_stockpile = {
+				type = fighter_equipment
+				amount = 150
+				producer = GER
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	focus = {
+		id = UKR_commission_new_bomber_designs
+		icon = GFX_goal_generic_air_bomber_new
+		prerequisite = { focus = UKR_aviation_board }
+		x = 1
+		y = 2
+		relative_position_id = UKR_aviation_board
+		cost = 6
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_commission_new_bomber_designs"
+			add_tech_bonus = {
+				name = UKR_commission_new_bomber_designs
+				bonus = 1
+				uses = 1
+				category = tactical_bomber
+			}
+			add_tech_bonus = {
+				name = UKR_commission_new_bomber_designs
+				bonus = 1
+				uses = 1
+				category = cas_bomber
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+
+###Naval tree###
+
+	focus = {
+		id = UKR_naval_effort
+		icon = GFX_goal_UKR_navy
+		x = 9
+		y = 0
+		relative_position_id = UKR_army_internal_structure_review
+		cost = 3
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				num_of_naval_factories < 1
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_naval_effort"
+			navy_experience = 25
+		}
+	}
+
+	focus = {
+		id = UKR_Odessa_Naval
+		icon = GFX_goal_generic_naval_base
+		x = -2
+		y = 1
+		relative_position_id = UKR_naval_effort
+		cost = 8
+
+		available = {
+			192 = { is_owned_and_controlled_by = ROOT }
+			OR = {
+				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+				has_global_flag = UPR_ukrainian_civil_war_ended
+			}
+		}
+		
+		prerequisite = { focus = UKR_naval_effort }
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Odessa_Naval"
+			add_political_power = -10
+			navy_experience = 25
+			192 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					province = 957
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 5
+					province = 957
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_Crimea_Naval
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = -3
+		y = 2
+		relative_position_id = UKR_naval_effort
+		cost = 8
+
+		available = {
+			137 = { is_owned_and_controlled_by = ROOT }
+		}
+
+		prerequisite = { focus = UKR_Odessa_Naval }
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Crimea_Naval"
+			add_political_power = -10
+			137 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					province = 957
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					province = 957
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_flexible_navy
+		icon = GFX_goal_generic_coastal_navy2
+		prerequisite = { focus = UKR_naval_effort }
+		mutually_exclusive = { focus = UKR_large_navy }
+		x = 0
+		y = 1
+		relative_position_id = UKR_naval_effort
+		cost = 8
+		available = {
+			OR = {
+				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+				has_global_flag = UPR_ukrainian_civil_war_ended
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				num_of_naval_factories < 1
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_flexible_navy"
+			add_doctrine_cost_reduction = {
+				name = UKR_flexible_navy
+				cost_reduction = 0.5
+				uses = 2
+				category = naval_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_large_navy
+		icon = GFX_goal_generic_naval_fleet_in_being
+		prerequisite = { focus = UKR_naval_effort }
+		mutually_exclusive = { focus = UKR_flexible_navy }
+		x = 3
+		y = 1
+		relative_position_id = UKR_naval_effort
+		cost = 8
+		available = {
+			OR = {
+				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+				has_global_flag = UPR_ukrainian_civil_war_ended
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				num_of_naval_factories < 1
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_large_navy"
+			navy_experience = 50
+			add_doctrine_cost_reduction = {
+				name = UKR_flexible_navy
+				cost_reduction = 0.5
+				uses = 1
+				category = naval_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_submarine_effort
+		icon = GFX_goal_generic_naval_submarine2
+		prerequisite = { focus = UKR_flexible_navy }
+		x = -1
+		y = 2
+		relative_position_id = UKR_naval_effort
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				num_of_naval_factories < 1
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_submarine_effort"
+			add_tech_bonus = {
+				name = UKR_submarine_effort
+				bonus = 1
+				uses = 1
+				category = ss_tech
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_cruiser_effort
+		icon = GFX_goal_generic_naval_cruiser2
+		prerequisite = { focus = UKR_large_navy }
+		x = 3
+		y = 2
+		relative_position_id = UKR_naval_effort
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				num_of_naval_factories < 1
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_cruiser_effort"
+			add_tech_bonus = {
+				name = UKR_cruiser_effort
+				bonus = 1
+				uses = 2
+				category = ca_tech
+				category = cl_tech
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_destroyer_effort
+		icon = GFX_goal_generic_naval_destroyer2
+		prerequisite = { focus = UKR_flexible_navy }
+		x = 1
+		y = 2
+		relative_position_id = UKR_naval_effort
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				num_of_naval_factories < 1
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_destroyer_effort"
+			add_tech_bonus = {
+				name = UKR_destroyer_effort
+				bonus = 1
+				uses = 1
+				category = dd_tech
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_capital_ships_effort
+		icon = GFX_goal_generic_naval_battleship2
+		prerequisite = { focus = UKR_large_navy }
+		x = 2
+		y = 3
+		relative_position_id = UKR_naval_effort
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				num_of_naval_factories < 1
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_capital_ships_effort"
+			navy_experience = 25
+			add_tech_bonus = {
+				name = UKR_capital_ships_effort
+				bonus = 1
+				uses = 1
+				category = bb_tech
+			}
+		}
+	}
+	
+	### Dyrektoria Uprising for UKR ###
+
+	focus = {
+		id = UKR_Fall_Of_Rivne
+		icon = GFX_goal_UKR_army
+		x = 18
+		y = 6
+		cost = 6
+		allow_branch = {
+			NOT = { has_global_flag = UPR_dyrektoria_uprising_UPR }
+			NOT = { has_global_flag = UPR_dyrektoria_become_exiled_in_WSU }
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Fall_Of_Rivne"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {
+		id = UKR_Impose_Martial_Law
+		icon = GFX_goal_UKR_army
+		relative_position_id = UKR_Fall_Of_Rivne
+		x = -1
+		y = 1
+		cost = 6
+		prerequisite = {
+			focus = UKR_Fall_Of_Rivne
+		}
+		bypass = {
+			has_completed_focus = UKR_Dissolve_Sejm
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Impose_Martial_Law"
+		}
+	}
+	focus = {
+		id = UKR_Cleave_The_Republican_Movement
+		icon = GFX_goal_UKR_army
+		relative_position_id = UKR_Fall_Of_Rivne
+		x = 1
+		y = 1
+		cost = 6
+		prerequisite = {
+			focus = UKR_Fall_Of_Rivne
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Cleave_The_Republican_Movement"
+		}
+	}
+	focus = {
+		id = UKR_Poach_The_Dyrektoriia_Moderates
+		icon = GFX_goal_UKR_army
+		relative_position_id = UKR_Fall_Of_Rivne
+		x = 3
+		y = 1
+		cost = 6
+		available = {
+			OR = {
+				UKR_ump_uskhd_in_power = yes
+				has_completed_focus = UKR_Coalition_Wih_UDP
+			}
+		}
+		prerequisite = {
+			focus = UKR_Fall_Of_Rivne
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Poach_The_Dyrektoriia_Moderates"
+		}
+	}
+	focus = {
+		id = UKR_Galician_Intervention
+		icon = GFX_goal_UKR_army
+		relative_position_id = UKR_Fall_Of_Rivne
+		x = 2
+		y = 2
+		cost = 6
+		available = {
+			UKR_ump_uskhd_in_power = yes
+		}
+		prerequisite = {
+			focus = UKR_Fall_Of_Rivne
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Galician_Intervention"
+		}
+	}
+	focus = {
+		id = UKR_Secure_The_Rear
+		icon = GFX_goal_UKR_army
+		relative_position_id = UKR_Fall_Of_Rivne
+		x = -2
+		y = 2
+		cost = 6
+		prerequisite = {
+			focus = UKR_Fall_Of_Rivne
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Secure_The_Rear"
+		}
+	}
+	focus = {
+		id = UKR_Indulgences_To_Parliament
+		icon = GFX_goal_UKR_army
+		relative_position_id = UKR_Fall_Of_Rivne
+		x = 0
+		y = 2
+		cost = 6
+		prerequisite = {
+			focus = UKR_Cleave_The_Republican_Movement
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Indulgences_To_Parliament"
+		}
+	}
+	focus = {
+		id = UKR_Remind_The_Peasants_Of_Anarchy
+		icon = GFX_goal_UKR_army
+		relative_position_id = UKR_Fall_Of_Rivne
+		x = -1
+		y = 3
+		cost = 6
+		prerequisite = {
+			focus = UKR_Secure_The_Rear
+		}
+		prerequisite = {
+			focus = UKR_Impose_Martial_Law
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Remind_The_Peasants_Of_Anarchy"
+		}
+	}
+	focus = {
+		id = UKR_Knock_The_Enemy_Out_Of_Rivne
+		icon = GFX_goal_UKR_army
+		relative_position_id = UKR_Fall_Of_Rivne
+		x = 1
+		y = 4
+		cost = 6
+		prerequisite = {
+			focus = UKR_Remind_The_Peasants_Of_Anarchy
+		}
+		prerequisite = {
+			focus = UKR_Cleave_The_Republican_Movement
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Knock_The_Enemy_Out_Of_Rivne"
+		}
+	}
+
+	### Dyrektoria Uprising for UPR ###
+
+	focus = {
+		id = UPR_Fall_Of_Rivne
+		icon = GFX_goal_UKR_army
+		x = 18
+		y = 6
+		cost = 6
+		allow_branch = {
+			has_global_flag = UPR_dyrektoria_uprising_UPR
+		}
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UPR_Fall_Of_Rivne"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {
+		id = UPR_Immediate_Land_Reform
+		icon = GFX_goal_UKR_army
+		relative_position_id = UPR_Fall_Of_Rivne
+		x = 0
+		y = 3
+		cost = 6
+		prerequisite = {
+			focus = UPR_Trigger_Peasant_Unrest
+		}
+		available = {
+			has_government = social_democrat
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UPR_Immediate_Land_Reform"
+		}
+	}
+	focus = {
+		id = UPR_Take_Advantage_Of_Germany
+		icon = GFX_goal_UKR_army
+		relative_position_id = UPR_Fall_Of_Rivne
+		x = 0
+		y = 1
+		cost = 6
+		available = {
+			has_global_flag = UKR_hetmanate_is_over
+		}
+		prerequisite = {
+			focus = UPR_Fall_Of_Rivne
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UPR_Take_Advantage_Of_Germany"
+		}
+	}
+	focus = {
+		id = UPR_Convince_The_Austrian_Leadership
+		icon = GFX_goal_UKR_army
+		relative_position_id = UPR_Fall_Of_Rivne
+		x = -2
+		y = 1
+		cost = 6
+		available = {
+			has_global_flag = UKR_dnieper_explosion
+		}
+		prerequisite = {
+			focus = UPR_Fall_Of_Rivne
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UPR_Convince_The_Austrian_Leadership"
+		}
+	}
+	focus = {
+		id = UPR_Trigger_Peasant_Unrest
+		icon = GFX_goal_UKR_army
+		relative_position_id = UPR_Fall_Of_Rivne
+		x = 1
+		y = 2
+		cost = 6
+		prerequisite = {
+			focus = UPR_Fall_Of_Rivne
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UPR_Trigger_Peasant_Unrest"
+			
+		}
+	}
+	focus = {
+		id = UPR_Promise_Crimean_Autonomy
+		icon = GFX_CRM_Patriotism
+		relative_position_id = UPR_Fall_Of_Rivne
+		x = -1
+		y = 2
+		cost = 6
+		available = {
+			NOT = { country_exists = CRM }
+		}
+		prerequisite = {
+			focus = UPR_Fall_Of_Rivne
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UPR_Promise_Crimean_Autonomy"
+		}
+	}
+	focus = {
+		id = UPR_Colonel_Melnyk_Initiative
+		icon = GFX_goal_UKR_army
+		relative_position_id = UPR_Fall_Of_Rivne
+		x = 3
+		y = 1
+		cost = 6
+		available = {
+			UKR_andriy_melnyk_in_power = yes
+		}
+		prerequisite = {
+			focus = UPR_Fall_Of_Rivne
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UPR_Colonel_Melnyk_Initiative"
+		}
+	}
+	focus = {
+		id = UPR_Rally_The_Striletska_Rada
+		icon = GFX_goal_UKR_army
+		relative_position_id = UPR_Fall_Of_Rivne
+		x = 3
+		y = 2
+		cost = 6
+		available = {
+			UKR_andriy_melnyk_in_power = yes
+		}
+		prerequisite = {
+			focus = UPR_Colonel_Melnyk_Initiative
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UPR_Rally_The_Striletska_Rada"
+		}
+	}
+	focus = {
+		id = UPR_Fight_Against_Partisanship
+		icon = GFX_goal_UKR_army
+		relative_position_id = UPR_Fall_Of_Rivne
+		x = 2
+		y = 3
+		cost = 6
+		available = {
+			UKR_andriy_melnyk_in_power = yes
+		}
+		prerequisite = {
+			focus = UPR_Rally_The_Striletska_Rada
+		}
+		mutually_exclusive = {
+			focus = UPR_Agreement_With_Dyrektoriia
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UPR_Fight_Against_Partisanship"
+		}
+	}
+	focus = {
+		id = UPR_Agreement_With_Dyrektoriia
+		icon = GFX_goal_UKR_army
+		relative_position_id = UPR_Fall_Of_Rivne
+		x = 4
+		y = 3
+		cost = 6
+		available = {
+			UKR_andriy_melnyk_in_power = yes
+		}
+		prerequisite = {
+			focus = UPR_Rally_The_Striletska_Rada
+		}
+		mutually_exclusive = {
+			focus = UPR_Fight_Against_Partisanship
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UPR_Agreement_With_Dyrektoriia"
+		}
+	}
+	focus = {
+		id = UPR_Battle_For_Kyiv
+		icon = GFX_goal_UKR_army
+		relative_position_id = UPR_Fall_Of_Rivne
+		x = 1
+		y = 4
+		cost = 6
+		prerequisite = {
+			focus = UPR_Rally_The_Striletska_Rada
+			focus = UPR_Trigger_Peasant_Unrest
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UPR_Battle_For_Kyiv"
+		}
+	}
 }

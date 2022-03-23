@@ -164,18 +164,23 @@ create_dynamic_country = {
 		ruling_party = social_democrat
 		elections_allowed = no
 	}
+	add_ideas = {
+		UPR_no_diplomacy
+		war_economy
+		closed_economy
+		service_by_requirement
+	}
 	set_war_support = 0.9
 	set_popularities = {
-		totalist = 10
-		radical_socialist = 20
-		syndicalist = 5
+		totalist = 5
+		radical_socialist = 19
+		syndicalist = 6
 		social_democrat = 45
-		social_liberal = 15
+		social_liberal = 9
 		market_liberal = 0
 		social_conservative = 0
 		authoritarian_democrat = 0
-		paternal_autocrat = 0
-		national_populist = 15
+		national_populist = 16		
 	}
 	every_state = {
 		limit = {
@@ -194,7 +199,45 @@ create_dynamic_country = {
 		defense_skill = 1
 		planning_skill = 1
 		logistics_skill = 1
-	}	
+		id = 17918
+	}
+	random_unit_leader = {
+		limit = { has_id = 17918 }
+		save_global_event_target_as = UPR_Joint_Command
+	}
+	division_template = {
+		name = "Halytskyi korpus Sichovykh Striltsiv"
+		division_names_group = UKR_ELI_02
+		is_locked = yes
+		regiments = {
+			elite_infantry = { x = 0 y = 0 }
+			elite_infantry = { x = 0 y = 1 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+		}
+		support = {
+			artillery = { x = 0 y = 0 }
+			engineer = { x = 0 y = 1 }
+			recon = { x = 0 y = 2 }
+		}
+	}
+	division_template = {
+		name = "Petliurovtsy"
+		division_names_group = UKR_INF_02
+		is_locked = yes
+		regiments = {
+			militia = { x = 0 y = 0 }
+			militia = { x = 0 y = 1 }
+			militia = { x = 0 y = 2 }
+			militia = { x = 1 y = 0 }
+			militia = { x = 1 y = 1 }
+			militia = { x = 1 y = 2 }
+		}
+		support = {
+			engineer = { x = 0 y = 0 }
+		}
+	}
+	
 	reserve_dynamic_country = yes
 }
 

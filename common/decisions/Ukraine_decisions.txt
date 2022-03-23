@@ -1,6 +1,6 @@
 UKR_dyrektoria_uprising = {
 	UKR_rivne_uprising = {
-		icon = GFX_decision_revolt
+		icon = GFX_decision_trumpet
 		
 		allowed = { always = no } #manually activated
 		
@@ -9,11 +9,19 @@ UKR_dyrektoria_uprising = {
 				has_completed_focus = UKR_Prepare_The_Anti_Hetman_Coup
 				has_completed_focus = UKR_Hetmanate_Is_Not_Yet_Lost
 			}
+			custom_trigger_tooltip = {
+				tooltip = UKR_rivne_uprising_trigger
+				check_variable = { UKR_Direktoriia_Strength_real < 0.051 }
+			}
 		}
 		available = {
 			OR = {
 				has_completed_focus = UKR_Prepare_The_Anti_Hetman_Coup
 				has_completed_focus = UKR_Hetmanate_Is_Not_Yet_Lost
+			}
+			custom_trigger_tooltip = {
+				tooltip = UKR_rivne_uprising_trigger
+				check_variable = { UKR_Direktoriia_Strength_real < 0.051 }
 			}
 		}
 		
@@ -23,11 +31,12 @@ UKR_dyrektoria_uprising = {
 		
 		cancel_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision UKR_rivne_uprising"
-			custom_effect_tooltip = "Dyrektoria uprising would be crushed"
+			country_event = ukrpol.37
+			set_global_flag = UPR_dyrektoria_become_exiled_in_WSU
 		}
 		timeout_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision timeout UKR_rivne_uprising"
-			custom_effect_tooltip = "Gets event: Fall of Rivne"
+			country_event = ukrpol.36
 		}
 	}
 }

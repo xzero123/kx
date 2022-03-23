@@ -7,6 +7,11 @@ UKR_setup_political_variables = {
 	set_variable = { UKR_King_Strength = 2 }
 	set_variable = { UKR_Hetman_Strenth = 3 }
 	recalculate_ukrainian_political_variables = yes
+	
+	set_variable = { UKR_petliura_authority = 3 }
+	set_variable = { UKR_vynnychenko_authority = 3 }
+	set_variable = { UKR_uvo_authority = 2 }
+	
 }
 recalculate_ukrainian_political_variables = {
 	clamp_variable = {
@@ -29,6 +34,10 @@ recalculate_ukrainian_political_variables = {
 	add_to_variable = { UKR_Direktoriia_Strength_real = UKR.party_popularity@syndicalist }
 	add_to_variable = { UKR_Direktoriia_Strength_real = UKR.party_popularity@radical_socialist }
 	add_to_variable = { UKR_Direktoriia_Strength_real = UKR.party_popularity@totalist }
+	if = { 
+		limit = { has_country_flag = UPR_uvo_openly_joins_dyrektoria }
+		add_to_variable = { UKR_Direktoriia_Strength_real = UKR.party_popularity@national_populist }
+	}
 	multiply_variable = { UKR_Direktoriia_Strength_real = UKR_Direktoriia_Strength }
 	
 	set_variable = { UKR_King_Strength_real = UKR.party_popularity@social_conservative }
@@ -216,7 +225,57 @@ UKR_decrease_direktoria = {
 	}
 	recalculate_ukrainian_political_variables = yes
 }
-
+UKR_improve_ukrainisation = {
+	if = {
+		limit = {
+			has_idea = UKR_ukrainisation_efforts_4
+		}
+		swap_ideas = {
+			remove_idea = UKR_ukrainisation_efforts_4
+			add_idea = UKR_stable_identity
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = UKR_ukrainisation_efforts_3
+		}
+		swap_ideas = {
+			remove_idea = UKR_ukrainisation_efforts_3
+			add_idea = UKR_ukrainisation_efforts_4
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = UKR_ukrainisation_efforts_2
+		}
+		swap_ideas = {
+			remove_idea = UKR_ukrainisation_efforts_2
+			add_idea = UKR_ukrainisation_efforts_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = UKR_ukrainisation_efforts
+		}
+		swap_ideas = {
+			remove_idea = UKR_ukrainisation_efforts
+			add_idea = UKR_ukrainisation_efforts_2
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = UKR_lingering_ukrainisation
+		}
+		swap_ideas = {
+			remove_idea = UKR_lingering_ukrainisation
+			add_idea = UKR_ukrainisation_efforts
+		}
+	}
+	else = {
+		add_ideas = UKR_ukrainisation_efforts
+	}
+}
+		
 
 UKR_remove_king = {
 	hidden_effect = {
@@ -363,5 +422,393 @@ UKR_create_danylo = {
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 		}
+	}
+}
+UPR_create_ROOT_dyrektoria = {
+	leave_faction = yes
+	hidden_effect = {
+		UPR = { get_current_government_type = yes }
+		restore_previous_government_type = yes
+		# kingdom should not have streltsy
+		delete_unit_template_and_units = {
+			division_template = "Sichovi Striltsi"
+			disband = yes #will refund equipment and manpower
+		}		
+		UPR = { 
+			set_cosmetic_tag = UKR_kingdom
+			copy_government_of_ROOT = yes
+			create_country_leader = {
+				name = "Vasyl"
+				desc = "POLITICS_VASYL_DESC"
+				picture = "gfx/leaders/UKR/Portrait_UKR_Vasyl_Habsburg.png"
+				expire = "1965.1.1"
+				ideology = oligarchy_subtype
+			}
+			create_country_leader = {
+				name = "Pavlo Skoropadskyi"
+				desc = "POLITICS_PAVLO_SKOROPADSKYI_DESC"
+				picture = "gfx/leaders/UKR/Portrait_UKR_Pavlo_Skoropadsky.png"
+				expire = "1965.1.1"
+				ideology = pataut_cossack_subtype
+			}
+			delete_unit_template_and_units = {
+				division_template = "Halytskyi korpus Sichovykh Striltsiv"
+				disband = yes #will refund equipment and manpower
+			}
+			delete_unit_template_and_units = {
+				division_template = "Petliurovtsy"
+				disband = yes #will refund equipment and manpower
+			}
+			transfer_technology_and_slots = yes
+			every_state = {
+				limit = {
+					is_owned_by = UKR
+					NOT = { state = 792 }
+				}
+				UPR = { transfer_state = PREV }
+			}
+			set_stability = UKR@stability
+			set_war_support = 0.5
+			add_ideas = {
+				UKR_derzhavna_varta
+				UKR_urban_rural_divide
+				UKR_agricultural_crisis_idea
+				UKR_lingering_ukrainisation
+			}
+			if = {
+				limit = {
+					UKR = { has_idea = UKR_black_monday }
+				}
+				add_ideas = UKR_black_monday
+			}
+			if = {
+				limit = {
+					UKR = { has_idea = UKR_black_monday_1 }
+				}
+				add_ideas = UKR_black_monday_1
+			}
+			if = {
+				limit = {
+					UKR = { has_idea = UKR_black_monday_2 }
+				}
+				add_ideas = UKR_black_monday_2
+			}			
+		}
+		transfer_units_fraction = {
+			target = UPR
+			size = 1
+			navy_ratio = 0.5
+			keep_unit_leaders_trigger = { always = yes }
+		}
+		UPR = {
+			every_unit_leader = {
+				set_nationality = UKR
+			}
+		}
+		every_unit_leader = {
+			limit = {
+				OR = {
+					has_id = 17909
+					has_id = 17913
+				}
+			}
+			set_nationality = UPR
+		}
+		
+		remove_ideas = UKR_derzhavna_varta
+		remove_all_ministers = yes		
+	}
+	effect_tooltip = {
+		event_target:UKR_Mykhailo_Pavlenko = { set_nationality = UPR }
+	}
+	hidden_effect = {
+		set_stability = 0.25
+		set_war_support = 0.8
+		GER = { add_to_faction = UPR }
+		division_template = {
+			name = "Halytskyi korpus Sichovykh Striltsiv"
+			division_names_group = UKR_ELI_02
+			regiments = {
+				elite_infantry = { x = 0 y = 0 }
+				elite_infantry = { x = 0 y = 1 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+			}
+			support = {
+				artillery = { x = 0 y = 0 }
+				engineer = { x = 0 y = 1 }
+				recon = { x = 0 y = 2 }
+			}
+		}
+		random_owned_controlled_state = {
+			prioritize = { 792 }
+			create_unit = {
+				division = "division_template = \"Halytskyi korpus Sichovykh Striltsiv\" start_experience_factor = 0.2"
+				owner = ROOT
+				prioritize_location = 11543
+			}
+			create_unit = {
+				division = "division_template = \"Halytskyi korpus Sichovykh Striltsiv\" start_experience_factor = 0.2"
+				owner = ROOT
+				prioritize_location = 6435
+			}
+			create_unit = {
+				division = "division_template = \"Halytskyi korpus Sichovykh Striltsiv\" start_experience_factor = 0.2"
+				owner = ROOT
+				prioritize_location = 572
+			}
+			create_unit = {
+				division = "division_template = \"Halytskyi korpus Sichovykh Striltsiv\" start_experience_factor = 0.2"
+				owner = ROOT
+				prioritize_location = 474
+			}
+		}
+		division_template = {
+			name = "Petliurovtsy"
+			division_names_group = UKR_INF_02
+			is_locked = yes
+			regiments = {
+				militia = { x = 0 y = 0 }
+				militia = { x = 0 y = 1 }
+				militia = { x = 0 y = 2 }
+				militia = { x = 1 y = 0 }
+				militia = { x = 1 y = 1 }
+				militia = { x = 1 y = 2 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+			}
+		}
+		random_owned_controlled_state = {
+			prioritize = { 792 }
+			create_unit = {
+				division = "division_template = \"Petliurovtsy\" start_experience_factor = 0.2"
+				owner = ROOT
+				prioritize_location = 11543
+			}
+			create_unit = {
+				division = "division_template = \"Petliurovtsy\" start_experience_factor = 0.2"
+				owner = ROOT
+				prioritize_location = 6435
+			}
+			create_unit = {
+				division = "division_template = \"Petliurovtsy\" start_experience_factor = 0.3"
+				owner = ROOT
+				prioritize_location = 572
+			}
+			create_unit = {
+				division = "division_template = \"Petliurovtsy\" start_experience_factor = 0.2"
+				owner = ROOT
+				prioritize_location = 474
+			}
+			create_unit = {
+				division = "division_template = \"Petliurovtsy\" start_experience_factor = 0.1"
+				owner = ROOT
+				prioritize_location = 474
+			}
+			create_unit = {
+				division = "division_template = \"Petliurovtsy\" start_experience_factor = 0.1"
+				owner = ROOT
+				prioritize_location = 572
+			}
+		}
+		division_template = {
+			name = "Sichovi Striltsi"
+			division_names_group = UKR_ELI_01
+
+			regiments = {
+				elite_infantry = { x = 0 y = 0 }
+				elite_infantry = { x = 0 y = 1 }
+				elite_infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+			}
+			support = {
+				artillery = { x = 0 y = 0 }
+				engineer = { x = 0 y = 1 }
+				recon = { x = 0 y = 2 }
+			}
+		}
+		random_owned_controlled_state = {
+			prioritize = { 792 }
+			create_unit = {
+				division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.9"
+				owner = ROOT
+			}
+			create_unit = {
+				division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
+				owner = ROOT
+			}
+			create_unit = {
+				division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
+				owner = ROOT
+			}
+			create_unit = {
+				division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
+				owner = ROOT
+			}
+		}		
+	}
+}
+UPR_create_dyrektoria = {
+	hidden_effect = {
+		UPR = { 
+			create_country_leader = {
+				name = "Volodymyr Vynnychenko"
+				desc = "POLITICS_VOLODYMYR_VYNNYCHENKO_DESC"
+				picture = "gfx/leaders/UKR/Portrait_UKR_Volodymyr_Vynnychenko.png" 
+				expire = "1965.1.1"
+				ideology = socdem_democratic_socialism_subtype
+			}
+			create_country_leader = {
+				name = "Andriy Melnyk"
+				desc = "POLITICS_ANDRIY_MELNYK_DESC"
+				picture = "gfx/leaders/UKR/Portrait_UKR_Andriy_Melnyk_Extra.png"
+				expire = "1965.1.1"
+				ideology = junta_subtype
+			}
+			create_country_leader = {
+				name = "Yevhen Konovalets"
+				desc = "POLITICS_YEVHEN_KONOVALETS_DESC"
+				picture = "gfx/leaders/UKR/Portrait_UKR_Yevhen_Konovalets.png"
+				expire = "1965.1.1"
+				ideology = militarism_subtype
+			}
+			transfer_state = 792
+			add_ideas = {
+				UKR_urban_rural_divide
+				UKR_agricultural_crisis_idea
+				UKR_lingering_ukrainisation
+			}
+			if = {
+				limit = {
+					UKR = { has_idea = UKR_black_monday }
+				}
+				add_ideas = UKR_black_monday
+			}
+			if = {
+				limit = {
+					UKR = { has_idea = UKR_black_monday_1 }
+				}
+				add_ideas = UKR_black_monday_1
+			}
+			if = {
+				limit = {
+					UKR = { has_idea = UKR_black_monday_2 }
+				}
+				add_ideas = UKR_black_monday_2
+			}
+			random_owned_controlled_state = {
+				prioritize = { 792 }
+				create_unit = {
+					division = "division_template = \"Halytskyi korpus Sichovykh Striltsiv\" start_experience_factor = 0.2"
+					owner = ROOT
+					prioritize_location = 11543
+				}
+				create_unit = {
+					division = "division_template = \"Halytskyi korpus Sichovykh Striltsiv\" start_experience_factor = 0.2"
+					owner = ROOT
+					prioritize_location = 6435
+				}
+				create_unit = {
+					division = "division_template = \"Halytskyi korpus Sichovykh Striltsiv\" start_experience_factor = 0.2"
+					owner = ROOT
+					prioritize_location = 572
+				}
+				create_unit = {
+					division = "division_template = \"Halytskyi korpus Sichovykh Striltsiv\" start_experience_factor = 0.2"
+					owner = ROOT
+					prioritize_location = 474
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 792 }
+				create_unit = {
+					division = "division_template = \"Petliurovtsy\" start_experience_factor = 0.2"
+					owner = ROOT
+					prioritize_location = 11543
+				}
+				create_unit = {
+					division = "division_template = \"Petliurovtsy\" start_experience_factor = 0.2"
+					owner = ROOT
+					prioritize_location = 6435
+				}
+				create_unit = {
+					division = "division_template = \"Petliurovtsy\" start_experience_factor = 0.3"
+					owner = ROOT
+					prioritize_location = 572
+				}
+				create_unit = {
+					division = "division_template = \"Petliurovtsy\" start_experience_factor = 0.2"
+					owner = ROOT
+					prioritize_location = 474
+				}
+				create_unit = {
+					division = "division_template = \"Petliurovtsy\" start_experience_factor = 0.1"
+					owner = ROOT
+					prioritize_location = 474
+				}
+				create_unit = {
+					division = "division_template = \"Petliurovtsy\" start_experience_factor = 0.1"
+					owner = ROOT
+					prioritize_location = 572
+				}
+			}
+			division_template = {
+				name = "Sichovi Striltsi"
+				division_names_group = UKR_ELI_01
+
+				regiments = {
+					elite_infantry = { x = 0 y = 0 }
+					elite_infantry = { x = 0 y = 1 }
+					elite_infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+				}
+				support = {
+					artillery = { x = 0 y = 0 }
+					engineer = { x = 0 y = 1 }
+					recon = { x = 0 y = 2 }
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 792 }
+				create_unit = {
+					division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.9"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
+					owner = ROOT
+				}
+			}
+			if = {
+				limit = { has_global_flag = UKR_dnieper_explosion }
+				#country_event for austrian support
+			}
+			else_if = {
+				limit = { has_global_flag = has_global_flag = UKR_hetmanate_is_over }
+				#country_event for german support
+			}			
+		}
+	}
+	event_target:UKR_Mykhailo_Pavlenko = { set_nationality = UPR }
+	every_unit_leader = {
+		limit = { has_trait = UKR_uvo_officer }
+		set_nationality = UPR
+	}
+	add_popularity = {
+		ideology = national_populist
+		popularity = -0.05
 	}
 }

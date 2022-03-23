@@ -1,3 +1,14 @@
+UKR_has_black_monday = {
+	custom_trigger_tooltip = {
+		tooltip = UKR_has_black_monday_tt
+		OR = {
+			has_idea = UKR_black_monday
+			has_idea = UKR_black_monday_1
+			has_idea = UKR_black_monday_2
+			has_idea = UKR_black_monday_3
+		}
+	}
+}
 UKR_is_hetmanate_or_monarchy = {
 	UKR = {
 		OR = {
@@ -17,6 +28,67 @@ UKR_uvo_in_power = {
 		OR = {
 			UKR_yevhen_konovalets_in_power = yes
 			UKR_andriy_melnyk_in_power = yes
+		}
+	}
+}
+UKR_vasyl_in_power = {
+	UKR = {
+		has_country_leader = {
+			name = "Vasyl"
+			ruling_only = yes
+		}
+	}
+}
+UKR_yevhen_konovalets_in_power = {
+	UKR = {
+		has_country_leader = {
+			name = "Yevhen Konovalets"
+			ruling_only = yes
+		}
+	}
+}
+UKR_leo_stefan_in_power = {
+	UKR = {
+		has_country_leader = {
+			name = "Leo Stefan"
+			ruling_only = yes
+		}
+	}
+}
+UKR_danila_skoropadsky_in_power = {
+	UKR = {
+		has_country_leader = {
+			name = "Danylo"
+			ruling_only = yes
+		}
+	}
+}
+UKR_andriy_melnyk_in_power = {
+	UKR = {
+		has_country_leader = {
+			name = "Andriy Melnyk"
+			ruling_only = yes
+		}
+	}
+}
+UKR_pavlo_skoropadsky_in_power = {
+	UKR = {
+		has_country_leader = {
+			name = "Pavlo Skoropadskyi"
+			ruling_only = yes
+		}
+	}
+}
+UKR_ump_uskhd_in_power = {
+	UKR = {
+		OR = {
+			UKR_vasyl_in_power = yes
+			UKR_leo_stefan_in_power = yes
+			UKR_danila_skoropadsky_in_power = yes
+		}
+		OR = {
+			has_government = social_conservative
+			has_government = authoritarian_democrat
 		}
 	}
 }

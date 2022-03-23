@@ -27,7 +27,7 @@ ideas = {
 		UKR_agricultural_crisis_idea = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_agricultural_crisis_idea"}
 			on_remove = {
-				UKR_setup_breadbasket = yes
+				#UKR_setup_breadbasket = yes
 			}
 			allowed = { always = no }
 			picture = RUS_unfinished_land_reform
@@ -70,6 +70,68 @@ ideas = {
 			modifier = {
 				political_power_gain = -0.05
 				surrender_limit = 0.01
+				defensive_war_stability_factor = 0.15
+			}
+		}	
+		UKR_ukrainisation_efforts = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_ukrainisation_efforts"}
+			allowed = { always = no }
+			picture = UKR_ukrainisation
+			modifier = {
+				political_power_gain = -0.06
+				surrender_limit = 0.02
+				defensive_war_stability_factor = 0.15
+			}
+		}	
+		UKR_ukrainisation_efforts_2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_ukrainisation_efforts_2"}
+			allowed = { always = no }
+			name = UKR_ukrainisation_efforts
+			picture = UKR_ukrainisation
+			modifier = {
+				political_power_gain = -0.07
+				surrender_limit = 0.03
+				defensive_war_stability_factor = 0.15
+			}
+		}	
+		UKR_ukrainisation_efforts_3 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_ukrainisation_efforts_3"}
+			allowed = { always = no }
+			name = UKR_ukrainisation_efforts
+			picture = UKR_ukrainisation
+			modifier = {
+				political_power_gain = -0.08
+				surrender_limit = 0.04
+				stability_factor = 0.03
+				conscription = 0.01
+				conscription_factor = 0.01
+				defensive_war_stability_factor = 0.15
+			}
+		}	
+		UKR_ukrainisation_efforts_4 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_ukrainisation_efforts_4"}
+			allowed = { always = no }
+			name = UKR_ukrainisation_efforts
+			picture = UKR_ukrainisation
+			modifier = {
+				political_power_gain = -0.10
+				surrender_limit = 0.05
+				stability_factor = 0.04
+				conscription = 0.02
+				conscription_factor = 0.01
+				defensive_war_stability_factor = 0.15
+			}
+		}	
+		UKR_stable_identity = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_stable_identity"}
+			allowed = { always = no }
+			picture = UKR_ukraine_flag_idea
+			modifier = {
+				political_power_gain = -0.05
+				surrender_limit = 0.06
+				stability_factor = 0.05
+				conscription = 0.02
+				conscription_factor = 0.02
 				defensive_war_stability_factor = 0.15
 			}
 		}	
@@ -1097,6 +1159,23 @@ ideas = {
 			}
 		}
 	}
+	hidden_ideas = {
+		UPR_no_diplomacy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UPR_no_diplomacy" }
+			modifier = {
+				radical_socialist_acceptance = -100
+				syndicalist_acceptance = -100
+				totalist_acceptance = -100
+				social_democrat_acceptance = -100
+				social_liberal_acceptance = -100
+				market_liberal_acceptance = -100
+				social_conservative_acceptance = -100
+				authoritarian_democrat_acceptance = -100
+				paternal_autocrat_acceptance = -100
+				national_populist_acceptance = -100
+			}
+		}
+	}
 ##############
 # Companies
 ##############
@@ -1107,10 +1186,12 @@ ideas = {
 		metallurgical_combine_azovstal = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea metallurgical_combine_azovstal"}
 			allowed = { original_tag = UKR }
-			traits = { industrial_manufacturer }
+			available = { controls_state = 227 }
+			traits = { mining_company }
 			modifier = {
 				production_speed_arms_factory_factor = 0.1
 				production_speed_industrial_complex_factor = 0.1
+				local_resources_factor = 0.15
 			}
 			research_bonus = {
 				industry = 0.1
@@ -1120,6 +1201,7 @@ ideas = {
 		ukr_akhz = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea ukr_akhz"}
 			allowed = {original_tag = UKR }
+			available = { controls_state = 227 }
 			traits = {chemical_producer }
 			research_bonus = {
 				synth_resources = 0.1
@@ -1129,11 +1211,33 @@ ideas = {
 		german_ukranian_agricultural_comission = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea german_ukranian_agricultural_comission"}
 			allowed = { original_tag = UKR }
+			available = { is_in_faction_with = GER }
 			traits = { industrial_manufacturer }
 			modifier = {
 				production_speed_arms_factory_factor = 0.05
 				production_speed_industrial_complex_factor = 0.15
 				production_speed_infrastructure_factor = 0.10
+			}
+			research_bonus = {
+				industry = 0.1
+			}
+		}
+		
+		kharkiv_tractor_factory = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kharkiv_tractor_factory"}
+			allowed = { original_tag = UKR }
+			available = { 
+				OR = { 
+					is_in_faction_with = GER
+					has_completed_focus = UKR_Nationalize_NUSK
+				}
+			}
+			traits = { industrial_manufacturer }
+			modifier = {
+				production_speed_arms_factory_factor = 0.05
+				production_speed_industrial_complex_factor = 0.07
+				production_speed_infrastructure_factor = 0.11
+				industrial_capacity_factory = 0.04
 			}
 			research_bonus = {
 				industry = 0.1

@@ -248,11 +248,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TRM_Navy_Old_Ways"
-			add_tech_bonus = {
-				name = TRM_Navy_Old_Ways
-				bonus = 1
-				uses = 2
-				category = cat_fleet_in_being
+			add_doctrine_cost_reduction = {
+	name = naval_doc_bonus
+	cost_reduction = 0.5
+	uses = 2
+	category = cat_fleet_in_being
 			}
 		}
 		search_filters = { FOCUS_FILTER_RESEARCH }
@@ -337,11 +337,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TRM_Navy_New_Ways"
-			add_tech_bonus = {
-				name = TRM_Navy_New_Ways
-				bonus = 1
-				uses = 2
-				category = cat_trade_interdiction
+			add_doctrine_cost_reduction = {
+	name = naval_doc_bonus
+	cost_reduction = 0.5
+	uses = 2
+	category = cat_trade_interdiction
 			}
 		}
 		search_filters = { FOCUS_FILTER_RESEARCH }
@@ -2892,6 +2892,8 @@ focus_tree = {
 						}
 					}
 				}
+				setup_soviet_russia = yes
+				ROOT = { save_global_event_target_as = soviet_russia }
 				set_cosmetic_tag = TRM_UNITED_SOV
 			}
 			if = {
@@ -3530,9 +3532,11 @@ focus = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TRM_Rep"
 			add_stability = -0.05
-			country_event = {
-				id = tram.161
-				days = 1
+			RUS = {
+				country_event = {
+					id = rusfor.1078
+					days = 5
+				}
 			}
 		}
 	}
@@ -4565,7 +4569,46 @@ focus = {
 		available = {
 			has_country_flag = TRM_NRA_coup
 			NOT = { soviets_exist = yes }
-			date > 1937.7.7
+			date > 1938.1.1
+			RUS = {
+				if = {
+					limit = {
+						rsdrp_in_power = yes
+						NOT = { has_country_flag = RUS_vi_congress_internationalists }
+					}
+					has_country_flag = RUS_vi_congress_moderates
+				}
+				if = {
+					limit = {
+						custom_trigger_tooltip = {
+							tooltip = nsp_in_power
+							has_idea = RUS_Nikolay_I_Bukharin_hog_syn
+						}
+					}
+					OR = {
+						has_completed_focus = RUS_Future_Of_The_Republic_2
+						has_country_flag = RUS_decided_to_stay_democratic
+					}
+				}
+				if = {
+					limit = {
+						has_country_flag = RUS_vi_congress_internationalists
+						rsdrp_in_power = yes	
+					}
+					OR = {
+						has_completed_focus = RUS_Future_Of_The_Republic_mensh_2
+						has_country_flag = RUS_decided_to_stay_democratic
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = lpsr_not_in_power
+					NOT = { has_idea = RUS_Vladimir_K_Volsky_hog_rso }
+				}
+				custom_trigger_tooltip = {
+					tooltip = plsr_not_in_power
+					NOT = { has_idea = RUS_Maria_A_Spiridonova_hog_rso }
+				}
+			}
 		}
 		mutually_exclusive = {
 			focus = TRM_Look_Out_To_Brother
@@ -5667,7 +5710,7 @@ focus = {
 	focus = {
 		id = TRM_ally_evra
 		text = TRM_ally_evra
-		icon = GFX_goal_TRM_Ally_the_Evraziytsy
+		icon = GFX_RUS_young_eurasians
 		cost = 5.00
 		ai_will_do = {
 			base = 100
@@ -5697,7 +5740,7 @@ focus = {
 						}
 					add_ideas = TRM_eurasia_idea
 					add_popularity = {
-							ideology = paternal_autocrat
+							ideology = national_populist
 							popularity = 0.03
 						}
 					hidden_effect = {
@@ -5712,7 +5755,7 @@ focus = {
 	focus = {
 		id = TRM_eurasia
 		text = TRM_eurasia
-		icon = GFX_goal_TRM_Eurasian_Brotherhood
+		icon = GFX_RUS_krestostrel
 		cost = 5.00
 		ai_will_do = {
 			base = 100
@@ -5734,7 +5777,7 @@ focus = {
 	focus = {
 		id = TRM_ally_smen
 		text = TRM_ally_smen
-		icon = GFX_goal_TRM_Ally_the_Smenovekhovsty
+		icon = GFX_focus_trm_dictatorship
 		cost = 5.00
 		prerequisite = {
 			focus = TRM_vlad_conference
@@ -5760,7 +5803,7 @@ focus = {
 						}
 					add_ideas = TRM_nazbol_idea
 					add_popularity = {
-							ideology = totalist
+							ideology = national_populist
 							popularity = 0.03
 						}
 					hidden_effect = {
@@ -5775,7 +5818,7 @@ focus = {
 	focus = {
 		id = TRM_worker_solidarity
 		text = TRM_worker_solidarity
-		icon = GFX_goal_TRM_worker_solidarity
+		icon = GFX_goal_CZE_panslavism
 		cost = 5.00
 		ai_will_do = {
 			base = 100
@@ -5795,22 +5838,10 @@ focus = {
 				}
 			completion_reward = {
 					add_popularity = {
-							ideology = syndicalist
-							popularity = 0.02
+							ideology = national_populist
+							popularity = 0.12
 						}
-					add_popularity = {
-							ideology = radical_socialist
-							popularity = 0.02
-						}
-					add_popularity = {
-							ideology = social_democrat
-							popularity = 0.02
-						}
-					add_popularity = {
-							ideology = totalist
-							popularity = 0.05
-						}
-					add_ideas = TRM_workers_idea
+					add_ideas = TRM_slavs_idea
 				}
 
 	}
@@ -6265,6 +6296,12 @@ focus = {
 			add_popularity = {
 				ideology = national_populist
 				popularity = 0.03
+			}
+                        hidden_effect = {
+				country_event = {
+					id = trammlad.533
+					days = 16
+				}
 			}
 		}
 	}
@@ -7937,9 +7974,10 @@ focus = {
 		completion_reward = {
 			if = {
 				limit = {
-					ROOT_is_in_entente = yes
+					ROOT = { is_in_faction_with = CAN }
 				}
-				unlock_decision_tooltip = RUS_Support_DEH
+				custom_effect_tooltip = unlocks_decision
+				custom_effect_tooltip = RUS_Support_DEH			
 			}
 			if = {
 				limit = {
@@ -7948,10 +7986,12 @@ focus = {
 						has_socialist_government = yes
 					}
 				}
-				unlock_decision_tooltip = RUS_Support_BHC
+				custom_effect_tooltip = unlocks_decision
+				custom_effect_tooltip = RUS_Support_BHC
 			}
 			else = {
-				unlock_decision_tooltip = RUS_Support_PRF
+				custom_effect_tooltip = unlocks_decision
+				custom_effect_tooltip = RUS_Support_PRF_tt
 			}
 		}
 	}

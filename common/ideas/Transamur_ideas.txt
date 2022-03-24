@@ -292,19 +292,12 @@ ideas = {
 				tag = RUS
 				attack_bonus_against = 0.2
 			}
-			targeted_modifier = {
-				tag = SOV
-				attack_bonus_against = 0.2
-			}
 		}
 				
 		TRM_Siberian_War_Debuff = {
 			picture = siberan_debacle
 			available = {
-				OR = {
-					has_war_with = RUS
-					has_war_with = SOV
-				}
+				has_war_with = RUS
 			}
 			modifier = {
 				ai_call_ally_desire_factor = -2000
@@ -316,10 +309,6 @@ ideas = {
 			}
 			targeted_modifier = {
 				tag = RUS
-				defense_bonus_against = -0.2
-			}
-			targeted_modifier = {
-				tag = SOV
 				defense_bonus_against = -0.2
 			}
 		}
@@ -744,7 +733,7 @@ ideas = {
 		}
 		TRM_eurasia_idea = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea TRM_eurasia_idea"}
-			picture = TRM_eurasia
+			picture = krestostrel
 			available = {
 				has_government = totalist
 				has_country_flag = TRM_Mlad_in_power
@@ -757,15 +746,15 @@ ideas = {
 
 		TRM_nazbol_idea = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea TRM_nazbol_idea"}
-			picture = TRM_nazbol
+			picture = CZE_legions
 			available = {
 				has_government = totalist
 				has_country_flag = TRM_Mlad_in_power
 			}
 			modifier = {
-				industrial_capacity_factory = 0.2
-				production_speed_arms_factory_factor = 0.15
-			    production_speed_buildings_factor = 0.15
+				production_speed_arms_factory_factor = 0.05
+			    production_speed_buildings_factor = 0.05
+				drift_defence_factor = 0.05
 			}
 		}
 
@@ -828,9 +817,9 @@ ideas = {
 				offence = 0.05
 			}
 		}
-		TRM_workers_idea = {
-			on_add = {log = "[GetDateText]: [Root.GetName]: add idea TRM_workers_idea"}
-			picture = TRM_Workers
+		TRM_slavs_idea = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea TRM_slavs_idea"}
+			picture = CZE_legions
 			available = {
 				has_government = totalist
 				has_country_flag = TRM_Mlad_in_power
@@ -875,7 +864,7 @@ ideas = {
 		}
 		TRM_eurasia = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea TRM_eurasia"}
-			picture = TRM_Eurasian_Brotherhood
+			picture = idea_eurasinism
 			available = {
 				has_government = totalist
 				has_country_flag = TRM_Mlad_in_power
@@ -908,10 +897,6 @@ ideas = {
 				war_support_factor = 0.02
 			}
 			targeted_modifier = {
-				tag = SOV
-				defense_bonus_against = -0.3
-			}
-			targeted_modifier = {
 				tag = RUS
 				defense_bonus_against = -0.3
 			}
@@ -931,10 +916,6 @@ ideas = {
 				war_support_factor = -0.3
 			}
 			targeted_modifier = {
-				tag = SOV
-				defense_bonus_against = -0.3
-			}
-			targeted_modifier = {
 				tag = RUS
 				defense_bonus_against = -0.3
 			}
@@ -950,10 +931,6 @@ ideas = {
 				political_power_gain = -0.15
 				stability_factor = -0.15
 				war_support_factor = -0.15
-			}
-			targeted_modifier = {
-				tag = SOV
-				defense_bonus_against = -0.15
 			}
 			targeted_modifier = {
 				tag = RUS
@@ -973,10 +950,6 @@ ideas = {
 				war_support_factor = -0.02
 			}
 			targeted_modifier = {
-				tag = SOV
-				defense_bonus_against = -0.01
-			}
-			targeted_modifier = {
 				tag = RUS
 				defense_bonus_against = -0.01
 			}
@@ -992,10 +965,6 @@ ideas = {
 				political_power_gain = 0.15
 				stability_factor = 0.15
 				war_support_factor = 0.15
-			}
-			targeted_modifier = {
-				tag = SOV
-				defense_bonus_against = 0.15
 			}
 			targeted_modifier = {
 				tag = RUS
@@ -1015,10 +984,6 @@ ideas = {
 				war_support_factor = 0.3
 			}
 			targeted_modifier = {
-				tag = SOV
-				defense_bonus_against = 0.3
-			}
-			targeted_modifier = {
 				tag = RUS
 				defense_bonus_against = 0.3
 			}
@@ -1034,10 +999,6 @@ ideas = {
 				political_power_gain = -0.3
 				stability_factor = -0.3
 				war_support_factor = -0.3
-			}
-			targeted_modifier = {
-				tag = SOV
-				defense_bonus_against = -0.3
 			}
 			targeted_modifier = {
 				tag = RUS
@@ -1057,10 +1018,6 @@ ideas = {
 				war_support_factor = -0.15
 			}
 			targeted_modifier = {
-				tag = SOV
-				defense_bonus_against = -0.15
-			}
-			targeted_modifier = {
 				tag = RUS
 				defense_bonus_against = -0.15
 			}
@@ -1076,10 +1033,6 @@ ideas = {
 				political_power_gain = -0.05
 				stability_factor = 0.05
 				war_support_factor = -0.02
-			}
-			targeted_modifier = {
-				tag = SOV
-				defense_bonus_against = -0.01
 			}
 			targeted_modifier = {
 				tag = RUS
@@ -1099,10 +1052,6 @@ ideas = {
 				war_support_factor = 0.15
 			}
 			targeted_modifier = {
-				tag = SOV
-				defense_bonus_against = 0.15
-			}
-			targeted_modifier = {
 				tag = RUS
 				defense_bonus_against = 0.15
 			}
@@ -1118,10 +1067,6 @@ ideas = {
 				political_power_gain = 0.3
 				stability_factor = 0.3
 				war_support_factor = 0.3
-			}
-			targeted_modifier = {
-				tag = SOV
-				defense_bonus_against = 0.3
 			}
 			targeted_modifier = {
 				tag = RUS

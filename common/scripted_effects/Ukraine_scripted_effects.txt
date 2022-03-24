@@ -275,6 +275,74 @@ UKR_improve_ukrainisation = {
 		add_ideas = UKR_ukrainisation_efforts
 	}
 }
+UKR_reduce_black_monday = {
+	if = {
+		limit = {
+			has_idea = UKR_black_monday_2
+		}
+		remove_ideas = UKR_black_monday_2
+		add_timed_idea = {
+			idea = UKR_black_monday_3
+			days = 180
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = UKR_black_monday_1
+		}
+		swap_ideas = {
+			remove_idea = UKR_black_monday_1
+			add_idea = UKR_black_monday_2
+		}
+	}
+	else = {
+		swap_ideas = {
+			remove_idea = UKR_black_monday
+			add_idea = UKR_black_monday_1
+		}
+	}	
+}
+UKR_reduce_agricultural_crisis = {
+	if = {
+		limit = {
+			has_idea = UKR_agricultural_crisis_idea_4
+		}
+		remove_ideas = UKR_agricultural_crisis_idea_4
+	}
+	else_if = {
+		limit = {
+			has_idea = UKR_agricultural_crisis_idea_3
+		}
+		swap_ideas = {
+			remove_idea = UKR_agricultural_crisis_idea_3
+			add_idea = UKR_agricultural_crisis_idea_4
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = UKR_agricultural_crisis_idea_2
+		}
+		swap_ideas = {
+			remove_idea = UKR_agricultural_crisis_idea_2
+			add_idea = UKR_agricultural_crisis_idea_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = UKR_agricultural_crisis_idea_1
+		}
+		swap_ideas = {
+			remove_idea = UKR_agricultural_crisis_idea_1
+			add_idea = UKR_agricultural_crisis_idea_2
+		}
+	}
+	else = {
+		swap_ideas = {
+			remove_idea = UKR_agricultural_crisis_idea
+			add_idea = UKR_agricultural_crisis_idea_1
+		}
+	}
+}
 		
 
 UKR_remove_king = {
@@ -424,12 +492,11 @@ UKR_create_danylo = {
 		}
 	}
 }
-UPR_create_ROOT_dyrektoria = {
+UPR_create_ROOT_dyrektoria_kingdom = {
 	leave_faction = yes
 	hidden_effect = {
-		UPR = { get_current_government_type = yes }
-		restore_previous_government_type = yes
 		# kingdom should not have streltsy
+		UPR = { get_current_government_type = yes }
 		delete_unit_template_and_units = {
 			division_template = "Sichovi Striltsi"
 			disband = yes #will refund equipment and manpower
@@ -464,8 +531,15 @@ UPR_create_ROOT_dyrektoria = {
 				limit = {
 					is_owned_by = UKR
 					NOT = { state = 792 }
+					NOT = { state = 93 }
+					NOT = { state = 997 }
 				}
 				UPR = { transfer_state = PREV }
+				UPR = { add_state_core = PREV }
+				UKR = { 
+					remove_state_core = PREV
+					add_state_claim = PREV
+				}
 			}
 			set_stability = UKR@stability
 			set_war_support = 0.5
@@ -492,11 +566,28 @@ UPR_create_ROOT_dyrektoria = {
 					UKR = { has_idea = UKR_black_monday_2 }
 				}
 				add_ideas = UKR_black_monday_2
-			}			
+			}
+			set_party_name = {
+				ideology = social_conservative
+				name = UKR_social_conservative_party
+				long_name = UKR_social_conservative_party_long
+			}
+			set_party_name = {
+				ideology = authoritarian_democrat
+				name = UKR_authoritarian_democrat
+				long_name = UKR_authoritarian_democrat_party_long
+			}
+			set_party_name = {
+				ideology = paternal_autocrat
+				name = UKR_paternal_autocrat_party
+				long_name = UKR_paternal_autocrat_party_long
+			}
+			set_capital = 202
 		}
+		restore_previous_government_type = yes
 		transfer_units_fraction = {
 			target = UPR
-			size = 1
+			army_ratio = 1
 			navy_ratio = 0.5
 			keep_unit_leaders_trigger = { always = yes }
 		}
@@ -510,6 +601,7 @@ UPR_create_ROOT_dyrektoria = {
 				OR = {
 					has_id = 17909
 					has_id = 17913
+					has_id = 17901
 				}
 			}
 			set_nationality = UPR
@@ -522,9 +614,18 @@ UPR_create_ROOT_dyrektoria = {
 		event_target:UKR_Mykhailo_Pavlenko = { set_nationality = UPR }
 	}
 	hidden_effect = {
+		set_cosmetic_tag = UKR_dyrektoria
 		set_stability = 0.25
 		set_war_support = 0.8
 		GER = { add_to_faction = UPR }
+		hidden_effect = {
+			GAL = { 
+				country_event = {
+					id = ukrpol.39
+					days = 3
+				}
+			}
+		}
 		division_template = {
 			name = "Halytskyi korpus Sichovykh Striltsiv"
 			division_names_group = UKR_ELI_02
@@ -630,52 +731,56 @@ UPR_create_ROOT_dyrektoria = {
 				recon = { x = 0 y = 2 }
 			}
 		}
-		random_owned_controlled_state = {
-			prioritize = { 792 }
-			create_unit = {
-				division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.9"
-				owner = ROOT
+		if = {
+			limit = {
+				NOT = { has_country_flag = Yevhen_Konovalets_dead }
 			}
-			create_unit = {
-				division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
-				owner = ROOT
+			random_owned_controlled_state = {
+				prioritize = { 792 }
+				create_unit = {
+					division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.9"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
+					owner = ROOT
+				}
 			}
-			create_unit = {
-				division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
-				owner = ROOT
-			}
-			create_unit = {
-				division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
-				owner = ROOT
-			}
-		}		
+		}
+		set_party_name = {
+			ideology = market_liberal
+			name = UKR_social_liberal_party
+			long_name = UKR_social_liberal_party_legal_long
+		}
+		set_party_name = {
+			ideology = social_liberal
+			name = UKR_social_liberal_party
+			long_name = UKR_social_liberal_party_legal_long
+		}
+		set_party_name = {
+			ideology = paternal_autocrat
+			name = UKR_paternal_autocrat_party2
+			long_name = UKR_paternal_autocrat_party2_long
+		}
 	}
 }
 UPR_create_dyrektoria = {
 	hidden_effect = {
 		UPR = { 
-			create_country_leader = {
-				name = "Volodymyr Vynnychenko"
-				desc = "POLITICS_VOLODYMYR_VYNNYCHENKO_DESC"
-				picture = "gfx/leaders/UKR/Portrait_UKR_Volodymyr_Vynnychenko.png" 
-				expire = "1965.1.1"
-				ideology = socdem_democratic_socialism_subtype
-			}
-			create_country_leader = {
-				name = "Andriy Melnyk"
-				desc = "POLITICS_ANDRIY_MELNYK_DESC"
-				picture = "gfx/leaders/UKR/Portrait_UKR_Andriy_Melnyk_Extra.png"
-				expire = "1965.1.1"
-				ideology = junta_subtype
-			}
-			create_country_leader = {
-				name = "Yevhen Konovalets"
-				desc = "POLITICS_YEVHEN_KONOVALETS_DESC"
-				picture = "gfx/leaders/UKR/Portrait_UKR_Yevhen_Konovalets.png"
-				expire = "1965.1.1"
-				ideology = militarism_subtype
-			}
 			transfer_state = 792
+			transfer_state = 93
+			transfer_state = 997
+			add_state_core = 792
+			add_state_core = 93
+			add_state_core = 997
 			add_ideas = {
 				UKR_urban_rural_divide
 				UKR_agricultural_crisis_idea
@@ -755,49 +860,67 @@ UPR_create_dyrektoria = {
 					prioritize_location = 572
 				}
 			}
-			division_template = {
-				name = "Sichovi Striltsi"
-				division_names_group = UKR_ELI_01
-
-				regiments = {
-					elite_infantry = { x = 0 y = 0 }
-					elite_infantry = { x = 0 y = 1 }
-					elite_infantry = { x = 0 y = 2 }
-					infantry = { x = 1 y = 0 }
-					infantry = { x = 1 y = 1 }
-					infantry = { x = 1 y = 2 }
+			if = {
+				limit = {
+					UKR = { NOT = { has_country_flag = Yevhen_Konovalets_dead } }
 				}
-				support = {
-					artillery = { x = 0 y = 0 }
-					engineer = { x = 0 y = 1 }
-					recon = { x = 0 y = 2 }
+				division_template = {
+					name = "Sichovi Striltsi"
+					division_names_group = UKR_ELI_01
+
+					regiments = {
+						elite_infantry = { x = 0 y = 0 }
+						elite_infantry = { x = 0 y = 1 }
+						elite_infantry = { x = 0 y = 2 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+						engineer = { x = 0 y = 1 }
+						recon = { x = 0 y = 2 }
+					}
+				}
+				random_owned_controlled_state = {
+					prioritize = { 792 }
+					create_unit = {
+						division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.9"
+						owner = ROOT
+					}
+					create_unit = {
+						division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
+						owner = ROOT
+					}
+					create_unit = {
+						division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
+						owner = ROOT
+					}
+					create_unit = {
+						division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
+						owner = ROOT
+					}
 				}
 			}
-			random_owned_controlled_state = {
-				prioritize = { 792 }
-				create_unit = {
-					division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.9"
-					owner = ROOT
-				}
-				create_unit = {
-					division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
-					owner = ROOT
-				}
-				create_unit = {
-					division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
-					owner = ROOT
-				}
-				create_unit = {
-					division = "division_template = \"Sichovi Striltsi\" start_experience_factor = 0.3"
-					owner = ROOT
+			hidden_effect = {
+				GAL = { 
+					country_event = {
+						id = ukrpol.39
+						days = 3
+					}
 				}
 			}
 			if = {
 				limit = { has_global_flag = UKR_dnieper_explosion }
-				#country_event for austrian support
+				AUS = {
+					country_event = {
+						id = ukrpol.41
+						days = 7
+					}
+				}
 			}
 			else_if = {
-				limit = { has_global_flag = has_global_flag = UKR_hetmanate_is_over }
+				limit = { has_global_flag = UKR_hetmanate_is_over }
 				#country_event for german support
 			}			
 		}
@@ -810,5 +933,18 @@ UPR_create_dyrektoria = {
 	add_popularity = {
 		ideology = national_populist
 		popularity = -0.05
+	}
+	hidden_effect = {
+		every_state = {
+			limit = {
+				OR = {
+					state = 792
+					state = 93
+					state = 997
+				}
+			}
+			remove_core_of = ROOT
+			add_claim_by = ROOT
+		}
 	}
 }

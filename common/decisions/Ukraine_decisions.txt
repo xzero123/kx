@@ -9,9 +9,12 @@ UKR_dyrektoria_uprising = {
 				has_completed_focus = UKR_Prepare_The_Anti_Hetman_Coup
 				has_completed_focus = UKR_Hetmanate_Is_Not_Yet_Lost
 			}
-			custom_trigger_tooltip = {
-				tooltip = UKR_rivne_uprising_trigger
-				check_variable = { UKR_Direktoriia_Strength_real < 0.051 }
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = UKR_rivne_uprising_trigger
+					check_variable = { UKR_Direktoriia_Strength_real < 0.051 }
+				}
+				UKR_yevhen_konovalets_in_power = yes
 			}
 		}
 		available = {
@@ -19,9 +22,12 @@ UKR_dyrektoria_uprising = {
 				has_completed_focus = UKR_Prepare_The_Anti_Hetman_Coup
 				has_completed_focus = UKR_Hetmanate_Is_Not_Yet_Lost
 			}
-			custom_trigger_tooltip = {
-				tooltip = UKR_rivne_uprising_trigger
-				check_variable = { UKR_Direktoriia_Strength_real < 0.051 }
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = UKR_rivne_uprising_trigger
+					check_variable = { UKR_Direktoriia_Strength_real < 0.051 }
+				}
+				UKR_yevhen_konovalets_in_power = yes
 			}
 		}
 		
@@ -31,8 +37,16 @@ UKR_dyrektoria_uprising = {
 		
 		cancel_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision UKR_rivne_uprising"
-			country_event = ukrpol.37
-			set_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+			if = {
+				limit = {
+					UKR_yevhen_konovalets_in_power = yes
+				}
+				country_event = ukrpol.38
+			}
+			else = {
+				country_event = ukrpol.37
+				set_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+			}
 		}
 		timeout_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision timeout UKR_rivne_uprising"

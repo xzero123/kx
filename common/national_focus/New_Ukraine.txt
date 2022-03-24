@@ -1839,7 +1839,7 @@ focus_tree = {
 
 	focus = {
 		id = UKR_Agricultural_Crisis
-		icon = GFX_goal_generic_financial_markets
+		icon = GFX_goal_generic_crisis
 		cost = 5
 		x = 12
 		y = 0
@@ -1860,7 +1860,7 @@ focus_tree = {
 	
 	focus = {
 		id = UKR_deposit_protection_law
-		icon = GFX_goal_generic_financial_markets
+		icon = GFX_goal_MAF_Bank
 		cost = 5
 		relative_position_id = UKR_Stabilize_Hryvnia
 		x = 1
@@ -1909,7 +1909,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_rural_development
-		icon = GFX_goal_agricultural_aid
+		icon = GFX_goal_ANQ_rural_outreach
 		cost = 5
 		relative_position_id = UKR_Stabilize_Hryvnia
 		x = 3
@@ -1928,6 +1928,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_rural_development"
+			UKR_reduce_agricultural_crisis = yes
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -1974,7 +1975,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_State_Sponsored_Construction_Works
-		icon = GFX_goal_agricultural_aid
+		icon = GFX_goal_CRO_sprawling_roads
 		cost = 5
 		relative_position_id = UKR_Stabilize_Hryvnia
 		x = 0
@@ -2054,6 +2055,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Invest_In_KhTZ"
+			UKR_reduce_agricultural_crisis = yes
 			221 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -2067,7 +2069,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Nationalize_NUSK
-		icon = GFX_goal_generic_agriculture2
+		icon = GFX_goal_MNT_nationalize_austrian_business
 		cost = 5
 		relative_position_id = UKR_Stabilize_Hryvnia
 		x = 1
@@ -2088,6 +2090,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Nationalize_NUSK"
+			UKR_reduce_agricultural_crisis = yes
 			221 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -2107,7 +2110,13 @@ focus_tree = {
 		x = 4
 		y = 4
 		available = {
-			NOT = { has_idea = UKR_agricultural_crisis_idea }
+			custom_trigger_tooltip = {
+				tooltip = UKR_can_resume_breadbasket
+				OR = {
+					has_idea = UKR_agricultural_crisis_idea_4
+					has_idea = UKR_agricultural_crisis_idea_3
+				}
+			}
 		}
 		prerequisite = {
 			focus = UKR_Invest_In_KhTZ
@@ -2120,6 +2129,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Resume_Cash_Crop_Exportation"
+			if = {
+				limit = { has_idea = UKR_agricultural_crisis_idea_3 }
+				remove_ideas = UKR_agricultural_crisis_idea_3
+				add_timed_idea = {
+					idea = UKR_agricultural_crisis_idea_4
+					days = 60
+				}
+			}
+			else = {
+				UKR_reduce_agricultural_crisis = yes
+			}
+			UKR_setup_breadbasket = yes
 			UKR_reduce_black_monday = yes
 		}
 	}
@@ -2383,7 +2404,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Yekaterinoslav_Industry
-		icon = GFX_RUS_Industrial_Expansion
+		icon = GFX_goal_factory_complex
 		cost = 5
 		prerequisite = {
 			focus = UKR_Electrification
@@ -3598,6 +3619,7 @@ focus_tree = {
 		allow_branch = {
 			NOT = { has_global_flag = UPR_dyrektoria_uprising_UPR }
 			NOT = { has_global_flag = UPR_dyrektoria_become_exiled_in_WSU }
+			NOT = { has_global_flag = UPR_dyrektoria_joined_peacefully }
 		}
 		available = {
 			always = no
@@ -3612,7 +3634,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Impose_Martial_Law
-		icon = GFX_goal_UKR_army
+		icon = GFX_TRM_Martial_Law
 		relative_position_id = UKR_Fall_Of_Rivne
 		x = -1
 		y = 1
@@ -3672,7 +3694,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Galician_Intervention
-		icon = GFX_goal_UKR_army
+		icon = GFX_goal_GAL_divide_nation
 		relative_position_id = UKR_Fall_Of_Rivne
 		x = 2
 		y = 2
@@ -3692,7 +3714,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Secure_The_Rear
-		icon = GFX_goal_UKR_army
+		icon = GFX_securethenorthernborder
 		relative_position_id = UKR_Fall_Of_Rivne
 		x = -2
 		y = 2
@@ -3709,7 +3731,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Indulgences_To_Parliament
-		icon = GFX_goal_UKR_army
+		icon = GFX_goal_generic_parliament
 		relative_position_id = UKR_Fall_Of_Rivne
 		x = 0
 		y = 2
@@ -3726,7 +3748,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Remind_The_Peasants_Of_Anarchy
-		icon = GFX_goal_UKR_army
+		icon = GFX_goal_UKR_stabilise_west
 		relative_position_id = UKR_Fall_Of_Rivne
 		x = -1
 		y = 3
@@ -3746,7 +3768,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Knock_The_Enemy_Out_Of_Rivne
-		icon = GFX_goal_UKR_army
+		icon = GFX_goal_generic_expel_people
 		relative_position_id = UKR_Fall_Of_Rivne
 		x = 1
 		y = 4
@@ -3775,6 +3797,7 @@ focus_tree = {
 		cost = 6
 		allow_branch = {
 			has_global_flag = UPR_dyrektoria_uprising_UPR
+			NOT = { has_global_flag = UPR_dyrektoria_joined_peacefully }
 		}
 		available = {
 			always = no
@@ -3789,7 +3812,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UPR_Immediate_Land_Reform
-		icon = GFX_goal_UKR_army
+		icon = GFX_CRM_Land
 		relative_position_id = UPR_Fall_Of_Rivne
 		x = 0
 		y = 3
@@ -3801,7 +3824,7 @@ focus_tree = {
 			has_government = social_democrat
 		}
 		ai_will_do = {
-			factor = 100
+			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UPR_Immediate_Land_Reform"
@@ -3809,13 +3832,14 @@ focus_tree = {
 	}
 	focus = {
 		id = UPR_Take_Advantage_Of_Germany
-		icon = GFX_goal_UKR_army
+		icon = GFX_goal_align_germany
 		relative_position_id = UPR_Fall_Of_Rivne
 		x = 0
 		y = 1
 		cost = 6
 		available = {
 			has_global_flag = UKR_hetmanate_is_over
+			country_exists = GER
 		}
 		prerequisite = {
 			focus = UPR_Fall_Of_Rivne
@@ -3829,13 +3853,14 @@ focus_tree = {
 	}
 	focus = {
 		id = UPR_Convince_The_Austrian_Leadership
-		icon = GFX_goal_UKR_army
+		icon = GFX_goal_GAL_contact_vienna
 		relative_position_id = UPR_Fall_Of_Rivne
 		x = -2
 		y = 1
-		cost = 6
+		cost = 1
 		available = {
 			has_global_flag = UKR_dnieper_explosion
+			country_exists = AUS
 		}
 		prerequisite = {
 			focus = UPR_Fall_Of_Rivne
@@ -3845,11 +3870,17 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UPR_Convince_The_Austrian_Leadership"
+			AUS = {
+				country_event = {
+					id = ukrpol.41
+					days = 2
+				}
+			}
 		}
 	}
 	focus = {
 		id = UPR_Trigger_Peasant_Unrest
-		icon = GFX_goal_UKR_army
+		icon = GFX_goal_UKR_stabilise_west
 		relative_position_id = UPR_Fall_Of_Rivne
 		x = 1
 		y = 2
@@ -3927,7 +3958,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UPR_Fight_Against_Partisanship
-		icon = GFX_goal_UKR_army
+		icon = GFX_goal_NFA_end_parliamentarism
 		relative_position_id = UPR_Fall_Of_Rivne
 		x = 2
 		y = 3
@@ -3950,7 +3981,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UPR_Agreement_With_Dyrektoriia
-		icon = GFX_goal_UKR_army
+		icon = GFX_goal_NEE_tacit_agreement
 		relative_position_id = UPR_Fall_Of_Rivne
 		x = 4
 		y = 3
@@ -3973,7 +4004,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UPR_Battle_For_Kyiv
-		icon = GFX_goal_UKR_army
+		icon = GFX_goal_UKR_48_Hour_Plan
 		relative_position_id = UPR_Fall_Of_Rivne
 		x = 1
 		y = 4

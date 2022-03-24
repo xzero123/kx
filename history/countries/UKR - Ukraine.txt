@@ -142,7 +142,7 @@ set_popularities = {
 #UKR_setup_breadbasket = yes
 
 add_ideas = {
-	UKR_breadbasket_of_europe_idea
+	UKR_breadbasket_of_europe_idea_initial
 	UKR_derzhavna_varta
 	UKR_urban_rural_divide
 	UKR_lingering_ukrainisation
@@ -182,11 +182,82 @@ create_dynamic_country = {
 		authoritarian_democrat = 0
 		national_populist = 16		
 	}
+	set_party_name = {
+		ideology = totalist
+		name = UKR_totalist_party
+		long_name = UKR_totalist_party_long
+	}
+	set_party_name = {
+		ideology = syndicalist
+		name = UKR_syndicalist_party
+		long_name = UKR_syndicalist_party_long
+	}
+	set_party_name = {
+		ideology = radical_socialist
+		name = UKR_radical_socialist_party
+		long_name = UKR_radical_socialist_party_long
+	}
+	set_party_name = {
+		ideology = social_democrat
+		name = UKR_social_democrat_party
+		long_name = UKR_social_democrat_party_long
+	}
+	set_party_name = {
+		ideology = market_liberal
+		name = UKR_social_liberal_party
+		long_name = UKR_social_liberal_party_legal_long
+	}
+	set_party_name = {
+		ideology = social_liberal
+		name = UKR_social_liberal_party
+		long_name = UKR_social_liberal_party_legal_long
+	}
+	set_party_name = {
+		ideology = social_conservative
+		name = UKR_social_conservative_party
+		long_name = UKR_social_conservative_party_long
+	}
+	set_party_name = {
+		ideology = authoritarian_democrat
+		name = UKR_authoritarian_democrat
+		long_name = UKR_authoritarian_democrat_party_long
+	}
+	set_party_name = {
+		ideology = paternal_autocrat
+		name = UKR_paternal_autocrat_party2
+		long_name = UKR_paternal_autocrat_party2_long
+	}
+	set_party_name = {
+		ideology = national_populist
+		name = UKR_national_populist_party
+		long_name = UKR_national_populist_party_long
+	}
 	every_state = {
 		limit = {
 			is_core_of = event_target:UKR_dyrektoria_headquarters
 		}
 		remove_core_of = event_target:UKR_dyrektoria_headquarters
+	}
+	create_country_leader = {
+		name = "Volodymyr Vynnychenko"
+		desc = "POLITICS_VOLODYMYR_VYNNYCHENKO_DESC"
+		picture = "gfx/leaders/UKR/Portrait_UKR_Volodymyr_Vynnychenko.png" 
+		expire = "1965.1.1"
+		ideology = socdem_democratic_socialism_subtype
+	}
+	create_country_leader = {
+		name = "Andriy Melnyk"
+		desc = "POLITICS_ANDRIY_MELNYK_DESC"
+		picture = "gfx/leaders/UKR/Portrait_UKR_Andriy_Melnyk_Extra.png"
+		expire = "1965.1.1"
+		ideology = junta_subtype
+	}
+	create_country_leader = {
+		name = "Yevhen Konovalets"
+		desc = "POLITICS_YEVHEN_KONOVALETS_DESC"
+		picture = "gfx/leaders/UKR/Portrait_UKR_Yevhen_Konovalets.png"
+		expire = "1965.1.1"
+		ideology = militarism_subtype
 	}
 	create_field_marshal = {
 		name = "Dyrektoria Joint Command"
@@ -274,14 +345,6 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Volodymyr Vynnychenko"
-	desc = "POLITICS_VOLODYMYR_VYNNYCHENKO_DESC"
-	picture = "gfx/leaders/UKR/Portrait_UKR_Volodymyr_Vynnychenko.png" 
-	expire = "1965.1.1"
-	ideology = socdem_democratic_socialism_subtype
-}
-
-create_country_leader = {
 	name = "Mykola Mikhnovskyi"
 	desc = "POLITICS_MYKOLA_MIKHHNOVSKY_DESC"
 	picture = "gfx/leaders/UKR/Portrait_UKR_Mykola_Mikhnovsky.png"
@@ -352,7 +415,7 @@ create_field_marshal = {
 	defense_skill = 3
 	planning_skill = 3
 	logistics_skill = 3
-	id = 17911
+	id = 17919
 }
 
 create_corps_commander = {
@@ -444,7 +507,7 @@ create_corps_commander = {
 }
 
 create_corps_commander = {
-	name = "Mykola Kapustyanskyi"
+	name = "Mykola Kapustyanskyi "
 	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Mykola_Kapustyanskyi.png"
 	traits = { trickster politically_connected }
 	skill = 2
@@ -478,7 +541,7 @@ create_corps_commander = {
 	id = 17916
 }
 create_corps_commander = {
-	name = "Mykola Stsiborskyi"
+	name = "Mykola Stsiborskyi "
 	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Mykola_Stsiborskyi.png"
 	traits = { organizer }
 	skill = 2
@@ -487,6 +550,17 @@ create_corps_commander = {
 	planning_skill = 1
 	logistics_skill = 2
 	id = 17917
+}
+create_corps_commander = {
+	name = "Omelian Volokh"
+	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Omelian_Volokh.png"
+	traits = { infantry_leader }
+	skill = 2
+	attack_skill = 1
+	defense_skill = 3
+	planning_skill = 2
+	logistics_skill = 1
+	id = 17920
 }
 
 create_navy_leader = {
@@ -588,6 +662,11 @@ random_unit_leader = {
 	limit = { has_id = 17917 }
 	save_global_event_target_as = UKR_Mykola_Stsiborskyi
 	add_unit_leader_trait = UKR_uvo_officer
+	set_nationality = UPR
+}
+random_unit_leader = {
+	limit = { has_id = 17920 }
+	save_global_event_target_as = UKR_Omelian_Volokh
 	set_nationality = UPR
 }
 

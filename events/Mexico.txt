@@ -156,6 +156,11 @@ country_event = { # What does Eufemio do?
 
 	option = { # Calles seizes power
 		name = mexico.3.a
+		trigger = {
+			NOT = {
+				has_country_flag = MEX_calles_purged
+			}
+		}
 		ai_chance = {
 			factor = 33
 			modifier = {
@@ -653,6 +658,10 @@ country_event = { # Elections of 1937
 			add_ideas = MEX_Rosendo_Salazar_for_syn
 			add_ideas = MEX_Juan_R_de_la_Cruz_eco_syn
 			add_ideas = MEX_Lazaro_Gutierrez_de_Lara_sec_syn
+			country_event = {
+				id = mexico.410
+				days = 15
+			}
 		}
 		set_politics = {
 			ruling_party = syndicalist
@@ -3333,7 +3342,7 @@ country_event = { # garza speech
 			desc = "POLITICS_EMERGENCY_COUNCIL_DESC"
 			picture = "gfx/leaders/MEX/Portrait_Mexico_Emergency_Council.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = junta_subtype
 			traits = {}
 		}
 		random_unit_leader = {
@@ -3372,7 +3381,7 @@ country_event = { # garza dead what now
 
 	option = { # monarchy time
 		name = mexico.460.a
-		
+		set_cosmetic_tag = MEX_PORFIRIO
 		create_country_leader = {# Emergency Council
 			name = "Felix Diaz Prieto"
 			desc = "POLITICS_FELIX_DIAZ_DESC"
@@ -3390,7 +3399,7 @@ country_event = { # garza dead what now
 		}
 	}
 	option = { # authdem time
-		name = mexico.46.b
+		name = mexico.460.b
 		create_country_leader = {# Juan Barragán Rodríguez
 			name = "Juan Barragán Rodríguez"
 			desc = "POLITICS_JUAN_BARRAGAN_DESC"
@@ -3451,6 +3460,7 @@ country_event = { # porfirio 2.0 or junta
 		set_country_flag = MEX_Porfiriato_2_electric_boogaloo_garza
 		complete_national_focus = MEX_a_new_diaz
 		set_country_flag = MEX_a_new_diaz
+		set_cosmetic_tag = MEX_PORFIRIO
 		hidden_effect = {
 			country_event = {
 				id  = mexico.247
@@ -8238,6 +8248,7 @@ country_event = {
 	option = {
 		name = mexicodemocratic.9.a
 		ai_chance = { factor = 1}
+		set_cosmetic_tag = MEX_unitary_cosmetic
 		add_stability = -0.05
 		add_political_power = 200
 		country_event = { days = 7 id = mexicodemocratic.10 }

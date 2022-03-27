@@ -57,7 +57,7 @@ defined_text = {
 	name = GetUKRDyrektoriaSoclibs
 	text = {
 		trigger = {
-			has_country_flag = UPR_soclibs_leave_dyrektoria		
+			has_global_flag = UPR_soclibs_leave_dyrektoria		
 		}
 		localization_key = ""
 	}
@@ -96,7 +96,7 @@ defined_text = {
 			UKR_yevhen_konovalets_in_power = no
 			has_country_flag = UPR_uvo_openly_joins_dyrektoria
 		}
-		localization_key = UPR_Melnyk_tooltip
+		localization_key = UPR_Konovalets_tooltip
 	}
 	text = {
 		trigger = {
@@ -104,7 +104,29 @@ defined_text = {
 			UKR_andriy_melnyk_in_power = no
 			has_country_flag = UPR_uvo_openly_joins_dyrektoria
 		}
-		localization_key = UPR_Konovalets_tooltip
+		localization_key = UPR_Melnyk_tooltip
+	}
+	text = {
+		localization_key = ""
+	}
+}
+defined_text = {
+	name = GetUVOLeader
+	text = {
+		trigger = {
+			NOT = { has_country_flag = Yevhen_Konovalets_dead }
+			UKR_yevhen_konovalets_in_power = no
+			has_country_flag = UPR_uvo_openly_joins_dyrektoria
+		}
+		localization_key = UPR_Konovalets
+	}
+	text = {
+		trigger = {
+			has_country_flag = Yevhen_Konovalets_dead
+			UKR_andriy_melnyk_in_power = no
+			has_country_flag = UPR_uvo_openly_joins_dyrektoria
+		}
+		localization_key = UPR_Melnyk
 	}
 	text = {
 		localization_key = ""

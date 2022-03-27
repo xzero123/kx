@@ -1055,7 +1055,7 @@ focus_tree = {
 		icon = GFX_goal_UKR_coat_of_arms_hetman
 		cost = 1
 		relative_position_id = UKR_Ideological_Foundations
-		x = 3
+		x = 4
 		y = 3
 		prerequisite = {
 			focus = UKR_Nationalisation_Of_Key_Industries
@@ -1075,7 +1075,7 @@ focus_tree = {
 		icon = GFX_goal_UKR_coat_of_arms_hetman
 		cost = 1
 		relative_position_id = UKR_Ideological_Foundations
-		x = 1
+		x = 2
 		y = 3
 		prerequisite = {
 			focus = UKR_Nationalisation_Of_Key_Industries
@@ -1095,7 +1095,7 @@ focus_tree = {
 		icon = GFX_goal_UKR_coat_of_arms_hetman
 		cost = 1
 		relative_position_id = UKR_Ideological_Foundations
-		x = 1
+		x = 2
 		y = 4
 		prerequisite = {
 			focus = UKR_Bread_Problem
@@ -1115,7 +1115,7 @@ focus_tree = {
 		icon = GFX_goal_UKR_coat_of_arms_hetman
 		cost = 1
 		relative_position_id = UKR_Ideological_Foundations
-		x = 3
+		x = 4
 		y = 4
 		prerequisite = {
 			focus = UKR_Limited_Worker_Autonomy
@@ -1158,7 +1158,7 @@ focus_tree = {
 		icon = GFX_goal_UKR_coat_of_arms_hetman
 		cost = 1
 		relative_position_id = UKR_Ideological_Foundations
-		x = -1
+		x = -2
 		y = 3
 		prerequisite = {
 			focus = UKR_Ukrainization_Efforts
@@ -1181,7 +1181,7 @@ focus_tree = {
 		icon = GFX_goal_UKR_coat_of_arms_hetman
 		cost = 1
 		relative_position_id = UKR_Ideological_Foundations
-		x = -3
+		x = -4
 		y = 3
 		prerequisite = {
 			focus = UKR_Ukrainization_Efforts
@@ -1205,7 +1205,7 @@ focus_tree = {
 		cost = 1
 		relative_position_id = UKR_Ideological_Foundations
 		x = 0
-		y = 5
+		y = 3
 		prerequisite = {
 			focus = UKR_Nationalisation_Of_Key_Industries
 		}
@@ -1890,6 +1890,7 @@ focus_tree = {
 			OR = {
 				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
 				has_global_flag = UPR_ukrainian_civil_war_ended
+				has_global_flag = UPR_dyrektoria_joined_peacefully
 			}
 		}
 		prerequisite = {
@@ -1921,6 +1922,7 @@ focus_tree = {
 			OR = {
 				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
 				has_global_flag = UPR_ukrainian_civil_war_ended
+				has_global_flag = UPR_dyrektoria_joined_peacefully
 			}
 		}
 		ai_will_do = {
@@ -1987,6 +1989,7 @@ focus_tree = {
 			OR = {
 				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
 				has_global_flag = UPR_ukrainian_civil_war_ended
+				has_global_flag = UPR_dyrektoria_joined_peacefully
 			}
 		}
 		ai_will_do = {
@@ -2019,6 +2022,7 @@ focus_tree = {
 			OR = {
 				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
 				has_global_flag = UPR_ukrainian_civil_war_ended
+				has_global_flag = UPR_dyrektoria_joined_peacefully
 			}
 		}
 		ai_will_do = {
@@ -2091,15 +2095,6 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Nationalize_NUSK"
 			UKR_reduce_agricultural_crisis = yes
-			221 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			custom_effect_tooltip = UKR_unlock_khtz
 		}
 	}
 	focus = {
@@ -2132,6 +2127,7 @@ focus_tree = {
 			if = {
 				limit = { has_idea = UKR_agricultural_crisis_idea_3 }
 				remove_ideas = UKR_agricultural_crisis_idea_3
+				clr_country_flag = UKR_agriculture_crisis
 				add_timed_idea = {
 					idea = UKR_agricultural_crisis_idea_4
 					days = 60
@@ -2152,8 +2148,8 @@ focus_tree = {
 		x = 2
 		y = 4
 		available = {
-			NOT = { has_idea = UKR_agricultural_crisis_idea }
-			NOT = { has_idea = UKR_black_monday }
+			NOT = { has_country_flag = UKR_agriculture_crisis }
+			UKR_has_black_monday = no
 		}
 		prerequisite = {
 			focus = UKR_Invest_In_KhTZ
@@ -3190,6 +3186,7 @@ focus_tree = {
 			OR = {
 				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
 				has_global_flag = UPR_ukrainian_civil_war_ended
+				has_global_flag = UPR_dyrektoria_joined_peacefully
 			}
 		}		
 		completion_reward = {
@@ -3333,6 +3330,7 @@ focus_tree = {
 			OR = {
 				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
 				has_global_flag = UPR_ukrainian_civil_war_ended
+				has_global_flag = UPR_dyrektoria_joined_peacefully
 			}
 		}
 		
@@ -3436,6 +3434,7 @@ focus_tree = {
 			OR = {
 				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
 				has_global_flag = UPR_ukrainian_civil_war_ended
+				has_global_flag = UPR_dyrektoria_joined_peacefully
 			}
 		}
 		
@@ -3471,6 +3470,7 @@ focus_tree = {
 			OR = {
 				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
 				has_global_flag = UPR_ukrainian_civil_war_ended
+				has_global_flag = UPR_dyrektoria_joined_peacefully
 			}
 		}
 		
@@ -3636,9 +3636,17 @@ focus_tree = {
 		id = UKR_Impose_Martial_Law
 		icon = GFX_TRM_Martial_Law
 		relative_position_id = UKR_Fall_Of_Rivne
-		x = -1
+		x = -2
 		y = 1
-		cost = 6
+		cost = 1
+		select_effect = {
+			hidden_effect = {
+				country_event = {
+					id = ukrpol.55
+					days = 15
+				}
+			}
+		}
 		prerequisite = {
 			focus = UKR_Fall_Of_Rivne
 		}
@@ -3650,6 +3658,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Impose_Martial_Law"
+			add_war_support = 0.1
 		}
 	}
 	focus = {
@@ -3657,93 +3666,121 @@ focus_tree = {
 		icon = GFX_goal_UKR_army
 		relative_position_id = UKR_Fall_Of_Rivne
 		x = 1
-		y = 1
-		cost = 6
+		y = 2
+		cost = 2
 		prerequisite = {
 			focus = UKR_Fall_Of_Rivne
+		}
+		select_effect = {
+			hidden_effect = {
+				country_event = {
+					id = ukrpol.55
+					days = 15
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 100
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Cleave_The_Republican_Movement"
+			UPR = {
+				add_stability = -0.15
+				add_war_support = -0.15
+			}
 		}
 	}
 	focus = {
 		id = UKR_Poach_The_Dyrektoriia_Moderates
 		icon = GFX_goal_UKR_army
 		relative_position_id = UKR_Fall_Of_Rivne
-		x = 3
+		x = 2
 		y = 1
-		cost = 6
+		cost = 2
 		available = {
 			OR = {
 				UKR_ump_uskhd_in_power = yes
 				has_completed_focus = UKR_Coalition_Wih_UDP
 			}
 		}
+		select_effect = {
+			hidden_effect = {
+				country_event = {
+					id = ukrpol.55
+					days = 15
+				}
+			}
+		}
 		prerequisite = {
 			focus = UKR_Fall_Of_Rivne
 		}
 		ai_will_do = {
-			factor = 100
+			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Poach_The_Dyrektoriia_Moderates"
-		}
-	}
-	focus = {
-		id = UKR_Galician_Intervention
-		icon = GFX_goal_GAL_divide_nation
-		relative_position_id = UKR_Fall_Of_Rivne
-		x = 2
-		y = 2
-		cost = 6
-		available = {
-			UKR_ump_uskhd_in_power = yes
-		}
-		prerequisite = {
-			focus = UKR_Fall_Of_Rivne
-		}
-		ai_will_do = {
-			factor = 100
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus UKR_Galician_Intervention"
+			custom_effect_tooltip = UKR_Poach_The_Dyrektoriia_Moderates
+			set_global_flag = UPR_soclibs_leave_dyrektoria
+			UKR = {
+				add_popularity = {
+					ideology = social_liberal
+					popularity = 0.08
+				}
+			}			
 		}
 	}
 	focus = {
 		id = UKR_Secure_The_Rear
 		icon = GFX_securethenorthernborder
 		relative_position_id = UKR_Fall_Of_Rivne
-		x = -2
-		y = 2
-		cost = 6
+		x = 0
+		y = 1
+		cost = 2
 		prerequisite = {
 			focus = UKR_Fall_Of_Rivne
+		}
+		available = {
+			227 = { is_demilitarized_zone = no }
+			220 = { is_demilitarized_zone = no }
+		}
+		bypass = {
+			227 = { is_demilitarized_zone = yes }
+			220 = { is_demilitarized_zone = yes }
 		}
 		ai_will_do = {
 			factor = 100
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Secure_The_Rear"
+			custom_effect_tooltip = UKR_if_demilitarized_tt
+			set_country_flag = UKR_has_secured_rear
+			hidden_effect = {
+				country_event = {
+					id = ukrpol.56
+					days = 23
+				}
+			}
 		}
 	}
 	focus = {
 		id = UKR_Indulgences_To_Parliament
 		icon = GFX_goal_generic_parliament
 		relative_position_id = UKR_Fall_Of_Rivne
-		x = 0
-		y = 2
-		cost = 6
+		x = 2
+		y = 3
+		cost = 1
 		prerequisite = {
 			focus = UKR_Cleave_The_Republican_Movement
 		}
+		prerequisite = {
+			focus = UKR_Poach_The_Dyrektoriia_Moderates
+		}
 		ai_will_do = {
-			factor = 100
+			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Indulgences_To_Parliament"
+			set_country_flag = UKR_free_elections_promised
 		}
 	}
 	focus = {
@@ -3752,38 +3789,76 @@ focus_tree = {
 		relative_position_id = UKR_Fall_Of_Rivne
 		x = -1
 		y = 3
-		cost = 6
+		cost = 2
 		prerequisite = {
 			focus = UKR_Secure_The_Rear
 		}
 		prerequisite = {
 			focus = UKR_Impose_Martial_Law
 		}
+		available = {
+			OR = {
+				192 = { is_demilitarized_zone = no }
+				197 = { is_demilitarized_zone = no }
+				1232 = { is_demilitarized_zone = no }
+			}
+		}
+		bypass = {
+			OR = {
+				192 = { is_demilitarized_zone = yes }
+				197 = { is_demilitarized_zone = yes }
+				1232 = { is_demilitarized_zone = yes }
+			}
+		}
 		ai_will_do = {
 			factor = 100
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Remind_The_Peasants_Of_Anarchy"
+			random_list = {
+				33 = {
+					1232 = {
+						custom_effect_tooltip = UKR_if_demilitarized_2_tt
+					}
+				}
+				34 = {
+					197 = {
+						custom_effect_tooltip = UKR_if_demilitarized_2_tt
+					}
+				}
+				33 = {
+					192 = {
+						custom_effect_tooltip = UKR_if_demilitarized_2_tt
+					}
+				}
+			}
 		}
 	}
 	focus = {
 		id = UKR_Knock_The_Enemy_Out_Of_Rivne
 		icon = GFX_goal_generic_expel_people
 		relative_position_id = UKR_Fall_Of_Rivne
-		x = 1
+		x = 0
 		y = 4
-		cost = 6
+		cost = 3
 		prerequisite = {
 			focus = UKR_Remind_The_Peasants_Of_Anarchy
 		}
 		prerequisite = {
 			focus = UKR_Cleave_The_Republican_Movement
 		}
+		available = {
+			every_owned_state = {
+				is_fully_controlled_by = ROOT
+			}
+		}
 		ai_will_do = {
 			factor = 100
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Knock_The_Enemy_Out_Of_Rivne"
+			
+
 		}
 	}
 
@@ -3816,7 +3891,7 @@ focus_tree = {
 		relative_position_id = UPR_Fall_Of_Rivne
 		x = 0
 		y = 3
-		cost = 6
+		cost = 2
 		prerequisite = {
 			focus = UPR_Trigger_Peasant_Unrest
 		}
@@ -3836,7 +3911,7 @@ focus_tree = {
 		relative_position_id = UPR_Fall_Of_Rivne
 		x = 0
 		y = 1
-		cost = 6
+		cost = 1
 		available = {
 			has_global_flag = UKR_hetmanate_is_over
 			country_exists = GER
@@ -3849,6 +3924,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UPR_Take_Advantage_Of_Germany"
+			GER = {
+				country_event = {
+					id = ukrpol.50
+					days = 2
+				}
+			}
 		}
 	}
 	focus = {
@@ -3884,7 +3965,7 @@ focus_tree = {
 		relative_position_id = UPR_Fall_Of_Rivne
 		x = 1
 		y = 2
-		cost = 6
+		cost = 2
 		prerequisite = {
 			focus = UPR_Fall_Of_Rivne
 		}
@@ -3893,7 +3974,84 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UPR_Trigger_Peasant_Unrest"
-			
+			UPR = {
+				add_stability = -0.1
+				add_war_support = -0.1
+			}
+			if = {
+				limit = {
+					has_country_flag = UKR_has_secured_rear
+				}
+				every_state = {
+					limit = {
+						OR = {
+							state = 227
+							state = 200
+						}
+					}
+					set_demilitarized_zone = yes
+					hidden_effect = { add_core_of = UKR }
+					force_enable_resistance = {
+						occupied = UKR
+						occupier = UPR
+					}
+					start_resistance = yes
+					set_resistance = 5
+				}
+			}
+			else = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 227
+							state = 200
+						}
+					}
+					set_demilitarized_zone = yes
+					hidden_effect = { add_core_of = UKR }
+					force_enable_resistance = {
+						occupied = UKR
+						occupier = UPR
+					}
+					start_resistance = yes
+					set_resistance = 15
+				}
+			}
+			random_list = {
+				38 = {
+					1232 = {
+						set_demilitarized_zone = yes
+						force_enable_resistance = {
+							occupied = UKR
+							occupier = UPR
+						}
+						start_resistance = yes
+						set_resistance = 10
+					}
+				}
+				38 = {
+					197 = {
+						set_demilitarized_zone = yes
+						force_enable_resistance = {
+							occupied = UKR
+							occupier = UPR
+						}
+						start_resistance = yes
+						set_resistance = 10
+					}
+				}
+				24 = {
+					192 = {
+						set_demilitarized_zone = yes
+						force_enable_resistance = {
+							occupied = UKR
+							occupier = UPR
+						}
+						start_resistance = yes
+						set_resistance = 10
+					}
+				}
+			}
 		}
 	}
 	focus = {
@@ -3902,7 +4060,7 @@ focus_tree = {
 		relative_position_id = UPR_Fall_Of_Rivne
 		x = -1
 		y = 2
-		cost = 6
+		cost = 2
 		available = {
 			NOT = { country_exists = CRM }
 		}
@@ -3910,10 +4068,11 @@ focus_tree = {
 			focus = UPR_Fall_Of_Rivne
 		}
 		ai_will_do = {
-			factor = 100
+			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UPR_Promise_Crimean_Autonomy"
+			country_event = ukrpol.54
 		}
 	}
 	focus = {
@@ -3922,8 +4081,11 @@ focus_tree = {
 		relative_position_id = UPR_Fall_Of_Rivne
 		x = 3
 		y = 1
-		cost = 6
+		cost = 0
 		available = {
+			UKR_andriy_melnyk_in_power = yes
+		}
+		bypass = {
 			UKR_andriy_melnyk_in_power = yes
 		}
 		prerequisite = {
@@ -3934,6 +4096,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UPR_Colonel_Melnyk_Initiative"
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	focus = {
@@ -3942,7 +4105,7 @@ focus_tree = {
 		relative_position_id = UPR_Fall_Of_Rivne
 		x = 3
 		y = 2
-		cost = 6
+		cost = 2
 		available = {
 			UKR_andriy_melnyk_in_power = yes
 		}
@@ -3962,7 +4125,7 @@ focus_tree = {
 		relative_position_id = UPR_Fall_Of_Rivne
 		x = 2
 		y = 3
-		cost = 6
+		cost = 1
 		available = {
 			UKR_andriy_melnyk_in_power = yes
 		}
@@ -3973,7 +4136,7 @@ focus_tree = {
 			focus = UPR_Agreement_With_Dyrektoriia
 		}
 		ai_will_do = {
-			factor = 100
+			factor = 80
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UPR_Fight_Against_Partisanship"
@@ -3981,11 +4144,11 @@ focus_tree = {
 	}
 	focus = {
 		id = UPR_Agreement_With_Dyrektoriia
-		icon = GFX_goal_NEE_tacit_agreement
+		icon = GFX_NEE_tacit_agreement
 		relative_position_id = UPR_Fall_Of_Rivne
 		x = 4
 		y = 3
-		cost = 6
+		cost = 1
 		available = {
 			UKR_andriy_melnyk_in_power = yes
 		}
@@ -3996,7 +4159,7 @@ focus_tree = {
 			focus = UPR_Fight_Against_Partisanship
 		}
 		ai_will_do = {
-			factor = 100
+			factor = 80
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UPR_Agreement_With_Dyrektoriia"
@@ -4008,9 +4171,18 @@ focus_tree = {
 		relative_position_id = UPR_Fall_Of_Rivne
 		x = 1
 		y = 4
-		cost = 6
+		cost = 3
 		prerequisite = {
-			focus = UPR_Rally_The_Striletska_Rada
+			focus = UPR_Trigger_Peasant_Unrest
+		}
+		available = {
+			202 = {
+				is_fully_controlled_by = ROOT
+			}
+		}
+		prerequisite = {
+			focus = UPR_Fight_Against_Partisanship
+			focus = UPR_Agreement_With_Dyrektoriia
 			focus = UPR_Trigger_Peasant_Unrest
 		}
 		ai_will_do = {

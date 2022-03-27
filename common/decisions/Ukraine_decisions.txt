@@ -53,6 +53,70 @@ UKR_dyrektoria_uprising = {
 			country_event = ukrpol.36
 		}
 	}
+	UPR_seize_zhytomyr = {
+		icon = GFX_decision_infiltrate_state
+		
+		allowed = { always = no } #manually activated
+		
+		available = {
+			controls_province = 11514
+		}
+		highlight_states = {
+			highlight_provinces = {
+				11514
+			}
+		}
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 45
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UPR_seize_zhytomyr"
+			add_to_variable = { UKR_petliura_authority = 1 }
+			random_enemy_country = {
+				add_war_support = -0.1
+				add_stability = -0.1
+			}
+		}
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout UPR_seize_zhytomyr"
+			add_to_variable = { UKR_petliura_authority = -1 }
+			add_war_support = -0.1
+			add_stability = -0.1
+			hidden_effect = { country_event = ukrpol.59 }
+		}
+	}
+	UPR_seize_vynnytsa = {
+		icon = GFX_decision_infiltrate_state
+		
+		allowed = { always = no } #manually activated
+		
+		available = {
+			controls_province = 9481
+		}
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 60
+		highlight_states = {
+			highlight_provinces = {
+				9481
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UPR_seize_vynnytsa"
+			add_to_variable = { UKR_petliura_authority = 1 }
+			random_enemy_country = {
+				add_war_support = -0.1
+				add_stability = -0.1
+			}
+		}
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout UPR_seize_vynnytsa"
+			add_to_variable = { UKR_petliura_authority = -1 }
+			add_war_support = -0.1
+			add_stability = -0.1
+		}
+	}
 }
 UKR_economy = {
 	UKR_resume_dnipro = {
@@ -71,8 +135,8 @@ UKR_economy = {
 		available = { #failure condition
 			#dnipro
 			controls_state = 226
-			NOT = { has_idea = UKR_agricultural_crisis_idea }
-			NOT = { has_idea = UKR_black_monday }
+			NOT = { has_country_flag = UKR_agriculture_crisis }
+			UKR_has_black_monday = no
 			num_of_civilian_factories_available_for_projects > 2
 		}
 		complete_effect = {

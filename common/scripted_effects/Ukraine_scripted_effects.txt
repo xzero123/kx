@@ -308,6 +308,7 @@ UKR_reduce_agricultural_crisis = {
 			has_idea = UKR_agricultural_crisis_idea_4
 		}
 		remove_ideas = UKR_agricultural_crisis_idea_4
+		clr_country_flag = UKR_agricultural_crisis
 	}
 	else_if = {
 		limit = {
@@ -495,12 +496,46 @@ UKR_create_danylo = {
 UPR_create_ROOT_dyrektoria_kingdom = {
 	leave_faction = yes
 	hidden_effect = {
+		if = {
+			limit = {
+				OR = {
+					UKR_ump_uskhd_in_power = yes
+					has_completed_focus = UKR_Coalition_Wih_UDP
+				}
+			}
+			random_list = {
+				30 = {
+					country_event = {
+						id = ukrpol.57
+						days = 21
+					}
+				}
+				70 = {
+					set_country_flag = UKR_has_secured_rear
+				}
+			}
+			country_event = {
+				id = ukrpol.58
+				days = 5
+			}
+		}
 		# kingdom should not have streltsy
-		UPR = { get_current_government_type = yes }
 		delete_unit_template_and_units = {
 			division_template = "Sichovi Striltsi"
 			disband = yes #will refund equipment and manpower
-		}		
+		}
+		hidden_effect = {
+			set_temp_variable = { UPR_tot_pop = UPR.party_popularity_100@totalist }
+			set_temp_variable = { UPR_syn_pop = UPR.party_popularity_100@syndicalist }
+			set_temp_variable = { UPR_rso_pop = UPR.party_popularity_100@radical_socialist }
+			set_temp_variable = { UPR_sde_pop = UPR.party_popularity_100@social_democrat }
+			set_temp_variable = { UPR_sli_pop = UPR.party_popularity_100@social_liberal }
+			set_temp_variable = { UPR_mli_pop = UPR.party_popularity_100@market_liberal }
+			set_temp_variable = { UPR_sco_pop = UPR.party_popularity_100@social_conservative }
+			set_temp_variable = { UPR_ade_pop = UPR.party_popularity_100@authoritarian_democrat }
+			set_temp_variable = { UPR_pau_pop = UPR.party_popularity_100@paternal_autocrat }
+			set_temp_variable = { UPR_npo_pop = UPR.party_popularity_100@national_populist }
+		}
 		UPR = { 
 			set_cosmetic_tag = UKR_kingdom
 			copy_government_of_ROOT = yes
@@ -582,19 +617,46 @@ UPR_create_ROOT_dyrektoria_kingdom = {
 				name = UKR_paternal_autocrat_party
 				long_name = UKR_paternal_autocrat_party_long
 			}
-			set_capital = 202
+			set_capital = { state = 202 }		
 		}
-		restore_previous_government_type = yes
+		set_popularities = {
+			totalist = UPR_tot_pop
+			syndicalist = UPR_syn_pop
+			radical_socialist = UPR_rso_pop
+			social_democrat = UPR_sde_pop
+			social_liberal = UPR_sli_pop
+			market_liberal = UPR_mli_pop
+			social_conservative = UPR_sco_pop
+			authoritarian_democrat = UPR_ade_pop
+			paternal_autocrat = UPR_pau_pop
+			national_populist = UPR_npo_pop
+		}
+		set_politics = {
+			ruling_party = social_democrat
+			elections_allowed = no
+		}
+		UKR_remove_king = yes
+		create_country_leader = {
+			name = "Andriy Melnyk"
+			desc = "POLITICS_ANDRIY_MELNYK_DESC"
+			picture = "gfx/leaders/UKR/Portrait_UKR_Andriy_Melnyk_Extra.png"
+			expire = "1965.1.1"
+			ideology = junta_subtype
+		}
 		transfer_units_fraction = {
 			target = UPR
+			size = 1
 			army_ratio = 1
 			navy_ratio = 0.5
+			air_ratio = 0.5
+			stockpile_ratio = 0.7
 			keep_unit_leaders_trigger = { always = yes }
 		}
 		UPR = {
 			every_unit_leader = {
 				set_nationality = UKR
 			}
+			disband_twenty_percent_units = yes
 		}
 		every_unit_leader = {
 			limit = {
@@ -612,7 +674,9 @@ UPR_create_ROOT_dyrektoria_kingdom = {
 	}
 	effect_tooltip = {
 		event_target:UKR_Mykhailo_Pavlenko = { set_nationality = UPR }
+		event_target:UKR_Averkii_Honcharenko = { set_nationality = UPR }
 	}
+	set_country_flag = UPR_uvo_openly_joins_dyrektoria
 	hidden_effect = {
 		set_cosmetic_tag = UKR_dyrektoria
 		set_stability = 0.25
@@ -908,6 +972,13 @@ UPR_create_dyrektoria = {
 						id = ukrpol.39
 						days = 3
 					}
+				}				
+			}
+			if = {
+				limit = { NOT = { country_exists = CRM } }
+				country_event = {
+					id = ukrpol.54
+					days = 20
 				}
 			}
 			if = {
@@ -921,11 +992,22 @@ UPR_create_dyrektoria = {
 			}
 			else_if = {
 				limit = { has_global_flag = UKR_hetmanate_is_over }
-				#country_event for german support
-			}			
+				AUS = {
+					country_event = {
+						id = ukrpol.52
+						days = 7
+					}
+				}
+			}
+			country_event = {
+				id = ukrpol.58
+				days = 5
+			}
 		}
 	}
 	event_target:UKR_Mykhailo_Pavlenko = { set_nationality = UPR }
+	event_target:UKR_Averkii_Honcharenko = { set_nationality = UPR }
+	set_country_flag = UPR_uvo_openly_joins_dyrektoria
 	every_unit_leader = {
 		limit = { has_trait = UKR_uvo_officer }
 		set_nationality = UPR
@@ -935,6 +1017,7 @@ UPR_create_dyrektoria = {
 		popularity = -0.05
 	}
 	hidden_effect = {
+		disband_twenty_percent_units = yes
 		every_state = {
 			limit = {
 				OR = {

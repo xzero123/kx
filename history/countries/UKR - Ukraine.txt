@@ -159,7 +159,7 @@ create_dynamic_country = {
 
 	save_global_event_target_as = UKR_dyrektoria_headquarters
 	set_cosmetic_tag = UKR_dyrektoria
-
+	set_country_flag = UKR_dyrektoria_uprising_active
 	set_politics = {
 		ruling_party = social_democrat
 		elections_allowed = no
@@ -435,7 +435,7 @@ create_corps_commander = {
 	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Oleksandr_Rogoza.png"
 	traits = { old_guard infantry_leader }
 	id = 17901
-	skill = 3
+	skill = 4
 	attack_skill = 3
 	defense_skill = 1
 	planning_skill = 3
@@ -562,6 +562,50 @@ create_corps_commander = {
 	logistics_skill = 1
 	id = 17920
 }
+create_corps_commander = {
+	name = "Ivan Honcharenko"
+	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Ivan_Goncharenko.png"
+	traits = { infantry_officer hill_fighter }
+	skill = 2
+	attack_skill = 1
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 1
+	id = 17921
+}
+create_corps_commander = {
+	name = "Averkii Honcharenko"
+	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Averkiy_Goncharenko.png"
+	traits = { trickster career_officer harsh_leader }
+	skill = 2
+	attack_skill = 3
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+	id = 17922
+}
+create_corps_commander = {
+	name = "Hryhorii Syrotenko"
+	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Grygoriy_Sirotenko.png"
+	traits = { swamp_fox }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 2
+	id = 17923
+}
+create_corps_commander = {
+	name = "Fedir Chernyk"
+	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Fedir_Chernik.png"
+	traits = { commando artillery_specialist }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 4
+	logistics_skill = 2
+	id = 17924
+}
 
 create_navy_leader = {
 	name = "Andriy Pokrovskyi"
@@ -598,6 +642,15 @@ create_navy_leader = {
 	id = 17915
 }
 
+create_operative_leader = {
+	name = "Osyp Dumin"
+	GFX = GFX_Portrait_UKR_Osip_Dumin
+	traits = { operative_seducer operative_linguist }
+	bypass_recruitment = yes
+	available_to_spy_master = no
+	id = 17925
+	nationalities = { UKR WSU }
+}
 
 random_unit_leader = {
 	limit = { has_id = 17909 }
@@ -623,6 +676,11 @@ random_unit_leader = {
 random_unit_leader = {
 	limit = { has_id = 17908 }
 	save_global_event_target_as = UKR_Symon_Petliura
+	set_nationality = UPR
+}
+random_unit_leader = {
+	limit = { has_id = 17921 }
+	save_global_event_target_as = UKR_Ivan_Honcharenko
 	set_nationality = UPR
 }
 random_unit_leader = {
@@ -667,6 +725,26 @@ random_unit_leader = {
 random_unit_leader = {
 	limit = { has_id = 17920 }
 	save_global_event_target_as = UKR_Omelian_Volokh
+	set_nationality = UPR
+}
+random_unit_leader = {
+	limit = { has_id = 17922 }
+	save_global_event_target_as = UKR_Averkii_Honcharenko
+}
+random_unit_leader = {
+	limit = { has_id = 17923 }
+	save_global_event_target_as = UKR_Hryhorii_Syrotenko
+	set_nationality = UPR
+}
+random_unit_leader = {
+	limit = { has_id = 17924 }
+	save_global_event_target_as = UKR_Fedir_Chernyk
+	add_unit_leader_trait = UKR_uvo_officer
+}
+random_operative = {
+	limit = { has_id = 17925 }
+	save_global_event_target_as = UKR_Osip_Dumin
+	add_unit_leader_trait = UKR_uvo_officer
 	set_nationality = UPR
 }
 

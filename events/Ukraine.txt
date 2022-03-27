@@ -552,6 +552,7 @@ country_event = { # Konovalets Dead
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.20" }
 	immediate = { 
 		set_country_flag = Yevhen_Konovalets_dead
+		hidden_effect = { UPR = { set_country_flag = Yevhen_Konovalets_dead } }
 		set_country_flag = UPR_uvo_openly_joins_dyrektoria
 	}
 	title = ukrpol.20.t
@@ -1044,31 +1045,32 @@ country_event = { # Dyrektoria Uprising
 	title = ukrpol.36.t
 	desc = ukrpol.36.d
 	is_triggered_only = yes
+	picture = GFX_report_event_UKR_dyrektoria_arrives
 
 	option = {
 		name = ukrpol.36.a
-		trigger = { is_ai = no }
+		ai_chance = {
+			base = 90
+		}
+		remove_ideas = UKR_political_instability
 		effect_tooltip = { UPR = { change_tag_from = ROOT } }
 		set_global_flag = UPR_dyrektoria_uprising_UPR
 		UPR_create_ROOT_dyrektoria_kingdom = yes
 		complete_national_focus = UPR_Fall_Of_Rivne
 		mark_focus_tree_layout_dirty = yes
-	}
-	option = {
-		name = ukrpol.36.a
-		trigger = { is_ai = no }
-		effect_tooltip = { UPR = { change_tag_from = ROOT } }
-		set_global_flag = UPR_dyrektoria_uprising_UPR
-		UPR_create_ROOT_dyrektoria_kingdom = yes
-		complete_national_focus = UPR_Fall_Of_Rivne
-		mark_focus_tree_layout_dirty = yes
+		activate_mission = UPR_onwards
 	}
 	option = {
 		name = ukrpol.36.b
+		ai_chance = {
+			base = 10
+		}
+		remove_ideas = UKR_political_instability
 		set_global_flag = UPR_dyrektoria_uprising_UPR
 		UPR_create_dyrektoria = yes
 		complete_national_focus = UKR_Fall_Of_Rivne
 		mark_focus_tree_layout_dirty = yes
+		activate_mission = UPR_onwards
 	}	
 }
 country_event = { # Dyrektoria Uprising
@@ -1077,10 +1079,11 @@ country_event = { # Dyrektoria Uprising
 	title = ukrpol.37.t
 	desc = ukrpol.37.d
 	is_triggered_only = yes
-
+	
 	option = {
 		name = ukrpol.37.a
 		set_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+		remove_ideas = UKR_political_instability
 		hidden_effect = {
 			if = {
 				limit = { has_dlc = "Man the Guns" }
@@ -1111,6 +1114,7 @@ country_event = { # Dyrektoria Peace
 	title = ukrpol.38.t
 	desc = ukrpol.38.d
 	is_triggered_only = yes
+	picture = GFX_report_event_UKR_dyrektoria_arrives
 
 	option = {
 		name = ukrpol.38.a
@@ -1141,6 +1145,8 @@ country_event = { # Dyrektoria Peace
 			name = UKR_social_liberal_party
 			long_name = UKR_social_liberal_party_legal_long
 		}
+		remove_ideas = UKR_political_instability
+		clear_global_event_target = UKR_dyrektoria_headquarters
 		hidden_effect = {
 			UPR = {
 				event_target:UPR_Joint_Command = { retire = yes }
@@ -1217,6 +1223,7 @@ country_event = { # Austrian-Dyrektoria
 	title = ukrpol.41.t
 	desc = ukrpol.41.d
 	is_triggered_only = yes
+	picture = GFX_report_event_UKR_dyrektoria_arrives
 
 	option = {
 		name = ukrpol.41.a
@@ -1310,6 +1317,16 @@ country_event = { # Austrian-Dyrektoria
 		ai_chance = {
 			base = 80
 		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hates_govt
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.46
+				days = 2
+			}
+		}
 		RUS = {
 			country_event = {
 				id = ukrpol.47
@@ -1385,6 +1402,16 @@ country_event = { # Austrian-Dyrektoria
 		}
 		ai_chance = {
 			base = 75
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hates_govt
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.46
+				days = 2
+			}
 		}
 		RUS = {
 			country_event = {
@@ -1462,6 +1489,16 @@ country_event = { # Austrian-Dyrektoria
 		ai_chance = {
 			base = 75
 		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hates_govt
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.46
+				days = 2
+			}
+		}
 		RUS = {
 			country_event = {
 				id = ukrpol.47
@@ -1517,6 +1554,7 @@ country_event = { # Russian-Dyrektoria
 	title = ukrpol.41.t
 	desc = ukrpol.47.d
 	is_triggered_only = yes
+	picture = GFX_report_event_UKR_dyrektoria_arrives
 
 	option = {
 		name = ukrpol.47.a
@@ -1625,6 +1663,771 @@ country_event = { # Russian-Dyrektoria
 		}				
 	}	
 }
+country_event = { # German-Dyrektoria
+	id = ukrpol.50
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.50" }
+	title = ukrpol.41.t
+	desc = ukrpol.50.d
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_dyrektoria_arrives
+
+	option = {
+		name = ukrpol.50.a
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0.5
+				has_left_democratic_government = yes
+			}
+			modifier = {
+				factor = 2
+				has_authoritarian_government = yes
+			}
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.51
+				days = 3
+			}
+		}
+	}
+	option = {
+		name = ukrpol.50.b
+		trigger = {
+			has_left_democratic_government = no
+		}
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0.5
+				has_authoritarian_government = yes
+			}
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.52
+				days = 3
+			}
+		}
+	}
+	option = {
+		name = ukrpol.50.c
+		trigger = {
+			has_left_democratic_government = yes
+		}
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0.5
+				has_authoritarian_government = yes
+			}
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.52
+				days = 3
+			}
+		}
+	}	
+}
+country_event = { # German-Dyrektoria
+	id = ukrpol.51
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.51" }
+	title = ukrpol.51.t
+	desc = ukrpol.51.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.42.a
+		ai_chance = {
+			base = 20
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hates_govt
+		}
+	}
+	option = {
+		name = ukrpol.42.b
+		trigger = {
+			RUS = {
+				exists = yes
+				OR = {
+					has_socialist_government = yes
+					has_left_democratic_government = yes
+				}
+			}
+		}
+		ai_chance = {
+			base = 80
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hates_govt
+		}
+		RUS = {
+			country_event = {
+				id = ukrpol.47
+				days = 3
+			}
+		}
+	}	
+}
+country_event = { # German-Dyrektoria
+	id = ukrpol.52
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.52" }
+	title = ukrpol.52.t
+	desc = ukrpol.52.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.43.a
+		ai_chance = {
+			base = 25
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_approves_of_govt
+		}
+		set_country_flag = UKR_will_trade_with_GER
+		add_ideas = UKR_german_aid
+		FROM = {
+			country_event = {
+				id = ukrpol.53
+				days = 2
+			}
+			send_equipment = {
+				target = ROOT
+				type = infantry_equipment
+				amount = 2000
+			}
+			create_production_license = {
+				target = ROOT
+				equipment = {
+					type = tac_bomber_equipment_1
+					version = 0
+				}
+				cost_factor = 0
+			}
+		}
+	}
+	option = {
+		name = ukrpol.43.b
+		ai_chance = {
+			base = 5
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hates_govt
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.46
+				days = 2
+			}
+		}
+	}
+	option = {
+		name = ukrpol.42.b
+		trigger = {
+			RUS = {
+				exists = yes
+				OR = {
+					has_socialist_government = yes
+					has_left_democratic_government = yes
+				}
+			}
+		}
+		ai_chance = {
+			base = 75
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hates_govt
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.46
+				days = 2
+			}
+		}
+		RUS = {
+			country_event = {
+				id = ukrpol.47
+				days = 3
+			}
+		}
+	}	
+}
+country_event = { # German-Dyrektoria
+	id = ukrpol.53
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.53" }
+	title = ukrpol.45.t
+	desc = ukrpol.45.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.45.a
+		effect_tooltip = {
+			FROM = {
+				add_ideas = UKR_german_aid
+			}
+			send_equipment = {
+				target = FROM
+				type = infantry_equipment
+				amount = 2000
+			}
+			create_production_license = {
+				target = FROM
+				equipment = {
+					type = tac_bomber_equipment_1
+					version = 0
+				}
+				cost_factor = 0
+			}
+		}
+	}		
+}
+country_event = { # Crimea
+	id = ukrpol.54
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.54" }
+	immediate = {
+		hidden_effect = {
+			CRM = { 
+				drop_cosmetic_tag = yes 
+				add_ideas = CRM_crimean_tatar_rule
+				remove_all_ministers = yes
+				add_ideas = {
+					CRM_Amet_Ozenbashly_hog_sli
+					CRM_Asan_Sabri_Ayvazov_for_sli
+					CRM_Usein_Abdurefi_Bodaninskiy_eco_sli
+					CRM_Seitcelli_Usein_Hattat_sec_sli
+				}
+				set_politics = {
+					ruling_party = social_liberal
+				}
+				set_temp_variable = { soccon_pop = ROOT.party_popularity@social_conservative }
+				multiply_temp_variable = { soccon_pop = 100 }
+				set_political_party = {
+					ideology = market_liberal
+					popularity = soccon_pop
+				}
+				set_political_party = {
+					ideology = social_conservative
+					popularity = 0
+				}
+				unlock_national_focus = CRM_Crimean_Regional_Government
+				unlock_national_focus = CRM_Secure_The_Perekop_Isthmus
+				unlock_national_focus = CRM_Appeal_To_German_Mediation
+				unlock_national_focus = CRM_Independence
+				unlock_national_focus = CRM_Push_Towards_Federation
+			}
+		}
+	}
+	title = ukrpol.54.t
+	desc = ukrpol.54.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.54.a
+		custom_effect_tooltip = UKR_crimea_will_revolt
+		every_state = {
+			limit = {
+				OR = {
+					state = 137
+					state = 1220
+					state = 1221
+				}
+			}
+			set_demilitarized_zone = yes
+			hidden_effect = { add_core_of = CRM }
+			force_enable_resistance = {
+				occupied = CRM
+				occupier = 202.owner
+			}
+			start_resistance = yes
+			set_resistance = 20
+		}
+	}		
+}
+country_event = { # Peasant unrest in South-East
+	id = ukrpol.55
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.55" }
+	title = ukrpol.55.t
+	desc = ukrpol.55.d
+	is_triggered_only = yes
+	trigger = {
+		NOT = { has_completed_focus = UKR_Secure_The_Rear }
+	}
+	option = {
+		name = ukrpol.55.a
+		add_stability = -0.1
+		add_war_support = -0.1
+		if = {
+			limit = {
+				has_country_flag = UKR_has_secured_rear
+			}
+			every_state = {
+				limit = {
+					OR = {
+						state = 227
+						state = 200
+					}
+				}
+				set_demilitarized_zone = yes
+				hidden_effect = { add_core_of = UPR }
+				force_enable_resistance = {
+					occupied = UPR
+					occupier = UKR
+				}
+				start_resistance = yes
+				set_resistance = 5
+			}
+		}
+		else = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 227
+						state = 200
+					}
+				}
+				set_demilitarized_zone = yes
+				hidden_effect = { add_core_of = UPR }
+				force_enable_resistance = {
+					occupied = UPR
+					occupier = UKR
+				}
+				start_resistance = yes
+				set_resistance = 15
+			}
+		}
+	}		
+}
+country_event = { # Peasant unrest in South-East
+	id = ukrpol.56
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.56" }
+	title = ukrpol.56.t
+	desc = ukrpol.56.d
+	is_triggered_only = yes
+	trigger = {
+		NOT = { has_completed_focus = UKR_Remind_The_Peasants_Of_Anarchy }
+	}
+	option = {
+		name = ukrpol.56.a
+		random_list = {
+			38 = {
+				1232 = {
+					set_demilitarized_zone = yes
+					hidden_effect = { add_core_of = UPR }
+					force_enable_resistance = {
+						occupied = UPR
+						occupier = UKR
+					}
+					start_resistance = yes
+					set_resistance = 10
+				}
+			}
+			38 = {
+				197 = {
+					set_demilitarized_zone = yes
+					hidden_effect = { add_core_of = UPR }
+					force_enable_resistance = {
+						occupied = UPR
+						occupier = UKR
+					}
+					start_resistance = yes
+					set_resistance = 10
+				}
+			}
+			24 = {
+				192 = {
+					set_demilitarized_zone = yes
+					hidden_effect = { add_core_of = UPR }
+					force_enable_resistance = {
+						occupied = UPR
+						occupier = UKR
+					}
+					start_resistance = yes
+					set_resistance = 10
+				}
+			}
+		}
+	}		
+}
+country_event = { # UNDO defected
+	id = ukrpol.57
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.57" }
+	title = ukrpol.57.t
+	desc = ukrpol.57.d
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrpol.57.a
+		add_stability = -0.1
+		add_political_power = -50
+		add_to_variable = { UKR_vynnychenko_authority = -1 }
+		set_party_name = {
+			ideology = social_liberal
+			name = UKR_social_liberal_party2
+			long_name = UKR_social_liberal_party2_long
+		}
+	}		
+}
+country_event = { # Choosing target
+	id = ukrpol.58
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.58" }
+	title = ukrpol.58.t
+	desc = ukrpol.58.d
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrpol.58.a
+		ai_chance = {
+			base = 70
+		}
+		add_to_variable = { UKR_petliura_authority = 1 }
+		add_to_variable = { UKR_uvo_authority = -1 }
+		set_country_flag = UPR_zhytomyr_plan
+		custom_effect_tooltip = UKR_plan_chosen_tt
+		activate_mission_tooltip = UPR_seize_zhytomyr
+	}
+	option = {
+		name = ukrpol.58.b
+		ai_chance = {
+			base = 30
+		}
+		add_to_variable = { UKR_petliura_authority = -1 }
+		add_to_variable = { UKR_uvo_authority = 1 }
+		set_country_flag = UPR_vynnytsa_plan
+		custom_effect_tooltip = UKR_plan_chosen_tt
+		activate_mission_tooltip = UPR_seize_vynnytsa
+	}		
+}
+country_event = { # Colonel Melnyk Initiative
+	id = ukrpol.59
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.59" }
+	title = ukrpol.59.t
+	desc = ukrpol.59.d
+	is_triggered_only = yes
+	trigger = {
+		has_country_flag = Yevhen_Konovalets_dead
+	}
+	option = {
+		name = ukrpol.59.a
+		ai_chance = {
+			base = 70
+		}
+		add_to_variable = { UKR_petliura_authority = -1 }
+		add_to_variable = { UKR_vynnychenko_authority = -1 }
+		add_to_variable = { UKR_uvo_authority = 1 }
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.1
+		}
+	}
+	option = {
+		name = ukrpol.59.b
+		ai_chance = {
+			base = 30
+		}
+		add_to_variable = { UKR_petliura_authority = 1 }
+		add_to_variable = { UKR_vynnychenko_authority = 1 }
+		add_to_variable = { UKR_uvo_authority = -1 }
+	}		
+}
+country_event = { # Colonel Melnyk Initiative
+	id = ukrpol.60
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.60" }
+	title = ukrpol.60.t
+	desc = ukrpol.60.d
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrpol.60.a
+		trigger = { has_global_flag = UPR_dyrektoria_uprising_UPR }
+		hidden_effect = {
+			if = {
+				limit = {
+					is_in_faction = yes
+				}
+				leave_faction = yes
+			}
+			UPR = {
+				if = {
+					limit = {
+						is_in_faction = yes
+					}
+					leave_faction = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				137 = { is_demilitarized_zone = yes }
+			}
+			CRM = {
+				transfer_state = 137
+				transfer_state = 1220
+				transfer_state = 1221
+			}
+			CRM = {
+				declare_war_on = {
+					target = UPR
+					type = civil_war
+				}
+			}
+		}
+		declare_war_on = {
+			target = UPR
+			type = civil_war
+		}
+		random_state = {
+			prioritize = { 227 }
+			limit = {
+				has_active_resistance = yes
+			}
+			create_unit = {
+				division = "name = \"Selianska povstanska dyviziia\" division_template = \"Petliurovtsy\" start_experience_factor = 0.05 start_equipment_factor = 0.8"
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 502
+				owner = ROOT
+			}
+			create_unit = {
+				division = "name = \"Mariupolskyi povstanskyi polk'\" division_template = \"Petliurovtsy\" start_experience_factor = 0.05 start_equipment_factor = 0.8"
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 6420
+				owner = ROOT
+			}
+			if = {
+				limit = {
+					ROOT = { NOT = { has_country_flag = UKR_has_secured_rear } }
+				}
+				create_unit = {
+					division = "name = \"Yuzivskyi selianskyi batalion\" division_template = \"Petliurovtsy\" start_experience_factor = 0.1 start_equipment_factor = 0.8"
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 6474
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Donetska bryhada'\" division_template = \"Petliurovtsy\" start_experience_factor = 0.1 start_equipment_factor = 0.8"
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 6474
+					owner = ROOT
+				}
+			}
+		}
+		random_state = {
+			prioritize = { 200 }
+			limit = {
+				has_active_resistance = yes
+			}
+			create_unit = {
+				division = "name = \"Selianska dyviziia\" division_template = \"Petliurovtsy\" start_experience_factor = 0.05 start_equipment_factor = 0.8"
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 6596
+				owner = ROOT
+			}
+			if = {
+				limit = {
+					ROOT = { NOT = { has_country_flag = UKR_has_secured_rear } }
+				}
+				create_unit = {
+					division = "name = \"Zaporizkyi selianskyi batalion\" division_template = \"Petliurovtsy\" start_experience_factor = 0.1 start_equipment_factor = 0.8"
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 11405
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Zaporizkyi povstanskyi kurin'\" division_template = \"Petliurovtsy\" start_experience_factor = 0.1 start_equipment_factor = 0.8"
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 11405
+					owner = ROOT
+				}
+			}
+		}
+		every_state = {
+			limit = {
+				has_active_resistance = yes
+				OR = {
+					state = 1232
+					state = 197
+					state = 192
+				}
+			}
+			create_unit = {
+				division = "name = \"Povstale narodne opolchennia\" division_template = \"Petliurovtsy\" start_experience_factor = 0.05 start_equipment_factor = 0.8"
+				allow_spawning_on_enemy_provs = yes
+				owner = ROOT
+			}
+			create_unit = {
+				division = "name = \"Povstale narodne opolchennia\" division_template = \"Petliurovtsy\" start_experience_factor = 0.05 start_equipment_factor = 0.8"
+				allow_spawning_on_enemy_provs = yes
+				owner = ROOT
+			}
+			create_unit = {
+				division = "name = \"Povstale narodne opolchennia\" division_template = \"Petliurovtsy\" start_experience_factor = 0.05 start_equipment_factor = 0.8"
+				allow_spawning_on_enemy_provs = yes
+				owner = ROOT
+			}
+		}
+		if = {
+			limit = { has_country_flag = UPR_zhytomyr_plan }
+			activate_mission = UPR_seize_zhytomyr
+		}
+		else_if = {
+			limit = { has_country_flag = UPR_vynnytsa_plan }
+			activate_mission = UPR_seize_vynnytsa
+		}
+	}
+	option = {
+		name = ukrpol.60.b
+		trigger = { NOT = { has_global_flag = UPR_dyrektoria_uprising_UPR } }
+		hidden_effect = {
+			if = {
+				limit = {
+					is_in_faction = yes
+				}
+				leave_faction = yes
+			}
+			UPR = {
+				if = {
+					limit = {
+						is_in_faction = yes
+					}
+					leave_faction = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				137 = { is_demilitarized_zone = yes }
+			}
+			CRM = {
+				transfer_state = 137
+				transfer_state = 1220
+				transfer_state = 1221
+			}
+			CRM = {
+				declare_war_on = {
+					target = ROOT
+					type = civil_war
+				}
+			}
+		}
+		declare_war_on = {
+			target = UPR
+			type = civil_war
+		}
+		random_state = {
+			prioritize = { 227 }
+			limit = {
+				has_active_resistance = yes
+			}
+			create_unit = {
+				division = "name = \"Selianska povstanska dyviziia\" division_template = \"Petliurovtsy\" start_experience_factor = 0.05 start_equipment_factor = 0.8"
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 502
+				owner = UPR
+			}
+			create_unit = {
+				division = "name = \"Mariupolskyi povstanskyi polk'\" division_template = \"Petliurovtsy\" start_experience_factor = 0.05 start_equipment_factor = 0.8"
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 6420
+				owner = UPR
+			}
+			if = {
+				limit = {
+					ROOT = { NOT = { has_country_flag = UKR_has_secured_rear } }
+				}
+				create_unit = {
+					division = "name = \"Yuzivskyi selianskyi batalion\" division_template = \"Petliurovtsy\" start_experience_factor = 0.1 start_equipment_factor = 0.8"
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 6474
+					owner = UPR
+				}
+				create_unit = {
+					division = "name = \"Donetska bryhada'\" division_template = \"Petliurovtsy\" start_experience_factor = 0.1 start_equipment_factor = 0.8"
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 6474
+					owner = UPR
+				}
+			}
+		}
+		random_state = {
+			prioritize = { 200 }
+			limit = {
+				has_active_resistance = yes
+			}
+			create_unit = {
+				division = "name = \"Selianska dyviziia\" division_template = \"Petliurovtsy\" start_experience_factor = 0.05 start_equipment_factor = 0.8"
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 6596
+				owner = UPR
+			}
+			if = {
+				limit = {
+					ROOT = { NOT = { has_country_flag = UKR_has_secured_rear } }
+				}
+				create_unit = {
+					division = "name = \"Zaporizkyi selianskyi batalion\" division_template = \"Petliurovtsy\" start_experience_factor = 0.1 start_equipment_factor = 0.8"
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 11405
+					owner = UPR
+				}
+				create_unit = {
+					division = "name = \"Zaporizkyi povstanskyi kurin'\" division_template = \"Petliurovtsy\" start_experience_factor = 0.1 start_equipment_factor = 0.8"
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 11405
+					owner = UPR
+				}
+			}
+		}
+		every_state = {
+			limit = {
+				has_active_resistance = yes
+				OR = {
+					state = 1232
+					state = 197
+					state = 192
+				}
+			}
+			create_unit = {
+				division = "name = \"Povstale narodne opolchennia\" division_template = \"Petliurovtsy\" start_experience_factor = 0.05 start_equipment_factor = 0.8"
+				allow_spawning_on_enemy_provs = yes
+				owner = UPR
+			}
+			create_unit = {
+				division = "name = \"Povstale narodne opolchennia\" division_template = \"Petliurovtsy\" start_experience_factor = 0.05 start_equipment_factor = 0.8"
+				allow_spawning_on_enemy_provs = yes
+				owner = UPR
+			}
+			create_unit = {
+				division = "name = \"Povstale narodne opolchennia\" division_template = \"Petliurovtsy\" start_experience_factor = 0.05 start_equipment_factor = 0.8"
+				allow_spawning_on_enemy_provs = yes
+				owner = UPR
+			}
+		}
+		UPR = {
+			if = {
+				limit = { has_country_flag = UPR_zhytomyr_plan }
+				activate_mission = UPR_seize_zhytomyr
+			}
+			else_if = {
+				limit = { has_country_flag = UPR_vynnytsa_plan }
+				activate_mission = UPR_seize_vynnytsa
+			}
+		}
+	}	
+}
+
+
+
+### Economy 
 country_event = { # Black Monday Hits Ukraine!
 	id = ukreco.1
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukreco.1" }
@@ -1707,9 +2510,8 @@ country_event = { # Agricultural crisis!
 			}
 		}
 		set_country_flag = UKR_agriculture_crisis
-		remove_dynamic_modifier = { modifier = UKR_breadbasket_of_europe_modifier }
 		swap_ideas = {
-			remove_idea = UKR_breadbasket_of_europe_idea
+			remove_idea = UKR_breadbasket_of_europe_idea_initial
 			add_idea = UKR_agricultural_crisis_idea
 		}
 		country_event = {
@@ -6411,7 +7213,7 @@ country_event = { # Memories of the Republic
 
 country_event = { # Vasil Shot
 	id = monsocukr.1
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.1" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.1" }
 	title = monsocukr.1.t
 	desc = monsocukr.1.d
 
@@ -6472,7 +7274,7 @@ country_event = { # Vasil Shot
 
 country_event = { # Khruhschev Trial
 	id = monsocukr.2
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.2" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.2" }
 	title = monsocukr.2.t
 	desc = monsocukr.2.d
 
@@ -6506,7 +7308,7 @@ country_event = { # Khruhschev Trial
 
 country_event = { # Shumsky Bro
 	id = monsocukr.3
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.3" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.3" }
 	title = monsocukr.3.t
 	desc = monsocukr.3.d
 
@@ -6542,7 +7344,7 @@ country_event = { # Shumsky Bro
 
 country_event = { # Ukrainian Culture
 	id = monsocukr.4
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.4" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.4" }
 	title = monsocukr.4.t
 	desc = monsocukr.4.d
 
@@ -6558,7 +7360,7 @@ country_event = { # Ukrainian Culture
 
 country_event = { # No Russian
 	id = monsocukr.5
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.5" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.5" }
 	title = monsocukr.5.t
 	desc = monsocukr.5.d
 
@@ -6571,7 +7373,7 @@ country_event = { # No Russian
              add_war_support = 0.03
              hidden_effect = {
 		    country_event = {
-			  id = ukraine.11
+			  id = monsocukr.11
 			  days = 8
 		    }
 	     }
@@ -6580,7 +7382,7 @@ country_event = { # No Russian
 
 country_event = { # Khmelnystky Raids
 	id = monsocukr.6
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.6" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.6" }
 	title = monsocukr.6.t
 	desc = monsocukr.6.d
 
@@ -6603,7 +7405,7 @@ country_event = { # Khmelnystky Raids
 
 country_event = { # Raid on Akerman
 	id = monsocukr.7
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.7" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.7" }
 	title = monsocukr.7.t
 	desc = monsocukr.7.d
 
@@ -6637,7 +7439,7 @@ country_event = { # Raid on Akerman
 
 country_event = { # Romanian Response 
 	id = monsocukr.8
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.8" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.8" }
 	title = monsocukr.8.t
 	desc = monsocukr.8.d
 
@@ -6667,7 +7469,7 @@ country_event = { # Romanian Response
 
 country_event = { # Ukraine Alliance
 	id = monsocukr.9
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.9" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.9" }
 	title = monsocukr.9.t
 	desc = monsocukr.9.d
 
@@ -6698,7 +7500,7 @@ country_event = { # Ukraine Alliance
 
 country_event = { # Monbol WHR Response
 	id = monsocukr.10
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.10" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.10" }
 	title = monsocukr.10.t
 	desc = monsocukr.10.d
 
@@ -6712,7 +7514,7 @@ country_event = { # Monbol WHR Response
 
 country_event = { # No Russianer
 	id = monsocukr.11
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.11" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event monsocukr.11" }
 	title = monsocukr.11.t
 	desc = monsocukr.1.d
 

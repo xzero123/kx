@@ -6,10 +6,11 @@ ideas = {
 ##############
 	country = {
 		### New ideas 
-		UKR_breadbasket_of_europe_idea = {
-			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_breadbasket_of_europe_idea"}
+		UKR_breadbasket_of_europe_idea_initial = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_breadbasket_of_europe_idea_initial"}
 			allowed = { always = no }
 			picture = UKR_breadbasket
+			name = UKR_breadbasket_of_europe_idea
 			modifier = {
 				political_power_gain = 0.09
 				monthly_population = 0.05
@@ -24,11 +25,15 @@ ideas = {
 				production_factory_efficiency_gain_factor = -0.15
 			}
 		}	
+		UKR_breadbasket_of_europe_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_breadbasket_of_europe_idea"}
+			allowed = { always = no }
+			picture = UKR_breadbasket
+			modifier = {
+			}
+		}	
 		UKR_agricultural_crisis_idea = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_agricultural_crisis_idea"}
-			on_remove = {
-				#UKR_setup_breadbasket = yes
-			}
 			allowed = { always = no }
 			picture = RUS_unfinished_land_reform
 			modifier = {
@@ -39,6 +44,67 @@ ideas = {
 				global_building_slots_factor = 0.1
 				out_of_supply_factor = 0.05
 				supply_consumption_factor = 0.03
+				custom_modifier_tooltip = UKR_agricultural_crisis_idea_tooltip
+			}
+		}	
+		UKR_agricultural_crisis_idea_1 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_agricultural_crisis_idea_1"}
+			allowed = { always = no }
+			name = UKR_agricultural_crisis_idea
+			picture = RUS_unfinished_land_reform
+			modifier = {
+				political_power_gain = -0.10
+				monthly_population = -0.05
+				production_lack_of_resource_penalty_factor = 0.08
+				consumer_goods_factor = 0.20
+				global_building_slots_factor = 0.1
+				out_of_supply_factor = 0.025
+				supply_consumption_factor = 0.015
+				custom_modifier_tooltip = UKR_agricultural_crisis_idea_tooltip
+			}
+		}	
+		UKR_agricultural_crisis_idea_2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_agricultural_crisis_idea_1"}
+			allowed = { always = no }
+			name = UKR_agricultural_crisis_idea
+			picture = RUS_unfinished_land_reform
+			modifier = {
+				political_power_gain = -0.05
+				monthly_population = -0.05
+				production_lack_of_resource_penalty_factor = 0.06
+				consumer_goods_factor = 0.15
+				global_building_slots_factor = 0.1
+				out_of_supply_factor = 0.02
+				supply_consumption_factor = 0.01
+				custom_modifier_tooltip = UKR_agricultural_crisis_idea_tooltip
+			}
+		}	
+		UKR_agricultural_crisis_idea_3 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_agricultural_crisis_idea_3"}
+			allowed = { always = no }
+			name = UKR_agricultural_crisis_idea
+			picture = RUS_unfinished_land_reform
+			modifier = {
+				political_power_gain = -0.05
+				monthly_population = -0.05
+				production_lack_of_resource_penalty_factor = 0.04
+				consumer_goods_factor = 0.1
+				global_building_slots_factor = 0.1
+				out_of_supply_factor = 0.01
+				supply_consumption_factor = 0.01
+				custom_modifier_tooltip = UKR_agricultural_crisis_idea_tooltip
+			}
+		}	
+		UKR_agricultural_crisis_idea_4 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_agricultural_crisis_idea_4"}
+			allowed = { always = no }
+			name = UKR_agricultural_crisis_idea
+			picture = RUS_unfinished_land_reform
+			modifier = {
+				monthly_population = -0.05
+				production_lack_of_resource_penalty_factor = 0.02
+				consumer_goods_factor = 0.1
+				global_building_slots_factor = 0.1
 				custom_modifier_tooltip = UKR_agricultural_crisis_idea_tooltip
 			}
 		}	
@@ -226,6 +292,79 @@ ideas = {
 				hidden_modifier = {
 					disabled_ideas = 1
 				}	
+			}
+		}	
+		UKR_russian_aid = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_russian_aid"}
+			picture = advisors_russia
+			allowed = { always = no }
+			modifier = {
+				army_org_factor = 0.05
+				max_planning = 0.05
+				planning_speed = 0.05
+				industrial_factory_donations = 1
+				military_factory_donations = 2
+			}
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.05
+					instant = yes
+				}
+			}			
+		}	
+		UKR_german_aid = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_german_aid"}
+			picture = advisors_germany
+			allowed = { always = no }
+			modifier = {
+				social_democrat_drift = -0.02
+				army_org_factor = 0.05
+				max_planning = 0.1
+				planning_speed = 0.1
+				industrial_factory_donations = 2
+				military_factory_donations = 1
+			}
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.05
+					instant = yes
+				}
+			}			
+		}	
+		UKR_austrian_aid = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_austrian_aid"}
+			picture = advisors_austria
+			allowed = { always = no }
+			modifier = {
+				social_conservative_drift = 0.02
+				army_org_factor = 0.05
+				max_planning = 0.1
+				planning_speed = 0.1
+				military_factory_donations = 2
+			}
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.05
+					instant = yes
+				}
+			}			
+		}	
+		UKR_austrian_trade = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_austrian_trade"}
+			picture = advisors_austria
+			allowed = { always = no }
+			available = {
+				country_exists = AUS
+				NOT = { has_war_with = AUS }
+			}
+			modifier = {
+				social_conservative_drift = 0.02
+				political_power_cost = 0.05
+				trade_opinion_factor = 0.15
+			}
+			targeted_modifier = {
+				extra_trade_to_target_factor = 0.5
+				trade_cost_for_target_factor = -0.5
 			}
 		}	
 		

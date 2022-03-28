@@ -140,6 +140,34 @@ on_actions = {
 			}
 			if = {
 				limit = {
+					ROOT = { tag = UKR }
+					FROM = { tag = UPR }
+					has_global_flag = UKR_civil_war
+				}
+				if = {
+					limit = { has_global_flag = UPR_dyrektoria_uprising_UPR }
+					ROOT = { country_event = ukrpol.62 }
+				}
+				else = {
+					ROOT = { country_event = ukrpol.61 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { tag = UPR }
+					FROM = { tag = UKR }
+					has_global_flag = UKR_civil_war
+				}
+				if = {
+					limit = { has_global_flag = UPR_dyrektoria_uprising_UPR }
+					ROOT = { country_event = ukrpol.63 }
+				}
+				else = {
+					ROOT = { country_event = ukrpol.64 }
+				}
+			}
+			if = {
+				limit = {
 					FROM = { tag = BAT }
 				}
 				LAT = {

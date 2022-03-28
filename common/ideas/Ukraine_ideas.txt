@@ -1314,6 +1314,23 @@ ideas = {
 				national_populist_acceptance = -100
 			}
 		}
+		UPR_civil_war = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UPR_civil_war" }
+			available = { has_war_with = UPR }
+			modifier = {
+				no_supply_grace = 120
+				ai_call_ally_desire_factor = -2000
+				attrition = -0.30
+				army_org_factor = 0.3
+				out_of_supply_factor = -0.5
+			}
+			targeted_modifier = {
+				tag = UPR
+				attack_bonus_against = 0.5
+				breakthrough_bonus_against = 0.5
+				defense_bonus_against = 0.5
+			}
+		}
 	}
 ##############
 # Companies

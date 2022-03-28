@@ -668,7 +668,7 @@ UPR_create_ROOT_dyrektoria_kingdom = {
 			}
 			set_nationality = UPR
 		}
-		
+		set_capital = { state = 792 }		
 		remove_ideas = UKR_derzhavna_varta
 		remove_all_ministers = yes		
 	}
@@ -679,7 +679,9 @@ UPR_create_ROOT_dyrektoria_kingdom = {
 	set_country_flag = UPR_uvo_openly_joins_dyrektoria
 	hidden_effect = {
 		set_cosmetic_tag = UKR_dyrektoria
-		set_stability = 0.25
+		add_offsite_building = { type = arms_factory level = 3 }
+		add_offsite_building = { type = industrial_complex level = 3 }
+		set_stability = 0.5
 		set_war_support = 0.8
 		GER = { add_to_faction = UPR }
 		hidden_effect = {
@@ -850,6 +852,8 @@ UPR_create_dyrektoria = {
 				UKR_agricultural_crisis_idea
 				UKR_lingering_ukrainisation
 			}
+			add_offsite_building = { type = arms_factory level = 3 }
+			add_offsite_building = { type = industrial_complex level = 3 }
 			if = {
 				limit = {
 					UKR = { has_idea = UKR_black_monday }
@@ -872,22 +876,22 @@ UPR_create_dyrektoria = {
 				prioritize = { 792 }
 				create_unit = {
 					division = "division_template = \"Halytskyi korpus Sichovykh Striltsiv\" start_experience_factor = 0.2"
-					owner = ROOT
+					owner = UPR
 					prioritize_location = 11543
 				}
 				create_unit = {
 					division = "division_template = \"Halytskyi korpus Sichovykh Striltsiv\" start_experience_factor = 0.2"
-					owner = ROOT
+					owner = UPR
 					prioritize_location = 6435
 				}
 				create_unit = {
 					division = "division_template = \"Halytskyi korpus Sichovykh Striltsiv\" start_experience_factor = 0.2"
-					owner = ROOT
+					owner = UPR
 					prioritize_location = 572
 				}
 				create_unit = {
 					division = "division_template = \"Halytskyi korpus Sichovykh Striltsiv\" start_experience_factor = 0.2"
-					owner = ROOT
+					owner = UPR
 					prioritize_location = 474
 				}
 			}
@@ -895,32 +899,32 @@ UPR_create_dyrektoria = {
 				prioritize = { 792 }
 				create_unit = {
 					division = "division_template = \"Petliurovtsy\" start_experience_factor = 0.2"
-					owner = ROOT
+					owner = UPR
 					prioritize_location = 11543
 				}
 				create_unit = {
 					division = "division_template = \"Petliurovtsy\" start_experience_factor = 0.2"
-					owner = ROOT
+					owner = UPR
 					prioritize_location = 6435
 				}
 				create_unit = {
 					division = "division_template = \"Petliurovtsy\" start_experience_factor = 0.3"
-					owner = ROOT
+					owner = UPR
 					prioritize_location = 572
 				}
 				create_unit = {
 					division = "division_template = \"Petliurovtsy\" start_experience_factor = 0.2"
-					owner = ROOT
+					owner = UPR
 					prioritize_location = 474
 				}
 				create_unit = {
 					division = "division_template = \"Petliurovtsy\" start_experience_factor = 0.1"
-					owner = ROOT
+					owner = UPR
 					prioritize_location = 474
 				}
 				create_unit = {
 					division = "division_template = \"Petliurovtsy\" start_experience_factor = 0.1"
-					owner = ROOT
+					owner = UPR
 					prioritize_location = 572
 				}
 			}
@@ -967,12 +971,14 @@ UPR_create_dyrektoria = {
 				}
 			}
 			hidden_effect = {
-				GAL = { 
-					country_event = {
-						id = ukrpol.39
-						days = 3
+				UPR = {
+					GAL = { 
+						country_event = {
+							id = ukrpol.39
+							days = 3
+						}
 					}
-				}				
+				}
 			}
 			if = {
 				limit = { NOT = { country_exists = CRM } }
@@ -983,19 +989,23 @@ UPR_create_dyrektoria = {
 			}
 			if = {
 				limit = { has_global_flag = UKR_dnieper_explosion }
-				AUS = {
-					country_event = {
-						id = ukrpol.41
-						days = 7
+				UPR = {
+					AUS = {
+						country_event = {
+							id = ukrpol.41
+							days = 7
+						}
 					}
 				}
 			}
 			else_if = {
 				limit = { has_global_flag = UKR_hetmanate_is_over }
-				AUS = {
-					country_event = {
-						id = ukrpol.52
-						days = 7
+				UPR = {
+					GER = {
+						country_event = {
+							id = ukrpol.52
+							days = 7
+						}
 					}
 				}
 			}

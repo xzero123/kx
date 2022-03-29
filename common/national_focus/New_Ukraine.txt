@@ -664,7 +664,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Ternopil_Agreement
-		icon = GFX_goal_LIC_austrian_customs
+		icon = GFX_goal_GAL_divide_nation
 		cost = 1
 		relative_position_id = UKR_UMP_USKhD_Coalition
 		x = -2
@@ -1876,6 +1876,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_deposit_protection_law"
+			UKR_reduce_black_monday = yes
 		}
 	}
 	
@@ -1904,7 +1905,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Rural_Credit_Banks"
-			UKR_reduce_black_monday = yes
 			UKR_reduce_agricultural_crisis = yes
 		}
 	}
@@ -2040,7 +2040,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Invest_In_KhTZ
-		icon = GFX_goal_generic_agriculture2
+		icon = GFX_goal_BUL_mechanize_farming
 		cost = 5
 		relative_position_id = UKR_Stabilize_Hryvnia
 		x = 3
@@ -2100,6 +2100,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Nationalize_NUSK"
 			UKR_reduce_agricultural_crisis = yes
+			custom_effect_tooltip = UKR_unlock_nusk
 		}
 	}
 	focus = {
@@ -3718,7 +3719,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Poach_The_Dyrektoriia_Moderates"
-			custom_effect_tooltip = UKR_Poach_The_Dyrektoriia_Moderates
+			custom_effect_tooltip = UKR_Poach_The_Dyrektoriia_Moderates_tt
 			set_global_flag = UPR_soclibs_leave_dyrektoria
 			UKR = {
 				add_popularity = {
@@ -3826,7 +3827,7 @@ focus_tree = {
 			focus = UKR_Cleave_The_Republican_Movement
 		}
 		available = {
-			every_owned_state = {
+			all_owned_state = {
 				is_fully_controlled_by = ROOT
 			}
 		}

@@ -2263,4 +2263,75 @@ country_event = { #France refuses
 			modifier = KR_outraged
 		}
 	}
+
+country_event = { #Secretary General
+	id = chl.55
+	immediate = { log = "[GetDateText]: [Root.GetName]: event chl.19" }
+	title = chl.55.t
+	desc = chl.55.d
+	is_triggered_only = yes
+
+	option = {
+		name = chl.55.a #Davila
+		add_political_power = 20
+		add_stability = 0.02
+	}
+		option = { #Lafferte
+		name = chl.55.b
+		add_political_power = 20
+		add_stability = 0.02
+		
+		hidden_effect = {	
+			set_popularities = {
+				totalist = 52
+				radical_socialist = 12
+				syndicalist = 30
+				social_democrat = 0
+				social_liberal = 1
+				market_liberal = 0
+				social_conservative = 0
+				authoritarian_democrat = 1
+				paternal_autocrat = 1
+				national_populist = 3
+			}	
+		set_politics = {
+			ruling_party = totalist
+			elections_allowed = no
+		}
+		remove_all_ministers = yes
+		add_ideas = {
+			CHL_Carlos_Labarca_hog_tot
+			CHL_Carlos_Diaz_Loyola_for_tot
+			CHL_Victor_Contreras_Tapia_eco_tot
+			CHL_Carlos_Labarca_sec_tot
+			}
+		}
+	}
+		option = { #Grove
+		name = chl.55.c
+		add_political_power = 20
+		add_stability = 0.02
+		hidden_effect = {
+			set_politics = {
+			ruling_party = radical_socialist
+			elections_allowed = no
+				}
+			set_popularities = {
+				totalist = 22
+				radical_socialist = 52
+				syndicalist = 20
+				social_democrat = 0
+				social_liberal = 1
+				market_liberal = 0
+				social_conservative = 0
+				authoritarian_democrat = 1
+				paternal_autocrat = 1
+				national_populist = 3
+				
+				
+			}
+		}
+	}
+}
+
 }

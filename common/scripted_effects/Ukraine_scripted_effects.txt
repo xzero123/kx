@@ -6,6 +6,16 @@ UKR_setup_political_variables = {
 	set_variable = { UKR_Direktoriia_Strength = 1 }
 	set_variable = { UKR_King_Strength = 2 }
 	set_variable = { UKR_Hetman_Strenth = 3 }
+	
+	set_variable = { UKR_military_alignment = 2 }
+	set_variable = { UKR_landowners_alignment = 1 }
+	set_variable = { UKR_bureaucrat_alignment = -2 }
+	set_variable = { UKR_church_alignment = 1 }
+	set_variable = { UKR_business_alignment = 0 }
+	set_variable = { UKR_farmers_alignment = 1 }
+	set_variable = { UKR_workers_alignment = 0 }
+	set_variable = { UKR_peasant_alignment = 1 }
+	
 	recalculate_ukrainian_political_variables = yes
 	
 	set_variable = { UKR_petliura_authority = 3 }
@@ -29,6 +39,46 @@ recalculate_ukrainian_political_variables = {
 		min = 1
 		max = 5
 	}
+	clamp_variable = {
+		var = UKR_military_alignment
+		min = -3
+		max = 3
+	}
+	clamp_variable = {
+		var = UKR_landowners_alignment
+		min = -3
+		max = 3
+	}
+	clamp_variable = {
+		var = UKR_bureaucrat_alignment
+		min = -3
+		max = 3
+	}
+	clamp_variable = {
+		var = UKR_church_alignment
+		min = -3
+		max = 3
+	}
+	clamp_variable = {
+		var = UKR_business_alignment
+		min = -3
+		max = 3
+	}
+	clamp_variable = {
+		var = UKR_farmers_alignment
+		min = -3
+		max = 3
+	}
+	clamp_variable = {
+		var = UKR_workers_alignment
+		min = -3
+		max = 3
+	}
+	clamp_variable = {
+		var = UKR_peasant_alignment
+		min = -3
+		max = 3
+	}	
 	set_variable = { UKR_Direktoriia_Strength_real = UKR.party_popularity@social_democrat }
 	add_to_variable = { UKR_Direktoriia_Strength_real = UKR.party_popularity@social_liberal }
 	add_to_variable = { UKR_Direktoriia_Strength_real = UKR.party_popularity@syndicalist }
@@ -225,6 +275,175 @@ UKR_decrease_direktoria = {
 	}
 	recalculate_ukrainian_political_variables = yes
 }
+UKR_decrease_military_opinion_hetman = {
+	custom_effect_tooltip = UKR_worsen_hetman_army_tt
+	add_to_variable = { UKR_military_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_military_opinion_hetman = {
+	custom_effect_tooltip = UKR_improve_hetman_army_tt
+	add_to_variable = { UKR_military_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_military_opinion_king = {
+	custom_effect_tooltip = UKR_worsen_king_army_tt
+	add_to_variable = { UKR_military_alignment = 1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_military_opinion_king = {
+	custom_effect_tooltip = UKR_improve_king_army_tt
+	add_to_variable = { UKR_military_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_bureaucrats_opinion_hetman = {
+	custom_effect_tooltip = UKR_worsen_hetman_bureaucrats_tt
+	add_to_variable = { UKR_bureaucrat_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_bureaucrat_opinion_hetman = {
+	custom_effect_tooltip = UKR_improve_hetman_bureaucrats_tt
+	add_to_variable = { UKR_bureaucrat_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_bureaucrat_opinion_king = {
+	custom_effect_tooltip = UKR_worsen_king_bureaucrats_tt
+	add_to_variable = { UKR_bureaucrat_alignment = 1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_bureaucrat_opinion_king = {
+	custom_effect_tooltip = UKR_improve_king_bureaucrats_tt
+	add_to_variable = { UKR_bureaucrat_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_church_opinion_hetman = {
+	custom_effect_tooltip = UKR_worsen_hetman_church_tt
+	add_to_variable = { UKR_church_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_church_opinion_hetman = {
+	custom_effect_tooltip = UKR_improve_hetman_church_tt
+	add_to_variable = { UKR_church_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_church_opinion_king = {
+	custom_effect_tooltip = UKR_worsen_king_church_tt
+	add_to_variable = { UKR_church_alignment = 1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_church_opinion_king = {
+	custom_effect_tooltip = UKR_improve_king_church_tt
+	add_to_variable = { UKR_church_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_landowners_opinion_hetman = {
+	custom_effect_tooltip = UKR_worsen_hetman_landowners_tt
+	add_to_variable = { UKR_landowners_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_landowners_opinion_hetman = {
+	custom_effect_tooltip = UKR_improve_hetman_landowners_tt
+	add_to_variable = { UKR_landowners_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_landowners_opinion_king = {
+	custom_effect_tooltip = UKR_worsen_king_landowners_tt
+	add_to_variable = { UKR_landowners_alignment = 1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_landowners_opinion_king = {
+	custom_effect_tooltip = UKR_improve_king_landowners_tt
+	add_to_variable = { UKR_landowners_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_Protofis_opinion_hetman = {
+	custom_effect_tooltip = UKR_worsen_hetman_Protofis_tt
+	add_to_variable = { UKR_business_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_Protofis_opinion_hetman = {
+	custom_effect_tooltip = UKR_improve_hetman_Protofis_tt
+	add_to_variable = { UKR_business_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_Protofis_opinion_king = {
+	custom_effect_tooltip = UKR_worsen_king_Protofis_tt
+	add_to_variable = { UKR_business_alignment = 1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_Protofis_opinion_king = {
+	custom_effect_tooltip = UKR_improve_king_Protofis_tt
+	add_to_variable = { UKR_business_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_farmers_opinion_hetman = {
+	custom_effect_tooltip = UKR_worsen_hetman_smallholders_tt
+	add_to_variable = { UKR_farmers_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_farmers_opinion_hetman = {
+	custom_effect_tooltip = UKR_improve_hetman_smallholders_tt
+	add_to_variable = { UKR_farmers_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_farmers_opinion_king = {
+	custom_effect_tooltip = UKR_worsen_king_smallholders_tt
+	add_to_variable = { UKR_farmers_alignment = 1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_farmers_opinion_king = {
+	custom_effect_tooltip = UKR_improve_king_smallholders_tt
+	add_to_variable = { UKR_farmers_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_workers_opinion_hetman = {
+	custom_effect_tooltip = UKR_worsen_hetman_workers_tt
+	add_to_variable = { UKR_workers_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_workers_opinion_hetman = {
+	custom_effect_tooltip = UKR_improve_hetman_workers_tt
+	add_to_variable = { UKR_workers_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_workers_opinion_king = {
+	custom_effect_tooltip = UKR_worsen_king_workers_tt
+	add_to_variable = { UKR_workers_alignment = 1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_workers_opinion_king = {
+	custom_effect_tooltip = UKR_improve_king_workers_tt
+	add_to_variable = { UKR_workers_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_peasants_opinion_hetman = {
+	custom_effect_tooltip = UKR_worsen_hetman_peasants_tt
+	add_to_variable = { UKR_peasant_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_peasants_opinion_hetman = {
+	custom_effect_tooltip = UKR_improve_hetman_peasants_tt
+	add_to_variable = { UKR_peasant_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_decrease_peasants_opinion_king = {
+	custom_effect_tooltip = UKR_worsen_king_peasants_tt
+	add_to_variable = { UKR_peasant_alignment = 1 }
+	recalculate_ukrainian_political_variables = yes
+}
+UKR_increase_peasants_opinion_king = {
+	custom_effect_tooltip = UKR_improve_king_peasants_tt
+	add_to_variable = { UKR_peasant_alignment = -1 }
+	recalculate_ukrainian_political_variables = yes
+}
+
+
+
+
+
+
+
+
+
 UKR_improve_ukrainisation = {
 	if = {
 		limit = {
@@ -514,10 +733,10 @@ UPR_create_ROOT_dyrektoria_kingdom = {
 					set_country_flag = UKR_has_secured_rear
 				}
 			}
-			country_event = {
-				id = ukrpol.58
-				days = 5
-			}
+		}
+		country_event = {
+			id = ukrpol.58
+			days = 5
 		}
 		# kingdom should not have streltsy
 		delete_unit_template_and_units = {
@@ -576,13 +795,19 @@ UPR_create_ROOT_dyrektoria_kingdom = {
 					add_state_claim = PREV
 				}
 			}
-			set_stability = UKR@stability
+			set_stability = 0.1
 			set_war_support = 0.5
 			add_ideas = {
 				UKR_derzhavna_varta
 				UKR_urban_rural_divide
 				UKR_agricultural_crisis_idea
 				UKR_lingering_ukrainisation
+			}
+			if = {
+				limit = {
+					UKR = { has_idea = UKR_Rada_diss }
+				}
+				add_ideas = UKR_Rada_diss
 			}
 			if = {
 				limit = {
@@ -670,6 +895,7 @@ UPR_create_ROOT_dyrektoria_kingdom = {
 		}
 		set_capital = { state = 792 }		
 		remove_ideas = UKR_derzhavna_varta
+		remove_ideas = UKR_Rada_diss
 		remove_all_ministers = yes		
 	}
 	effect_tooltip = {
@@ -970,49 +1196,7 @@ UPR_create_dyrektoria = {
 					}
 				}
 			}
-			hidden_effect = {
-				UPR = {
-					GAL = { 
-						country_event = {
-							id = ukrpol.39
-							days = 3
-						}
-					}
-				}
-			}
-			if = {
-				limit = { NOT = { country_exists = CRM } }
-				country_event = {
-					id = ukrpol.54
-					days = 20
-				}
-			}
-			if = {
-				limit = { has_global_flag = UKR_dnieper_explosion }
-				UPR = {
-					AUS = {
-						country_event = {
-							id = ukrpol.41
-							days = 7
-						}
-					}
-				}
-			}
-			else_if = {
-				limit = { has_global_flag = UKR_hetmanate_is_over }
-				UPR = {
-					GER = {
-						country_event = {
-							id = ukrpol.52
-							days = 7
-						}
-					}
-				}
-			}
-			country_event = {
-				id = ukrpol.58
-				days = 5
-			}
+			country_event = ukrpol.10000				
 		}
 	}
 	event_target:UKR_Mykhailo_Pavlenko = { set_nationality = UPR }

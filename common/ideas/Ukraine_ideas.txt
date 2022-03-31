@@ -354,7 +354,7 @@ ideas = {
 		}	
 		UKR_austrian_trade = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_austrian_trade"}
-			picture = advisors_austria
+			picture = ast_volunteer_defence_corps
 			allowed = { always = no }
 			available = {
 				country_exists = AUS
@@ -366,6 +366,7 @@ ideas = {
 				trade_opinion_factor = 0.15
 			}
 			targeted_modifier = {
+				tag = AUS
 				extra_trade_to_target_factor = 0.5
 				trade_cost_for_target_factor = -0.5
 			}
@@ -1251,9 +1252,11 @@ ideas = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_khmel_host" }
 			picture = advisors_ukraine
 			modifier = {
-				conscription = 0.02
+				conscription = 0.01
 				army_org_Factor = 0.04
 				army_morale_factor = 0.07
+				cavalry_attack_factor = 0.1
+				cavalry_defence_factor = 0.1
 			}
 		}
 		UKR_dream_ukr = {
@@ -1391,7 +1394,14 @@ ideas = {
 		german_ukranian_agricultural_comission = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea german_ukranian_agricultural_comission"}
 			allowed = { original_tag = UKR }
-			available = { is_in_faction_with = GER }
+			available = { 
+				OR = { 
+					is_in_faction_with = GER
+					GER_is_in_mitteleuropa = yes
+					has_completed_focus = UKR_Nationalize_NUSK
+				}
+			}
+			
 			traits = { industrial_manufacturer }
 			modifier = {
 				production_speed_arms_factory_factor = 0.05
@@ -1406,12 +1416,7 @@ ideas = {
 		kharkiv_tractor_factory = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kharkiv_tractor_factory"}
 			allowed = { original_tag = UKR }
-			available = { 
-				OR = { 
-					is_in_faction_with = GER
-					has_completed_focus = UKR_Nationalize_NUSK
-				}
-			}
+			available = { has_completed_focus = UKR_Invest_In_KhTZ }
 			traits = { industrial_manufacturer }
 			modifier = {
 				production_speed_arms_factory_factor = 0.05

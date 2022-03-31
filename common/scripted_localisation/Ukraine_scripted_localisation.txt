@@ -133,13 +133,73 @@ defined_text = {
 	}
 }
 defined_text = {
-	name = GetUKR_military_alignment
+	name = GetUKRRegencyHeir
 	text = {
 		trigger = {
-			check_variable = { UKR_military_alignment = 3 }
+			has_country_flag = UKR_regency_pavlo_heir
 		}
-		localization_key = UKR_popularity_love_hetman_singular
+		localization_key = UKR_regency_pavlo_desc
 	}
+	text = {
+		trigger = {
+			has_country_flag = UKR_regency_danilo_heir
+		}
+		localization_key = UKR_regency_danilo_desc
+	}
+	text = {
+		localization_key = ""
+	}
+}
+defined_text = {
+	name = GetUKRTitle
+	text = {
+		trigger = {
+			has_country_flag = UKR_will_become_hetmanate
+		}
+		localization_key = UKR_regency_title_hetman
+	}
+	text = {
+		localization_key = UKR_regency_title_king
+	}
+}
+defined_text = {
+	name = GetUKR_SGDAlighnment
+	text = {
+		trigger = {
+			check_variable = { UKR_skoropadskyi_orientation = 0 }
+		}
+		localization_key = UKR_sgd_no_preferences
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_skoropadskyi_orientation < 0 }
+			check_variable = { UKR_skoropadskyi_orientation > -10 }
+		}
+		localization_key = UKR_sgd_favors_russia
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_skoropadskyi_orientation < -9 }
+		}
+		localization_key = UKR_sgd_strongly_pro_russian
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_skoropadskyi_orientation > 0 }
+			check_variable = { UKR_skoropadskyi_orientation < 10 }
+		}
+		localization_key = UKR_sgd_favors_germany
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_skoropadskyi_orientation > 9 }
+		}
+		localization_key = UKR_sgd_strongly_pro_german
+	}
+}
+
+defined_text = {
+	name = GetUKR_military_alignment
 	text = {
 		trigger = {
 			check_variable = { UKR_military_alignment = 2 }
@@ -178,12 +238,6 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			check_variable = { UKR_military_alignment = -3 }
-		}
-		localization_key = UKR_popularity_love_king_singular
-	}
-	text = {
-		trigger = {
 			NOT = { has_variable = UKR_military_alignment }
 		}
 		localization_key = UKR_popularity_love_dyrektoria_singular
@@ -191,12 +245,6 @@ defined_text = {
 }
 defined_text = {
 	name = GetUKR_landowners_alignment
-	text = {
-		trigger = {
-			check_variable = { UKR_landowners_alignment = 3 }
-		}
-		localization_key = UKR_popularity_love_hetman_plural
-	}
 	text = {
 		trigger = {
 			check_variable = { UKR_landowners_alignment = 2 }
@@ -235,12 +283,6 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			check_variable = { UKR_landowners_alignment = -3 }
-		}
-		localization_key = UKR_popularity_love_king_plural
-	}
-	text = {
-		trigger = {
 			NOT = { has_variable = UKR_landowners_alignment }
 		}
 		localization_key = UKR_popularity_love_dyrektoria_plural
@@ -248,12 +290,6 @@ defined_text = {
 }
 defined_text = {
 	name = GetUKR_bureaucrat_alignment
-	text = {
-		trigger = {
-			check_variable = { UKR_bureaucrat_alignment = 3 }
-		}
-		localization_key = UKR_popularity_love_hetman_plural
-	}
 	text = {
 		trigger = {
 			check_variable = { UKR_bureaucrat_alignment = 2 }
@@ -292,12 +328,6 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			check_variable = { UKR_bureaucrat_alignment = -3 }
-		}
-		localization_key = UKR_popularity_love_king_plural
-	}
-	text = {
-		trigger = {
 			NOT = { has_variable = UKR_bureaucrat_alignment }
 		}
 		localization_key = UKR_popularity_love_dyrektoria_plural
@@ -306,12 +336,6 @@ defined_text = {
 
 defined_text = {
 	name = GetUKR_church_alignment
-	text = {
-		trigger = {
-			check_variable = { UKR_church_alignment = 3 }
-		}
-		localization_key = UKR_popularity_love_hetman_singular
-	}
 	text = {
 		trigger = {
 			check_variable = { UKR_church_alignment = 2 }
@@ -350,12 +374,6 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			check_variable = { UKR_church_alignment = -3 }
-		}
-		localization_key = UKR_popularity_love_king_singular
-	}
-	text = {
-		trigger = {
 			NOT = { has_variable = UKR_church_alignment }
 		}
 		localization_key = UKR_popularity_love_dyrektoria_singular
@@ -363,12 +381,6 @@ defined_text = {
 }
 defined_text = {
 	name = GetUKR_business_alignment
-	text = {
-		trigger = {
-			check_variable = { UKR_business_alignment = 3 }
-		}
-		localization_key = UKR_popularity_love_hetman_singular
-	}
 	text = {
 		trigger = {
 			check_variable = { UKR_business_alignment = 2 }
@@ -407,12 +419,6 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			check_variable = { UKR_business_alignment = -3 }
-		}
-		localization_key = UKR_popularity_love_king_singular
-	}
-	text = {
-		trigger = {
 			NOT = { has_variable = UKR_business_alignment }
 		}
 		localization_key = UKR_popularity_love_dyrektoria_singular
@@ -420,12 +426,6 @@ defined_text = {
 }
 defined_text = {
 	name = GetUKR_farmers_alignment
-	text = {
-		trigger = {
-			check_variable = { UKR_farmers_alignment = 3 }
-		}
-		localization_key = UKR_popularity_love_hetman_plural
-	}
 	text = {
 		trigger = {
 			check_variable = { UKR_farmers_alignment = 2 }
@@ -464,12 +464,6 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			check_variable = { UKR_farmers_alignment = -3 }
-		}
-		localization_key = UKR_popularity_love_king_plural
-	}
-	text = {
-		trigger = {
 			NOT = { has_variable = UKR_farmers_alignment }
 		}
 		localization_key = UKR_popularity_love_dyrektoria_plural
@@ -477,12 +471,6 @@ defined_text = {
 }
 defined_text = {
 	name = GetUKR_workers_alignment
-	text = {
-		trigger = {
-			check_variable = { UKR_workers_alignment = 3 }
-		}
-		localization_key = UKR_popularity_love_hetman_plural
-	}
 	text = {
 		trigger = {
 			check_variable = { UKR_workers_alignment = 2 }
@@ -521,12 +509,6 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			check_variable = { UKR_workers_alignment = -3 }
-		}
-		localization_key = UKR_popularity_love_king_plural
-	}
-	text = {
-		trigger = {
 			NOT = { has_variable = UKR_workers_alignment }
 		}
 		localization_key = UKR_popularity_love_dyrektoria_plural
@@ -534,12 +516,6 @@ defined_text = {
 }
 defined_text = {
 	name = GetUKR_peasant_alignment
-	text = {
-		trigger = {
-			check_variable = { UKR_peasant_alignment = 3 }
-		}
-		localization_key = UKR_popularity_love_hetman_plural
-	}
 	text = {
 		trigger = {
 			check_variable = { UKR_peasant_alignment = 2 }
@@ -575,12 +551,6 @@ defined_text = {
 			check_variable = { UKR_peasant_alignment = -2 }
 		}
 		localization_key = UKR_popularity_favours_king_plural
-	}
-	text = {
-		trigger = {
-			check_variable = { UKR_peasant_alignment = -3 }
-		}
-		localization_key = UKR_popularity_love_king_plural
 	}
 	text = {
 		trigger = {

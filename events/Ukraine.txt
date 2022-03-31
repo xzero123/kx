@@ -361,7 +361,7 @@ country_event = { # Dualism
 	title = ukrpol.12.t
 	desc = ukrpol.12.d
 	is_triggered_only = yes
-
+	picture = GFX_report_event_UKR_vasyl2
 	option = {
 		name = ukrpol.12.a
 		add_stability = -0.03
@@ -784,9 +784,24 @@ country_event = { # End of the Hetmanate
 	title = ukrpol.25.t
 	desc = ukrpol.25.d
 	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		tag = UKR
+		has_government = paternal_autocrat
+		OR = {
+			check_variable = { UKR_King_Strength_real > UKR_Hetman_Strenth_real }
+			check_variable = { UKR_society_support > 0 }
+		}
+		NOT = { check_variable = { UKR_King_Strength_real < UKR_Hetman_Strenth_real } }
+	}
 
 	option = {
 		name = ukrpol.25.a
+		if = {
+			limit = { has_country_flag = UKR_hetman_path }
+			clr_country_flag = UKR_hetman_path
+			set_country_flag = UKR_king_path
+		}
 		set_global_flag = UKR_hetmanate_is_over
 		UKR_decrease_hetman_strength = yes
 		UKR_decrease_hetman = yes
@@ -799,11 +814,16 @@ country_event = { # End of the Hetmanate
 		remove_ideas = UKR_derzhavna_varta
 		remove_all_ministers = yes
 		if = {
-			limit = { has_completed_focus = UKR_Coalition_With_UVO }
+			limit = { 
+				OR = {
+					has_completed_focus = UKR_Coalition_With_UVO
+					has_completed_focus = UKR_Coalition_Wih_UDP
+				}
+			}
 			#add natpop ministers
 			country_event = {
 				id = ukrpol.34
-				days = 6
+				days = 3
 			}
 		}
 		else = {
@@ -827,6 +847,7 @@ country_event = { # Dualism
 	title = ukrpol.26.t
 	desc = ukrpol.26.d
 	is_triggered_only = yes
+	picture = GFX_report_event_UKR_skoropadsky_svita
 
 	option = {
 		name = ukrpol.26.a
@@ -836,6 +857,7 @@ country_event = { # Dualism
 		complete_national_focus = UKR_Coalition_Wih_UDP
 		UKR_increase_hetman_strength = yes
 		UKR_increase_bureaucrat_opinion_hetman = yes
+		UKR_skoropadsky_increase_germanophiles = yes
 		add_popularity = {
 			ideology = market_liberal
 			popularity = 0.02
@@ -857,6 +879,7 @@ country_event = { # Dualism
 		complete_national_focus = UKR_Dissolve_Sejm
 		UKR_increase_hetman_strength = yes
 		UKR_decrease_bureaucrats_opinion_hetman = yes
+		UKR_skoropadsky_increase_russophiles = yes
 		add_popularity = {
 			ideology = paternal_autocrat
 			popularity = 0.02
@@ -893,6 +916,7 @@ country_event = { # New governors
 					resistance_growth = -0.3
 				}
 			}
+			custom_effect_tooltip = UKR_marlib_pop_increase_tt
 		}
 		792 = {
 			add_state_modifier = {
@@ -901,6 +925,7 @@ country_event = { # New governors
 					resistance_growth = -0.3
 				}
 			}
+			custom_effect_tooltip = UKR_marlib_pop_increase_tt
 		}
 	}	
 }
@@ -915,6 +940,7 @@ country_event = { # Discredit Lypynskyi
 		name = ukrpol.28.hetman
 		trigger = { has_completed_focus = UKR_Hetman_Path }
 		UKR_decrease_king_strength = yes
+		UKR_skoropadsky_increase_russophiles = yes
 		add_stability = -0.01
 		add_popularity = {
 			ideology = authoritarian_democrat
@@ -988,9 +1014,24 @@ country_event = { # Boom
 	title = ukrpol.32.t
 	desc = ukrpol.32.d
 	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		tag = UKR
+		has_government = paternal_autocrat
+		OR = {
+			check_variable = { UKR_King_Strength_real < UKR_Hetman_Strenth_real }
+			check_variable = { UKR_society_support > 0 }
+		}
+		NOT = { check_variable = { UKR_King_Strength_real > UKR_Hetman_Strenth_real } }
+	}
 
 	option = {
 		name = ukrpol.32.a
+		if = {
+			limit = { has_country_flag = UKR_king_path }
+			clr_country_flag = UKR_king_path
+			set_country_flag = UKR_hetman_path
+		}
 		set_global_flag = UKR_dnieper_explosion
 		add_stability = -0.1
 		swap_ideas = {
@@ -1005,6 +1046,7 @@ country_event = { # Boom
 		}
 		mark_focus_tree_layout_dirty = yes
 		complete_national_focus = UKR_Explosion_Dnieper
+		set_variable = { UKR_minimum_alignment = 0 }
 	}	
 }
 country_event = { # Konovalets Coup Beginning
@@ -2563,7 +2605,7 @@ country_event = { # Civil War
 }
 country_event = { # Victory of Kingdom
 	id = ukrpol.61
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukreco.61" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.61" }
 	title = ukrpol.61.t
 	desc = ukrpol.61.d
 	fire_only_once = yes
@@ -2609,7 +2651,7 @@ country_event = { # Victory of Kingdom
 }
 country_event = { # Victory of Dyrektoria
 	id = ukrpol.62
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukreco.62" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.62" }
 	title = ukrpol.62.t
 	desc = ukrpol.62.d
 	fire_only_once = yes
@@ -2650,7 +2692,7 @@ country_event = { # Victory of Dyrektoria
 }
 country_event = { # Victory of Kingdom if it is UPR
 	id = ukrpol.63
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukreco.61" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.63" }
 	title = ukrpol.61.t
 	desc = ukrpol.61.d
 	fire_only_once = yes
@@ -2752,7 +2794,7 @@ country_event = { # Victory of Kingdom if it is UPR
 }
 country_event = { # Victory of Dyrektoria if its UPR
 	id = ukrpol.64
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukreco.62" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.64" }
 	title = ukrpol.62.t
 	desc = ukrpol.62.d
 	fire_only_once = yes
@@ -2844,7 +2886,7 @@ country_event = { # Victory of Dyrektoria if its UPR
 }
 country_event = { # Fate of Crimea after victory
 	id = ukrpol.65
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukreco.65" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.65" }
 	title = ukrpol.65.t
 	desc = ukrpol.65.d
 	fire_only_once = yes
@@ -2887,7 +2929,7 @@ country_event = { # Fate of Crimea after victory
 }
 country_event = { # Dyrektoria Mechanics
 	id = ukrpol.66
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukreco.66" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.66" }
 	title = ukrpol.66.t
 	desc = ukrpol.66.d
 	fire_only_once = yes
@@ -2934,7 +2976,7 @@ country_event = { # Dyrektoria Mechanics
 }
 country_event = { # Dyrektoria Mechanics
 	id = ukrpol.67
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukreco.67" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.67" }
 	title = ukrpol.67.t
 	desc = ukrpol.67.d
 	fire_only_once = yes
@@ -2956,7 +2998,7 @@ country_event = { # Dyrektoria Mechanics
 }
 country_event = { # Dyrektoria Mechanics
 	id = ukrpol.68
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukreco.68" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.68" }
 	title = ukrpol.68.t
 	desc = ukrpol.68.d
 	fire_only_once = yes
@@ -2978,7 +3020,7 @@ country_event = { # Dyrektoria Mechanics
 }
 country_event = { # Dyrektoria Mechanics
 	id = ukrpol.69
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukreco.69" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.69" }
 	title = ukrpol.69.t
 	desc = ukrpol.69.d
 	fire_only_once = yes
@@ -2995,7 +3037,7 @@ country_event = { # Dyrektoria Mechanics
 }
 country_event = { # Dyrektoria Mechanics
 	id = ukrpol.70
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukreco.70" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.70" }
 	title = ukrpol.70.t
 	desc = ukrpol.70.d
 	fire_only_once = yes
@@ -3016,7 +3058,7 @@ country_event = { # Dyrektoria Mechanics
 }
 country_event = { # Dyrektoria Mechanics
 	id = ukrpol.71
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukreco.71" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.71" }
 	title = ukrpol.71.t
 	desc = ukrpol.71.d
 	fire_only_once = yes
@@ -3031,7 +3073,7 @@ country_event = { # Dyrektoria Mechanics
 }
 country_event = { # Dyrektoria Mechanics
 	id = ukrpol.72
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukreco.72" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.72" }
 	title = ukrpol.72.t
 	desc = ukrpol.72.d
 	fire_only_once = yes
@@ -3049,7 +3091,7 @@ country_event = { # Dyrektoria Mechanics
 }
 country_event = { # Dyrektoria Mechanics
 	id = ukrpol.73
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukreco.73" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.73" }
 	title = ukrpol.73.t
 	desc = ukrpol.73.d
 	fire_only_once = yes
@@ -3063,6 +3105,770 @@ country_event = { # Dyrektoria Mechanics
 		UKR_increase_direktoria = yes
 		add_stability = -0.05
 		add_political_power = -30
+	}
+}
+
+### Skoropadskyi ###
+country_event = { # Austrian Reconcilation
+	id = ukrpol.100
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.100" }
+	title = ukrpol.100.t
+	desc = ukrpol.100.d
+	
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_skoropadsky
+
+	option = {
+		name = ukrpol.100.a
+		trigger = {
+			OR = {
+				GAL = { is_ally_with = ROOT }
+				AND = {
+					NOT = { country_exists = GAL }
+					POL = { is_ally_with = ROOT }
+				}
+				91 = { is_owned_by = ROOT }
+			}
+		}
+		ai_chance = {
+			base = 15
+			modifier = {
+				factor = 5
+				has_war_with = POL
+			}
+			modifier = {
+				factor = 2
+				has_war_with = HUN
+			}
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.101
+				days = 3
+				random_days = 15
+			}
+		}
+	}
+	option = {
+		name = ukrpol.100.b
+		ai_chance = {
+			base = 85
+			modifier = {
+				factor = 0.3
+				has_war_with = POL
+			}
+			modifier = {
+				factor = 0.15
+				has_war_with = HUN
+			}
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.102
+				days = 3
+				random_days = 15
+			}
+		}
+	}	
+}
+country_event = { # Austrian Reconcilation
+	id = ukrpol.101
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.101" }
+	title = ukrpol.101.t
+	desc = ukrpol.101.d
+	
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_skoropadsky
+
+	option = {
+		name = ukrpol.101.a
+		every_state = {
+			limit = {
+				OR = {
+					state = 91
+					state = 89
+					state = 80
+					state = 1140
+				}
+				OR = {
+					is_owned_by = GAL
+					is_owned_by = AUS
+					AND = {
+						is_owned_by = POL
+						POL = { is_ally_with = AUS }
+					}
+				}
+			}
+			ROOT = { transfer_state = PREV }
+			ROOT = { add_state_claim = PREV }
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					713 = {
+						OR = {
+							is_owned_by = FROM
+							owner = {
+								is_ally_with = FROM
+							}
+						}
+					}
+				}
+				BUK = {
+					transfer_state = 713
+					add_state_core = 713
+					get_current_government_type = yes
+				}
+				FROM = {
+					puppet = BUK
+				}
+				BUK = { restore_previous_government_type = yes }
+			}
+		}
+		add_ideas = UKR_austrian_trade
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_returned_land
+		}
+		diplomatic_relation = {
+			country = FROM
+			relation = non_aggression_pact
+			active = yes
+		}
+		give_military_access = FROM
+		FROM = { give_military_access = ROOT }
+		UKR_skoropadsky_increase_germanophiles = yes
+	}
+}
+country_event = { # Austrian Reconcilation
+	id = ukrpol.102
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.102" }
+	title = ukrpol.102.t
+	desc = ukrpol.102.d
+	
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_skoropadsky
+
+	option = {
+		name = ukrpol.102.a
+		embargo_FROM = yes
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hates_govt
+		}
+		UKR_skoropadsky_increase_russophiles = yes
+	}
+}
+country_event = { # Threaten Germany
+	id = ukrpol.103
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.103" }
+	title = ukrpol.103.t
+	desc = ukrpol.103.d
+	
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_skoropadsky_willie
+
+	option = {
+		name = ukrpol.103.a
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 1.1
+				RUS = {
+					OR = {
+						is_in_faction = yes
+						is_faction_leader = yes
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				RUS = {
+					has_socialist_government = no
+					NOT = { has_government = social_democrat }
+					NOT = { has_government = national_populist }
+				}
+			}
+		}
+		add_ai_strategy = {
+			type = dont_defend_ally_borders
+			id = UKR
+			value = -200
+		}
+		add_ai_strategy = {
+			type = ignore
+			id = UKR
+			value = -200
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.104
+				days = 3
+			}
+		}
+	}
+	option = {
+		name = ukrpol.103.b
+		ai_chance = {
+			base = 30
+		}
+		add_political_power = -25
+		FROM = {
+			country_event = {
+				id = ukrpol.104
+				days = 3
+			}
+		}
+	}
+}
+country_event = { # Threaten Germany
+	id = ukrpol.104
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.104" }
+	title = ukrpol.104.t
+	desc = ukrpol.104.d
+	
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_skoropadsky_willie
+
+	option = {
+		name = ukrpol.104.a
+		remove_opinion_modifier = {
+			target = FROM
+			modifier = UKR_GER_no_help_agr_crisis
+		}
+		add_ideas = UKR_Ties_Germany
+		complete_national_focus = UKR_Threaten_Germany
+		UKR_skoropadsky_increase_germanophiles = yes
+	}
+}
+country_event = { # Threaten Germany
+	id = ukrpol.105
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.105" }
+	title = ukrpol.105.t
+	desc = ukrpol.105.d
+	
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_german_soldier
+
+	option = {
+		name = ukrpol.105.a
+		ai_chance = {
+			base = 40
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.106
+				days = 2
+			}
+		}
+	}
+	option = {
+		name = ukrpol.105.b
+		ai_chance = {
+			base = 5
+			modifier = {
+				factor = 13
+				check_variable = { UKR_skoropadskyi_orientation > 0 }
+			}
+		}
+		add_political_power = -100
+		add_stability = -0.15		
+		UKR_skoropadsky_increase_germanophiles = yes
+	}
+	option = {
+		name = ukrpol.105.c
+		trigger = {
+			RUS = {
+				has_socialist_government = no
+				NOT = { has_government = social_democrat }
+				NOT = { has_government = national_populist }
+			}
+		}
+		ai_chance = {
+			base = 55
+			modifier = {
+				factor = 0.5
+				check_variable = { UKR_skoropadskyi_orientation > 0 }
+			}
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.08
+		}
+		add_political_power = -15
+		RUS = {
+			country_event = {
+				id = ukrpol.108
+				days = 2
+			}
+		}
+		UKR_skoropadsky_increase_russophiles = yes
+	}	
+}
+country_event = { # Threaten Germany
+	id = ukrpol.106
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.106" }
+	title = ukrpol.106.t
+	desc = ukrpol.106.d
+	
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_german_soldier
+
+	option = {
+		name = ukrpol.106.a
+		ai_chance = {
+			base = 10
+		}
+		remove_from_faction = FROM
+		FROM = {
+			country_event = {
+				id = ukrpol.107
+				days = 2
+			}
+		}
+	}
+	option = {
+		name = ukrpol.106.b
+		ai_chance = {
+			base = 90
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.104
+				days = 2
+			}
+		}
+	}	
+}
+country_event = { # Threaten Germany
+	id = ukrpol.107
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.107" }
+	title = ukrpol.107.t
+	desc = ukrpol.107.d
+	
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_german_garrison
+
+	option = {
+		name = ukrpol.107.a
+		ai_chance = {
+			base = 10
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hostile
+		}
+		set_country_flag = UKR_germany_refused_coop
+		#unlock_national_focus = UKR_splendid_isolation
+	}
+	option = {
+		name = ukrpol.105.c
+		trigger = {
+			RUS = {
+				has_socialist_government = no
+				NOT = { has_government = social_democrat }
+				NOT = { has_government = national_populist }
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.08
+		}
+		add_political_power = -15
+		RUS = {
+			country_event = {
+				id = ukrpol.108
+				days = 2
+			}
+		}
+		UKR_skoropadsky_increase_russophiles = yes
+	}
+}
+country_event = { # Russo-Ukrainian relations?
+	id = ukrpol.108
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.108" }
+	title = ukrpol.108.t
+	desc = ukrpol.108.d
+	
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_skoropadsky_svita_2
+
+	option = {
+		name = ukrpol.108.a
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 1.5
+				FROM = { is_ai = no }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { has_completed_focus = RUS_Realpolitik }
+			}
+		}
+		diplomatic_relation = {
+			country = FROM
+			relation = non_aggression_pact
+			active = no
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.109
+				days = 2
+			}
+		}
+	}
+	option = {
+		name = ukrpol.108.b
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 1.2
+				NOT = { has_completed_focus = RUS_Realpolitik }
+			}
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.110
+				days = 2
+			}
+		}
+	}
+}
+country_event = { # Russo-Ukrainian relations?
+	id = ukrpol.109
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.109" }
+	title = ukrpol.109.t
+	desc = ukrpol.109.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrpol.109.a
+		if = {
+			limit = { is_in_faction = yes }
+			leave_faction = yes
+		}
+		complete_national_focus = UKR_Look_Out_To_Russia
+		#unlock_national_focus = UKR_pereyaslav_treaty
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_close_allies
+		}
+		UKR_skoropadsky_increase_russophiles = yes
+	}	
+}
+country_event = { # Russo-Ukrainian relations?
+	id = ukrpol.110
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.110" }
+	title = ukrpol.110.t
+	desc = ukrpol.110.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrpol.109.a
+		set_country_flag = UKR_russia_refused_coop
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hostile
+		}
+		#unlock_national_focus = UKR_splendid_isolation
+		UKR_skoropadsky_increase_germanophiles = yes
+	}	
+}
+
+country_event = { # Kyiv Trials
+	id = ukrpol.114
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.114" }
+	title = ukrpol.114.t
+	desc = ukrpol.114.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrpol.114.a
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.1
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.1
+		}
+	}	
+}
+country_event = { # Vilne Kozatstvo
+	id = ukrpol.115
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.115" }
+	title = ukrpol.115.t
+	desc = ukrpol.115.d
+	picture = GFX_report_event_UKR_cossacks
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrpol.115.a
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.08
+		}
+		add_political_power = 15
+		UKR_improve_ukrainisation = yes
+		add_ideas = UKR_khmel_host
+		UKR_skoropadsky_increase_germanophiles = yes
+	}	
+}
+country_event = { # Regency Council
+	id = ukrpol.116
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.116" }
+	title = ukrpol.116.t
+	desc = ukrpol.116.d
+	picture = GFX_report_event_UKR_skoropadsky_svita_2
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrpol.116.a
+		set_country_flag = UKR_regency_council
+		activate_mission = UKR_regency_council_deadline
+		activate_mission = UKR_leo_stefan_propaganda
+		set_variable = { UKR_regency_leo_stefan = 20 }
+		set_variable = { UKR_regency_pavlo = 30 }
+		set_variable = { UKR_regency_danilo = 30 }
+		hidden_effect = {
+			country_event = {
+				id = ukrpol.118
+				days = 15
+			}
+		}
+	}	
+}
+country_event = { # Regency Council
+	id = ukrpol.117
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.117" }
+	title = ukrpol.117.t
+	desc = ukrpol.117.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrpol.117.a
+		add_political_power = 15		
+		UKR_regency_increase_leo_stefan = yes
+		UKR_regency_increase_skoropadskyi = yes
+		country_event = {
+			id = ukrpol.119
+			days = 15
+		}
+	}	
+}
+country_event = { # Regency Council
+	id = ukrpol.118
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.118" }
+	title = ukrpol.118.t
+	desc = ukrpol.118.d
+	picture = GFX_report_event_UKR_skoropadsky_2
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrpol.118.a
+		ai_chance = {
+			base = 65
+		}
+		set_country_flag = UKR_regency_pavlo_heir
+		unlock_decision_tooltip = UKR_skoropadskyi_propaganda
+		country_event = {
+			id = ukrpol.117
+			days = 3
+		}
+	}
+	option = {
+		name = ukrpol.118.b
+		ai_chance = {
+			base = 35
+		}
+		set_country_flag = UKR_regency_danilo_heir
+		unlock_decision_tooltip = UKR_skoropadskyi_propaganda
+		country_event = {
+			id = ukrpol.117
+			days = 3
+		}
+	}
+}
+country_event = { # Regency Council
+	id = ukrpol.119
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.119" }
+	title = ukrpol.119.t
+	desc = ukrpol.119.d
+	picture = GFX_report_event_generic_conference2
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrpol.119.a
+		ai_chance = {
+			base = 20
+		}
+		UKR_regency_increase_leo_stefan = yes
+		country_event = {
+			id = ukrpol.120
+			days = 7
+		}
+	}
+	option = {
+		name = ukrpol.119.b
+		ai_chance = {
+			base = 80
+		}
+		UKR_regency_increase_skoropadskyi = yes
+		country_event = {
+			id = ukrpol.120
+			days = 7
+		}
+	}
+}
+country_event = { # Regency Council
+	id = ukrpol.120
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.120" }
+	title = ukrpol.120.t
+	desc = ukrpol.120.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrpol.120.a
+		ai_chance = {
+			base = 20
+		}
+		UKR_regency_increase_leo_stefan = yes
+	}
+	option = {
+		name = ukrpol.120.b
+		ai_chance = {
+			base = 80
+		}
+		set_country_flag = UKR_will_become_hetmanate
+		UKR_regency_increase_skoropadskyi = yes
+	}
+}
+country_event = { # Regency Council
+	id = ukrpol.121
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.121" }
+	title = ukrpol.121.t
+	desc = ukrpol.121.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrpol.121.a
+		trigger = {
+			check_variable = { UKR_regency_leo_stefan > UKR_regency_danilo }
+			check_variable = { UKR_regency_leo_stefan > UKR_regency_pavlo }
+		}
+		UKR_create_leo_stefan = yes
+		if = {
+			limit = { has_country_flag = UKR_will_become_hetmanate }
+			set_cosmetic_tag = UKR_hetmanate
+			add_country_leader_trait = UKR_hetman_title
+			hidden_effect = {
+				get_current_government_type = yes
+				set_politics = { ruling_party = social_liberal }
+				add_country_leader_trait = UKR_hetman_title
+				set_politics = { ruling_party = market_liberal }
+				add_country_leader_trait = UKR_hetman_title
+				set_politics = { ruling_party = social_conservative }
+				add_country_leader_trait = UKR_hetman_title
+				set_politics = { ruling_party = authoritarian_democrat }
+				add_country_leader_trait = UKR_hetman_title
+				restore_previous_government_type = yes
+			}
+		}
+		else = {
+			add_country_leader_trait = UKR_king_title
+			hidden_effect = {
+				get_current_government_type = yes
+				set_politics = { ruling_party = social_liberal }
+				add_country_leader_trait = UKR_king_title
+				set_politics = { ruling_party = market_liberal }
+				add_country_leader_trait = UKR_king_title
+				set_politics = { ruling_party = social_conservative }
+				add_country_leader_trait = UKR_king_title
+				set_politics = { ruling_party = authoritarian_democrat }
+				add_country_leader_trait = UKR_king_title
+				restore_previous_government_type = yes
+			}
+		}
+		clr_country_flag = UKR_regency_council
+		set_country_flag = UKR_regency_council_over
+	}
+	option = {
+		name = ukrpol.121.b
+		trigger = {
+			check_variable = { UKR_regency_pavlo > UKR_regency_danilo }
+			check_variable = { UKR_regency_pavlo > UKR_regency_leo_stefan }
+		}
+		set_country_leader_name = {
+			ideology = paternal_autocrat
+			name = "Pavlo"
+		}
+		if = {
+			limit = { has_country_flag = UKR_will_become_hetmanate }
+			add_country_leader_trait = UKR_hetman_title
+			set_cosmetic_tag = UKR_hetmanate
+		}
+		else = {
+			add_country_leader_trait = UKR_king_title
+		}
+		clr_country_flag = UKR_regency_council
+		set_country_flag = UKR_regency_council_over
+	}
+	option = {
+		name = ukrpol.121.c
+		trigger = {
+			check_variable = { UKR_regency_danilo > UKR_regency_pavlo }
+			check_variable = { UKR_regency_danilo > UKR_regency_leo_stefan }
+		}
+		UKR_create_danylo = yes
+		if = {
+			limit = { has_country_flag = UKR_will_become_hetmanate }
+			set_cosmetic_tag = UKR_hetmanate
+			add_country_leader_trait = UKR_hetman_title
+			hidden_effect = {
+				get_current_government_type = yes
+				set_politics = { ruling_party = social_liberal }
+				add_country_leader_trait = UKR_hetman_title
+				set_politics = { ruling_party = market_liberal }
+				add_country_leader_trait = UKR_hetman_title
+				set_politics = { ruling_party = social_conservative }
+				add_country_leader_trait = UKR_hetman_title
+				set_politics = { ruling_party = authoritarian_democrat }
+				add_country_leader_trait = UKR_hetman_title
+				restore_previous_government_type = yes
+			}
+		}
+		else = {
+			add_country_leader_trait = UKR_king_title
+			hidden_effect = {
+				get_current_government_type = yes
+				set_politics = { ruling_party = social_liberal }
+				add_country_leader_trait = UKR_king_title
+				set_politics = { ruling_party = market_liberal }
+				add_country_leader_trait = UKR_king_title
+				set_politics = { ruling_party = social_conservative }
+				add_country_leader_trait = UKR_king_title
+				set_politics = { ruling_party = authoritarian_democrat }
+				add_country_leader_trait = UKR_king_title
+				restore_previous_government_type = yes
+			}
+		}
+		mark_focus_tree_layout_dirty = yes
+		clr_country_flag = UKR_regency_council
+		set_country_flag = UKR_regency_council_over
 	}
 }
 

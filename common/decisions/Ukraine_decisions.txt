@@ -58,6 +58,7 @@ UKR_dyrektoria_uprising = {
 		
 		visible = {
 			owns_state = 792
+			owns_state = 202
 		}
 		available = {
 			NOT = { has_country_flag = UKR_dyrektoria_action }
@@ -70,6 +71,7 @@ UKR_dyrektoria_uprising = {
 		targets = { GAL }
 		target_root_trigger = {
 			owns_state = 792
+			owns_state = 202
 		}
 		target_trigger = {
 			FROM = {
@@ -104,16 +106,15 @@ UKR_dyrektoria_uprising = {
 		
 		visible = {
 			owns_state = 792
+			owns_state = 202
 		}
 		available = {
 			NOT = { has_country_flag = UKR_dyrektoria_action }
 		}
 		cancel_trigger = {
 			hidden_trigger = {
-				OR = {
-					has_country_flag = UKR_dyrektoria_uprising_active
-					NOT = { owns_state = 792 }
-				}
+				NOT = { owns_state = 792 }
+				NOT = { owns_state = 202 }
 			}
 		}
 		fire_only_once = no
@@ -145,6 +146,7 @@ UKR_dyrektoria_uprising = {
 		
 		visible = {
 			owns_state = 792
+			owns_state = 202
 		}
 		available = {
 			NOT = { has_country_flag = UKR_dyrektoria_action }
@@ -153,10 +155,8 @@ UKR_dyrektoria_uprising = {
 		}
 		cancel_trigger = {
 			hidden_trigger = {
-				OR = {
-					has_country_flag = UKR_dyrektoria_uprising_active
-					NOT = { owns_state = 792 }
-				}
+				NOT = { owns_state = 792 }
+				NOT = { owns_state = 202 }
 			}
 		}
 		fire_only_once = yes
@@ -196,6 +196,7 @@ UKR_dyrektoria_uprising = {
 		
 		visible = {
 			owns_state = 792
+			owns_state = 202
 		}
 		available = {
 			NOT = { has_country_flag = UKR_dyrektoria_action }
@@ -204,10 +205,8 @@ UKR_dyrektoria_uprising = {
 		}
 		cancel_trigger = {
 			hidden_trigger = {
-				OR = {
-					has_country_flag = UKR_dyrektoria_uprising_active
-					NOT = { owns_state = 792 }
-				}
+				NOT = { owns_state = 792 }
+				NOT = { owns_state = 202 }
 			}
 		}
 		fire_only_once = yes
@@ -247,16 +246,15 @@ UKR_dyrektoria_uprising = {
 		
 		visible = {
 			owns_state = 792
+			owns_state = 202
 		}
 		available = {
 			NOT = { has_country_flag = UKR_dyrektoria_action }
 		}
 		cancel_trigger = {
 			hidden_trigger = {
-				OR = {
-					has_country_flag = UKR_dyrektoria_uprising_active
-					NOT = { owns_state = 792 }
-				}
+				NOT = { owns_state = 792 }
+				NOT = { owns_state = 202 }
 			}
 		}
 		highlight_states = {
@@ -281,7 +279,6 @@ UKR_dyrektoria_uprising = {
 			command_power > 50
 		}
 		custom_cost_text = 2500_infantry_equipment_1_cp_50
-		custom_cost_text = CP_50
 		
 		days_remove = 30
 		
@@ -394,6 +391,83 @@ UKR_dyrektoria_uprising = {
 			add_stability = -0.1
 		}
 	}
+}
+UKR_regency_council_category = {
+	UKR_regency_council_deadline = {
+		icon = GFX_decision_scales
+		
+		allowed = { always = no } #manually activated
+		
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		is_good = yes
+		selectable_mission = no
+		days_mission_timeout = 105
+		fire_only_once = yes
+		
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout UKR_regency_council_deadline"
+			country_event = ukrpol.121	
+		}
+	}
+	UKR_leo_stefan_propaganda = {
+		icon = GFX_decision_scales
+		
+		allowed = { always = no } #manually activated
+		
+		available = {
+			has_country_flag = UKR_regency_council_over
+		}
+		cancel_trigger = {
+			has_country_flag = UKR_regency_council_over
+		}
+		is_good = yes
+		selectable_mission = no
+		days_mission_timeout = 20
+		fire_only_once = no
+		
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout UKR_leo_stefan_propaganda"
+			UKR_regency_increase_leo_stefan = yes
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.02
+			}
+			hidden_effect = { activate_mission = UKR_leo_stefan_propaganda }
+		}
+	}
+	UKR_skoropadskyi_propaganda = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		
+		visible = {
+			OR = {
+				has_country_flag = UKR_regency_pavlo_heir
+				has_country_flag = UKR_regency_danilo_heir
+			}
+		}
+		cancel_trigger = {
+			has_country_flag = UKR_regency_council_over
+		}
+		
+		cost = 10
+		
+		days_re_enable = 0
+		days_remove = 15
+		fire_only_once = no
+		
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_skoropadskyi_propaganda"
+			UKR_regency_increase_skoropadskyi = yes
+			add_popularity = {
+				ideology = social_conservative
+				popularity = -0.01
+			}
+		}
+	}
+	
 }
 UKR_economy = {
 	UKR_resume_dnipro = {

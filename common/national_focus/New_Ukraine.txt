@@ -277,7 +277,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Prepare_The_Anti_Hetman_Coup"
-			country_event = ukrpol.25
+			custom_effect_tooltip = "The Kingdom will endure..."
 		}
 	}
 	focus = {
@@ -493,7 +493,6 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Hetmanate_Is_Not_Yet_Lost"
 			custom_effect_tooltip = "The enemies of our state will have no chances..."
-			hidden_effect = { country_event = ukrpol.32 }
 		}
 	}
 	
@@ -563,7 +562,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Legalize_Prosvita
-		icon = GFX_goal_EGY_Radio_Free_Cairo
+		icon = GFX_EGY_Radio_Free_Cairo
 		cost = 5
 		relative_position_id = UKR_UMP_USKhD_Coalition
 		x = -3
@@ -604,7 +603,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Constitutional_Amendments
-		icon = GFX_goal_UKR_coat_of_arms_hetman
+		icon = GFX_goal_NFA_A_New_Constitution
 		cost = 5
 		relative_position_id = UKR_UMP_USKhD_Coalition
 		x = -4
@@ -727,7 +726,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Support_Khliborobs
-		icon = GFX_goal_NEE_needy_farmers
+		icon = GFX_NEE_needy_farmers
 		cost = 5
 		relative_position_id = UKR_UMP_USKhD_Coalition
 		x = 2
@@ -1201,7 +1200,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Local_Self_Government
-		icon = GFX_goal_NEE_local_union
+		icon = GFX_NEE_local_union
 		cost = 5
 		relative_position_id = UKR_Ideological_Foundations
 		x = 0
@@ -1295,7 +1294,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Fight_Syndicalists
-		icon = GFX_goal_HOL_red_scare
+		icon = GFX_HOL_red_scare
 		cost = 5
 		relative_position_id = UKR_Ideological_Foundations
 		x = -3
@@ -1608,6 +1607,9 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Resettlement"
 		}
 	}
+	
+	
+	### Skoropadskyi Path ###
 	focus = {
 		id = UKR_Explosion_Dnieper
 		icon = GFX_goal_UKR_coat_of_arms_hetman
@@ -1640,6 +1642,11 @@ focus_tree = {
 		}
 		available = {
 			UKR_pavlo_skoropadsky_in_power = yes
+			OR = {
+				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+				has_global_flag = UPR_ukrainian_civil_war_ended
+				has_global_flag = UPR_dyrektoria_joined_peacefully
+			}
 		}
 		ai_will_do = {
 			factor = 60
@@ -1652,7 +1659,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Outlaw_Radicalism
-		icon = GFX_goal_TEX_outlaw_union
+		icon = GFX_goal_DKB_Trial
 		cost = 5
 		relative_position_id = UKR_Explosion_Dnieper
 		x = -2
@@ -1662,12 +1669,18 @@ focus_tree = {
 		}
 		available = {
 			UKR_pavlo_skoropadsky_in_power = yes
+			OR = {
+				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+				has_global_flag = UPR_ukrainian_civil_war_ended
+				has_global_flag = UPR_dyrektoria_joined_peacefully
+			}
 		}
 		ai_will_do = {
 			factor = 60
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Outlaw_Radicalism"
+			country_event = ukrpol.114
 		}
 	}
 	focus = {
@@ -1682,12 +1695,18 @@ focus_tree = {
 		}
 		available = {
 			UKR_pavlo_skoropadsky_in_power = yes
+			OR = {
+				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+				has_global_flag = UPR_ukrainian_civil_war_ended
+				has_global_flag = UPR_dyrektoria_joined_peacefully
+			}
 		}
 		ai_will_do = {
 			factor = 60
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Settle_the_Austrian_Issues"
+			AUS = { country_event = ukrpol.100 }
 		}
 	}
 	focus = {
@@ -1708,6 +1727,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Prohibit_Syndicalism"
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.05
+			}
 		}
 	}
 	focus = {
@@ -1731,16 +1754,42 @@ focus_tree = {
 		}
 		available = {
 			NOT = { has_idea = UKR_black_monday }
+			NOT = { has_country_flag = UKR_germany_refused_coop }
+			is_in_faction_with = GER
 			GER = {
 				has_completed_focus = GER_black_monday_finish
 			}
 			UKR_pavlo_skoropadsky_in_power = yes
+			has_relation_modifier = {
+				target = GER
+				modifier = UKR_GER_no_help_agr_crisis
+			}
+		}
+		bypass = {
+			OR = {
+				has_relation_modifier = {
+					target = GER
+					modifier = UKR_GER_help_agr_crisis
+				}
+				NOT = { is_in_faction_with = GER }
+				has_country_flag = UKR_germany_refused_coop
+			}
+		}
+		select_effect = {
+			GER = {
+				country_event = {
+					id = ukrpol.103
+					days = 2
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 60
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Threaten_Germany"
+			custom_effect_tooltip = "We must establish good relations with our allies in Berlin"
+			UKR_skoropadsky_increase_germanophiles = yes
 		}
 	}
 	focus = {
@@ -1764,6 +1813,7 @@ focus_tree = {
 		}
 		available = {
 			NOT = { has_idea = UKR_black_monday }
+			NOT = { has_country_flag = UKR_russia_refused_coop }
 			GER = {
 				has_completed_focus = GER_black_monday_finish
 			}
@@ -1774,11 +1824,24 @@ focus_tree = {
 			}
 			UKR_pavlo_skoropadsky_in_power = yes
 		}
+		bypass = {
+			has_country_flag = UKR_russia_refused_coop
+		}
+		select_effect = {
+			RUS = {
+				country_event = {
+					id = ukrpol.108
+					days = 6
+				}
+			}
+		}
 		ai_will_do = {
 			factor = 60
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Look_Out_To_Russia"
+			custom_effect_tooltip = "We must establish good relations with Russia"
+			UKR_skoropadsky_increase_russophiles = yes
 		}
 	}
 	focus = {
@@ -1799,6 +1862,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Look_Out_To_Russia"			
+			add_ideas = UKR_Local_radas
 		}
 	}
 	focus = {
@@ -1821,7 +1885,14 @@ focus_tree = {
 			factor = 60
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus UKR_Army_Reforms"			
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Army_Reforms"
+			army_experience = 25
+			add_ideas = Hetman_army
+			effect_tooltip = {
+				unlock_national_focus = UKR_doctrinal_experimentation
+				unlock_national_focus = UKR_lessons_of_the_weltkrieg
+			}
+			UKR_increase_military_opinion_hetman = yes
 		}
 	}
 	focus = {
@@ -1845,7 +1916,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Peasant_State"
-			add_ideas = UKR_Peasant_state			
+			add_ideas = UKR_Peasant_state		
+			UKR_increase_peasants_opinion_hetman = yes
 		}
 	}
 	focus = {
@@ -1861,12 +1933,17 @@ focus_tree = {
 		}
 		available = {
 			UKR_pavlo_skoropadsky_in_power = yes
+			has_idea = UKR_Rada_diss
+		}
+		bypass = {
+			NOT = { has_idea = UKR_Rada_diss }
 		}
 		ai_will_do = {
 			factor = 60
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_End_The_Martial_Law"
+			remove_ideas = UKR_Rada_diss
 		}
 	}
 	focus = {
@@ -1885,6 +1962,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Revive_Ukrainisation"
 			UKR_improve_ukrainisation = yes
+			UKR_skoropadsky_increase_germanophiles = yes			
 		}
 	}
 	focus = {
@@ -1905,12 +1983,13 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Restore_Vilne_Kozatstvo"
+			country_event = ukrpol.115
 		}
 	}
 	focus = {
 		id = UKR_Regency_Council
 		icon = GFX_goal_UKR_coat_of_arms_hetman
-		cost = 5
+		cost = 15
 		relative_position_id = UKR_Explosion_Dnieper
 		x = 0
 		y = 5
@@ -1926,11 +2005,18 @@ focus_tree = {
 		available = {
 			UKR_pavlo_skoropadsky_in_power = yes
 		}
+		select_effect = {
+			country_event = {
+				id = ukrpol.116
+				days = 2
+			}
+		}
 		ai_will_do = {
 			factor = 60
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Regency_Council"
+			custom_effect_tooltip = "The Regency Council will decide the fate of Ukraine"
 		}
 	}
 	focus = {
@@ -1943,11 +2029,16 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_Regency_Council
 		}
+		available = {
+			UKR_pavlo_skoropadsky_in_power = yes
+			has_country_flag = UKR_regency_council_over
+		}
 		ai_will_do = {
 			factor = 60
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Hetman_Of_All_Ukraine"
+			custom_effect_tooltip = unlock_focuses
 		}
 	}	
 	focus = {
@@ -1968,6 +2059,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Legacy_Of_Imperial_Russia"
+			UKR_skoropadsky_increase_russophiles = yes
 		}
 	}
 	focus = {
@@ -2005,6 +2097,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Restructure_The_Bureaucracy"
+			UKR_increase_bureaucrat_opinion_hetman = yes
 		}
 	}
 	focus = {
@@ -2025,6 +2118,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Support_The_Protofis"
+			UKR_skoropadsky_increase_russophiles = yes
+			UKR_increase_Protofis_opinion_hetman = yes
 		}
 	}
 	focus = {
@@ -2035,7 +2130,10 @@ focus_tree = {
 		x = -1
 		y = 8
 		available = {
-			has_completed_focus = UKR_Threaten_Germany
+			OR = {
+				is_in_faction_with = GER
+				GER_is_in_mitteleuropa = yes
+			}
 		}
 		prerequisite = {
 			focus = UKR_Restructure_The_Bureaucracy
@@ -2051,6 +2149,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_New_German_Contracts"
+			UKR_skoropadsky_increase_germanophiles = yes
+			UKR_decrease_Protofis_opinion_hetman = yes
 		}
 	}
 	focus = {
@@ -2068,6 +2168,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_The_New_Ukrainian_Aristocracy"
+			UKR_increase_landowners_opinion_hetman = yes
 		}
 	}
 	focus = {
@@ -2088,11 +2189,13 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Ukrainian_Agrarism_Skoropadsky"
+			UKR_skoropadsky_increase_germanophiles = yes
+			UKR_increase_farmers_opinion_hetman = yes
 		}
 	}
 	focus = {
 		id = UKR_Finish_The_Banditry
-		icon = GFX_goal_UKR_coat_of_arms_hetman
+		icon = GFX_BRY_Ignore_Banditry
 		cost = 5
 		relative_position_id = UKR_Explosion_Dnieper
 		x = -3
@@ -2126,6 +2229,8 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Ukrainian_Church_Significant"
 			UKR_improve_ukrainisation = yes
+			UKR_skoropadsky_increase_germanophiles = yes
+			UKR_increase_church_opinion_hetman = yes
 		}
 	}
 	focus = {
@@ -2172,6 +2277,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Science_Development_Grants"
+			add_research_slot = 1
 		}
 	}
 	focus = {
@@ -2197,6 +2303,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Smallholding_Aspiration"
+			UKR_increase_farmers_opinion_hetman = yes
+			UKR_decrease_landowners_opinion_king = yes
 		}
 	}
 
@@ -2587,6 +2695,7 @@ focus_tree = {
 		x = 2
 		y = 2
 		available = {
+			UKR_pavlo_skoropadsky_in_power = yes
 			OR = {
 				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
 				has_global_flag = UPR_ukrainian_civil_war_ended
@@ -2696,6 +2805,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_State_Sponsored_Construction_Works"
+			UKR_reduce_black_monday = yes
 			random_owned_controlled_state = {
 				increase_state_category_by_one_level = yes
 			}
@@ -2778,12 +2888,10 @@ focus_tree = {
 		x = 1
 		y = 3
 		available = {
-			has_country_flag = UKR_agriculture_crisis
 			UKR_ump_uskhd_in_power = no
-			GER_is_in_mitteleuropa = no
+			NOT = { GER_is_in_mitteleuropa = yes }
 		}
 		bypass = {
-			NOT = { has_country_flag = UKR_agriculture_crisis }
 			UKR_ump_uskhd_in_power = yes
 			GER_is_in_mitteleuropa = yes
 		}

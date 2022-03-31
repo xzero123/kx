@@ -43,7 +43,7 @@ UKR_yevhen_konovalets_in_power = {
 }
 UKR_leo_stefan_in_power = {
 	has_country_leader = {
-		name = "Leo Stefan"
+		name = "Lev II"
 		ruling_only = yes
 	}
 }
@@ -60,10 +60,40 @@ UKR_andriy_melnyk_in_power = {
 	}
 }
 UKR_pavlo_skoropadsky_in_power = {
-	has_country_leader = {
-		name = "Pavlo Skoropadskyi"
-		ruling_only = yes
+	if = {
+		limit = {
+			has_country_leader = {
+				name = "Pavlo Skoropadskyi"
+				ruling_only = yes
+			}
+		}
+		meta_trigger = {
+			text = {
+				has_country_leader = {
+					name = "[LEADER_NAME]"
+					ruling_only = yes
+				}
+			}
+			LEADER_NAME = "Pavlo Skoropadskyi"
+		}
 	}
+	else_if = {
+		limit = {
+			has_country_leader = {
+				name = "Pavlo"
+				ruling_only = yes
+			}
+		}
+		meta_trigger = {
+			text = {
+				has_country_leader = {
+					name = "[LEADER_NAME]"
+					ruling_only = yes
+				}
+			}
+			LEADER_NAME = "Pavlo"
+		}
+	}	
 }
 UKR_dmytro_dontsov_in_power = {
 	has_country_leader = {

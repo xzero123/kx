@@ -16,6 +16,11 @@ UKR_setup_political_variables = {
 	set_variable = { UKR_workers_alignment = 0 }
 	set_variable = { UKR_peasant_alignment = 1 }
 	
+	set_variable = { UKR_minimum_alignment = -2 }
+	
+	set_variable = { UKR_skoropadskyi_russophiles = 0 }
+	set_variable = { UKR_skoropadskyi_germanophils = 10 }
+	
 	recalculate_ukrainian_political_variables = yes
 	
 	set_variable = { UKR_petliura_authority = 3 }
@@ -41,43 +46,43 @@ recalculate_ukrainian_political_variables = {
 	}
 	clamp_variable = {
 		var = UKR_military_alignment
-		min = -3
-		max = 3
+		min = UKR_minimum_alignment
+		max = 2
 	}
 	clamp_variable = {
 		var = UKR_landowners_alignment
-		min = -3
-		max = 3
+		min = UKR_minimum_alignment
+		max = 2
 	}
 	clamp_variable = {
 		var = UKR_bureaucrat_alignment
-		min = -3
-		max = 3
+		min = UKR_minimum_alignment
+		max = 2
 	}
 	clamp_variable = {
 		var = UKR_church_alignment
-		min = -3
-		max = 3
+		min = UKR_minimum_alignment
+		max = 2
 	}
 	clamp_variable = {
 		var = UKR_business_alignment
-		min = -3
-		max = 3
+		min = UKR_minimum_alignment
+		max = 2
 	}
 	clamp_variable = {
 		var = UKR_farmers_alignment
-		min = -3
-		max = 3
+		min = UKR_minimum_alignment
+		max = 2
 	}
 	clamp_variable = {
 		var = UKR_workers_alignment
-		min = -3
-		max = 3
+		min = UKR_minimum_alignment
+		max = 2
 	}
 	clamp_variable = {
 		var = UKR_peasant_alignment
-		min = -3
-		max = 3
+		min = UKR_minimum_alignment
+		max = 2
 	}	
 	set_variable = { UKR_Direktoriia_Strength_real = UKR.party_popularity@social_democrat }
 	add_to_variable = { UKR_Direktoriia_Strength_real = UKR.party_popularity@social_liberal }
@@ -111,6 +116,16 @@ recalculate_ukrainian_political_variables = {
 		add_to_variable = { UKR_Hetman_Strenth_real = UKR.party_popularity@social_liberal }
 	}
 	multiply_variable = { UKR_Hetman_Strenth_real = UKR_Hetman_Strenth }
+	
+	set_temp_variable = { UKR_society_support = 0 }
+	add_to_temp_variable = { UKR_society_support = UKR_military_alignment }
+	add_to_temp_variable = { UKR_society_support = UKR_bureaucrat_alignment }
+	add_to_temp_variable = { UKR_society_support = UKR_landowners_alignment }
+	add_to_temp_variable = { UKR_society_support = UKR_church_alignment }
+	add_to_temp_variable = { UKR_society_support = UKR_business_alignment }
+	add_to_temp_variable = { UKR_society_support = UKR_farmers_alignment }
+	add_to_temp_variable = { UKR_society_support = UKR_workers_alignment }
+	add_to_temp_variable = { UKR_society_support = UKR_peasant_alignment }
 }
 	
 UKR_increase_king = {
@@ -435,8 +450,88 @@ UKR_increase_peasants_opinion_king = {
 	add_to_variable = { UKR_peasant_alignment = -1 }
 	recalculate_ukrainian_political_variables = yes
 }
-
-
+UKR_skoropadsky_increase_russophiles = {
+	custom_effect_tooltip = UKR_skoropadsky_increase_russophiles_tt
+	add_to_variable = { UKR_skoropadskyi_russophiles = -1 }
+	add_to_variable = { UKR_skoropadskyi_germanophils = -1 }
+	
+	clamp_variable = {
+		var = UKR_skoropadskyi_russophiles
+		min = -20
+		max = 20
+	}
+	clamp_variable = {
+		var = UKR_skoropadskyi_germanophils
+		min = -20
+		max = 20
+	}
+	
+	set_variable = { UKR_skoropadskyi_orientation = 0 }
+	add_to_variable = { UKR_skoropadskyi_orientation = UKR_skoropadskyi_russophiles }
+	add_to_variable = { UKR_skoropadskyi_orientation = UKR_skoropadskyi_germanophils }
+	divide_variable = { UKR_skoropadskyi_orientation = 2 }
+	
+}
+UKR_skoropadsky_increase_germanophiles = {
+	custom_effect_tooltip = UKR_skoropadsky_increase_germanophiles_tt
+	add_to_variable = { UKR_skoropadskyi_russophiles = 1 }
+	add_to_variable = { UKR_skoropadskyi_germanophils = 1 }
+		
+	clamp_variable = {
+		var = UKR_skoropadskyi_russophiles
+		min = -20
+		max = 20
+	}
+	clamp_variable = {
+		var = UKR_skoropadskyi_germanophils
+		min = -20
+		max = 20
+	}
+	
+	set_variable = { UKR_skoropadskyi_orientation = 0 }
+	add_to_variable = { UKR_skoropadskyi_orientation = UKR_skoropadskyi_russophiles }
+	add_to_variable = { UKR_skoropadskyi_orientation = UKR_skoropadskyi_germanophils }
+	divide_variable = { UKR_skoropadskyi_orientation = 2 }
+}
+UKR_regency_increase_leo_stefan = {
+	custom_effect_tooltip = UKR_regency_increase_leo_stefan_tt
+	hidden_effect = {
+		random_list = {
+			15 = { add_to_variable = { UKR_regency_leo_stefan = 6 } }
+			22 = { add_to_variable = { UKR_regency_leo_stefan = 8 } }
+			25 = { add_to_variable = { UKR_regency_leo_stefan = 10 } }
+			23 = { add_to_variable = { UKR_regency_leo_stefan = 12 } }
+			15 = { add_to_variable = { UKR_regency_leo_stefan = 15 } }
+		}
+	}
+}
+UKR_regency_increase_skoropadskyi = {
+	if = {
+		limit = { has_country_flag = UKR_regency_pavlo_heir }
+		custom_effect_tooltip = UKR_regency_increase_pavlo_tt
+		hidden_effect = {
+			random_list = {
+				15 = { add_to_variable = { UKR_regency_pavlo = 6 } }
+				22 = { add_to_variable = { UKR_regency_pavlo = 8 } }
+				25 = { add_to_variable = { UKR_regency_pavlo = 10 } }
+				23 = { add_to_variable = { UKR_regency_pavlo = 12 } }
+				15 = { add_to_variable = { UKR_regency_pavlo = 15 } }
+			}
+		}
+	}
+	else = {
+		custom_effect_tooltip = UKR_regency_increase_danilo_tt
+		hidden_effect = {
+			random_list = {
+				15 = { add_to_variable = { UKR_regency_danilo = 6 } }
+				22 = { add_to_variable = { UKR_regency_danilo = 8 } }
+				25 = { add_to_variable = { UKR_regency_danilo = 10 } }
+				23 = { add_to_variable = { UKR_regency_danilo = 12 } }
+				15 = { add_to_variable = { UKR_regency_danilo = 15 } }
+			}
+		}
+	}
+}
 
 
 
@@ -488,6 +583,11 @@ UKR_improve_ukrainisation = {
 		swap_ideas = {
 			remove_idea = UKR_lingering_ukrainisation
 			add_idea = UKR_ukrainisation_efforts
+		}
+		hidden_effect = {
+			country_event = { id = ukrmisc.4 days = 88 random = 300 }   	# Taras Bulba
+			country_event = { id = ukrmisc.12 days = 143 random = 300 }   	# Bilokur
+			country_event = { id = ukrmisc.15 days = 212 random = 300 }   	# Ukrainka
 		}
 	}
 	else = {
@@ -636,39 +736,39 @@ UKR_create_vasyl = {
 UKR_create_leo_stefan = {
 	hidden_effect = {
 		create_country_leader = {
-			name = "Leo Stefan"
+			name = "Lev II"
 			desc = "POLITICS_LEO_STEFAN_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Leo_Stefan_Habsburg.png"
 			expire = "1965.1.1"
-			ideology = social_democrat_subtype
+			ideology = national_liberalism_subtype
 		}
 		create_country_leader = {
-			name = "Leo Stefan"
+			name = "Lev II"
 			desc = "POLITICS_LEO_STEFAN_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Leo_Stefan_Habsburg.png"
 			expire = "1965.1.1"
-			ideology = social_liberal_subtype
+			ideology = marlib_national_liberalism_subtype
 		}
 		create_country_leader = {
-			name = "Leo Stefan"
+			name = "Lev II"
 			desc = "POLITICS_LEO_STEFAN_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Leo_Stefan_Habsburg.png"
 			expire = "1965.1.1"
-			ideology = market_liberal_subtype
+			ideology = national_conservative_subtype
 		}
 		create_country_leader = {
-			name = "Leo Stefan"
+			name = "Lev II"
 			desc = "POLITICS_LEO_STEFAN_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Leo_Stefan_Habsburg.png"
 			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
+			ideology = oligarchy_subtype
 		}
 		create_country_leader = {
-			name = "Leo Stefan"
+			name = "Lev II"
 			desc = "POLITICS_LEO_STEFAN_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Leo_Stefan_Habsburg.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = pataut_cossack_subtype
 		}
 	}
 }
@@ -680,35 +780,35 @@ UKR_create_danylo = {
 			desc = "POLITICS_DANYLO_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Danylo_Skoropadsky.png"
 			expire = "1965.1.1"
-			ideology = social_democrat_subtype
+			ideology = national_liberalism_subtype
 		}
 		create_country_leader = {
 			name = "Danylo"
 			desc = "POLITICS_DANYLO_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Danylo_Skoropadsky.png"
 			expire = "1965.1.1"
-			ideology = social_liberal_subtype
+			ideology = marlib_national_liberalism_subtype
 		}
 		create_country_leader = {
 			name = "Danylo"
 			desc = "POLITICS_DANYLO_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Danylo_Skoropadsky.png"
 			expire = "1965.1.1"
-			ideology = market_liberal_subtype
+			ideology = national_conservative_subtype
 		}
 		create_country_leader = {
 			name = "Danylo"
 			desc = "POLITICS_DANYLO_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Danylo_Skoropadsky.png"
 			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
+			ideology = oligarchy_subtype
 		}
 		create_country_leader = {
 			name = "Danylo"
 			desc = "POLITICS_DANYLO_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Danylo_Skoropadsky.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = pataut_cossack_subtype
 		}
 	}
 }

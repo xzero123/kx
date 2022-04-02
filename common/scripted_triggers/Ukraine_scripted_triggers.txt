@@ -60,39 +60,9 @@ UKR_andriy_melnyk_in_power = {
 	}
 }
 UKR_pavlo_skoropadsky_in_power = {
-	if = {
-		limit = {
-			has_country_leader = {
-				name = "Pavlo Skoropadskyi"
-				ruling_only = yes
-			}
-		}
-		meta_trigger = {
-			text = {
-				has_country_leader = {
-					name = "[LEADER_NAME]"
-					ruling_only = yes
-				}
-			}
-			LEADER_NAME = "Pavlo Skoropadskyi"
-		}
-	}
-	else_if = {
-		limit = {
-			has_country_leader = {
-				name = "Pavlo"
-				ruling_only = yes
-			}
-		}
-		meta_trigger = {
-			text = {
-				has_country_leader = {
-					name = "[LEADER_NAME]"
-					ruling_only = yes
-				}
-			}
-			LEADER_NAME = "Pavlo"
-		}
+	has_country_leader = {
+		name = "Pavlo Skoropadskyi"
+		ruling_only = yes
 	}	
 }
 UKR_dmytro_dontsov_in_power = {
@@ -111,4 +81,89 @@ UKR_ump_uskhd_in_power = {
 		has_government = social_conservative
 		has_government = authoritarian_democrat
 	}
+}
+UKR_dyrektoria_in_power = {
+	OR = {
+		UKR_vynnychenko_in_power = yes
+		UKR_petliura_in_power = yes
+		UKR_andriy_melnyk_in_power = yes
+		UKR_yevhen_konovalets_in_power = yes
+	}
+	NOT = { has_global_flag = UKR_civil_war }
+	NOT = { has_country_flag = UKR_first_free_elections }
+	has_global_flag = UPR_dyrektoria_uprising_UPR
+	owns_state = 202
+}
+UKR_vynnychenko_in_power = {
+	has_country_leader = {
+		name = "Volodymyr Vynnychenko"
+		ruling_only = yes
+	}
+}
+UKR_petliura_in_power = {
+	has_country_leader = {
+		name = "Symon Petliura"
+		ruling_only = yes
+	}
+}
+
+is_east_ukrainian_state = {
+	capital_scope = {
+		region = 165
+	}
+}
+is_west_ukrainian_state = {
+	capital_scope = {
+		region = 130 
+	}
+}
+is_core_hetmanate_state = {
+	OR = {
+		state = 193
+		state = 1237
+		state = 202
+		state = 1244
+		state = 201
+		state = 1240
+		state = 198
+		state = 1241
+		state = 203
+		state = 1233
+		state = 1237
+		state = 1238
+		state = 259
+		state = 1243
+		state = 200
+		state = 226
+	}
+}
+is_polish_claim_in_ukraine = {
+	OR = {
+		state = 93
+		state = 997
+		state = 792
+		state = 1228
+		state = 199
+	}
+}
+is_russian_majority_in_ukraine = {
+	OR = {
+		state = 741
+		state = 1232
+		state = 197
+		state = 196
+		state = 1220
+		state = 137
+		state = 1221
+		state = 1234
+		state = 200
+		state = 228
+		state = 227
+		state = 1239
+		state = 1243
+		state = 221
+		state = 225
+		state = 1242
+		state = 1230
+		state = 226
 }

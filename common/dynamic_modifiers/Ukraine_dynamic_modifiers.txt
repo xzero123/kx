@@ -16,3 +16,28 @@ UKR_breadbasket_of_europe_modifier = {
 	production_factory_efficiency_gain_factor = UKR_breadbasket_of_europe_production_growth #-0.15
 	
 }
+UKR_famine_modifier = {
+	enable = { always = yes }
+	remove_trigger = { always = no }
+
+	monthly_population = UKR_famine_monthly_population
+	conscription_factor = UKR_famine_conscription_factor
+	consumer_goods_factor = UKR_famine_consumer_goods_factor
+	stability_factor = UKR_famine_stability_factor
+	war_support_factor = UKR_famine_war_support_factor
+	industrial_capacity_factory = UKR_famine_industrial_capacity_factory
+	
+}
+UKR_skoropadskyi_policy = {
+	enable = { UKR_pavlo_skoropadsky_in_power = yes }
+	remove_trigger = { UKR_pavlo_skoropadsky_in_power = no }
+	
+	war_support_factor = UKR_shd_army_var
+	political_power_gain = UKR_shd_bureaucrats_var
+	stability_factor = UKR_shd_church_var
+	local_resources_factor = UKR_shd_landowners_var
+	production_factory_efficiency_gain_factor = UKR_shd_protofis_var
+	monthly_population = UKR_shd_smallholders_var
+	industrial_capacity_factory = UKR_shd_workers_var
+	supply_consumption_factor = UKR_shd_peasants_var
+}

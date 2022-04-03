@@ -559,3 +559,464 @@ defined_text = {
 		localization_key = UKR_popularity_love_dyrektoria_plural
 	}	
 }
+defined_text = {
+	name = UKR_society_alignment
+	text = {
+		trigger = {
+			check_variable = { UKR_society_support = 0 }
+		}
+		localization_key = UKR_popularity_neutral_singular
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_society_support < 0 }
+			check_variable = { UKR_society_support > -8 }
+		}
+		localization_key = UKR_popularity_lean_king_singular
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_society_support < -7 }
+		}
+		localization_key = UKR_popularity_favours_king_singular
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_society_support > 0 }
+			check_variable = { UKR_society_support < 8 }
+		}
+		localization_key = UKR_popularity_lean_hetman_singular
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_society_support > 8 }
+		}
+		localization_key = UKR_popularity_favours_hetman_singular
+	}
+}
+	
+
+
+defined_text = {
+	name = UKR_famine_population_growth
+	text = {
+		trigger = {
+			check_variable = { UKR.UKR_famine_monthly_population < 0 }
+			AND = {
+				check_variable = { UKR.UKR_famine_conscription_factor = 0 }
+				check_variable = { UKR.UKR_famine_consumer_goods_factor = 0 }
+				check_variable = { UKR.UKR_famine_stability_factor = 0 }
+				check_variable = { UKR.UKR_famine_war_support_factor = 0 }
+				check_variable = { UKR.UKR_famine_industrial_capacity_factory = 0 }
+			}
+		}
+		localization_key = UKR_famine_population_growth_text_last
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR.UKR_famine_monthly_population < 0 }
+		}
+		localization_key = UKR_famine_population_growth_text
+	}
+	text = {
+		localization_key = ""
+	}
+}
+
+defined_text = {
+	name = UKR_famine_recruitable_population
+	text = {
+		trigger = {
+			check_variable = { UKR.UKR_famine_conscription_factor < 0 }
+			AND = {
+				check_variable = { UKR.UKR_famine_consumer_goods_factor = 0 }
+				check_variable = { UKR.UKR_famine_stability_factor = 0 }
+				check_variable = { UKR.UKR_famine_war_support_factor = 0 }
+				check_variable = { UKR.UKR_famine_industrial_capacity_factory = 0 }
+			}
+		}
+		localization_key = UKR_famine_recruitable_population_text_last
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR.UKR_famine_conscription_factor < 0 }
+		}
+		localization_key = UKR_famine_recruitable_population_text
+	}
+	text = {
+		localization_key = ""
+	}
+}
+
+defined_text = {
+	name = UKR_famine_consumer_goods
+	text = {
+		trigger = {
+			check_variable = { UKR.UKR_famine_consumer_goods_factor > 0 }
+			AND = {
+				check_variable = { UKR.UKR_famine_stability_factor = 0 }
+				check_variable = { UKR.UKR_famine_war_support_factor = 0 }
+				check_variable = { UKR.UKR_famine_industrial_capacity_factory = 0 }
+			}
+		}
+		localization_key = UKR_famine_consumer_goods_text_last
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR.UKR_famine_consumer_goods_factor > 0 }
+		}
+		localization_key = UKR_famine_consumer_goods_text
+	}
+	text = {
+		localization_key = ""
+	}
+}
+
+defined_text = {
+	name = UKR_famine_stability
+	text = {
+		trigger = {
+			check_variable = { UKR.UKR_famine_stability_factor < 0 }
+			AND = {
+				check_variable = { UKR.UKR_famine_war_support_factor = 0 }
+				check_variable = { UKR.UKR_famine_industrial_capacity_factory = 0 }
+			}
+		}
+		localization_key = UKR_famine_stability_text_last
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR.UKR_famine_stability_factor < 0 }
+		}
+		localization_key = UKR_famine_stability_text
+	}
+	text = {
+		localization_key = ""
+	}
+}
+
+defined_text = {
+	name = UKR_famine_war_support
+	text = {
+		trigger = {
+			check_variable = { UKR.UKR_famine_war_support_factor < 0 }
+			check_variable = { UKR.UKR_famine_industrial_capacity_factory = 0 }
+		}
+		localization_key = UKR_famine_war_support_text_last
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR.UKR_famine_war_support_factor < 0 }
+		}
+		localization_key = UKR_famine_war_support_text
+	}
+	text = {
+		localization_key = ""
+	}
+}
+
+defined_text = {
+	name = UKR_famine_factory_output
+	text = {
+		trigger = {
+			check_variable = { UKR.UKR_famine_industrial_capacity_factory < 0 }
+		}
+		localization_key = UKR_famine_factory_output_text
+	}
+	text = {
+		localization_key = ""
+	}
+}
+defined_text = {
+	name = GetUKR_SGDModifiers
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { 
+					var = UKR.UKR_shd_army_var
+					value = 0
+					compare = not_equals
+				}
+				check_variable = { 
+					var = UKR.UKR_shd_bureaucrats_var
+					value = 0
+					compare = not_equals
+				}
+				check_variable = { 
+					var = UKR.UKR_shd_church_var
+					value = 0
+					compare = not_equals
+				}
+				check_variable = { 
+					var = UKR.UKR_shd_landowners_var
+					value = 0
+					compare = not_equals
+				}
+				check_variable = { 
+					var = UKR.UKR_shd_protofis_var
+					value = 0
+					compare = not_equals
+				}
+				check_variable = { 
+					var = UKR.UKR_shd_smallholders_var
+					value = 0
+					compare = not_equals
+				}
+				check_variable = { 
+					var = UKR.UKR_shd_workers_var
+					value = 0
+					compare = not_equals
+				}
+				check_variable = { 
+					var = UKR.UKR_shd_peasants_var
+					value = 0
+					compare = not_equals
+				}
+			}
+		}
+		localization_key = UKR_skoropadskyi_policy_modifiers
+	}
+	text = {
+		localization_key = ""
+	}
+}
+defined_text = {
+	name = UKR_shd_war_support
+	text = {
+		trigger = {
+			check_variable = { 
+				var = UKR.UKR_shd_army_var
+				value = 0
+				compare = not_equals
+			}
+			AND = {
+				check_variable = { UKR.UKR_shd_bureaucrats_var = 0 }
+				check_variable = { UKR.UKR_shd_church_var = 0 }
+				check_variable = { UKR.UKR_shd_landowners_var = 0 }
+				check_variable = { UKR.UKR_shd_protofis_var = 0 }
+				check_variable = { UKR.UKR_shd_smallholders_var = 0 }
+				check_variable = { UKR.UKR_shd_workers_var = 0 }
+				check_variable = { UKR.UKR_shd_peasants_var = 0 }
+			}
+		}
+		localization_key = UKR_shd_war_support_text_last
+	}
+	text = {
+		trigger = {
+			check_variable = { 
+				var = UKR.UKR_shd_army_var
+				value = 0
+				compare = not_equals
+			}
+		}
+		localization_key = UKR_shd_war_support_text
+	}
+	text = {
+		localization_key = ""
+	}
+}
+defined_text = {
+	name = UKR_shd_political_power_gain
+	text = {
+		trigger = {
+			check_variable = { 
+				var = UKR.UKR_shd_bureaucrats_var
+				value = 0
+				compare = not_equals
+			}
+			AND = {
+				check_variable = { UKR.UKR_shd_church_var = 0 }
+				check_variable = { UKR.UKR_shd_landowners_var = 0 }
+				check_variable = { UKR.UKR_shd_protofis_var = 0 }
+				check_variable = { UKR.UKR_shd_smallholders_var = 0 }
+				check_variable = { UKR.UKR_shd_workers_var = 0 }
+				check_variable = { UKR.UKR_shd_peasants_var = 0 }
+			}
+		}
+		localization_key = UKR_shd_pp_text_last
+	}
+	text = {
+		trigger = {
+			check_variable = { 
+				var = UKR.UKR_shd_bureaucrats_var
+				value = 0
+				compare = not_equals
+			}
+		}
+		localization_key = UKR_shd_pp_text
+	}
+	text = {
+		localization_key = ""
+	}
+}
+defined_text = {
+	name = UKR_shd_stability_factor
+	text = {
+		trigger = {
+			check_variable = { 
+				var = UKR.UKR_shd_church_var
+				value = 0
+				compare = not_equals
+			}
+			AND = {
+				check_variable = { UKR.UKR_shd_landowners_var = 0 }
+				check_variable = { UKR.UKR_shd_protofis_var = 0 }
+				check_variable = { UKR.UKR_shd_smallholders_var = 0 }
+				check_variable = { UKR.UKR_shd_workers_var = 0 }
+				check_variable = { UKR.UKR_shd_peasants_var = 0 }
+			}
+		}
+		localization_key = UKR_shd_stability_text_last
+	}
+	text = {
+		trigger = {
+			check_variable = { 
+				var = UKR.UKR_shd_church_var
+				value = 0
+				compare = not_equals
+			}
+		}
+		localization_key = UKR_shd_stability_text
+	}
+	text = {
+		localization_key = ""
+	}
+}
+defined_text = {
+	name = UKR_shd_local_resources
+	text = {
+		trigger = {
+			check_variable = { 
+				var = UKR.UKR_shd_landowners_var
+				value = 0
+				compare = not_equals
+			}
+			AND = {
+				check_variable = { UKR.UKR_shd_protofis_var = 0 }
+				check_variable = { UKR.UKR_shd_smallholders_var = 0 }
+				check_variable = { UKR.UKR_shd_workers_var = 0 }
+				check_variable = { UKR.UKR_shd_peasants_var = 0 }
+			}
+		}
+		localization_key = UKR_shd_local_resources_text_last
+	}
+	text = {
+		trigger = {
+			check_variable = { 
+				var = UKR.UKR_shd_landowners_var
+				value = 0
+				compare = not_equals
+			}
+		}
+		localization_key = UKR_shd_local_resources_text
+	}
+	text = {
+		localization_key = ""
+	}
+}
+defined_text = {
+	name = UKR_shd_production_efficiency
+	text = {
+		trigger = {
+			check_variable = { 
+				var = UKR.UKR_shd_protofis_var
+				value = 0
+				compare = not_equals
+			}
+			AND = {
+				check_variable = { UKR.UKR_shd_smallholders_var = 0 }
+				check_variable = { UKR.UKR_shd_workers_var = 0 }
+				check_variable = { UKR.UKR_shd_peasants_var = 0 }
+			}
+		}
+		localization_key = UKR_shd_production_efficiency_text_last
+	}
+	text = {
+		trigger = {
+			check_variable = { 
+				var = UKR.UKR_shd_protofis_var
+				value = 0
+				compare = not_equals
+			}
+		}
+		localization_key = UKR_shd_production_efficiency_text
+	}
+	text = {
+		localization_key = ""
+	}
+}
+defined_text = {
+	name = UKR_shd_monthly_population
+	text = {
+		trigger = {
+			check_variable = { 
+				var = UKR.UKR_shd_smallholders_var
+				value = 0
+				compare = not_equals
+			}
+			AND = {
+				check_variable = { UKR.UKR_shd_workers_var = 0 }
+				check_variable = { UKR.UKR_shd_peasants_var = 0 }
+			}
+		}
+		localization_key = UKR_shd_monthly_population_text_last
+	}
+	text = {
+		trigger = {
+			check_variable = { 
+				var = UKR.UKR_shd_smallholders_var
+				value = 0
+				compare = not_equals
+			}
+		}
+		localization_key = UKR_shd_monthly_population_text
+	}
+	text = {
+		localization_key = ""
+	}
+}
+defined_text = {
+	name = UKR_shd_factory_output
+	text = {
+		trigger = {
+			check_variable = { 
+				var = UKR.UKR_shd_workers_var
+				value = 0
+				compare = not_equals
+			}
+			AND = {
+				check_variable = { UKR.UKR_shd_peasants_var = 0 }
+			}
+		}
+		localization_key = UKR_shd_factory_output_text_last
+	}
+	text = {
+		trigger = {
+			check_variable = { 
+				var = UKR.UKR_shd_workers_var
+				value = 0
+				compare = not_equals
+			}
+		}
+		localization_key = UKR_shd_factory_output_text
+	}
+	text = {
+		localization_key = ""
+	}
+}
+defined_text = {
+	name = UKR_shd_factory_output
+	text = {
+		trigger = {
+			check_variable = { 
+				var = UKR.UKR_shd_peasants_var
+				value = 0
+				compare = not_equals
+			}
+		}
+		localization_key = UKR_shd_supply_consumption_text_last
+	}
+	text = {
+		localization_key = ""
+	}
+}

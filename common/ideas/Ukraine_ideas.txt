@@ -31,7 +31,45 @@ ideas = {
 			picture = UKR_breadbasket
 			modifier = {
 			}
-		}	
+		}
+		UKR_village_outflow = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_village_outflow"}
+			allowed = { always = no }
+			picture = PAL_Shortage_of_Goods 
+			available = { has_country_flag = UKR_agricultural_crisis }
+			modifier = {
+				production_factory_efficiency_gain_factor = -0.03
+				custom_modifier_tooltip = UKR_village_outflow_tooltip
+			}
+		}
+		UKR_risk_of_famine = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_risk_of_famine"}
+			allowed = { always = no }
+			picture = raj_risk_of_famine
+			available = { has_country_flag = UKR_famine }
+			modifier = {
+				stability_weekly_factor = -0.2				
+			}
+		}
+		UKR_famine_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_famine_idea"}
+			allowed = { always = no }
+			picture = food_shortage
+			available = { has_country_flag = UKR_famine }
+		}
+		UKR_european_food_shortage = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_european_food_shortage"}
+			allowed = { always = no }
+			picture = food_shortage
+			available = { UKR = { has_country_flag = UKR_famine } }
+			
+			modifier = {
+				consumer_goods_factor = 0.12
+				stability_factor = -0.05
+				production_factory_efficiency_gain_factor = -0.05
+				monthly_population = -0.05
+			}
+		}
 		UKR_agricultural_crisis_idea = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_agricultural_crisis_idea"}
 			allowed = { always = no }
@@ -116,6 +154,19 @@ ideas = {
 				political_power_gain = -0.04
 				stability_factor = 0.02
 				resistance_damage_to_garrison = -0.1
+				drift_defence_factor = 0.15
+			}
+		}	
+		UKR_reformed_derzhavna_varta = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_reformed_derzhavna_varta"}
+			allowed = { always = no }
+			name = UKR_derzhavna_varta
+			picture = generic_secret_police
+			modifier = {
+				stability_factor = 0.04
+				resistance_damage_to_garrison = -0.1
+				civilian_intel_to_others = -10
+				encryption_factor = 0.1
 				drift_defence_factor = 0.15
 			}
 		}	
@@ -354,7 +405,7 @@ ideas = {
 		}	
 		UKR_austrian_trade = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_austrian_trade"}
-			picture = ast_volunteer_defence_corps
+			picture = GRE_austrian_sanctions
 			allowed = { always = no }
 			available = {
 				country_exists = AUS
@@ -423,9 +474,9 @@ ideas = {
 
 		Hetman_army = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea Hetman_army"}
-			picture = tfv_can_conscription_crisis
+			picture = UKR_hetman_army
 			modifier = {
-				conscription_factor = -0.25
+				conscription_factor = -0.15
 				army_morale_factor = -0.2
 				conscription = -0.0075
 			}
@@ -861,11 +912,20 @@ ideas = {
 				stability_factor = -0.15
 			}
 		}
-		
+		UKR_protofis_investments = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_protofis_investments"}
+			allowed = { always = no }
+			picture = ast_volunteer_defence_corps
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				line_change_production_efficiency_factor = 0.02
+			}
+		}
 		UKR_Ties_Germany = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_Ties_Germany"}
 			allowed = { always = no }
-			picture = ast_volunteer_defence_corps
+			picture = GER_shield
 			removal_cost = -1
 			modifier = {
 				production_factory_max_efficiency_factor = 0.02
@@ -877,7 +937,7 @@ ideas = {
 		UKR_Ties_Russia = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_Ties_Russia"}
 			allowed = { always = no }
-			picture = ast_volunteer_defence_corps
+			picture = RUS_fighting_for_russia
 			removal_cost = -1
 			modifier = {
 				production_factory_max_efficiency_factor = 0.02
@@ -890,7 +950,7 @@ ideas = {
 		UKR_Ties_Austria = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_Ties_Austria"}
 			allowed = { always = no }
-			picture = ast_volunteer_defence_corps
+			picture = GRE_austrian_sanctions
 			removal_cost = -1
 			modifier = {
 				production_factory_max_efficiency_factor = 0.02

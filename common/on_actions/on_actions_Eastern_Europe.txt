@@ -352,9 +352,37 @@ on_actions = {
 				}
 				UKR = { country_event = poland.110 }
 			}
+			### UPR-UKR War
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							tag = UKR
+							tag = UPR
+						}
+						OR = {
+							has_authoritarian_government = no
+							UKR_andriy_melnyk_in_power = yes
+						}
+					}
+					FROM = { 
+						OR = {
+							tag = UKR
+							tag = UPR
+						}
+						has_authoritarian_government = yes
+						UKR_andriy_melnyk_in_power = no
+					}
+					FROM.FROM = { state = 202 } #Kyiv
+				}
+				ROOT = {
+					country_event = ukrpol.62
+				}
+			}
 		}
 	}
 
+			
 	on_war = {
 		effect = {
 			# Polish events

@@ -2205,6 +2205,14 @@ country_event = {
 					days = 1
 				}
 			}
+			202 = {
+				owner = {
+					country_event = {
+						id = dkb.66
+						days = 1
+					}
+				}
+			}
 		}
 	}
 }
@@ -2252,7 +2260,6 @@ country_event = {
 	title = dkb.66.t
 	desc = dkb.66.d
 	
-	fire_only_once = yes
 	is_triggered_only = yes
 	
 	trigger = {
@@ -2261,6 +2268,10 @@ country_event = {
 	
 	option = {
 		name = dkb.66.a
+		trigger = {
+			NOT = { tag = UKR }
+			NOT = { tag = UPR }
+		}
 		ai_chance = {
 			factor = 30
 			modifier = {
@@ -2274,9 +2285,33 @@ country_event = {
 		}
 	}
 	option = {
+		name = dkb.66.c
+		trigger = {
+			OR = {
+				tag = UKR
+				tag = UPR
+			}
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				DKB = { is_ai = no }
+			}
+		}
+		transfer_state = 1231
+	}
+	option = {
 		name = dkb.66.b
 		ai_chance = {
 			factor = 70
+			modifier = {
+				factor = 0.1
+				OR = {
+					tag = UKR
+					tag = UPR
+				}
+			}
 		}
 		add_political_power = -25
 	}	

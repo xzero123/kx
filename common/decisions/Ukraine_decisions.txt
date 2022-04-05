@@ -91,7 +91,7 @@ UKR_dyrektoria_uprising = {
 			set_country_flag = { flag = UKR_dyrektoria_action days = 14 value = 1 }
 			FROM = {
 				country_event = {
-					id = ukrpol.66
+					id = ukrpol.67
 					days = 3
 				}
 			}
@@ -550,6 +550,159 @@ UKR_economy = {
 	}
 }
 political_actions = {
+	UKR_integrate_state_easy = {
+		name = integrate_state
+		icon = eng_trade_unions_demand
+
+		allowed = { tag = UKR }
+
+		available = {
+			FROM = {
+				is_controlled_by = ROOT
+				if = {
+					limit = { has_resistance = yes }
+					compliance > 20
+				}
+			}
+		}
+
+		visible = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		cost = 15
+		days_remove = 90
+		cancel_if_not_visible = yes
+
+		state_target = yes
+		targets = { 1231 1222 234 91 89 80 1140 }
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_integrate_state_easy target: [From.GetName]"
+			country_event = whrmisc.22
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_integrate_state_easy target: [From.GetName]"
+			hidden_effect = { remove_state_claim = FROM }
+			add_state_core = FROM
+		}
+	}
+	UKR_integrate_state_medium = {
+		name = integrate_state
+		icon = eng_trade_unions_demand
+
+		allowed = { tag = UKR }
+
+		available = {
+			FROM = {
+				is_controlled_by = ROOT
+				if = {
+					limit = { has_resistance = yes }
+					compliance > 30
+				}
+			}
+		}
+
+		visible = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		cost = 50
+		days_remove = 120
+		cancel_if_not_visible = yes
+
+		state_target = yes
+		targets = { 1227 235 240 821 95 194 1127 1126 1088 713 78 }
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_integrate_state_medium target: [From.GetName]"
+			country_event = whrmisc.22
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_integrate_state_medium target: [From.GetName]"
+			hidden_effect = { remove_state_claim = FROM }
+			add_state_core = FROM
+		}
+	}
+	UKR_integrate_state_hard = {
+		name = integrate_state
+		icon = eng_trade_unions_demand
+
+		allowed = { tag = UKR }
+
+		available = {
+			FROM = {
+				is_controlled_by = ROOT
+				if = {
+					limit = { has_resistance = yes }
+					compliance > 40
+				}
+			}
+		}
+
+		visible = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		cost = 100
+		days_remove = 150
+		cancel_if_not_visible = yes
+
+		state_target = yes
+		targets = { 218 220 1229 260 1188 }
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_integrate_state_hard target: [From.GetName]"
+			country_event = whrmisc.22
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_integrate_state_hard target: [From.GetName]"
+			hidden_effect = { remove_state_claim = FROM }
+			add_state_core = FROM
+		}
+	}
 	UKR_crush_the_ukrainian_revolt = {
 		icon = GFX_decision_generic_agreement
 
@@ -1094,7 +1247,7 @@ UKR_famine_category = {
 			has_completed_focus = UKR_Organize_Public_Works
 			custom_trigger_tooltip = {
 				tooltip = UKR_famine_deadline_trigger_tooltip
-				check_variable = { UKR_risk_of_famine_var = 0 }
+				check_variable = { UKR_risk_of_famine_var < 1 }
 			}
 		}
 		available = {
@@ -1102,7 +1255,7 @@ UKR_famine_category = {
 			has_completed_focus = UKR_Organize_Public_Works
 			custom_trigger_tooltip = {
 				tooltip = UKR_famine_deadline_trigger_tooltip
-				check_variable = { UKR_risk_of_famine_var = 0 }
+				check_variable = { UKR_risk_of_famine_var < 1 }
 			}
 		}
 		
@@ -1114,10 +1267,52 @@ UKR_famine_category = {
 			log = "[GetDateText]: [Root.GetName]: Decision UKR_famine_deadline"
 			clr_country_flag = UKR_famine
 			remove_ideas = UKR_risk_of_famine
+			mark_focus_tree_layout_dirty = yes
 		}
 		timeout_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision timeout UKR_famine_deadline"
+			add_to_variable = { UKR_risk_of_famine_var = 10 }
 			country_event = ukreco.8
+		}
+	}
+	UKR_import_food = {
+		icon = hol_radio_oranje
+		
+		cancel_trigger = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_famine_deadline_trigger_tooltip
+				check_variable = { UKR_risk_of_famine_var < 1 }
+			}
+		}
+		available = {
+			has_completed_focus = UKR_Ask_For_Foreign_Aid
+			custom_trigger_tooltip = {
+				tooltip = UKR_debt_burden_is_ok
+				check_variable = { UKR_debt_burden < 11 }	
+			}
+		}
+		target_array = UKR_produces_food_array
+		target_root_trigger = {
+			has_completed_focus = UKR_Ask_For_Foreign_Aid
+			check_variable = { UKR_risk_of_famine_var > 0 }
+		}
+		target_trigger = {
+			has_war = no			
+		}
+		cost = 0
+		days_to_remove = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_import_food"
+			FROM = {
+				country_event = ukreco.12
+			}
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout UKR_import_food"
 		}
 	}
 }

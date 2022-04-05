@@ -49,7 +49,7 @@ UKR_leo_stefan_in_power = {
 }
 UKR_danila_skoropadsky_in_power = {
 	has_country_leader = {
-		name = "Danylo"
+		name = "Danylo II"
 		ruling_only = yes
 	}
 }
@@ -81,6 +81,22 @@ UKR_ump_uskhd_in_power = {
 		has_government = social_conservative
 		has_government = authoritarian_democrat
 	}
+}
+UKR_ump_in_power = {
+	OR = {
+		UKR_vasyl_in_power = yes
+		UKR_leo_stefan_in_power = yes
+		UKR_danila_skoropadsky_in_power = yes
+	}
+	has_government = social_conservative
+}
+UKR_uskhd_in_power = {
+	OR = {
+		UKR_vasyl_in_power = yes
+		UKR_leo_stefan_in_power = yes
+		UKR_danila_skoropadsky_in_power = yes
+	}
+	has_government = authoritarian_democrat
 }
 UKR_dyrektoria_in_power = {
 	OR = {
@@ -166,4 +182,25 @@ is_russian_majority_in_ukraine = {
 		state = 1242
 		state = 1230
 		state = 226
+}
+is_producing_enough_wheat = {
+	OR = {
+		is_russian_tag = no
+		tag = KUB
+		tag = DKB
+		is_american_tag = yes
+		tag = FRA
+		tag = AST
+		tag = CAN
+		tag = OTT
+		tag = ARG
+		tag = ENG
+		tag = PER
+		tag = ROM
+		tag = SRI
+		tag = BUL
+		tag = HUN
+		is_spanish_tag = yes
+		tag = CZE
+	}
 }

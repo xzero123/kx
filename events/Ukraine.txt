@@ -259,27 +259,27 @@ country_event = { # German Garrison leaves
 		}
 		hidden_effect = {
 			country_event = {
-				id = ukrpol.69
+				id = ukrpol.70
 				days = 25
 				random_days = 150
 			}
 			country_event = {
-				id = ukrpol.70
+				id = ukrpol.71
 				days = 45
 				random_days = 125
 			}
 			country_event = {
-				id = ukrpol.71
+				id = ukrpol.72
 				days = 55
 				random_days = 100
 			}
 			country_event = {
-				id = ukrpol.72
+				id = ukrpol.73
 				days = 70
 				random_days = 80
 			}
 			country_event = {
-				id = ukrpol.73
+				id = ukrpol.74
 				days = 80
 				random_days = 80
 			}
@@ -820,14 +820,24 @@ country_event = { # End of the Hetmanate
 					has_completed_focus = UKR_Coalition_Wih_UDP
 				}
 			}
-			#add natpop ministers
+			add_ideas = {
+				UKR_Yevhen_Konovalets_hog_npo
+				UKR_Kazymyr_Huzhkovskyi_for_sco
+				UKR_Omelian_Senyk_eco_npo
+				UKR_Dmitri_Dontsov_sec_npo
+			}
 			country_event = {
 				id = ukrpol.34
 				days = 3
 			}
 		}
 		else = {
-			#add soccon-authdem ministers
+			add_ideas = {
+				UKR_Vasyl_Vyshyvanyi_hog_sco
+				UKR_Serhiy_Shemet_for_ade
+				UKR_Mykhailo_Savur_Tsypriianovych_eco_ade
+				UKR_Yulian_Romanchuk_sec_sco
+			}
 			#country_event finally a free kingdom
 		}
 		swap_ideas = {
@@ -838,6 +848,7 @@ country_event = { # End of the Hetmanate
 			ruling_party = authoritarian_democrat
 			elections_allowed = yes
 		}
+		complete_national_focus = UKR_UMP_USKhD_Coalition
 		mark_focus_tree_layout_dirty = yes
 	}						
 }
@@ -862,10 +873,10 @@ country_event = { # Dualism
 			ideology = market_liberal
 			popularity = 0.02
 		}
-		#swap_ideas = {
-		#	remove_idea = 
-		#	add_idea = UKR_Dmitri_Doroshenko_for_npo
-		#}
+		swap_ideas = {
+			remove_idea = UKR_Liudvih_Sidletskyi_for_pau
+			add_idea = UKR_Dmitri_Doroshenko_for_mli
+		}
 		hidden_effect = {
 			set_temp_variable = { coalition_partner_var = token:market_liberal }
 			add_to_coalition = yes
@@ -903,6 +914,10 @@ country_event = { # New governors
 		UKR_increase_hetman = yes
 		UKR_increase_bureaucrat_opinion_hetman = yes
 		UKR_decrease_landowners_opinion_hetman = yes
+		swap_ideas = {
+			remove_idea = UKR_Borys_Homzyn_sec_pau
+			add_idea = UKR_Petro_Stebnytskyi_sec_mli
+		}
 		hidden_effect = {
 			add_popularity = {
 				ideology = market_liberal
@@ -1131,6 +1146,12 @@ country_event = { # Konovalets Counter-Coup
 		add_stability = 0.02
 		remove_ideas = UKR_derzhavna_varta
 		remove_all_ministers = yes
+		add_ideas = {
+			UKR_Andriy_Melnyk_hog_pau
+			UKR_Osyp_Nazaruk_for_pau
+			UKR_Omelian_Senyk_eco_npo
+			UKR_Dmitri_Dontsov_sec_npo
+		}
 		set_politics = {
 			ruling_party = national_populist
 			elections_allowed = no
@@ -2307,6 +2328,13 @@ country_event = { # Colonel Melnyk Initiative
 			ideology = paternal_autocrat
 			popularity = 0.1
 		}
+		remove_all_ministers = yes
+		add_ideas = {
+			UKR_Andriy_Melnyk_hog_pau
+			UKR_Andriy_Melnyk_for_pau
+			UKR_Omelian_Senyk_eco_npo
+			UKR_Vasyl_Kuchabskyi_sec_pau
+		}
 	}
 	option = {
 		name = ukrpol.59.b
@@ -2322,6 +2350,24 @@ country_event = { # Civil War
 	id = ukrpol.60
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.60" }
 	immediate = { set_global_flag = UKR_civil_war }	
+	immediate = { 
+		hidden_effect = {
+			add_ideas = {
+				war_economy
+				service_by_requirement
+			}
+			country_event = {
+				id = ukrpol.66
+				days = 50
+			}
+			UPR = {
+				country_event = {
+					id = ukrpol.66
+					days = 50
+				}
+			}
+		}
+	}	
 	title = ukrpol.60.t
 	desc = ukrpol.60.d
 	is_triggered_only = yes
@@ -2353,8 +2399,15 @@ country_event = { # Civil War
 				transfer_state = 137
 				transfer_state = 1220
 				transfer_state = 1221
+				get_current_government_type = yes
+			}
+			set_autonomy = {
+				target = CRM
+				autonomous_state = kr_integrated_puppet
+				freedom_level = 0.75
 			}
 			CRM = {
+				restore_previous_government_type = yes
 				declare_war_on = {
 					target = UPR
 					type = civil_war
@@ -2488,14 +2541,17 @@ country_event = { # Civil War
 			limit = {
 				137 = { is_demilitarized_zone = yes }
 			}
-			CRM = {
-				transfer_state = 137
-				transfer_state = 1220
-				transfer_state = 1221
+			UPR = {
+				set_autonomy = {
+					target = CRM
+					autonomous_state = kr_integrated_puppet
+					freedom_level = 0.75
+				}
 			}
 			CRM = {
+				restore_previous_government_type = yes
 				declare_war_on = {
-					target = ROOT
+					target = UPR
 					type = civil_war
 				}
 				hidden_effect = { load_oob = "CRM_IND" }
@@ -2695,6 +2751,7 @@ country_event = { # Victory of Dyrektoria
 
 	option = {
 		name = ukrpol.62.a
+		hidden_effect = { event_target:UPR_Joint_Command = { retire = yes } }
 		annex_country = {
 			target = UPR
 			transfer_troops = yes
@@ -2702,28 +2759,34 @@ country_event = { # Victory of Dyrektoria
 		every_owned_state = {
 			limit = {
 				is_claim_or_core_of_ROOT = yes
-				is_owned_by = ROOT
-				
+				is_owned_by = ROOT				
 			}
 			remove_claim_by = ROOT
 			add_core_of = ROOT
 			remove_core_of = UPR
 			remove_claim_by = UPR
 		}
+		hidden_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 1220
+						state = 1221
+					}
+					is_owned_by = CRM
+				}
+				remove_core_of = CRM
+				remove_claim_by = UKR
+				add_core_of = UKR
+				add_claim_by = CRM
+				UKR = { transfer_state = PREV }
+			}
+		}				
 		set_global_flag = UPR_ukrainian_civil_war_ended
 		set_global_flag = UKR_kingdom_exiled_in_Galicia
 		clr_country_flag = UKR_dyrektoria_uprising_active
 		clear_global_event_target = UKR_dyrektoria_headquarters
 		mark_focus_tree_layout_dirty = yes
-		if = {
-			limit = {
-				country_exists = CRM
-			}
-			country_event = {
-				id = ukrpol.65
-				days = 5
-			}
-		}
 	}
 }
 country_event = { # Victory of Kingdom if it is UPR
@@ -2756,6 +2819,7 @@ country_event = { # Victory of Kingdom if it is UPR
 			UKR = { 
 				set_cosmetic_tag = UKR_kingdom
 				copy_government_of_ROOT = yes
+				remove_all_ministers = yes
 				create_country_leader = {
 					name = "Vasyl"
 					desc = "POLITICS_VASYL_DESC"
@@ -2877,7 +2941,13 @@ country_event = { # Victory of Dyrektoria if its UPR
 					retire = yes
 				}				
 				remove_ideas = UKR_derzhavna_varta
-				remove_all_ministers = yes		
+				remove_all_ministers = yes
+				add_ideas = {
+					UKR_Vladimir_Vynnychenko_hog_sde
+					UKR_Andrey_Livytskyi_for_sde
+					UKR_Dmytro_Antonovych_eco_sde
+					UKR_Isaak_Mazepa_sec_sde
+				}
 				set_cosmetic_tag = UKR_dyrektoria
 				set_capital = { state = 202 }		
 				copy_government_of_ROOT = yes
@@ -2906,6 +2976,7 @@ country_event = { # Victory of Dyrektoria if its UPR
 				}
 			}
 			UPR = {
+				event_target:UPR_Joint_Command = { retire = yes }
 				every_unit_leader = {
 					set_nationality = UKR
 				}
@@ -2919,7 +2990,7 @@ country_event = { # Victory of Dyrektoria if its UPR
 					is_owned_by = UPR
 					state = 792
 					state = 1228
-						state = 93
+					state = 93
 					state = 997
 				}
 			}
@@ -2928,6 +2999,22 @@ country_event = { # Victory of Dyrektoria if its UPR
 			remove_core_of = UPR
 			remove_claim_by = UPR
 			UKR = { transfer_state = PREV }
+			hidden_effect = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 1220
+							state = 1221
+						}
+						is_owned_by = CRM
+					}
+					remove_core_of = CRM
+					remove_claim_by = UKR
+					add_core_of = UKR
+					add_claim_by = CRM
+					UKR = { transfer_state = PREV }
+				}
+			}
 			#to be sure
 			UKR = {
 				annex_country = {
@@ -2941,15 +3028,6 @@ country_event = { # Victory of Dyrektoria if its UPR
 			clr_country_flag = UKR_dyrektoria_uprising_active
 			clear_global_event_target = UKR_dyrektoria_headquarters		
 			mark_focus_tree_layout_dirty = yes		
-			if = {
-				limit = {
-					country_exists = CRM
-				}
-				country_event = {
-					id = ukrpol.65
-					days = 5
-				}
-			}
 			change_tag_from = ROOT
 		}
 	}
@@ -3002,17 +3080,79 @@ country_event = { # Fate of Crimea after victory
 		}
 	}	
 }
-country_event = { # Dyrektoria Mechanics
+country_event = { # Second uprising
 	id = ukrpol.66
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.66" }
 	title = ukrpol.66.t
 	desc = ukrpol.66.d
+	
+	is_triggered_only = yes
+	trigger = {
+		UPR = { has_war_with = UKR }
+		NOT = { has_global_flag = UPR_ukrainian_civil_war_ended }
+	}
+
+	option = {
+		name = ukrpol.66.a
+		trigger = {
+			OR = {
+				has_authoritarian_government = no
+				UKR_andriy_melnyk_in_power = yes
+			}
+		}
+		every_state = {
+			limit = {
+				OR = {
+					state = 1234
+					state = 1239
+					state = 197
+					state = 192
+					state = 228
+					state = 227
+					state = 200
+				}
+				NOT = { is_fully_controlled_by = ROOT }
+			}
+			create_unit = {
+				division = "name = \"Povstale narodne opolchennia\" division_template = \"Petliurovtsy\" start_experience_factor = 0.1 start_equipment_factor = 0.8"
+				allow_spawning_on_enemy_provs = yes
+				owner = ROOT
+			}
+			create_unit = {
+				division = "name = \"Povstale narodne opolchennia\" division_template = \"Petliurovtsy\" start_experience_factor = 0.1 start_equipment_factor = 0.8"
+				allow_spawning_on_enemy_provs = yes
+				owner = ROOT
+			}
+			create_unit = {
+				division = "name = \"Povstale narodne opolchennia\" division_template = \"Petliurovtsy\" start_experience_factor = 0.1 start_equipment_factor = 0.8"
+				allow_spawning_on_enemy_provs = yes
+				owner = ROOT
+			}
+		}
+		add_stability = 0.1
+		add_war_support = 0.1
+	}
+	option = {
+		name = ukrpol.66.b
+		trigger = {
+			has_authoritarian_government = yes
+			UKR_andriy_melnyk_in_power = no
+		}
+		add_stability = -0.1
+		add_war_support = -0.1
+	}	
+}
+country_event = { # Dyrektoria Mechanics
+	id = ukrpol.67
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.67" }
+	title = ukrpol.67.t
+	desc = ukrpol.67.d
 	fire_only_once = yes
 	is_triggered_only = yes
 	picture = GFX_report_event_UKR_dyrektoria
 
 	option = {
-		name = ukrpol.66.a
+		name = ukrpol.67.a
 		ai_chance = {
 			base = 50
 			modifier = {
@@ -3022,13 +3162,13 @@ country_event = { # Dyrektoria Mechanics
 		}
 		FROM = {
 			country_event = {
-				id = ukrpol.67
+				id = ukrpol.68
 				days = 4
 			}
 		}
 	}
 	option = {
-		name = ukrpol.66.b
+		name = ukrpol.67.b
 		ai_chance = {
 			base = 50
 			modifier = {
@@ -3043,31 +3183,9 @@ country_event = { # Dyrektoria Mechanics
 		add_political_power = -15
 		FROM = {
 			country_event = {
-				id = ukrpol.68
+				id = ukrpol.69
 				days = 4
 			}
-		}
-	}
-}
-country_event = { # Dyrektoria Mechanics
-	id = ukrpol.67
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.67" }
-	title = ukrpol.67.t
-	desc = ukrpol.67.d
-	fire_only_once = yes
-	is_triggered_only = yes
-	picture = GFX_report_event_UKR_dyrektoria
-
-	option = {
-		name = ukrpol.67.a
-		add_opinion_modifier = {
-			target = FROM
-			modifier = KR_disapproves_of_govt
-		}
-		UKR_increase_direktoria = yes
-		UPR = {
-			add_stability = 0.05
-			add_war_support = 0.02
 		}
 	}
 }
@@ -3084,12 +3202,12 @@ country_event = { # Dyrektoria Mechanics
 		name = ukrpol.68.a
 		add_opinion_modifier = {
 			target = FROM
-			modifier = KR_pleased
+			modifier = KR_disapproves_of_govt
 		}
-		UKR_decrease_direktoria = yes
+		UKR_increase_direktoria = yes
 		UPR = {
-			add_stability = -0.1
-			add_war_support = -0.1
+			add_stability = 0.05
+			add_war_support = 0.02
 		}
 	}
 }
@@ -3100,14 +3218,19 @@ country_event = { # Dyrektoria Mechanics
 	desc = ukrpol.69.d
 	fire_only_once = yes
 	is_triggered_only = yes
-	picture = GFX_report_event_UKR_kreschatik_people
+	picture = GFX_report_event_UKR_dyrektoria
 
 	option = {
 		name = ukrpol.69.a
-		UKR_decrease_hetman = yes
-		UKR_decrease_king = yes
-		UKR_increase_direktoria = yes
-		add_stability = -0.03
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_pleased
+		}
+		UKR_decrease_direktoria = yes
+		UPR = {
+			add_stability = -0.1
+			add_war_support = -0.1
+		}
 	}
 }
 country_event = { # Dyrektoria Mechanics
@@ -3117,10 +3240,27 @@ country_event = { # Dyrektoria Mechanics
 	desc = ukrpol.70.d
 	fire_only_once = yes
 	is_triggered_only = yes
-	picture = GFX_report_event_UKR_socialist
+	picture = GFX_report_event_UKR_kreschatik_people
 
 	option = {
 		name = ukrpol.70.a
+		UKR_decrease_hetman = yes
+		UKR_decrease_king = yes
+		UKR_increase_direktoria = yes
+		add_stability = -0.03
+	}
+}
+country_event = { # Dyrektoria Mechanics
+	id = ukrpol.71
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.71" }
+	title = ukrpol.71.t
+	desc = ukrpol.71.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_socialist
+
+	option = {
+		name = ukrpol.71.a
 		UKR_decrease_hetman = yes
 		UKR_decrease_king = yes
 		UKR_increase_direktoria = yes
@@ -3132,36 +3272,18 @@ country_event = { # Dyrektoria Mechanics
 	}
 }
 country_event = { # Dyrektoria Mechanics
-	id = ukrpol.71
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.71" }
-	title = ukrpol.71.t
-	desc = ukrpol.71.d
-	fire_only_once = yes
-	is_triggered_only = yes
-	picture = GFX_report_event_UKR_skoropadsky_svita_2
-
-	option = {
-		name = ukrpol.71.a
-		UKR_increase_hetman_strength = yes
-		add_stability = -0.03
-	}
-}
-country_event = { # Dyrektoria Mechanics
 	id = ukrpol.72
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.72" }
 	title = ukrpol.72.t
 	desc = ukrpol.72.d
 	fire_only_once = yes
 	is_triggered_only = yes
-	picture = GFX_report_event_UKR_kyiv_march
+	picture = GFX_report_event_UKR_skoropadsky_svita_2
 
 	option = {
 		name = ukrpol.72.a
-		UKR_decrease_hetman = yes
-		UKR_decrease_king = yes
-		UKR_increase_direktoria = yes
+		UKR_increase_hetman_strength = yes
 		add_stability = -0.03
-		add_political_power = -25
 	}
 }
 country_event = { # Dyrektoria Mechanics
@@ -3171,10 +3293,28 @@ country_event = { # Dyrektoria Mechanics
 	desc = ukrpol.73.d
 	fire_only_once = yes
 	is_triggered_only = yes
-	picture = GFX_report_event_UKR_kharkiv_protests
+	picture = GFX_report_event_UKR_kyiv_march
 
 	option = {
 		name = ukrpol.73.a
+		UKR_decrease_hetman = yes
+		UKR_decrease_king = yes
+		UKR_increase_direktoria = yes
+		add_stability = -0.03
+		add_political_power = -25
+	}
+}
+country_event = { # Dyrektoria Mechanics
+	id = ukrpol.74
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.74" }
+	title = ukrpol.74.t
+	desc = ukrpol.74.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_kharkiv_protests
+
+	option = {
+		name = ukrpol.74.a
 		UKR_decrease_hetman = yes
 		UKR_decrease_king = yes
 		UKR_increase_direktoria = yes
@@ -3915,6 +4055,10 @@ country_event = { # Regency Council
 		}
 		clr_country_flag = UKR_regency_council
 		set_country_flag = UKR_regency_council_over
+		country_event = {
+			id = ukrpol.122
+			days = 2
+		}
 	}
 	option = {
 		name = ukrpol.121.b
@@ -3929,6 +4073,10 @@ country_event = { # Regency Council
 		}
 		else = {
 			add_country_leader_trait = UKR_king_title
+		}
+		set_country_leader_portrait = {
+			ideology = paternal_autocrat
+			portrait = GFX_Portrait_UKR_Pavlo_Skoropadskyi_Hetman
 		}
 		clr_country_flag = UKR_regency_council
 		set_country_flag = UKR_regency_council_over
@@ -3977,8 +4125,105 @@ country_event = { # Regency Council
 		set_country_flag = UKR_regency_council_over
 	}
 }
+country_event = { # Regency Council
+	id = ukrpol.122
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.122" }
+	title = ukrpol.122.t
+	desc = ukrpol.122.d
+	picture = GFX_report_event_UKR_regent
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrpol.122.a
+		add_ideas = UKR_austrian_regent
+	}
+}
 
+### UMP-USKHD
+country_event = { # An Heir to King Vasily?
+	id = ukrpol.150
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.150" }
+	title = ukrpol.150.t
+	desc = ukrpol.150.d
 
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.150.a
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 1000
+				has_game_rule = {
+					rule = UKR_choose_heir
+					option = UKR_CHOOSE_HEIR_HABSBURG
+				}
+			}
+		}
+
+		add_stability = -0.03
+		set_country_flag = UKR_LEO
+
+		add_opinion_modifier = {
+			target = GER
+			modifier = UKR_GER_stefan_hab
+			} # 20
+		add_opinion_modifier = {
+			target = AUS
+			modifier = UKR_AUS_stefan_hab
+			} # 30
+		set_politics = {
+			ideology = social_conservative
+			elections_allowed = yes
+		}
+		hidden_effect = {
+			UKR = {
+				country_event = {
+					days = 100
+					id = ukraine.53
+				}
+			}
+		}
+	}
+
+	option = {
+		name = ukrpol.150.b
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 1000
+				has_game_rule = {
+					rule = UKR_choose_heir
+					option = UKR_CHOOSE_HEIR_SKOROPADSKY
+				}
+			}
+		}
+
+		add_stability = 0.03
+		set_country_flag = UKR_DAN
+
+		add_opinion_modifier = {
+			target = GER
+			modifier = UKR_GER_daniil_sko
+			} # -20
+		add_opinion_modifier = {
+			target = AUS
+			modifier = UKR_AUS_daniil_sko
+			} # -30
+		set_politics = {
+			ideology = authoritarian_democrat
+			elections_allowed = yes
+		}
+		hidden_effect = {
+			UKR = {
+				country_event = {
+					days = 100
+					id = ukraine.53
+				}
+			}
+		}
+	}	
+}
 
 ### Economy 
 country_event = { # Black Monday Hits Ukraine!
@@ -4163,6 +4408,8 @@ country_event = { # Risk of Famine
 	trigger = {
 		has_country_flag = UKR_agriculture_crisis
 		NOT = { has_idea = UKR_breadbasket_of_europe_idea }
+		NOT = { has_idea = UKR_agricultural_crisis_idea_3 }
+		NOT = { has_idea = UKR_agricultural_crisis_idea_4 }
 	}
 	title = ukreco.6.t
 	desc = ukreco.6.d
@@ -4215,7 +4462,7 @@ country_event = { # Famine
 	option = {
 		name = ukreco.8.a
 		set_temp_variable = { UKR_famine_monthly_population = -2 }
-		set_temp_variable = { UKR_famine_stability_factor = -0.3 }
+		set_temp_variable = { UKR_famine_stability_factor = -0.5 }
 		set_temp_variable = { UKR_famine_war_support_factor = -0.8 }
 		set_temp_variable = { UKR_famine_consumer_goods_factor = 0.5 }
 		set_temp_variable = { UKR_famine_industrial_capacity_factory = -0.2 }
@@ -4224,7 +4471,7 @@ country_event = { # Famine
 		hidden_effect = {
 			#dynamic modifier and variables
 			set_variable = { UKR_famine_monthly_population = -2 }
-			set_variable = { UKR_famine_stability_factor = -0.3 }
+			set_variable = { UKR_famine_stability_factor = -0.5 }
 			set_variable = { UKR_famine_war_support_factor = -0.8 }
 			set_variable = { UKR_famine_consumer_goods_factor = 0.5 }
 			set_variable = { UKR_famine_industrial_capacity_factory = -0.2 }
@@ -4273,8 +4520,6 @@ country_event = { # Famine
 		UKR = { has_country_flag = UKR_famine }
 	}
 	
-	fire_only_once = yes
-
 	is_triggered_only = yes
 
 	option = {
@@ -4307,6 +4552,10 @@ country_event = { # Famine
 				factor = 5
 				has_war = yes
 			}
+			modifier = {
+				factor = 5
+				FROM = { same_government_type_as_ROOT_authoritarian = no }
+			}
 		}
 		FROM = {
 			country_event = {
@@ -4322,6 +4571,10 @@ country_event = { # Famine
 			modifier = {
 				factor = 0.2
 				has_war = yes
+			}
+			modifier = {
+				factor = 0.2
+				FROM = { same_government_type_as_ROOT_authoritarian = no }
 			}
 		}
 		FROM = {
@@ -4370,7 +4623,10 @@ country_event = { # Famine
 	option = {
 		name = ukreco.14.a
 		add_stability = 0.05
-		add_to_variable = { UKR_risk_of_famine_var = -1 }		
+		custom_effect_tooltip = UKR_decrease_risk_of_famine
+		add_to_variable = { UKR_risk_of_famine_var = -1 }
+		add_to_variable = { UKR_debt_burden = 1 }
+		add_to_array = { UKR_will_pay_debt_to = FROM }
 	}		
 }
 
@@ -4630,6 +4886,26 @@ country_event = { # Utesov visit
 	option = {
 		name = ukrmisc.19.a
 		add_war_support = 0.03
+	}
+}
+country_event = { # King Lev II Adulthood
+	id = ukrmisc.21
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.21" }
+	title = ukrmisc.21.t
+	desc = ukrmisc.21.d
+	picture = GFX_report_event_UKR_regent
+	is_triggered_only = yes
+	trigger = {
+		UKR_leo_stefan_in_power = yes
+	}
+
+	option = {
+		name = ukrmisc.21.a
+		add_stability = 0.06
+		set_country_leader_portrait = {
+			ideology = var:ROOT.current_party_ideology_group
+			portrait = GFX_Portrait_UKR_Leo_Stefan_Habsburg
+		}
 	}
 }
 
@@ -6606,110 +6882,6 @@ country_event = { #Kingdom of Romania refuses!
 	}
 }
 
-country_event = { # An Heir to King Vasily?
-	id = ukraine.52
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.52" }
-	title = ukraine.52.t
-	desc = ukraine.52.d
-
-	is_triggered_only = yes
-
-	option = {
-		name = ukraine.52.a
-		ai_chance = {
-			factor = 30
-			modifier = {
-				factor = 1000
-				has_game_rule = {
-					rule = UKR_choose_heir
-					option = UKR_CHOOSE_HEIR_HABSBURG
-				}
-			}
-		}
-
-		add_stability = -0.03
-		set_country_flag = UKR_LEO
-
-		add_opinion_modifier = {
-			target = GER
-			modifier = UKR_GER_stefan_hab
-			} # 20
-		add_opinion_modifier = {
-			target = AUS
-			modifier = UKR_AUS_stefan_hab
-			} # 30
-
-		hidden_effect = {
-			UKR = {
-				country_event = {
-					days = 100
-					id = ukraine.53
-				}
-			}
-		}
-	}
-
-	option = {
-		name = ukraine.52.b
-		ai_chance = {
-			factor = 40
-			modifier = {
-				factor = 1000
-				has_game_rule = {
-					rule = UKR_choose_heir
-					option = UKR_CHOOSE_HEIR_SKOROPADSKY
-				}
-			}
-		}
-
-		add_stability = 0.03
-		set_country_flag = UKR_DAN
-
-		add_opinion_modifier = {
-			target = GER
-			modifier = UKR_GER_daniil_sko
-			} # -20
-		add_opinion_modifier = {
-			target = AUS
-			modifier = UKR_AUS_daniil_sko
-			} # -30
-
-		hidden_effect = {
-			UKR = {
-				country_event = {
-					days = 100
-					id = ukraine.53
-				}
-			}
-		}
-	}
-	
-	option = {
-		name = ukraine.52.c
-		ai_chance = {
-			factor = 30
-			modifier = {
-				factor = 1000
-				has_game_rule = {
-					rule = UKR_choose_heir
-					option = UKR_CHOOSE_REPUBLIC
-				}
-			}
-		}
-
-		add_stability = 0.05
-		set_country_flag = UKR_REPUBLIC_FLAG
-
-		hidden_effect = {
-			UKR = {
-				country_event = {
-					days = 100
-					id = ukraine.53
-				}
-			}
-		}
-	}
-}
 
 country_event = { # A New Minister of Security?
 	id = ukraine.53

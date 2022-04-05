@@ -36,7 +36,7 @@ ideas = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_village_outflow"}
 			allowed = { always = no }
 			picture = PAL_Shortage_of_Goods 
-			available = { has_country_flag = UKR_agricultural_crisis }
+			available = { has_country_flag = UKR_agriculture_crisis }
 			modifier = {
 				production_factory_efficiency_gain_factor = -0.03
 				custom_modifier_tooltip = UKR_village_outflow_tooltip
@@ -53,9 +53,39 @@ ideas = {
 		}
 		UKR_famine_idea = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_famine_idea"}
+			on_remove = {
+				clear_variable = UKR_famine_monthly_population
+				clear_variable = UKR_famine_stability_factor
+				clear_variable = UKR_famine_war_support_factor
+				clear_variable = UKR_famine_consumer_goods_factor
+				clear_variable = UKR_famine_industrial_capacity_factory
+				clear_variable = UKR_famine_conscription_factor
+				remove_dynamic_modifier = { modifier = UKR_famine_modifier }
+				add_timed_idea = {
+					idea = UKR_famine_aftermath
+					days = 780
+				}
+				clr_country_flag = UKR_famine
+				mark_focus_tree_layout_dirty = yes
+			}
 			allowed = { always = no }
 			picture = food_shortage
-			available = { has_country_flag = UKR_famine }
+			available = { 
+				OR = {
+					has_country_flag = UKR_famine 
+					check_variable = { UKR_risk_of_famine_var > 0 }
+				}
+			}
+		}
+		UKR_famine_aftermath = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_famine_aftermath"}
+			allowed = { always = no }
+			picture = raj_risk_of_famine
+			modifier = {
+				stability_factor = -0.15
+				war_support_factor = -0.2
+				consumer_goods_factor = 0.1
+			}
 		}
 		UKR_european_food_shortage = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_european_food_shortage"}
@@ -421,8 +451,114 @@ ideas = {
 				extra_trade_to_target_factor = 0.5
 				trade_cost_for_target_factor = -0.5
 			}
-		}	
-		
+		}			
+		UKR_austrian_regent = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_austrian_regent"}
+			on_remove = {
+				country_event = {
+					id = ukrmisc.21
+					days = 3
+				}
+			}
+			picture = UKR_regent
+			allowed = { always = no }
+			available = {
+				UKR_leo_stefan_in_power = yes
+				date < 1946.06.12
+			}
+			modifier = {
+				social_conservative_drift = 0.01
+				political_power_cost = 0.06
+			}
+			targeted_modifier = {
+				tag = AUS
+				extra_trade_to_target_factor = 0.1
+			}
+		}			
+		UKR_uskhd_1 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_uskhd_1"}
+			picture = national_produce
+			allowed = { always = no }
+			name = UKR_uskhd
+			modifier = {
+				local_resources_factor = 0.02
+				monthly_population = 0.1
+			}
+		}			
+		UKR_uskhd_2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_uskhd_2"}
+			picture = national_produce_2
+			allowed = { always = no }
+			name = UKR_uskhd
+			modifier = {
+				local_resources_factor = 0.04
+				monthly_population = 0.2
+				stability_factor = 0.05
+			}
+		}			
+		UKR_uskhd_3 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_uskhd_3"}
+			picture = national_produce_2
+			allowed = { always = no }
+			name = UKR_uskhd
+			modifier = {
+				local_resources_factor = 0.08
+				monthly_population = 0.25
+				stability_factor = 0.08
+			}
+		}			
+		UKR_happy_workers = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_happy_workers"}
+			picture = workers_aid
+			allowed = { always = no }
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.03
+				production_factory_max_efficiency_factor = 0.03
+				production_factory_start_efficiency_factor = 0.1
+			}
+		}			
+		UKR_ukrainian_agrarianism = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_ukrainian_agrarianism"}
+			picture = UKR_agrarian
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.2
+				production_lack_of_resource_penalty_factor = -0.05
+				supply_consumption_factor = -0.02
+			}
+		}			
+		UKR_organic_corporatism_1 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_organic_corporatism_1"}
+			picture = corporatist_economy
+			allowed = { always = no }
+			name = UKR_organic_corporatism
+			modifier = {
+				political_power_gain = -0.05
+				industrial_capacity_factory = 0.10
+			}
+		}			
+		UKR_organic_corporatism_2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_organic_corporatism_2"}
+			picture = corporatist_economy
+			allowed = { always = no }
+			name = UKR_organic_corporatism
+			modifier = {
+				political_power_gain = -0.05
+				consumer_goods_factor = -0.05
+				industrial_capacity_factory = 0.10
+				production_speed_buildings_factor = 0.05
+			}
+		}			
+		UKR_new_monarchy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_new_monarchy"}
+			picture = UKR_crown
+			allowed = { always = no }
+			modifier = {
+				war_support_factor = 0.05
+				political_power_gain = 0.1
+				production_factory_max_efficiency_factor = 0.02
+			}
+		}			
 		
 		
 		

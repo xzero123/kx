@@ -858,7 +858,7 @@ focus = {
 			hidden_trigger = { always = no }
 		}
 		bypass = {
-			is_subject = yes
+			is_subject = no
 			has_socialist_government = yes
 		}
 		completion_reward = {
@@ -907,27 +907,16 @@ focus = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CHL_total"
 			add_stability = 0.02
-			every_possible_country = { 
-				limit = { 
-					has_character = 2520
+			ENG = {
+				every_unit_leader = {
+					limit = {
+						OR = {
+							has_id = 252
+							has_id = 2520
+						}
+					}
+					set_nationality = CHL
 				}
-				random_character = { 
-					limit = { 
-						is_character = 2520 
-				} 
-						set_nationality = CHL 
-				} 
-			}
-						every_possible_country = { 
-				limit = { 
-					has_character = 252
-				}
-				random_character = { 
-					limit = { 
-						is_character = 252
-				} 
-						set_nationality = CHL 
-				} 
 			}
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
@@ -994,11 +983,13 @@ focus = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CHL_strenghten_republic"
-			add_building_construction = {
+			random_owned_state = {
+				add_building_construction = {
     			type = arms_factory
     			level = 5
    			instant_build = yes
-}
+					}			
+			}
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
 	}

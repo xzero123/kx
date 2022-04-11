@@ -120,7 +120,7 @@ UKR_dyrektoria_uprising = {
 		fire_only_once = no
 		cost = 25
 		days_remove = 16
-		days_re_enable = 16
+		days_re_enable = 12
 		
 		cancel_if_not_visible = yes
 		ai_will_do = {
@@ -276,9 +276,9 @@ UKR_dyrektoria_uprising = {
 		fire_only_once = yes
 		custom_cost_trigger = {
 			has_equipment = { infantry_equipment > 2499 }
-			command_power > 50
+			command_power > 24
 		}
-		custom_cost_text = 2500_infantry_equipment_1_cp_50
+		custom_cost_text = 2500_infantry_equipment_1_cp_25
 		
 		days_remove = 30
 		
@@ -289,7 +289,7 @@ UKR_dyrektoria_uprising = {
 		cancel_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_reinforce_volhynia_garrison target: [From.GetName]"
 			clr_country_flag = UKR_dyrektoria_action
-			add_command_power = 50
+			add_command_power = 25
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
 				amount = 2500
@@ -299,7 +299,7 @@ UKR_dyrektoria_uprising = {
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision UKR_reinforce_volhynia_garrison target: [From.GetName]"
 			set_country_flag = { flag = UKR_dyrektoria_action days = 30 value = 1 }
-			add_command_power = -50
+			add_command_power = -25
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
 				amount = -2500
@@ -629,7 +629,7 @@ political_actions = {
 		cancel_if_not_visible = yes
 
 		state_target = yes
-		targets = { 1227 235 240 821 95 194 1127 1126 1088 713 78 }
+		targets = { 1227 235 240 821 95 194 1127 1126 1088 713 78 73 1119 }
 		target_trigger = {
 			FROM = {
 				is_controlled_by = ROOT
@@ -786,7 +786,19 @@ UKR_foreign_policy = {
 				has_government = national_populist
 				has_government = social_conservative
 			}
-			has_country_flag = can_pick_foreign_policy
+			custom_trigger_tooltip = {
+				tooltip = can_pick_foreign_policy
+				NOT = { has_country_flag = UKR_agriculture_crisis }
+				UKR_has_black_monday = no
+				OR = {
+					has_completed_focus = UKR_Announce_The_New_Royal_Coalition
+					has_completed_focus = UKR_Khliborobski_Radas
+					has_completed_focus = UKR_Regency_Council
+					has_completed_focus = UKR_Connections_With_AntiGerman_Movements
+					has_completed_focus = UKR_Use_The_Kaisers_Protection
+					has_completed_focus = UKR_Secret_Collusion_With_Russia
+				}
+			}
 		}
 		visible = {
 			is_in_faction_with = GER
@@ -940,7 +952,19 @@ UKR_foreign_policy = {
 		available = {
 			is_subject = no
 			has_war = no
-			has_country_flag = can_pick_foreign_policy
+			custom_trigger_tooltip = {
+				tooltip = can_pick_foreign_policy
+				NOT = { has_country_flag = UKR_agriculture_crisis }
+				UKR_has_black_monday = no
+				OR = {
+					has_completed_focus = UKR_Announce_The_New_Royal_Coalition
+					has_completed_focus = UKR_Khliborobski_Radas
+					has_completed_focus = UKR_Regency_Council
+					has_completed_focus = UKR_Connections_With_AntiGerman_Movements
+					has_completed_focus = UKR_Use_The_Kaisers_Protection
+					has_completed_focus = UKR_Secret_Collusion_With_Russia
+				}
+			}
 			has_government = national_populist
 		}
 		visible = {
@@ -1012,10 +1036,18 @@ UKR_foreign_policy = {
 	UKR_rus_friendship = {
 		icon = GFX_decision_generic_agreement
 		available = {
-			UKR = {
-				is_subject = no
-				has_war = no
-				has_government = social_conservative
+			custom_trigger_tooltip = {
+				tooltip = can_pick_foreign_policy
+				NOT = { has_country_flag = UKR_agriculture_crisis }
+				UKR_has_black_monday = no
+				OR = {
+					has_completed_focus = UKR_Announce_The_New_Royal_Coalition
+					has_completed_focus = UKR_Khliborobski_Radas
+					has_completed_focus = UKR_Regency_Council
+					has_completed_focus = UKR_Connections_With_AntiGerman_Movements
+					has_completed_focus = UKR_Use_The_Kaisers_Protection
+					has_completed_focus = UKR_Secret_Collusion_With_Russia
+				}
 			}
 			RUS = {
 				is_faction_leader = yes
@@ -1247,7 +1279,7 @@ UKR_famine_category = {
 			has_completed_focus = UKR_Organize_Public_Works
 			custom_trigger_tooltip = {
 				tooltip = UKR_famine_deadline_trigger_tooltip
-				check_variable = { UKR_risk_of_famine_var < 1 }
+				check_variable = { UKR.UKR_risk_of_famine_var < 1 }
 			}
 		}
 		available = {
@@ -1255,7 +1287,7 @@ UKR_famine_category = {
 			has_completed_focus = UKR_Organize_Public_Works
 			custom_trigger_tooltip = {
 				tooltip = UKR_famine_deadline_trigger_tooltip
-				check_variable = { UKR_risk_of_famine_var < 1 }
+				check_variable = { UKR.UKR_risk_of_famine_var < 1 }
 			}
 		}
 		
@@ -1281,26 +1313,29 @@ UKR_famine_category = {
 		cancel_trigger = {
 			custom_trigger_tooltip = {
 				tooltip = UKR_famine_deadline_trigger_tooltip
-				check_variable = { UKR_risk_of_famine_var < 1 }
+				check_variable = { UKR.UKR_risk_of_famine_var < 1 }
 			}
 		}
 		available = {
 			has_completed_focus = UKR_Ask_For_Foreign_Aid
 			custom_trigger_tooltip = {
 				tooltip = UKR_debt_burden_is_ok
-				check_variable = { UKR_debt_burden < 11 }	
+				check_variable = { UKR.UKR_debt_burden < 11 }	
 			}
 		}
 		target_array = UKR_produces_food_array
 		target_root_trigger = {
 			has_completed_focus = UKR_Ask_For_Foreign_Aid
-			check_variable = { UKR_risk_of_famine_var > 0 }
+			check_variable = { UKR.UKR_risk_of_famine_var > 0 }
 		}
 		target_trigger = {
-			has_war = no			
+			FROM = {
+				is_producing_enough_wheat = yes
+				has_war = no		
+			}
 		}
 		cost = 0
-		days_to_remove = 5
+		days_remove = 5
 		ai_will_do = {
 			factor = 1000
 		}
@@ -1316,3 +1351,943 @@ UKR_famine_category = {
 		}
 	}
 }
+UKR_Panslavic_Congress_decisions = {
+	PSC_question_of_czechoslovakia = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			original_tag = UKR
+		}
+		available = {
+			OR = {
+				CZE = {
+					has_country_flag = psc_council_vote
+				}
+				SVK = {
+					has_country_flag = psc_council_vote
+				}
+				AUS = {
+					has_country_flag = psc_council_vote
+				}
+			}
+			NOT = {
+				has_global_flag = psc_vote_ongoing
+			}
+			NOT = {
+				OR = {
+					has_country_flag = czechoslovakia_independent_approved
+					has_country_flag = czechoslovakia_separate_approved
+				}
+			}
+		}
+		visible = {
+			original_tag = UKR
+		}
+		cost = freedec?0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			country_event = {
+				id = rusfor.18
+				days = 1
+			}
+		}
+	}
+	PSC_question_of_illyria = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			original_tag = UKR
+		}
+		available = {
+			OR = {
+				CRO = {
+					has_country_flag = psc_council_vote
+				}
+				AUS = {
+					has_country_flag = psc_council_vote
+				}
+				HUN = {
+					has_country_flag = psc_council_vote
+				}
+			}
+			NOT = {
+				has_global_flag = psc_vote_ongoing
+			}
+			NOT = {
+				OR = {
+					has_country_flag = yugoslavia_approved
+					has_country_flag = illyria_independent_approved
+					has_country_flag = illyria_separate_approved
+					has_country_flag = illyria_slovenia_croatia_approved
+				}
+			}
+		}
+		visible = {
+			original_tag = UKR
+		}
+		cost = freedec?0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			country_event = {
+				id = rusfor.19
+				days = 1
+			}
+		}
+	}
+	PSC_question_of_vojvodina = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			original_tag = UKR
+		}
+		available = {
+			OR = {
+				SER = {
+					has_country_flag = psc_council_vote
+				}
+				CRO = {
+					has_country_flag = psc_council_vote
+				}
+			}
+			NOT = {
+				has_global_flag = psc_vote_ongoing
+			}
+			NOT = {
+				OR = {
+				has_country_flag = vojvodina_serbia_approved
+				has_country_flag = vojvodina_croatia_approved
+				}
+			}
+			45 = {
+				NOT = {
+					OR = {
+						is_owned_by = CRO
+						is_owned_by = SER
+					}
+				}
+			}
+						
+		}
+		visible = {
+			original_tag = UKR
+		}
+		cost = freedec?0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			country_event = {
+				id = rusfor.20
+				days = 1
+			}
+		}
+	}
+	PSC_question_of_yugoslavia = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			original_tag = UKR
+		}
+		available = {
+			SER = {
+				has_country_flag = psc_council_vote
+				is_subject = no
+			}
+			NOT = {
+				has_global_flag = psc_vote_ongoing
+			}
+			NOT = { has_country_flag = yugoslavia_approved }
+		}
+		visible = {
+			original_tag = UKR
+		}
+		cost = freedec?0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			country_event = {
+				id = rusfor.21
+				days = 1
+			}
+		}
+	}
+	PSC_question_of_galicia = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			original_tag = UKR
+		}
+		available = {
+			GAL = {
+				has_country_flag = psc_council_vote
+			}
+			OR = {
+				POL = {
+					has_country_flag = psc_council_vote
+				}
+				UKR = {
+					has_country_flag = psc_council_vote
+				}
+				is_neighbor_of = GAL
+			}
+			NOT = {
+				has_global_flag = psc_vote_ongoing
+			}
+			NOT = {
+				OR = {
+				has_country_flag = galicia_split_ukraine_approved
+				has_country_flag = galicia_split_russia_approved
+				has_country_flag = galicia_annex_russia_approved
+				has_country_flag = eastgalicia_split_approved
+				has_country_flag = eastgalicia_ukraine_approved
+				}
+			}
+		}
+		visible = {
+			original_tag = UKR
+		}
+		cost = freedec?0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			country_event = {
+				id = rusfor.22
+				days = 1
+			}
+		}
+	}
+	PSC_question_of_bukowina = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			original_tag = UKR
+		}
+		available = {
+			OR = {
+				has_country_flag = galicia_annex_russia_approved
+				has_country_flag = galicia_split_russia_approved
+				has_country_flag = galicia_split_ukraine_approved
+				has_country_flag = eastgalicia_split_approved
+				has_country_flag = eastgalicia_ukraine_approved
+			}
+			NOT = {
+				has_global_flag = psc_vote_ongoing
+			}
+		}
+		visible = {
+			original_tag = UKR
+		}
+		cost = freedec?0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			country_event = {
+				id = rusfor.23
+				days = 1
+			}
+		}
+	}
+	PSC_question_of_zakarpatie = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			original_tag = UKR
+		}
+		available = {
+			OR = {
+				has_country_flag = galicia_annex_russia_approved
+				has_country_flag = galicia_split_russia_approved
+				has_country_flag = galicia_split_ukraine_approved
+				has_country_flag = eastgalicia_split_approved
+				has_country_flag = eastgalicia_ukraine_approved
+			}
+			OR = {
+				has_country_flag = czechoslovakia_independent_approved
+				has_country_flag = czechoslovakia_separate_approved
+			}
+			NOT = {
+				has_global_flag = psc_vote_ongoing
+			}
+		}
+		visible = {
+			original_tag = UKR
+		}
+		cost = freedec?0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			country_event = {
+				id = rusfor.24
+				days = 1
+			}
+		}
+	}
+	PSC_demand_czechoslovakia = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			original_tag = UKR
+		}
+		available = {
+			OR = {
+			has_country_flag = czechoslovakia_independent_approved
+			has_country_flag = czechoslovakia_separate_approved
+			}
+			NOT = {
+				has_global_flag = psc_vote_ongoing
+			}
+		}
+		visible = {
+			original_tag = UKR
+			OR = {
+			has_country_flag = czechoslovakia_independent_approved
+			has_country_flag = czechoslovakia_separate_approved
+			}
+		}
+		cost = 35
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			AUS = {
+				country_event = {
+					id = rusfor.1304
+					days = 1
+				}
+			}
+		}
+	}
+	PSC_demand_illyria = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			original_tag = UKR
+		}
+		available = {
+			OR = {
+			has_country_flag = illyria_independent_approved
+			has_country_flag = illyria_separate_approved
+			has_country_flag = illyria_slovenia_croatia_approved
+			}
+			NOT = {
+				OR = {
+					has_global_flag = psc_vote_ongoing
+					has_country_flag = yugoslavia_approved
+				}
+			}
+		}
+		visible = {
+			original_tag = UKR
+			OR = {
+				has_country_flag = illyria_independent_approved
+				has_country_flag = illyria_separate_approved
+				has_country_flag = illyria_slovenia_croatia_approved
+			}
+		}
+		cost = 35
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			AUS = {
+				country_event = {
+					id = rusfor.1313
+					days = 1
+				}
+			}
+		}
+	}
+	PSC_demand_yugoslavia = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			original_tag = UKR
+		}
+		available = {
+			has_country_flag = yugoslavia_approved
+			SER = { is_subject = no }
+			NOT = {
+				has_global_flag = psc_vote_ongoing
+			}
+		}
+		visible = {
+			original_tag = UKR
+			has_country_flag = yugoslavia_approved
+		}
+		cost = 35
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			if = {
+				limit = { country_exists = CRO }
+				CRO = {
+					country_event = {
+						id = rusfor.1322
+						days = 1
+					}
+				}
+			}
+			else = {
+				AUS = {
+					country_event = {
+						id = rusfor.1322
+						days = 1
+					}
+				}
+			}
+		}
+	}
+	PSC_demand_vojvodina = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			original_tag = UKR
+		}
+		available = {
+			country_exists = CRO
+			country_exists = SER
+			OR = {
+				has_country_flag = vojvodina_serbia_approved
+				has_country_flag = vojvodina_croatia_approved
+			}
+			NOT = {
+				has_global_flag = psc_vote_ongoing
+			}
+		}
+		visible = {
+			original_tag = UKR
+			OR = {
+				has_country_flag = vojvodina_serbia_approved
+				has_country_flag = vojvodina_croatia_approved
+			}
+			country_exists = CRO
+		}
+		cost = 35
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			AUS = {
+				country_event = {
+					id = rusfor.1318
+					days = 1
+				}
+			}
+		}
+	}
+	PSC_demand_galicia = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			original_tag = UKR
+		}
+		available = {
+			OR = {
+				has_country_flag = galicia_split_ukraine_approved
+				has_country_flag = galicia_split_russia_approved
+				has_country_flag = galicia_annex_russia_approved
+				has_country_flag = eastgalicia_split_approved
+				has_country_flag = eastgalicia_ukraine_approved
+			}
+			NOT = {
+				has_global_flag = psc_vote_ongoing
+			}
+		}
+		visible = {
+			original_tag = UKR
+			OR = {
+				has_country_flag = galicia_split_ukraine_approved
+				has_country_flag = galicia_split_russia_approved
+				has_country_flag = galicia_annex_russia_approved
+				has_country_flag = eastgalicia_split_approved
+				has_country_flag = eastgalicia_ukraine_approved
+			}
+		}
+		cost = 35
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			AUS = {
+				country_event = {
+					id = rusfor.1320
+					days = 1
+				}
+			}
+		}
+	}
+	
+	### PSC Votes ###
+
+	PSC_vote_yes = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			OR = {
+				original_tag = GER
+				original_tag = AUS
+				original_tag = HUN
+				original_tag = UKR
+				original_tag = WHR
+				original_tag = POL
+				original_tag = GAL
+				original_tag = CZE
+				original_tag = SVK
+				original_tag = SLO
+				original_tag = CRO
+				original_tag = SER
+				original_tag = BUL
+				original_tag = BOS
+				original_tag = WSU
+				original_tag = CPU
+			}
+		}
+		available = {
+			has_global_flag = psc_vote_ongoing
+			has_country_flag = psc_council_vote
+			NOT = {
+				has_country_flag = PSC_we_voted_this_time
+			}
+		}
+		visible = {
+			is_in_array = {
+				array = global.PSC_voters
+				value = THIS
+			}
+		}
+		cost = freedec?0
+		ai_will_do = {
+			factor = 10
+			modifier = { #####
+				factor = 0
+				tag = GER
+				OR = {
+					has_global_flag = PSC_czechoslovakia_independent
+					has_global_flag = PSC_illyria_independent
+					has_global_flag = PSC_illyria_separate_independent
+					has_global_flag = PSC_illyria_slovenia_croatia
+					has_global_flag = PSC_yugoslavia
+					has_global_flag = PSC_vojvodina_serbia
+					has_global_flag = PSC_vojvodina_croatia
+					has_global_flag = PSC_galicia_split_russia
+					has_global_flag = PSC_galicia_annex_russia
+					has_global_flag = PSC_bukowina_split_russia
+					has_global_flag = PSC_zakarpatie_rus
+				}
+			}
+			modifier = {
+				factor = 0
+				tag = AUS
+				OR = {
+					has_global_flag = PSC_czechoslovakia_independent
+					has_global_flag = PSC_illyria_independent
+					has_global_flag = PSC_illyria_separate_independent
+					has_global_flag = PSC_illyria_slovenia_croatia
+					has_global_flag = PSC_yugoslavia
+					has_global_flag = PSC_vojvodina_serbia
+					has_global_flag = PSC_vojvodina_croatia
+					has_global_flag = PSC_galicia_split_russia
+					has_global_flag = PSC_galicia_annex_russia
+					has_global_flag = PSC_bukowina_split_russia
+					has_global_flag = PSC_zakarpatie_rus
+					has_global_flag = PSC_zakarpatie_cze
+					has_global_flag = PSC_zakarpatie_slo
+					has_global_flag = PSC_zakarpatie_ukr
+				}
+			}
+			modifier = {
+				factor = 0
+				tag = HUN
+				OR = {
+					has_global_flag = PSC_czechoslovakia_independent
+					has_global_flag = PSC_illyria_independent
+					has_global_flag = PSC_illyria_separate_independent
+					has_global_flag = PSC_illyria_slovenia_croatia
+					has_global_flag = PSC_yugoslavia
+					has_global_flag = PSC_vojvodina_serbia
+					has_global_flag = PSC_vojvodina_croatia
+					has_global_flag = PSC_galicia_split_russia
+					has_global_flag = PSC_galicia_annex_russia
+					has_global_flag = PSC_bukowina_split_russia
+					has_global_flag = PSC_zakarpatie_rus
+					has_global_flag = PSC_zakarpatie_cze
+					has_global_flag = PSC_zakarpatie_slo
+					has_global_flag = PSC_zakarpatie_ukr
+				}
+			}
+			modifier = {
+				factor = 50
+				OR = {
+					tag = UKR
+					tag = WHR
+					tag = POL
+					tag = GAL
+					tag = SLO
+					tag = CRO
+					tag = SER
+					tag = BOS
+					tag = CZE
+					tag = SVK
+				}
+			}
+			modifier = {
+				factor = 100
+				OR = {
+					tag = CZE
+					tag = SVK
+				}
+				OR = {
+					has_global_flag = PSC_czechoslovakia_independent
+					has_global_flag = PSC_czechoslovakia_separate_independent
+					has_global_flag = PSC_zakarpatie_cze_motion
+					has_global_flag = PSC_zakarpatie_slo_motion
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					tag = BUL
+					tag = POL
+					tag = UKR
+					tag = WHR
+				}
+				OR = {
+					is_in_faction_with = GER
+					is_in_faction_with = AUS
+				}
+			}
+			modifier = {
+				factor = 25
+				tag = CRO
+				OR = {
+					has_global_flag = PSC_illyria_independent_motion
+					has_global_flag = PSC_vojvodina_croatia
+					has_global_flag = PSC_illyria_slovenia_croatia
+				}
+			}
+			modifier = {
+				factor = 50
+				tag = SER
+				has_global_flag = PSC_yugoslavia
+			}
+		}
+			
+			complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision PSC_vote_yes"
+			set_country_flag = PSC_we_voted_this_time
+			add_to_variable = {
+				var =  global.psc_yes_votes
+				value = 1
+			}
+		}
+	}
+	PSC_vote_no = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			OR = {
+				original_tag = GER
+				original_tag = AUS
+				original_tag = HUN
+				original_tag = UKR
+				original_tag = WHR
+				original_tag = POL
+				original_tag = GAL
+				original_tag = CZE
+				original_tag = SVK
+				original_tag = SLO
+				original_tag = CRO
+				original_tag = SER
+				original_tag = BUL
+				original_tag = BOS
+				original_tag = WSU
+				original_tag = CPU
+			}
+		}
+		available = {
+			has_global_flag = psc_vote_ongoing
+			has_country_flag = psc_council_vote
+			NOT = {
+				has_country_flag = PSC_we_voted_this_time
+			}
+		}
+		visible = {
+			is_in_array = {
+				array = global.PSC_voters
+				value = THIS
+			}
+		}
+		cost = freedec?0
+		ai_will_do = {
+			factor = 10
+			modifier = { #####
+				factor = 100
+				tag = GER
+				OR = {
+					has_global_flag = PSC_czechoslovakia_independent
+					has_global_flag = PSC_illyria_independent
+					has_global_flag = PSC_illyria_separate_independent
+					has_global_flag = PSC_illyria_slovenia_croatia
+					has_global_flag = PSC_yugoslavia
+					has_global_flag = PSC_vojvodina_serbia
+					has_global_flag = PSC_vojvodina_croatia
+					has_global_flag = PSC_galicia_split_russia
+					has_global_flag = PSC_galicia_annex_russia
+					has_global_flag = PSC_bukowina_split_russia
+					has_global_flag = PSC_zakarpatie_rus
+				}
+			}
+			modifier = {
+				factor = 100
+				tag = AUS
+				OR = {
+					has_global_flag = PSC_czechoslovakia_independent
+					has_global_flag = PSC_illyria_independent
+					has_global_flag = PSC_illyria_separate_independent
+					has_global_flag = PSC_illyria_slovenia_croatia
+					has_global_flag = PSC_yugoslavia
+					has_global_flag = PSC_vojvodina_serbia
+					has_global_flag = PSC_vojvodina_croatia
+					has_global_flag = PSC_galicia_split_russia
+					has_global_flag = PSC_galicia_annex_russia
+					has_global_flag = PSC_bukowina_split_russia
+					has_global_flag = PSC_zakarpatie_rus
+					has_global_flag = PSC_zakarpatie_cze
+					has_global_flag = PSC_zakarpatie_slo
+					has_global_flag = PSC_zakarpatie_ukr
+				}
+			}
+			modifier = {
+				factor = 100
+				tag = HUN
+				OR = {
+					has_global_flag = PSC_czechoslovakia_independent
+					has_global_flag = PSC_illyria_independent
+					has_global_flag = PSC_illyria_separate_independent
+					has_global_flag = PSC_illyria_slovenia_croatia
+					has_global_flag = PSC_yugoslavia
+					has_global_flag = PSC_vojvodina_serbia
+					has_global_flag = PSC_vojvodina_croatia
+					has_global_flag = PSC_galicia_split_russia
+					has_global_flag = PSC_galicia_annex_russia
+					has_global_flag = PSC_bukowina_split_russia
+					has_global_flag = PSC_zakarpatie_rus
+					has_global_flag = PSC_zakarpatie_cze
+					has_global_flag = PSC_zakarpatie_slo
+					has_global_flag = PSC_zakarpatie_ukr
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					tag = CZE
+					tag = SVK
+				}
+				OR = {
+					has_global_flag = PSC_czechoslovakia_independent
+					has_global_flag = PSC_czechoslovakia_separate_independent
+					has_global_flag = PSC_zakarpatie_cze_motion
+					has_global_flag = PSC_zakarpatie_slo_motion
+				}
+			}
+			modifier = {
+				factor = 100
+				OR = {
+					tag = POL
+					tag = UKR
+					tag = WHR
+				}
+				OR = {
+					is_in_faction_with = GER
+					is_in_faction_with = AUS
+				}
+			}
+			modifier = {
+				factor = 0
+				tag = CRO
+				OR = {
+					has_global_flag = PSC_illyria_independent_motion
+					has_global_flag = PSC_vojvodina_croatia
+					has_global_flag = PSC_illyria_slovenia_croatia
+				}
+			}
+			modifier = {
+				factor = 0
+				tag = SER
+				has_global_flag = PSC_yugoslavia
+			}
+			modifier = {
+				factor = 100
+				tag = CRO
+				OR = {
+					has_global_flag = PSC_yugoslavia
+					has_global_flag = PSC_vojvodina_croatia
+				}
+			}
+			modifier = {
+				factor = 10
+				OR = {
+					tag = CZE
+					tag = UKR
+					tag = POL
+					tag = SVK
+					tag = BUL
+				}
+				OR = {
+					has_global_flag = PSC_galicia_annex_russia
+					has_global_flag = PSC_bukowina_annex
+					has_global_flag = PSC_zakarpatie_rus
+				}
+			}
+			modifier = {
+				factor = 100
+				tag = GAL
+				OR = {
+					has_global_flag = PSC_galicia_annex_russia
+					has_global_flag = PSC_galicia_split_russia
+					has_global_flag = PSC_galicia_split_ukraine
+					has_global_flag = PSC_eastgalicia_split
+					has_global_flag = PSC_eastgalicia_ukraine
+					has_global_flag = PSC_bukowina_split
+					has_global_flag = PSC_bukowina_split_russia
+					has_global_flag = PSC_bukowina_annex
+					has_global_flag = PSC_zakarpatie_cze
+					has_global_flag = PSC_zakarpatie_slo
+					has_global_flag = PSC_zakarpatie_ukr
+					has_global_flag = PSC_zakarpatie_rus
+				}
+			}
+			modifier = {
+				factor = 100
+				tag = BUL
+				OR = {
+					has_global_flag = PSC_yugoslavia
+					has_global_flag = PSC_vojvodina_serbia
+					has_global_flag = PSC_bukowina_split
+					has_global_flag = PSC_bukowina_split_russia
+				}
+			}
+					
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision PSC_vote_no"
+			set_country_flag = PSC_we_voted_this_time
+			add_to_variable = {
+				var =  global.psc_no_votes
+				value = 1
+			}
+		}
+	}
+	PSC_vote_abstain = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			OR = {
+				original_tag = RUS
+				original_tag = GER
+				original_tag = AUS
+				original_tag = HUN
+				original_tag = UKR
+				original_tag = WHR
+				original_tag = POL
+				original_tag = GAL
+				original_tag = CZE
+				original_tag = SVK
+				original_tag = SLO
+				original_tag = CRO
+				original_tag = SER
+				original_tag = BUL
+				original_tag = BOS
+				original_tag = WSU
+				original_tag = CPU
+			}
+		}
+		available = {
+			has_global_flag = psc_vote_ongoing
+			has_country_flag = psc_council_vote
+			NOT = {
+				has_country_flag = PSC_we_voted_this_time
+			}
+		}
+		visible = {
+			is_in_array = {
+				array = global.PSC_voters
+				value = THIS
+			}
+		}
+		cost = freedec?0
+		ai_will_do = {
+			factor = 10
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision PSC_vote_abstain"
+			set_country_flag = PSC_we_voted_this_time
+			add_to_variable = {
+				var =  global.psc_abstain_votes
+				value = 1
+			}
+		}
+	}
+	PSC_vote_timer = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			OR = {
+				original_tag = RUS
+				original_tag = GER
+				original_tag = AUS
+				original_tag = HUN
+				original_tag = UKR
+				original_tag = WHR
+				original_tag = POL
+				original_tag = GAL
+				original_tag = CZE
+				original_tag = SVK
+				original_tag = SLO
+				original_tag = CRO
+				original_tag = SER
+				original_tag = BUL
+				original_tag = BOS
+				original_tag = WSU
+				original_tag = CPU
+			}
+		}
+		activation = {
+			has_global_flag = psc_vote_ongoing
+			NOT = {
+				has_country_flag = PSC_we_voted_this_time
+			}
+		}
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+
+		days_mission_timeout = 14
+		is_good = no
+
+		cancel_trigger = {
+			has_country_flag = PSC_we_voted_this_time
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision PSC_vote_timer"
+			every_country = {
+				limit = {
+					has_country_flag = psc_council_vote
+				}
+				set_country_flag = PSC_we_voted_this_time
+				add_to_variable = {
+					var =  global.psc_abstain_votes
+					value = 1
+				}
+			}
+		}
+	}
+}	

@@ -6,10 +6,26 @@
 
 add_namespace = ukraine
 add_namespace = ukrpol
+add_namespace = ukrfor
 add_namespace = ukreco
 add_namespace = ukrmisc
+add_namespace = ukrel
 add_namespace = monsocukr
 
+
+country_event = { # Our Kingdom
+	id = ukrel.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrel.1" }
+	title = ukrel.1.t
+	desc = ukrel.1.d
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_rada2
+	option = {
+		name = ukrel.1.a
+		set_country_flag = UKR_1938_elections_preparation
+		unlock_decision_category_tooltip = UKR_1938_election_panel
+	}
+}
 country_event = { # Our Kingdom
 	id = ukrpol.1
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.1" }
@@ -34,6 +50,7 @@ country_event = { # Our Kingdom
 	picture = GFX_report_event_UKR_skoropadsky
 	option = {
 		name = ukrpol.2.a
+		add_to_variable = { UKR_shd_strength = 1 }
 		country_event = {
 			id = ukrpol.3
 			days = 1
@@ -49,6 +66,8 @@ country_event = { # Our Kingdom
 	picture = GFX_report_event_UKR_vasyl
 	option = {
 		name = ukrpol.3.a
+		add_to_variable = { UKR_ump_strength = 1 }
+		add_to_variable = { UKR_uskhd_strength = 1 }
 		country_event = {
 			id = ukrpol.4
 			days = 1
@@ -76,6 +95,10 @@ country_event = { # King Opens the Soim
 	option = {
 		name = ukrpol.5.a
 		UKR_increase_king_strength = yes
+		add_to_variable = { UKR_ump_strength = 1 }
+		add_to_variable = { UKR_udp_strength = 1 }
+		add_to_variable = { UKR_uskhd_strength = 1 }
+		add_to_variable = { UKR_shd_strength = -2 }
 		hidden_effect = {
 			country_event = {
 				id = ukrpol.7
@@ -111,11 +134,14 @@ country_event = { # Strike
 			UKR_increase_king_strength = yes
 			UKR_increase_workers_opinion_king = yes
 			UKR_decrease_Protofis_opinion_king = yes
+			add_to_variable = { UKR_ump_strength = 1 }
+			add_to_variable = { UKR_uskhd_strength = 1 }
 		}
 		else = {
 			UKR_increase_hetman_strength = yes
 			UKR_increase_workers_opinion_hetman = yes
 			UKR_decrease_Protofis_opinion_hetman = yes
+			add_to_variable = { UKR_shd_strength = 1 }
 		}
 	}
 	option = {
@@ -141,12 +167,15 @@ country_event = { # Strike
 			UKR_decrease_king_strength = yes
 			UKR_decrease_king = yes
 			UKR_increase_Protofis_opinion_king = yes
+			add_to_variable = { UKR_ump_strength = -2 }
+			add_to_variable = { UKR_uskhd_strength = -2 }
 		}
 		else = {
 			clear_variable = UKR_workers_alignment
 			UKR_decrease_hetman_strength = yes
 			UKR_decrease_hetman = yes
 			UKR_increase_Protofis_opinion_hetman = yes
+			add_to_variable = { UKR_shd_strength = -2 }
 		}
 	}
 	option = {
@@ -175,12 +204,15 @@ country_event = { # Strike
 			UKR_decrease_king_strength = yes
 			UKR_decrease_king = yes
 			UKR_decrease_Protofis_opinion_king = yes
+			add_to_variable = { UKR_ump_strength = -3 }
+			add_to_variable = { UKR_uskhd_strength = -3 }
 		}
 		else = {
 			clear_variable = UKR_workers_alignment
 			UKR_decrease_hetman_strength = yes
 			UKR_decrease_hetman = yes
 			UKR_decrease_Protofis_opinion_hetman = yes
+			add_to_variable = { UKR_shd_strength = -3 }
 		}
 	}
 }
@@ -209,6 +241,7 @@ country_event = { # Anti-Monarchist propaganda
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.8" }
 	title = ukrpol.8.t
 	desc = ukrpol.8.d
+	picture = GFX_report_event_UKR_republic
 	is_triggered_only = yes
 
 	option = {
@@ -340,6 +373,7 @@ country_event = { # Dualism
 			ideology = authoritarian_democrat
 			popularity = 0.02
 		}
+		add_to_variable = { UKR_uskhd_strength = 5 }
 	}
 	option = {
 		name = ukrpol.11.b
@@ -353,6 +387,7 @@ country_event = { # Dualism
 			ideology = national_populist
 			popularity = 0.02
 		}
+		add_to_variable = { UKR_sun_strength = 5 }
 	}	
 }
 country_event = { # Dualism
@@ -425,6 +460,8 @@ country_event = { # Melnyk Returns
 				long_name = UKR_totalist_party3_long
 			}
 		}
+		add_to_variable = { UKR_sun_strength = 5 }
+		add_to_variable = { UKR_radsun_strength = 5 }
 	}		
 }
 country_event = { # Polish farms
@@ -508,6 +545,8 @@ country_event = { # Arming the Striltsy
 			ideology = national_populist
 			popularity = 0.03
 		}
+		add_to_variable = { UKR_sun_strength = 3 }
+		add_to_variable = { UKR_sun_dontsov_strength = 2 }
 		random_owned_controlled_state = {
 			prioritize = { 202 }
 			create_unit = {
@@ -559,6 +598,7 @@ country_event = { # Advisor Lypynskyi
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.18" }
 	title = ukrpol.18.t
 	desc = ukrpol.18.d
+	picture = GFX_report_event_UKR_lypynskyi
 	is_triggered_only = yes
 
 	option = {
@@ -567,6 +607,7 @@ country_event = { # Advisor Lypynskyi
 		UKR_decrease_hetman_strength = yes
 		UKR_increase_king = yes
 		UKR_increase_landowners_opinion_king = yes
+		add_to_variable = { UKR_uskhd_strength = 5 }
 	}
 	option = {
 		name = ukrpol.18.hetman
@@ -574,6 +615,8 @@ country_event = { # Advisor Lypynskyi
 		UKR_increase_king_strength = yes
 		UKR_decrease_hetman = yes
 		UKR_decrease_landowners_opinion_hetman = yes
+		add_to_variable = { UKR_ump_strength = 5 }
+		add_to_variable = { UKR_uskhd_strength = 5 }
 	}				
 }
 country_event = { # Sich Streltsy disbanded!
@@ -595,6 +638,8 @@ country_event = { # Sich Streltsy disbanded!
 			ideology = national_populist
 			popularity = -0.03
 		}
+		add_to_variable = { UKR_sun_strength = -3 }
+		add_to_variable = { UKR_sun_dontsov_strength = -2 }
 		UKR_decrease_military_opinion_hetman = yes
 	}
 	option = {
@@ -605,6 +650,8 @@ country_event = { # Sich Streltsy disbanded!
 			division_template = "Sichovi Striltsi"
 			disband = yes #will refund equipment and manpower
 		}
+		add_to_variable = { UKR_sun_strength = -3 }
+		add_to_variable = { UKR_sun_dontsov_strength = -2 }
 		add_popularity = {
 			ideology = national_populist
 			popularity = -0.03
@@ -659,6 +706,9 @@ country_event = { # Konovalets Dead
 				long_name = UKR_paternal_autocrat_party2_long
 			}
 		}
+		add_to_variable = { UKR_sun_strength = -10 }
+		add_to_variable = { UKR_sun_dontsov_strength = 10 }
+		add_to_variable = { UKR_radsun_strength = 5 }
 	}
 	option = {
 		name = ukrpol.20.hetman
@@ -692,6 +742,9 @@ country_event = { # Konovalets Dead
 				long_name = UKR_paternal_autocrat_party2_long
 			}
 		}
+		add_to_variable = { UKR_sun_strength = -10 }
+		add_to_variable = { UKR_sun_dontsov_strength = 10 }
+		add_to_variable = { UKR_radsun_strength = 5 }
 	}				
 }
 country_event = { # Royal visit to austria
@@ -782,8 +835,16 @@ country_event = { # End of the Hetmanate
 	id = ukrpol.25
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.25" }
 	title = ukrpol.25.t
-	desc = ukrpol.25.d
+	desc = {
+		text = ukrpol.25.d.uvo
+		trigger = { has_completed_focus = UKR_Coalition_With_UVO }
+	}
+	desc = {
+		text = ukrpol.25.d
+		trigger = { NOT = { has_completed_focus = UKR_Coalition_With_UVO } }
+	}
 	is_triggered_only = yes
+	picture = GFX_report_event_UKR_lypky
 	fire_only_once = yes
 	trigger = {
 		tag = UKR
@@ -821,7 +882,7 @@ country_event = { # End of the Hetmanate
 				}
 			}
 			add_ideas = {
-				UKR_Yevhen_Konovalets_hog_npo
+				UKR_Vasyl_Vyshyvanyi_hog_sco
 				UKR_Kazymyr_Huzhkovskyi_for_sco
 				UKR_Omelian_Senyk_eco_npo
 				UKR_Dmitri_Dontsov_sec_npo
@@ -829,6 +890,15 @@ country_event = { # End of the Hetmanate
 			country_event = {
 				id = ukrpol.34
 				days = 3
+			}
+			set_politics = {
+				ruling_party = social_conservative
+				elections_allowed = yes
+			}
+			hidden_effect = {
+				end_coalition = yes
+				set_temp_variable = { coalition_partner_var = token:national_populist }
+				add_to_coalition = yes
 			}
 		}
 		else = {
@@ -838,18 +908,38 @@ country_event = { # End of the Hetmanate
 				UKR_Mykhailo_Savur_Tsypriianovych_eco_ade
 				UKR_Yulian_Romanchuk_sec_sco
 			}
-			#country_event finally a free kingdom
+			country_event = {
+				id = ukrpol.152
+				days = 3
+			}
+			set_politics = {
+				ruling_party = authoritarian_democrat
+				elections_allowed = yes
+			}
+			hidden_effect = {
+				end_coalition = yes
+				set_temp_variable = { coalition_partner_var = token:social_conservative }
+				add_to_coalition = yes
+			}			
 		}
-		swap_ideas = {
-			remove_idea = UKR_dualism
-			add_idea = UKR_political_instability
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+					NOT = { has_country_flag = UKR_dyrektoria_uprising_active }
+				}
+			}
+			remove_ideas = UKR_dualism
 		}
-		set_politics = {
-			ruling_party = authoritarian_democrat
-			elections_allowed = yes
+		else = {
+			swap_ideas = {
+				remove_idea = UKR_dualism
+				add_idea = UKR_political_instability
+			}
 		}
 		complete_national_focus = UKR_UMP_USKhD_Coalition
 		mark_focus_tree_layout_dirty = yes
+		add_to_variable = { UKR_shd_strength = -15 }
 	}						
 }
 country_event = { # Dualism
@@ -881,6 +971,7 @@ country_event = { # Dualism
 			set_temp_variable = { coalition_partner_var = token:market_liberal }
 			add_to_coalition = yes
 		}
+		add_to_variable = { UKR_udp_strength = 5 }
 	}
 	option = {
 		name = ukrpol.26.b
@@ -894,6 +985,10 @@ country_event = { # Dualism
 		add_popularity = {
 			ideology = paternal_autocrat
 			popularity = 0.02
+		}
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
 		}
 		country_event = {
 			id = ukrpol.29
@@ -942,6 +1037,7 @@ country_event = { # New governors
 			}
 			custom_effect_tooltip = UKR_marlib_pop_increase_tt
 		}
+		add_to_variable = { UKR_udp_strength = 5 }
 	}	
 }
 country_event = { # Discredit Lypynskyi
@@ -961,6 +1057,7 @@ country_event = { # Discredit Lypynskyi
 			ideology = authoritarian_democrat
 			popularity = -0.04
 		}
+		add_to_variable = { UKR_uskhd_strength = -5 }
 	}
 	option = {
 		name = ukrpol.28.king
@@ -971,6 +1068,7 @@ country_event = { # Discredit Lypynskyi
 			ideology = authoritarian_democrat
 			popularity = -0.04
 		}
+		add_to_variable = { UKR_uskhd_strength = -5 }
 	}	
 }
 country_event = { # Soim Dissolved
@@ -1049,9 +1147,20 @@ country_event = { # Boom
 		}
 		set_global_flag = UKR_dnieper_explosion
 		add_stability = -0.1
-		swap_ideas = {
-			remove_idea = UKR_dualism
-			add_idea = UKR_political_instability
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+					NOT = { has_country_flag = UKR_dyrektoria_uprising_active }
+				}
+			}
+			remove_ideas = UKR_dualism
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = UKR_dualism
+				add_idea = UKR_political_instability
+			}
 		}
 		effect_tooltip = { kill_country_leader = yes }
 		UKR_remove_king = yes		
@@ -1063,6 +1172,7 @@ country_event = { # Boom
 		complete_national_focus = UKR_Explosion_Dnieper
 		set_variable = { UKR_minimum_alignment = 0 }
 		add_dynamic_modifier = { modifier = UKR_skoropadskyi_policy }
+		add_to_variable = { UKR_ump_strength = -10 }
 	}	
 }
 country_event = { # Konovalets Coup Beginning
@@ -1093,6 +1203,7 @@ country_event = { # Konovalets Counter-Coup
 	option = {
 		name = ukrpol.35.a
 		set_global_flag = UKR_konovalets_counet_coup
+		complete_national_focus = UKR_Konovalets_Counter_Coup
 		UKR_decrease_king_strength = yes
 		UKR_decrease_king = yes
 		event_target:UKR_Yevhen_Konovalets = { promote_leader = yes }
@@ -1161,6 +1272,23 @@ country_event = { # Konovalets Counter-Coup
 			name = UKR_paternal_autocrat_party2
 			long_name = UKR_paternal_autocrat_party2_long
 		}
+		hidden_effect = {
+			end_coalition = yes
+			set_temp_variable = { coalition_partner_var = token:paternal_autocrat }
+			add_to_coalition = yes
+		}
+		effect_tooltip = {
+			every_unit_leader = {
+				limit = { has_unit_leader_flag = UKR_hetman_loyalist }
+				retire = yes
+			}
+		}
+		hidden_effect = {
+			every_unit_leader = {
+				limit = { has_unit_leader_flag = UKR_hetman_loyalist }
+				set_nationality = XXA
+			}
+		}
 		UPR = {
 			every_unit_leader = {
 				limit = { has_trait = UKR_uvo_officer }
@@ -1173,6 +1301,15 @@ country_event = { # Konovalets Counter-Coup
 			add_war_support = -0.15
 		}		
 		mark_focus_tree_layout_dirty = yes
+		if = {
+			limit = { NOT = { has_global_flag = UPR_dyrektoria_joined_peacefully } }
+			country_event = {
+				id = ukrpol.38
+				days = 5
+			}
+		}
+		add_to_variable = { UKR_ump_strength = -10 }
+		add_to_variable = { UKR_uskhd_strength = -10 }
 	}	
 }
 country_event = { # Dyrektoria Uprising
@@ -1201,6 +1338,10 @@ country_event = { # Dyrektoria Uprising
 				days = 50
 			}
 		}
+		add_to_variable = { UKR_udp_strength = -10 }
+		add_to_variable = { UKR_ump_strength = -10 }
+		add_to_variable = { UKR_uskhd_strength = -10 }
+		add_to_variable = { UKR_shd_strength = -15 }
 	}
 	option = {
 		name = ukrpol.36.b
@@ -1251,7 +1392,10 @@ country_event = { # Dyrektoria Uprising
 			}
 			clear_variable = UKR_Direktoriia_Strength
 			clear_global_event_target = UKR_dyrektoria_headquarters
-			WSU = { save_global_event_target_as = UKR_dyrektoria_headquarters }
+			WSU = { 
+				save_global_event_target_as = UKR_dyrektoria_headquarters 
+				set_cosmetic_tag = UKR_dyrektoria
+			}
 		}
 		mark_focus_tree_layout_dirty = yes
 	}	
@@ -1261,11 +1405,26 @@ country_event = { # Dyrektoria Peace
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.38" }
 	title = ukrpol.38.t
 	desc = ukrpol.38.d
+	
+	fire_only_once = yes
 	is_triggered_only = yes
 	picture = GFX_report_event_UKR_dyrektoria_arrives
 
 	option = {
 		name = ukrpol.38.a
+		clr_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+		hidden_effect = {
+			if = {
+				limit = { has_dlc = "Man the Guns" }
+				UPR = { end_exile = yes }
+			}
+			WSU = {
+				event_target:UPR_Joint_Command = { retire = yes }
+				every_unit_leader = {
+					set_nationality = ROOT
+				}
+			}
+		}
 		set_global_flag = UPR_dyrektoria_joined_peacefully
 		clr_country_flag = UKR_dyrektoria_uprising_active
 		add_popularity = {
@@ -1311,6 +1470,11 @@ country_event = { # Dyrektoria Peace
 			}			
 		}
 		mark_focus_tree_layout_dirty = yes
+		add_to_variable = { UKR_natcom_strength = 10 }
+		add_to_variable = { UKR_borbyst_strength = 10 }
+		add_to_variable = { UKR_borotbyst_strength = 10 }
+		add_to_variable = { UKR_usdrp_strength = 10 }
+		add_to_variable = { UKR_undo_strength = 10 }
 	}	
 }
 country_event = { # hidden event for ai UPR
@@ -1571,6 +1735,11 @@ country_event = { # Austrian-Dyrektoria
 				cost_factor = 0
 			}
 		}
+		add_to_variable = { UKR_natcom_strength = -5 }
+		add_to_variable = { UKR_borbyst_strength = -5 }
+		add_to_variable = { UKR_borotbyst_strength = -5 }
+		add_to_variable = { UKR_usdrp_strength = -5 }
+		add_to_variable = { UKR_undo_strength = 5 }
 	}
 	option = {
 		name = ukrpol.43.b
@@ -1834,6 +2003,10 @@ country_event = { # Russian-Dyrektoria
 			ideology = national_populist
 			popularity = 0.05
 		}		
+		add_to_variable = { UKR_undo_strength = 2 }
+		add_to_variable = { UKR_ump_strength = 2 }
+		add_to_variable = { UKR_sun_strength = 2 }
+		add_to_variable = { UKR_sun_dontsov_strength = 2 }
 	}	
 }
 country_event = { # Russian-Dyrektoria
@@ -1860,6 +2033,11 @@ country_event = { # Russian-Dyrektoria
 				amount = 2000
 			}
 		}				
+		add_to_variable = { UKR_natcom_strength = -5 }
+		add_to_variable = { UKR_borbyst_strength = 5 }
+		add_to_variable = { UKR_borotbyst_strength = -5 }
+		add_to_variable = { UKR_usdrp_strength = 5 }
+		add_to_variable = { UKR_undo_strength = -5 }
 	}	
 }
 country_event = { # German-Dyrektoria
@@ -2266,11 +2444,13 @@ country_event = { # UNDO defected
 		add_stability = -0.1
 		add_political_power = -50
 		add_to_variable = { UKR_vynnychenko_authority = -1 }
+		set_global_flag = UPR_soclibs_leave_dyrektoria
 		set_party_name = {
 			ideology = social_liberal
 			name = UKR_social_liberal_party2
 			long_name = UKR_social_liberal_party2_long
 		}
+		add_to_variable = { UKR_undo_strength = -20 }
 	}		
 }
 country_event = { # Choosing target
@@ -2290,6 +2470,8 @@ country_event = { # Choosing target
 		set_country_flag = UPR_zhytomyr_plan
 		custom_effect_tooltip = UKR_plan_chosen_tt
 		activate_mission_tooltip = UPR_seize_zhytomyr
+		add_to_variable = { UKR_usdrp_strength = 2 }
+		add_to_variable = { UKR_sun_strength = -2 }
 	}
 	option = {
 		name = ukrpol.58.b
@@ -2301,6 +2483,8 @@ country_event = { # Choosing target
 		set_country_flag = UPR_vynnytsa_plan
 		custom_effect_tooltip = UKR_plan_chosen_tt
 		activate_mission_tooltip = UPR_seize_vynnytsa
+		add_to_variable = { UKR_usdrp_strength = -2 }
+		add_to_variable = { UKR_sun_strength = 2 }
 	}		
 }
 country_event = { # Colonel Melnyk Initiative
@@ -2335,6 +2519,8 @@ country_event = { # Colonel Melnyk Initiative
 			UKR_Omelian_Senyk_eco_npo
 			UKR_Vasyl_Kuchabskyi_sec_pau
 		}
+		add_to_variable = { UKR_usdrp_strength = -3 }
+		add_to_variable = { UKR_sun_strength = 3 }
 	}
 	option = {
 		name = ukrpol.59.b
@@ -2344,6 +2530,8 @@ country_event = { # Colonel Melnyk Initiative
 		add_to_variable = { UKR_petliura_authority = 1 }
 		add_to_variable = { UKR_vynnychenko_authority = 1 }
 		add_to_variable = { UKR_uvo_authority = -1 }
+		add_to_variable = { UKR_usdrp_strength = 3 }
+		add_to_variable = { UKR_sun_strength = -3 }
 	}		
 }
 country_event = { # Civil War
@@ -2723,6 +2911,11 @@ country_event = { # Victory of Kingdom
 		}
 		GER = { add_to_faction = UKR }
 		mark_focus_tree_layout_dirty = yes
+		set_variable = { UKR_natcom_strength = 0 }
+		set_variable = { UKR_borbyst_strength = 0 }
+		set_variable = { UKR_borotbyst_strength = 0 }
+		set_variable = { UKR_usdrp_strength = 0 }
+		set_variable = { UKR_sun_strength = 0 }
 	}
 }
 country_event = { # Victory of Dyrektoria
@@ -2781,12 +2974,33 @@ country_event = { # Victory of Dyrektoria
 				add_claim_by = CRM
 				UKR = { transfer_state = PREV }
 			}
-		}				
+		}
+		effect_tooltip = {
+			every_unit_leader = {
+				limit = { has_unit_leader_flag = UKR_hetman_loyalist }
+				retire = yes
+			}
+		}
+		hidden_effect = {
+			every_unit_leader = {
+				limit = { has_unit_leader_flag = UKR_hetman_loyalist }
+				set_nationality = XXA
+			}
+		}
 		set_global_flag = UPR_ukrainian_civil_war_ended
 		set_global_flag = UKR_kingdom_exiled_in_Galicia
 		clr_country_flag = UKR_dyrektoria_uprising_active
 		clear_global_event_target = UKR_dyrektoria_headquarters
 		mark_focus_tree_layout_dirty = yes
+		if = {
+			limit = { has_global_flag = UPR_soclibs_leave_dyrektoria }
+			set_variable = { UKR_undo_strength = 0 }
+		}
+		set_variable = { UKR_udp_strength = 0 }
+		set_variable = { UKR_ump_strength = 0 }
+		set_variable = { UKR_uskhd_strength = 0 }
+		set_variable = { UKR_shd_strength = 0 }
+		set_variable = { UKR_sun_dontsov_strength = 0 }
 	}
 }
 country_event = { # Victory of Kingdom if it is UPR
@@ -2817,6 +3031,11 @@ country_event = { # Victory of Kingdom if it is UPR
 		name = ukrpol.61.a
 		hidden_effect = {
 			UKR = { 
+				set_variable = { UKR_natcom_strength = 0 }
+				set_variable = { UKR_borbyst_strength = 0 }
+				set_variable = { UKR_borotbyst_strength = 0 }
+				set_variable = { UKR_usdrp_strength = 0 }
+				set_variable = { UKR_sun_strength = 0 }
 				set_cosmetic_tag = UKR_kingdom
 				copy_government_of_ROOT = yes
 				remove_all_ministers = yes
@@ -2937,6 +3156,15 @@ country_event = { # Victory of Dyrektoria if its UPR
 		name = ukrpol.62.a
 		hidden_effect = {
 			UKR = {
+				if = {
+					limit = { has_global_flag = UPR_soclibs_leave_dyrektoria }
+					set_variable = { UKR_undo_strength = 0 }
+				}
+				set_variable = { UKR_udp_strength = 0 }
+				set_variable = { UKR_ump_strength = 0 }
+				set_variable = { UKR_uskhd_strength = 0 }
+				set_variable = { UKR_shd_strength = 0 }
+				set_variable = { UKR_sun_dontsov_strength = 0 }
 				every_unit_leader = {
 					retire = yes
 				}				
@@ -3180,6 +3408,7 @@ country_event = { # Dyrektoria Mechanics
 			ideology = social_democrat
 			popularity = -0.05
 		}
+		add_to_variable = { UKR_usdrp_strength = -2 }
 		add_political_power = -15
 		FROM = {
 			country_event = {
@@ -3269,6 +3498,7 @@ country_event = { # Dyrektoria Mechanics
 			ideology = radical_socialist
 			popularity = 0.03
 		}
+		add_to_variable = { UKR_borotbyst_strength = 4 }
 	}
 }
 country_event = { # Dyrektoria Mechanics
@@ -3284,6 +3514,7 @@ country_event = { # Dyrektoria Mechanics
 		name = ukrpol.72.a
 		UKR_increase_hetman_strength = yes
 		add_stability = -0.03
+		add_to_variable = { UKR_shd_strength = 3 }
 	}
 }
 country_event = { # Dyrektoria Mechanics
@@ -3849,6 +4080,9 @@ country_event = { # Kyiv Trials
 			ideology = national_populist
 			popularity = -0.1
 		}
+		add_to_variable = { UKR_usdrp_strength = -10 }
+		add_to_variable = { UKR_sun_strength = -10 }
+		add_to_variable = { UKR_sun_dontsov_strength = -10 }
 	}	
 }
 country_event = { # Vilne Kozatstvo
@@ -3856,7 +4090,7 @@ country_event = { # Vilne Kozatstvo
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.115" }
 	title = ukrpol.115.t
 	desc = ukrpol.115.d
-	picture = GFX_report_event_UKR_cossacks
+	picture = GFX_report_event_UKR_cossacks2
 	
 	is_triggered_only = yes
 	
@@ -3869,7 +4103,7 @@ country_event = { # Vilne Kozatstvo
 		add_political_power = 15
 		UKR_improve_ukrainisation = yes
 		add_ideas = UKR_khmel_host
-		UKR_skoropadsky_increase_germanophiles = yes
+		event_target:UKR_Ivan_Poltavets = { promote_leader = yes }
 	}	
 }
 country_event = { # Regency Council
@@ -3921,7 +4155,7 @@ country_event = { # Regency Council
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.118" }
 	title = ukrpol.118.t
 	desc = ukrpol.118.d
-	picture = GFX_report_event_UKR_skoropadsky_2
+	picture = GFX_report_event_UKR_skoropadsky_5
 	
 	is_triggered_only = yes
 	
@@ -3996,6 +4230,10 @@ country_event = { # Regency Council
 			base = 20
 		}
 		UKR_regency_increase_leo_stefan = yes
+		if = {
+			limit = { has_country_flag = UKR_regency_pavlo_heir }
+			custom_effect_tooltip = UKR_not_hetmanate_chosen
+		}
 	}
 	option = {
 		name = ukrpol.120.b
@@ -4021,6 +4259,8 @@ country_event = { # Regency Council
 			check_variable = { UKR_regency_leo_stefan > UKR_regency_pavlo }
 		}
 		UKR_create_leo_stefan = yes
+		add_to_variable = { UKR_shd_strength = -15 }
+		add_to_variable = { UKR_ump_strength = 15 }
 		if = {
 			limit = { has_country_flag = UKR_will_become_hetmanate }
 			set_cosmetic_tag = UKR_hetmanate
@@ -4065,18 +4305,17 @@ country_event = { # Regency Council
 		trigger = {
 			check_variable = { UKR_regency_pavlo > UKR_regency_danilo }
 			check_variable = { UKR_regency_pavlo > UKR_regency_leo_stefan }
+			has_country_flag = UKR_will_become_hetmanate
 		}
-		if = {
-			limit = { has_country_flag = UKR_will_become_hetmanate }
-			add_country_leader_trait = UKR_hetman_title
-			set_cosmetic_tag = UKR_hetmanate
-		}
-		else = {
-			add_country_leader_trait = UKR_king_title
-		}
+		add_country_leader_trait = UKR_hetman_title
+		set_cosmetic_tag = UKR_hetmanate
 		set_country_leader_portrait = {
 			ideology = paternal_autocrat
 			portrait = GFX_Portrait_UKR_Pavlo_Skoropadskyi_Hetman
+		}
+		set_country_leader_description = {
+			ideology = paternal_autocrat
+			desc = POLITICS_PAVLO_SKOROPADSKYI_DESC
 		}
 		clr_country_flag = UKR_regency_council
 		set_country_flag = UKR_regency_council_over
@@ -4088,6 +4327,8 @@ country_event = { # Regency Council
 			check_variable = { UKR_regency_danilo > UKR_regency_leo_stefan }
 		}
 		UKR_create_danylo = yes
+		add_to_variable = { UKR_shd_strength = -15 }
+		add_to_variable = { UKR_uskhd_strength = 15 }
 		if = {
 			limit = { has_country_flag = UKR_will_become_hetmanate }
 			set_cosmetic_tag = UKR_hetmanate
@@ -4172,15 +4413,12 @@ country_event = { # An Heir to King Vasily?
 			target = AUS
 			modifier = UKR_AUS_stefan_hab
 			} # 30
-		set_politics = {
-			ideology = social_conservative
-			elections_allowed = yes
-		}
+		add_to_variable = { UKR_uskhd_strength = -5 }
 		hidden_effect = {
 			UKR = {
 				country_event = {
-					days = 100
-					id = ukraine.53
+					days = 2
+					id = ukrpol.151
 				}
 			}
 		}
@@ -4210,18 +4448,796 @@ country_event = { # An Heir to King Vasily?
 			target = AUS
 			modifier = UKR_AUS_daniil_sko
 			} # -30
-		set_politics = {
-			ideology = authoritarian_democrat
-			elections_allowed = yes
-		}
+		add_to_variable = { UKR_uskhd_strength = -5 }
 		hidden_effect = {
 			UKR = {
 				country_event = {
-					days = 100
-					id = ukraine.53
+					days = 2
+					id = ukrpol.151
 				}
 			}
 		}
+	}	
+}
+country_event = { # New Head of Government?
+	id = ukrpol.151
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.151" }
+	title = ukrpol.151.t
+	desc = ukrpol.151.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.151.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1000
+				has_game_rule = {
+					rule = UKR_choose_heir
+					option = UKR_CHOOSE_HEIR_HABSBURG
+				}
+			}
+			modifier = {
+				factor = 1.2
+				has_country_flag = UKR_LEO
+			}
+		}
+		set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = yes
+		}
+		remove_ideas_with_trait = head_of_government
+		add_ideas = UKR_Volodymyr_Zalozetskyi_Sas_hog_sco
+		add_to_variable = { UKR_uskhd_strength = -5 }
+		hidden_effect = {
+			end_coalition = yes
+			set_temp_variable = { coalition_partner_var = token:authoritarian_democrat }
+			add_to_coalition = yes
+		}
+	}
+
+	option = {
+		name = ukrpol.151.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1000
+				has_game_rule = {
+					rule = UKR_choose_heir
+					option = UKR_CHOOSE_HEIR_SKOROPADSKY
+				}
+			}
+			modifier = {
+				factor = 1.2
+				has_country_flag = UKR_DAN
+			}
+		}
+		remove_ideas_with_trait = head_of_government
+		add_ideas = UKR_Vyacheslav_Lypynskyi_hog_ade
+		add_to_variable = { UKR_uskhd_strength = -5 }
+		effect_tooltip = {
+			set_politics = {
+				ruling_party = authoritarian_democrat
+				elections_allowed = yes
+			}
+		}
+	}	
+}
+country_event = { # Free Kingdom
+	id = ukrpol.152
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.152" }
+	title = ukrpol.152.t
+	desc = ukrpol.152.d
+	picture = GFX_report_event_UKR_vasyl
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.152.a
+		add_stability = 0.05
+		hidden_effect = { UKR_create_vasyl = yes }
+	}	
+}
+country_event = { # Constitution
+	id = ukrpol.153
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.153" }
+	title = ukrpol.153.t
+	desc = ukrpol.153.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.153.a
+		add_ideas = UKR_Constitution_National_Accord
+		add_to_variable = { UKR_ump_strength = 3 }
+		add_to_variable = { UKR_undo_strength = 5 }
+	}	
+}
+country_event = { # National Rada
+	id = ukrpol.154
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.154" }
+	title = ukrpol.154.t
+	desc = ukrpol.154.d
+	picture = GFX_report_event_UKR_rada2
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.154.a
+		add_ideas = UKR_National_Rada
+		add_to_variable = { UKR_ump_strength = 3 }
+		add_to_variable = { UKR_undo_strength = 5 }
+	}	
+}
+country_event = { # UMP-UNDO Coalition
+	id = ukrpol.155
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.155" }
+	title = ukrpol.155.t
+	desc = ukrpol.155.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.155.a
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.08
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.08
+		}
+		set_party_name = {
+			ideology = market_liberal
+			name = UKR_social_liberal_party
+			long_name = UKR_social_liberal_party_legal_long
+		}
+		hidden_effect = {
+			end_coalition = yes
+			set_temp_variable = { coalition_partner_var = token:social_liberal }
+			add_to_coalition = yes
+			set_temp_variable = { coalition_partner_var = token:market_liberal }
+			add_to_coalition = yes
+		}
+		add_to_variable = { UKR_undo_strength = 15 }
+		add_to_variable = { UKR_ump_strength = 15 }
+		add_to_variable = { UKR_uskhd_strength = -15 }
+		remove_all_ministers = yes
+		add_ideas = {
+			UKR_Volodymyr_Zalozetskyi_Sas_hog_sco
+			UKR_Boris_Kozubskyi_for_sli
+			UKR_Stepan_Baran_eco_sli
+			UKR_Petro_Shekeryk_Donykiv_sec_sco
+		}
+	}	
+}
+country_event = { # Trade Agreements
+	id = ukrpol.156
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.156" }
+	title = ukrpol.156.t
+	desc = ukrpol.156.d
+	picture = GFX_report_event_UKR_vasyl
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.156.a
+		ai_chance = {
+			base = 80
+			modifier = {
+				factor = 0.5
+				FROM = { has_country_flag = UKR_DAN }
+			}
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.157
+				days = 2
+			}
+		}
+		custom_effect_tooltip = "If we agree:"
+		effect_tooltip = {
+			FROM = { add_ideas = UKR_austrian_trade_ump }
+			AUS = { add_ideas = AUS_ukrainian_trade_ump }
+		}
+	}	
+	option = {
+		name = ukrpol.156.b
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 3
+				FROM = { has_country_flag = UKR_DAN }
+			}
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.158
+				days = 2
+			}
+		}			
+	}	
+}
+country_event = { # Trade Agreements
+	id = ukrpol.157
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.157" }
+	title = ukrpol.157.t
+	desc = ukrpol.157.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.157.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_trade_agreement
+		}
+		reverse_add_opinion_modifier = {
+			target = FROM
+			modifier = KR_trade_agreement
+		}
+		add_ideas = UKR_austrian_trade_ump
+		FROM = { add_ideas = AUS_ukrainian_trade_ump }
+	}	
+}
+country_event = { # Trade Agreements
+	id = ukrpol.158
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.158" }
+	title = ukrpol.158.t
+	desc = ukrpol.158.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.158.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_disapproves_of_govt
+		}
+	}	
+}
+country_event = { # Czernin Agreements
+	id = ukrpol.159
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.159" }
+	title = ukrpol.159.t
+	desc = ukrpol.159.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.159.a
+		AUS = {
+			country_event = {
+				id = ukrpol.160
+				days = 2
+			}
+		}
+	}	
+}
+country_event = { # Czernin Agreements
+	id = ukrpol.160
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.160" }
+	title = ukrpol.160.t
+	desc = ukrpol.160.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.160.a
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_dictatorship_government = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_right_democratic_government = yes
+			}
+		}
+		set_country_flag = UKR_AUS_alliance
+		custom_effect_tooltip = UKR_if_agrees_tooltip
+		effect_tooltip = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 91
+						state = 89
+						state = 80
+						state = 1140
+						state = 1127
+						state = 1126
+						state = 713
+					}
+					is_owned_and_controlled_by_AUS_or_subject = yes
+				}
+				WSU = { transfer_state = PREV }
+			}
+			add_to_faction = UKR
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.161
+				days = 3
+			}
+		}
+	}
+	option = {
+		name = ukrpol.160.b
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				has_dictatorship_government = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_left_democratic_government = yes
+			}
+		}
+		set_country_flag = UKR_AUS_buffer
+		custom_effect_tooltip = UKR_if_agrees_tooltip
+		effect_tooltip = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 91
+						state = 89
+						state = 80
+						state = 1140
+						state = 1127
+						state = 1126
+					}
+					is_owned_and_controlled_by_AUS_or_subject = yes
+				}
+				WSU = { transfer_state = PREV }
+			}
+			every_state = {
+				limit = { 
+					state = 713 
+					is_owned_and_controlled_by_AUS_or_subject = yes
+				}
+				BUK = { transfer_state = PREV }
+				AUS = { puppet = BUK }
+			}				
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.162
+				days = 3
+			}
+		}
+	}	
+	option = {
+		name = ukrpol.160.c
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				has_dictatorship_government = no
+			}
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.163
+				days = 3
+			}
+		}
+	}	
+}
+country_event = { # Czernin Agreements
+	id = ukrpol.161
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.161" }
+	title = ukrpol.161.t
+	desc = ukrpol.161.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.161.b
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0
+				FROM = { has_left_democratic_government = no }
+			}
+			modifier = {
+				factor = 0.5
+				GER_is_in_mitteleuropa = no
+			}
+		}
+		custom_effect_tooltip = UKR_if_agrees_tooltip
+		effect_tooltip = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 91
+						state = 89
+						state = 80
+						state = 1140
+						state = 1127
+						state = 1126
+						state = 713
+					}
+					is_owned_and_controlled_by_AUS_or_subject = yes
+				}
+				UKR = { transfer_state = PREV }
+			}
+			AUS = { add_to_faction = UKR }
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.164
+				days = 3
+			}
+		}
+	}
+	option = {
+		name = ukrpol.161.a
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 2
+				FROM = { has_left_democratic_government = yes }
+			}
+			modifier = {
+				factor = 1.5
+				GER_is_in_mitteleuropa = no
+			}
+		}		
+		FROM = {
+			country_event = {
+				id = ukrpol.165
+				days = 3
+			}
+		}
+	}			
+}
+country_event = { # Czernin Agreements
+	id = ukrpol.162
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.162" }
+	title = ukrpol.161.t
+	desc = ukrpol.162.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.161.b
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0
+				FROM = { has_left_democratic_government = no }
+			}
+			modifier = {
+				factor = 0.5
+				GER_is_in_mitteleuropa = no
+			}
+		}
+		custom_effect_tooltip = UKR_if_agrees_tooltip
+		effect_tooltip = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 91
+						state = 89
+						state = 80
+						state = 1140
+						state = 1127
+						state = 1126
+					}
+					is_owned_and_controlled_by_AUS_or_subject = yes
+				}
+				WSU = { transfer_state = PREV }
+			}
+			every_state = {
+				limit = { 
+					state = 713 
+					is_owned_and_controlled_by_AUS_or_subject = yes
+				}
+				BUK = { transfer_state = PREV }
+				AUS = { puppet = BUK }
+			}				
+		}
+		FROM = {
+			country_event = {
+				id = ukrpol.164
+				days = 3
+			}
+		}
+	}
+	option = {
+		name = ukrpol.161.a
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 2
+				FROM = { has_left_democratic_government = yes }
+			}
+			modifier = {
+				factor = 1.5
+				GER_is_in_mitteleuropa = no
+			}
+		}		
+		FROM = {
+			country_event = {
+				id = ukrpol.165
+				days = 3
+			}
+		}
+	}			
+}
+country_event = { # Czernin Agreements
+	id = ukrpol.163
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.163" }
+	title = ukrpol.163.t
+	desc = ukrpol.163.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.163.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hates_govt
+		}
+	}			
+}
+country_event = { # Czernin Agreements
+	id = ukrpol.164
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.164" }
+	title = ukrpol.164.t
+	desc = {
+		text = ukrpol.164.d.faction
+		trigger = { has_country_flag = UKR_AUS_alliance }
+	}
+	desc = {
+		text = ukrpol.164.d.buffer
+		trigger = { has_country_flag = UKR_AUS_buffer }
+	}
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.164.a
+		trigger = { has_country_flag = UKR_AUS_alliance }
+		every_state = {
+			limit = {
+				OR = {
+					state = 91
+					state = 89
+					state = 80
+					state = 1140
+					state = 1127
+					state = 1126
+					state = 713
+				}
+				is_owned_and_controlled_by_AUS_or_subject = yes
+			}
+			UKR = { 
+				transfer_state = PREV
+				add_state_claim = PREV
+				hidden_effect = { remove_state_claim = 713 }
+				add_opinion_modifier = {
+					target = AUS
+					modifier = KR_returned_land
+				}
+			}
+		}
+		if = {
+			limit = { is_faction_leader = yes }
+			add_to_faction = UKR
+		}
+		else = {
+			create_faction = dniep_danubian_alliance
+			add_to_faction = UKR
+		}
+		every_other_country = {
+			limit = {
+				OR = {
+					tag = POL
+					tag = GAL
+				}
+			}
+			add_opinion_modifier = {
+				target = AUS
+				modifier = KR_outraged
+			}
+			add_opinion_modifier = {
+				target = UKR
+				modifier = KR_outraged
+			}
+		}
+		clr_country_flag = UKR_AUS_alliance
+	}
+	option = {
+		name = ukrpol.164.a
+		trigger = { has_country_flag = UKR_AUS_buffer }
+		every_state = {
+			limit = {
+				OR = {
+					state = 91
+					state = 89
+					state = 80
+					state = 1140
+					state = 1127
+					state = 1126
+				}
+				is_owned_and_controlled_by_AUS_or_subject = yes
+			}
+			WSU = { 
+				transfer_state = PREV
+				add_state_core = PREV
+				WSU_create_buffer_zone = yes
+			}
+		}
+		every_state = {
+			limit = { 
+				state = 713 
+				is_owned_and_controlled_by_AUS_or_subject = yes
+			}
+			BUK = {
+				transfer_state = 713
+				add_state_core = 713
+				get_current_government_type = yes
+			}
+			AUS = {
+				puppet = BUK
+			}
+			BUK = { restore_previous_government_type = yes }
+		}
+		AUS = {
+			diplomatic_relation = {
+				country = UKR
+				relation = non_aggression_pact
+				active = yes
+			}
+			diplomatic_relation = {
+				country = WSU
+				relation = non_aggression_pact
+				active = yes
+			}
+			diplomatic_relation = {
+				country = WSU
+				relation = guarantee
+				active = yes
+			}
+			diplomatic_relation = {
+				country = WSU
+				relation = military_access
+				active = yes
+			}
+		}
+		UKR = {
+			diplomatic_relation = {
+				country = WSU
+				relation = non_aggression_pact
+				active = yes
+			}
+			diplomatic_relation = {
+				country = WSU
+				relation = guarantee
+				active = yes
+			}
+			diplomatic_relation = {
+				country = WSU
+				relation = military_access
+				active = yes
+			}
+		}
+		every_other_country = {
+			limit = {
+				OR = {
+					tag = POL
+					tag = GAL
+				}
+			}
+			add_opinion_modifier = {
+				target = AUS
+				modifier = KR_outraged
+			}
+			add_opinion_modifier = {
+				target = UKR
+				modifier = KR_outraged
+			}
+		}		
+		clr_country_flag = UKR_AUS_buffer
+	}	
+}
+country_event = { # Czernin Agreements
+	id = ukrpol.165
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.165" }
+	title = ukrpol.165.t
+	desc = ukrpol.165.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.165.a
+		clr_country_flag = UKR_AUS_alliance			
+		clr_country_flag = UKR_AUS_buffer
+	}	
+}
+country_event = { # Rada Prysiazhny
+	id = ukrpol.167
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.167" }
+	title = ukrpol.167.t
+	desc = ukrpol.167.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.167.a
+		add_stability = -0.02
+		add_political_power = 5
+	}	
+}
+country_event = { # Rada Prysiazhny
+	id = ukrpol.168
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.168" }
+	title = ukrpol.168.t
+	desc = ukrpol.168.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.168.a
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+		set_cosmetic_tag = UKR_hetmanate
+		add_country_leader_trait = UKR_hetman_title
+		hidden_effect = {
+			get_current_government_type = yes
+			set_politics = { ruling_party = social_liberal }
+			add_country_leader_trait = UKR_hetman_title
+			set_politics = { ruling_party = market_liberal }
+			add_country_leader_trait = UKR_hetman_title
+			set_politics = { ruling_party = social_conservative }
+			add_country_leader_trait = UKR_hetman_title
+			set_politics = { ruling_party = authoritarian_democrat }
+			add_country_leader_trait = UKR_hetman_title
+			restore_previous_government_type = yes
+		}
+		add_to_variable = { UKR_ump_strength = -7 }
+	}	
+}
+country_event = { # Moral Code
+	id = ukrpol.169
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.169" }
+	title = ukrpol.169.t
+	desc = ukrpol.169.d
+	picture = GFX_report_event_UKR_lypynskyi
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.169.a
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+		add_stability = -0.05		
+		add_to_variable = { UKR_sun_dontsov_strength = 5 }
+		add_to_variable = { UKR_uskhd_strength = 5 }
+	}	
+}
+country_event = { # Cossacks
+	id = ukrpol.170
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.170" }
+	title = ukrpol.170.t
+	desc = ukrpol.170.d
+	picture = GFX_report_event_UKR_cossacks
+	is_triggered_only = yes
+
+	option = {
+		name = ukrpol.170.a
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+		add_to_variable = { UKR_uskhd_strength = 2 }
+		add_war_support = 0.05	
+		add_ideas = UKR_khmel_host
+		event_target:UKR_Ivan_Poltavets = { promote_leader = yes }
 	}	
 }
 
@@ -4682,6 +5698,7 @@ country_event = { # Dovzhenko
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.4" }
 	title = ukrmisc.4.t
 	desc = ukrmisc.4.d
+	picture = GFX_report_event_UKR_dovzhenko
 
 	is_triggered_only = yes
 
@@ -4905,6 +5922,44 @@ country_event = { # King Lev II Adulthood
 		set_country_leader_portrait = {
 			ideology = var:ROOT.current_party_ideology_group
 			portrait = GFX_Portrait_UKR_Leo_Stefan_Habsburg
+		}
+	}
+}
+country_event = { # White Guard
+	id = ukrmisc.22
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.22" }
+	title = ukrmisc.22.t
+	desc = ukrmisc.22.d
+	is_triggered_only = yes
+
+	option = {
+		name = ukrmisc.22.a
+		add_stability = -0.02
+		if = {
+			limit = {
+				UKR_skoropadsky_increase_russophiles = yes
+			}
+			UKR_skoropadsky_increase_germanophiles = yes
+		}
+	}
+}
+
+country_event = { # Rifles and carbines
+	id = ukrmisc.23
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrmisc.23" }
+	title = ukrmisc.23.t
+	desc = ukrmisc.23.d
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_dovzhenko
+
+	option = {
+		name = ukrmisc.23.a
+		add_stability = 0.02
+		if = {
+			limit = {
+				UKR_pavlo_skoropadsky_in_power = yes
+			}
+			UKR_skoropadsky_increase_germanophiles = yes
 		}
 	}
 }
@@ -8269,32 +9324,6 @@ country_event = { # Ukraine in Austrian alliance
 	}
 }
 
-country_event = { # White Guard
-	id = ukraine.76
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.76" }
-	title = ukraine.76.t
-	desc = ukraine.76.d
-	is_triggered_only = yes
-
-	option = {
-		name = ukraine.76.a
-		add_stability = 0.03
-	}
-}
-
-country_event = { # Rifles and carbines
-	id = ukraine.77
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.77" }
-	title = ukraine.77.t
-	desc = ukraine.77.d
-	is_triggered_only = yes
-
-	option = {
-		name = ukraine.77.a
-		add_stability = -0.06
-	}
-}
-
 country_event = { # kulaks
 	id = ukraine.78
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukraine.78" }
@@ -9671,3 +10700,3458 @@ country_event = { # No Russianer
 		add_manpower = -459
 	}
 }
+### Panslavic Congress 
+country_event = { #Panslavic Congress - Invitations
+	id = ukrfor.11
+	title = ukrfor.11.t
+	desc = ukrfor.11.d
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrfor.11.a
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 6
+				NOT = {
+					is_in_faction_with = GER
+				}
+			}
+			modifier = {
+				factor = 100
+				is_in_faction_with = RUS
+			}
+			modifier = {
+				factor = 100
+				is_subject_of = RUS
+			}			
+		}
+		set_country_flag = psc_council_vote
+		add_to_array = { global.PSC_voters = ROOT }
+		add_political_power = 25
+		hidden_effect = {
+			RUS = {
+				country_event = {
+					id = ukrfor.12
+					days = 1
+				}
+			}
+		}
+	}
+	option = {
+		name = ukrfor.11.b
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 3
+				is_in_faction_with = GER
+			}
+		}
+		add_political_power = -25
+		hidden_effect = {
+			RUS = {
+				country_event = {
+					id = ukrfor.13
+					days = 1
+				}
+			}
+		}
+	}
+}
+country_event = { #Panslavic Congress - Country Accepts
+	id = ukrfor.12
+	title = ukrfor.12.t
+	desc = ukrfor.12.d
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrfor.12.a
+	}
+}
+country_event = { #Panslavic Congress - Country Rejects
+	id = ukrfor.13
+	title = ukrfor.13.t
+	desc = ukrfor.12.d
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrfor.13.a
+	}
+}
+country_event = { #Panslavic Congress - Aus-Ger-Hun
+	id = ukrfor.14
+	title = ukrfor.14.t
+	desc = ukrfor.14.d
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrfor.14.b
+		ai_chance = {
+			factor = 70
+		}
+		hidden_effect = {
+			RUS = {
+				country_event = {
+					id = ukrfor.15
+					days = 1
+				}
+			}
+		}
+	}
+	option = {
+		name = ukrfor.14.c
+		ai_chance = {
+			factor = 10
+		}
+		add_political_power = -50
+	}
+}
+country_event = { #Panslavic Congress - German Offer
+	id = ukrfor.15
+	title = ukrfor.15.t
+	desc = ukrfor.15.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.15.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 5
+				has_democratic_government = yes
+			}
+		}
+		hidden_effect = {
+			FROM = {
+				country_event = {
+					id = ukrfor.17
+					days = 1
+				}
+			}
+		}
+	}
+	option = {
+		name = ukrfor.15.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 5
+				has_authoritarian_government = yes
+			}
+		}
+		hidden_effect = {
+			FROM = {
+				country_event = {
+					id = ukrfor.16
+					days = 1
+				}
+			}
+		}
+	}
+}
+country_event = { #Panslavic Congress - Russia Rejects
+	id = ukrfor.16
+	title = ukrfor.16.t
+	desc = ukrfor.16.d
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrfor.16.a
+	}
+}
+country_event = { #Panslavic Congress - Russia Accepts
+	id = ukrfor.17
+	title = ukrfor.15.t
+	desc = ukrfor.17.d
+	is_triggered_only = yes
+	
+	option = {
+		name = ukrfor.17.a
+		set_country_flag = psc_council_vote
+		add_to_array = { global.PSC_voters = ROOT }
+	}
+}
+country_event = { #Panslavic Congress - Czechoslovakia
+	id = ukrfor.18
+	title = ukrfor.18.t
+	desc = ukrfor.18.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.18.a
+		ai_chance = {
+			factor = 50
+		}
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_czechoslovakia_independent
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.27
+			days = 15
+		}
+	}
+	option = {
+		name = ukrfor.18.b
+		ai_chance = {
+			factor = 50
+		}
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_czechoslovakia_separate_independent
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.27
+			days = 15
+		}
+	}
+}
+country_event = { #PS - Voting
+	id = ukrfor.26
+	title = ukrfor.26.t
+	desc = ukrfor.26.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.26.a
+	}
+}
+	
+	
+country_event = { #PS - Czechoslovakia Result
+	id = ukrfor.27
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.27" }
+	title = ukrfor.27.t
+	desc = ukrfor.27.d
+	fire_only_once = yes
+	picture = GFX_report_event_generic_diplomacy4
+	is_triggered_only = yes
+	option = {	#Approved!
+		name = ukrfor.27.a
+		clear_variable = global.psc_yes_votes
+		clear_variable = global.psc_no_votes
+		clear_variable = global.psc_abstain_votes
+		if = {
+			limit = {
+				has_global_flag = PSC_czechoslovakia_independent
+			}
+			clr_global_flag = PSC_czechoslovakia_independent
+			set_country_flag = czechoslovakia_independent_approved
+		}
+		if = {
+			limit = {
+				has_global_flag = PSC_czechoslovakia_separate_independent
+			}
+			clr_global_flag = PSC_czechoslovakia_separate_independent
+			set_country_flag = czechoslovakia_separate_approved
+		}
+		clr_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				if = {
+					limit = {
+						has_country_flag = PSC_we_voted_this_time
+					}
+					clr_country_flag = PSC_we_voted_this_time
+				}
+			}
+		}
+		trigger = {
+			AND = {
+				check_variable = { global.psc_yes_votes > global.psc_no_votes }
+				check_variable = { global.psc_yes_votes > 0 }
+			}
+		}
+	}
+	option = {	#Denied!
+		name = ukrfor.27.b
+		clear_variable = global.psc_yes_votes
+		clear_variable = global.psc_no_votes
+		clear_variable = global.psc_abstain_votes
+		clr_global_flag = PSC_czechoslovakia_independent
+		clr_global_flag = PSC_czechoslovakia_separate_independent
+		set_country_flag = PSC_czechoslovakia_denied
+		clr_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				if = {
+					limit = {
+						has_country_flag = PSC_we_voted_this_time
+					}
+					clr_country_flag = PSC_we_voted_this_time
+				}
+			}
+		}
+		trigger = {
+			NOT = {
+				check_variable = { global.psc_yes_votes > global.psc_no_votes }
+			}
+		}
+	}
+}
+country_event = { #Panslavic Congress - Illyria
+	id = ukrfor.19
+	title = ukrfor.19.t
+	desc = ukrfor.19.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			CRO = {
+				has_country_flag = psc_council_vote
+			}
+			MNT = {
+				has_country_flag = psc_council_vote
+			}
+			AUS = {
+				has_country_flag = psc_council_vote
+			}
+			HUN = {
+				has_country_flag = psc_council_vote
+			}
+		}
+	}
+	option = {
+		name = ukrfor.19.a
+		ai_chance = {
+			factor = 35
+		}
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_illyria_independent
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.28
+			days = 15
+		}
+	}
+	option = {
+		name = ukrfor.19.b
+		ai_chance = {
+			factor = 30
+		}
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_illyria_separate_independent
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.28
+			days = 15
+		}
+	}
+	option = {
+		name = ukrfor.19.c
+		ai_chance = {
+			factor = 35
+		}
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_illyria_slovenia_croatia
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.28
+			days = 15
+		}
+	}
+}
+country_event = { #PS - Illyria Result
+	id = ukrfor.28
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.28" }
+	title = ukrfor.28.t
+	desc = ukrfor.28.d
+	fire_only_once = yes
+	picture = GFX_report_event_generic_diplomacy4
+	is_triggered_only = yes
+	option = {	#Approved!
+		name = ukrfor.27.a
+		clear_variable = global.psc_yes_votes
+		clear_variable = global.psc_no_votes
+		clear_variable = global.psc_abstain_votes
+		if = {
+			limit = {
+				has_global_flag = PSC_illyria_independent
+			}
+			clr_global_flag = PSC_illyria_independent
+			set_country_flag = illyria_independent_approved
+		}
+		if = {
+			limit = {
+				has_global_flag = PSC_illyria_separate_independent
+			}
+			clr_global_flag = PSC_illyria_separate_independent
+			set_country_flag = illyria_separate_approved
+		}
+		if = {
+			limit = {
+				has_global_flag = PSC_illyria_slovenia_croatia
+			}
+			clr_global_flag = PSC_illyria_slovenia_croatia
+			set_country_flag = illyria_slovenia_croatia_approved
+		}
+		clr_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				if = {
+					limit = {
+						has_country_flag = PSC_we_voted_this_time
+					}
+					clr_country_flag = PSC_we_voted_this_time
+				}
+			}
+		}
+		trigger = {
+			AND = {
+				check_variable = { global.psc_yes_votes > global.psc_no_votes }
+				check_variable = { global.psc_yes_votes > 0 }
+			}
+		}
+	}
+	option = {	#Denied!
+		name = ukrfor.27.b
+		clear_variable = global.psc_yes_votes
+		clear_variable = global.psc_no_votes
+		clear_variable = global.psc_abstain_votes
+		clr_global_flag = PSC_illyria_independent
+		clr_global_flag = PSC_illyria_separate_independent
+		clr_global_flag = PSC_illyria_slovenia_croatia
+		clr_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				if = {
+					limit = {
+						has_country_flag = PSC_we_voted_this_time
+					}
+					clr_country_flag = PSC_we_voted_this_time
+				}
+			}
+		}
+		trigger = {
+			NOT = {
+				check_variable = { global.psc_yes_votes > global.psc_no_votes }
+			}
+		}
+	}
+}
+country_event = { #Panslavic Congress - Vojvodina
+	id = ukrfor.20
+	title = ukrfor.20.t
+	desc = ukrfor.20.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			CRO = {
+				has_country_flag = psc_council_vote
+			}
+			SER = {
+				has_country_flag = psc_council_vote
+			}
+		}
+	}
+	option = {
+		name = ukrfor.20.a
+		trigger = {
+			SER = {
+				has_country_flag = psc_council_vote
+			}
+		}
+		ai_chance = {
+			factor = 40
+		}
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_vojvodina_serbia
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.29
+			days = 15
+		}
+	}
+	option = {
+		name = ukrfor.20.b
+		trigger = {
+			CRO = {
+				has_country_flag = psc_council_vote
+			}
+		}
+		ai_chance = {
+			factor = 60
+		}
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_vojvodina_croatia
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.29
+			days = 15
+		}
+	}
+}
+country_event = { #PS - Vojvodina Result
+	id = ukrfor.29
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.29" }
+	title = ukrfor.29.t
+	desc = ukrfor.29.d
+	fire_only_once = yes
+	picture = GFX_report_event_generic_diplomacy4
+	is_triggered_only = yes
+	option = {	#Approved!
+		name = ukrfor.27.a
+		clear_variable = global.psc_yes_votes
+		clear_variable = global.psc_no_votes
+		clear_variable = global.psc_abstain_votes
+		if = {
+			limit = {
+				has_global_flag = PSC_vojvodina_croatia
+			}
+			clr_global_flag = PSC_vojvodina_croatia
+			set_country_flag = vojvodina_croatia_approved
+		}
+		if = {
+			limit = {
+				has_global_flag = PSC_vojvodina_serbia
+			}
+			clr_global_flag = PSC_vojvodina_serbia
+			set_country_flag = vojvodina_serbia_approved
+		}
+		clr_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				if = {
+					limit = {
+						has_country_flag = PSC_we_voted_this_time
+					}
+					clr_country_flag = PSC_we_voted_this_time
+				}
+			}
+		}
+		trigger = {
+			AND = {
+				check_variable = { global.psc_yes_votes > global.psc_no_votes }
+				check_variable = { global.psc_yes_votes > 0 }
+			}
+		}
+	}
+	option = {	#Denied!
+		name = ukrfor.27.b
+		clear_variable = global.psc_yes_votes
+		clear_variable = global.psc_no_votes
+		clear_variable = global.psc_abstain_votes
+		clr_global_flag = PSC_vojvodina_serbia
+		clr_global_flag = PSC_vojvodina_croatia
+		clr_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				if = {
+					limit = {
+						has_country_flag = PSC_we_voted_this_time
+					}
+					clr_country_flag = PSC_we_voted_this_time
+				}
+			}
+		}
+		trigger = {
+			NOT = {
+				check_variable = { global.psc_yes_votes > global.psc_no_votes }
+			}
+		}
+	}
+}
+country_event = { #Panslavic Congress - Yugoslavia
+	id = ukrfor.21
+	title = ukrfor.21.t
+	desc = ukrfor.21.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			CRO = {
+				has_country_flag = psc_council_vote
+			}
+			SER = {
+				has_country_flag = psc_council_vote
+			}
+		}
+	}
+	option = {
+		name = ukrfor.21.a
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_yugoslavia
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.30
+			days = 15
+		}
+	}
+}
+country_event = { #PS - Yugoslavia Result
+	id = ukrfor.30
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.30" }
+	title = ukrfor.30.t
+	desc = ukrfor.30.d
+	fire_only_once = yes
+	picture = GFX_report_event_generic_diplomacy4
+	is_triggered_only = yes
+	option = {	#Approved!
+		name = ukrfor.27.a
+		clear_variable = global.psc_yes_votes
+		clear_variable = global.psc_no_votes
+		clear_variable = global.psc_abstain_votes
+		clr_global_flag = PSC_yugoslavia
+		set_country_flag = yugoslavia_approved
+		clr_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				if = {
+					limit = {
+						has_country_flag = PSC_we_voted_this_time
+					}
+					clr_country_flag = PSC_we_voted_this_time
+				}
+			}
+		}
+		trigger = {
+			AND = {
+				check_variable = { global.psc_yes_votes > global.psc_no_votes }
+				check_variable = { global.psc_yes_votes > 0 }
+			}
+		}
+	}
+	option = {	#Denied!
+		name = ukrfor.27.b
+		clear_variable = global.psc_yes_votes
+		clear_variable = global.psc_no_votes
+		clear_variable = global.psc_abstain_votes
+		clr_global_flag = PSC_yugoslavia
+		clr_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				if = {
+					limit = {
+						has_country_flag = PSC_we_voted_this_time
+					}
+					clr_country_flag = PSC_we_voted_this_time
+				}
+			}
+		}
+		trigger = {
+			NOT = {
+				check_variable = { global.psc_yes_votes > global.psc_no_votes }
+			}
+		}
+	}
+}
+country_event = { #Panslavic Congress - Galicia
+	id = ukrfor.22
+	title = ukrfor.22.t
+	desc = ukrfor.22.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		AND = {
+			RUS = {
+				has_country_flag = psc_council_vote
+			}
+			OR = {
+				UKR = {
+					has_country_flag = psc_council_vote
+				}
+				GAL = {
+					has_country_flag = psc_council_vote
+				}
+				POL = {
+					has_country_flag = psc_council_vote
+				}
+				AUS = {
+					has_country_flag = psc_council_vote
+				}
+			}
+		}
+	}
+	option = {
+		name = ukrfor.22.a
+		trigger = {
+			country_exists = POL
+			country_exists = UKR
+			UKR = {
+				has_country_flag = psc_council_vote
+			}
+			POL = {
+				has_country_flag = psc_council_vote
+			}
+		}
+		ai_chance = {
+			factor = 25
+		}		
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_galicia_split_ukraine
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.31
+			days = 15
+		}
+	}
+	option = {
+		name = ukrfor.22.b
+		trigger = {
+			country_exists = POL
+			NOT = { country_exists = UKR }
+			POL = {
+				has_country_flag = psc_council_vote
+			}
+		}
+		ai_chance = {
+			factor = 25
+		}		
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_galicia_split_russia
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.31
+			days = 15
+		}
+	}
+	option = {
+		name = ukrfor.22.c
+		trigger = {
+			NOT = {country_exists = POL }
+			10 = {
+				owner = {
+					tag = RUS
+				}
+			}
+			NOT = { country_exists = UKR }
+		}
+		ai_chance = {
+			factor = 10
+		}
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_galicia_annex_russia
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.31
+			days = 15
+		}
+	}
+	option = {
+		name = ukrfor.22.e
+		trigger = {
+			NOT = { country_exists = UKR }
+			
+		}
+		ai_chance = {
+			factor = 15
+		}
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_eastgalicia_split
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.31
+			days = 15
+		}
+	}
+	option = {
+		name = ukrfor.22.f
+		trigger = {
+			country_exists = POL
+			POL = {
+				OR = {
+					NOT = { has_country_flag = psc_council_vote }
+					is_in_faction_with = GER
+				}
+			}
+			country_exists = UKR
+			UKR = {
+				has_country_flag = psc_council_vote
+			}
+		}
+		ai_chance = {
+			factor = 25
+		}
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_eastgalicia_ukraine
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.31
+			days = 15
+		}
+	}
+}
+country_event = { #PS - Galicia Result
+	id = ukrfor.31
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.31" }
+	title = ukrfor.31.t
+	desc = ukrfor.31.d
+	fire_only_once = yes
+	picture = GFX_report_event_generic_diplomacy4
+	is_triggered_only = yes
+	option = {	#Approved!
+		name = ukrfor.27.a
+		clear_variable = global.psc_yes_votes
+		clear_variable = global.psc_no_votes
+		clear_variable = global.psc_abstain_votes
+		if = {
+			limit = {
+				has_global_flag = PSC_galicia_split_ukraine
+			}
+			clr_global_flag = PSC_galicia_split_ukraine
+			set_country_flag = galicia_split_ukraine_approved
+		}
+		if = {
+			limit = {
+				has_global_flag = PSC_galicia_split_russia
+			}
+			clr_global_flag = PSC_galicia_split_russia
+			set_country_flag = galicia_split_russia_approved
+		}
+		if = {
+			limit = {
+				has_global_flag = PSC_galicia_annex_russia
+			}
+			clr_global_flag = PSC_galicia_annex_russia
+			set_country_flag = galicia_annex_russia_approved
+		}
+		if = {
+			limit = {
+				has_global_flag = PSC_eastgalicia_split
+			}
+			clr_global_flag = PSC_eastgalicia_split
+			set_country_flag = eastgalicia_split_approved
+		}
+		if = {
+			limit = {
+				has_global_flag = PSC_eastgalicia_ukraine
+			}
+			clr_global_flag = PSC_eastgalicia_ukraine
+			set_country_flag = eastgalicia_ukraine_approved
+		}
+		clr_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				if = {
+					limit = {
+						has_country_flag = PSC_we_voted_this_time
+					}
+					clr_country_flag = PSC_we_voted_this_time
+				}
+			}
+		}
+		trigger = {
+			AND = {
+				check_variable = { global.psc_yes_votes > global.psc_no_votes }
+				check_variable = { global.psc_yes_votes > 0 }
+			}
+		}
+	}
+	option = {	#Denied!
+		name = ukrfor.27.b
+		clear_variable = global.psc_yes_votes
+		clear_variable = global.psc_no_votes
+		clear_variable = global.psc_abstain_votes
+		clr_global_flag = PSC_eastgalicia_ukraine
+		clr_global_flag = PSC_galicia_split_ukraine
+		clr_global_flag = PSC_galicia_split_russia
+		clr_global_flag = PSC_galicia_annex_russia
+		clr_global_flag = PSC_eastgalicia_split
+		clr_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				if = {
+					limit = {
+						has_country_flag = PSC_we_voted_this_time
+					}
+					clr_country_flag = PSC_we_voted_this_time
+				}
+			}
+		}
+		trigger = {
+			NOT = {
+				check_variable = { global.psc_yes_votes > global.psc_no_votes }
+			}
+		}
+	}
+}
+country_event = { #Panslavic Congress - Carpathian Rus
+	id = ukrfor.24
+	title = ukrfor.24.t
+	desc = ukrfor.24.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_country_flag = galicia_annex_russia_approved
+			has_country_flag = galicia_split_russia_approved
+			has_country_flag = galicia_split_ukraine_approved
+			has_country_flag = eastgalicia_split_approved
+			has_country_flag = eastgalicia_ukraine_approved
+			has_country_flag = czechoslovakia_independent_approved
+			has_country_flag = czechoslovakia_separate_approved
+		}
+	}
+	option = {
+		name = ukrfor.24.a
+		trigger = {
+			has_country_flag = czechoslovakia_independent_approved
+		}
+		ai_chance = {
+			factor = 25
+		}
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_zakarpatie_cze
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.33
+			days = 15
+		}
+	}
+	option = {
+		name = ukrfor.24.b
+		trigger = {
+			has_country_flag = czechoslovakia_separate_approved
+		}
+		ai_chance = {
+			factor = 25
+		}
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_zakarpatie_slo
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.33
+			days = 15
+		}
+	}
+	option = {
+		name = ukrfor.24.c
+		trigger = {
+			OR = {
+				has_country_flag = galicia_split_ukraine_approved
+				has_country_flag = eastgalicia_ukraine_approved
+			}
+		}
+		ai_chance = {
+			factor = 25
+		}
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_zakarpatie_ukr
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.33
+			days = 15
+		}
+	}
+	option = {
+		name = ukrfor.24.e
+		trigger = {
+			OR = {
+				has_country_flag = galicia_annex_russia_approved
+				has_country_flag = galicia_split_russia_approved
+				has_country_flag = eastgalicia_split_approved
+			}
+		}
+		ai_chance = {
+			factor = 25
+		}
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_zakarpatie_rus
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.33
+			days = 15
+		}
+	}
+}
+country_event = { #PS - Carpathian Rus Result
+	id = ukrfor.33
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.33" }
+	title = ukrfor.33.t
+	desc = ukrfor.33.d
+	fire_only_once = yes
+	picture = GFX_report_event_generic_diplomacy4
+	is_triggered_only = yes
+	option = {	#Approved!
+		name = ukrfor.27.a
+		clear_variable = global.psc_yes_votes
+		clear_variable = global.psc_no_votes
+		clear_variable = global.psc_abstain_votes
+		if = {
+			limit = {
+				has_global_flag = PSC_zakarpatie_cze
+			}
+			clr_global_flag = PSC_zakarpatie_cze
+			set_country_flag = zakarpatie_cze_approved
+		}
+		if = {
+			limit = {
+				has_global_flag = PSC_zakarpatie_slo
+			}
+			clr_global_flag = PSC_zakarpatie_slo
+			set_country_flag = zakarpatie_slo_approved
+		}
+		if = {
+			limit = {
+				has_global_flag = PSC_zakarpatie_ukr
+			}
+			clr_global_flag = PSC_zakarpatie_ukr
+			set_country_flag = zakarpatie_ukr_approved
+		}
+		if = {
+			limit = {
+				has_global_flag = PSC_zakarpatie_rus
+			}
+			clr_global_flag = PSC_zakarpatie_rus
+			set_country_flag = zakarpatie_rus_approved
+		}
+		clr_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				if = {
+					limit = {
+						has_country_flag = PSC_we_voted_this_time
+					}
+					clr_country_flag = PSC_we_voted_this_time
+				}
+			}
+		}
+		trigger = {
+			AND = {
+				check_variable = { global.psc_yes_votes > global.psc_no_votes }
+				check_variable = { global.psc_yes_votes > 0 }
+			}
+		}
+	}
+	option = {	#Denied!
+		name = ukrfor.27.b
+		clear_variable = global.psc_yes_votes
+		clear_variable = global.psc_no_votes
+		clear_variable = global.psc_abstain_votes
+		clr_global_flag = PSC_zakarpatie_cze
+		clr_global_flag = PSC_zakarpatie_slo
+		clr_global_flag = PSC_zakarpatie_ukr
+		clr_global_flag = PSC_zakarpatie_rus
+		clr_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				if = {
+					limit = {
+						has_country_flag = PSC_we_voted_this_time
+					}
+					clr_country_flag = PSC_we_voted_this_time
+				}
+			}
+		}
+		trigger = {
+			NOT = {
+				check_variable = { global.psc_yes_votes > global.psc_no_votes }
+			}
+		}
+	}
+}
+country_event = { #Panslavic Congress - Bukowina
+	id = ukrfor.23
+	title = ukrfor.23.t
+	desc = ukrfor.23.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_country_flag = galicia_annex_russia_approved
+			has_country_flag = galicia_split_russia_approved
+			has_country_flag = galicia_split_ukraine_approved
+			has_country_flag = eastgalicia_split_approved
+			has_country_flag = eastgalicia_ukraine_approved
+		}
+	}
+	option = {
+		name = ukrfor.23.a
+		trigger = {
+			OR = {
+				has_country_flag = galicia_split_ukraine_approved
+				has_country_flag = eastgalicia_ukraine_approved
+			}
+		}
+		ai_chance = {
+			factor = 45
+		}
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_bukowina_split
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.32
+			days = 15
+		}
+	}
+	option = {
+		name = ukrfor.23.b
+		trigger = {
+			OR = {
+				has_country_flag = galicia_annex_russia_approved
+				has_country_flag = galicia_split_russia_approved
+				has_country_flag = eastgalicia_split_approved
+			}
+		}
+		ai_chance = {
+			factor = 45
+		}
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_bukowina_split_russia
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.32
+			days = 15
+		}
+	}
+	option = {
+		name = ukrfor.23.c
+		trigger = {
+			OR = {
+				has_country_flag = galicia_annex_russia_approved
+				has_country_flag = galicia_split_russia_approved
+				has_country_flag = eastgalicia_split_approved
+			}
+		}
+		ai_chance = {
+			factor = 10
+		}
+		activate_mission = PSC_vote_timer
+		set_global_flag = PSC_bukowina_annex
+		set_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				country_event = ukrfor.26
+			}
+		}
+		country_event = {
+			id = ukrfor.32
+			days = 15
+		}
+	}
+}
+country_event = { #PS - Bukowina Result
+	id = ukrfor.32
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.33" }
+	title = ukrfor.32.t
+	desc = ukrfor.32.d
+	fire_only_once = yes
+	picture = GFX_report_event_generic_diplomacy4
+	is_triggered_only = yes
+	option = {	#Approved!
+		name = ukrfor.27.a
+		clear_variable = global.psc_yes_votes
+		clear_variable = global.psc_no_votes
+		clear_variable = global.psc_abstain_votes
+		if = {
+			limit = {
+				has_global_flag = PSC_bukowina_split
+			}
+			clr_global_flag = PSC_bukowina_split
+			set_country_flag = bukowina_split_ukraine_approved
+		}
+		if = {
+			limit = {
+				has_global_flag = PSC_bukowina_split_russia
+			}
+			clr_global_flag = PSC_bukowina_split_russia
+			set_country_flag = bukowina_split_russia_approved
+		}
+		if = {
+			limit = {
+				has_global_flag = PSC_bukowina_annex
+			}
+			clr_global_flag = PSC_bukowina_annex
+			set_country_flag = bukowina_annex_approved
+		}
+		clr_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				if = {
+					limit = {
+						has_country_flag = PSC_we_voted_this_time
+					}
+					clr_country_flag = PSC_we_voted_this_time
+				}
+			}
+		}
+		trigger = {
+			AND = {
+				check_variable = { global.psc_yes_votes > global.psc_no_votes }
+				check_variable = { global.psc_yes_votes > 0 }
+			}
+		}
+	}
+	option = {	#Denied!
+		name = ukrfor.27.b
+		clear_variable = global.psc_yes_votes
+		clear_variable = global.psc_no_votes
+		clear_variable = global.psc_abstain_votes
+		clr_global_flag = PSC_bukowina_split
+		clr_global_flag = PSC_bukowina_split_russia
+		clr_global_flag = PSC_bukowina_annex
+		clr_global_flag = psc_vote_ongoing
+		for_each_scope_loop = {
+			array = global.PSC_voters
+			THIS = {
+				if = {
+					limit = {
+						has_country_flag = PSC_we_voted_this_time
+					}
+					clr_country_flag = PSC_we_voted_this_time
+				}
+			}
+		}
+		trigger = {
+			NOT = {
+				check_variable = { global.psc_yes_votes > global.psc_no_votes }
+			}
+		}
+	}
+}
+country_event = { #Status of Czechoslovakia
+	id = ukrfor.1304
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1304" }
+	title = ukrfor.1304.t
+	desc = {
+		text = ukrfor.1304.d.czechoslovakia
+		trigger = {
+			RUS = { has_country_flag = czechoslovakia_independent_approved }
+		}
+	}
+	desc = {
+		text = ukrfor.1304.d.slovakia
+		trigger = {
+			RUS = { has_country_flag = czechoslovakia_separate_approved }
+		}
+	}
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1304.a
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 10
+				has_war = no
+			}
+			modifier = {
+				factor = 10
+				has_country_flag = psc_council_vote
+			}
+		}
+		add_political_power = 50
+		RUS = {
+			country_event = {
+				id = ukrfor.1309
+				days = 3
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = { country_exists = SVK }
+					HUN = { is_subject_of = AUS }
+				}
+			}
+			hidden_effect = {
+				HUN = {
+					country_event = {
+						id = ukrfor.1306
+						days = 1
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = ukrfor.1304.b
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 10
+				has_war = yes
+			}
+			modifier = {
+				factor = 10
+				has_country_flag = psc_council_vote
+			}
+		}
+		add_political_power = 50
+		if = {
+			limit = {
+				OR = {
+					NOT = { country_exists = SVK }
+					HUN = { is_subject_of = AUS }
+				}
+			}
+			hidden_effect = {
+				HUN = {
+					country_event = {
+						id = ukrfor.1306
+						days = 1
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = ukrfor.1304.c
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 50
+				NOT = { has_country_flag = psc_council_vote }
+			}
+		}
+		add_political_power = -50
+		RUS = {
+			country_event = {
+				id = ukrfor.1312
+				days = 1
+			}
+			set_country_flag = austria_refuse_to_release_czechs
+		}
+		
+	}
+}
+country_event = { #Free Czechoslovakia
+	id = ukrfor.1305
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1305" }
+	title = ukrfor.1305.t
+	desc = ukrfor.1305.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1305.a
+		if = {
+			limit = {
+				RUS = { has_country_flag = czechoslovakia_independent_approved }
+			}
+			if = {
+				limit = { CZE = { is_subject_of = AUS } }
+				AUS = {
+					set_autonomy = {
+						target = CZE
+						autonomous_state = autonomy_free
+					}
+				}
+			}
+			AUS = {
+				every_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = SVK
+						is_core_of = CZE
+					}
+				}
+				CZE = {
+					transfer_state = PREV
+					add_state_core = PREV
+				}
+				}
+			}
+			HUN = {
+				every_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = SVK
+						is_core_of = CZE
+					}
+				}
+				CZE = {
+					transfer_state = PREV
+					add_state_core = PREV
+				}
+				}
+			}
+			CZE = {
+				if = {
+					limit = {
+						OR = {
+							has_country_leader = {
+								name = "Johann II zu Schwarzenberg"
+								ruling_only = yes
+							}
+						has_country_flag = CZE_SVK_was_puppeted
+						}
+					}
+					effect_tooltip = { kill_country_leader = yes }
+				}
+			set_cosmetic_tag = CZE_czechoslavakia
+			
+			leave_faction = yes
+			separate_peace_all_wars = yes
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = czechoslovakia_separate_approved }
+			}
+			if = {
+				limit = { CZE = { is_subject_of = AUS } }
+				AUS = {
+					set_autonomy = {
+						target = CZE
+						autonomous_state = autonomy_free
+					}
+				}
+			}
+			AUS = {
+				every_owned_state = {
+				limit = {
+					is_core_of = CZE
+				}
+					CZE = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+				}
+			}
+			HUN = {
+				every_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = SVK
+						is_core_of = CZE
+					}
+				}
+				CZE = {
+					transfer_state = PREV
+					add_state_core = PREV
+				}
+				}
+			}
+			CZE = {
+					if = {
+						limit = {
+							OR = {
+								has_country_leader = {
+									name = "Johann II zu Schwarzenberg"
+									ruling_only = yes
+								}
+							has_country_flag = CZE_SVK_was_puppeted
+							}
+						}
+						effect_tooltip = { kill_country_leader = yes }
+					}
+				
+				leave_faction = yes
+				separate_peace_all_wars = yes
+			}
+			if = {
+				limit = {
+					SVK = { is_subject_of = AUS }
+				}
+				AUS = {
+					set_autonomy = {
+						target = SVK
+						autonomous_state = autonomy_free
+					}
+				}
+				SVK = { 
+					leave_faction = yes
+					separate_peace_all_wars = yes
+				}
+				if = {
+					limit = {
+						SVK = { NOT = { owns_state = 664 } }
+					}
+					SVK = {
+						transfer_state = 664
+					}
+				}
+			}
+			else = {
+				AUS = {
+					every_owned_state = {
+						limit = {
+							is_core_of = SVK
+						}
+					}
+					SVK = {
+						transfer_state = PREV
+					}
+				}
+				HUN = {
+					every_owned_state = {
+						limit = {
+							is_core_of = SVK
+						}
+					}
+					SVK = {
+						transfer_state = PREV
+					}
+				}
+				
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = zakarpatie_cze_approved }
+			}
+			CZE = {
+				transfer_state = 73
+				transfer_state = 1119
+				add_state_core = 73
+				add_state_core = 1119
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = zakarpatie_slo_approved }
+			}
+			SVK = {
+				transfer_state = 73
+				transfer_state = 1119
+				add_state_core = 73
+				add_state_core = 1119
+			}
+		}
+	}
+}	
+country_event = { #Austria tries to release our territory
+	id = ukrfor.1306
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1306" }
+	title = ukrfor.1306.t
+	desc = ukrfor.1306.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1306.a
+		ai_chance = {
+			factor = 90
+		}
+		add_stability = -0.05
+		add_political_power = -50
+	}
+	option = {
+		name = ukrfor.1306.b
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				NOT = { owns_state = 73 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { owns_state = 70 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { owns_state = 875 }
+			}
+		}
+		add_political_power = 50
+		AUS = {
+			country_event = {
+				id = ukrfor.1307
+				days = 1
+			}
+		}
+	}
+}
+country_event = { #Hungary outraged
+	id = ukrfor.1307
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1307" }
+	title = ukrfor.1307.t
+	desc = ukrfor.1307.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1307.a
+		ai_chance = {
+			factor = 90
+		}
+		HUN = { add_opinion_modifier = {
+			target = AUS
+			modifier = KR_disapproves_of_govt
+			}
+		}
+		hidden_effect = {
+			RUS = {
+				country_event = {
+					id = ukrfor.1305
+					days = 1
+				}
+			}
+			HUN = {
+				country_event = {
+					id = ukrfor.1308
+					days = 1
+				}
+			}
+		}
+	} 
+	option = {
+		name = ukrfor.1307.b
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 10
+				has_war = yes
+			}
+		}
+		add_political_power = 50
+		RUS = {
+			country_event = {
+				id = ukrfor.1312
+				days = 1
+			}
+			set_country_flag = austria_refuse_to_release_czechs
+		}
+	}
+}
+country_event = { #Austria didnot listen
+	id = ukrfor.1308
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1308" }
+	title = ukrfor.1308.t
+	desc = ukrfor.1308.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1308.a
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				NOT = { owns_state = 73 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { owns_state = 70 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { owns_state = 875 }
+			}
+		}
+		add_stability = 0.05
+		hidden_effect = {
+			AUS = {
+				set_autonomy = {
+					target = HUN
+					autonomy_state = autonomy_free
+				}
+			}
+			separate_peace_all_wars = yes
+			leave_faction = yes
+			load_oob = HUN_AUS_Civil_war
+		}
+		custom_effect_tooltip = "Ten new militia divisions will be formed"
+		declare_war_on = {
+			target = AUS
+			type = annex_everything
+		}
+		country_event = kr.hungary.2
+	}
+	option = {
+		name = ukrfor.1308.b
+		ai_chance = {
+			factor = 90
+		}
+		add_stability = -0.05
+		add_political_power = -50
+	}
+	
+}		
+country_event = { #Austria demands sudetenland
+	id = ukrfor.1309
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1309" }
+	title = ukrfor.1309.t
+	desc = ukrfor.1309.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1309.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 10
+				has_completed_focus = RUS_Realpolitik
+			}
+			modifier = {
+				factor = 10
+				AUS = { has_country_flag = psc_council_vote }
+			}		
+		}
+		AUS = {
+			country_event = {
+				id = ukrfor.1310
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = ukrfor.1309.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 10
+				has_completed_focus = RUS_Expansionism
+			}
+			modifier = {
+				factor = 10
+				AUS = { NOT = { has_country_flag = psc_council_vote } }
+			}
+		}
+		AUS = {
+			country_event = {
+				id = ukrfor.1311
+				days = 1
+			}
+		}
+	}
+}			
+country_event = { #Russia agrees
+	id = ukrfor.1310
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1310" }
+	title = ukrfor.1310.t
+	desc = ukrfor.1310.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1310.a
+		if = {
+			limit = {
+				RUS = { has_country_flag = czechoslovakia_independent_approved }
+			}
+			if = {
+				limit = { CZE = { is_subject_of = AUS } }
+				AUS = {
+					set_autonomy = {
+						target = CZE
+						autonomous_state = autonomy_free
+					}
+				}
+			}
+			AUS = {
+				every_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = SVK
+						is_core_of = CZE
+					}
+				}
+				CZE = {
+					transfer_state = PREV
+					add_state_core = PREV
+				}
+				}
+			}
+			HUN = {
+				every_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = SVK
+						is_core_of = CZE
+					}
+				}
+				CZE = {
+					transfer_state = PREV
+					add_state_core = PREV
+				}
+				}
+			}
+			CZE = {
+				if = {
+					limit = {
+						OR = {
+							has_country_leader = {
+								name = "Johann II zu Schwarzenberg"
+								ruling_only = yes
+							}
+						has_country_flag = CZE_SVK_was_puppeted
+						}
+					}
+					effect_tooltip = { kill_country_leader = yes }
+				}
+			set_cosmetic_tag = CZE_czechoslavakia
+			
+			leave_faction = yes
+			separate_peace_all_wars = yes
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = czechoslovakia_separate_approved }
+			}
+			if = {
+				limit = { CZE = { is_subject_of = AUS } }
+				AUS = {
+					set_autonomy = {
+						target = CZE
+						autonomous_state = autonomy_free
+					}
+				}
+			}
+			AUS = {
+				every_owned_state = {
+				limit = {
+					is_core_of = CZE
+				}
+					CZE = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+				}
+			}
+			CZE = {
+					if = {
+						limit = {
+							OR = {
+								has_country_leader = {
+									name = "Johann II zu Schwarzenberg"
+									ruling_only = yes
+								}
+							has_country_flag = CZE_SVK_was_puppeted
+							}
+						}
+						effect_tooltip = { kill_country_leader = yes }
+					}
+				
+				separate_peace_all_wars = yes
+				leave_faction = yes
+			}
+			if = {
+				limit = {
+					SVK = { is_subject_of = AUS }
+				}
+				AUS = {
+					set_autonomy = {
+						target = SVK
+						autonomous_state = autonomy_free
+					}
+				}
+				if = {
+					limit = {
+						SVK = {
+							NOT = { 
+							owns_state = 1122
+							owns_state = 1136
+							}
+						} 
+					}
+					SVK = {
+						transfer_state = 1122
+						transfer_state = 1136
+					}
+				}
+				SVK = { 
+					leave_faction = yes
+					separate_peace_all_wars = yes
+				}
+			}
+			else = {
+				AUS = {
+					every_owned_state = {
+						limit = {
+							is_core_of = SVK
+						}
+					}
+					SVK = {
+						transfer_state = PREV
+					}
+				}
+				HUN = {
+					every_owned_state = {
+						limit = {
+							is_core_of = SVK
+						}
+					}
+					SVK = {
+						transfer_state = PREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = zakarpatie_cze_approved }
+			}
+			CZE = {
+				transfer_state = 73
+				transfer_state = 1119
+				add_state_core = 73
+				add_state_core = 1119
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = zakarpatie_slo_approved }
+			}
+			SVK = {
+				transfer_state = 73
+				transfer_state = 1119
+				add_state_core = 73
+				add_state_core = 1119
+			}
+		}
+		transfer_state = 69
+		transfer_state = 71
+		transfer_state = 74
+		transfer_state = 786
+		transfer_state = 1133
+		transfer_state = 1138
+		transfer_state = 1139
+		diplomatic_relation = {
+			country = CZE
+			relation = military_access
+			active = yes
+		}
+	}
+}
+country_event = { #Russia denies
+	id = ukrfor.1311
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1311" }
+	title = ukrfor.1311.t
+	desc = ukrfor.1311.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1311.a
+		ai_chance = {
+			factor = 70 
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = czechoslovakia_independent_approved }
+			}
+			if = {
+				limit = { CZE = { is_subject_of = AUS } }
+				AUS = {
+					set_autonomy = {
+						target = CZE
+						autonomous_state = autonomy_free
+					}
+				}
+			}
+			AUS = {
+				every_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = SVK
+						is_core_of = CZE
+					}
+				}
+				CZE = {
+					transfer_state = PREV
+					add_state_core = PREV
+				}
+				}
+			}
+			HUN = {
+				every_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = SVK
+						is_core_of = CZE
+					}
+				}
+				CZE = {
+					transfer_state = PREV
+					add_state_core = PREV
+				}
+				}
+			}
+			CZE = {
+				if = {
+					limit = {
+						OR = {
+							has_country_leader = {
+								name = "Johann II zu Schwarzenberg"
+								ruling_only = yes
+							}
+						has_country_flag = CZE_SVK_was_puppeted
+						}
+					}
+					effect_tooltip = { kill_country_leader = yes }
+				}
+			set_cosmetic_tag = CZE_czechoslavakia
+			
+			leave_faction = yes
+			separate_peace_all_wars = yes
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = czechoslovakia_separate_approved }
+			}
+			if = {
+				limit = { CZE = { is_subject_of = AUS } }
+				AUS = {
+					set_autonomy = {
+						target = CZE
+						autonomous_state = autonomy_free
+					}
+				}
+			}
+			AUS = {
+				every_owned_state = {
+				limit = {
+					is_core_of = CZE
+				}
+					CZE = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+				}
+			}
+			CZE = {
+					if = {
+						limit = {
+							OR = {
+								has_country_leader = {
+									name = "Johann II zu Schwarzenberg"
+									ruling_only = yes
+								}
+							has_country_flag = CZE_SVK_was_puppeted
+							}
+						}
+						effect_tooltip = { kill_country_leader = yes }
+					}
+				
+				separate_peace_all_wars = yes
+				leave_faction = yes
+			}
+			if = {
+				limit = {
+					SVK = { is_subject_of = AUS }
+				}
+				AUS = {
+					set_autonomy = {
+						target = SVK
+						autonomous_state = autonomy_free
+					}
+				}
+				if = {
+					limit = {
+						SVK = { NOT = { owns_state = 664 } }
+					}
+					SVK = {
+						transfer_state = 664
+					}
+				}
+				SVK = { 
+					leave_faction = yes
+					separate_peace_all_wars = yes
+				}
+			}
+			else = {
+				AUS = {
+					every_owned_state = {
+						limit = {
+							is_core_of = SVK
+						}
+					}
+					SVK = {
+						transfer_state = PREV
+					}
+				}
+				HUN = {
+					every_owned_state = {
+						limit = {
+							is_core_of = SVK
+						}
+					}
+					SVK = {
+						transfer_state = PREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = zakarpatie_cze_approved }
+			}
+			CZE = {
+				transfer_state = 73
+				add_state_core = 73
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = zakarpatie_slo_approved }
+			}
+			SVK = {
+				transfer_state = 73
+				add_state_core = 73
+			}
+		}
+		add_state_core = 69
+		add_state_core = 74
+		add_state_core = 786
+		
+	}
+	option = {
+		name = ukrfor.1311.b
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+		RUS = {
+			country_event = {
+				id = ukrfor.1312
+				days = 1
+			}
+			set_country_flag = austria_refuse_to_release_czechs
+		}
+	}
+}
+country_event = { #Austria rejects to release
+	id = ukrfor.1312
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1312" }
+	title = ukrfor.1312.t
+	desc = ukrfor.1312.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1312.a
+		add_political_power = -50
+		RUS = { add_opinion_modifier = {
+			target = AUS
+			modifier = KR_disapproves_of_govt
+			}
+		}
+	}
+}
+country_event = { #Status of Illyria
+	id = ukrfor.1313
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1313" }
+	title = ukrfor.1313.t
+	desc = ukrfor.1313.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1313.a
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 10
+				has_war = yes
+			}
+			modifier = {
+				factor = 10
+				has_country_flag = psc_council_vote
+			}
+		}
+		add_political_power = 50
+		RUS = {
+			country_event = {
+				id = ukrfor.1314
+				days = 2
+			}
+		}
+	}
+	option = {
+		name = ukrfor.1304.b
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 10
+				has_war = yes
+			}
+			modifier = {
+				factor = 10
+				has_country_flag = psc_council_vote
+			}
+		}
+		add_political_power = 50
+		RUS = {
+			country_event = {
+				id = ukrfor.1315
+				days = 2
+			}
+		}
+	}
+	option = {
+		name = ukrfor.1304.c
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 50
+				NOT = { has_country_flag = psc_council_vote }
+			}
+		}
+		add_political_power = -50
+		RUS = {
+			country_event = {
+				id = ukrfor.1312
+				days = 1
+			}
+			set_country_flag = austria_refuse_to_release_croats
+		}
+	}
+}		
+country_event = { #Austria demands istria
+	id = ukrfor.1314
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1314" }
+	title = ukrfor.1314.t
+	desc = ukrfor.1314.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1309.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 10
+				has_completed_focus = RUS_Realpolitik
+			}
+			modifier = {
+				factor = 10
+				AUS = { has_country_flag = psc_council_vote }
+			}		
+		}
+		AUS = {
+			country_event = {
+				id = ukrfor.1316
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = ukrfor.1314.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 10
+				has_completed_focus = RUS_Expansionism
+			}
+			modifier = {
+				factor = 10
+				AUS = { NOT = { has_country_flag = psc_council_vote } }
+			}
+		}
+		AUS = {
+			country_event = {
+				id = ukrfor.1317
+				days = 1
+			}
+		}
+	}
+}			
+country_event = { #Free Illyria
+	id = ukrfor.1315
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1315" }
+	title = ukrfor.1305.t
+	desc = ukrfor.1305.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1305.a
+		if = {
+			limit = {
+				RUS = { has_country_flag = illyria_independent_approved }
+			}
+			if = {
+				limit = { CRO = { is_subject_of = AUS } }
+				AUS = {
+					set_autonomy = {
+						target = CRO
+						autonomous_state = autonomy_free
+					}
+				}
+			}
+			AUS = {
+				every_owned_state = {
+					limit = {
+						OR = {
+							is_core_of = CRO
+							is_core_of = SLO
+							is_core_of = BOS
+							is_core_of = MNT
+						}
+					}
+					CRO = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+			}
+			CRO = { 
+				leave_faction = yes
+				separate_peace_all_wars = yes
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = illyria_slovenia_croatia_approved }
+			}
+			if = {
+				limit = { CRO = { is_subject_of = AUS } }
+				AUS = {
+					set_autonomy = {
+						target = CRO
+						autonomous_state = autonomy_free
+					}
+				}
+			}
+			AUS = {
+				every_owned_state = {
+					limit = {
+						OR = {
+							is_core_of = CRO
+							is_core_of = BOS
+						}
+					}
+					CRO = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+				every_owned_state = {
+					limit = {
+						OR = {
+							state = 102
+							state = 1101
+							state = 1103
+							state = 1104
+							state = 736
+							state = 1100
+							state = 1144
+						}
+					}
+					SLO = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+			}
+			CRO = { 
+				leave_faction = yes
+				separate_peace_all_wars = yes
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = illyria_separate_approved }
+			}
+			if = {
+				limit = { CRO = { is_subject_of = AUS } }
+				AUS = {
+					set_autonomy = {
+						target = CRO
+						autonomous_state = autonomy_free
+					}
+				}
+			}
+			AUS = {
+				every_owned_state = {
+					limit = {
+						is_core_of = CRO
+					}
+					CRO = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+				every_owned_state = {
+					limit = {
+						OR = {
+							state = 102
+							state = 1101
+							state = 1103
+							state = 1104
+							state = 736
+							state = 1100
+							state = 1144
+						}
+					}
+					SLO = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+			}
+			CRO = {
+				every_owned_state = {
+					limit = {
+						state = 104
+					}
+					BOS = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = CRO
+				}
+				every_owned_state = {
+					limit = {
+						state = 105
+					}
+					MNT = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = CRO
+				}
+				leave_faction = yes
+				separate_peace_all_wars = yes
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = vojvodina_croatia_approved }
+			}
+			CRO = {
+				transfer_state = 45
+				add_state_core = 73
+				transfer_state = 45
+				add_state_core = 875
+			}
+		}
+	}
+}		
+country_event = { #Russia agrees
+	id = ukrfor.1316
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1316" }
+	title = ukrfor.1310.t
+	desc = ukrfor.1316.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1316.a
+		if = {
+			limit = {
+				RUS = { has_country_flag = illyria_independent_approved }
+			}
+			if = {
+				limit = { CRO = { is_subject_of = AUS } }
+				AUS = {
+					set_autonomy = {
+						target = CRO
+						autonomous_state = autonomy_free
+					}
+				}
+			}
+			AUS = {
+				every_owned_state = {
+					limit = {
+						is_core_of = CRO
+					}
+					CRO = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+				every_owned_state = {
+					limit = {
+						state = 102
+					}
+					CRO = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+			}
+			CRO = { 
+				leave_faction = yes
+				separate_peace_all_wars = yes
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = illyria_slovenia_croatia_approved }
+			}
+			if = {
+				limit = { CRO = { is_subject_of = AUS } }
+				AUS = {
+					set_autonomy = {
+						target = CRO
+						autonomous_state = autonomy_free
+					}
+				}
+			}
+			AUS = {
+				every_owned_state = {
+					limit = {
+						is_core_of = CRO
+					}
+					CRO = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+				every_owned_state = {
+					limit = {
+						state = 102
+					}
+					SLO = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+			}
+			CRO = { 
+				leave_faction = yes
+				separate_peace_all_wars = yes
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = illyria_separate_approved }
+			}
+			if = {
+				limit = { CRO = { is_subject_of = AUS } }
+				AUS = {
+					set_autonomy = {
+						target = CRO
+						autonomous_state = autonomy_free
+					}
+				}
+			}
+			AUS = {
+				every_owned_state = {
+					limit = {
+						is_core_of = CRO
+					}
+					CRO = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+				every_owned_state = {
+					limit = {
+						state = 102
+					}
+					SLO = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+			}
+			CRO = {
+				every_owned_state = {
+					limit = {
+						state = 104
+					}
+					BOS = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = CRO
+				}
+				every_owned_state = {
+					limit = {
+						state = 105
+					}
+					MNT = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = CRO
+				}
+				leave_faction = yes
+				separate_peace_all_wars = yes
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = vojvodina_croatia_approved }
+			}
+			CRO = {
+				transfer_state = 45
+				add_state_core = 45
+				transfer_state = 875
+				add_state_core = 875
+			}
+		}
+	}
+}	
+country_event = { #Russia denies
+	id = ukrfor.1317
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1317" }
+	title = ukrfor.1317.t
+	desc = ukrfor.1317.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1317.a
+		ai_chance = {
+			factor = 70 
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = illyria_independent_approved }
+			}
+			if = {
+				limit = { CRO = { is_subject_of = AUS } }
+				AUS = {
+					set_autonomy = {
+						target = CRO
+						autonomous_state = autonomy_free
+					}
+				}
+			}
+			AUS = {
+				every_owned_state = {
+					limit = {
+						is_core_of = CRO
+					}
+					CRO = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+				every_owned_state = {
+					limit = {
+						OR = {
+							state = 102
+							state = 1101
+							state = 1103
+							state = 1104
+							state = 736
+							state = 1100
+							state = 1144
+						}
+					}
+					CRO = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+			}
+			CRO = { 
+				leave_faction = yes
+				separate_peace_all_wars = yes
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = illyria_slovenia_croatia_approved }
+			}
+			if = {
+				limit = { CRO = { is_subject_of = AUS } }
+				AUS = {
+					set_autonomy = {
+						target = CRO
+						autonomous_state = autonomy_free
+					}
+				}
+			}
+			AUS = {
+				every_owned_state = {
+					limit = {
+						is_core_of = CRO
+					}
+					CRO = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+				every_owned_state = {
+					limit = {
+						OR = {
+							state = 102
+							state = 1101
+							state = 1103
+							state = 1104
+							state = 736
+							state = 1100
+							state = 1144
+						}
+					}
+					SLO = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+			}
+			CRO = { 
+				leave_faction = yes
+				separate_peace_all_wars = yes
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = illyria_separate_approved }
+			}
+			if = {
+				limit = { CRO = { is_subject_of = AUS } }
+				AUS = {
+					set_autonomy = {
+						target = CRO
+						autonomous_state = autonomy_free
+					}
+				}
+			}
+			AUS = {
+				every_owned_state = {
+					limit = {
+						is_core_of = CRO
+					}
+					CRO = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+				every_owned_state = {
+					limit = {
+						OR = {
+							state = 102
+							state = 1101
+							state = 1103
+							state = 1104
+							state = 736
+							state = 1100
+							state = 1144
+						}
+					}
+					SLO = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+			}
+			CRO = {
+				every_owned_state = {
+					limit = {
+						state = 104
+					}
+					BOS = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = CRO
+				}
+				every_owned_state = {
+					limit = {
+						OR = {
+							state = 105
+							state = 1097
+						}
+					}
+					MNT = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = CRO
+				}
+				leave_faction = yes
+				separate_peace_all_wars = yes
+			}
+		}
+	}
+	option = {
+		name = ukrfor.1311.b
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+		RUS = {
+			country_event = {
+				id = ukrfor.1312
+				days = 1
+			}
+			set_country_flag = austria_refuse_to_release_croats
+		}
+	}
+}
+country_event = { #Status of Vojvodina
+	id = ukrfor.1318
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1318" }
+	title = ukrfor.1318.t
+	desc = {
+		text = ukrfor.1318.d.serbia
+		trigger = {
+			RUS = { has_country_flag = vojvodina_serbia_approved }
+		}
+	}
+	desc = {
+		text = ukrfor.1318.d.croatia
+		trigger = {
+			RUS = { has_country_flag = vojvodina_croatia_approved }
+		}
+	}
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1304.b
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 10
+				has_war = yes
+			}
+			modifier = {
+				factor = 10
+				has_country_flag = psc_council_vote
+			}
+		}
+		add_political_power = 50
+		RUS = {
+					country_event = {
+						id = ukrfor.1319
+						days = 5
+					}
+				}
+		if = {
+			limit = {
+				HUN = { is_subject_of = AUS }
+			}
+			hidden_effect = {
+				HUN = {
+					country_event = {
+						id = ukrfor.1306
+						days = 1
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = ukrfor.1304.c
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 50
+				NOT = { has_country_flag = psc_council_vote }
+			}
+		}
+		add_political_power = -50
+		RUS = {
+			country_event = {
+				id = ukrfor.1312
+				days = 1
+			}
+		}
+	}
+}
+country_event = { #Give Vojvodina
+	id = ukrfor.1319
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1319" }
+	title = ukrfor.1305.t
+	desc = ukrfor.1305.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1305.a
+		if = {
+			limit = {
+				RUS = { has_country_flag = vojvodina_croatia_approved }
+			}
+			CRO = {
+				transfer_state = 45
+				add_state_core = 45
+				transfer_state = 875
+				add_state_core = 875
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = vojvodina_serbia_approved }
+			}
+			SER = {
+				transfer_state = 45
+				add_state_core = 45
+				transfer_state = 875
+				add_state_core = 875
+			}
+		}
+	}
+}	
+country_event = { #Status of Galicia
+	id = ukrfor.1320
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1320" }
+	title = ukrfor.1320.t
+	desc = ukrfor.1320.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1304.b
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 10
+				has_war = yes
+			}
+			modifier = {
+				factor = 10
+				has_country_flag = psc_council_vote
+			}
+		}
+		add_political_power = 50
+		RUS = {
+			country_event = {
+				id = ukrfor.1321
+				days = 2
+			}
+		}
+	}
+	option = {
+		name = ukrfor.1304.c
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 50
+				NOT = { has_country_flag = psc_council_vote }
+			}
+		}
+		add_political_power = -50
+		RUS = {
+			country_event = {
+				id = ukrfor.1312
+				days = 1
+			}
+			set_country_flag = austria_refuse_to_release_galicia
+		}
+	}
+}		
+country_event = { #Release Galicia
+	id = ukrfor.1321
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1321" }
+	title = ukrfor.1305.t
+	desc = ukrfor.1305.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1305.a
+		if = {
+			limit = {
+				RUS = { has_country_flag = galicia_split_ukraine_approved }
+			}
+			10 = {
+				owner = { 
+					transfer_state = 88
+					transfer_state = 1124
+					transfer_state = 1125
+					add_state_core = 88
+					add_state_core = 1124
+					add_state_core = 1125
+				}
+			}
+			UKR = {
+				transfer_state = 89
+				transfer_state = 91
+				transfer_state = 1126
+				transfer_state = 1127
+				transfer_state = 1140
+				add_state_core = 89
+				add_state_core = 91
+				add_state_core = 1126
+				add_state_core = 1127
+				add_state_core = 1140
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = galicia_split_russia_approved }
+			}
+			10 = {
+				owner = { 
+					transfer_state = 88
+					transfer_state = 1124
+					transfer_state = 1125
+					add_state_core = 88
+					add_state_core = 1124
+					add_state_core = 1125
+				}
+			}
+			RUS = {
+				transfer_state = 89
+				transfer_state = 91
+				transfer_state = 1126
+				transfer_state = 1127
+				transfer_state = 1140
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = galicia_annex_russia_approved }
+			}
+			RUS = {
+				transfer_state = 88
+				transfer_state = 89
+				transfer_state = 91
+				transfer_state = 1124
+				transfer_state = 1125
+				transfer_state = 1126
+				transfer_state = 1127
+				transfer_state = 1140
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = eastgalicia_split_approved }
+			}
+			RUS = {
+				transfer_state = 89
+				transfer_state = 91
+				transfer_state = 1126
+				transfer_state = 1127
+				transfer_state = 1140
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = eastgalicia_ukraine_approved }
+			}
+			UKR = {
+				transfer_state = 89
+				transfer_state = 91
+				transfer_state = 1126
+				transfer_state = 1127
+				transfer_state = 1140
+				add_state_core = 89
+				add_state_core = 91
+				add_state_core = 1126
+				add_state_core = 1127
+				add_state_core = 1140
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = bukowina_annex_approved }
+			}
+			RUS = {
+				transfer_state = 80
+				transfer_state = 713
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = bukowina_split_russia_approved }
+			}
+			RUS = {
+				transfer_state = 80
+			}
+			46 = {
+					owner = { transfer_state = 713 }
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = bukowina_split_ukraine_approved }
+			}
+			UKR = {
+				transfer_state = 80
+				add_state_core = 80
+			}
+			46 = {
+					owner = { transfer_state = 713 }
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = zakarpatie_ukr_approved }
+			}
+			UKR = {
+				transfer_state = 73
+				add_state_core = 73
+			}
+		}
+		if = {
+			limit = {
+				RUS = { has_country_flag = zakarpatie_rus_approved }
+			}
+			UKR = {
+				transfer_state = 73
+				add_state_core = 73
+			}
+		}
+	}
+}	
+country_event = { #Formation of Yugoslavia
+	id = ukrfor.1322
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1322" }
+	title = ukrfor.1322.t
+	desc = ukrfor.1322.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1313.a
+		trigger = {
+			tag = AUS
+		}
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 10
+				has_war = yes
+			}
+			modifier = {
+				factor = 10
+				has_country_flag = psc_council_vote
+			}
+		}
+		add_political_power = 50
+		RUS = {
+			country_event = {
+				id = ukrfor.1325
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = ukrfor.1304.b
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 10
+				has_war = yes
+			}
+			modifier = {
+				factor = 10
+				has_country_flag = psc_council_vote
+			}
+		}
+		add_political_power = 50
+		if = {
+			limit = { tag = CRO }
+			AUS = {
+				country_event = {
+					id = ukrfor.1322
+					days = 1
+				}
+			}
+			RUS = {
+				country_event = {
+					id = ukrfor.1324
+					days = 1
+				}
+			}
+		}
+		else = {
+			RUS = {
+				country_event = {
+					id = ukrfor.1312
+					days = 1
+				}
+				set_country_flag = austria_refuse_to_release_croats
+			}
+		}
+	}
+	option = {
+		name = ukrfor.1304.c
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 50
+				NOT = { has_country_flag = psc_council_vote }
+			}
+		}
+		add_political_power = -50
+		RUS = {
+			country_event = {
+				id = ukrfor.1323
+				days = 1
+			}
+		}
+	}
+}		
+country_event = { #Illyria rejects
+	id = ukrfor.1323
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1323" }
+	title = ukrfor.1323.t
+	desc = ukrfor.1323.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1312.a
+		add_political_power = -50
+		RUS = { add_opinion_modifier = {
+			target = CRO
+			modifier = KR_disapproves_of_govt
+			}
+		}
+	}
+}
+country_event = { #Illyria accepts
+	id = ukrfor.1324
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1324" }
+	title = ukrfor.1324.t
+	desc = ukrfor.1324.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1324.a
+	}
+}
+		
+country_event = { #Austria demands istria
+	id = ukrfor.1325
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1325" }
+	title = ukrfor.1325.t
+	desc = ukrfor.1325.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1309.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 10
+				has_completed_focus = RUS_Realpolitik
+			}
+			modifier = {
+				factor = 10
+				AUS = { has_country_flag = psc_council_vote }
+			}		
+		}
+		AUS = {
+			country_event = {
+				id = ukrfor.1326
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = ukrfor.1314.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 10
+				has_completed_focus = RUS_Expansionism
+			}
+			modifier = {
+				factor = 10
+				AUS = { NOT = { has_country_flag = psc_council_vote } }
+			}
+		}
+		AUS = {
+			country_event = {
+				id = ukrfor.1327
+				days = 1
+			}
+		}
+	}
+}
+country_event = { #Russia agrees
+	id = ukrfor.1326
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrfor.1326" }
+	title = ukrfor.1310.t
+	desc = ukrfor.1326.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1326.a
+		if = {
+			limit = { country_exists = CRO }
+			SER = { 
+				annex_country = {
+					target = CRO
+					transfer_troops = yes
+				} 
+			}
+		}
+		else = {
+			AUS = {
+				every_owned_state = {
+					limit = {
+						OR = {
+							is_core_of = CRO
+						}
+					}
+					SER = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+				every_owned_state = {
+					limit = {
+						state = 102
+					}
+					SER = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Russia denies
+	id = ukrfor.1327
+	title = ukrfor.1317.t
+	desc = ukrfor.1327.d
+	is_triggered_only = yes
+	option = {
+		name = ukrfor.1317.a
+		ai_chance = {
+			factor = 70 
+		}
+		if = {
+			limit = { country_exists = CRO }
+			SER = {
+				annex_country = {
+					target = CRO
+					transfer_troops = yes
+				}
+			}
+		}
+		else = {
+			AUS = {
+				every_owned_state = {
+					limit = {
+						OR = {
+							is_core_of = CRO
+						}
+					}
+					SER = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+					remove_core_of = AUS
+				}
+			}
+		AUS = {
+			every_owned_state = {
+					limit = {
+						OR = {
+							state = 102
+							state = 1101
+							state = 1103
+							state = 1104
+							state = 736
+							state = 1100
+							state = 1144
+						}
+					}
+					SER = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = ukrfor.1311.b
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+		RUS = {
+			country_event = {
+				id = ukrfor.1312
+				days = 1
+			}
+			set_country_flag = austria_refuse_to_release_croats
+		}
+	}
+}		

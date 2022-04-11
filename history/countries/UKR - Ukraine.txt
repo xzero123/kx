@@ -115,10 +115,11 @@ country_event = { id = ukrmisc.5 days = 68 }   					# Concert
 country_event = { id = ukrmisc.6 days = 193 random = 600 }   	# Ivan Chernyakhovskyi returns from Afrika
 country_event = { id = ukrmisc.7 days = 611 random = 300 }   	# White Guard
 country_event = { id = ukrmisc.8 days = 1155 random = 720 }  	# 10.03.1940 Death of Bulhakov
-country_event = { id = ukrmisc.10 days = 824 }   				# Serhiy Korolev
+country_event = { id = ukrmisc.10 days = 1224 }   				# Serhiy Korolev
 country_event = { id = ukrmisc.11 days = 243 random = 600 }   	# Yaponchik flavour
 country_event = { id = ukrmisc.16 days = 157 }   				# Yuzivka Stadium opens
 country_event = { id = ukrmisc.17 months = 157 }   				# 1949 monument
+country_event = { id = ukrel.1 days = 732 }   					# 1938 Elections
 
 UKR_setup_political_variables = yes
 
@@ -142,6 +143,20 @@ set_popularities = {
 	national_populist = 16
 }
 #UKR_setup_breadbasket = yes
+
+set_variable = { UKR_natcom_strength = 4 }
+set_variable = { UKR_radsun_strength = 2 }
+set_variable = { UKR_borbyst_strength = 6 }
+set_variable = { UKR_borotbyst_strength = 8 }
+set_variable = { UKR_urdp_strength = 2 }
+set_variable = { UKR_usdrp_strength = 15 }
+set_variable = { UKR_undo_strength = 10 }
+set_variable = { UKR_udp_strength = 15 }
+set_variable = { UKR_ump_strength = 20 }
+set_variable = { UKR_uskhd_strength = 25 }
+set_variable = { UKR_shd_strength = 35 }
+set_variable = { UKR_sun_dontsov_strength = 15 }
+set_variable = { UKR_sun_strength = 20 }
 
 add_ideas = {
 	Hetman_army
@@ -375,6 +390,7 @@ create_country_leader = {
 	picture = "gfx/leaders/UKR/Portrait_UKR_Vasyl_Habsburg.png"
 	expire = "1965.1.1"
 	ideology = soccon_ukrainian_conservatism_subtype
+	traits = { UKR_red_prince }
 }
 
 create_country_leader = {
@@ -383,6 +399,7 @@ create_country_leader = {
 	picture = "gfx/leaders/UKR/Portrait_UKR_Vasyl_Habsburg.png"
 	expire = "1965.1.1"
 	ideology = ukrainian_conservatism_subtype
+	traits = { UKR_red_prince }
 }
 
 create_country_leader = {
@@ -391,6 +408,7 @@ create_country_leader = {
 	picture = "gfx/leaders/UKR/Portrait_UKR_Vasyl_Habsburg.png"
 	expire = "1965.1.1"
 	ideology = pataut_ukrainian_conservatism_subtype
+	traits = { UKR_red_prince }
 }
 
 create_country_leader = {
@@ -404,7 +422,7 @@ create_country_leader = {
 create_field_marshal = {
 	name = "Pavlo Skoropadskyi "
 	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Pavlo_Skoropadsky.png"
-	traits = { organizer thorough_planner old_guard cavalry_officer }
+	traits = { organizer fast_planner old_guard cavalry_officer }
 	skill = 4
 	attack_skill = 4
 	defense_skill = 3
@@ -413,6 +431,20 @@ create_field_marshal = {
 	id = 17909
 }
 
+create_field_marshal = {
+	name = "Volodymyr Sikevich"
+	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Volodymyr_Sikevich.png"
+	traits = {
+		thorough_planner 
+		defensive_doctrine
+	}
+	id = 17928
+	skill = 3
+	attack_skill = 1
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 2
+}
 create_field_marshal = {
 	name = "Konstantin Prisovskyi"
 	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Konstantin_Prisovsky.png"
@@ -500,6 +532,35 @@ create_corps_commander = {
 	attack_skill = 3
 	defense_skill = 2
 	planning_skill = 3
+	logistics_skill = 2
+}
+
+create_corps_commander = {
+	name = "Petro Diachenko"
+	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Diachenko_Petro.png"
+	traits = {
+		infantry_leader
+		cavalry_leader
+	}
+	id = 17929
+	skill = 2
+	attack_skill = 1
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 2
+}
+
+create_corps_commander = {
+	name = "Borys Stelletskyi"
+	portrait_path = "gfx/leaders/UKR/Portrait_UKR_Borys_Stelletskyi.png"
+	traits = {
+		organizer
+	}
+	id = 17930
+	skill = 2
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 4
 	logistics_skill = 2
 }
 
@@ -673,6 +734,18 @@ create_navy_leader = {
 	id = 17915
 }
 
+create_navy_leader = {
+	name = "Yurii Svirskyi" 
+	portrait_path = "gfx/leaders/POL/Portrait_POL_Jerzy_Swirski.png"
+	traits = { }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	maneuvering_skill = 2
+	coordination_skill = 1
+	id = 17915
+}
+
 create_operative_leader = {
 	name = "Osyp Dumin"
 	GFX = GFX_Portrait_UKR_Osip_Dumin
@@ -686,6 +759,17 @@ create_operative_leader = {
 random_unit_leader = {
 	limit = { has_id = 17909 }
 	save_global_event_target_as = UKR_Pavlo_Skoropadskyi
+	set_unit_leader_flag = UKR_hetman_loyalist
+}
+random_unit_leader = {
+	limit = { has_id = 17901 }
+	save_global_event_target_as = UKR_Oleksandr_Rogoza
+	set_unit_leader_flag = UKR_hetman_loyalist
+}
+random_unit_leader = {
+	limit = { has_id = 17919 }
+	save_global_event_target_as = UKR_Konstantin_Prisovskyi
+	set_unit_leader_flag = UKR_hetman_loyalist
 }
 random_unit_leader = {
 	limit = { has_id = 17905 }
@@ -723,6 +807,7 @@ random_unit_leader = {
 random_unit_leader = {
 	limit = { has_id = 17911 }
 	save_global_event_target_as = UKR_Mykhailo_Pavlenko
+	set_unit_leader_flag = UKR_hetman_loyalist
 }
 random_unit_leader = {
 	limit = { has_id = 17912 }
@@ -732,10 +817,12 @@ random_unit_leader = {
 random_unit_leader = {
 	limit = { has_id = 17913 }
 	save_global_event_target_as = UKR_Ivan_Poltavets
+	set_unit_leader_flag = UKR_hetman_loyalist
 }
 random_unit_leader = {
 	limit = { has_id = 17914 }
 	save_global_event_target_as = UKR_Andriy_Pokrovskyi
+	set_unit_leader_flag = UKR_hetman_loyalist
 }
 random_unit_leader = {
 	limit = { has_id = 17915 }
@@ -777,6 +864,9 @@ random_operative = {
 	save_global_event_target_as = UKR_Osip_Dumin
 	add_unit_leader_trait = UKR_uvo_officer
 	set_nationality = UPR
+	turn_operative = {
+		turned_by = UPR
+	}
 }
 random_unit_leader = {
 	limit = { has_id = 17926 }
@@ -789,6 +879,21 @@ random_unit_leader = {
 	save_global_event_target_as = UKR_Ivan_Chmola
 	add_unit_leader_trait = UKR_uvo_officer
 	set_nationality = UPR
+}
+random_unit_leader = {
+	limit = { has_id = 17928 }
+	save_global_event_target_as = UKR_Volodymyr_Sikevich
+	set_unit_leader_flag = UKR_hetman_loyalist
+}
+random_unit_leader = {
+	limit = { has_id = 17929 }
+	save_global_event_target_as = UKR_Petro_Diachenko
+	set_unit_leader_flag = UKR_hetman_loyalist
+}
+random_unit_leader = {
+	limit = { has_id = 17930 }
+	save_global_event_target_as = UKR_Borys_Stelletskyi
+	set_unit_leader_flag = UKR_hetman_loyalist
 }
 
 

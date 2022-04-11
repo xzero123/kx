@@ -392,6 +392,35 @@ ideas = {
 		picture = generic_coastal_defense_ships2
 	}
 	
+	RUS_vilnius_treaty = {
+		on_add = {log = "[GetDateText]: [Root.GetName]: add idea RUS_vilnius_treaty"}
+		allowed = {
+			always = no
+		}
+		available = {
+			has_global_flag = vilnius_accords_active
+		}
+		modifier = {
+			mobilization_speed = -0.5
+			war_support_factor = -0.5
+			stability_factor = -0.5
+			conscription_factor = -0.25
+			custom_modifier_tooltip = cannot_mobilise_tt
+			hidden_modifier = {
+				disabled_ideas = 1
+			}
+		}
+		targeted_modifier = {
+			tag = GER
+			trade_cost_for_target_factor = -0.5
+		}
+		rule = {
+			can_join_factions = no
+			can_only_justify_war_on_threat_country = yes
+			can_not_declare_war = yes
+		}
+		picture = LIB_ger_bailout
+	}
 	rus_brest_litovsk = {
 		on_add = {log = "[GetDateText]: [Root.GetName]: add idea rus_brest_litovsk"}
 		allowed = {
@@ -6696,6 +6725,143 @@ ideas = {
 				defense_bonus_against = 0.05
 			}
 		}
+		RCW_ARA_entente_ties = {
+			allowed = { always = no }
+			picture = entente_support
+			modifier = {
+				political_power_gain = 0.05
+			}
+			targeted_modifier = {
+				tag = ENT
+				trade_cost_for_target_factor = -0.25
+				extra_trade_to_target_factor = 0.25
+			}
+		}
+		RCW_ARA_finland_ties = {
+			allowed = { always = no }
+			picture = advisors_finland
+			modifier = {
+				political_power_gain = 0.05
+				army_org_factor = 0.05
+			}
+			targeted_modifier = {
+				tag = FIN
+				trade_cost_for_target_factor = -0.25
+				extra_trade_to_target_factor = 0.25
+			}
+		}
+		RCW_TPR_peasant_anarchy = {
+			allowed = { always = no }
+			picture = SPR_anarchist_society
+			modifier = {
+				stability_factor = -0.25
+				army_morale_factor = 0.05
+			}
+		}
+		RCW_TPR_green_armies = {
+			allowed = { always = no }
+			picture = SPR_anarchist_society
+			modifier = {
+				conscription = 0.02
+				command_power_gain_mult = 0.15
+				production_lack_of_resource_penalty_factor = -0.07
+				equipment_capture_factor = 0.25
+				out_of_supply_factor = -0.15
+			}
+		}
+		RCW_URA_last_stronghold_of_meshevism = {
+			allowed = { always = no }
+			picture = progressive_society
+			modifier = {
+				social_democrat_drift = 0.04
+				political_power_gain = 0.03
+				production_factory_efficiency_gain_factor = 0.03
+			}
+		}
+		RCW_URA_orenburg_cossacks = {
+			allowed = { always = no }
+			picture = DKB_cossack_state
+			modifier = {
+				army_org_factor = 0.03
+				army_morale_factor = 0.03
+				cavalry_attack_factor = 0.02
+			}
+		}
+		RCW_URA_industrial_region = {
+			allowed = { always = no }
+			picture = IRE_medium_industry
+			modifier = {
+				production_factory_max_efficiency_factor = 0.06
+				industrial_capacity_factory = 0.04
+			}
+		}
+		RCW_SDL_duma_in_exile = {
+			allowed = { always = no }
+			picture = generic_democratic_opposition
+			modifier = {
+				stability_factor = 0.03
+				political_power_gain = 0.04
+				conscription_factor = 0.01
+			}
+		}
+		RCW_SDL_legacy_of_kerensky = {
+			allowed = { always = no }
+			picture = EST_democratic_opposition
+			modifier = {
+				social_liberal_drift = -0.03
+				war_support_factor = -0.05
+			}
+		}
+		RCW_SDL_volga_germans = {
+			allowed = { always = no }
+			picture = GER_shield
+			modifier = {
+				army_morale_factor = -0.02
+				non_core_manpower = -0.05
+			}
+		}
+		RCW_PBF_baltic_fleet = {
+			allowed = { always = no }
+			picture = AST_oversized_fleet
+			modifier = {
+				naval_coordination = 0.3
+				naval_has_potf_in_combat_defense = 0.3
+			}
+		}
+		RCW_PBF_rev_kom = {
+			allowed = { always = no }
+			picture = AST_oversized_fleet
+			modifier = {
+				army_org_factor = 0.03
+				non_core_manpower = 0.04
+			}
+		}
+		RCW_PBF_petrograd_defense = {
+			allowed = { always = no }
+			picture = AST_oversized_fleet
+			modifier = {
+				supply_consumption_factor = -0.04
+				army_core_defence_factor = 0.2
+			}
+		}
+		RRF_moscow_city_soviet = {
+			allowed = { always = no }
+			picture = TUS_syndie_economy
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.03
+				production_factory_max_efficiency_factor = 0.03
+				industrial_capacity_factory = 0.03
+			}
+		}
+		RVA_regency_council = {
+			allowed = { always = no }
+			picture = generic_crown
+			modifier = {
+				war_support_factor = 0.04
+				army_morale_factor = 0.03
+			}
+		}
+		
 		RRF_Popular_Movement = {
 			picture = rus_popular_movement
 			available = {
@@ -6950,6 +7116,7 @@ ideas = {
 		}
 		available = {
 			NOT = { has_global_flag = danzig_treaty_active }
+			NOT = { has_global_flag = vilnius_accords_active }
 		}
 		
 		targeted_modifier = {
@@ -6982,6 +7149,7 @@ ideas = {
 		}
 		available = {
 			NOT = { has_global_flag = danzig_treaty_active }
+			NOT = { has_global_flag = vilnius_accords_active }
 		}
 		
 		targeted_modifier = {

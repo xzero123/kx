@@ -66,6 +66,47 @@ UKR_famine_category = {
 	allowed = { original_tag = URK }
 	priority = 200
 	visible = {
-		has_idea = UKR_risk_of_famine
+		has_country_flag = UKR_famine
 	}
+	visible_when_empty = yes
+}
+UKR_Panslavic_Congress_decisions = {
+
+	icon = GFX_decision_category_generic_political_actions
+	visible_when_empty = yes
+	allowed = {
+		OR = {
+			tag = RUS
+			tag = GER
+			tag = AUS
+			tag = HUN
+			tag = UKR
+			tag = WHR
+			tag = POL
+			tag = GAL
+			tag = CZE
+			tag = SVK
+			tag = SLO
+			tag = CRO
+			tag = SER
+			tag = BUL
+			tag = BOS
+			tag = WSU
+			tag = CPU
+		}
+	}
+	visible = {
+		has_country_flag = psc_council_vote
+	}
+}
+UKR_1938_election_panel = {
+	icon = GFX_decision_cat_annexation
+	allowed = { tag = UKR }
+	priority = 200
+
+	visible = {
+		has_country_flag = UKR_1938_elections_preparation
+		NOT = {	has_country_flag = UKR_1938_elections }
+	}
+	visible_when_empty = yes
 }

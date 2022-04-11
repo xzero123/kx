@@ -122,6 +122,366 @@ UKR_petliura_in_power = {
 		ruling_only = yes
 	}
 }
+UKR_jointsoc_coalition = {
+	# United Popular Front
+	set_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_natcom_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borotbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_urdp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_usdrp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_undo_strength }
+	# United Nationalist Coalition
+	set_temp_variable = { var = UKR_unitednationalist_coalition_var value = UKR_sun_strength }
+	add_to_temp_variable = { var = UKR_unitednationalist_coalition_var value = UKR_sun_dontsov_strength }
+	add_to_temp_variable = { var = UKR_unitednationalist_coalition_var value = UKR_radsun_strength }
+	# Comparisons
+	check_variable = { UKR_jointsoc_coalition_var > UKR_unitednationalist_coalition_var }
+}
+UKR_modpopfront_coalition = {
+	# Moderate Popular Front
+	set_temp_variable = { var = UKR_modpopfront_coalition_var value = UKR_usdrp_strength }
+	add_to_temp_variable = { var = UKR_modpopfront_coalition_var value = UKR_natcom_strength }
+	add_to_temp_variable = { var = UKR_modpopfront_coalition_var value = UKR_borbyst_strength }
+	add_to_temp_variable = { var = UKR_modpopfront_coalition_var value = UKR_urdp_strength }
+	# National Democrat Coalition
+	set_temp_variable = { var = UKR_natdem_coalition_var value = UKR_undo_strength }
+	# United Nationalist Coalition
+	set_temp_variable = { var = UKR_unitednationalist_coalition_var value = UKR_sun_strength }
+	add_to_temp_variable = { var = UKR_unitednationalist_coalition_var value = UKR_sun_dontsov_strength }
+	add_to_temp_variable = { var = UKR_unitednationalist_coalition_var value = UKR_radsun_strength }
+	# Comparisons
+	check_variable = { UKR_modpopfront_coalition_var > UKR_natdem_coalition_var }
+	check_variable = { UKR_modpopfront_coalition_var > UKR_unitednationalist_coalition_var }
+}
+UKR_radpopfront_coalition = {
+	# Radical Popular Front
+	set_temp_variable = { var = UKR_radpopfront_coalition_var value = UKR_borotbyst_strength }
+	add_to_temp_variable = { var = UKR_radpopfront_coalition_var value = UKR_natcom_strength }
+	add_to_temp_variable = { var = UKR_radpopfront_coalition_var value = UKR_urdp_strength }
+	# Moderate Popular Front
+	set_temp_variable = { var = UKR_modpopfront_coalition_var value = UKR_usdrp_strength }
+	add_to_temp_variable = { var = UKR_modpopfront_coalition_var value = UKR_borbyst_strength }
+	# National Democrat Coalition
+	set_temp_variable = { var = UKR_natdem_coalition_var value = UKR_undo_strength }
+	# United Nationalist Coalition
+	set_temp_variable = { var = UKR_unitednationalist_coalition_var value = UKR_sun_strength }
+	add_to_temp_variable = { var = UKR_unitednationalist_coalition_var value = UKR_sun_dontsov_strength }
+	add_to_temp_variable = { var = UKR_unitednationalist_coalition_var value = UKR_radsun_strength }
+	# Comparisons
+	check_variable = { UKR_radpopfront_coalition_var > UKR_modpopfront_coalition_var }
+	check_variable = { UKR_radpopfront_coalition_var > UKR_natdem_coalition_var }
+	check_variable = { UKR_radpopfront_coalition_var > UKR_unitednationalist_coalition_var }
+}
+UKR_natdem_coalition = {
+	# National Democrat Coalition
+	set_temp_variable = { var = UKR_natdem_coalition_var value = UKR_undo_strength }
+	# Monarchist Authoritarian Coalition
+	set_temp_variable = { var = UKR_monauthdem_coalition_var value = UKR_ump_strength }
+	add_to_temp_variable = { var = UKR_monauthdem_coalition_var value = UKR_uskhd_strength }
+	# Authoritarian Monarchist Coalition
+	set_temp_variable = { var = UKR_authdemmon_coalition_var value = UKR_uskhd_strength }
+	add_to_temp_variable = { var = UKR_authdemmon_coalition_var value = UKR_ump_strength }
+	# Comparisons
+	check_variable = { UKR_natdem_coalition_var > UKR_monauthdem_coalition_var }
+	check_variable = { UKR_natdem_coalition_var > UKR_authdemmon_coalition_var }
+}
+UKR_monnatdem_coalition = {
+	# Monarchist Democrat Coalition
+	set_temp_variable = { var = UKR_monnatdem_coalition_var value = UKR_ump_strength }
+	add_to_temp_variable = { var = UKR_monnatdem_coalition_var value = UKR_undo_strength }
+	# Authoritarian Democrat Coalition
+	set_temp_variable = { var = UKR_demauthdem_coalition_var value = UKR_uskhd_strength }
+	add_to_temp_variable = { var = UKR_demauthdem_coalition_var value = UKR_udp_strength }
+	# Comparisons
+	check_variable = { UKR_monnatdem_coalition_var > UKR_demauthdem_coalition_var }
+	check_variable = { UKR_monnatdem_coalition_var > UKR_demauthdem_coalition_var }
+}
+UKR_monauthdem_coalition = {
+	# Monarchist Authoritarian Coalition
+	set_temp_variable = { var = UKR_monauthdem_coalition_var value = UKR_ump_strength }
+	add_to_temp_variable = { var = UKR_monauthdem_coalition_var value = UKR_uskhd_strength }
+	# National Democrat Coalition
+	set_temp_variable = { var = UKR_natdem_coalition_var value = UKR_undo_strength }
+	# Hetman Coalition
+	set_temp_variable = { var = UKR_hetmannatdem_coalition_var value = UKR_shd_strength }
+	add_to_temp_variable = { var = UKR_hetmannatdem_coalition_var value = UKR_udp_strength }
+	# Comparisons
+	check_variable = { UKR_monauthdem_coalition_var > UKR_natdem_coalition_var }
+	check_variable = { UKR_monauthdem_coalition_var > UKR_hetmannatdem_coalition_var }
+}
+UKR_demauthdem_coalition = {
+	# Authoritarian Democrat Coalition
+	set_temp_variable = { var = UKR_demauthdem_coalition_var value = UKR_uskhd_strength }
+	add_to_temp_variable = { var = UKR_demauthdem_coalition_var value = UKR_udp_strength }
+	# Monarchist Democrat Coalition
+	set_temp_variable = { var = UKR_monnatdem_coalition_var value = UKR_ump_strength }
+	add_to_temp_variable = { var = UKR_monnatdem_coalition_var value = UKR_undo_strength }
+	# Comparisons
+	check_variable = { UKR_demauthdem_coalition_var > UKR_monnatdem_coalition_var }
+}
+UKR_hetmannatdem_coalition = {
+	# Hetman Coalition
+	set_temp_variable = { var = UKR_hetmannatdem_coalition_var value = UKR_shd_strength }
+	add_to_temp_variable = { var = UKR_hetmannatdem_coalition_var value = UKR_udp_strength }
+	# Authoritarian Monarchist Coalition
+	set_temp_variable = { var = UKR_authdemmon_coalition_var value = UKR_uskhd_strength }
+	add_to_temp_variable = { var = UKR_authdemmon_coalition_var value = UKR_ump_strength }
+	# United Nationalist Coalition
+	set_temp_variable = { var = UKR_unitednationalist_coalition_var value = UKR_sun_strength }
+	add_to_temp_variable = { var = UKR_unitednationalist_coalition_var value = UKR_sun_dontsov_strength }
+	add_to_temp_variable = { var = UKR_unitednationalist_coalition_var value = UKR_radsun_strength }
+	# Comparisons
+	check_variable = { UKR_hetmannatdem_coalition_var > UKR_authdemmon_coalition_var }
+	check_variable = { UKR_hetmannatdem_coalition_var > UKR_unitednationalist_coalition_var }
+}
+UKR_unitednationalist_coalition = {
+	# United Nationalist Coalition
+	set_temp_variable = { var = UKR_unitednationalist_coalition_var value = UKR_sun_strength }
+	add_to_temp_variable = { var = UKR_unitednationalist_coalition_var value = UKR_sun_dontsov_strength }
+	add_to_temp_variable = { var = UKR_unitednationalist_coalition_var value = UKR_radsun_strength }
+	# United Popular Front
+	set_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_natcom_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borotbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_urdp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_usdrp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_undo_strength }
+	# Hetman Coalition
+	set_temp_variable = { var = UKR_hetmannatdem_coalition_var value = UKR_shd_strength }
+	add_to_temp_variable = { var = UKR_hetmannatdem_coalition_var value = UKR_udp_strength }
+	# Monarchist Authoritarian Coalition
+	set_temp_variable = { var = UKR_monauthdem_coalition_var value = UKR_ump_strength }
+	add_to_temp_variable = { var = UKR_monauthdem_coalition_var value = UKR_uskhd_strength }
+	# Authoritarian Democrat Coalition
+	set_temp_variable = { var = UKR_demauthdem_coalition_var value = UKR_uskhd_strength }
+	add_to_temp_variable = { var = UKR_demauthdem_coalition_var value = UKR_udp_strength }
+	# Comparisons
+	check_variable = { UKR_unitednationalist_coalition_var > UKR_jointsoc_coalition_var }
+	check_variable = { UKR_unitednationalist_coalition_var > UKR_hetmannatdem_coalition_var }
+	check_variable = { UKR_unitednationalist_coalition_var > UKR_monauthdem_coalition_var }
+	check_variable = { UKR_unitednationalist_coalition_var > UKR_demauthdem_coalition_var }
+}
+UKR_natcom_no_coalition = {
+	# Everyone
+	set_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borotbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_urdp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_usdrp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_undo_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_udp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_ump_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_uskhd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_shd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_dontsov_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_radsun_strength }
+	# Comparisons
+	check_variable = { UKR_natcom_strength > UKR_jointsoc_coalition_var }
+}
+UKR_radsun_no_coalition = {
+	# Everyone
+	set_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_natcom_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borotbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_urdp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_usdrp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_undo_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_udp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_ump_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_uskhd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_shd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_dontsov_strength }
+	# Comparisons
+	check_variable = { UKR_radsun_strength > UKR_jointsoc_coalition_var }
+}
+UKR_borbyst_no_coalition = {
+	# Everyone
+	set_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_natcom_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borotbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_urdp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_usdrp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_undo_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_udp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_ump_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_uskhd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_shd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_dontsov_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_radsun_strength }
+	# Comparisons
+	check_variable = { UKR_borbyst_strength > UKR_jointsoc_coalition_var }
+}
+UKR_borotbyst_no_coalition = {
+	# Everyone
+	set_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_natcom_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_urdp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_usdrp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_undo_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_udp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_ump_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_uskhd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_shd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_dontsov_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_radsun_strength }
+	# Comparisons
+	check_variable = { UKR_borotbyst_strength > UKR_jointsoc_coalition_var }
+}
+UKR_urdp_no_coalition = {
+	# Everyone
+	set_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_natcom_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borotbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_usdrp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_undo_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_udp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_ump_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_uskhd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_shd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_dontsov_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_radsun_strength }
+	# Comparisons
+	check_variable = { UKR_urdp_strength > UKR_jointsoc_coalition_var }
+}
+UKR_usdrp_no_coalition = {
+	# Everyone
+	set_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_natcom_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borotbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_urdp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_undo_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_udp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_ump_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_uskhd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_shd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_dontsov_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_radsun_strength }
+	# Comparisons
+	check_variable = { UKR_usdrp_strength > UKR_jointsoc_coalition_var }
+}
+UKR_undo_no_coalition = {
+	# Everyone
+	set_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_natcom_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borotbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_urdp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_usdrp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_udp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_ump_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_uskhd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_shd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_dontsov_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_radsun_strength }
+	# Comparisons
+	check_variable = { UKR_undo_strength > UKR_jointsoc_coalition_var }
+}
+UKR_udp_no_coalition = {
+	# Everyone
+	set_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_natcom_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borotbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_urdp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_usdrp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_undo_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_ump_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_uskhd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_shd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_dontsov_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_radsun_strength }
+	# Comparisons
+	check_variable = { UKR_udp_strength > UKR_jointsoc_coalition_var }
+}
+UKR_ump_no_coalition = {
+	# Everyone
+	set_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_natcom_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borotbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_urdp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_usdrp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_undo_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_udp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_uskhd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_shd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_dontsov_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_radsun_strength }
+	# Comparisons
+	check_variable = { UKR_ump_strength > UKR_jointsoc_coalition_var }
+}
+UKR_uskhd_no_coalition = {
+	# Everyone
+	set_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_natcom_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borotbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_urdp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_usdrp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_undo_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_udp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_ump_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_shd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_dontsov_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_radsun_strength }
+	# Comparisons
+	check_variable = { UKR_uskhd_strength > UKR_jointsoc_coalition_var }
+}
+UKR_shd_no_coalition = {
+	# Everyone
+	set_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_natcom_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borotbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_urdp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_usdrp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_undo_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_udp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_ump_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_uskhd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_dontsov_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_radsun_strength }
+	# Comparisons
+	check_variable = { UKR_shd_strength > UKR_jointsoc_coalition_var }
+}
+UKR_sun_dontsov_no_coalition = {
+	# Everyone
+	set_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_natcom_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borotbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_urdp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_usdrp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_undo_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_udp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_ump_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_uskhd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_shd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_radsun_strength }
+	# Comparisons
+	check_variable = { UKR_sun_dontsov_strength > UKR_jointsoc_coalition_var }
+}
+UKR_sun_no_coalition = {
+	# Everyone
+	set_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_natcom_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borotbyst_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_urdp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_usdrp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_undo_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_udp_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_ump_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_uskhd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_sun_dontsov_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_shd_strength }
+	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_radsun_strength }
+	# Comparisons
+	check_variable = { UKR_sun_strength > UKR_jointsoc_coalition_var }
+}
 
 is_east_ukrainian_state = {
 	capital_scope = {
@@ -182,10 +542,11 @@ is_russian_majority_in_ukraine = {
 		state = 1242
 		state = 1230
 		state = 226
+	}
 }
 is_producing_enough_wheat = {
 	OR = {
-		is_russian_tag = no
+		is_russian_tag = yes
 		tag = KUB
 		tag = DKB
 		is_american_tag = yes

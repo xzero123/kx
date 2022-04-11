@@ -452,6 +452,42 @@ ideas = {
 				trade_cost_for_target_factor = -0.5
 			}
 		}			
+		UKR_austrian_trade_ump = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_austrian_trade_ump"}
+			picture = GRE_austrian_sanctions
+			name = UKR_austrian_trade
+			allowed = { always = no }
+			available = {
+				country_exists = AUS
+				NOT = { has_war_with = AUS }
+			}
+			modifier = {
+				social_conservative_drift = 0.01
+				political_power_cost = -0.05
+				trade_opinion_factor = 0.15
+			}
+			targeted_modifier = {
+				tag = AUS
+				extra_trade_to_target_factor = 0.15
+				trade_cost_for_target_factor = -0.15
+			}
+		}			
+		AUS_ukrainian_trade_ump = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea AUS_ukrainian_trade_ump"}
+			picture = UKR_trade
+			allowed = { always = no }
+			name = AUS_ukrainian_trade
+			available = {
+				country_exists = UKR
+				NOT = { has_war_with = UKR }
+			}
+			targeted_modifier = {
+				tag = UKR
+				cic_to_target_factor = 0.05
+				extra_trade_to_target_factor = 0.15
+				trade_cost_for_target_factor = -0.15
+			}
+		}			
 		UKR_austrian_regent = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_austrian_regent"}
 			on_remove = {
@@ -509,7 +545,7 @@ ideas = {
 		}			
 		UKR_happy_workers = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_happy_workers"}
-			picture = workers_aid
+			picture = BBR_workers_aid
 			allowed = { always = no }
 			modifier = {
 				production_factory_efficiency_gain_factor = 0.03
@@ -525,6 +561,26 @@ ideas = {
 				political_power_factor = 0.2
 				production_lack_of_resource_penalty_factor = -0.05
 				supply_consumption_factor = -0.02
+			}
+		}			
+		UKR_Constitution_National_Accord = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_Constitution_National_Accord"}
+			picture = constitution
+			allowed = { always = no }
+			modifier = {
+				paternal_autocrat_drift = -0.02
+				political_power_gain = 0.02
+				stability_factor = 0.07
+			}
+		}			
+		UKR_National_Rada = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_National_Rada"}
+			picture = UKR_parliament
+			allowed = { always = no }
+			modifier = {
+				drift_defence_factor = -0.15
+				party_popularity_stability_factor = -0.05
+				stability_factor = 0.02
 			}
 		}			
 		UKR_organic_corporatism_1 = {
@@ -1278,7 +1334,7 @@ ideas = {
 		}
 		UKR_Local_radas = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_Local_radas"}
-			picture = generic_morale_bonus
+			picture = UKR_ukraine_flag_idea
 			modifier = {
 				political_power_factor = 0.02
 				stability_factor = 0.02
@@ -1446,7 +1502,7 @@ ideas = {
 		}
 		UKR_khmel_host = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_khmel_host" }
-			picture = advisors_ukraine
+			picture = UKR_cossack
 			modifier = {
 				conscription = 0.01
 				army_org_Factor = 0.04
@@ -1565,7 +1621,7 @@ ideas = {
 		metallurgical_combine_azovstal = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea metallurgical_combine_azovstal"}
 			allowed = { original_tag = UKR }
-			available = { controls_state = 227 }
+			available = { controls_state = 228 }
 			traits = { mining_company }
 			modifier = {
 				production_speed_arms_factory_factor = 0.1
@@ -1612,7 +1668,10 @@ ideas = {
 		kharkiv_tractor_factory = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kharkiv_tractor_factory"}
 			allowed = { original_tag = UKR }
-			available = { has_completed_focus = UKR_Invest_In_KhTZ }
+			available = { 
+				has_completed_focus = UKR_Invest_In_KhTZ 
+				controls_state = 221
+			}
 			traits = { industrial_manufacturer }
 			modifier = {
 				production_speed_arms_factory_factor = 0.05
@@ -1691,6 +1750,7 @@ ideas = {
 		black_sea_shipyard = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea black_sea_shipyard"}
 			allowed = { original_tag = UKR }
+			available = { controls_state = 1221 }
 			traits = { cruiser_producer_offense_1 }
 			research_bonus = {
 				naval_equipment = 0.1
@@ -1700,6 +1760,7 @@ ideas = {
 		kommunara_nikolayev_shipyards = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kommunara_nikolayev_shipyards"}
 			allowed = { original_tag = UKR }
+			available = { controls_state = 1232 }
 			traits = { small_ship_producer_mass_1 }
 			research_bonus = {
 				naval_equipment = 0.1

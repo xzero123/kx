@@ -4614,3 +4614,266 @@ country_event = { #RCW
 		}
 	}
 }
+
+country_event = { #3RCW
+	id = rcw.250
+	title = rcw.250.t
+	desc = rcw.250.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = rcw.250.a
+		add_stability = -0.15
+		hidden_effect = {
+			country_event = {
+				id = rcw.251
+				days = 25
+			}
+			country_event = {
+				id = rcw.252
+				days = 30
+			}
+			country_event = {
+				id = rcw.254
+				days = 35
+			}
+			country_event = {
+				id = rcw.255
+				days = 40
+			}
+			country_event = {
+				id = rcw.254
+				days = 42
+			}
+			country_event = {
+				id = rcw.256
+				days = 44
+			}
+			country_event = {
+				id = rcw.257
+				days = 45
+			}
+			country_event = {
+				id = rcw.258
+				days = 46
+			}
+			country_event = {
+				id = rcw.259
+				days = 50
+			}
+		}
+	}
+}
+country_event = { #Arkhangelsk
+	id = rcw.251
+	title = rcw.251.t
+	desc = rcw.251.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = rcw.251.a
+		RCW_setup_ara = yes
+	}
+	option = {
+		name = rcw.251.b
+		trigger = { is_ai = no }
+		RCW_setup_ara = yes
+		event_target:RCW_arkhangelsk = { change_tag_from = ROOT }
+	}
+}
+country_event = { #Tambov
+	id = rcw.252
+	title = rcw.252.t
+	desc = rcw.252.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = rcw.252.a
+		RCW_setup_tpr = yes
+	}
+	option = {
+		name = rcw.252.b
+		trigger = { is_ai = no }
+		RCW_setup_tpr = yes
+		event_target:RCW_tambov = { change_tag_from = ROOT }
+	}
+}
+country_event = { #Ural
+	id = rcw.253
+	title = rcw.253.t
+	desc = rcw.253.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = rcw.253.a
+		RCW_setup_ura = yes
+	}
+	option = {
+		name = rcw.253.b
+		trigger = { is_ai = no }
+		RCW_setup_ura = yes
+		event_target:RCW_ural = { change_tag_from = ROOT }
+	}
+}
+country_event = { #Ural
+	id = rcw.254
+	title = rcw.254.t
+	desc = rcw.254.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		NOT = { has_country_flag = soviet_russia_restored }
+	}
+	
+	option = {
+		name = rcw.254.a
+		hidden_effect = { disband_twenty_percent_units = yes }
+		remove_all_ministers = yes
+		add_ideas = {
+			RUS_Aleksandr_S_Lukomskiy_hog_pau
+			RUS_Aleksey_A_Ignatiev_for_pau
+			RUS_Ivan_P_Romanovskiy_eco_pau
+			RUS_Aleksandr_P_Balk_sec_pau
+		}
+		create_country_leader = {
+			name = "Ivan Romanovskiy"
+			picture = "gfx/leaders/RUS/Portrait_RUS_Ivan_Romanovsky.png"
+			expire = "1965.1.1"
+			ideology = junta_subtype
+			traits = {}
+		}		
+		add_stability = 0.1
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.3
+		}
+		
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+		clr_country_flag = RUS_TERROR
+		clr_country_flag = rus_general_strike_expands
+		clr_country_flag = RUS_SEN
+		clr_country_flag = RUS_demonstrations
+		clr_country_flag = RUS_Okhrannoye_Otdeleniye_locked
+		set_country_flag = RUS_JUNTA
+		hidden_effect = {
+			set_cosmetic_tag = RUS
+			reset_russian_leaders = yes
+			add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.1
+			}
+			add_popularity = {
+			ideology = national_populist
+			popularity = 0.1
+			}
+			add_popularity = {
+			ideology = social_conservative
+			popularity = 0.1
+			}
+			clr_country_flag = soviet_russia_restored
+			clr_country_flag = SOV_must_deal_with_opposition
+			remove_ideas = {
+				SOV_nationalist_resistance
+				SOV_nationalist_resistance_1
+				SOV_nationalist_resistance_2
+				SOV_democrat_resistance
+				SOV_democrat_resistance_1
+				SOV_democrat_resistance_2
+				SOV_monarchist_resistance
+				SOV_monarchist_resistance_1
+			}
+			clear_global_event_target = soviet_russia
+		}
+	}
+}
+country_event = { #Samara
+	id = rcw.255
+	title = rcw.255.t
+	desc = rcw.255.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = rcw.255.a
+		RCW_setup_sdl = yes
+	}
+	option = {
+		name = rcw.255.b
+		trigger = { is_ai = no }
+		RCW_setup_sdl = yes
+		event_target:RCW_samara = { change_tag_from = ROOT }
+	}
+}
+country_event = { #Pskov
+	id = rcw.256
+	title = rcw.256.t
+	desc = rcw.256.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = rcw.256.a
+		RCW_setup_pva = yes
+	}
+	option = {
+		name = rcw.256.b
+		trigger = { is_ai = no }
+		RCW_setup_pva = yes
+		WRA = { change_tag_from = ROOT }
+	}
+}
+country_event = { #Moscow
+	id = rcw.257
+	title = rcw.257.t
+	desc = rcw.257.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = rcw.257.a
+		RCW_setup_mlc = yes
+	}
+	option = {
+		name = rcw.257.b
+		trigger = { is_ai = no }
+		RCW_setup_mlc = yes
+		RRF = { change_tag_from = ROOT }
+	}
+}
+country_event = { #Moscow
+	id = rcw.258
+	title = rcw.258.t
+	desc = rcw.258.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = rcw.258.a
+		RCW_setup_trc = yes
+	}
+	option = {
+		name = rcw.258.b
+		trigger = { is_ai = no }
+		RCW_setup_trc = yes
+		RVA = { change_tag_from = ROOT }
+	}
+}
+country_event = { #Moscow
+	id = rcw.259
+	title = rcw.259.t
+	desc = rcw.259.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = rcw.259.a
+		RCW_start_third_war = yes
+	}	
+}

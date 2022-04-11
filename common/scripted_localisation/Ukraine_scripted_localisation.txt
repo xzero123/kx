@@ -238,9 +238,6 @@ defined_text = {
 		localization_key = UKR_popularity_favours_king_singular
 	}
 	text = {
-		trigger = {
-			NOT = { has_variable = UKR_military_alignment }
-		}
 		localization_key = UKR_popularity_love_dyrektoria_singular
 	}	
 }
@@ -284,9 +281,6 @@ defined_text = {
 		localization_key = UKR_popularity_favours_king_plural
 	}
 	text = {
-		trigger = {
-			NOT = { has_variable = UKR_landowners_alignment }
-		}
 		localization_key = UKR_popularity_love_dyrektoria_plural
 	}	
 }
@@ -330,9 +324,6 @@ defined_text = {
 		localization_key = UKR_popularity_favours_king_plural
 	}
 	text = {
-		trigger = {
-			NOT = { has_variable = UKR_bureaucrat_alignment }
-		}
 		localization_key = UKR_popularity_love_dyrektoria_plural
 	}	
 }
@@ -377,9 +368,6 @@ defined_text = {
 		localization_key = UKR_popularity_favours_king_singular
 	}
 	text = {
-		trigger = {
-			NOT = { has_variable = UKR_church_alignment }
-		}
 		localization_key = UKR_popularity_love_dyrektoria_singular
 	}	
 }
@@ -423,9 +411,6 @@ defined_text = {
 		localization_key = UKR_popularity_favours_king_singular
 	}
 	text = {
-		trigger = {
-			NOT = { has_variable = UKR_business_alignment }
-		}
 		localization_key = UKR_popularity_love_dyrektoria_singular
 	}	
 }
@@ -469,9 +454,6 @@ defined_text = {
 		localization_key = UKR_popularity_favours_king_plural
 	}
 	text = {
-		trigger = {
-			NOT = { has_variable = UKR_farmers_alignment }
-		}
 		localization_key = UKR_popularity_love_dyrektoria_plural
 	}	
 }
@@ -515,9 +497,6 @@ defined_text = {
 		localization_key = UKR_popularity_favours_king_plural
 	}
 	text = {
-		trigger = {
-			NOT = { has_variable = UKR_workers_alignment }
-		}
 		localization_key = UKR_popularity_love_dyrektoria_plural
 	}	
 }
@@ -561,9 +540,6 @@ defined_text = {
 		localization_key = UKR_popularity_favours_king_plural
 	}
 	text = {
-		trigger = {
-			NOT = { has_variable = UKR_peasant_alignment }
-		}
 		localization_key = UKR_popularity_love_dyrektoria_plural
 	}	
 }
@@ -1027,4 +1003,407 @@ defined_text = {
 	text = {
 		localization_key = ""
 	}
+}
+defined_text = {
+	name = GetUkrainianParliamentName
+	text = {
+		trigger = {
+			NOT = { has_completed_focus = UKR_Form_National_Rada }
+			NOT = { has_completed_focus = UKR_Republican_Return }
+		}
+		localization_key = UKR_parliament_soim
+	}
+	text = {
+		localization_key = UKR_parliament_rada
+	}
+}
+defined_text = {
+	name = GetUkrainianParliamentFullName
+	text = {
+		trigger = {
+			has_completed_focus = UKR_Form_National_Rada
+		}
+		localization_key = UKR_parliament_national_rada
+	}
+	text = {
+		trigger = {
+			has_completed_focus = UKR_Republican_Return		
+		}
+		localization_key = UKR_parliament_central_rada
+	}
+	text = {
+		localization_key = UKR_parliament_soim_desc
+	}
+}
+defined_text = {
+	name = GetUkraineElectionLead
+	text = {
+		trigger = {
+			check_variable = { UKR_natcom_strength > UKR_radsun_strength }
+			check_variable = { UKR_natcom_strength > UKR_borbyst_strength }
+			check_variable = { UKR_natcom_strength > UKR_borotbyst_strength }
+			check_variable = { UKR_natcom_strength > UKR_urdp_strength }
+			check_variable = { UKR_natcom_strength > UKR_usdrp_strength }
+			check_variable = { UKR_natcom_strength > UKR_undo_strength }
+			check_variable = { UKR_natcom_strength > UKR_udp_strength }
+			check_variable = { UKR_natcom_strength > UKR_ump_strength }
+			check_variable = { UKR_natcom_strength > UKR_uskhd_strength }
+			check_variable = { UKR_natcom_strength > UKR_shd_strength }
+			check_variable = { UKR_natcom_strength > UKR_sun_dontsov_strength }
+			check_variable = { UKR_natcom_strength > UKR_sun_strength }
+		}
+		localization_key = UKR_natcom_plurality_desc
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_radsun_strength > UKR_natcom_strength }
+			check_variable = { UKR_radsun_strength > UKR_borbyst_strength }
+			check_variable = { UKR_radsun_strength > UKR_borotbyst_strength }
+			check_variable = { UKR_radsun_strength > UKR_urdp_strength }
+			check_variable = { UKR_radsun_strength > UKR_usdrp_strength }
+			check_variable = { UKR_radsun_strength > UKR_undo_strength }
+			check_variable = { UKR_radsun_strength > UKR_udp_strength }
+			check_variable = { UKR_radsun_strength > UKR_ump_strength }
+			check_variable = { UKR_radsun_strength > UKR_uskhd_strength }
+			check_variable = { UKR_radsun_strength > UKR_shd_strength }
+			check_variable = { UKR_radsun_strength > UKR_sun_dontsov_strength }
+			check_variable = { UKR_radsun_strength > UKR_sun_strength }
+		}
+		localization_key = UKR_radsun_plurality_desc
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_borbyst_strength > UKR_natcom_strength }
+			check_variable = { UKR_borbyst_strength > UKR_radsun_strength }
+			check_variable = { UKR_borbyst_strength > UKR_borotbyst_strength }
+			check_variable = { UKR_borbyst_strength > UKR_urdp_strength }
+			check_variable = { UKR_borbyst_strength > UKR_usdrp_strength }
+			check_variable = { UKR_borbyst_strength > UKR_undo_strength }
+			check_variable = { UKR_borbyst_strength > UKR_udp_strength }
+			check_variable = { UKR_borbyst_strength > UKR_ump_strength }
+			check_variable = { UKR_borbyst_strength > UKR_uskhd_strength }
+			check_variable = { UKR_borbyst_strength > UKR_shd_strength }
+			check_variable = { UKR_borbyst_strength > UKR_sun_dontsov_strength }
+			check_variable = { UKR_borbyst_strength > UKR_sun_strength }
+		}
+		localization_key = UKR_borbyst_plurality_desc
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_borotbyst_strength > UKR_natcom_strength }
+			check_variable = { UKR_borotbyst_strength > UKR_radsun_strength }
+			check_variable = { UKR_borotbyst_strength > UKR_borbyst_strength }
+			check_variable = { UKR_borotbyst_strength > UKR_urdp_strength }
+			check_variable = { UKR_borotbyst_strength > UKR_usdrp_strength }
+			check_variable = { UKR_borotbyst_strength > UKR_undo_strength }
+			check_variable = { UKR_borotbyst_strength > UKR_udp_strength }
+			check_variable = { UKR_borotbyst_strength > UKR_ump_strength }
+			check_variable = { UKR_borotbyst_strength > UKR_uskhd_strength }
+			check_variable = { UKR_borotbyst_strength > UKR_shd_strength }
+			check_variable = { UKR_borotbyst_strength > UKR_sun_dontsov_strength }
+			check_variable = { UKR_borotbyst_strength > UKR_sun_strength }
+		}
+		localization_key = UKR_borotbyst_plurality_desc
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_urdp_strength > UKR_natcom_strength }
+			check_variable = { UKR_urdp_strength > UKR_radsun_strength }
+			check_variable = { UKR_urdp_strength > UKR_borbyst_strength }
+			check_variable = { UKR_urdp_strength > UKR_borotbyst_strength }
+			check_variable = { UKR_urdp_strength > UKR_usdrp_strength }
+			check_variable = { UKR_urdp_strength > UKR_undo_strength }
+			check_variable = { UKR_urdp_strength > UKR_udp_strength }
+			check_variable = { UKR_urdp_strength > UKR_ump_strength }
+			check_variable = { UKR_urdp_strength > UKR_uskhd_strength }
+			check_variable = { UKR_urdp_strength > UKR_shd_strength }
+			check_variable = { UKR_urdp_strength > UKR_sun_dontsov_strength }
+			check_variable = { UKR_urdp_strength > UKR_sun_strength }
+		}
+		localization_key = UKR_urdp_plurality_desc
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_usdrp_strength > UKR_natcom_strength }
+			check_variable = { UKR_usdrp_strength > UKR_radsun_strength }
+			check_variable = { UKR_usdrp_strength > UKR_borbyst_strength }
+			check_variable = { UKR_usdrp_strength > UKR_borotbyst_strength }
+			check_variable = { UKR_usdrp_strength > UKR_urdp_strength }
+			check_variable = { UKR_usdrp_strength > UKR_undo_strength }
+			check_variable = { UKR_usdrp_strength > UKR_udp_strength }
+			check_variable = { UKR_usdrp_strength > UKR_ump_strength }
+			check_variable = { UKR_usdrp_strength > UKR_uskhd_strength }
+			check_variable = { UKR_usdrp_strength > UKR_shd_strength }
+			check_variable = { UKR_usdrp_strength > UKR_sun_dontsov_strength }
+			check_variable = { UKR_usdrp_strength > UKR_sun_strength }
+		}
+		localization_key = UKR_usdrp_plurality_desc
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_undo_strength > UKR_natcom_strength }
+			check_variable = { UKR_undo_strength > UKR_radsun_strength }
+			check_variable = { UKR_undo_strength > UKR_borbyst_strength }
+			check_variable = { UKR_undo_strength > UKR_borotbyst_strength }
+			check_variable = { UKR_undo_strength > UKR_urdp_strength }
+			check_variable = { UKR_undo_strength > UKR_usdrp_strength }
+			check_variable = { UKR_undo_strength > UKR_udp_strength }
+			check_variable = { UKR_undo_strength > UKR_ump_strength }
+			check_variable = { UKR_undo_strength > UKR_uskhd_strength }
+			check_variable = { UKR_undo_strength > UKR_shd_strength }
+			check_variable = { UKR_undo_strength > UKR_sun_dontsov_strength }
+			check_variable = { UKR_undo_strength > UKR_sun_strength }
+		}
+		localization_key = UKR_undo_plurality_desc
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_udp_strength > UKR_natcom_strength }
+			check_variable = { UKR_udp_strength > UKR_radsun_strength }
+			check_variable = { UKR_udp_strength > UKR_borbyst_strength }
+			check_variable = { UKR_udp_strength > UKR_borotbyst_strength }
+			check_variable = { UKR_udp_strength > UKR_urdp_strength }
+			check_variable = { UKR_udp_strength > UKR_usdrp_strength }
+			check_variable = { UKR_udp_strength > UKR_undo_strength }
+			check_variable = { UKR_udp_strength > UKR_ump_strength }
+			check_variable = { UKR_udp_strength > UKR_uskhd_strength }
+			check_variable = { UKR_udp_strength > UKR_shd_strength }
+			check_variable = { UKR_udp_strength > UKR_sun_dontsov_strength }
+			check_variable = { UKR_udp_strength > UKR_sun_strength }
+		}
+		localization_key = UKR_udp_plurality_desc
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_ump_strength > UKR_natcom_strength }
+			check_variable = { UKR_ump_strength > UKR_radsun_strength }
+			check_variable = { UKR_ump_strength > UKR_borbyst_strength }
+			check_variable = { UKR_ump_strength > UKR_borotbyst_strength }
+			check_variable = { UKR_ump_strength > UKR_urdp_strength }
+			check_variable = { UKR_ump_strength > UKR_usdrp_strength }
+			check_variable = { UKR_ump_strength > UKR_undo_strength }
+			check_variable = { UKR_ump_strength > UKR_udp_strength }
+			check_variable = { UKR_ump_strength > UKR_uskhd_strength }
+			check_variable = { UKR_ump_strength > UKR_shd_strength }
+			check_variable = { UKR_ump_strength > UKR_sun_dontsov_strength }
+			check_variable = { UKR_ump_strength > UKR_sun_strength }
+		}
+		localization_key = UKR_ump_plurality_desc
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_uskhd_strength > UKR_natcom_strength }
+			check_variable = { UKR_uskhd_strength > UKR_radsun_strength }
+			check_variable = { UKR_uskhd_strength > UKR_borbyst_strength }
+			check_variable = { UKR_uskhd_strength > UKR_borotbyst_strength }
+			check_variable = { UKR_uskhd_strength > UKR_urdp_strength }
+			check_variable = { UKR_uskhd_strength > UKR_usdrp_strength }
+			check_variable = { UKR_uskhd_strength > UKR_undo_strength }
+			check_variable = { UKR_uskhd_strength > UKR_udp_strength }
+			check_variable = { UKR_uskhd_strength > UKR_ump_strength }
+			check_variable = { UKR_uskhd_strength > UKR_shd_strength }
+			check_variable = { UKR_uskhd_strength > UKR_sun_dontsov_strength }
+			check_variable = { UKR_uskhd_strength > UKR_sun_strength }
+		}
+		localization_key = UKR_uskhd_plurality_desc
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_shd_strength > UKR_natcom_strength }
+			check_variable = { UKR_shd_strength > UKR_radsun_strength }
+			check_variable = { UKR_shd_strength > UKR_borbyst_strength }
+			check_variable = { UKR_shd_strength > UKR_borotbyst_strength }
+			check_variable = { UKR_shd_strength > UKR_urdp_strength }
+			check_variable = { UKR_shd_strength > UKR_usdrp_strength }
+			check_variable = { UKR_shd_strength > UKR_undo_strength }
+			check_variable = { UKR_shd_strength > UKR_udp_strength }
+			check_variable = { UKR_shd_strength > UKR_ump_strength }
+			check_variable = { UKR_shd_strength > UKR_uskhd_strength }
+			check_variable = { UKR_shd_strength > UKR_sun_dontsov_strength }
+			check_variable = { UKR_shd_strength > UKR_sun_strength }
+		}
+		localization_key = UKR_shd_plurality_desc
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_sun_dontsov_strength > UKR_natcom_strength }
+			check_variable = { UKR_sun_dontsov_strength > UKR_radsun_strength }
+			check_variable = { UKR_sun_dontsov_strength > UKR_borbyst_strength }
+			check_variable = { UKR_sun_dontsov_strength > UKR_borotbyst_strength }
+			check_variable = { UKR_sun_dontsov_strength > UKR_urdp_strength }
+			check_variable = { UKR_sun_dontsov_strength > UKR_usdrp_strength }
+			check_variable = { UKR_sun_dontsov_strength > UKR_undo_strength }
+			check_variable = { UKR_sun_dontsov_strength > UKR_udp_strength }
+			check_variable = { UKR_sun_dontsov_strength > UKR_ump_strength }
+			check_variable = { UKR_sun_dontsov_strength > UKR_uskhd_strength }
+			check_variable = { UKR_sun_dontsov_strength > UKR_shd_strength }
+			check_variable = { UKR_sun_dontsov_strength > UKR_sun_strength }
+		}
+		localization_key = UKR_sun_dontsov_plurality_desc
+	}
+	text = {
+		trigger = {
+			check_variable = { UKR_sun_strength > UKR_natcom_strength }
+			check_variable = { UKR_sun_strength > UKR_radsun_strength }
+			check_variable = { UKR_sun_strength > UKR_borbyst_strength }
+			check_variable = { UKR_sun_strength > UKR_borotbyst_strength }
+			check_variable = { UKR_sun_strength > UKR_urdp_strength }
+			check_variable = { UKR_sun_strength > UKR_usdrp_strength }
+			check_variable = { UKR_sun_strength > UKR_undo_strength }
+			check_variable = { UKR_sun_strength > UKR_udp_strength }
+			check_variable = { UKR_sun_strength > UKR_ump_strength }
+			check_variable = { UKR_sun_strength > UKR_uskhd_strength }
+			check_variable = { UKR_sun_strength > UKR_shd_strength }
+			check_variable = { UKR_sun_strength > UKR_sun_dontsov_strength }
+		}
+		localization_key = UKR_sun_plurality_desc
+	}	
+	text = {
+		localization_key = UKR_no_plurality_desc
+	}
+}
+defined_text = {
+	name = GetUkraineLikelyCoalition
+	text = {
+		trigger = {
+			UKR_natcom_no_coalition = yes
+		}
+		localization_key = UKR_natcom_no_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_radsun_no_coalition = yes
+		}
+		localization_key = UKR_radsun_no_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_borbyst_no_coalition = yes
+		}
+		localization_key = UKR_borbyst_no_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_borotbyst_no_coalition = yes
+		}
+		localization_key = UKR_borotbyst_no_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_urdp_no_coalition = yes
+		}
+		localization_key = UKR_urdp_no_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_usdrp_no_coalition = yes
+		}
+		localization_key = UKR_usdrp_no_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_undo_no_coalition = yes
+		}
+		localization_key = UKR_undo_no_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_udp_no_coalition = yes
+		}
+		localization_key = UKR_udp_no_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_ump_no_coalition = yes
+		}
+		localization_key = UKR_ump_no_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_uskhd_no_coalition = yes
+		}
+		localization_key = UKR_uskhd_no_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_shd_no_coalition = yes
+		}
+		localization_key = UKR_shd_no_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_sun_dontsov_no_coalition = yes
+		}
+		localization_key = UKR_sun_dontsov_no_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_jointsoc_coalition = yes
+		}
+		localization_key = UKR_jointsoc_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_modpopfront_coalition = yes
+		}
+		localization_key = UKR_modpopfront_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_radpopfront_coalition = yes
+		}
+		localization_key = UKR_radpopfront_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_natdem_coalition = yes
+		}
+		localization_key = UKR_natdem_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_monnatdem_coalition = yes
+		}
+		localization_key = UKR_monnatdem_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_demauthdem_coalition = no
+			UKR_monnatdem_coalition = no
+			check_variable = {
+				var = UKR_ump_strength
+				value = UKR_uskhd_strength
+				compare = greater_than_or_equals
+			}
+			UKR_monauthdem_coalition = yes
+		}
+		localization_key = UKR_monauthdem_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_demauthdem_coalition = no
+			UKR_monnatdem_coalition = no
+			check_variable = { UKR_uskhd_strength > UKR_ump_strength }
+			UKR_monauthdem_coalition = yes
+		}
+		localization_key = UKR_authdemmon_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_demauthdem_coalition = yes
+		}
+		localization_key = UKR_demauthdem_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_hetmannatdem_coalition = yes
+		}
+		localization_key = UKR_hetmannatdem_coalition_desc
+	}
+	text = {
+		trigger = {
+			UKR_unitednationalist_coalition = yes
+		}
+		localization_key = UKR_unitednationalist_coalition_desc
+	}	
 }

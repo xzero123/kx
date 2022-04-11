@@ -170,6 +170,7 @@ UKR_increase_king = {
 		ideology = social_conservative
 		popularity = 0.02
 	}
+	add_to_variable = { UKR_ump_strength = 2 }
 	if = {
 		limit = {
 			has_completed_focus = UKR_Coalition_Of_Monarchists
@@ -178,6 +179,7 @@ UKR_increase_king = {
 			ideology = authoritarian_democrat
 			popularity = 0.01
 		}
+		add_to_variable = { UKR_uskhd_strength = 2 }
 	}
 	if = {
 		limit = {
@@ -187,6 +189,7 @@ UKR_increase_king = {
 			ideology = national_populist
 			popularity = 0.01
 		}
+		add_to_variable = { UKR_sun_strength = 2 }
 	}
 	recalculate_ukrainian_political_variables = yes
 }
@@ -200,6 +203,7 @@ UKR_decrease_king = {
 		ideology = social_conservative
 		popularity = -0.02
 	}
+	add_to_variable = { UKR_ump_strength = -2 }
 	if = {
 		limit = {
 			has_completed_focus = UKR_Coalition_Of_Monarchists
@@ -208,6 +212,7 @@ UKR_decrease_king = {
 			ideology = authoritarian_democrat
 			popularity = -0.01
 		}
+		add_to_variable = { UKR_uskhd_strength = -2 }
 	}
 	if = {
 		limit = {
@@ -217,6 +222,7 @@ UKR_decrease_king = {
 			ideology = national_populist
 			popularity = -0.01
 		}
+		add_to_variable = { UKR_sun_strength = -2 }
 	}
 	recalculate_ukrainian_political_variables = yes
 }
@@ -230,6 +236,7 @@ UKR_increase_hetman = {
 		ideology = paternal_autocrat
 		popularity = 0.02
 	}
+	add_to_variable = { UKR_shd_strength = 2 }
 	if = {
 		limit = {
 			set_temp_variable = { coalition_target = token:market_liberal }
@@ -239,16 +246,7 @@ UKR_increase_hetman = {
 			ideology = market_liberal
 			popularity = 0.01
 		}
-	}
-	if = {
-		limit = {
-			set_temp_variable = { coalition_target = token:national_populist }
-			has_coalition_with_target = yes
-		}
-		add_popularity = {
-			ideology = national_populist
-			popularity = 0.01
-		}
+		add_to_variable = { UKR_udp_strength = 2 }
 	}
 	recalculate_ukrainian_political_variables = yes
 }
@@ -262,6 +260,7 @@ UKR_decrease_hetman = {
 		ideology = paternal_autocrat
 		popularity = -0.02
 	}
+	add_to_variable = { UKR_shd_strength = -2 }
 	if = {
 		limit = {
 			set_temp_variable = { coalition_target = token:market_liberal }
@@ -271,16 +270,7 @@ UKR_decrease_hetman = {
 			ideology = market_liberal
 			popularity = -0.01
 		}
-	}
-	if = {
-		limit = {
-			set_temp_variable = { coalition_target = token:national_populist }
-			has_coalition_with_target = yes
-		}
-		add_popularity = {
-			ideology = national_populist
-			popularity = -0.01
-		}
+		add_to_variable = { UKR_udp_strength = -2 }
 	}
 	recalculate_ukrainian_political_variables = yes
 }
@@ -305,6 +295,17 @@ UKR_increase_direktoria = {
 			popularity = 0.02
 		}
 		add_to_variable = { UKR_Direktoriia_Strength = 1 }
+		add_to_variable = { UKR_natcom_strength = 1 }
+		add_to_variable = { UKR_radsun_strength = 1 }
+		add_to_variable = { UKR_borbyst_strength = 1 }
+		add_to_variable = { UKR_borotbyst_strength = 1 }
+		add_to_variable = { UKR_urdp_strength = 1 }
+		add_to_variable = { UKR_usdrp_strength = 2 }
+		add_to_variable = { UKR_undo_strength = 1 }
+		if = {
+			limit = { has_country_flag = UPR_uvo_openly_joins_dyrektoria }
+			add_to_variable = { UKR_sun_strength = 1 }
+		}
 	}
 	recalculate_ukrainian_political_variables = yes
 }
@@ -339,12 +340,20 @@ UKR_decrease_direktoria = {
 			ideology = social_liberal
 			popularity = -0.02
 		}
+		add_to_variable = { UKR_natcom_strength = -1 }
+		add_to_variable = { UKR_radsun_strength = -1 }
+		add_to_variable = { UKR_borbyst_strength = -1 }
+		add_to_variable = { UKR_borotbyst_strength = -1 }
+		add_to_variable = { UKR_urdp_strength = -1 }
+		add_to_variable = { UKR_usdrp_strength = -2 }
+		add_to_variable = { UKR_undo_strength = -1 }
 		if = {
 			limit = { has_country_flag = UPR_uvo_openly_joins_dyrektoria }
 			add_popularity = {
 				ideology = national_populist
 				popularity = -0.02
 			}
+			add_to_variable = { UKR_sun_strength = -1 }
 		}
 		if = {
 			limit = {
@@ -547,6 +556,7 @@ UKR_skoropadsky_increase_russophiles = {
 		target = GER
 		modifier = medium_increase
 	}		
+	add_to_variable = { UKR_udp_strength = -2 }
 }
 UKR_skoropadsky_increase_germanophiles = {
 	custom_effect_tooltip = UKR_skoropadsky_increase_germanophiles_tt
@@ -577,6 +587,7 @@ UKR_skoropadsky_increase_germanophiles = {
 		target = RUS
 		modifier = medium_increase
 	}
+	add_to_variable = { UKR_udp_strength = 2 }
 }
 UKR_regency_increase_leo_stefan = {
 	custom_effect_tooltip = UKR_regency_increase_leo_stefan_tt
@@ -673,6 +684,8 @@ UKR_improve_ukrainisation = {
 			country_event = { id = ukrmisc.4 days = 88 random = 300 }   	# Taras Bulba
 			country_event = { id = ukrmisc.12 days = 143 random = 300 }   	# Bilokur
 			country_event = { id = ukrmisc.15 days = 212 random = 300 }   	# Ukrainka
+			country_event = { id = ukrmisc.22 days = 251 random = 300 }   	# White Guard
+			country_event = { id = ukrmisc.23 days = 300 random = 300 }   	# Rifles and Carabines
 		}
 	}
 	else = {
@@ -698,12 +711,12 @@ UKR_setup_famine = {
 	}
 	complete_national_focus = UKR_Risk_Of_Famine
 	add_ideas = UKR_risk_of_famine
-	set_variable = { UKR_risk_of_famine_var = 7 }
-	set_variable = { UKR_debt_burden = 0 }
+	set_variable = { UKR.UKR_risk_of_famine_var = 7 }
+	set_variable = { UKR.UKR_debt_burden = 0 }
 	activate_mission = UKR_famine_deadline
 	every_other_country = {
 		limit = { is_producing_enough_wheat = yes }
-		add_to_array = { UKR_produces_food_array = PREV }
+		add_to_array = { UKR_produces_food_array = THIS }
 	}	
 }
 UKR_do_the_village_outflow_effect = {
@@ -714,15 +727,23 @@ UKR_do_the_village_outflow_effect = {
 				has_state_category = two
 				has_state_category = three
 				has_state_category = four
-				has_state_category = five
 			}
+			NOT = { state = 1220 }
 		}
-		add_manpower = -1500
+		set_temp_variable = { state_pop = state_population_k }
+		if = {
+			limit = {
+				check_variable = { state_pop > 30 }
+			}
+			set_variable = { total_pop_migr = 0 }
+			add_manpower = -800
+			add_to_variable = { PREV.total_pop_migr = 800 }
+		}
 	}
-	
 	every_owned_state = {
 		limit = {
 			OR = {
+				has_state_category = five
 				has_state_category = six
 				has_state_category = seven
 				has_state_category = eight
@@ -731,9 +752,14 @@ UKR_do_the_village_outflow_effect = {
 				has_state_category = eleven
 				has_state_category = twelve
 			}
-		}			
-		add_manpower = 1500
+		}
+		set_variable = { total_pop_migr_states = 0 }
+		add_to_variable = { PREV.total_pop_migr_states = 1 }
+		ROOT = { divide_variable = { total_pop_migr = total_pop_migr_states } }
+		add_manpower = total_pop_migr
 	}
+	clear_variable = total_pop_migr
+	clear_variable = total_pop_migr_states
 }
 UKR_reduce_black_monday = {
 	if = {
@@ -755,7 +781,10 @@ UKR_reduce_black_monday = {
 			add_idea = UKR_black_monday_2
 		}
 	}
-	else = {
+	else_if = {
+		limit = {
+			has_idea = UKR_black_monday
+		}
 		swap_ideas = {
 			remove_idea = UKR_black_monday
 			add_idea = UKR_black_monday_1
@@ -841,35 +870,48 @@ UKR_create_vasyl = {
 			desc = "POLITICS_VASYL_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Vasyl_Habsburg.png"
 			expire = "1965.1.1"
-			ideology = social_democrat_subtype
+			ideology = national_liberalism_subtype
+			traits = { UKR_red_prince }
 		}
 		create_country_leader = {
 			name = "Vasyl"
 			desc = "POLITICS_VASYL_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Vasyl_Habsburg.png"
 			expire = "1965.1.1"
-			ideology = social_liberal_subtype
+			ideology = marlib_national_liberalism_subtype
+			traits = { UKR_red_prince }
 		}
 		create_country_leader = {
 			name = "Vasyl"
 			desc = "POLITICS_VASYL_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Vasyl_Habsburg.png"
 			expire = "1965.1.1"
-			ideology = market_liberal_subtype
+			ideology = soccon_ukrainian_conservatism_subtype
+			traits = { UKR_red_prince }
 		}
 		create_country_leader = {
 			name = "Vasyl"
 			desc = "POLITICS_VASYL_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Vasyl_Habsburg.png"
 			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
+			ideology = ukrainian_conservatism_subtype
+			traits = { UKR_red_prince }
 		}
 		create_country_leader = {
 			name = "Vasyl"
 			desc = "POLITICS_VASYL_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Vasyl_Habsburg.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = pataut_ukrainian_conservatism_subtype
+			traits = { UKR_red_prince }
+		}
+		create_country_leader = {
+			name = "Vasyl"
+			desc = "POLITICS_VASYL_DESC"
+			picture = "gfx/leaders/UKR/Portrait_UKR_Vasyl_Habsburg.png"
+			expire = "1965.1.1"
+			ideology = integralism_subtype
+			traits = { UKR_red_prince }
 		}
 	}
 }
@@ -895,21 +937,28 @@ UKR_create_leo_stefan = {
 			desc = "POLITICS_LEO_STEFAN_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Leo_Stefan_Habsburg_Child.png"
 			expire = "1965.1.1"
-			ideology = national_conservative_subtype
+			ideology = soccon_ukrainian_conservatism_subtype
 		}
 		create_country_leader = {
 			name = "Lev II"
 			desc = "POLITICS_LEO_STEFAN_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Leo_Stefan_Habsburg_Child.png"
 			expire = "1965.1.1"
-			ideology = oligarchy_subtype
+			ideology = ukrainian_conservatism_subtype
 		}
 		create_country_leader = {
 			name = "Lev II"
 			desc = "POLITICS_LEO_STEFAN_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Leo_Stefan_Habsburg_Child.png"
 			expire = "1965.1.1"
-			ideology = pataut_cossack_subtype
+			ideology = pataut_ukrainian_conservatism_subtype
+		}
+		create_country_leader = {
+			name = "Lev II"
+			desc = "POLITICS_LEO_STEFAN_DESC"
+			picture = "gfx/leaders/UKR/Portrait_UKR_Leo_Stefan_Habsburg_Child.png"
+			expire = "1965.1.1"
+			ideology = integralism_subtype
 		}
 	}
 }
@@ -935,21 +984,21 @@ UKR_create_danylo = {
 			desc = "POLITICS_DANYLO_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Danylo_Skoropadsky.png"
 			expire = "1965.1.1"
-			ideology = national_conservative_subtype
+			ideology = soccon_ukrainian_conservatism_subtype
 		}
 		create_country_leader = {
 			name = "Danylo"
 			desc = "POLITICS_DANYLO_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Danylo_Skoropadsky.png"
 			expire = "1965.1.1"
-			ideology = oligarchy_subtype
+			ideology = ukrainian_conservatism_subtype
 		}
 		create_country_leader = {
 			name = "Danylo"
 			desc = "POLITICS_DANYLO_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Danylo_Skoropadsky.png"
 			expire = "1965.1.1"
-			ideology = pataut_cossack_subtype
+			ideology = integralism_subtype
 		}
 	}
 }
@@ -1133,11 +1182,7 @@ UPR_create_ROOT_dyrektoria_kingdom = {
 		}
 		every_unit_leader = {
 			limit = {
-				OR = {
-					has_id = 17909
-					has_id = 17913
-					has_id = 17901
-				}
+				has_unit_leader_flag = UKR_hetman_loyalist
 			}
 			set_nationality = UPR
 		}
@@ -1145,10 +1190,6 @@ UPR_create_ROOT_dyrektoria_kingdom = {
 		remove_ideas = UKR_derzhavna_varta
 		remove_ideas = UKR_Rada_diss
 		remove_all_ministers = yes		
-	}
-	effect_tooltip = {
-		event_target:UKR_Mykhailo_Pavlenko = { set_nationality = UPR }
-		event_target:UKR_Averkii_Honcharenko = { set_nationality = UPR }
 	}
 	set_country_flag = UPR_uvo_openly_joins_dyrektoria
 	hidden_effect = {
@@ -1477,13 +1518,15 @@ UPR_create_dyrektoria = {
 		division_template = "Sichovi Striltsi"
 		disband = no #will refund equipment and manpower
 	}
-	event_target:UKR_Mykhailo_Pavlenko = { set_nationality = UPR }
-	event_target:UKR_Averkii_Honcharenko = { set_nationality = UPR }
-	set_country_flag = UPR_uvo_openly_joins_dyrektoria
 	every_unit_leader = {
-		limit = { has_trait = UKR_uvo_officer }
+		limit = {
+			NOT = {
+				has_unit_leader_flag = UKR_hetman_loyalist
+			}
+		}
 		set_nationality = UPR
 	}
+	set_country_flag = UPR_uvo_openly_joins_dyrektoria
 	add_popularity = {
 		ideology = national_populist
 		popularity = -0.05
@@ -1502,5 +1545,36 @@ UPR_create_dyrektoria = {
 			remove_core_of = ROOT
 			add_claim_by = ROOT
 		}
+	}
+}
+WSU_create_buffer_zone = {
+	if = {
+		limit = { has_global_flag = UPR_dyrektoria_become_exiled_in_WSU }
+		clr_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+		set_global_flag = UPR_ukrainian_civil_war_ended
+		hidden_effect = {
+			WSU = {
+				every_unit_leader = {
+					limit = { NOT = { has_trait = UKR_uga_officer } }
+					set_nationality = UPR
+				}
+				drop_cosmetic_tag = yes
+			}
+			clear_global_event_target = UKR_dyrektoria_headquarters
+			UPR = { 
+				save_global_event_target_as = UKR_dyrektoria_headquarters 
+			}
+		}
+	}
+	GAL = {
+		every_unit_leader = {
+			limit = { has_trait = UKR_uga_officer }
+			set_nationality = WSU
+		}
+	}
+	set_cosmetic_tag = WSU_buffer_zone
+	set_politics = {
+		ruling_party = authoritarian_democrat
+		elections_allowed = no
 	}
 }

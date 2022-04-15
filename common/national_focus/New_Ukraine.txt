@@ -1236,11 +1236,20 @@ focus_tree = {
 				UKR_andriy_melnyk_in_power = yes
 			}
 		}
+		select_effect = {
+			hidden_effect = {
+				country_event = {
+					id = ukrsun.3
+					days = 2
+				}
+			}
+		}
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Convene_Great_Assembly_OUN"
+			effect_tooltip = { country_event = ukrsun.13 }
 		}
 	}
 	focus = {
@@ -1291,6 +1300,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Fight_Leftism_in_UVO"
+			country_event = ukrsun.1
 		}
 	}
 	focus = {
@@ -1317,6 +1327,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Undercut_Dontsov_Fanatism"
+			country_event = ukrsun.1
 		}
 	}
 	focus = {
@@ -1383,7 +1394,7 @@ focus_tree = {
 				tag = GER
 				modifier = UKR_islationism
 			}
-			UKR = { country_event = ukraine.67 }
+			UKR = { country_event = ukreco.15 }
 		}
 	}
 	focus = {
@@ -1452,6 +1463,7 @@ focus_tree = {
 			RUS = {
 				has_dictatorship_government = yes
 			}
+			NOT = { has_country_flag = UKR_SUN_russophobic }
 		}
 		ai_will_do = {
 			factor = 10
@@ -1484,6 +1496,30 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Nationalisation_Of_Key_Industries"
+			random_owned_controlled_state = {
+				limit = {
+					NOT = { state = 1220 }
+					NOT = { state = 202 }
+				}
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = { state = 1220 }
+					NOT = { state = 202 }
+				}
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -1683,6 +1719,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Local_Self_Government"
+			add_ideas = UKR_local_radas_sun
 		}
 	}
 	focus = {
@@ -1788,6 +1825,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Fight_Syndicalists"
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.07
+			}
 		}
 	}
 	focus = {
@@ -3851,6 +3892,10 @@ focus_tree = {
 			UKR_ump_uskhd_in_power = no
 			GER_is_in_mitteleuropa = no
 		}
+		bypass = {
+			has_completed_focus = UKR_Nationalisation_Of_Key_Industries
+			has_socialist_government = yes
+		}
 		prerequisite = {
 			focus = UKR_Rural_Credit_Banks
 		}
@@ -5388,6 +5433,11 @@ focus_tree = {
 					has_completed_focus = UKR_Use_The_Kaisers_Protection
 					has_completed_focus = UKR_Secret_Collusion_With_Russia
 				}
+			}
+			OR = {
+				has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+				has_global_flag = UPR_ukrainian_civil_war_ended
+				has_global_flag = UPR_dyrektoria_joined_peacefully
 			}
 		}
 		x = 28

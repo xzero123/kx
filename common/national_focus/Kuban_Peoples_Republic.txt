@@ -8,23 +8,245 @@ focus_tree = {
 		}
 	}
 	default = no
-	
-	shared_focus = DKU_Recovering_The_Economy
-	shared_focus = DKU_A_Cossack_Army
-	shared_focus = DKU_The_Black_Sea_Fleet
-	
+	continuous_focus_position = { x = 2500 y = 2500 }
 	
 	focus = {
-		id = KPR_Bukretov_dead
-		icon = GFX_KUB_bukretov_dead
-		cost = 0
-		x = 8
+		id = KUB_Raise_Frederica_From_Tsemes_Bay
+		icon = GFX_KUB_navy
+		cost = 4
+		x = 0
 		y = 0
-		available = {
-			has_country_flag = KUB_Ataman_Dead
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			country_event = kub.1000
+		}
+	}
+	focus = {
+		id = KUB_Restore_Rada_Work
+		icon = GFX_KUB_rada_work
+		cost = 5
+		available = { 
+			has_active_mission = KUB_Crisis_Management
 		}
 		bypass = {
-			has_country_flag = KUB_Ataman_Dead
+			has_country_flag = KUB_Announce_Ivanic_Retirement_unlocked
+		}
+		relative_position_id = KUB_Raise_Frederica_From_Tsemes_Bay
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = KUB_Raise_Frederica_From_Tsemes_Bay
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			unlock_decision_tooltip = KUB_Ask_A_German_Bailout
+			unlock_decision_tooltip = KUB_Cut_Defence_Expenditures
+		}
+	}
+	focus = {
+		id = KUB_Announce_Ivanis_Retirement
+		icon = GFX_KUB_ivanis
+		cost = 2
+		relative_position_id = KUB_Raise_Frederica_From_Tsemes_Bay
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = KUB_Restore_Rada_Work
+		}
+		available = { has_country_flag = KUB_Announce_Ivanic_Retirement_unlocked }
+		bypass = { has_country_flag = KUB_1937_elections }
+		cancelable = no
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			country_event = kub.1004
+		}
+	}
+	focus = {
+		id = KUB_Kuban_Ukrainian_Convention
+		icon = GFX_KUB_ukrainian_convention
+		cost = 5
+		relative_position_id = KUB_Raise_Frederica_From_Tsemes_Bay
+		x = -2
+		y = 2
+		prerequisite = {
+			focus = KUB_Restore_Rada_Work
+		}
+		cancelable = no
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			custom_effect_tooltip = KUB_Kuban_Ukrainian_Convention_tt
+			country_event = kub.1002
+		}
+	}
+	focus = {
+		id = KUB_Economic_Relief
+		icon = GFX_goal_NFA_review_economy
+		cost = 4
+		available = { 
+			has_idea = DON_black_monday_1
+			AND = {
+				NOT = { has_country_flag = KUB_Announce_Ivanic_Retirement_unlocked }
+				has_government = social_liberal
+			}
+		}
+		relative_position_id = KUB_Raise_Frederica_From_Tsemes_Bay
+		x = 2
+		y = 2
+		prerequisite = {
+			focus = KUB_Restore_Rada_Work
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = DON_black_monday_1
+				add_idea = DON_black_monday_2
+			}
+			hidden_effect = {
+				country_event = {
+					id = kub.27
+					days = 45
+					random_days = 100
+				}
+			}
+		}
+	}
+	focus = {
+		id = KUB_Install_Bread_Monopoly
+		icon = GFX_goal_PAL_Food_Import
+		cost = 4
+		relative_position_id = KUB_Raise_Frederica_From_Tsemes_Bay
+		x = 1
+		y = 3
+		prerequisite = {
+			focus = KUB_Economic_Relief
+		}
+		mutually_exclusive = {
+			focus = KUB_Rely_On_Cooperatives
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = DON_black_monday_2
+				add_idea = DON_black_monday_3
+			}
+		}
+	}
+	focus = {
+		id = KUB_Rely_On_Cooperatives
+		icon = GFX_NEE_coop_management
+		cost = 4
+		relative_position_id = KUB_Raise_Frederica_From_Tsemes_Bay
+		x = 3
+		y = 3
+		prerequisite = {
+			focus = KUB_Economic_Relief
+		}
+		mutually_exclusive = {
+			focus = KUB_Install_Bread_Monopoly
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = DON_black_monday_2
+				add_idea = DON_black_monday_3
+			}
+		}
+	}
+	focus = {
+		id = KUB_Organize_Public_Works
+		icon = GFX_BBR_build_industries
+		cost = 4
+		relative_position_id = KUB_Raise_Frederica_From_Tsemes_Bay
+		x = 2
+		y = 4
+		prerequisite = {
+			focus = KUB_Install_Bread_Monopoly
+			focus = KUB_Rely_On_Cooperatives
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			unlock_decision_tooltip = KUB_Deal_With_Unemployment			
+		}
+	}
+	focus = {
+		id = KUB_Foes_And_Friends
+		icon = GFX_KUB_chaos
+		cost = 4
+		relative_position_id = KUB_Raise_Frederica_From_Tsemes_Bay
+		x = -1
+		y = 3
+		prerequisite = {
+			focus = KUB_Kuban_Ukrainian_Convention
+			focus = KUB_Announce_Ivanis_Retirement
+		}
+		available = { always = no }
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {
+		id = KUB_Elect_New_Ataman_focus
+		icon = GFX_KUB_Elect_New_Ataman
+		cost = 4
+		relative_position_id = KUB_Raise_Frederica_From_Tsemes_Bay
+		x = 0
+		y = 4
+		available = { has_country_flag = KUB_1937_Elections }
+		prerequisite = {
+			focus = KUB_Foes_And_Friends
+		}
+		prerequisite = {
+			focus = KUB_Announce_Ivanis_Retirement
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		select_effect = {
+			hidden_effect = {
+				country_event = {
+					id = kub.4
+					days = 2
+				}
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = KUB_New_Ataman_tt
+			hidden_effect = {
+				country_event = kub.5
+			}
+		}
+	}
+	focus = {
+		id = KUB_Kubsoyuz_Seizes_Power
+		icon = GFX_KUB_cooperatives
+		cost = 4
+		relative_position_id = KUB_Raise_Frederica_From_Tsemes_Bay
+		x = -3
+		y = 4
+		available = { 
+			always = no
+		}
+		prerequisite = {
+			focus = KUB_Foes_And_Friends
 		}
 		ai_will_do = {
 			factor = 100
@@ -33,17 +255,439 @@ focus_tree = {
 			custom_effect_tooltip = unlock_focuses
 		}
 	}
-
-	
 	focus = {
-		id = KPR_cherno
-		icon = GFX_goal_UKR_shield
-		cost = 1
+		id = KUB_Elect_Loyal_Rada
+		icon = GFX_goal_KIV_ensure_constant_elecotral_sucsess
+		cost = 4
+		relative_position_id = KUB_Kubsoyuz_Seizes_Power
+		x = 0
+		y = 1
+		available = { 
+			has_government = radical_socialist
+		}
 		prerequisite = {
-			focus = KPR_Bukretov_dead
+			focus = KUB_Kubsoyuz_Seizes_Power
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = KUB_Peasant_Cossack_Divide
+		icon = GFX_DKB_Kick_Cossack
+		cost = 4
+		relative_position_id = KUB_Kubsoyuz_Seizes_Power
+		x = -1
+		y = 2
+		available = { 
+			has_government = radical_socialist
+		}
+		prerequisite = {
+			focus = KUB_Deal_With_Pokrovsky_Radicals
+			focus = KUB_Chernomortsy
+		}
+		prerequisite = {
+			focus = KUB_Elect_Loyal_Rada
+			focus = KUB_Chernomortsy
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			country_event = kub.25
+		}
+	}
+	focus = {
+		id = KUB_Seize_Tea_Industry
+		icon = GFX_NEE_import_tea
+		cost = 4
+		relative_position_id = KUB_Kubsoyuz_Seizes_Power
+		x = -1
+		y = 4
+		available = { 
+			has_government = radical_socialist
+		}
+		prerequisite = {
+			focus = KUB_Establish_Production_Collectives
+			focus = KUB_Fight_Syndicalist_Tendencies
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = KUB_Ensure_Investment_Prosperity
+		icon = GFX_RUS_Foreign_Investments
+		cost = 4
+		relative_position_id = KUB_Kubsoyuz_Seizes_Power
+		x = 0
+		y = 5
+		available = { 
+			has_government = radical_socialist
+		}
+		prerequisite = {
+			focus = KUB_Seize_Tea_Industry
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = KUB_Establish_Production_Collectives
+		icon = GFX_goal_CSA_department_of_production
+		cost = 4
+		relative_position_id = KUB_Kubsoyuz_Seizes_Power
+		x = -2
+		y = 3
+		available = { 
+			has_government = radical_socialist
+		}
+		prerequisite = {
+			focus = KUB_Peasant_Cossack_Divide
+		}
+		mutually_exclusive = { focus = KUB_Fight_Syndicalist_Tendencies }
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.08
+			}
+		}
+	}
+	focus = {
+		id = KUB_Fight_Syndicalist_Tendencies
+		icon = GFX_HOL_crackdown_syndie
+		cost = 4
+		relative_position_id = KUB_Kubsoyuz_Seizes_Power
+		x = 0
+		y = 3
+		available = { 
+			has_government = radical_socialist
+		}
+		prerequisite = {
+			focus = KUB_Peasant_Cossack_Divide
+		}
+		mutually_exclusive = { focus = KUB_Establish_Production_Collectives }
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = KUB_Revkom_In_Power
+		icon = GFX_KUB_communists
+		cost = 4
+		relative_position_id = KUB_Raise_Frederica_From_Tsemes_Bay
+		x = -9
+		y = 4
+		available = { 
+			always = no
+		}
+		prerequisite = {
+			focus = KUB_Foes_And_Friends
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			custom_effect_tooltip = unlock_focuses
+		}
+	}	
+	focus = {
+		id = KUB_Subjugate_Cooperatives
+		icon = GFX_goal_MNT_nationalize_austrian_business
+		cost = 4
+		relative_position_id = KUB_Revkom_In_Power
+		x = 0
+		y = 1
+		available = { 
+			has_government = totalist
+		}
+		prerequisite = {
+			focus = KUB_Revkom_In_Power
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = KUB_Entice_Lineytsy
+		icon = GFX_DKB_red_cossacks
+		cost = 4
+		relative_position_id = KUB_Revkom_In_Power
+		x = -1
+		y = 2
+		available = { 
+			has_government = totalist
+			235 = { is_demilitarized_zone = yes }
+		}
+		prerequisite = {
+			focus = KUB_Revkom_In_Power
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = KUB_Nationalization
+		icon = VK_NATIONALIZE
+		cost = 4
+		relative_position_id = KUB_Revkom_In_Power
+		x = 1
+		y = 2
+		available = { 
+			has_government = totalist
+		}
+		prerequisite = {
+			focus = KUB_Subjugate_Cooperatives
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = KUB_Suppress_Federalists
+		icon = GFX_goal_MEX_broken_democracy
+		cost = 4
+		relative_position_id = KUB_Revkom_In_Power
+		x = 1
+		y = 3
+		available = { 
+			has_government = totalist
+		}
+		prerequisite = {
+			focus = KUB_Nationalization
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = KUB_Host_Red_Cossacks
+		icon = GFX_BRY_Red_Cavalry
+		cost = 4
+		relative_position_id = KUB_Revkom_In_Power
+		x = 0
+		y = 4
+		available = { 
+			has_government = totalist
+		}
+		prerequisite = {
+			focus = KUB_Entice_Lineytsy
+		}
+		prerequisite = {
+			focus = KUB_Suppress_Federalists
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = KUB_For_The_Red_Don_Kuban
+		icon = GFX_DKB_kuban_socialists
+		cost = 4
+		relative_position_id = KUB_Revkom_In_Power
+		x = 0
+		y = 5
+		available = { 
+			has_government = totalist
+		}
+		prerequisite = {
+			focus = KUB_Host_Red_Cossacks
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = KUB_KPA_Restores_Control
+		icon = GFX_KUB_KPA
+		cost = 4
+		relative_position_id = KUB_Raise_Frederica_From_Tsemes_Bay
+		x = -6
+		y = 4
+		available = { 
+			always = no
+		}
+		prerequisite = {
+			focus = KUB_Foes_And_Friends
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			custom_effect_tooltip = unlock_focuses
+		}
+	}	
+	focus = {
+		id = KUB_Deal_With_Pokrovsky_Radicals
+		icon = GFX_KUB_pokrovsky
+		cost = 4
+		relative_position_id = KUB_KPA_Restores_Control
+		x = 1
+		y = 1
+		available = { 
+			OR = {
+				has_government = radical_socialist
+				has_government = paternal_autocrat
+			}
+		}
+		prerequisite = {
+			focus = KUB_KPA_Restores_Control
+			focus = KUB_Kubsoyuz_Seizes_Power
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.15
+			}
+			add_stability = 0.1
+			every_unit_leader = {
+				limit = { has_id = 17945 }
+				retire = yes
+			}
+		}
+	}	
+	focus = {
+		id = KUB_Give_Cooperatives_Freedom
+		icon = GFX_goal_TEX_coop_plan
+		cost = 4
+		relative_position_id = KUB_KPA_Restores_Control
+		x = -1
+		y = 1
+		available = { 
+			has_government = paternal_autocrat
+		}
+		prerequisite = {
+			focus = KUB_KPA_Restores_Control
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		}
+	}	
+	focus = {
+		id = KUB_Base_For_The_New_Host
+		icon = GFX_TRM_Expand_Cossack_Rights
+		cost = 4
+		relative_position_id = KUB_KPA_Restores_Control
+		x = 0
+		y = 2
+		available = { 
+			has_government = paternal_autocrat
+		}
+		prerequisite = {
+			focus = KUB_Give_Cooperatives_Freedom
+		}
+		prerequisite = {
+			focus = KUB_Deal_With_Pokrovsky_Radicals
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		}
+	}	
+	focus = {
+		id = KUB_Restore_Regional_Rada
+		icon = GFX_RUS_reform_electoral_law
+		cost = 4
+		relative_position_id = KUB_KPA_Restores_Control
+		x = 0
+		y = 4
+		available = { 
+			has_government = paternal_autocrat
+		}
+		prerequisite = {
+			focus = KUB_Base_For_The_New_Host
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = KUB_Lead_The_Restored_Republic
+		icon = GFX_KUB_lead_republic
+		cost = 4
+		relative_position_id = KUB_KPA_Restores_Control
+		x = -1
+		y = 5
+		available = { 
+			has_government = paternal_autocrat
+		}
+		prerequisite = {
+			focus = KUB_Restore_Regional_Rada
 		}
 		mutually_exclusive = {
-			focus = DKB_lineis
+			focus = KUB_Formally_Give_Up_Power
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = KUB_Formally_Give_Up_Power
+		icon = GFX_goal_TEX_democratic_transition
+		cost = 4
+		relative_position_id = KUB_KPA_Restores_Control
+		x = 1
+		y = 5
+		available = { 
+			has_government = paternal_autocrat
+		}
+		prerequisite = {
+			focus = KUB_Restore_Regional_Rada
+		}
+		mutually_exclusive = {
+			focus = KUB_Lead_The_Restored_Republic
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = KUB_Chernomortsy
+		icon = GFX_KUB_chernomortsy
+		cost = 1
+		prerequisite = {
+			focus = KUB_Elect_New_Ataman_focus
+		}
+		prerequisite = {
+			focus = KUB_Organize_Public_Works
+		}
+		mutually_exclusive = {
+			focus = KUB_Lineitsy
 		}
 		ai_will_do = {
 			factor = 100
@@ -65,44 +709,28 @@ focus_tree = {
 				}
 			}
 		}
-		x = 7
+		relative_position_id = KUB_Elect_New_Ataman_focus
+		x = -1
 		y = 1
 		completion_reward = {
 			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	focus = {
-		id = KPR_german_support
-		icon = GFX_goal_German_Staff
-		cost = 5
-		ai_will_do = {
-			factor = 100
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_chernomortsy_majority_tt
-				check_variable = {
-					var = KUB_Chernomortsy_Seats
-					value = KUB_Lineitsy_Seats
-					compare = greater_than
-				}
-			}
-		}
-		prerequisite = {
-			focus = KPR_cherno
-		}
-		x = 5
-		y = 3
-		completion_reward = {
-			add_ideas = DON_GER_mil_mis
-		}
-	}
-	focus = {
-		id = KPR_souz_ukraine
+		id = KUB_Confirm_Convention
 		icon = GFX_goal_UKR_iron_republic
 		cost = 5
 		prerequisite = {
-			focus = KPR_cherno
+			focus = KUB_Circassia_Question
+		}
+		available = {
+			OR = {
+				has_government = radical_socialist
+				has_left_democratic_government = yes
+			}
+		}
+		bypass = {
+			has_idea = KUB_Unification_Sentiments_1
 		}
 		ai_will_do = {
 			factor = 100
@@ -117,8 +745,9 @@ focus_tree = {
 				}
 			}
 		}
-		x = 6
-		y = 2
+		relative_position_id = KUB_Elect_New_Ataman_focus
+		x = -1
+		y = 3
 		completion_reward = {
 			add_opinion_modifier = {
 				target = UKR
@@ -133,11 +762,17 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KPR_ukr_fed
+		id = KUB_Open_Borders
 		icon = GFX_goal_UKR_contact_diaspora
-		cost = 7
+		cost = 5
 		prerequisite = {
-			focus = KPR_souz_ukraine
+			focus = KUB_Confirm_Convention
+		}
+		available = {
+			OR = {
+				has_government = radical_socialist
+				has_left_democratic_government = yes
+			}
 		}
 		ai_will_do = {
 			factor = 100
@@ -152,7 +787,8 @@ focus_tree = {
 				}
 			}
 		}
-		x = 7
+		relative_position_id = KUB_Elect_New_Ataman_focus
+		x = 0
 		y = 4
 		completion_reward = {
 			give_military_access = UKR
@@ -160,30 +796,35 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KPR_ukr_auto
-		icon = GFX_goal_UKR_coat_of_arms_republican
-		cost = 7
+		id = KUB_Sign_The_Federative_Treaty
+		icon = GFX_KUB_integration
+		cost = 5
 		prerequisite = {
-			focus = KPR_ukr_fed
+			focus = KUB_Open_Borders
+		}
+		prerequisite = {
+			focus = KUB_Official_Ukrainian
 		}
 		ai_will_do = {
 			factor = 100
 		}
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_chernomortsy_majority_tt
-				check_variable = {
-					var = KUB_Chernomortsy_Seats
-					value = KUB_Lineitsy_Seats
-					compare = greater_than
-				}
+			OR = {
+				has_government = radical_socialist
+				has_left_democratic_government = yes
 			}
 			has_war = no
+			UKR = {
+				exists = yes
+				has_war = no
+				NOT = { is_in_faction_with = RUS }
+			}
 		}
-		x = 7
+		relative_position_id = KUB_Elect_New_Ataman_focus
+		x = -1
 		y = 5
 		completion_reward = {
-			set_cosmetic_tag = KPR_ukraine
+			set_cosmetic_tag = KUB_ukraine
 			get_current_government_type = yes
 			UKR = {
 				set_autonomy = {
@@ -196,11 +837,14 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = DKB_lineis
-		icon = GFX_KUB_lineitsy
+		id = KUB_Lineitsy
+		icon = GFX_KUB_lineitsy2
 		cost = 1
 		prerequisite = {
-			focus = KPR_Bukretov_dead
+			focus = KUB_Elect_New_Ataman_focus
+		}
+		prerequisite = {
+			focus = KUB_Organize_Public_Works
 		}
 		ai_will_do = {
 			factor = 100
@@ -213,9 +857,10 @@ focus_tree = {
 			}
 		}
 		mutually_exclusive = {
-			focus = KPR_cherno
+			focus = KUB_Chernomortsy
 		}
-		x = 9
+		relative_position_id = KUB_Elect_New_Ataman_focus
+		x = 3
 		y = 1
 		available = {
 			custom_trigger_tooltip = {
@@ -232,21 +877,24 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KPR_unification_don_kuban
+		id = KUB_unification_don_kuban
 		icon = GFX_focus_ALO_DKB
-		cost = 7
+		cost = 5
 		prerequisite = {
-			focus = KPR_ukr_auto
-			focus = KPR_russian_liberation
+			focus = KUB_End_Rada_Conflict
 		}
 		ai_will_do = {
 			factor = 100
 		}
 		available = {
+			has_government = authoritarian_democrat
 			country_exists = DKB
+			DKB = { is_neighbour_of = ROOT }
+			has_war = no
 		}
-		x = 8
-		y = 6
+		relative_position_id = KUB_Elect_New_Ataman_focus
+		x = 2
+		y = 4
 		completion_reward = {
 			country_event = {
 				id = kub.200
@@ -255,26 +903,20 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KPR_souz_russia
+		id = KUB_Ties_With_Russia
 		icon = GFX_goal_align_russia
-		cost = 7
+		cost = 5
 		prerequisite = {
-			focus = DKB_lineis
+			focus = KUB_Lineitsy
 		}
-		x = 10
+		relative_position_id = KUB_Elect_New_Ataman_focus
+		x = 4
 		y = 2
 		ai_will_do = {
 			factor = 100
 		}
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_lineitsy_majority_tt
-				check_variable = {
-					var = KUB_Lineitsy_Seats
-					value = KUB_Chernomortsy_Seats
-					compare = greater_than
-				}
-			}
+			has_government = authoritarian_democrat
 		}
 		completion_reward = {
 			add_opinion_modifier = {
@@ -290,17 +932,91 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KPR_yazik
-		icon = GFX_goal_OTT_constitution
-		cost = 7
+		id = KUB_End_Cooperative_Movement
+		icon = GFX_goal_AUS_suppress_syndicalism
+		cost = 5
+		prerequisite = {
+			focus = KUB_Lineitsy
+		}
+		relative_position_id = KUB_Elect_New_Ataman_focus
+		x = 2
+		y = 2
 		ai_will_do = {
 			factor = 100
 		}
-		prerequisite = {
-			focus = KPR_reshiti_vp
+		available = {
+			has_government = authoritarian_democrat
 		}
-		x = 8
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = KUB_End_Rada_Conflict
+		icon = GFX_goal_align_russia
+		cost = 5
+		prerequisite = {
+			focus = KUB_End_Cooperative_Movement
+		}
+		prerequisite = {
+			focus = KUB_Ties_With_Russia
+		}
+		relative_position_id = KUB_Elect_New_Ataman_focus
+		x = 3
 		y = 3
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = authoritarian_democrat
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = KUB_Request_Russian_Protection
+		icon = GFX_goal_align_russia
+		cost = 5
+		prerequisite = {
+			focus = KUB_Ties_With_Russia
+		}
+		prerequisite = {
+			focus = KUB_End_Rada_Conflict
+		}
+		relative_position_id = KUB_Elect_New_Ataman_focus
+		x = 4
+		y = 4
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_government = authoritarian_democrat
+			RUS = {
+				has_socialist_government = no
+				has_left_democratic_government = no
+			}
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = KUB_Official_Ukrainian
+		icon = GFX_goal_OTT_constitution
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			OR = {
+				has_government = radical_socialist
+				has_left_democratic_government = yes
+			}
+		}
+		prerequisite = {
+			focus = KUB_Confirm_Convention
+		}
+		relative_position_id = KUB_Elect_New_Ataman_focus
+		x = -2
+		y = 4
 		completion_reward = {
 			country_event = {
 				id = kub.24
@@ -309,17 +1025,44 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KPR_reshiti_vp
-		icon = GFX_goal_Centralised_Government
-		cost = 7
+		id = KUB_Circassia_Question
+		icon = GFX_KUB_circassia
+		cost = 5
 		prerequisite = {
-			focus = KPR_cherno
-			focus = DKB_lineis
+			focus = KUB_Chernomortsy
+			focus = KUB_Elect_Loyal_Rada
+		}
+		available = {
+			OR = {
+				has_government = radical_socialist
+				has_left_democratic_government = yes
+			}
 		}
 		ai_will_do = {
 			factor = 100
 		}
-		x = 8
+		relative_position_id = KUB_Elect_New_Ataman_focus
+		x = -2
+		y = 2
+		completion_reward = {
+			country_event = kub.26
+		}
+	}
+	focus = {
+		id = KUB_Support_Cooperative_Movement
+		icon = GFX_goal_CSA_coop_clubs
+		cost = 5
+		prerequisite = {
+			focus = KUB_Chernomortsy
+		}
+		available = {
+			has_left_democratic_government = yes
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		relative_position_id = KUB_Elect_New_Ataman_focus
+		x = 0
 		y = 2
 		select_effect = {
 			hidden_effect = {
@@ -334,58 +1077,53 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KPR_kub_duma
-		icon = GFX_goal_generic_elections
-		cost = 7
+		id = KUB_Request_German_Help
+		icon = GFX_goal_Deutsches_Heer
+		cost = 4
 		prerequisite = {
-			focus = KPR_souz_russia
+			focus = KUB_Chernomortsy
+		}
+		available = {
+			has_left_democratic_government = yes
+			UKR = { is_in_faction_with = GER }
 		}
 		ai_will_do = {
 			factor = 100
 		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_lineitsy_majority_tt
-				check_variable = {
-					var = KUB_Lineitsy_Seats
-					value = KUB_Chernomortsy_Seats
-					compare = greater_than
-				}
-			}
-		}
-		x = 9
-		y = 4
+		relative_position_id = KUB_Elect_New_Ataman_focus
+		x = 1
+		y = 3
 		completion_reward = {
-			country_event = {
-				id = kub.30
-				days = 1
-			}
+			
 		}
 	}
 	focus = {
-		id = KPR_russian_liberation
-		icon = GFX_goal_RUS_flag
-		cost = 7
+		id = KUB_Back_To_Motherland
+		icon = GFX_goal_NFA_safe_elections
+		cost = 5
 		prerequisite = {
-			focus = KPR_kub_duma
+			focus = KUB_unification_don_kuban
+		}
+		prerequisite = {
+			focus = KUB_Request_Russian_Protection
 		}
 		ai_will_do = {
 			factor = 100
 		}
-		x = 9
+		relative_position_id = KUB_Elect_New_Ataman_focus
+		x = 3
 		y = 5
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_lineitsy_majority_tt
-				check_variable = {
-					var = KUB_Lineitsy_Seats
-					value = KUB_Chernomortsy_Seats
-					compare = greater_than
-				}
-			}
+			has_government = authoritarian_democrat
 			has_war = no
+			RUS = {
+				has_socialist_government = no
+				has_left_democratic_government = no
+				is_neighbour_of = KUB
+			}
 		}
 		completion_reward = {
+			get_current_government_type = yes
 			RUS = {
 				set_autonomy = {
 					target = ROOT
@@ -393,31 +1131,21 @@ focus_tree = {
 					freedom_level = 0.75
 				}
 			}
-			hidden_effect = {
-				ROOT = {
-					set_politics = {
-						ruling_party = social_conservative
-						elections_allowed = no
-					}
-					set_political_party = {
-						ideology = social_conservative
-						popularity = 60
-					}
-				}
-			}
+			restore_previous_government_type = yes			
 		}
 	}
 	focus = {
 		id = KUB_Kuban_Savior
 		icon = GFX_kuban_savior
 		cost = 0
-		x = 2
-		y = 0
+		relative_position_id = KUB_Raise_Frederica_From_Tsemes_Bay
+		x = -13
+		y = 4
 		available = {
 			always = no
 		}
-		bypass = {
-			has_government = national_populist
+		prerequisite = {
+			focus = KUB_Foes_And_Friends
 		}
 		completion_reward = {
 			custom_effect_tooltip = unlock_focuses
@@ -427,15 +1155,16 @@ focus_tree = {
 	
 	focus = {
 		id = KUB_Dissolve_Rada
-		icon = GFX_goal_generic_ban_elections
+		icon = GFX_goal_NFA_end_parliamentarism
 		cost = 5
 		prerequisite = {
 			focus = KUB_Kuban_Savior
 		}
 		relative_position_id = KUB_Kuban_Savior
-		x = -2
+		x = -1
 		y = 1
 		completion_reward = {
+			add_country_leader_trait = dictator_ataman
 			country_event = {
 				id = kub.101
 				days = 1
@@ -450,7 +1179,7 @@ focus_tree = {
 			focus = KUB_Kuban_Savior
 		}
 		relative_position_id = KUB_Kuban_Savior
-		x = 0
+		x = 1
 		y = 1
 		completion_reward = {
 			add_ideas = KUB_martial_law
@@ -461,11 +1190,11 @@ focus_tree = {
 		icon = GFX_goal_Focus_Military_Mobilisation
 		cost = 5
 		prerequisite = {
-			focus = KUB_Kuban_Savior
+			focus = KUB_Deal_With_Traitors
 		}
 		relative_position_id = KUB_Kuban_Savior
 		x = 2
-		y = 1
+		y = 3
 		completion_reward = {
 			add_ideas = KUB_mobilization
 		}
@@ -478,7 +1207,7 @@ focus_tree = {
 			focus = KUB_Dissolve_Rada
 		}
 		relative_position_id = KUB_Kuban_Savior
-		x = -2
+		x = -1
 		y = 2
 		completion_reward = {
 			country_event = {
@@ -496,7 +1225,7 @@ focus_tree = {
 		}
 		relative_position_id = KUB_Kuban_Savior
 		x = -2
-		y = 4
+		y = 3
 		completion_reward = {
 			country_event = {
 				id = kub.103
@@ -506,13 +1235,13 @@ focus_tree = {
 	}
 	focus = {
 		id = KUB_Deal_With_Traitors
-		icon = GFX_goal_purge_opposition
+		icon = GFX_goal_COR_purge_jacob
 		cost = 5
 		prerequisite = {
 			focus = KUB_Martial_Law
 		}
 		relative_position_id = KUB_Kuban_Savior
-		x = 0
+		x = 1
 		y = 2
 		completion_reward = {
 			country_event = {
@@ -522,91 +1251,17 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KUB_Forget_About_Peace
-		icon = GFX_HON_peace_in_our_time
-		cost = 5
-		prerequisite = {
-			focus = KUB_Dissolve_Rada
-		}
-		prerequisite = {
-			focus = KUB_Deal_With_Traitors
-		}
-		relative_position_id = KUB_Kuban_Savior
-		x = -1
-		y = 3
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = KUB_martial_law
-				add_idea = KUB_martial_law_1
-			}
-		}
-	}
-	focus = {
-		id = KUB_Conscript_Minorities
-		icon = GFX_goal_conscription
-		cost = 5
-		prerequisite = {
-			focus = KUB_Mobilize_Host
-		}
-		relative_position_id = KUB_Kuban_Savior
-		x = 2
-		y = 2
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = KUB_mobilization
-				add_idea = KUB_mobilization_1
-			}
-		}
-	}
-	focus = {
 		id = KUB_State_Orthodoxy
 		icon = GFX_goal_orthodox_state
 		cost = 5
 		prerequisite = {
-			focus = KUB_Conscript_Minorities
-		}
-		relative_position_id = KUB_Kuban_Savior
-		x = 2
-		y = 4
-		completion_reward = {
-			add_ideas = RUS_state_religion 
-		}
-	}
-	focus = {
-		id = KUB_Get_Ready_For_War
-		icon = GFX_goal_mass_concentration_of_army
-		cost = 5
-		prerequisite = {
 			focus = KUB_Deal_With_Traitors
-		}
-		prerequisite = {
-			focus = KUB_Mobilize_Host
-		}
-		relative_position_id = KUB_Kuban_Savior
-		x = 1
-		y = 3
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = KUB_mobilization_1
-				add_idea = KUB_mobilization_2
-			}
-		}
-	}
-	focus = {
-		id = KUB_One_Nation_One_Ataman
-		icon = GFX_kuban_savior
-		cost = 5
-		prerequisite = {
-			focus = KUB_Get_Ready_For_War
-		}
-		prerequisite = {
-			focus = KUB_Forget_About_Peace
 		}
 		relative_position_id = KUB_Kuban_Savior
 		x = 0
-		y = 4
+		y = 3
 		completion_reward = {
-			add_country_leader_trait = dictator_ataman
+			add_ideas = RUS_state_religion 
 		}
 	}
 	focus = {
@@ -614,7 +1269,7 @@ focus_tree = {
 		icon = GFX_focus_ALO_DKB
 		cost = 5
 		prerequisite = {
-			focus = KUB_One_Nation_One_Ataman
+			focus = KUB_Mobilize_Host
 		}
 		prerequisite = {
 			focus = KUB_Ban_Ukrainian_Language
@@ -624,7 +1279,7 @@ focus_tree = {
 		}
 		relative_position_id = KUB_Kuban_Savior
 		x = 0
-		y = 5
+		y = 4
 		completion_reward = {
 			country_event = {
 				id = kub.200

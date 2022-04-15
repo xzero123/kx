@@ -4,12 +4,10 @@ DKB_coring_shit = {
   DKU_core_gerogia = {
      icon = GFX_decision_infiltrate_state
 	 available = {
-	        has_full_control_of_state = 1080
-			has_full_control_of_state = 231
+	       has_full_control_of_state = 231
 			has_full_control_of_state = 1082
 			}
 	visible = {
-			has_full_control_of_state = 1080
 			has_full_control_of_state = 231
 			has_full_control_of_state = 1082
 			OR = { 
@@ -699,7 +697,7 @@ political_actions = {
 	}
 }
 
-KPR_Rada_Debate = {
+KUB_Rada_Debate = {
 	KUB_Prepare_1936_National_Budget = {
 		icon = GFX_decision_generic_political_discourse
 		available = {
@@ -709,7 +707,7 @@ KPR_Rada_Debate = {
 			}
 		}
 		cost = freedec?0
-		days_remove = 70
+		days_remove = 50
 		fire_only_once = yes
 		ai_will_do = {
 			factor = 2000
@@ -723,7 +721,7 @@ KPR_Rada_Debate = {
 		complete_effect = {
 			country_event = {
 				id = kub.7
-				days = 3
+				days = 8
 			}
 		}
 		remove_effect = {
@@ -732,12 +730,7 @@ KPR_Rada_Debate = {
 	}
 	KUB_Crisis_Management = {
 		icon = GFX_decision_generic_inflation
-		activation = {
-			has_country_flag = kub_black_monday
-		}
-		visible = {
-			has_country_flag = kub_black_monday
-		}
+		allowed = { always = no }
 		available = {
 			hidden_trigger = {
 				always = no
@@ -754,10 +747,12 @@ KPR_Rada_Debate = {
 		cancel_trigger = {
 			has_idea = DON_black_monday_2 
 		}
+		modifier = {
+			stability_weekly_factor = -0.5
+		}
 		timeout_effect = {
 			add_political_power = -100
 			add_stability = -0.2
-			country_event = kub.100
 		}
 	}
 	KUB_Ask_A_German_Bailout = {
@@ -768,10 +763,12 @@ KPR_Rada_Debate = {
 		}
 		visible = {
 			has_country_flag = kub_black_monday
+			has_completed_focus = KUB_Restore_Rada_Work
+			NOT = { has_country_flag = KUB_Announce_Ivanic_Retirement_unlocked }
 			NOT = {
 				OR = {
-					has_idea = KUB_russian_help
-					has_idea = KUB_russian_promises
+					has_idea = KUB_german_help
+					has_idea = KUB_german_promises
 				}
 			}
 		}
@@ -795,60 +792,19 @@ KPR_Rada_Debate = {
 				}
 			}
 		}
+		targets = { GER }
+		target_root_trigger = {
+			has_country_flag = kub_black_monday
+		}
+		target_trigger = {
+			FROM = {
+				has_war = no		
+			}
+		}
 		complete_effect = {
-			GER = {
+			FROM = {
 				country_event = {
 					id = kub.13
-					days = 2
-				}
-			}
-			set_country_flag = black_monday_bailout_negotiations
-		}
-		remove_effect = {
-			clr_country_flag = black_monday_bailout_negotiations
-		}
-	}
-	KUB_Ask_A_Russian_Bailout = {
-		icon = GFX_decision_generic_healthcare
-		available = {
-			has_idea = DON_black_monday_1
-			NOT = { has_country_flag = black_monday_bailout_negotiations }
-			country_exists = RUS
-		}
-		visible = {
-			has_country_flag = kub_black_monday
-			has_idea = DON_black_monday_1
-			NOT = {
-				OR = {
-					has_idea = KUB_german_help
-					has_idea = KUB_german_promises
-				}
-			}
-		}
-		cost = 20
-		days_remove = 12
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 2000
-			modifier = {
-			factor = 10000
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_LIN
-				}
-			}
-			modifier = {
-			factor = 0
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_SAVIOR
-				}
-			}
-		}
-		complete_effect = {
-			RUS = {
-				country_event = {
-					id = kub.17
 					days = 2
 				}
 			}
@@ -865,6 +821,8 @@ KPR_Rada_Debate = {
 		}
 		visible = {
 			has_country_flag = kub_black_monday
+			has_completed_focus = KUB_Restore_Rada_Work
+			NOT = { has_country_flag = KUB_Announce_Ivanic_Retirement_unlocked }
 		}
 		cost = 30
 		days_remove = 12
@@ -880,35 +838,13 @@ KPR_Rada_Debate = {
 			}
 		}
 		complete_effect = {
-			add_ideas = KUB_poor_defence
-			modify_country_flag = {
-				flag = KUB_dealing_with_crisis
-				value = 1
+			add_timed_idea = {
+				idea = KUB_poor_defence
+				days = 365
 			}
+			decrease_kuban_collapse = yes
 		}
-	}
-	KUB_Increase_Defence_Expenditures = {
-		icon = GFX_decision_generic_healthcare
-		visible = {
-			date > 1936.02.20
-			NOT = { 
-				OR = {
-					has_idea = DON_black_monday_1
-					has_idea = DON_black_monday_2
-					has_idea = DON_black_monday_3
-				}
-			}
-		}
-		cost = 30
-		days_remove = 12
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 2000
-		}
-		complete_effect = {
-			remove_ideas = KUB_poor_defence
-		}
-	}
+	}	
 	KUB_Deal_With_Unemployment = {
 		icon = GFX_decision_generic_healthcare
 		available = {
@@ -916,6 +852,7 @@ KPR_Rada_Debate = {
 		}
 		visible = {
 			has_country_flag = kub_black_monday
+			has_completed_focus = KUB_Organize_Public_Works
 		}
 		cost = 30
 		days_remove = 12
@@ -939,16 +876,20 @@ KPR_Rada_Debate = {
 					instant_build = yes
 				}
 			}
-			modify_country_flag = {
-				flag = KUB_dealing_with_crisis
-				value = 1
+			decrease_kuban_collapse = yes
+			swap_ideas = {
+				remove_idea = DON_black_monday_3
+				add_idea = DON_black_monday_4
 			}
 		}
 	}
 	KUB_Human_Capital_Investments = {
 		icon = GFX_decision_generic_healthcare
 		available = {
-			has_idea = DON_black_monday_1
+			custom_trigger_tooltip = {
+				tooltip = kub_black_monday_tt
+				NOT = { has_idea = DON_black_monday_1 }
+			}
 		}
 		visible = {
 			has_country_flag = kub_black_monday
@@ -968,846 +909,9 @@ KPR_Rada_Debate = {
 		}
 		complete_effect = {
 			add_ideas = KUB_education_healthcare
-			modify_country_flag = {
-				flag = KUB_dealing_with_crisis
-				value = 1
-			}
+			decrease_kuban_collapse = yes
 		}
-	}
-	KUB_Chernomortsy_Yeysk_Seek_Support = {
-		icon = generic_agreement
-		visible = {
-			OR = {			
-				has_idea = DON_black_monday_2
-				has_idea = DON_black_monday_3
-				has_idea = DON_black_monday_4
-				has_government = market_liberal
-				has_government = social_conservative
-			}		
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_cherno_minority_in_region
-				check_variable = {
-					var = Yeysk_Chernomortsy_Seats
-					value = Yeysk_Lineitsy_Seats
-					compare = less_than_or_equals
-				}
-			}
-			NOT = { has_country_flag = KUB_seek_support_ongoing }
-		}
-		days_remove = 15
-		days_re_enable = 30
-		cost = freedec?0
-		fire_only_once = no
-		highlight_states = { 
-			highlight_provinces = { 6783 765 9744 3765 6781 3752 6768 9709 }
-		}
-		ai_will_do = {
-			factor = 100
-			modifier = {
-				factor = 2
-				OR = {
-					has_idea = KUB_german_help
-					has_idea = KUB_german_promises
-				}
-			}
-			modifier = {
-			factor = 10000
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_CHERN
-				}
-			}
-			modifier = {
-			factor = 0
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_LIN
-				}
-			}
-		}
-		remove_effect = {
-			yeysk_add_chernomortsy_popularity = yes
-			regional_rada_average_popularity = yes
-			clr_country_flag = KUB_seek_support_ongoing
-		}
-		complete_effect = {
-			set_country_flag = KUB_seek_support_ongoing
-		}
-	}
-	KUB_Lineitsy_Yeysk_Seek_Support = {
-		icon = generic_agreement
-		visible = {
-			OR = {			
-				has_idea = DON_black_monday_2
-				has_idea = DON_black_monday_3
-				has_idea = DON_black_monday_4
-				has_government = market_liberal
-				has_government = social_conservative
-			}
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_line_minority_in_region
-				check_variable = {
-					var = Yeysk_Lineitsy_Seats
-					value = Yeysk_Chernomortsy_Seats
-					compare = less_than_or_equals
-				}
-			}
-			NOT = { has_country_flag = KUB_seek_support_ongoing }
-		}
-		days_remove = 15
-		days_re_enable = 30
-		cost = freedec?0
-		fire_only_once = no
-		highlight_states = { 
-			highlight_provinces = { 6783 765 9744 3765 6781 3752 6768 9709 }
-		}
-		ai_will_do = {
-			factor = 100
-			modifier = {
-				factor = 2
-				OR = {
-					has_idea = KUB_russian_help
-					has_idea = KUB_russian_promises
-				}
-			}
-			modifier = {
-			factor = 10000
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_LIN
-				}
-			}
-			modifier = {
-			factor = 0
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_CHERN
-				}
-			}
-		}
-		remove_effect = {
-			yeysk_add_lineitsy_popularity = yes
-			regional_rada_average_popularity = yes
-			clr_country_flag = KUB_seek_support_ongoing
-		}
-		complete_effect = {
-			set_country_flag = KUB_seek_support_ongoing
-		}
-	}
-	KUB_Chernomortsy_Stavrokrai_Seek_Support = {
-		icon = generic_agreement
-		visible = {
-			OR = {			
-				has_idea = DON_black_monday_2
-				has_idea = DON_black_monday_3
-				has_idea = DON_black_monday_4
-				has_government = market_liberal
-				has_government = social_conservative
-			}
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_cherno_minority_in_region
-				check_variable = {
-					var = Stavrokrai_Chernomortsy_Seats
-					value = Stavrokrai_Lineitsy_Seats
-					compare = less_than_or_equals
-				}
-			}
-			NOT = { has_country_flag = KUB_seek_support_ongoing }
-		}
-		days_remove = 15
-		days_re_enable = 30
-		cost = freedec?0
-		fire_only_once = no
-		highlight_states = { 
-			highlight_provinces = { 731 3748 6753 9688 9707 9726 9742 11678 11696 11727 735 9694 9691 }
-		}
-		ai_will_do = {
-			factor = 100
-			modifier = {
-				factor = 2
-				OR = {
-					has_idea = KUB_german_help
-					has_idea = KUB_german_promises
-				}
-			}
-			modifier = {
-			factor = 10000
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_CHERN
-				}
-			}
-			modifier = {
-			factor = 0
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_LIN
-				}
-			}
-		}
-		remove_effect = {
-			stavrokrai_add_chernomortsy_popularity = yes
-			regional_rada_average_popularity = yes
-			clr_country_flag = KUB_seek_support_ongoing
-		}
-		complete_effect = {
-			set_country_flag = KUB_seek_support_ongoing
-		}
-	}
-	KUB_Lineitsy_Stavrokrai_Seek_Support = {
-		icon = generic_agreement
-		visible = {
-			OR = {			
-				has_idea = DON_black_monday_2
-				has_idea = DON_black_monday_3
-				has_idea = DON_black_monday_4
-				has_government = market_liberal
-				has_government = social_conservative
-			}
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_line_minority_in_region
-				check_variable = {
-					var = Stavrokrai_Lineitsy_Popularity
-					value = Stavrokrai_Chernomortsy_Popularity
-					compare = less_than_or_equals
-				}
-			}
-			NOT = { has_country_flag = KUB_seek_support_ongoing }
-		}
-		days_remove = 15
-		days_re_enable = 30
-		cost = freedec?0
-		fire_only_once = no
-		highlight_states = { 
-			highlight_provinces = { 731 3748 6753 9688 9707 9726 9742 11678 11696 11727 735 9694 9691 }
-		}
-		ai_will_do = {
-			factor = 100
-			modifier = {
-				factor = 2
-				OR = {
-					has_idea = KUB_russian_help
-					has_idea = KUB_russian_promises
-				}
-			}
-			modifier = {
-			factor = 10000
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_LIN
-				}
-			}
-			modifier = {
-			factor = 0
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_CHERN
-				}
-			}
-		}
-		remove_effect = {
-			stavrokrai_add_lineitsy_popularity = yes
-			regional_rada_average_popularity = yes
-			clr_country_flag = KUB_seek_support_ongoing
-		}
-		complete_effect = {
-			set_country_flag = KUB_seek_support_ongoing
-		}
-	}
-	KUB_Chernomortsy_Stavropol_Seek_Support = {
-		icon = generic_agreement
-		visible = {
-			OR = {			
-				has_idea = DON_black_monday_2
-				has_idea = DON_black_monday_3
-				has_idea = DON_black_monday_4
-				has_government = market_liberal
-				has_government = social_conservative
-			}
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_cherno_minority_in_region
-				check_variable = {
-					var = Stavropol_Chernomortsy_Popularity
-					value = Stavropol_Lineitsy_Popularity
-					compare = less_than_or_equals
-				}
-			}
-			NOT = { has_country_flag = KUB_seek_support_ongoing }
-		}
-		days_remove = 15
-		days_re_enable = 30
-		cost = freedec?0
-		fire_only_once = no
-		highlight_states = {  highlight_provinces = { 748 } }
-		ai_will_do = {
-			factor = 100
-			modifier = {
-				factor = 2
-				OR = {
-					has_idea = KUB_german_help
-					has_idea = KUB_german_promises
-				}
-			}
-			modifier = {
-			factor = 10000
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_CHERN
-				}
-			}
-			modifier = {
-			factor = 0
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_LIN
-				}
-			}
-		}
-		remove_effect = {
-			stavropol_add_chernomortsy_popularity = yes
-			regional_rada_average_popularity = yes
-			clr_country_flag = KUB_seek_support_ongoing
-		}
-		complete_effect = {
-			set_country_flag = KUB_seek_support_ongoing
-		}
-	}
-	KUB_Lineitsy_Stavropol_Seek_Support = {
-		icon = generic_agreement
-		visible = {
-			OR = {			
-				has_idea = DON_black_monday_2
-				has_idea = DON_black_monday_3
-				has_idea = DON_black_monday_4
-				has_government = market_liberal
-				has_government = social_conservative
-			}
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_line_minority_in_region
-				check_variable = {
-					var = Stavropol_Lineitsy_Popularity
-					value = Stavropol_Chernomortsy_Popularity
-					compare = less_than_or_equals
-				}
-			}
-			NOT = { has_country_flag = KUB_seek_support_ongoing }
-		}
-		days_remove = 15
-		days_re_enable = 30
-		cost = freedec?0
-		fire_only_once = no
-		highlight_states = {  highlight_provinces = { 748 } }
-		ai_will_do = {
-			factor = 100
-			modifier = {
-				factor = 2
-				OR = {
-					has_idea = KUB_russian_help
-					has_idea = KUB_russian_promises
-				}
-			}
-			modifier = {
-			factor = 10000
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_LIN
-				}
-			}
-			modifier = {
-			factor = 0
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_CHERN
-				}
-			}
-		}
-		remove_effect = {
-			stavropol_add_lineitsy_popularity = yes
-			regional_rada_average_popularity = yes
-			clr_country_flag = KUB_seek_support_ongoing
-		}
-		complete_effect = {
-			set_country_flag = KUB_seek_support_ongoing
-		}
-	}
-	KUB_Chernomortsy_Adyghea_Seek_Support = {
-		icon = generic_agreement
-		visible = {
-			OR = {			
-				has_idea = DON_black_monday_2
-				has_idea = DON_black_monday_3
-				has_idea = DON_black_monday_4
-				has_government = market_liberal
-				has_government = social_conservative
-			}
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_cherno_minority_in_region
-				check_variable = {
-					var = Adygea_Chernomortsy_Popularity
-					value = Adygea_Lineitsy_Popularity
-					compare = less_than
-				}
-			}
-			NOT = { has_country_flag = KUB_seek_support_ongoing }
-		}
-		days_remove = 15
-		days_re_enable = 30
-		cost = freedec?0
-		fire_only_once = no
-		highlight_states = {  highlight_provinces = { 9696 3720 11681 6738 6736 } }
-		ai_will_do = {
-			factor = 100
-			modifier = {
-				factor = 2
-				OR = {
-					has_idea = KUB_german_help
-					has_idea = KUB_german_promises
-				}
-			}
-			modifier = {
-			factor = 10000
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_CHERN
-				}
-			}
-			modifier = {
-			factor = 0
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_LIN
-				}
-			}
-		}
-		remove_effect = {
-			adyghea_add_chernomortsy_popularity = yes
-			regional_rada_average_popularity = yes
-			clr_country_flag = KUB_seek_support_ongoing
-		}
-		complete_effect = {
-			set_country_flag = KUB_seek_support_ongoing
-		}
-	}
-	KUB_Lineitsy_Adyghea_Seek_Support = {
-		icon = generic_agreement
-		visible = {
-			OR = {			
-				has_idea = DON_black_monday_2
-				has_idea = DON_black_monday_3
-				has_idea = DON_black_monday_4
-				has_government = market_liberal
-				has_government = social_conservative
-			}
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_line_minority_in_region
-				check_variable = {
-					var = Adygea_Lineitsy_Popularity
-					value = Adygea_Chernomortsy_Popularity
-					compare = less_than
-				}
-			}
-			NOT = { has_country_flag = KUB_seek_support_ongoing }
-		}
-		days_remove = 15
-		days_re_enable = 30
-		cost = freedec?0
-		fire_only_once = no
-		highlight_states = {  highlight_provinces = { 9696 3720 11681 6738 6736 } }
-		ai_will_do = {
-			factor = 100
-			modifier = {
-				factor = 2
-				OR = {
-					has_idea = KUB_russian_help
-					has_idea = KUB_russian_promises
-				}
-			}
-			modifier = {
-			factor = 10000
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_LIN
-				}
-			}
-			modifier = {
-			factor = 0
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_CHERN
-				}
-			}
-		}
-		remove_effect = {
-			adyghea_add_lineitsy_popularity = yes
-			regional_rada_average_popularity = yes
-			clr_country_flag = KUB_seek_support_ongoing
-		}
-		complete_effect = {
-			set_country_flag = KUB_seek_support_ongoing
-		}
-	}
-	KUB_Chernomortsy_Kavkaz_Seek_Support = {
-		icon = generic_agreement
-		visible = {
-			OR = {			
-				has_idea = DON_black_monday_2
-				has_idea = DON_black_monday_3
-				has_idea = DON_black_monday_4
-				has_government = market_liberal
-				has_government = social_conservative
-			}
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_cherno_minority_in_region
-				check_variable = {
-					var = Kavkaz_Chernomortsy_Popularity
-					value = Kavkaz_Lineitsy_Popularity
-					compare = less_than_or_equals
-				}
-			}
-			NOT = { has_country_flag = KUB_seek_support_ongoing }
-		}
-		days_remove = 15
-		days_re_enable = 30
-		cost = freedec?0
-		fire_only_once = no
-		highlight_states = {  highlight_provinces = { 9674 3717 6721 } }
-		ai_will_do = {
-			factor = 100
-			modifier = {
-				factor = 2
-				OR = {
-					has_idea = KUB_german_help
-					has_idea = KUB_german_promises
-				}
-			}
-			modifier = {
-			factor = 10000
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_CHERN
-				}
-			}
-			modifier = {
-			factor = 0
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_LIN
-				}
-			}
-		}
-		remove_effect = {
-			kavkaz_add_chernomortsy_popularity = yes
-			regional_rada_average_popularity = yes
-			clr_country_flag = KUB_seek_support_ongoing
-		}
-		complete_effect = {
-			set_country_flag = KUB_seek_support_ongoing
-		}
-	}
-	KUB_Lineitsy_Kavkaz_Seek_Support = {
-		icon = generic_agreement
-		visible = {
-			OR = {			
-				has_idea = DON_black_monday_2
-				has_idea = DON_black_monday_3
-				has_idea = DON_black_monday_4
-				has_government = market_liberal
-				has_government = social_conservative
-			}
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_line_minority_in_region
-				check_variable = {
-					var = Kavkaz_Lineitsy_Popularity
-					value = Kavkaz_Chernomortsy_Popularity
-					compare = less_than_or_equals
-				}
-			}
-			NOT = { has_country_flag = KUB_seek_support_ongoing }
-		}
-		days_remove = 15
-		days_re_enable = 30
-		cost = freedec?0
-		fire_only_once = no
-		highlight_states = {  highlight_provinces = { 9674 3717 6721 } }
-		ai_will_do = {
-			factor = 100
-			modifier = {
-				factor = 2
-				OR = {
-					has_idea = KUB_russian_help
-					has_idea = KUB_russian_promises
-				}
-			}
-			modifier = {
-			factor = 10000
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_LIN
-				}
-			}
-			modifier = {
-			factor = 0
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_CHERN
-				}
-			}
-		}
-		remove_effect = {
-			kavkaz_add_lineitsy_popularity = yes
-			regional_rada_average_popularity = yes
-			clr_country_flag = KUB_seek_support_ongoing
-		}
-		complete_effect = {
-			set_country_flag = KUB_seek_support_ongoing
-		}
-	}
-	KUB_Chernomortsy_Novorossiysk_Seek_Support = {
-		icon = generic_agreement
-		visible = {
-			OR = {			
-				has_idea = DON_black_monday_2
-				has_idea = DON_black_monday_3
-				has_idea = DON_black_monday_4
-				has_government = market_liberal
-				has_government = social_conservative
-			}
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_cherno_minority_in_region
-				check_variable = {
-					var = Novorossiysk_Chernomortsy_Popularity
-					value = Novorossiysk_Lineitsy_Popularity
-					compare = less_than_or_equals
-				}
-			}
-			NOT = { has_country_flag = KUB_seek_support_ongoing }
-		}
-		days_remove = 15
-		days_re_enable = 30
-		cost = freedec?0
-		fire_only_once = no
-		highlight_states = {  highlight_provinces = { 6755 750 11729 6741 11668 719 717 3760 } }
-		ai_will_do = {
-			factor = 100
-			modifier = {
-				factor = 2
-				OR = {
-					has_idea = KUB_german_help
-					has_idea = KUB_german_promises
-				}
-			}
-			modifier = {
-			factor = 10000
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_CHERN
-				}
-			}
-			modifier = {
-			factor = 0
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_LIN
-				}
-			}
-		}
-		remove_effect = {
-			novorossiysk_add_chernomortsy_popularity = yes
-			regional_rada_average_popularity = yes
-			clr_country_flag = KUB_seek_support_ongoing
-		}
-		complete_effect = {
-			set_country_flag = KUB_seek_support_ongoing
-		}
-	}
-	KUB_Lineitsy_Novorossiysk_Seek_Support = {
-		icon = generic_agreement
-		visible = {
-			OR = {			
-				has_idea = DON_black_monday_2
-				has_idea = DON_black_monday_3
-				has_idea = DON_black_monday_4
-				has_government = market_liberal
-				has_government = social_conservative
-			}
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_line_minority_in_region
-				check_variable = {
-					var = Novorossiysk_Lineitsy_Popularity
-					value = Novorossiysk_Chernomortsy_Popularity
-					compare = less_than_or_equals
-				}
-			}
-			NOT = { has_country_flag = KUB_seek_support_ongoing }
-		}
-		days_remove = 15
-		days_re_enable = 30
-		cost = freedec?0
-		fire_only_once = no
-		highlight_states = {  highlight_provinces = { 6755 750 11729 6741 11668 719 717 3760 } }
-		ai_will_do = {
-			factor = 100
-			modifier = {
-				factor = 2
-				OR = {
-					has_idea = KUB_russian_help
-					has_idea = KUB_russian_promises
-				}
-			}
-			modifier = {
-			factor = 10000
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_LIN
-				}
-			}
-		}
-		remove_effect = {
-			novorossiysk_add_lineitsy_popularity = yes
-			regional_rada_average_popularity = yes
-			clr_country_flag = KUB_seek_support_ongoing
-		}
-		complete_effect = {
-			set_country_flag = KUB_seek_support_ongoing
-		}
-	}
-	KUB_Chernomortsy_Yekaterinodar_Seek_Support = {
-		icon = generic_agreement
-		visible = {
-			OR = {			
-				has_idea = DON_black_monday_2
-				has_idea = DON_black_monday_3
-				has_idea = DON_black_monday_4
-				has_government = market_liberal
-				has_government = social_conservative
-			}
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_cherno_minority_in_region
-				check_variable = {
-					var = Yekaterinodar_Chernomortsy_Popularity
-					value = Yekaterinodar_Lineitsy_Popularity
-					compare = less_than_or_equals
-				}
-			}
-			NOT = { has_country_flag = KUB_seek_support_ongoing }
-		}
-		days_remove = 15
-		days_re_enable = 30
-		cost = freedec?0
-		fire_only_once = no
-		highlight_states = {  highlight_provinces = { 3734 } }
-		ai_will_do = {
-			factor = 100
-			modifier = {
-				factor = 2
-				OR = {
-					has_idea = KUB_german_help
-					has_idea = KUB_german_promises
-				}
-			}
-			modifier = {
-			factor = 10000
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_CHERN
-				}
-			}
-			modifier = {
-			factor = 0
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_LIN
-				}
-			}
-		}
-		remove_effect = {
-			yekaterinodar_add_chernomortsy_popularity = yes
-			regional_rada_average_popularity = yes
-			clr_country_flag = KUB_seek_support_ongoing
-		}
-		complete_effect = {
-			set_country_flag = KUB_seek_support_ongoing
-		}
-	}
-	KUB_Lineitsy_Yekaterinodar_Seek_Support = {
-		icon = generic_agreement
-		visible = {
-			OR = {			
-				has_idea = DON_black_monday_2
-				has_idea = DON_black_monday_3
-				has_idea = DON_black_monday_4
-				has_government = market_liberal
-				has_government = social_conservative
-			}
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = KUB_line_minority_in_region
-				check_variable = {
-					var = Yekaterinodar_Lineitsy_Popularity
-					value = Yekaterinodar_Chernomortsy_Popularity
-					compare = less_than_or_equals
-				}
-			}
-			NOT = { has_country_flag = KUB_seek_support_ongoing }
-		}
-		days_remove = 15
-		days_re_enable = 30
-		cost = freedec?0
-		fire_only_once = no
-		highlight_states = {  highlight_provinces = { 3734 } }
-		ai_will_do = {
-			factor = 100
-			modifier = {
-				factor = 2
-				OR = {
-					has_idea = KUB_russian_help
-					has_idea = KUB_russian_promises
-				}
-			}
-			modifier = {
-			factor = 10000
-				has_game_rule = {
-					rule = KUB_path
-					option = KUB_PATH_LIN
-				}
-			}
-		}
-		remove_effect = {
-			yekaterinodar_add_lineitsy_popularity = yes
-			regional_rada_average_popularity = yes
-			clr_country_flag = KUB_seek_support_ongoing
-		}
-		complete_effect = {
-			set_country_flag = KUB_seek_support_ongoing
-		}
-	}
+	}	
 	KUB_Elect_New_Ataman = {
 		icon = GFX_decision_generic_political_discourse
 		visible = {

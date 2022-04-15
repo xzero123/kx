@@ -38,8 +38,8 @@ ideas = {
 			picture = PAL_Shortage_of_Goods 
 			available = { has_country_flag = UKR_agriculture_crisis }
 			modifier = {
+				monthly_population = -0.05
 				production_factory_efficiency_gain_factor = -0.03
-				custom_modifier_tooltip = UKR_village_outflow_tooltip
 			}
 		}
 		UKR_risk_of_famine = {
@@ -106,7 +106,6 @@ ideas = {
 			picture = RUS_unfinished_land_reform
 			modifier = {
 				political_power_gain = -0.15
-				monthly_population = -0.05
 				production_lack_of_resource_penalty_factor = 0.1
 				consumer_goods_factor = 0.25
 				global_building_slots_factor = 0.1
@@ -122,7 +121,6 @@ ideas = {
 			picture = RUS_unfinished_land_reform
 			modifier = {
 				political_power_gain = -0.10
-				monthly_population = -0.05
 				production_lack_of_resource_penalty_factor = 0.08
 				consumer_goods_factor = 0.20
 				global_building_slots_factor = 0.1
@@ -138,7 +136,6 @@ ideas = {
 			picture = RUS_unfinished_land_reform
 			modifier = {
 				political_power_gain = -0.05
-				monthly_population = -0.05
 				production_lack_of_resource_penalty_factor = 0.06
 				consumer_goods_factor = 0.15
 				global_building_slots_factor = 0.1
@@ -154,7 +151,6 @@ ideas = {
 			picture = RUS_unfinished_land_reform
 			modifier = {
 				political_power_gain = -0.05
-				monthly_population = -0.05
 				production_lack_of_resource_penalty_factor = 0.04
 				consumer_goods_factor = 0.1
 				global_building_slots_factor = 0.1
@@ -169,7 +165,6 @@ ideas = {
 			name = UKR_agricultural_crisis_idea
 			picture = RUS_unfinished_land_reform
 			modifier = {
-				monthly_population = -0.05
 				production_lack_of_resource_penalty_factor = 0.02
 				consumer_goods_factor = 0.1
 				global_building_slots_factor = 0.1
@@ -615,7 +610,18 @@ ideas = {
 				production_factory_max_efficiency_factor = 0.02
 			}
 		}			
-		
+		UKR_KUB_Convention = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea UKR_KUB_Convention"}
+			allowed = { always = no }
+			available = { KUB = { has_idea = KUB_Unification_Sentiments_1 } }
+			
+			picture = KUB_ukrainian_integration
+			name = KUB_Unification_Sentiments_1
+			modifier = {
+				civilian_factory_use = 3
+				political_power_cost = 0.05
+			}
+		}
 		
 		
 		
@@ -1338,6 +1344,15 @@ ideas = {
 			modifier = {
 				political_power_factor = 0.02
 				stability_factor = 0.02
+			}
+		}
+		UKR_local_radas_sun = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_local_radas_sun"}
+			picture = UKR_ukraine_flag_idea
+			modifier = {
+				political_power_factor = 0.04
+				stability_factor = 0.04
+				national_populist_drift = 0.01
 			}
 		}
 		UKR_distribute_wealth = {

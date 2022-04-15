@@ -100,15 +100,19 @@ if = {
 country_event = { id = kub.1 days = 1 } #Intro event
 country_event = { id = kub.2 days = 41 } #BM
 country_event = { id = kub.6 days = 214 } #Annual Elections
-country_event = { id = kub.3 days = 301 } #Burketov Dies
+unit_leader_event = { id = kub.3 days = 301 } #Burketov Dies
 set_variable = { current_kuban_rada_icon_frame = 1 }
 initial_rada_setup = yes
 regional_rada_seats_calc = yes
 regional_rada_average_popularity = yes
+set_variable = { KUB_divide_var = 3 }
 add_ideas = {
-	DON_Cossack_state
+	KUB_Powerful_Cooperation_Movement
+	KUB_Divided_Region
+	KUB_KPA
+	KUB_Unification_Sentiments
+	KUB_rada
 	DON_Cossack_army
-	KPR_languague_issue
 	DKB_Luka_L_Bych_hog_mli
 	DKB_Alexander_P_Filimonov_for_ade
 	DKB_Vasiliyy_N_Ivanis_eco_ade
@@ -117,97 +121,94 @@ add_ideas = {
 }
 
 set_politics = {
-	ruling_party = authoritarian_democrat
-	last_election = "1935.7.7"
-	election_frequency = 12
+	ruling_party = social_liberal
+	last_election = "1932.9.7"
+	election_frequency = 48
 	elections_allowed = yes
 }
 
 set_popularities = {
-	totalist = 0
-	radical_socialist = 0
-	syndicalist = 0
-	social_democrat = 0
-	social_liberal = 0
-	market_liberal = 34
-	social_conservative = 20
-	authoritarian_democrat = 35
+	totalist = 1
+	radical_socialist = 18
+	syndicalist = 1
+	social_democrat = 6
+	social_liberal = 26
+	market_liberal = 7
+	social_conservative = 6
+	authoritarian_democrat = 23
 	paternal_autocrat = 9
-	national_populist = 2
+	national_populist = 3
 }
 
 create_country_leader = {
-	name = "Yan Polyan"
+	name = "Yan Poluyan"
 	desc = "POLITICS_YAN_POLYAN_DESC"
-	picture = "gfx/leaders/KUB/Portrait_KPR_Yan_Polyan.png"
+	picture = "gfx/leaders/KUB/Portrait_KUB_Yan_Polyan.png"
 	expire = "1965.1.1"
-	ideology = totalist_subtype
+	ideology = authcom_subtype
 }
-
 create_country_leader = {
-	name = "Yan Polyan"
+	name = "Kubsoyuz"
 	desc = "POLITICS_YAN_POLYAN_DESC"
-	picture = "gfx/leaders/KUB/Portrait_KPR_Yan_Polyan.png"
+	picture = "gfx/leaders/KUB/Portrait_KUB_kubsoyuz.png"
 	expire = "1965.1.1"
-	ideology = radical_socialist_subtype
+	ideology = agrarian_syndicalism_subtype
 }
-
 create_country_leader = {
-	name = "Yan Polyan"
-	desc = "POLITICS_YAN_POLYAN_DESC"
-	picture = "gfx/leaders/KUB/Portrait_KPR_Yan_Polyan.png"
+	name = "Kubsoyuz"
+	picture = "gfx/leaders/KUB/Portrait_KUB_kubsoyuz.png"
 	expire = "1965.1.1"
-	ideology = syndicalist_subtype
+	ideology = market_socialist_subtype
 }
-
 create_country_leader = {
 	name = "Luka Bych"
 	desc = "POLITICS_LUKA_BYCH_DESC"
-	picture = "gfx/leaders/KUB/Portrait_KPR_Luka_Bych.png"
+	picture = "gfx/leaders/KUB/Portrait_KUB_Luka_Bych.png"
 	expire = "1965.1.1"
-	ideology = social_democrat_subtype
+	ideology = socdem_democratic_socialism_subtype
 }
-
 create_country_leader = {
 	name = "Nikolai Ryabovol"
 	desc = "POLITICS_NIKOLAI_RYABOVOL_DESC"
-	picture = "gfx/leaders/KUB/Portrait_KPR_Nikolai_Ryabovol.png"
+	picture = "gfx/leaders/KUB/Portrait_KUB_Nikolai_Ryabovol.png"
 	expire = "1965.1.1"
-	ideology = social_liberal_subtype
+	ideology = centrist_subtype
 }
-
 create_country_leader = {
 	name = "Vasil Ivanis"
 	desc = "POLITICS_VASIL_IVANIS_DESC"
-	picture = "gfx/leaders/KUB/Portrait_KPR_Vasil_Ivanis.png"
+	picture = "gfx/leaders/KUB/Portrait_KUB_Vasil_Ivanis.png"
+	expire = "1965.1.1"
+	ideology = centrist_subtype
+}
+create_country_leader = {
+	name = "Vasil Ivanis"
+	desc = "POLITICS_VASIL_IVANIS_DESC"
+	picture = "gfx/leaders/KUB/Portrait_KUB_Vasil_Ivanis.png"
 	expire = "1965.1.1"
 	ideology = market_liberal_subtype
 }
-
-create_country_leader = {
-	name = "Alexander Filimonov"
-	desc = "POLITICS_ALEXANDER_FILIMONOV_DESC"
-	picture = "gfx/leaders/KUB/Portrait_KPR_Alexander_Filimonov.png"
-	expire = "1965.1.1"
-	ideology = social_conservative_subtype
-}
-
 create_country_leader = {
 	name = "Nikolay Bukretov"
 	desc = "POLITICS_NIKOLAI_BUKRETOV_DESC"
-	picture = "gfx/leaders/KUB/Portrait_KPR_Nikolay_Bukretov.png"
+	picture = "gfx/leaders/KUB/Portrait_KUB_Nikolay_Bukretov.png"
+	expire = "1965.1.1"
+	ideology = moderate_authoritarianism_subtype
+}
+create_country_leader = {
+	name = "Alexander Filimonov"
+	desc = "POLITICS_ALEXANDER_FILIMONOV_DESC"
+	picture = "gfx/leaders/KUB/Portrait_KUB_Alexander_Filimonov.png"
 	expire = "1965.1.1"
 	ideology = authdem_cossack_subtype
 }
-
 create_country_leader = {
-	name = "Viktor Pokrovsky"
+	name = "Vasil Ryabokon"
 	desc = "POLITICS_VIKTOR_POKROVSKY_DESC"
-	picture = "gfx/leaders/KUB/Portrait_KUB_Victor_Pokrovsky.png"
+	picture = "gfx/leaders/KUB/Portrait_KUB_Vasily_Ryabokon.png"
 	expire = "1965.1.1"
 	ideology = pataut_cossack_subtype
 }
-
 create_country_leader = {
 	name = "Viktor Pokrovsky"
 	desc = "POLITICS_VIKTOR_POKROVSKY_DESC"
@@ -226,33 +227,64 @@ add_ideas = {
 
 create_field_marshal = { 
 	name = "Alexander P. Filimonov"
-	portrait_path = "gfx/leaders/KUB/Portrait_KPR_Alexander_Filimonov.png"
+	portrait_path = "gfx/leaders/KUB/Portrait_KUB_Alexander_Filimonov.png"
 	traits = {
 		old_guard
 		defensive_doctrine
 	}
-	skill = 2
+	skill = 3
 	attack_skill = 1
 	defense_skill = 3
 	planning_skill = 3
 	logistics_skill = 2
+	id = 17940
 }
-
+create_field_marshal = { #Auto-Generated
+	name = "Vasil Ryabokon "
+	portrait_path = "gfx/leaders/KUB/Portrait_KUB_Vasily_Ryabokon.png"
+	traits = {
+		trait_cautious 
+		cavalry_officer
+		offensive_doctrine
+	}
+	skill = 3
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 4
+	logistics_skill = 3
+	id = 17941
+}
 ### Corps Commander
 create_corps_commander = {
 	name = "Viktor Pokrovskiy"
 	portrait_path = "gfx/leaders/KUB/Portrait_KUB_Victor_Pokrovsky.png"
 	traits = {
+		war_hero
 		media_personality 
 		trait_reckless
 		career_officer
 		trickster
 	}
 	skill = 4
-	attack_skill = 2
+	attack_skill = 3
 	defense_skill = 2
 	planning_skill = 2
 	logistics_skill = 1
+	id = 17942
+}
+create_corps_commander = {
+	name = "Vasil Ivanis"
+	portrait_path = "gfx/leaders/KUB/Portrait_KUB_Vasil_Ivanis.png"
+	traits = {
+		media_personality 
+		artillery_officer
+	}
+	skill = 2
+	attack_skill = 1
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 1
+	id = 17943
 }
 create_corps_commander = {
 	name = "Vyacheslav Naumenko"
@@ -268,41 +300,30 @@ create_corps_commander = {
 	defense_skill = 2
 	planning_skill = 2
 	logistics_skill = 2
+	id = 17944
 }
-create_corps_commander = { #Auto-Generated
-	name = "Vasil Ryabokon"
-	portrait_path = "gfx/leaders/KUB/Portrait_KPR_Vasily_Ryabokon.png"
-	traits = {
-		trait_cautious 
-		cavalry_officer
-	}
-	skill = 1
-	attack_skill = 1
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 2
-}
+
 
 create_corps_commander = { #Auto-Generated
 	name = "Andrey Shkuro"
-	portrait_path = "gfx/leaders/KUB/Portrait_KPR_Andrei_Shkuro.png"
+	portrait_path = "gfx/leaders/KUB/Portrait_KUB_Andrei_Shkuro.png"
 	traits = {
 		old_guard
 		war_hero 
 		politically_connected 
 		cavalry_officer
 		cavalry_leader
-		 
 	}
 	skill = 2
 	attack_skill = 3
 	defense_skill = 2
 	planning_skill = 2
 	logistics_skill = 1
+	id = 17945
 }
 create_corps_commander = { #Auto-Generated
 	name = "Nikolay Babiyev"
-	portrait_path = "gfx/leaders/KUB/Portrait_KPR_Nikolay_Babiyev.png"
+	portrait_path = "gfx/leaders/KUB/Portrait_KUB_Nikolay_Babiyev.png"
 	traits = {
 		war_hero 
 		artillery_officer 
@@ -313,6 +334,32 @@ create_corps_commander = { #Auto-Generated
 	defense_skill = 2
 	planning_skill = 1
 	logistics_skill = 1
+	id = 17946
+}
+create_corps_commander = { #Auto-Generated
+	name = "Nikolay Bukretov"
+	portrait_path = "gfx/leaders/KUB/Portrait_KUB_Nikolay_Bukretov.png"
+	traits = {
+		war_hero 
+		cavalry_leader
+	}
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 2
+	id = 17947
+}
+random_unit_leder = {
+	limit = {
+		OR = {
+			has_id = 17940
+			has_id = 17944
+			has_id = 17946
+			has_id = 17947
+		}
+	}
+	set_unit_leader_flag = KUB_line_cossack
 }
 
 

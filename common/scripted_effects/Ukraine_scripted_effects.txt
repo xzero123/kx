@@ -719,48 +719,6 @@ UKR_setup_famine = {
 		add_to_array = { UKR_produces_food_array = THIS }
 	}	
 }
-UKR_do_the_village_outflow_effect = {
-	every_owned_state = {
-		limit = {
-			OR = {
-				has_state_category = one
-				has_state_category = two
-				has_state_category = three
-				has_state_category = four
-			}
-			NOT = { state = 1220 }
-		}
-		set_temp_variable = { state_pop = state_population_k }
-		if = {
-			limit = {
-				check_variable = { state_pop > 30 }
-			}
-			set_variable = { total_pop_migr = 0 }
-			add_manpower = -800
-			add_to_variable = { PREV.total_pop_migr = 800 }
-		}
-	}
-	every_owned_state = {
-		limit = {
-			OR = {
-				has_state_category = five
-				has_state_category = six
-				has_state_category = seven
-				has_state_category = eight
-				has_state_category = nine
-				has_state_category = ten
-				has_state_category = eleven
-				has_state_category = twelve
-			}
-		}
-		set_variable = { total_pop_migr_states = 0 }
-		add_to_variable = { PREV.total_pop_migr_states = 1 }
-		ROOT = { divide_variable = { total_pop_migr = total_pop_migr_states } }
-		add_manpower = total_pop_migr
-	}
-	clear_variable = total_pop_migr
-	clear_variable = total_pop_migr_states
-}
 UKR_reduce_black_monday = {
 	if = {
 		limit = {

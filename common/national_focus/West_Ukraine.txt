@@ -1,0 +1,148 @@
+#######################
+# Galician Focus Tree
+# By Nickay & Bo-lesław
+#######################
+
+focus_tree = {
+	id = West_Ukraine
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = WSU
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 200 y = 2500 }
+
+	##Black Monday##
+
+	focus = {
+		id = WSU_Ukraine_Is_Not_Yet_Lost
+		icon = GFX_WSU_Ukraine_Is_Not_Yet_Lost
+		cost = 2
+		x = 7
+		y = 0
+		available = { is_subject = no }
+		select_effect = {
+			country_event = wsu.4
+		}
+		ai_will_do = {
+			factor = 1500
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: WSU_Ukraine_Is_Not_Yet_Lost"
+			add_stability = 0.15 
+			country_event = wsu.3
+		}
+	}
+	focus = {
+		id = WSU_Land_Issue
+		icon = GFX_goal_AUS_agrarian_icon
+		cost = 2
+		relative_position_id = WSU_Ukraine_Is_Not_Yet_Lost
+		x = -1
+		y = 2
+		prerequisite = {
+			focus = WSU_Ukraine_Is_Not_Yet_Lost
+		}
+		ai_will_do = {
+			factor = 1500
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: WSU_Land_Issue"
+		}
+	}
+	focus = {
+		id = WSU_Mobilize_UGA
+		icon = GFX_UKR_Galician_UVO_Corps
+		cost = 2
+		relative_position_id = WSU_Ukraine_Is_Not_Yet_Lost
+		x = 1
+		y = 2
+		prerequisite = {
+			focus = WSU_Ukraine_Is_Not_Yet_Lost
+		}
+		ai_will_do = {
+			factor = 1500
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: WSU_Mobilize_UGA"
+			add_war_support = 0.05
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"7-ma Lvivska bryhada\" division_template = \"Ukrainska Halytska Armiia\" start_experience_factor = 0.2 start_equipment_factor = 0.95"
+					allow_spawning_on_enemy_provs = yes
+					owner = WSU
+				}
+				create_unit = {
+					division = "name = \"8-ma Sambirska bryhada\" division_template = \"Ukrainska Halytska Armiia\" start_experience_factor = 0.2 start_equipment_factor = 0.95"
+					allow_spawning_on_enemy_provs = yes
+					owner = WSU
+				}
+				create_unit = {
+					division = "name = \"9-ta Belzka bryhada\" division_template = \"Ukrainska Halytska Armiia\" start_experience_factor = 0.2 start_equipment_factor = 0.95"
+					allow_spawning_on_enemy_provs = yes
+					owner = WSU
+				}
+				create_unit = {
+					division = "name = \"2-i polk USS\" division_template = \"Halytskyi korpus Sichovykh Striltsiv\" start_experience_factor = 0.2 start_equipment_factor = 0.95"
+					allow_spawning_on_enemy_provs = yes
+					owner = WSU
+				}				
+			}
+		}
+	}
+	focus = {
+		id = WSU_Battle_For_Lviv
+		icon = GFX_WSU_Battle_For_Lviv
+		cost = 7
+		relative_position_id = WSU_Ukraine_Is_Not_Yet_Lost
+		x = 0
+		y = 1
+		available = {
+			91 = { has_active_resistance = yes }
+		}
+		cancelable = no
+		prerequisite = {
+			focus = WSU_Ukraine_Is_Not_Yet_Lost
+		}
+		ai_will_do = {
+			factor = 1500
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: WSU_Battle_For_Lviv"
+		}
+	}
+	focus = {
+		id = WSU_Consolidate_The_ZUNR
+		icon = GFX_WSU_Battle_For_Lviv
+		cost = 7
+		relative_position_id = WSU_Ukraine_Is_Not_Yet_Lost
+		x = 0
+		y = 3
+		available = {
+			has_war = no
+			is_subject = no
+			has_country_flag = WSU_independent
+		}
+		prerequisite = {
+			focus = WSU_Battle_For_Lviv
+		}
+		prerequisite = {
+			focus = WSU_Land_Issue
+		}
+		prerequisite = {
+			focus = WSU_Mobilize_UGA
+		}
+		ai_will_do = {
+			factor = 1500
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: WSU_Battle_For_Lviv"
+		}
+	}
+
+    
+    
+}

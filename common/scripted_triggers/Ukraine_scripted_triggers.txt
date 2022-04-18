@@ -102,13 +102,9 @@ UKR_dyrektoria_in_power = {
 	OR = {
 		UKR_vynnychenko_in_power = yes
 		UKR_petliura_in_power = yes
-		UKR_andriy_melnyk_in_power = yes
-		UKR_yevhen_konovalets_in_power = yes
 	}
-	NOT = { has_global_flag = UKR_civil_war }
+	has_country_flag = UKR_dyrektoria_initial
 	NOT = { has_country_flag = UKR_first_free_elections }
-	has_global_flag = UPR_dyrektoria_uprising_UPR
-	owns_state = 202
 }
 UKR_vynnychenko_in_power = {
 	has_country_leader = {
@@ -123,6 +119,9 @@ UKR_petliura_in_power = {
 	}
 }
 UKR_jointsoc_coalition = {
+	OR = {
+		has_global_flag = UPR_dyrektoria_joined_peacefully
+	}
 	# United Popular Front
 	set_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_natcom_strength }
 	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borbyst_strength }
@@ -138,6 +137,7 @@ UKR_jointsoc_coalition = {
 	check_variable = { UKR_jointsoc_coalition_var > UKR_unitednationalist_coalition_var }
 }
 UKR_modpopfront_coalition = {
+	has_global_flag = UPR_soclibs_leave_dyrektoria
 	# Moderate Popular Front
 	set_temp_variable = { var = UKR_modpopfront_coalition_var value = UKR_usdrp_strength }
 	add_to_temp_variable = { var = UKR_modpopfront_coalition_var value = UKR_natcom_strength }
@@ -154,6 +154,7 @@ UKR_modpopfront_coalition = {
 	check_variable = { UKR_modpopfront_coalition_var > UKR_unitednationalist_coalition_var }
 }
 UKR_radpopfront_coalition = {
+	has_global_flag = UPR_soclibs_leave_dyrektoria
 	# Radical Popular Front
 	set_temp_variable = { var = UKR_radpopfront_coalition_var value = UKR_borotbyst_strength }
 	add_to_temp_variable = { var = UKR_radpopfront_coalition_var value = UKR_natcom_strength }
@@ -173,6 +174,7 @@ UKR_radpopfront_coalition = {
 	check_variable = { UKR_radpopfront_coalition_var > UKR_unitednationalist_coalition_var }
 }
 UKR_natdem_coalition = {
+	has_global_flag = UPR_soclibs_leave_dyrektoria
 	# National Democrat Coalition
 	set_temp_variable = { var = UKR_natdem_coalition_var value = UKR_undo_strength }
 	# Monarchist Authoritarian Coalition
@@ -186,6 +188,8 @@ UKR_natdem_coalition = {
 	check_variable = { UKR_natdem_coalition_var > UKR_authdemmon_coalition_var }
 }
 UKR_monnatdem_coalition = {
+	has_global_flag = UPR_soclibs_leave_dyrektoria
+	has_completed_focus = UKR_Announce_The_New_Royal_Coalition
 	# Monarchist Democrat Coalition
 	set_temp_variable = { var = UKR_monnatdem_coalition_var value = UKR_ump_strength }
 	add_to_temp_variable = { var = UKR_monnatdem_coalition_var value = UKR_undo_strength }
@@ -200,8 +204,6 @@ UKR_monauthdem_coalition = {
 	# Monarchist Authoritarian Coalition
 	set_temp_variable = { var = UKR_monauthdem_coalition_var value = UKR_ump_strength }
 	add_to_temp_variable = { var = UKR_monauthdem_coalition_var value = UKR_uskhd_strength }
-	# National Democrat Coalition
-	set_temp_variable = { var = UKR_natdem_coalition_var value = UKR_undo_strength }
 	# Hetman Coalition
 	set_temp_variable = { var = UKR_hetmannatdem_coalition_var value = UKR_shd_strength }
 	add_to_temp_variable = { var = UKR_hetmannatdem_coalition_var value = UKR_udp_strength }
@@ -210,6 +212,8 @@ UKR_monauthdem_coalition = {
 	check_variable = { UKR_monauthdem_coalition_var > UKR_hetmannatdem_coalition_var }
 }
 UKR_demauthdem_coalition = {
+	has_global_flag = UPR_soclibs_leave_dyrektoria
+	has_completed_focus = UKR_Announce_The_New_Royal_Coalition
 	# Authoritarian Democrat Coalition
 	set_temp_variable = { var = UKR_demauthdem_coalition_var value = UKR_uskhd_strength }
 	add_to_temp_variable = { var = UKR_demauthdem_coalition_var value = UKR_udp_strength }
@@ -226,13 +230,9 @@ UKR_hetmannatdem_coalition = {
 	# Authoritarian Monarchist Coalition
 	set_temp_variable = { var = UKR_authdemmon_coalition_var value = UKR_uskhd_strength }
 	add_to_temp_variable = { var = UKR_authdemmon_coalition_var value = UKR_ump_strength }
-	# United Nationalist Coalition
-	set_temp_variable = { var = UKR_unitednationalist_coalition_var value = UKR_sun_strength }
-	add_to_temp_variable = { var = UKR_unitednationalist_coalition_var value = UKR_sun_dontsov_strength }
-	add_to_temp_variable = { var = UKR_unitednationalist_coalition_var value = UKR_radsun_strength }
 	# Comparisons
 	check_variable = { UKR_hetmannatdem_coalition_var > UKR_authdemmon_coalition_var }
-	check_variable = { UKR_hetmannatdem_coalition_var > UKR_unitednationalist_coalition_var }
+	check_variable = { UKR_hetmannatdem_coalition_var > UKR_sun_dontsov_strength }
 }
 UKR_unitednationalist_coalition = {
 	# United Nationalist Coalition
@@ -449,6 +449,8 @@ UKR_shd_no_coalition = {
 	check_variable = { UKR_shd_strength > UKR_jointsoc_coalition_var }
 }
 UKR_sun_dontsov_no_coalition = {
+	has_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+	has_country_flag = Yevhen_Konovalets_dead
 	# Everyone
 	set_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_natcom_strength }
 	add_to_temp_variable = { var = UKR_jointsoc_coalition_var value = UKR_borbyst_strength }

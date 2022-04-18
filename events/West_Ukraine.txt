@@ -1,0 +1,149 @@
+﻿###################
+# Galicia Events
+###################
+
+add_namespace = wsu
+
+country_event = { #East Galicia becomes independent
+	id = wsu.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event wsu.1" }
+	title = wsu.1.t
+	desc = wsu.1.d
+	trigger = {
+		owns_state = 91
+	}
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #play as wsu
+		name = wsu.1.a
+		trigger = {
+			is_ai = no
+		}
+		WSU_create_rebellion = yes
+		WSU = { change_tag_from = ROOT }
+	}
+	option = { #how dare they?
+		name = wsu.1.b
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = -0.1
+		WSU_create_rebellion = yes
+	}
+}
+
+country_event = { #Clashes in Lemberg
+	id = wsu.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event wsu.2" }
+	title = wsu.2.t
+	desc = wsu.2.d
+
+	is_triggered_only = yes
+
+	option = { #bad
+		name = wsu.2.a
+		add_political_power = -25
+		91 = {
+			damage_building = {
+				type = infrastructure
+				damage = 1
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 1
+			}
+		}
+		hidden_effect =  {
+			country_event = {
+				id = wsu.1
+				days = 5
+			}
+		}
+	}
+}
+country_event = { #Clashes in Lemberg
+	id = wsu.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event wsu.3" }
+	title = wsu.3.t
+	desc = wsu.3.d
+
+	is_triggered_only = yes
+
+	option = { #bad
+		name = wsu.3.a
+		add_stability = -0.05
+		add_war_support = -0.05
+		if = {
+			limit = {
+				POL = {
+					OR = {
+						has_war_with = AUS
+						has_war_with = GAL
+					}
+				}
+			}
+			every_owned_state = {
+				limit = {
+					state = 91
+				}
+				hidden_effect = { 
+					add_core_of = POL
+					remove_core_of = WSU
+					add_claim_by = WSU
+				}
+				start_resistance = yes
+				set_resistance = 15
+			}
+		}
+		else = {
+			every_owned_state = {
+				limit = {
+					state = 91
+				}
+				hidden_effect = { 
+					add_core_of = GAL
+					remove_core_of = WSU
+					add_claim_by = WSU
+				}
+				start_resistance = yes
+				set_resistance = 15
+			}
+		}
+	}
+}
+country_event = { #History
+	id = wsu.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event wsu.4" }
+	title = wsu.4.t
+	desc = wsu.4.d
+
+	is_triggered_only = yes
+
+	option = { #bad
+		name = wsu.4.a
+		add_political_power = 50
+	}
+}
+country_event = { #History
+	id = wsu.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event wsu.5" }
+	title = wsu.5.t
+	desc = wsu.5.d
+
+	is_triggered_only = yes
+
+	option = { #bad
+		name = wsu.5.a
+		add_stability = 0.1
+		add_political_power = 15
+		swap_ideas = {
+			remove_idea = WSU_Poor_Administration
+			add_idea = WSU_Poor_Administration_1
+		}
+	}
+}
+
+
+
+

@@ -1200,7 +1200,7 @@ focus_tree = {
 	### UVO Trees ###
 	focus = {
 		id = UKR_Konovalets_Counter_Coup
-		icon = GFX_UKR_Konovalets
+		icon = GFX_UKR_Konovalets_focus
 		cost = 1
 		x = 4
 		y = 0
@@ -1327,7 +1327,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Undercut_Dontsov_Fanatism"
-			country_event = ukrsun.1
+			country_event = ukrsun.2
 		}
 	}
 	focus = {
@@ -1346,6 +1346,10 @@ focus_tree = {
 				UKR_yevhen_konovalets_in_power = yes
 				UKR_andriy_melnyk_in_power = yes
 			}
+			OR = {
+				has_global_flag = UPR_dyrektoria_uprising_UPR
+				has_global_flag = UPR_dyrektoria_joined_peacefully
+			}
 		}
 		ai_will_do = {
 			factor = 10
@@ -1361,7 +1365,7 @@ focus_tree = {
 	focus = {
 		id = UKR_Connections_With_AntiGerman_Movements
 		icon = GFX_goal_WHR_Assert_Independence_Germany
-		cost = 2
+		cost = 4
 		relative_position_id = UKR_Convene_Great_Assembly_OUN
 		x = -2
 		y = 1
@@ -1379,28 +1383,30 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Connections_With_AntiGerman_Movements"
 			if = {
 				limit = {
-					is_in_faction_with = GER
+					is_faction_leader = no
+					is_in_faction = yes
 				}
 				leave_faction = yes
-				separate_peace_all_wars = yes
 			}
-			reverse_add_opinion_modifier = {
-				tag = GER
-				modifier = UKR_islationism
+			GER = {
+				add_opinion_modifier = {
+					tag = UKR
+					modifier = UKR_islationism
+				}
 			}
-			UKR = { country_event = ukreco.15 }
+			country_event = ukreco.15
 		}
 	}
 	focus = {
 		id = UKR_Use_The_Kaisers_Protection
 		icon = GFX_goal_GER_Central_Culture
-		cost = 2
+		cost = 5
 		relative_position_id = UKR_Convene_Great_Assembly_OUN
 		x = 0
 		y = 1
@@ -1423,7 +1429,11 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
+			modifier = {
+				factor = 0.2
+				has_country_flag = RUS_refused_secret_pact
+			}
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Use_The_Kaisers_Protection"
@@ -1433,16 +1443,18 @@ focus_tree = {
 				}
 				GER = { add_to_faction = ROOT }
 			}
-			reverse_add_opinion_modifier = {
-				tag = GER
-				modifier = UKR_stay_mitt
+			GER = {
+				add_opinion_modifier = {
+					tag = UKR
+					modifier = UKR_stay_mitt
+				}
 			}
 		}
 	}
 	focus = {
 		id = UKR_Secret_Collusion_With_Russia
 		icon = GFX_goal_RUS_flag
-		cost = 2
+		cost = 5
 		relative_position_id = UKR_Convene_Great_Assembly_OUN
 		x = 2
 		y = 1
@@ -1464,9 +1476,15 @@ focus_tree = {
 				has_dictatorship_government = yes
 			}
 			NOT = { has_country_flag = UKR_SUN_russophobic }
+			NOT = { has_country_flag = RUS_refused_secret_pact }
+		}
+		select_effect = {
+			hidden_effect = {
+				RUS = { country_event = ukrsun.16 }
+			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Secret_Collusion_With_Russia"
@@ -1492,7 +1510,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Nationalisation_Of_Key_Industries"
@@ -1539,7 +1557,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Limited_Worker_Autonomy"
@@ -1562,7 +1580,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Bread_Problem"
@@ -1585,7 +1603,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Cheap_Loans_For_Peasants"
@@ -1608,7 +1626,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Encourage_Production_Cooperation"
@@ -1633,7 +1651,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Ukrainization_Efforts"
@@ -1660,7 +1678,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Plast_Cooperation"
@@ -1686,7 +1704,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_SUNM"
@@ -1715,7 +1733,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Local_Self_Government"
@@ -1742,7 +1760,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Break_The_Monopolies"
@@ -1769,7 +1787,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Iron_Guard_Connection"
@@ -1797,7 +1815,7 @@ focus_tree = {
 			has_completed_focus = UKR_Secret_Collusion_With_Russia
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Savinkovist_Influence"
@@ -1821,13 +1839,20 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Fight_Syndicalists"
 			add_popularity = {
 				ideology = syndicalist
 				popularity = -0.07
+			}
+			every_other_country = {
+				limit = { has_socialist_government = yes }
+				add_opinion_modifier = {
+					target = UKR
+					modifier = KR_hates_govt
+				}
 			}
 		}
 	}
@@ -1852,7 +1877,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Militaristic_Corporatism"
@@ -1879,10 +1904,14 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 30
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Entrench_The_Party"
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.1
+			}
 		}
 	}
 	focus = {
@@ -1908,7 +1937,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 30
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Leader_Principle"
@@ -1937,7 +1966,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 30
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Common_Leadership"
@@ -1961,7 +1990,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Slava_U_Heroyam_Slava"
@@ -1971,7 +2000,7 @@ focus_tree = {
 
 	focus = {
 		id = UKR_Melnyk_In_Power
-		icon = GFX_UKR_Melnyk
+		icon = GFX_UKR_Melnyk_focus
 		cost = 5
 		x = 4
 		y = 0
@@ -1982,8 +2011,11 @@ focus_tree = {
 		available = {
 			UKR_andriy_melnyk_in_power = yes
 		}
+		bypass = {
+			UKR_andriy_melnyk_in_power = yes
+		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Melnyk_In_Power"
@@ -2008,10 +2040,11 @@ focus_tree = {
 			UKR_andriy_melnyk_in_power = yes
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Militarization"
+			add_war_support = 0.1
 		}
 	}
 
@@ -2029,7 +2062,7 @@ focus_tree = {
 			UKR_andriy_melnyk_in_power = yes
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Cult_Of_Konovalets"
@@ -2050,7 +2083,7 @@ focus_tree = {
 			UKR_andriy_melnyk_in_power = yes
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Ties_With_Catholic_Church"
@@ -2074,7 +2107,7 @@ focus_tree = {
 			UKR_yevhen_konovalets_in_power = yes
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Soborna_Ukraina"
@@ -2094,10 +2127,11 @@ focus_tree = {
 			UKR_yevhen_konovalets_in_power = yes
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Merge_Two_Banks"
+			remove_ideas = UKR_urban_rural_divide
 		}
 	}
 	focus = {
@@ -2114,7 +2148,7 @@ focus_tree = {
 			UKR_yevhen_konovalets_in_power = yes
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Resettlement"
@@ -2137,7 +2171,7 @@ focus_tree = {
 			always = no
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Explosion_Dnieper"
@@ -2878,7 +2912,7 @@ focus_tree = {
 			UKR_dmytro_dontsov_in_power = yes
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_OUN_Elections"
@@ -2900,7 +2934,7 @@ focus_tree = {
 			focus = UKR_OUN_Elections
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Integral_Nationalism_Doctrine"
@@ -2921,7 +2955,7 @@ focus_tree = {
 			focus = UKR_OUN_Elections
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Anti_Russian_Rhethoric"
@@ -2942,7 +2976,7 @@ focus_tree = {
 			focus = UKR_Anti_Russian_Rhethoric
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Condemn_Muscovite_Imperalism"
@@ -2963,7 +2997,7 @@ focus_tree = {
 			focus = UKR_Integral_Nationalism_Doctrine
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Form_The_UNO"
@@ -2984,7 +3018,7 @@ focus_tree = {
 			focus = UKR_OUN_Elections
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Nordism"
@@ -3005,7 +3039,7 @@ focus_tree = {
 			focus = UKR_Nordism
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Cultivate_National_Pride"
@@ -3029,7 +3063,7 @@ focus_tree = {
 			focus = UKR_Condemn_Muscovite_Imperalism
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Ruthless_Xenophobia"
@@ -3053,7 +3087,7 @@ focus_tree = {
 			focus = UKR_Cultivate_National_Pride
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Knife_In_The_Back_Of_Oligarchy"
@@ -3077,7 +3111,7 @@ focus_tree = {
 			focus = UKR_Ruthless_Xenophobia
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Rely_On_Tradition"
@@ -3086,7 +3120,7 @@ focus_tree = {
 
 	focus = {
 		id = UKR_Irreconcilable_Struggle_Against_Bolshevism
-		icon = GFX_goal_UKR_Autocephaly_Faithful
+		icon = GFX_goal_RUS_crush_bolsheviks
 		cost = 5
 		relative_position_id = UKR_OUN_Elections
 		x = 0
@@ -3101,7 +3135,7 @@ focus_tree = {
 			focus = UKR_Ruthless_Xenophobia
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Irreconcilable_Struggle_Against_Bolshevism"
@@ -3125,7 +3159,7 @@ focus_tree = {
 			focus = UKR_Ruthless_Xenophobia
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Total_Nationalization"
@@ -3149,7 +3183,7 @@ focus_tree = {
 			focus = UKR_Irreconcilable_Struggle_Against_Bolshevism
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Foster_Ukrainian_Industry"
@@ -3173,12 +3207,156 @@ focus_tree = {
 			focus = UKR_Irreconcilable_Struggle_Against_Bolshevism
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Forced_Ukrainisation"
 		}
 	}
+
+	focus = {
+		id = UKR_Dissolve_Rada_Dontsov
+		icon = GFX_UKR_Dissolve_Soim
+		cost = 5
+		relative_position_id = UKR_OUN_Elections
+		x = 2
+		y = 7
+		available = {
+			UKR_dmytro_dontsov_in_power = yes
+		}
+		prerequisite = {
+			focus = UKR_Foster_Ukrainian_Industry
+		}
+		prerequisite = {
+			focus = UKR_Forced_Ukrainisation
+		}
+		ai_will_do = {
+			factor = 70
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Dissolve_Rada_Dontsov"
+		}
+	}
+	focus = {
+		id = UKR_Assume_Vozhd_Title_Dontsov
+		text = UKR_Assume_Vozhd_Title
+		icon = GFX_UKR_Assume_Vozhd_Title
+		cost = 5
+		relative_position_id = UKR_OUN_Elections
+		x = 0
+		y = 7
+		available = {
+			UKR_dmytro_dontsov_in_power = yes
+		}
+		prerequisite = {
+			focus = UKR_Foster_Ukrainian_Industry
+		}
+		prerequisite = {
+			focus = UKR_Forced_Ukrainisation
+		}
+		ai_will_do = {
+			factor = 70
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Dissolve_Rada_Dontsov"
+		}
+	}
+	focus = {
+		id = UKR_Destroy_Intraparty_Opposition
+		icon = GFX_UKR_Purge_Leftist_Nationalists
+		cost = 5
+		relative_position_id = UKR_OUN_Elections
+		x = -2
+		y = 7
+		available = {
+			UKR_dmytro_dontsov_in_power = yes
+		}
+		prerequisite = {
+			focus = UKR_Foster_Ukrainian_Industry
+		}
+		prerequisite = {
+			focus = UKR_Forced_Ukrainisation
+		}
+		ai_will_do = {
+			factor = 70
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Destroy_Intraparty_Opposition"
+		}
+	}
+	focus = {
+		id = UKR_Forced_Resettlment
+		icon = GFX_goal_generic_expel_people
+		cost = 5
+		relative_position_id = UKR_OUN_Elections
+		x = -1
+		y = 8
+		available = {
+			UKR_dmytro_dontsov_in_power = yes
+		}
+		prerequisite = {
+			focus = UKR_Assume_Vozhd_Title_Dontsov
+		}
+		prerequisite = {
+			focus = UKR_Destroy_Intraparty_Opposition
+		}
+		ai_will_do = {
+			factor = 70
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Forced_Resettlment"
+		}
+	}
+	focus = {
+		id = UKR_Bring_Back_Certain_Practices
+		icon = GFX_goal_FSA_expel_merchant
+		cost = 5
+		relative_position_id = UKR_OUN_Elections
+		x = 1
+		y = 8
+		available = {
+			UKR_dmytro_dontsov_in_power = yes
+		}
+		prerequisite = {
+			focus = UKR_Dissolve_Rada_Dontsov
+		}
+		prerequisite = {
+			focus = UKR_Assume_Vozhd_Title_Dontsov
+		}
+		ai_will_do = {
+			factor = 70
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Bring_Back_Certain_Practices"
+		}
+	}
+	focus = {
+		id = UKR_Ukrainian_Awakening
+		icon = GFX_UKR_Slava
+		cost = 5
+		relative_position_id = UKR_OUN_Elections
+		x = 0
+		y = 9
+		available = {
+			UKR_dmytro_dontsov_in_power = yes
+		}
+		prerequisite = {
+			focus = UKR_Assume_Vozhd_Title_Dontsov
+		}
+		prerequisite = {
+			focus = UKR_Bring_Back_Certain_Practices
+		}
+		prerequisite = {
+			focus = UKR_Forced_Resettlment
+		}
+		ai_will_do = {
+			factor = 70
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UKR_Ukrainian_Awakening"
+		}
+	}
+
 
 	### Dyrektoria Political Tree ###
 	focus = {
@@ -3188,14 +3366,14 @@ focus_tree = {
 		x = 3
 		y = 0
 		available = {
-			always = no
+			owns_state = 202
 		}
 		allow_branch = {
 			UKR_dyrektoria_in_power = yes
 			NOT = { has_country_flag = UKR_famine }			
 		}
 		ai_will_do = { 
-			factor = 10
+			factor = 70
 		}
 		bypass = {
 			UKR_dyrektoria_in_power = yes		
@@ -3452,7 +3630,7 @@ focus_tree = {
 			has_country_flag = UKR_famine
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Introduce_Export_Ban"
@@ -3489,7 +3667,7 @@ focus_tree = {
 			has_political_power > 24
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 70
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Break_The_Bread_Monopoly"
@@ -3997,7 +4175,7 @@ focus_tree = {
 			focus = UKR_Ukrainian_Recovery
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 50
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_First_Loan"
@@ -4023,7 +4201,7 @@ focus_tree = {
 			has_country_flag = UKR_RECOV
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 50
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Second_Loan"
@@ -4052,7 +4230,7 @@ focus_tree = {
 			focus = UKR_Nationalize_NUSK
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 50
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_First_TaxHike"
@@ -4083,7 +4261,7 @@ focus_tree = {
 			has_country_flag = UKR_RECOV
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 50
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Second_TaxHike"
@@ -4114,7 +4292,7 @@ focus_tree = {
 		y = 3
 		relative_position_id = UKR_Ukrainian_Recovery
 		ai_will_do = {
-			factor = 10
+			factor = 50
 		}
 		available = {
 			controls_state = 221
@@ -4148,7 +4326,7 @@ focus_tree = {
 			controls_state = 227
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 50
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Prospecting_In_Donbas"
@@ -4185,7 +4363,7 @@ focus_tree = {
 		y = 4
 		relative_position_id = UKR_Ukrainian_Recovery
 		ai_will_do = {
-			factor = 10
+			factor = 30
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Kharkov_Industry"
@@ -4222,7 +4400,7 @@ focus_tree = {
 		y = 4
 		relative_position_id = UKR_Ukrainian_Recovery
 		ai_will_do = {
-			factor = 10
+			factor = 30
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Yekaterinoslav_Industry"
@@ -4256,7 +4434,7 @@ focus_tree = {
 		y = 5
 		relative_position_id = UKR_Ukrainian_Recovery
 		ai_will_do = {
-			factor = 10
+			factor = 30
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus UKR_Stab_econ"
@@ -5490,6 +5668,9 @@ focus_tree = {
 			soviets_exist = yes
 			RUS = { is_faction_leader = yes }
 		}
+		mutually_exclusive = {
+			focus = UKR_Join_Revolutionary_Fray
+		}
 		relative_position_id = UKR_Seeking_Allies
 		x = 1
 		y = 1
@@ -5518,8 +5699,11 @@ focus_tree = {
 			FRA = { is_faction_leader = yes }
 			soviets_exist = no
 		}
+		mutually_exclusive = {
+			focus = UKR_Join_The_Soviets
+		}
 		relative_position_id = UKR_Seeking_Allies
-		x = -3
+		x = -1
 		y = 1
 		cost = 3.9
 		ai_will_do = { factor = 10 }
@@ -5569,7 +5753,7 @@ focus_tree = {
 			WHR = { is_faction_leader = yes }
 		}
 		relative_position_id = UKR_Seeking_Allies
-		x = -1
+		x = -3
 		y = 1
 		cost = 4.7
 		ai_will_do = { factor = 10 }
@@ -5715,6 +5899,7 @@ focus_tree = {
 		available = {
 			has_war = no
 			is_subject = no
+			has_completed_focus = UKR_Connections_With_AntiGerman_Movements
 		}
 		ai_will_do = {
 			factor = 200
@@ -5968,7 +6153,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_Ostwall_focus
-		icon = GFX_goal_generic_construct_military
+		icon = GFX_GRU_border
 		cost = 5
 		prerequisite = { focus = UKR_Gerukr_army }
 		x = 6
@@ -6190,6 +6375,7 @@ focus_tree = {
 			has_war = no
 			is_subject = no
 			NOT = { is_in_faction_with = WHR }
+			NOT = { has_global_flag = UKR_refused_eastern_claims }
 		}
 		relative_position_id = UKR_Set_Sail_Akerman
 		x = 0
@@ -6215,6 +6401,7 @@ focus_tree = {
 		available = {
 			has_war = no
 			is_subject = no
+			NOT = { has_completed_focus = UKR_RUS_friendship }
 		}
 		relative_position_id = UKR_Set_Sail_Akerman
 		x = 2

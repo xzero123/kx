@@ -133,13 +133,28 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = KUB_Rely_On_Cooperatives
 		}
+		available = {
+			NOT = { has_government = radical_socialist }
+		}
 		ai_will_do = {
 			factor = 100
+			modifier = {
+				factor = 0.5
+				has_government = social_liberal
+			}
 		}
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = DON_black_monday_2
 				add_idea = DON_black_monday_3
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.06
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.02
 			}
 		}
 	}
@@ -156,6 +171,13 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = KUB_Install_Bread_Monopoly
 		}
+		available = {
+			OR = {
+				has_government = radical_socialist
+				has_government = social_liberal
+				has_government = paternal_autocrat
+			}
+		}
 		ai_will_do = {
 			factor = 100
 		}
@@ -163,6 +185,14 @@ focus_tree = {
 			swap_ideas = {
 				remove_idea = DON_black_monday_2
 				add_idea = DON_black_monday_3
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.02
 			}
 		}
 	}
@@ -176,6 +206,14 @@ focus_tree = {
 		prerequisite = {
 			focus = KUB_Install_Bread_Monopoly
 			focus = KUB_Rely_On_Cooperatives
+		}
+		available = {
+			OR = {
+				has_government = social_liberal
+				has_government = authoritarian_democrat
+				has_completed_focus = KUB_Restore_Regional_Rada
+				has_completed_focus = KUB_Elect_Loyal_Rada
+			}
 		}
 		ai_will_do = {
 			factor = 100
@@ -196,6 +234,7 @@ focus_tree = {
 			focus = KUB_Announce_Ivanis_Retirement
 		}
 		available = { always = no }
+		bypass = { has_country_flag = KUB_1937_elections }
 		ai_will_do = {
 			factor = 100
 		}
@@ -419,6 +458,10 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.1
+			}
 		}
 	}
 	focus = {
@@ -477,6 +520,14 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.1
+			}
 		}
 	}
 	focus = {
@@ -488,6 +539,7 @@ focus_tree = {
 		y = 4
 		available = { 
 			has_government = totalist
+			DKB = { has_socialist_government = no }
 		}
 		prerequisite = {
 			focus = KUB_Entice_Lineytsy
@@ -499,6 +551,20 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
+			DKB = {
+				every_unit_leader = {
+					limit = { has_trait = hidden_sympathies }
+					set_nationality = ROOT
+				}
+			}
+			FRA = {
+				every_unit_leader = {
+					limit = {
+						has_id = 1956
+					}
+					set_nationality = ROOT
+				}
+			}
 		}
 	}
 	focus = {
@@ -518,6 +584,10 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
+			country_event = {
+				id = kub.200
+				days = 2
+			}
 		}
 	}
 	focus = {
@@ -708,6 +778,7 @@ focus_tree = {
 					compare = greater_than
 				}
 			}
+			has_country_flag = KUB_new_ataman_elected
 		}
 		relative_position_id = KUB_Elect_New_Ataman_focus
 		x = -1
@@ -871,6 +942,7 @@ focus_tree = {
 					compare = greater_than
 				}
 			}
+			has_country_flag = KUB_new_ataman_elected
 		}
 		completion_reward = {
 			custom_effect_tooltip = unlock_focuses
@@ -889,7 +961,7 @@ focus_tree = {
 		available = {
 			has_government = authoritarian_democrat
 			country_exists = DKB
-			DKB = { is_neighbour_of = ROOT }
+			DKB = { is_neighbor_of = ROOT }
 			has_war = no
 		}
 		relative_position_id = KUB_Elect_New_Ataman_focus
@@ -952,7 +1024,7 @@ focus_tree = {
 	}
 	focus = {
 		id = KUB_End_Rada_Conflict
-		icon = GFX_goal_align_russia
+		icon = GFX_goal_NFA_safe_elections
 		cost = 5
 		prerequisite = {
 			focus = KUB_End_Cooperative_Movement
@@ -974,7 +1046,7 @@ focus_tree = {
 	}
 	focus = {
 		id = KUB_Request_Russian_Protection
-		icon = GFX_goal_align_russia
+		icon = GFX_RUS_The_Might_Of_Russian_Army
 		cost = 5
 		prerequisite = {
 			focus = KUB_Ties_With_Russia
@@ -1064,16 +1136,15 @@ focus_tree = {
 		relative_position_id = KUB_Elect_New_Ataman_focus
 		x = 0
 		y = 2
-		select_effect = {
-			hidden_effect = {
-				country_event = {
-					id = kub.25
-					days = 5
-				}
-			}
-		}
 		completion_reward = {
-			custom_effect_tooltip = KUB_issues_solved_tt
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.02
+			}
 		}
 	}
 	focus = {
@@ -1099,7 +1170,7 @@ focus_tree = {
 	}
 	focus = {
 		id = KUB_Back_To_Motherland
-		icon = GFX_goal_NFA_safe_elections
+		icon = GFX_RUS_Statocratic_Government
 		cost = 5
 		prerequisite = {
 			focus = KUB_unification_don_kuban
@@ -1119,7 +1190,11 @@ focus_tree = {
 			RUS = {
 				has_socialist_government = no
 				has_left_democratic_government = no
-				is_neighbour_of = KUB
+				is_neighbor_of = KUB
+			}
+			any_country = {
+				is_ally_with = RUS
+				is_neighbor_of = KUB
 			}
 		}
 		completion_reward = {
@@ -1187,7 +1262,7 @@ focus_tree = {
 	}
 	focus = {
 		id = KUB_Mobilize_Host
-		icon = GFX_goal_Focus_Military_Mobilisation
+		icon = GFX_focus_rus_cossack
 		cost = 5
 		prerequisite = {
 			focus = KUB_Deal_With_Traitors

@@ -27,6 +27,331 @@ country_event = { # Our Kingdom
 		unlock_decision_category_tooltip = UKR_1938_election_panel
 	}
 }
+country_event = { # Elections
+	id = ukrel.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrel.2" }
+	immediate = {
+		clr_country_flag = UKR_1938_elections_preparation
+		set_country_flag = UKR_1938_elections
+	}
+	title = ukrel.2.t
+	desc = ukrel.2.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_UKR_rada2
+	
+	option = {
+		name = ukrel.2.a
+		trigger = {
+			UKR_natcom_no_coalition = yes
+		}
+		hidden_effect = {
+			set_party_name = {
+				ideology = radical_socialist
+				name = UKR_radical_socialist_party3
+				long_name = UKR_radical_socialist_party3_long
+			}
+		}
+		mark_focus_tree_layout_dirty = yes
+	}
+	option = {
+		name = ukrel.2.b
+		trigger = {
+			UKR_radsun_no_coalition = yes
+		}
+		hidden_effect = {
+			set_party_name = {
+				ideology = totalist
+				name = UKR_totalist_party4
+				long_name = UKR_totalist_party4_long
+			}
+			create_country_leader = {
+				name = "Mykola Stsiborskyi"
+				desc = "POLITICS_MYKOLA_STSIBORSKYI_DESC"
+				picture = "gfx/leaders/UKR/Portrait_UKR_Mykola_Stsiborskyi.png"
+				expire = "1965.1.1"
+				ideology = natsynd_subtype
+			}
+		}
+		set_politics = {
+			ruling_party = totalist
+			election_frequency = 48
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.07
+		}
+		add_stability = -0.1
+		hidden_effect = {
+			remove_all_minister_types_ukr = yes
+			add_ideas = {
+				UKR_Mykola_Stsiborskyi_hog_tot
+				UKR_Stepan_Lenkavskyi_for_tot
+				UKR_Kirill_Osmak_eco_tot
+				UKR_Dmytro_Demchuk_sec_tot
+			}
+			end_coalition = yes
+		}
+		mark_focus_tree_layout_dirty = yes
+	}
+	option = {
+		name = ukrel.2.c
+		trigger = {
+			UKR_borbyst_no_coalition = yes
+		}
+		set_politics = {
+			ruling_party = syndicalist
+			election_frequency = 48
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.07
+		}
+		add_stability = -0.1
+		hidden_effect = {
+			remove_all_minister_types_ukr = yes
+			end_coalition = yes
+		}
+		mark_focus_tree_layout_dirty = yes
+	}
+	option = {
+		name = ukrel.2.d
+		trigger = {
+			UKR_borotbyst_no_coalition = yes
+		}
+		set_politics = {
+			ruling_party = radical_socialist
+			election_frequency = 48
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.07
+		}
+		add_stability = -0.1
+		hidden_effect = {
+			remove_all_minister_types_ukr = yes
+			end_coalition = yes
+		}
+		mark_focus_tree_layout_dirty = yes
+	}
+	option = {
+		name = ukrel.2.e
+		trigger = {
+			UKR_urdp_no_coalition = yes
+		}
+		hidden_effect = {
+			set_party_name = {
+				ideology = radical_socialist
+				name = UKR_radical_socialist_party2
+				long_name = UKR_radical_socialist_party2_long
+			}
+		}
+		set_politics = {
+			ruling_party = radical_socialist
+			election_frequency = 48
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.07
+		}
+		hidden_effect = {
+			remove_all_minister_types_ukr = yes
+			end_coalition = yes
+		}
+		mark_focus_tree_layout_dirty = yes
+	}
+	option = {
+		name = ukrel.2.e
+		trigger = {
+			UKR_usdrp_no_coalition = yes
+		}
+		hidden_effect = {
+			set_party_name = {
+				ideology = social_democrat
+				name = UKR_radical_socialist_party2
+				long_name = UKR_radical_socialist_party2_long
+			}
+		}
+		set_politics = {
+			ruling_party = social_democrat
+			election_frequency = 48
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.07
+		}
+		hidden_effect = {
+			remove_all_minister_types_ukr = yes
+			end_coalition = yes
+		}
+		mark_focus_tree_layout_dirty = yes
+	}
+	option = {
+		name = ukrel.2.g
+		trigger = {
+			OR = {
+				UKR_undo_no_coalition = yes
+				UKR_natdem_coalition = yes
+			}
+		}
+		set_politics = {
+			ruling_party = social_liberal
+			election_frequency = 48
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.07
+		}
+		hidden_effect = {
+			remove_all_minister_types_ukr = yes
+			end_coalition = yes
+		}
+		mark_focus_tree_layout_dirty = yes
+	}
+	option = {
+		name = ukrel.2.h
+		trigger = {
+			UKR_udp_no_coalition = yes
+		}
+		set_politics = {
+			ruling_party = market_liberal
+			election_frequency = 48
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.07
+		}
+		hidden_effect = {
+			remove_all_minister_types_ukr = yes
+			end_coalition = yes
+		}
+		mark_focus_tree_layout_dirty = yes
+	}
+	option = {
+		name = ukrel.2.i
+		trigger = {
+			UKR_ump_no_coalition = yes
+			UKR_monnatdem_coalition = no
+			UKR_monauthdem_coalition = no
+		}
+		set_politics = {
+			ruling_party = social_conservative
+			election_frequency = 48
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.07
+		}
+		hidden_effect = {
+			remove_all_minister_types_ukr = yes
+			add_ideas = {
+				UKR_Volodymyr_Zalozetskyi_Sas_hog_sco
+				UKR_Kazymyr_Huzhkovskyi_for_sco
+				UKR_Mykhailo_Savur_Tsypriianovych_eco_ade
+				UKR_Petro_Shekeryk_Donykiv_sec_sco
+			}	
+			end_coalition = yes
+		}
+		mark_focus_tree_layout_dirty = yes
+	}
+	option = {
+		name = ukrel.2.j
+		trigger = {
+			UKR_uskhd_no_coalition = yes
+			UKR_demauthdem_coalition = no
+			UKR_monauthdem_coalition = no
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			election_frequency = 48
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.07
+		}
+		hidden_effect = {
+			remove_all_minister_types_ukr = yes
+			add_ideas = {
+				UKR_Volodymyr_Zalozetskyi_Sas_hog_sco
+				UKR_Kazymyr_Huzhkovskyi_for_sco
+				UKR_Mykhailo_Savur_Tsypriianovych_eco_ade
+				UKR_Petro_Shekeryk_Donykiv_sec_sco
+			}	
+			end_coalition = yes
+		}
+		mark_focus_tree_layout_dirty = yes
+	}
+	option = {
+		name = ukrel.2.k
+		trigger = {
+			UKR_shd_no_coalition = yes
+		}
+		set_politics = {
+			ruling_party = paternal_autocrat
+			election_frequency = 48
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.07
+		}
+		hidden_effect = {
+			remove_all_minister_types_ukr = yes
+			add_ideas = {
+				UKR_Volodymyr_Zalozetskyi_Sas_hog_sco
+				UKR_Kazymyr_Huzhkovskyi_for_sco
+				UKR_Mykhailo_Savur_Tsypriianovych_eco_ade
+				UKR_Petro_Shekeryk_Donykiv_sec_sco
+			}	
+			end_coalition = yes
+		}
+		mark_focus_tree_layout_dirty = yes
+	}
+	option = {
+		name = ukrel.2.l
+		set_politics = {
+			ruling_party = national_populist
+			election_frequency = 48
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.07
+		}
+		hidden_effect = {
+			set_party_name = {
+				ideology = national_populist
+				name = UKR_national_populist_party2
+				long_name = UKR_national_populist_party2_long
+			}
+			create_country_leader = {
+				name = "Dmytro Dontsov"
+				desc = "POLITICS_DMITRI_DONTSOV_DESC"
+				picture = "gfx/leaders/UKR/Portrait_UKR_Dmitri_Dontsov.png"
+				expire = "1965.1.1"
+				ideology = national_populist_subtype
+			}			
+			remove_all_minister_types_ukr = yes
+			add_ideas = {
+				UKR_Dmitri_Dontsov_hog_npo
+				UKR_Yuliian_Vassyian_for_npo
+				UKR_Osyp_Boidunyk_eco_npo
+				UKR_Mikola_Lebed_sec_npo
+			}	
+			end_coalition = yes
+		}
+		mark_focus_tree_layout_dirty = yes
+	}
+	
+}
 country_event = { # Our Kingdom
 	id = ukrpol.1
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrpol.1" }
@@ -682,7 +1007,7 @@ country_event = { # Konovalets Dead
 			desc = "POLITICS_DMITRI_DONTSOV_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Dmitri_Dontsov.png"
 			expire = "1965.1.1"
-			ideology = integralism_subtype
+			ideology = national_populist_subtype
 		}
 		set_party_name = {
 			ideology = national_populist
@@ -722,7 +1047,7 @@ country_event = { # Konovalets Dead
 			desc = "POLITICS_DMITRI_DONTSOV_DESC"
 			picture = "gfx/leaders/UKR/Portrait_UKR_Dmitri_Dontsov.png"
 			expire = "1965.1.1"
-			ideology = integralism_subtype
+			ideology = national_populist_subtype
 		}
 		set_party_name = {
 			ideology = national_populist
@@ -874,7 +1199,7 @@ country_event = { # End of the Hetmanate
 		}
 		add_stability = 0.02
 		remove_ideas = UKR_derzhavna_varta
-		remove_all_ministers = yes
+		remove_all_minister_types_ukr = yes
 		if = {
 			limit = { 
 				OR = {
@@ -1273,7 +1598,7 @@ country_event = { # Konovalets Counter-Coup
 		}
 		add_stability = 0.02
 		remove_ideas = UKR_derzhavna_varta
-		remove_all_ministers = yes
+		remove_all_minister_types_ukr = yes
 		add_ideas = {
 			UKR_Andriy_Melnyk_hog_pau
 			UKR_Osyp_Nazaruk_for_pau
@@ -2290,7 +2615,7 @@ country_event = { # Crimea
 			CRM = { 
 				drop_cosmetic_tag = yes 
 				add_ideas = CRM_crimean_tatar_rule
-				remove_all_ministers = yes
+				remove_all_minister_types_ukr = yes
 				add_ideas = {
 					CRM_Amet_Ozenbashly_hog_sli
 					CRM_Asan_Sabri_Ayvazov_for_sli
@@ -2510,9 +2835,7 @@ country_event = { # Colonel Melnyk Initiative
 	title = ukrpol.59.t
 	desc = ukrpol.59.d
 	is_triggered_only = yes
-	trigger = {
-		has_country_flag = Yevhen_Konovalets_dead
-	}
+	
 	option = {
 		name = ukrpol.59.a
 		ai_chance = {
@@ -2521,20 +2844,42 @@ country_event = { # Colonel Melnyk Initiative
 		add_to_variable = { UKR_petliura_authority = -1 }
 		add_to_variable = { UKR_vynnychenko_authority = -1 }
 		add_to_variable = { UKR_uvo_authority = 1 }
-		set_politics = {
-			ruling_party = paternal_autocrat
-			elections_allowed = no
+		if = {
+			limit = {
+				UKR = { has_country_flag = Yevhen_Konovalets_dead }
+			}
+			set_politics = {
+				ruling_party = paternal_autocrat
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.1
+			}
+			remove_all_minister_types_ukr = yes
+			add_ideas = {
+				UKR_Andriy_Melnyk_hog_pau
+				UKR_Andriy_Melnyk_for_pau
+				UKR_Omelian_Senyk_eco_npo
+				UKR_Vasyl_Kuchabskyi_sec_pau
+			}
 		}
-		add_popularity = {
-			ideology = paternal_autocrat
-			popularity = 0.1
-		}
-		remove_all_ministers = yes
-		add_ideas = {
-			UKR_Andriy_Melnyk_hog_pau
-			UKR_Andriy_Melnyk_for_pau
-			UKR_Omelian_Senyk_eco_npo
-			UKR_Vasyl_Kuchabskyi_sec_pau
+		else = {
+			set_politics = {
+				ruling_party = national_populist
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.1
+			}
+			remove_all_minister_types_ukr = yes
+			add_ideas = {
+				UKR_Yevhen_Konovalets_hog_npo
+				UKR_Andriy_Melnyk_for_pau
+				UKR_Omelian_Senyk_eco_npo
+				UKR_Vasyl_Kuchabskyi_sec_pau
+			}
 		}
 		add_to_variable = { UKR_usdrp_strength = -3 }
 		add_to_variable = { UKR_sun_strength = 3 }
@@ -3008,6 +3353,8 @@ country_event = { # Victory of Dyrektoria
 		set_global_flag = UKR_kingdom_exiled_in_Galicia
 		clr_country_flag = UKR_dyrektoria_uprising_active
 		clear_global_event_target = UKR_dyrektoria_headquarters
+		drop_cosmetic_tag = yes
+		set_country_flag = UKR_dyrektoria_initial
 		mark_focus_tree_layout_dirty = yes
 		if = {
 			limit = { has_global_flag = UPR_soclibs_leave_dyrektoria }
@@ -3055,7 +3402,7 @@ country_event = { # Victory of Kingdom if it is UPR
 				set_variable = { UKR_sun_strength = 0 }
 				set_cosmetic_tag = UKR_kingdom
 				copy_government_of_ROOT = yes
-				remove_all_ministers = yes
+				remove_all_minister_types_ukr = yes
 				create_country_leader = {
 					name = "Vasyl"
 					desc = "POLITICS_VASYL_DESC"
@@ -3186,7 +3533,7 @@ country_event = { # Victory of Dyrektoria if its UPR
 					retire = yes
 				}				
 				remove_ideas = UKR_derzhavna_varta
-				remove_all_ministers = yes
+				remove_all_minister_types_ukr = yes
 				add_ideas = {
 					UKR_Vladimir_Vynnychenko_hog_sde
 					UKR_Andrey_Livytskyi_for_sde
@@ -3272,6 +3619,7 @@ country_event = { # Victory of Dyrektoria if its UPR
 			set_global_flag = UKR_kingdom_exiled_in_Galicia
 			clr_country_flag = UKR_dyrektoria_uprising_active
 			clear_global_event_target = UKR_dyrektoria_headquarters		
+			drop_cosmetic_tag = yes
 			mark_focus_tree_layout_dirty = yes		
 			change_tag_from = ROOT
 		}
@@ -4664,7 +5012,7 @@ country_event = { # UMP-UNDO Coalition
 		add_to_variable = { UKR_undo_strength = 15 }
 		add_to_variable = { UKR_ump_strength = 15 }
 		add_to_variable = { UKR_uskhd_strength = -15 }
-		remove_all_ministers = yes
+		remove_all_minister_types_ukr = yes
 		add_ideas = {
 			UKR_Volodymyr_Zalozetskyi_Sas_hog_sco
 			UKR_Boris_Kozubskyi_for_sli
@@ -5343,6 +5691,8 @@ country_event = { # Dontsov
 		add_political_power = -15
 		set_country_flag = UKR_SUN_russophobic
 		add_to_variable = { UKR_sun_dontsov_strength = 3 }
+		remove_ideas_with_trait = security_minister
+		add_ideas = UKR_Dmitri_Dontsov_sec_npo
 	}
 	option = {
 		name = ukrsun.2.b
@@ -5358,7 +5708,7 @@ country_event = { # SUN Assembly
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrsun.3" }
 	title = ukrsun.3.t
 	desc = ukrsun.3.d
-	picture = GFX_report_event_UKR_sun_assembly
+	picture = GFX_report_event_UKR_uvo
 	is_triggered_only = yes
 
 	option = {
@@ -5377,7 +5727,7 @@ country_event = { # SUN Assembly
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrsun.4" }
 	title = ukrsun.4.t
 	desc = ukrsun.4.d
-	picture = GFX_report_event_UKR_sun_assembly
+	picture = GFX_report_event_UKR_uvo
 	is_triggered_only = yes
 
 	option = {
@@ -5399,7 +5749,7 @@ country_event = { # SUN Assembly
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrsun.5" }
 	title = ukrsun.5.t
 	desc = ukrsun.5.d
-	picture = GFX_report_event_UKR_sun_assembly
+	picture = GFX_report_event_UKR_uvo
 	is_triggered_only = yes
 
 	option = {
@@ -5421,7 +5771,7 @@ country_event = { # SUN Assembly
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrsun.6" }
 	title = ukrsun.6.t
 	desc = ukrsun.6.d
-	picture = GFX_report_event_UKR_sun_assembly
+	picture = GFX_report_event_UKR_uvo
 	is_triggered_only = yes
 
 	option = {
@@ -5486,7 +5836,7 @@ country_event = { # SUN Assembly
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrsun.7" }
 	title = ukrsun.7.t
 	desc = ukrsun.7.d
-	picture = GFX_report_event_UKR_sun_assembly
+	picture = GFX_report_event_UKR_uvo
 	is_triggered_only = yes
 
 	option = {
@@ -5508,7 +5858,7 @@ country_event = { # SUN Assembly
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrsun.8" }
 	title = ukrsun.8.t
 	desc = ukrsun.8.d
-	picture = GFX_report_event_UKR_sun_assembly
+	picture = GFX_report_event_UKR_uvo
 	is_triggered_only = yes
 
 	option = {
@@ -5569,7 +5919,7 @@ country_event = { # SUN Assembly
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrsun.9" }
 	title = ukrsun.9.t
 	desc = ukrsun.9.d
-	picture = GFX_report_event_UKR_sun_assembly
+	picture = GFX_report_event_UKR_uvo
 	is_triggered_only = yes
 
 	option = {
@@ -5582,6 +5932,8 @@ country_event = { # SUN Assembly
 			}
 		}
 		add_to_variable = { UKR_sun_dontsov_strength = 7 }
+		remove_ideas_with_trait = foreign_minister
+		add_ideas = UKR_Yuliian_Vassyian_for_npo
 		country_event = {
 			id = ukrsun.10
 			days = 3
@@ -5606,7 +5958,7 @@ country_event = { # SUN Assembly
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrsun.10" }
 	title = ukrsun.10.t
 	desc = ukrsun.10.d
-	picture = GFX_report_event_UKR_sun_assembly
+	picture = GFX_report_event_UKR_uvo
 	is_triggered_only = yes
 
 	option = {
@@ -5624,7 +5976,7 @@ country_event = { # SUN Assembly
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrsun.11" }
 	title = ukrsun.11.t
 	desc = ukrsun.11.d
-	picture = GFX_report_event_UKR_sun_assembly
+	picture = GFX_report_event_UKR_uvo
 	is_triggered_only = yes
 
 	option = {
@@ -5649,7 +6001,7 @@ country_event = { # SUN Assembly
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrsun.12" }
 	title = ukrsun.12.t
 	desc = ukrsun.12.d
-	picture = GFX_report_event_UKR_sun_assembly
+	picture = GFX_report_event_UKR_uvo
 	is_triggered_only = yes
 
 	option = {
@@ -5685,10 +6037,13 @@ country_event = { # SUN Assembly
 				has_country_flag = UKR_SUN_syndicalized
 			}
 			set_country_leader_ideology = right_syndicalism_subtype
+			remove_ideas_with_trait = economy_minister
+			add_ideas = UKR_Kirill_Osmak_eco_tot
 		}
 		else = {
-			set_country_leader_ideology = integralism_subtype
+			set_country_leader_ideology = national_populist_subtype
 		}
+		set_cosmetic_tag = UKR_nationalist
 		random_other_country = {
 			news_event = {
 				id = ukrsun.13
@@ -5718,6 +6073,249 @@ news_event = { # Proclamation
 
 	option = {
 		name = ukrsun.13.a
+	}	
+}
+country_event = { # SUNM
+	id = ukrsun.14
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrsun.14" }
+	title = ukrsun.14.t
+	desc = ukrsun.14.d
+	picture = GFX_report_event_UKR_sunm
+	is_triggered_only = yes
+
+	option = {
+		name = ukrsun.14.a
+		add_ideas = UKR_sunm_organisation
+		custom_effect_tooltip = improved_recon_units_tech_effect
+		hidden_effect = {
+			set_technology = { improved_recon_units_tech = 1 popup = no }
+		}
+	}			
+}
+country_event = { # Plast
+	id = ukrsun.15
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrsun.15" }
+	title = ukrsun.15.t
+	desc = ukrsun.15.d
+	picture = GFX_report_event_UKR_plast
+	is_triggered_only = yes
+
+	option = {
+		name = ukrsun.14.a
+		add_ideas = UKR_plast_organisation
+		custom_effect_tooltip = expanded_engineer_corps_tech_effect
+		hidden_effect = {
+			set_technology = { expanded_engineer_corps_tech = 1 popup = no }
+		}
+	}			
+}
+country_event = { # Secret pact with rus
+	id = ukrsun.16
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrsun.16" }
+	title = ukrsun.16.t
+	desc = ukrsun.16.d
+	picture = GFX_report_event_UKR_uvo
+	is_triggered_only = yes
+
+	option = {
+		name = ukrsun.16.a
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 0.2
+				RUS_savinkov_in_power = yes
+			}
+			modifier = {
+				factor = 0.2
+				has_completed_focus = RUS_Realpolitik
+			}
+			modifier = {
+				factor = 1.5
+				RUS_russian_monarch = yes
+			}
+		}
+		FROM = {
+			country_event = {
+				id = ukrsun.17
+				days = 3
+			}
+		}
+	}	
+	option = {
+		name = ukrsun.16.b
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 2.5
+				RUS_savinkov_in_power = yes
+			}
+			modifier = {
+				factor = 0.2
+				has_completed_focus = RUS_Realpolitik
+			}
+			modifier = {
+				factor = 0
+				RUS_russian_monarch = yes
+			}
+		}
+		FROM = {
+			country_event = {
+				id = ukrsun.18
+				days = 3
+			}
+		}
+	}	
+	option = {
+		name = ukrsun.16.c
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 6
+				has_completed_focus = RUS_Realpolitik
+			}
+			modifier = {
+				factor = 0
+				RUS_russian_monarch = yes
+			}
+		}
+		add_political_power = -50
+		add_stability = -0.1
+		FROM = {
+			country_event = {
+				id = ukrsun.21
+				days = 3
+			}
+		}
+	}		
+}
+country_event = { # Secret pact with rus
+	id = ukrsun.17
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrsun.17" }
+	title = ukrsun.17.t
+	desc = ukrsun.17.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ukrsun.17.a
+		set_country_flag = RUS_refused_secret_pact
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hates_govt
+		}
+	}			
+}
+country_event = { # Secret pact with rus
+	id = ukrsun.18
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrsun.18" }
+	title = ukrsun.18.t
+	desc = ukrsun.18.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ukrsun.18.a
+		ai_chance = {
+			base = 90
+		}
+		set_country_flag = RUS_refused_secret_pact
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hates_govt
+		}
+		FROM = {
+			country_event = {
+				id = ukrsun.20
+				days = 2
+			}
+		}
+	}	
+	option = {
+		name = ukrsun.18.b
+		ai_chance = {
+			base = 10
+		}
+		complete_national_focus = UKR_Secret_Collusion_With_Russia
+		set_global_flag = UKR_RUS_secret_pact
+		set_global_flag = UKR_refused_eastern_claims
+		diplomatic_relation = {
+			country = FROM
+			relation = non_aggression_pact
+			active = yes
+		}
+		FROM = {
+			country_event = {
+				id = ukrsun.19
+				days = 2
+			}
+		}
+	}			
+}
+country_event = { # Secret pact with rus
+	id = ukrsun.19
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrsun.19" }
+	title = ukrsun.19.t
+	desc = ukrsun.19.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ukrsun.19.a
+		ai_chance = {
+			base = 90
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hates_govt
+		}
+	}	
+}
+country_event = { # Secret pact with rus
+	id = ukrsun.20
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrsun.20" }
+	title = ukrsun.20.t
+	desc = ukrsun.20.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ukrsun.20.a
+		ai_chance = {
+			base = 90
+		}
+		complete_national_focus = UKR_Secret_Collusion_With_Russia
+		set_global_flag = UKR_RUS_secret_pact
+		diplomatic_relation = {
+			country = FROM
+			relation = non_aggression_pact
+			active = yes
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_pleased
+		}
+	}	
+}
+country_event = { # Secret pact with rus
+	id = ukrsun.21
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ukrsun.21" }
+	title = ukrsun.21.t
+	desc = ukrsun.21.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ukrsun.21.a
+		ai_chance = {
+			base = 90
+		}
+		complete_national_focus = UKR_Secret_Collusion_With_Russia
+		set_global_flag = UKR_RUS_secret_pact
+		diplomatic_relation = {
+			country = FROM
+			relation = non_aggression_pact
+			active = yes
+		}
 	}	
 }
 
@@ -7115,7 +7713,7 @@ country_event = { # The Fate of the Ukrainian Monarchy
                         remove_ideas = another_crisis_kulaks
 		}
 
-                remove_all_ministers = yes
+                remove_all_minister_types_ukr = yes
 		add_ideas = {
 			UKR_Volodymyr_Chekhivsky_hog_rso
                         UKR_Mykhailo_Yalovy_for_rso
@@ -10271,7 +10869,7 @@ country_event = {
 
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event ukraine.89"
-		remove_all_ministers = yes
+		remove_all_minister_types_ukr = yes
 		hidden_effect = {
 			country_event = {
 				id = ukraine.890
@@ -10532,7 +11130,7 @@ country_event = { #Subsequent Elections
 
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event ukraine.890"
-		remove_all_ministers = yes
+		remove_all_minister_types_ukr = yes
 		hidden_effect = {
 			country_event = {
 				id = ukraine.890

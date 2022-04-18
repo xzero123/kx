@@ -288,6 +288,13 @@ on_actions = {
 				}
 				country_event = whrpol.27 #polls closed
 			}
+			### Kuban ###
+			if = {
+				limit = {
+					tag = KUB
+				}
+				country_event = kub.6 #1936
+			}
 		}
 	}
 
@@ -420,6 +427,84 @@ on_actions = {
 					}
 				}
 				POL = { country_event = { id = poland.226 days = 1 random_days = 1 } }
+			}	
+			else_if = {
+				limit = {
+					tag = GAL
+					FROM = {
+						OR = {
+							tag = HUN
+							tag = CZE
+							tag = POL
+							tag = AUS
+						}
+					}
+				}
+				if = {
+					limit = {
+						country_exists = GAL
+						91 = { is_owned_by = GAL }
+						NOT = { has_global_flag = WSU_first_rebellion }
+					}
+					GAL = {
+						country_event = {
+							id = wsu.2
+							days = 5
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						NOT = { country_exists = GAL }
+						91 = { is_owned_by = AUS }
+						NOT = { has_global_flag = WSU_first_rebellion }
+					}
+					AUS = {
+						country_event = {
+							id = wsu.2
+							days = 5
+						}
+					}
+				}				
+			}
+			else_if = {
+				limit = {
+					OR = {
+						tag = HUN
+						tag = CZE
+						tag = POL
+						tag = AUS
+					}
+					FROM = {
+						tag = GAL
+					}
+				}
+				if = {
+					limit = {
+						country_exists = GAL
+						91 = { is_owned_by = GAL }
+						NOT = { has_global_flag = WSU_first_rebellion }
+					}
+					GAL = {
+						country_event = {
+							id = wsu.2
+							days = 5
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						NOT = { country_exists = GAL }
+						91 = { is_owned_by = AUS }
+						NOT = { has_global_flag = WSU_first_rebellion }
+					}
+					AUS = {
+						country_event = {
+							id = wsu.2
+							days = 5
+						}
+					}
+				}				
 			}
 		}
 	}
@@ -435,6 +520,30 @@ on_actions = {
 				} 
 				DKB = { add_ideas = DKB_no_allies_cw }
 			}
+			else_if = {
+				limit = {
+					OR = {
+						tag = GER
+						is_actual_major = yes
+					}
+					FROM = {
+						OR = {
+							is_actual_major = yes
+							tag = GER
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_global_flag = UKR_RUS_secret_pact
+					}
+					UKR = {
+						leave_faction = yes
+						separate_peace_all_wars = yes
+					}
+					RUS = { add_to_faction = UKR }
+				}
+			}			
 		} 
 	}
 }

@@ -16,9 +16,11 @@ don_is_pro_russian = {
 kuban_is_pro_german = {
 	KUB = {
 		OR = {
+			has_government = radical_socialist
+			has_government = social_democrat
+			has_government = social_liberal
 			has_government = market_liberal
-			is_in_faction_with = GER
-			is_subject_of = UKR
+			has_government = paternal_autocrat
 		}
 	}
 }
@@ -26,8 +28,21 @@ kuban_is_pro_russian = {
 	KUB = {
 		OR = {
 			has_government = social_conservative
+			has_government = authoritarian_democrat
 			has_government = national_populist
 		}
 	}
 }
-	
+can_unite_don_kuban = {
+	OR = {
+		AND = {
+			tag = KUB
+			OR = {
+				kuban_is_pro_russian = yes
+				KUB = { has_socialist_government = yes }
+			}
+		}
+		tag = DKB
+	}
+}
+				

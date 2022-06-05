@@ -1387,24 +1387,6 @@ country_event = { #vlasov ded
 	  
     }
 	
-	country_event = { #A New Revolution?
-    id = vlasov.14
-	title = vlasov.14.t
-	desc = vlasov.14.d
-	fire_only_once = yes
-	is_triggered_only = yes
-	
-	option = { #Only inprison schizos
-		name = vlasov.14.a
-		add_political_power = 100
-	  }
-	  option = { #Inprsion more 
-		name = vlasov.14.b
-		add_stability = 0.05
-		add_political_power = 25
-	  }
-	  
-    }
 	
 	country_event = { #Birth of United Russia
     id = vlasov.10
@@ -1423,10 +1405,6 @@ country_event = { #vlasov ded
             name = DKB_united_russia_party
 	     }
 		 hidden_effect = {
-		 country_event = {
-         id = vlasov.11
-         days = 8
-          }
 		  create_country_leader = {
 			name = "Andrey Vlasov"
 			picture = "gfx/leaders/DKB/Portrait_DKB_Andrey_Vlasov.png"
@@ -1438,134 +1416,26 @@ country_event = { #vlasov ded
 	  }
 	  
     }
-	
-	country_event = { #Kaminski and Voskoboinik annonce opposition!
-    id = vlasov.11
-	title = vlasov.11.t
-	desc = vlasov.11.d
+
+		country_event = { #A New Revolution?
+    id = vlasov.14
+	title = vlasov.14.t
+	desc = vlasov.14.d
 	fire_only_once = yes
 	is_triggered_only = yes
 	
-	option = { 
-		name = vlasov.11.a
-		add_political_power = -25
-		set_party_name = { 
-            ideology = national_populist
-            long_name = DKB_kaminski_pannwitz_long
-            name = DKB_kaminski_pannwitz
-	     }
-		add_popularity = {
-             ideology = national_populist
-             popularity = 0.07
-            }
-		 hidden_effect = {
-		 country_event = {
-         id = vlasov.12
-         days = 10
-          }
-		 }
+	option = { #sure
+		name = vlasov.14.a
+		add_political_power = 100
+	  }
+	  option = { #no
+		name = vlasov.14.b
+		add_stability = 0.05
+		add_political_power = 25
 	  }
 	  
     }
 	
-	country_event = { #Kaminski-Voskoboinik Putsch
-    id = vlasov.12
-	title = vlasov.12.t
-	desc = vlasov.12.d
-	fire_only_once = yes
-	is_triggered_only = yes
-	
-	option = { #The Putsch fails horribly!
-		name = vlasov.12.a
-		add_stability = -0.10
-		add_popularity = {
-			ideology = national_populist
-			popularity = -0.10
-		}
-		set_country_flag = DKB_Vlasovtsy_Remain_flag
-		unlock_national_focus = DKB_Vlasovsty_Remain
-		
-	  }
-	option = { #Vlasov dies in the chaos!
-		name = vlasov.12.b
-		add_stability = -0.15
-		add_popularity = {
-			ideology = authoritarian_democrat
-			popularity = -0.15
-		}
-		kill_country_leader = yes
-		create_country_leader = {
-				name = "Mikhail Meandrov"
-				picture = "gfx/leaders/DKB/Portrait_DKB_Mikhail_Meandrov.png"
-				expire = "1965.1.1"
-				ideology = authoritarian_democrat_subtype
-			 }		
-		 hidden_effect = {
-		  country_event = {
-          id = vlasov.13
-          days = 3
-          }
-          random_other_country = {
-				news_event = {
-					id = worldnews.1249
-				}
-			}
-		}
-	  }
-	  
-    }
-	
-	country_event = { #The Fate of the Motherland
-    id = vlasov.13
-	title = vlasov.13.t
-	desc = vlasov.13.d
-	fire_only_once = yes
-	is_triggered_only = yes
-	
-	option = { #Kaminski Rises
-		name = vlasov.13.a
-		set_cosmetic_tag = DKB_jesse_RUS
-		add_stability = -0.05
-		add_political_power = 150
-		add_popularity = {
-             ideology = national_populist
-             popularity = 0.10
-            }
-			set_politics = {
-			ruling_party = national_populist
-				elections_allowed = no
-			}
-			set_country_flag = DKB_Kaminski_Coup_flag
-	    }
-	option = { #Sheifton
-		name = vlasov.13.b
-		add_stability = 0.10
-		set_cosmetic_tag = DKB_shteifon_RUS
-		add_popularity = {
-             ideology = paternal_autocrat
-             popularity = 0.05
-            }
-			set_politics = {
-			ruling_party = paternal_autocrat
-				elections_allowed = no
-			}
-			set_country_flag = DKB_Kolchakites_in_Power
-	    }
-		option = { #Bunya
-		name = vlasov.13.c
-			add_stability = 0.05
-			set_country_flag = DKB_Bunyachenko_in_Power
-			create_country_leader = {
-				name = "Sergei Bunyachenko"
-				picture = "gfx/leaders/DKB/Portrait_DKB_Sergei_Bunyachenko.png"
-				expire = "1965.1.1"
-				ideology = authoritarian_democrat_subtype
-			 }
-			 set_cosmetic_tag = DKB_vlasov_RUS_alt3
-	    }
-		
-	  
-    }
 	#Vlasov path stuff
 	
 	country_event = { #Federation
@@ -1579,9 +1449,6 @@ country_event = { #vlasov ded
 		name = vlasov.15.a
 		trigger = {
 			has_completed_focus = DKB_Welfare_for_the_People
-			NOT = {
-			has_completed_focus = DKB_Enbrace_Free_Market_Economics
-			}
 		}
 		custom_effect_tooltip = DKB_United_Russia_will_move_socdem
 		add_country_leader_trait = president_of_russian_fed
@@ -1622,9 +1489,6 @@ country_event = { #vlasov ded
 		name = vlasov.15.b
 		trigger = {
 			has_completed_focus = DKB_Enbrace_Free_Market_Economics
-			NOT = {
-			has_completed_focus = DKB_Welfare_for_the_People
-			}
 		}
 		custom_effect_tooltip = DKB_United_Russia_will_move_soccon
 		add_country_leader_trait = president_of_russian_fed
@@ -1696,9 +1560,6 @@ country_event = { #vlasov ded
 		name = vlasov.17.a
 		trigger = {
 			has_completed_focus = DKB_Russian_Christian_Democracy
-			NOT = {
-			has_completed_focus = DKB_True_Right_Syndicalism
-			}
 		}
 		add_country_leader_trait = vozhd_of_all_russia_vlasov
 		custom_effect_tooltip = DKB_United_Russia_will_move_pataut
@@ -1735,9 +1596,6 @@ country_event = { #vlasov ded
 		name = vlasov.17.b
 		trigger = {
 			has_completed_focus = DKB_True_Right_Syndicalism
-			NOT = {
-			has_completed_focus = DKB_Russian_Christian_Democracy
-			}
 		}
 		add_country_leader_trait = vozhd_of_all_russia_vlasov
 		custom_effect_tooltip = DKB_United_Russia_will_move_natpop
@@ -1852,7 +1710,7 @@ country_event = { #vlasov ded
 	is_triggered_only = yes
 	
 	option = { 
-		name = vlasov.21.a
+		name = vlasov.22.a
 		add_political_power = -25
 		add_popularity = {
              ideology = national_populist
@@ -1880,30 +1738,7 @@ country_event = { #vlasov ded
 	   }
 	 }
 	 
-	 #ROA path stuff
-	country_event = { #Post coup Leadership question
-    id = vlasov.23
-	title = vlasov.23.t
-	desc = vlasov.23.d
-	fire_only_once = yes
-	is_triggered_only = yes
-	
-	option = { #White Government Remains
-		name = vlasov.21.a
-		add_stability = 0.10
-	   }
-	option = { #Rise of the Director
-		name = vlasov.21.b
-		add_political_power = 150
-		create_country_leader = {
-			name = "Viktor Maltsev"
-			picture = "gfx/leaders/DKB/Portrait_DKB_Viktor_Maltsev.png"
-			expire = "1965.1.1"
-			ideology = junta_subtype
-			 }
-	   }
-	 }
-	
+	 
 #demand shit
 country_event = { #The East Bank
 	id = dkbfor.49

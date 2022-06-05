@@ -9534,20 +9534,8 @@ focus = {
 			focus = DKB_Slay_the_Dragon
 		}
 		available = {
-			if = {
-				limit = {
-					country_exists = SOV
-					SOV = { has_country_flag = SOV_restored_in_transamur }
-				}
-				NOT = { country_exists = RUS }
-			}
-			else = {
-				NOT = {
-					OR = {
-						country_exists = SOV
-						country_exists = RUS
-					}
-				}
+			RUS = {
+				exists = no
 			}
 			195 = { is_owned_and_controlled_by = ROOT }
 			219 = { is_owned_and_controlled_by = ROOT }
@@ -9706,8 +9694,10 @@ focus = {
 		}
 	}
 	
+
+	
 	focus = {
-		id = DKB_A_Calm_Morning
+		id = DKB_Vlasovsty_Remain
 		icon = GFX_focus_rus_dawn
 		cost = 5
 		ai_will_do = {
@@ -9724,7 +9714,7 @@ focus = {
 		x = 0
 		y = 3
 		completion_reward = {
-		 country_event = vlasov.10
+		country_event = vlasov.10
 		 swap_ideas = {
 			remove_idea = DKB_aftermath_uch_economic_idea_1
 			add_idea = DKB_aftermath_uch_economic_idea_2
@@ -9733,31 +9723,6 @@ focus = {
 			remove_idea = DKB_aftermath_uch_idea_2
 			add_idea = DKB_aftermath_uch_idea_3
 			}
-		}
-	}
-	
-	focus = {
-		id = DKB_Vlasovsty_Remain
-		icon = GFX_focus_rus_vlasov
-		cost = 5
-		ai_will_do = {
-			factor = 50
-		}
-		available = {
-		has_country_flag = DKB_Vlasovtsy_Remain_flag
-		}
-		bypass = {
-		has_country_flag = DKB_Vlasovtsy_Remain_flag
-		}
-        relative_position_id = DKB_A_Calm_Morning
-		prerequisite = {
-			focus = DKB_A_Calm_Morning
-		}
-		
-		x = 0
-		y = 1
-		completion_reward = {
-		custom_effect_tooltip = unlock_focuses
 	    }
 	
     }
@@ -10450,135 +10415,6 @@ focus = {
     }
 	
 	
-	focus = {
-		id = DKB_Liberation_Army_Coup
-		icon = GFX_DKB_roa
-		cost = 5
-		ai_will_do = {
-			factor = 50
-		}
-		available = {
-		has_country_flag = DKB_Kolchakites_in_Power
-		}
-		bypass = {
-		has_country_flag = DKB_Kolchakites_in_Power
-		}
-        relative_position_id = DKB_A_Calm_Morning
-		prerequisite = {
-			focus = DKB_A_Calm_Morning
-		}
-		
-		x = -10
-		y = 1
-		completion_reward = {
-		custom_effect_tooltip = unlock_focuses
-	    }
-	
-    }
-	
-	focus = {
-		id = DKB_The_Director_Rises
-		icon = GFX_goal_RUS_airforce
-		cost = 5
-		ai_will_do = {
-			factor = 50
-		}
-		available = {
-		has_country_leader = {
-            name = "Viktor Maltsev"
-            ruling_only = yes
-            }
-		}
-        relative_position_id = DKB_Liberation_Army_Coup
-		prerequisite = {
-			focus = DKB_Liberation_Army_Coup
-		}
-		
-		x = 1
-		y = 1
-		completion_reward = {
-		custom_effect_tooltip = unlock_focuses
-	    }
-	
-    }
-	
-	focus = {
-		id = DKB_The_White_General
-		icon = GFX_goal_RUS_white_legacy
-		cost = 5
-		ai_will_do = {
-			factor = 50
-		}
-		available = {
-			has_country_leader = {
-            name = "Boris Shteyfon"
-            ruling_only = yes
-            }
-		 }
-        relative_position_id = DKB_Liberation_Army_Coup
-		prerequisite = {
-			focus = DKB_Liberation_Army_Coup
-		}
-		
-		x = -1
-		y = 1
-		completion_reward = {
-		custom_effect_tooltip = unlock_focuses
-	    }
-	
-    }
-	
-	focus = {
-		id = DKB_The_Putsch_Succeeds
-		icon = GFX_goal_RUS_new_russia
-		cost = 5
-		ai_will_do = {
-			factor = 50
-		}
-		available = {
-		has_country_flag = DKB_Kaminski_Coup_flag
-		}
-		bypass = {
-		has_country_flag = DKB_Kaminski_Coup_flag
-		}
-        relative_position_id = DKB_A_Calm_Morning
-		prerequisite = {
-			focus = DKB_A_Calm_Morning
-		}
-		
-		x = 10
-		y = 1
-		completion_reward = {
-		custom_effect_tooltip = unlock_focuses
-	    }
-	
-    }
-	
-	focus = {
-		id = DKB_Bunyachenko_Steps_In
-		icon = GFX_goal_RUS_Yunarmiya
-		cost = 5
-		ai_will_do = {
-			factor = 50
-		}
-		available = {
-		has_country_flag = DKB_Bunyachenko_in_Power
-		}
-		bypass = {
-		has_country_flag = DKB_Bunyachenko_in_Power
-		}
-        relative_position_id = DKB_A_Calm_Morning
-		prerequisite = {
-			focus = DKB_A_Calm_Morning
-		}
-		
-		x = -17
-		y = 1
-		completion_reward = {
-		custom_effect_tooltip = unlock_focuses
-	    }
-	
-    }
 	
 	
 }

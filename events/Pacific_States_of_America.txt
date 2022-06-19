@@ -426,6 +426,7 @@ country_event = { # 1937 Election
 		tag = CAL
 		NOT = {
 			has_country_flag = PSA_had_1937_election
+			is_supposed_to_fire_for_tag = yes
 		}
 	}
 
@@ -467,7 +468,7 @@ country_event = { # 1937 Election
 					desc = "POLITICS_HENRY_WALLACE_DESC"
 					picture = "gfx/leaders/USA/Portrait_USA_Henry_Wallace.png"
 					expire = "1965.1.1"
-					ideology = social_democrat_subtype
+					ideology = georgism_subtype
 					traits = { great_survivor }
 				}
 			}
@@ -480,7 +481,7 @@ country_event = { # 1937 Election
 					desc = "POLITICS_CHARLES_MCNARY_DESC"
 					picture = "gfx/leaders/USA/Portrait_USA_Charles_L_McNary.png"
 					expire = "1965.1.1"
-					ideology = social_democrat_subtype
+					ideology = georgism_subtype
 					traits = { fortification_engineer }
 				}
 			}
@@ -493,7 +494,7 @@ country_event = { # 1937 Election
 					desc = "POLITICS_HIRAM_JOHNSON_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Hiram_Johnson.png"
 					expire = "1965.1.1"
-					ideology = social_democrat_subtype
+					ideology = georgism_subtype
 					traits = { captain_of_industry }
 				}
 			}
@@ -506,7 +507,7 @@ country_event = { # 1937 Election
 					desc = "POLITICS_CC_YOUNG_DESC"
 					picture = "gfx/leaders/CAL/CAL_CC_Young.png"
 					expire = "1965.1.1"
-					ideology = social_democrat_subtype
+					ideology = georgism_subtype
 					traits = { diehard_progressive }
 				}
 			}
@@ -519,7 +520,7 @@ country_event = { # 1937 Election
 					desc = "POLITICS_EARL_WARREN_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Earl_Warren.png"
 					expire = "1965.1.1"
-					ideology = social_liberal_subtype
+					ideology = centrist_subtype
 					traits = { backroom_backstabber }
 				}
 			}
@@ -532,7 +533,7 @@ country_event = { # 1937 Election
 					desc = "POLITICS_WILLIAM_GIBBS_MCADOO_DESC"
 					picture = "gfx/leaders/CAL/CAL_William_Gibbs_Mcaddo.png"
 					expire = "1965.1.1"
-					ideology = social_liberal_subtype
+					ideology = centrist_subtype
 					traits = { eco_bank_president }
 				}
 			}
@@ -545,7 +546,7 @@ country_event = { # 1937 Election
 					desc = "POLITICS_CLARENCE_MARTIN_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Clarence_Martin.png"
 					expire = "1965.1.1"
-					ideology = social_liberal_subtype
+					ideology = centrist_subtype
 					traits = { fortification_engineer }
 				}
 			}
@@ -558,7 +559,7 @@ country_event = { # 1937 Election
 					desc = "POLITICS_CHARLES_SPRAGUE_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Charles_A_Sprague.png"
 					expire = "1965.1.1"
-					ideology = social_liberal_subtype
+					ideology = centrist_subtype
 					traits = { economic_reformer }
 				}
 			}
@@ -571,7 +572,7 @@ country_event = { # 1937 Election
 					desc = "POLITICS_MANCHESTOR_BODDY_DESC"
 					picture = "gfx/leaders/CAL/CAL_Manchester_Boddy.png"
 					expire = "1965.1.1"
-					ideology = social_liberal_subtype
+					ideology = centrist_subtype
 					traits = { editor }
 				}
 			}
@@ -584,7 +585,7 @@ country_event = { # 1937 Election
 					desc = "POLITICS_Robert_Taft_DESC"
 					picture = "gfx/leaders/CAL/CAL_R_A_Taft.png"
 					expire = "1965.1.1"
-					ideology = market_liberal_subtype
+					ideology = liberal_conservative_subtype
 					traits = { staunch_constitutionalist }
 				}
 			}
@@ -598,7 +599,7 @@ country_event = { # 1937 Election
 					desc = "POLITICS_HARRY_CHANDLER_DESC"
 					picture = "gfx/leaders/CAL/CAL_HarryChandler.png.png"
 					expire = "1965.1.1"
-					ideology = market_liberal_subtype
+					ideology = liberal_conservative_subtype
 					traits = { eco_industrialiser }
 				}
 			}
@@ -612,7 +613,7 @@ country_event = { # 1937 Election
 					desc = "POLITICS_HOWARD_HUGES_DESC"
 					picture = "gfx/leaders/CAL/CAL_Howard Hughes.png"
 					expire = "1965.1.1"
-					ideology = market_liberal_subtype
+					ideology = liberal_conservative_subtype
 					traits = { captain_of_industry }
 				}
 				if = {	
@@ -632,7 +633,7 @@ country_event = { # 1937 Election
 					desc = "POLITICS_FRANK_MERRIAM_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Frank_Merrimam.png"
 					expire = "1965.1.1"
-					ideology = market_liberal_subtype
+					ideology = liberal_conservative_subtype
 					traits = { prince_of_terror }
 				}
 			}
@@ -645,7 +646,7 @@ country_event = { # 1937 Election
 					desc = "POLITICS_FRANK_KNOX_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Frank_Knox.png"
 					expire = "1965.1.1"
-					ideology = market_liberal_subtype
+					ideology = liberal_conservative_subtype
 					traits = { sec_media_magnate }
 				}
 			}
@@ -658,7 +659,7 @@ country_event = { # 1937 Election
 					desc = "POLITICS_LOUIS_B_MEYER_DESC"
 					picture = "gfx/leaders/CAL/CAL_Louis_B._Mayer.png"
 					expire = "1965.1.1"
-					ideology = market_liberal_subtype
+					ideology = liberal_conservative_subtype
 					traits = { sec_media_magnate }
 				}
 			}
@@ -1189,6 +1190,12 @@ country_event = { # 1937 Election
 				limit = {
 					has_country_flag = PSA_1937_democratic_primary_garner
 				}
+				add_ideas = CAL_Harry_P_Cain_hog_sco
+				add_ideas = CAL_Louis_Arthur_Johnson_for_sco
+				add_ideas = CAL_Norman_Chandler_eco_sco
+				add_ideas = CAL_Henry_Fountain_Ashurst_sec_sco
+			}
+			else = {
 				add_ideas = CAL_Harry_P_Cain_hog_sco
 				add_ideas = CAL_Louis_Arthur_Johnson_for_sco
 				add_ideas = CAL_Norman_Chandler_eco_sco
@@ -1902,7 +1909,7 @@ country_event = { # 1940 Progressive Primary
 	picture = GFX_report_event_USA_congress
 
 	trigger = {
-		has_country_flag = PSA_Progs_Win
+		#has_country_flag = PSA_Progs_Win
 		tag = CAL
 		has_elected_government = yes	
 		date > 1940.1.1
@@ -1982,7 +1989,7 @@ country_event = { # 1940 Democratic-Republican Primary
 
 	trigger = {
 		tag = CAL
-		has_country_flag = PSA_Libs_Win
+		#has_country_flag = PSA_Libs_Win
 		has_elected_government = yes
 		date > 1940.1.1
 		date < 1945.1.1
@@ -2057,7 +2064,7 @@ country_event = { # 1940 Republican Primary
 
 	trigger = {
 		tag = CAL
-		has_country_flag = PSA_MarkLibs_Win
+		#has_country_flag = PSA_MarkLibs_Win
 		has_elected_government = yes
 		date > 1940.1.1
 		date < 1945.1.1
@@ -2131,15 +2138,7 @@ country_event = { # 1940 Democrat Primary
 	picture = GFX_report_event_USA_congress
 	
 	trigger = {
-		has_country_flag = PSA_Conservatives_Win
-		NOT = {
-		OR = {
-			has_government = paternal_autocrat
-			has_government = national_populist
-			has_government = syndicalist
-			has_government = totalist
-			}
-		}
+		#has_country_flag = PSA_Conservatives_Win
 		tag = CAL
 		date > 1940.1.1
 		date < 1945.1.1
@@ -2182,7 +2181,7 @@ country_event = { # 1940 Democrat Primary
 	}
 }
 
-country_event = { # 1940 Democrat Primary
+country_event = { # 1940 Commonwealth Primary
 	id = pacificstates.1000
 	immediate = {log = "[GetDateText]: [Root.GetName]: event pacificstates.1000"}
 	title = pacificstates.1000.t
@@ -2195,15 +2194,7 @@ country_event = { # 1940 Democrat Primary
 	
 	
 	trigger = {
-		has_country_flag = PSA_Conservatives_Win
-		NOT = {
-		OR = {
-			has_government = paternal_autocrat
-			has_government = national_populist
-			has_government = syndicalist
-			has_government = totalist
-			}
-		}
+		#has_country_flag = PSA_Conservatives_Win
 		tag = CAL
 		has_elected_government = yes
 		date > 1940.1.1
@@ -2274,6 +2265,7 @@ country_event = { # 1940 election
 		has_democratic_government = yes
 		NOT = {
 			has_country_flag = PSA_had_1940_election
+			is_supposed_to_fire_for_tag = yes
 		}
 		date > 1940.1.1
 		date < 1945.1.1
@@ -2319,7 +2311,7 @@ country_event = { # 1940 election
 					desc = "POLITICS_HENRY_WALLLACE_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Henry_Wallace.png"
 					expire = "1965.1.1"
-					ideology = social_democrat_subtype
+					ideology = georgism_subtype
 					traits = { great_survivor }
 				}
 			}
@@ -2332,7 +2324,7 @@ country_event = { # 1940 election
 					desc = "POLITICS_HOMER_BONE_DESC"
 					picture = "gfx/leaders/CAL/CAL_Homer_Bone.png"
 					expire = "1965.1.1"
-					ideology = social_democrat_subtype
+					ideology = georgism_subtype
 					traits = { backroom_backstabber }
 				}
 			}
@@ -2345,7 +2337,7 @@ country_event = { # 1940 election
 					desc = "POLITICS_SHERIDAN_DOWNEY_DESC"
 					picture = "gfx/leaders/CAL/CAL_sheridan_downey.png"
 					expire = "1965.1.1"
-					ideology = social_democrat_subtype
+					ideology = georgism_subtype
 					traits = { silent_workhorse }
 				}
 			}
@@ -2359,7 +2351,7 @@ country_event = { # 1940 election
 					desc = "POLITICS_EARL_WARREN_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Earl_Warren.png"
 					expire = "1965.1.1"
-					ideology = social_liberal_subtype
+					ideology = centrist_subtype
 					traits = { backroom_backstabber }
 				}
 			}
@@ -2373,7 +2365,7 @@ country_event = { # 1940 election
 					desc = "POLITICS_CLARENCE_MARTIN_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_clarence_martin.png"
 					expire = "1965.1.1"
-					ideology = social_liberal_subtype
+					ideology = centrist_subtype
 					traits = { fortification_engineer }
 				}
 			}
@@ -2387,7 +2379,7 @@ country_event = { # 1940 election
 					desc = "POLITICS_OSWALD_WEST_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Oswald_West.png"
 					expire = "1965.1.1"
-					ideology = social_liberal_subtype
+					ideology = centrist_subtype
 					traits = { nationalist_symbol }
 				}
 			}
@@ -2401,7 +2393,7 @@ country_event = { # 1940 election
 					desc = "POLITICS_CHARLES_SPRAGUE_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Charles_A_Sprague.png"
 					expire = "1965.1.1"
-					ideology = market_liberal_subtype
+					ideology = liberal_conservative_subtype
 					traits = { economic_reformer }
 				}
 			}
@@ -2414,7 +2406,7 @@ country_event = { # 1940 election
 					desc = "POLITICS_RALPH_CARR_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Ralph_Lawrence_Carr.png"
 					expire = "1965.1.1"
-					ideology = market_liberal_subtype
+					ideology = liberal_conservative_subtype
 					traits = { divided_interests }
 				}
 			}
@@ -2450,9 +2442,6 @@ country_event = { # 1940 election
 
 	option = { # Progressive
 		name = pacificstates.11.a
-		trigger = {
-		has_country_flag = PSA_Progs_Win
-		}
 		set_country_flag = PSA_had_1940_election
 		hidden_effect = {
 			set_country_flag = PSA_1940_election_progressive
@@ -2523,9 +2512,6 @@ country_event = { # 1940 election
 	}
 	option = { # Dem-Rep
 		name = pacificstates.11.b
-		trigger = {
-		has_country_flag = PSA_Libs_Win
-		}
 		set_country_flag = PSA_had_1940_election
 		hidden_effect = {
 			set_country_flag = PSA_1940_election_liberal
@@ -2549,7 +2535,7 @@ country_event = { # 1940 election
 					has_country_flag = PSA_1940_liberal_primary_warren
 				}
 				add_ideas = CAL_Earl_Warren_hog_sli
-				add_ideas =  CAL_Hugh_Simons_Gibson_for_sli
+				add_ideas = CAL_Hugh_Simons_Gibson_for_sli
 				add_ideas = CAL_Harley_Eugene_Knox_eco_sli
 				add_ideas = CAL_Bestor_Robinson_sec_sli
 			}
@@ -2567,6 +2553,12 @@ country_event = { # 1940 election
 					has_country_flag = PSA_1940_liberal_primary_west
 				}
 				add_ideas = CAL_Oswald_West_hog_sli
+				add_ideas =  CAL_George_Catlett_Marshall_Jr_for_sli
+				add_ideas = CAL_Harley_Eugene_Knox_eco_sli
+				add_ideas = CAL_Bestor_Robinson_sec_sli
+			}
+			else = { # 
+				add_ideas = CAL_Earl_Warren_hog_sli
 				add_ideas =  CAL_George_Catlett_Marshall_Jr_for_sli
 				add_ideas = CAL_Harley_Eugene_Knox_eco_sli
 				add_ideas = CAL_Bestor_Robinson_sec_sli
@@ -2593,9 +2585,6 @@ country_event = { # 1940 election
 	}
 	option = { # Republican
 		name = pacificstates.11.c
-		trigger = {
-		has_country_flag = PSA_MarkLibs_Win
-		}
 		set_country_flag = PSA_had_1940_election
 		hidden_effect = {
 			set_country_flag = PSA_1940_election_republican
@@ -2632,6 +2621,12 @@ country_event = { # 1940 election
 				add_ideas = CAL_Donald_Wills_Douglas_Sr_eco_mli
 				add_ideas = CAL_Frank_L_Shaw_sec_mli
 			}
+			else = {
+				add_ideas = CAL_Charles_A_Sprague_hog_mli
+				add_ideas = CAL_David_Prescott_Barrows_for_mli
+				add_ideas = CAL_Donald_Wills_Douglas_Sr_eco_mli
+				add_ideas = CAL_Frank_L_Shaw_sec_mli
+			}
 
 			# next primaries
 			country_event = {
@@ -2654,9 +2649,6 @@ country_event = { # 1940 election
 	}
 	option = { # Democrat
 		name = pacificstates.11.e
-		trigger = {
-		has_country_flag = PSA_Conservatives_Win
-		}
 		set_country_flag = PSA_had_1940_election
 		hidden_effect = {
 			set_country_flag = PSA_1940_election_democrat
@@ -2693,6 +2685,12 @@ country_event = { # 1940 election
 				add_ideas = CAL_Norman_Chandler_eco_sco
 				add_ideas = CAL_Henry_Fountain_Ashurst_sec_sco
 			}
+			else = {
+				add_ideas = CAL_Robert_Taylor_Jones_hog_sco
+				add_ideas = CAL_Louis_Arthur_Johnson_for_sco
+				add_ideas = CAL_Norman_Chandler_eco_sco
+				add_ideas = CAL_Henry_Fountain_Ashurst_sec_sco
+			}
 
 			# next primaries
 			country_event = {
@@ -2715,9 +2713,6 @@ country_event = { # 1940 election
 	}
 	option = { # Radicals
 		name = pacificstates.11.f
-		trigger = {
-		has_country_flag = PSA_Radicals_Win
-		}
 		set_country_flag = PSA_had_1940_election
 		hidden_effect = {
 			set_country_flag = PSA_1940_election_radicals
@@ -3010,6 +3005,20 @@ country_event = { # 1944 Republican Primary
 			}
 		}
 	}
+	option = { # Goldwater
+		name = pacificstates.14.f
+		trigger = {
+			OR = {
+				NOT = {
+					has_government = market_liberal
+				}
+				has_country_flag = PSA_1940_election_republican
+			}
+		}
+		hidden_effect = {
+			set_country_flag = PSA_1944_republican_primary_goldwater
+		}
+	}
 }
 
 country_event = { # 1944 Democrat Primary
@@ -3117,11 +3126,26 @@ country_event = { # 1944 election
 		has_country_flag = PSA_had_1944_election
 		NOT = {
 			has_country_flag = PSA_had_1944_election
+			is_supposed_to_fire_for_tag = yes
 		}
 	}
 
 	immediate = {
 		hidden_effect = {
+			if = { # Goldwater
+				limit = {
+					has_country_flag = PSA_1944_republican_primary_goldwater
+					NOT = { has_country_flag = CAL_Norton_PSA_flag }
+				}
+				create_country_leader = {
+					name = "Barry Goldwater"
+					desc = ""
+					picture = "gfx/leaders/ARZ/Portrait_ARZ_Barry_Goldwater.png"
+					expire = "1965.1.1"
+					ideology = liberal_conservative_subtype
+					traits = { ARZ_golden_water }
+				}
+			}
 			if = { # Glen H. Taylor
 				limit = {
 					has_country_flag = PSA_1944_progressive_primary_taylor
@@ -3132,7 +3156,7 @@ country_event = { # 1944 election
 					desc = "POLITICS_GLEN_TAYLOR_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Glen_Taylor.png"
 					expire = "1965.1.1"
-					ideology = social_democrat_subtype
+					ideology = georgism_subtype
 					traits = { figurehead_president }
 				}
 			}
@@ -3146,7 +3170,7 @@ country_event = { # 1944 election
 					desc = "POLITICS_MONRAD_WALLGREN_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Monrad_Charles_Wallgren.png"
 					expire = "1965.1.1"
-					ideology = social_liberal_subtype
+					ideology = centrist_subtype
 					traits = { silent_workhorse }
 				}
 			}
@@ -3160,7 +3184,7 @@ country_event = { # 1944 election
 					desc = "POLITICS_CLYDE_TINGLEY_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Clyde_Tingley.png"
 					expire = "1965.1.1"
-					ideology = social_liberal_subtype
+					ideology = centrist_subtype
 					traits = { fortification_engineer }
 				}
 			}
@@ -3174,7 +3198,7 @@ country_event = { # 1944 election
 					desc = "POLITICS_ARTHUR_LANGLIE_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Arthur_B_Langlie.png"
 					expire = "1965.1.1"
-					ideology = market_liberal_subtype
+					ideology = liberal_conservative_subtype
 					traits = { financial_expert }
 				}
 			}
@@ -3188,7 +3212,7 @@ country_event = { # 1944 election
 					desc = "POLITICS_DOUGLAS_MCKAY_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Douglas_McKay.png"
 					expire = "1965.1.1"
-					ideology = market_liberal_subtype
+					ideology = liberal_conservative_subtype
 					traits = { captain_of_industry }
 				}
 			}
@@ -3202,7 +3226,7 @@ country_event = { # 1944 election
 					desc = "POLITICS_FLETCHER_BOWRON_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Fletcher_Bowron.png"
 					expire = "1965.1.1"
-					ideology = market_liberal_subtype
+					ideology = liberal_conservative_subtype
 					traits = { nationalist_symbol }
 				}
 			}
@@ -3239,9 +3263,6 @@ country_event = { # 1944 election
 
 	option = { # Progressive
 		name = pacificstates.16.a
-		trigger = {
-		has_country_flag = PSA_Progs_Win
-		}
 		set_country_flag = PSA_had_1944_election
 		hidden_effect = {
 			set_country_flag = PSA_1944_election_progressive
@@ -3287,9 +3308,6 @@ country_event = { # 1944 election
 	}
 	option = { # Progressive
 		name = pacificstates.16.b
-		trigger = {
-		has_country_flag = PSA_Libs_Win
-		}
 		set_country_flag = PSA_had_1944_election
 		hidden_effect = {
 			set_country_flag = PSA_1944_election_liberal
@@ -3322,6 +3340,12 @@ country_event = { # 1944 election
 				add_ideas = CAL_Jesse_Holman_Jones_eco_sli
 				add_ideas = CAL_Francis_Beverley_Biddle_sec_sli
 			}
+			else = {
+				add_ideas = CAL_Clyde_Tingley_hog_sli
+				add_ideas = CAL_Franck_Roberts_Havenner_for_sli
+				add_ideas = CAL_Jesse_Holman_Jones_eco_sli
+				add_ideas = CAL_Francis_Beverley_Biddle_sec_sli
+			}
 
 			# next primaries
 			country_event = {
@@ -3344,9 +3368,6 @@ country_event = { # 1944 election
 	}
 	option = { # Republican
 		name = pacificstates.16.c
-		trigger = {
-		has_country_flag = PSA_MarkLibs_Win
-		}
 		set_country_flag = PSA_had_1944_election
 		hidden_effect = {
 			set_country_flag = PSA_1944_election_republican
@@ -3387,6 +3408,11 @@ country_event = { # 1944 election
 				add_ideas = CAL_Barry_Morris_Goldwater_eco_mli
 				add_ideas = CAL_Ray_Lyman_Wilbur_sec_mli
 			}
+			else = {
+				add_ideas = CAL_John_Foster_Dulles_for_mli
+				add_ideas = CAL_Barry_Morris_Goldwater_eco_mli
+				add_ideas = CAL_Ray_Lyman_Wilbur_sec_mli
+			}
 
 			# next primaries
 			country_event = {
@@ -3409,9 +3435,6 @@ country_event = { # 1944 election
 	}
 	option = { # Democrat
 		name = pacificstates.16.e
-		trigger = {
-		has_country_flag = PSA_Conservatives_Win
-		}
 		set_country_flag = PSA_had_1944_election
 		hidden_effect = {
 			set_country_flag = PSA_1944_election_democrat
@@ -3439,6 +3462,12 @@ country_event = { # 1944 election
 				limit = {
 					has_country_flag = PSA_1944_democratic_primary_hickenlooper
 				}
+				add_ideas = CAL_Bourke_B_Hickenlooper_hog_sco
+				add_ideas = CAL_Henry_Morgenthau_Jr_for_sco
+				add_ideas = CAL_William_Myron_Keck_eco_sco
+				add_ideas = CAL_Claude_A_Watson_sec_sco
+			}
+			else = {
 				add_ideas = CAL_Bourke_B_Hickenlooper_hog_sco
 				add_ideas = CAL_Henry_Morgenthau_Jr_for_sco
 				add_ideas = CAL_William_Myron_Keck_eco_sco
@@ -3637,6 +3666,24 @@ country_event = { # 1948 Progressive Primary
 					has_country_flag = PSA_1944_election_liberal
 				}
 			}
+		}
+	}
+	option = { # Earhart
+		name = pacificstates.18.e
+		trigger = {
+			OR = {
+				NOT = {
+					has_government = social_liberal
+				}
+				AND = {
+					has_government = social_liberal
+					has_country_flag = PSA_1944_election_liberal
+					has_country_flag = PSA_1944_election_liberal
+				}
+			}
+		}
+		hidden_effect = {
+			set_country_flag = PSA_1948_progressive_primary_earhart
 		}
 	}
 }
@@ -3856,6 +3903,7 @@ country_event = { # 1948 election
 		has_country_flag = PSA_had_1944_election
 		NOT = {
 			has_country_flag = PSA_had_1948_election
+			is_supposed_to_fire_for_tag = yes
 		}
 	}
 
@@ -3871,7 +3919,7 @@ country_event = { # 1948 election
 					desc = "POLITICS_GLEN_TAYLOR_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Glen_Taylor.png"
 					expire = "1965.1.1"
-					ideology = social_democrat_subtype
+					ideology = georgism_subtype
 					traits = { figurehead_president }
 				}
 			}
@@ -3885,7 +3933,7 @@ country_event = { # 1948 election
 					desc = "POLITICS_VICTOR_MEYERS_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Victor_Aloysius_Meyers.png"
 					expire = "1965.1.1"
-					ideology = social_liberal_subtype
+					ideology = centrist_subtype
 					traits = { figurehead_president }
 				}
 			}
@@ -3899,7 +3947,7 @@ country_event = { # 1948 election
 					desc = "POLITICS_ANDREW_HOCKENHULL_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Andrew_Hockenhull.png"
 					expire = "1965.1.1"
-					ideology = social_liberal_subtype
+					ideology = centrist_subtype
 					traits = { financial_expert }
 				}
 			}
@@ -3913,7 +3961,7 @@ country_event = { # 1948 election
 					desc = "POLITICS_RICHARD_NIXON_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Richard_Nixon.png"
 					expire = "1965.1.1"
-					ideology = market_liberal_subtype
+					ideology = liberal_conservative_subtype
 					traits = { emergency_powers }
 				}
 			}
@@ -3925,9 +3973,9 @@ country_event = { # 1948 election
 				create_country_leader = {
 					name = "George N. Craig"
 					desc = "POLITICS_GEORGE_CRAIG_DESC"
-					picture = "gfx/leaders/Generic/Portrait_Europe_Generic_new_6.png"
+					picture = "gfx/leaders/CAL/Portrait_CAL_George_Craig.png"
 					expire = "1965.1.1"
-					ideology = market_liberal_subtype
+					ideology = liberal_conservative_subtype
 					traits = { backroom_backstabber }
 				}
 			}
@@ -3953,7 +4001,7 @@ country_event = { # 1948 election
 				create_country_leader = {
 					name = "Harry P. Cain"
 					desc = "POLITICS_HARRY_CAIN_DESC"
-					picture = "gfx/leaders/Generic/Portrait_Europe_Generic_new_5.png"
+					picture = "gfx/leaders/CAL/Portrait_CAL_Harry_Cain.png"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = { cornered_fox }
@@ -3978,15 +4026,10 @@ country_event = { # 1948 election
 			elections_allowed = yes
 		}
 		hidden_effect = {
-			if = { # Glen H. Taylor
-				limit = {
-					has_country_flag = PSA_1948_progressive_primary_taylor
-				}
-				add_ideas = CAL_Glen_H_Taylor_hog_sde
-				add_ideas = CAL_Alger_Hiss_for_sde
-				add_ideas = CAL_Homer_Truett_Bone_eco_sde
-				add_ideas = CAL_Harold_LeClair_Ickes_sec_sde
-			}
+			add_ideas = CAL_Glen_H_Taylor_hog_sde
+			add_ideas = CAL_Alger_Hiss_for_sde
+			add_ideas = CAL_Homer_Truett_Bone_eco_sde
+			add_ideas = CAL_Harold_LeClair_Ickes_sec_sde
 		}
 	}
 	option = { # Progressive
@@ -4005,6 +4048,19 @@ country_event = { # 1948 election
 			elections_allowed = yes
 		}
 		hidden_effect = {
+		if = { # Earhart
+			limit = {
+				has_country_flag = PSA_1948_progressive_primary_earhart
+			}
+			create_country_leader = {
+				name = "Amelia Earhart"
+				desc = ""
+				picture = "gfx/leaders/CAL/Portrait_CAL_Amelia_Earhart.png"
+				expire = "1965.1.1"
+				ideology = centrist_subtype
+				traits = { }
+			        }
+		        }
 			if = { # Victor Aloysius Meyers
 				limit = {
 					has_country_flag = PSA_1948_progressive_primary_meyers
@@ -4018,6 +4074,12 @@ country_event = { # 1948 election
 				limit = {
 					has_country_flag = PSA_1948_progressive_primary_hockenhull
 				}
+				add_ideas = CAL_Andrew_W_Hockenhull_hog_sli
+				add_ideas = CAL_Franck_Roberts_Havenner_for_sli
+				add_ideas = CAL_Jesse_Holman_Jones_eco_sli
+				add_ideas = CAL_Francis_Beverley_Biddle_sec_sli
+			}
+			else = {
 				add_ideas = CAL_Andrew_W_Hockenhull_hog_sli
 				add_ideas = CAL_Franck_Roberts_Havenner_for_sli
 				add_ideas = CAL_Jesse_Holman_Jones_eco_sli
@@ -4059,6 +4121,12 @@ country_event = { # 1948 election
 				add_ideas = CAL_Barry_Morris_Goldwater_eco_mli
 				add_ideas = CAL_Ray_Lyman_Wilbur_sec_mli
 			}
+			else = {
+				add_ideas = CAL_George_N_Craig_hog_mli
+				add_ideas = CAL_John_Foster_Dulles_for_mli
+				add_ideas = CAL_Barry_Morris_Goldwater_eco_mli
+				add_ideas = CAL_Ray_Lyman_Wilbur_sec_mli
+			}
 		}
 	}
 	option = { # Democrat
@@ -4090,6 +4158,12 @@ country_event = { # 1948 election
 				limit = {
 					has_country_flag = PSA_1948_democratic_primary_cain
 				}
+				add_ideas = CAL_Harry_P_Cain_hog_sco
+				add_ideas = CAL_Henry_Morgenthau_Jr_for_sco
+				add_ideas = CAL_William_Myron_Keck_eco_sco
+				add_ideas = CAL_Claude_A_Watson_sec_sco
+			}
+			else = {
 				add_ideas = CAL_Harry_P_Cain_hog_sco
 				add_ideas = CAL_Henry_Morgenthau_Jr_for_sco
 				add_ideas = CAL_William_Myron_Keck_eco_sco
@@ -4140,6 +4214,14 @@ country_event = { # America is reunited
 			else = {
 				set_cosmetic_tag = CAL_Norton_PSA
 			}
+		}
+		if = {
+			limit = { has_country_flag = USA_spiritualist }
+			set_cosmetic_tag = USA_spiritualist
+		}
+		if = {
+			limit = { has_country_flag = CAL_JAP_USA }
+			set_cosmetic_tag = CAL_JAP_USA
 		}
 		every_state = {
 			remove_ACW_cores = yes
@@ -6028,6 +6110,12 @@ country_event = {# Election Declared
 	picture = GFX_report_event_AST_election
 
 	is_triggered_only = yes
+	
+	trigger = {
+		NOT = {
+			is_supposed_to_fire_for_tag = yes
+		}
+	}
 
 	option = {# Let's focus on more reliable models
 		name = pacificstates.205.a
@@ -6048,6 +6136,12 @@ country_event = {# The Campaigns
 	picture = GFX_report_event_IRE_victory_rally
 
 	is_triggered_only = yes
+	
+	trigger = {
+		NOT = {
+			is_supposed_to_fire_for_tag = yes
+		}
+	}
 
 	option = {# Let's focus on more reliable models
 		name = pacificstates.2050.a
@@ -6101,6 +6195,12 @@ country_event = {# Hearst Runs
 
 	is_triggered_only = yes
 	fire_only_once = yes
+	
+	trigger = {
+		NOT = {
+			is_supposed_to_fire_for_tag = yes
+		}
+	}
 
 	option = {# Heartism
 		name = pacificstates.207.a
@@ -6125,7 +6225,7 @@ country_event = {# Hearst Runs
 			desc = "POLITICS_WILLIAM_RANDOLPH_HEARST_DESC"
 			picture = "gfx/leaders/CAL/CAL_Hearst.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = kleptocracy_subtype
 			traits = { sec_media_magnate }
 		}
 		if = {
@@ -7229,6 +7329,14 @@ country_event = {# Military Coups Hearst
 	
 	option = {# Cool Hap
 	name = pacificstates.229.a
+                set_country_flag = CAL_million_sons
+				set_country_flag = LEADER_GUI_VISIBLE
+				set_country_flag = MARSHALL_IN_POWER
+                set_party_name = {
+                        ideology = authoritarian_democrat
+                        name = "Military Junta"
+                        long_name = "Junta for the Preservation of America's Sons"
+                }
 		add_popularity = {
 			ideology = authoritarian_democrat
 			popularity = 0.10
@@ -7239,14 +7347,21 @@ country_event = {# Military Coups Hearst
 			elections_allowed = yes
 		}
 		create_country_leader = {
-			name = "Henry H. Arnold"
-			desc = "POLITICS_HENRY_H_ARNOLD_DESC"
-			picture = "gfx/leaders/CAL/Portrait_CAL_Henry_Arnold.png"
+			name = "George Marshall"
+			desc = "CAL_DADDY_MARSHALL_ARMY_DESC"
+			picture = "gfx/leaders/USA/Portrait_USA_george_marshall.png"
 			expire = "1965.1.1"
 			ideology = authdem_junta_subtype
 			traits = { quartermaster_general }
 		}
 		hidden_effect = {
+			remove_all_ministers = yes
+		add_ideas = {
+			CAL_Henry_Arnold_hog_ade
+			CAL_James_Doolittle_for_ade
+			CAL_George_Marshall_eco_ade
+			CAL_Chester_Nimitz_sec_ade
+		}
 		if = {
 		limit = { has_country_flag = CAL_Spiritualist_Aid }
 			country_event = {
@@ -7441,7 +7556,7 @@ country_event = {# Snap Election Results
 			desc = "POLITICS_GEORGE_MARSHALL_DESC"
 			picture = "gfx/leaders/USA/Portrait_USA_george_marshall.png"
 			expire = "1965.1.1"
-			ideology = social_liberal_subtype
+			ideology = centrist_subtype
 			traits = { quartermaster_general }
 			}
 		}
@@ -7457,7 +7572,7 @@ country_event = {# Snap Election Results
 			desc = "POLITICS_HIRAM_JOHNSON_DESC"
 			picture = "gfx/leaders/CAL/Portrait_CAL_Hiram_Johnson.png"
 			expire = "1965.1.1"
-			ideology = social_democrat_subtype
+			ideology = georgism_subtype
 			traits = { captain_of_industry }
 		}
 		set_politics = {
@@ -7473,7 +7588,7 @@ country_event = {# Snap Election Results
 					desc = "POLITICS_HOWARD_HUGES_DESC"
 					picture = "gfx/leaders/CAL/CAL_Howard Hughes.png"
 					expire = "1965.1.1"
-					ideology = market_liberal_subtype
+					ideology = liberal_conservative_subtype
 					traits = { captain_of_industry }
 				}
 		set_politics = {
@@ -7491,7 +7606,7 @@ country_event = {# Snap Election Results
 			desc = "POLITICS_CHARLES_SPRAGUE_DESC"
 			picture = "gfx/leaders/CAL/Portrait_CAL_Charles_A_Sprague.png"
 			expire = "1965.1.1"
-			ideology = market_liberal_subtype
+			ideology = liberal_conservative_subtype
 			traits = { economic_reformer }
 		}
 		set_politics = {
@@ -9769,6 +9884,7 @@ country_event = {# Bodin Addresses Congress
 			ruling_party = national_populist
 			elections_allowed = no
 		}
+		set_country_flag = USA_spiritualist
 		
 		remove_all_ministers = yes
 		
@@ -10276,7 +10392,7 @@ country_event = {# Boden Removed
 		desc = "POLITICS_KICHISABURO_NOMURA_DESC"
 		picture = "gfx/leaders/CAL/CAL_Kichisaburo_Nomura.png"
 		expire = "1965.1.1"
-		ideology = paternal_autocrat_subtype
+		ideology = autocratic_colonial_govt_subtype
 		traits = { appointed_from_tokyo }
 			}
 		set_politics = {
@@ -10290,6 +10406,7 @@ country_event = {# Boden Removed
 		add_ideas = CAL_Walter_M_Pierce_eco_pau
 		add_ideas = CAL_sessue_hayakawa_sec_pau
 		}
+		set_country_flag = CAL_JAP_USA
 		add_political_power = 20
 		add_stability = -0.1
 		add_manpower = -5000
@@ -10322,6 +10439,37 @@ country_event = {# Sessue Hayakawa
 		add_popularity = { ideology = paternal_autocrat popularity = 0.02 }
 	}
 }
+country_event = {# Hubbard Stuff
+	id = pacificstates.3590
+	immediate = {log = "[GetDateText]: [Root.GetName]: event pacificstates.3590"}
+	title = pacificstates.3590.t
+	desc = pacificstates.3590.d
+	
+	picture = GFX_CAL_l_ron_1
+
+	trigger = {
+		tag = CAL
+		has_completed_focus = CAL_the_redshirt_plot
+		date > 1943.5.5
+	}
+
+	fire_only_once = yes
+	
+	option = {# Deal with him
+		name = pacificstates.3590.a
+	}
+	
+	option = {# nah
+		name = pacificstates.3590.b
+		hidden_effect = {
+			country_event = {
+				id = pacificstates.359
+				days = 33
+			}
+		}
+	}
+}
+
 country_event = {# Boden Dead
 	id = pacificstates.359
 	immediate = {log = "[GetDateText]: [Root.GetName]: event pacificstates.359"}
@@ -10331,9 +10479,9 @@ country_event = {# Boden Dead
 	picture = GFX_CAL_l_ron_2
 
 	trigger = {
-	tag = CAL
-	has_completed_focus = CAL_the_redshirt_plot
-	date > 1943.5.5
+		tag = CAL
+		has_completed_focus = CAL_the_redshirt_plot
+		date > 1943.5.5
 	}
 
 	fire_only_once = yes
@@ -10363,10 +10511,6 @@ country_event = {# Boden Dead
 			ruling_party = national_populist
 			elections_allowed = no
 		}
-	}
-	
-	option = {# Bodin Lives
-		name = pacificstates.359.b
 	}
 }
 country_event = {# Film Controlled
@@ -10489,12 +10633,272 @@ country_event = {# The Nation of Islam
 		add_stability = 0.08
 		BBR = {
 			set_cosmetic_tag = BBR_nationalist_national_populist
+			add_state_core = 1167
 			add_state_core = 1168
 			add_state_core = 1169
 			add_state_core = 1170
 			add_state_core = 1171
 			}
 			release_puppet = BBR
+	}
+}
+
+country_event = {# The Japanese Prince of Bel-Air
+	id = pacificstates.364
+	immediate = {log = "[GetDateText]: [Root.GetName]: event pacificstates.364"}
+	title = pacificstates.364.t
+	desc = pacificstates.364.d
+	
+	picture = japan_meeting
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+	
+	option = {#Yasuhito
+		name = pacificstates.364.a
+		ai_chance = {
+			factor = 0
+		}
+		create_country_leader = {
+		name = "Yasuhito"
+		picture = "gfx/leaders/JAP/Portrait_JAP_Yasuhito.png"
+		expire = "1965.1.1"
+		ideology = militarism_subtype
+		}
+	}
+	option = {#Nobuhito
+		name = pacificstates.364.b
+		ai_chance = {
+			factor = 0
+		}
+		create_country_leader = {
+		name = "Nobuhito"
+		picture = "gfx/leaders/JAP/Portrait_JAP_Nobuhito.png"
+		expire = "1965.1.1"
+		ideology = militarism_subtype
+		}
+	}
+	option = {#Kotohito
+		name = pacificstates.364.c
+		ai_chance = {
+			factor = 0
+		}
+		create_country_leader = {
+		name = "Kan'in Kotohito"
+		picture = "gfx/leaders/FNG/Portrait_FNG_Kanin_Kotohito.png"
+		expire = "1965.1.1"
+		ideology = militarism_subtype
+			}
+		}
+	option = {#Nah
+		name = pacificstates.364.e
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = 50
+	}
+	option = {#let Japan decide
+		name = pacificstates.365.f
+		ai_chance = {
+			factor = 100
+		}
+		JAP = {
+		country_event = pacificstates.367
+		}
+	}
+}
+
+country_event = {# we should probably merge these paths one day
+	id = pacificstates.365
+	immediate = {log = "[GetDateText]: [Root.GetName]: event pacificstates.365"}
+	title = pacificstates.365.t
+	desc = pacificstates.365.d
+	
+	picture = japan_meeting
+
+	fire_only_once = yes
+	
+	trigger = {
+	has_country_leader = { name = "Kichisaburo Nomura" ruling_only = yes }
+	}
+	
+	option = {#Yasuhito
+		name = pacificstates.365.a
+		ai_chance = {
+			factor = 0
+		}
+		create_country_leader = {
+		name = "Yasuhito"
+		picture = "gfx/leaders/JAP/Portrait_JAP_Yasuhito.png"
+		expire = "1965.1.1"
+		ideology = absolute_monarchy_subtype
+		}
+	}
+	option = {#Nobuhito
+		name = pacificstates.365.b
+		ai_chance = {
+			factor = 0
+		}
+		create_country_leader = {
+		name = "Nobuhito"
+		picture = "gfx/leaders/JAP/Portrait_JAP_Nobuhito.png"
+		expire = "1965.1.1"
+		ideology = absolute_monarchy_subtype
+		}
+	}
+	option = {#Kotohito
+		name = pacificstates.365.c
+		ai_chance = {
+			factor = 0
+		}
+		create_country_leader = {
+		name = "Kan'in Kotohito"
+		picture = "gfx/leaders/FNG/Portrait_FNG_Kanin_Kotohito.png"
+		expire = "1965.1.1"
+		ideology = absolute_monarchy_subtype
+			}
+		}
+	option = {#Nah
+		name = pacificstates.365.e
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = 50
+	}
+	option = {#let Japan decide
+		name = pacificstates.365.f
+		ai_chance = {
+			factor = 100
+		}
+		JAP = {
+		country_event = pacificstates.366
+		}
+	}
+}
+
+country_event = {# we should probably merge these paths one day
+	id = pacificstates.366
+	immediate = {log = "[GetDateText]: [Root.GetName]: event pacificstates.366"}
+	title = pacificstates.366.t
+	desc = pacificstates.366.d
+	
+	picture = japan_meeting
+
+        is_triggered_only = yes
+
+	fire_only_once = yes
+	
+	option = {#Yasuhito
+		name = pacificstates.366.a
+		ai_chance = {
+			factor = 30
+		}
+		CAL = {
+		create_country_leader = {
+		name = "Yasuhito"
+		picture = "gfx/leaders/JAP/Portrait_JAP_Yasuhito.png"
+		expire = "1965.1.1"
+		ideology = absolute_monarchy_subtype
+			}
+		}
+	}
+	option = {#Nobuhito
+		name = pacificstates.366.b
+		ai_chance = {
+			factor = 30
+		}
+		CAL = {
+		create_country_leader = {
+		name = "Nobuhito"
+		picture = "gfx/leaders/JAP/Portrait_JAP_Nobuhito.png"
+		expire = "1965.1.1"
+		ideology = absolute_monarchy_subtype
+			}
+		}
+	}
+	option = {#Kotohito
+		name = pacificstates.366.c
+		ai_chance = {
+			factor = 30
+		}
+		CAL = {
+		create_country_leader = {
+		name = "Kan'in Kotohito"
+		picture = "gfx/leaders/FNG/Portrait_FNG_Kanin_Kotohito.png"
+		expire = "1965.1.1"
+		ideology = absolute_monarchy_subtype
+				}
+			}
+		}
+	option = {#Nah
+		name = pacificstates.366.e
+		ai_chance = {
+			factor = 10
+		}
+		add_political_power = 50
+	}
+}
+country_event = {# we should probably merge these paths one day
+	id = pacificstates.367
+	immediate = {log = "[GetDateText]: [Root.GetName]: event pacificstates.366"}
+	title = pacificstates.366.t
+	desc = pacificstates.366.d
+	
+	picture = japan_meeting
+ 
+        is_triggered_only = yes
+
+	fire_only_once = yes
+	
+	option = {#Yasuhito
+		name = pacificstates.366.a
+		ai_chance = {
+			factor = 30
+		}
+		CAL = {
+		create_country_leader = {
+		name = "Yasuhito"
+		picture = "gfx/leaders/JAP/Portrait_JAP_Yasuhito.png"
+		expire = "1965.1.1"
+		ideology = militarism_subtype
+		}
+		}
+	}
+	option = {#Nobuhito
+		name = pacificstates.366.b
+		ai_chance = {
+			factor = 30
+		}
+		CAL = {
+		create_country_leader = {
+		name = "Nobuhito"
+		picture = "gfx/leaders/JAP/Portrait_JAP_Nobuhito.png"
+		expire = "1965.1.1"
+		ideology = militarism_subtype
+			}
+		}
+	}
+	option = {#Kotohito
+		name = pacificstates.366.c
+		ai_chance = {
+			factor = 30
+		}
+		CAL = {
+		create_country_leader = {
+		name = "Kan'in Kotohito"
+		picture = "gfx/leaders/FNG/Portrait_FNG_Kanin_Kotohito.png"
+		expire = "1965.1.1"
+		ideology = militarism_subtype
+				}
+			}
+		}
+	option = {#Nah
+		name = pacificstates.366.e
+		ai_chance = {
+			factor = 10
+		}
+		add_political_power = 50
 	}
 }
 
@@ -10760,7 +11164,7 @@ country_event = { # The Provisional Government
 				desc = "POLITICS_WALT_DISNEY_DESC"
 				picture = "gfx/leaders/CAL/Portrait_CAL_Walt_Disney_Democratic.png"
 				expire = "1965.1.1"
-				ideology = market_liberal_subtype
+				ideology = liberal_conservative_subtype
 				traits = {
 					the_mose_always_wins
 				}
@@ -10776,7 +11180,7 @@ country_event = { # The Provisional Government
 				desc = "POLITICS_JOHN_AISO_DESC"
 				picture = "gfx/leaders/CAL/Portrait_CAL_John_Aiso.png"
 				expire = "1965.1.1"
-				ideology = social_liberal_subtype
+				ideology = centrist_subtype
 				traits = {
 					judge_aiso
 				}
@@ -11078,7 +11482,7 @@ country_event = { # The Provisional Government
 				desc = "POLITICS_WILLIAM_RANDOLPH_HEARST_DESC"
 				picture = "gfx/leaders/CAL/CAL_Hearst.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = kleptocracy_subtype
 				traits = { sec_media_magnate }
 			}
 			country_event = {
@@ -11177,7 +11581,7 @@ country_event = { # The Provisional Government
 				desc = "POLITICS_ALF_LANDON_DESC"
 				picture = "gfx/leaders/USA/Portrait_USA_Alf_Landon_KR.png"
 				expire = "1965.1.1"
-				ideology = social_liberal_subtype
+				ideology = centrist_subtype
 				traits = { economic_reformer }
 			}
 			set_politics = {
@@ -11214,7 +11618,7 @@ country_event = { # The Provisional Government
 				desc = "POLITICS_CHARLES_CURTIS_DESC"
 				picture = "gfx/leaders/USA/Portrait_USA_Charles_Curtis_Hat.png"
 				expire = "1965.1.1"
-				ideology = market_liberal_subtype
+				ideology = liberal_conservative_subtype
 				traits = { the_great_compromiser }
 			}
 			set_politics = {
@@ -11242,8 +11646,37 @@ country_event = { # The Provisional Government
 			}
 		}
 	}	
+	option = { # Arnold Chads wya
+		name = KX_california.1.g
+		ai_chance = {
+			factor = 15
+			modifier = {
+				factor = 0
+			}
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.20
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			election_frequency = 48
+			elections_allowed = no
+		}
+		hidden_effect = {
+			remove_all_ministers = yes
+		add_ideas = {
+			CAL_Henry_Arnold_hog_ade
+			CAL_James_Doolittle_for_ade
+			CAL_George_Marshall_eco_ade
+			CAL_Chester_Nimitz_sec_ade
+		}
+			set_country_flag = CAL_million_sons
+			set_country_flag = LEADER_GUI_VISIBLE
+			set_country_flag = ARNOLD_IN_POWER
+		}
+	}
 }
-
 country_event = {
 	id = KX_california.2
 	immediate = { log = "[GetDateText]: [Root.GetName]: event KX_california.2" }
@@ -11399,7 +11832,7 @@ country_event = {
 				desc = "POLITICS_HOWARD_HUGES_DESC"
 				picture = "gfx/leaders/CAL/Portrait_CAL_howard_hughes.png"
 				expire = "1965.1.1"
-				ideology = market_liberal_subtype
+				ideology = liberal_conservative_subtype
 				traits = {
 					captain_of_industry
 				}
@@ -11895,7 +12328,7 @@ country_event = {
 				desc = "POLITICS_WILLIAM_RANDOLPH_HEARST_DESC"
 				picture = "gfx/leaders/CAL/CAL_Hearst.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = kleptocracy_subtype
 				traits = { sec_media_magnate }
 			}
 			country_event = {
@@ -11961,7 +12394,7 @@ country_event = {
 				desc = "POLITICS_ALF_LANDON_DESC"
 				picture = "gfx/leaders/USA/Portrait_USA_Alf_Landon_KR.png"
 				expire = "1965.1.1"
-				ideology = social_liberal_subtype
+				ideology = centrist_subtype
 				traits = { economic_reformer }
 			}
 			set_politics = {
@@ -11998,7 +12431,7 @@ country_event = {
 					desc = "POLITICS_CHARLES_CURTIS_DESC"
 					picture = "gfx/leaders/USA/Portrait_USA_Charles_Curtis_Hat.png"
 					expire = "1965.1.1"
-					ideology = market_liberal_subtype
+					ideology = liberal_conservative_subtype
 					traits = { the_great_compromiser }
 			}
 			set_politics = {
@@ -12034,7 +12467,7 @@ country_event = {
 	last_election = "1936.11.08"
 	election_frequency = 48
 	elections_allowed = yes
-}
+        }
 			create_country_leader = {# Pacific Congress
 	name = "Pacific Congress"
 	desc = "POLITICS_PACIFIC_CONGRESS_DESC"
@@ -12042,7 +12475,7 @@ country_event = {
 	expire = "1965.1.1"
 	ideology = social_conservative_subtype
 	traits = { provisional_congress }
-}
+        }
 			set_party_name = {
 				ideology = market_liberal
 				long_name = CAL_market_liberal_party_long
@@ -12057,6 +12490,36 @@ country_event = {
 				id = pacificstates.2050
 				days = 5
 			}
+		}
+	}
+	option = { # Arnold Chads wya
+		name = KX_california.12.g
+		ai_chance = {
+			factor = 15
+			modifier = {
+				factor = 0
+			}
+		}
+		remove_all_ministers = yes
+		add_ideas = {
+			CAL_Henry_Arnold_hog_ade
+			CAL_James_Doolittle_for_ade
+			CAL_George_Marshall_eco_ade
+			CAL_Chester_Nimitz_sec_ade
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.20
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			election_frequency = 48
+			elections_allowed = no
+		}
+		hidden_effect = {
+			set_country_flag = CAL_million_sons
+			set_country_flag = LEADER_GUI_VISIBLE
+			set_country_flag = ARNOLD_IN_POWER
 		}
 	}
 }
@@ -12396,15 +12859,9 @@ country_event = {
 		name = KX_california.16.a
 		remove_ideas = CAL_eccentric_president
 		hidden_effect = {
-			create_country_leader = {
-				name = "Howard Hughes"
-				desc = "POLITICS_HOWARD_HUGES_DESC"
-				picture = "gfx/country_leaders/GFX_Portrait_CAL_howard_hughes_2_animated"
-				expire = "1965.1.1"
-				ideology = corporatocracy_subtype
-				traits = {
-					shadow_president
-				}
+			add_country_leader_trait = shadow_president
+			set_country_leader_portrait = {
+				portrait = "GFX_Portrait_CAL_howard_hughes_2_animated"
 			}
 			set_country_flag = CAL_portrait_changed
 		}
@@ -12429,7 +12886,7 @@ country_event = {
 				desc = "POLITICS_JOHN_AISO_DESC"
 				picture = "gfx/leaders/CAL/Portrait_CAL_John_Aiso_Double.png"
 				expire = "1965.1.1"
-				ideology = social_liberal_subtype
+				ideology = centrist_subtype
 				traits = {
 					body_double
 					judge_aiso
@@ -12505,6 +12962,7 @@ country_event = {
 				long_name = "Military Committee"
 				name = "Military Committee"
 			}
+			set_country_flag = CAL_JAP_USA
 			hidden_effect = {
 				set_country_flag = JAP_Ministers_Allowed
 				remove_all_ministers = yes
@@ -12664,8 +13122,12 @@ country_event = {
 		name = KX_california.26.a
 		remove_ideas = CAL_JAP_Integration_4
 		add_political_power = 100
+		country_event = {
+			id = pacificstates.364
+			days = 100
+			}
+		}
 	}
-}
 country_event = {
 	id = KX_california.27
 	immediate = { log = "[GetDateText]: [Root.GetName]: event KX_california.25" }
@@ -12834,7 +13296,7 @@ country_event = {
 					desc = "POLITICS_CAL_NORTON_III_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Norton_III.png"
 					expire = "1965.1.1"
-					ideology = social_democrat_subtype
+					ideology = georgism_subtype
 					traits = {
 						charitable_emperor
 					}
@@ -12844,7 +13306,7 @@ country_event = {
 					desc = "POLITICS_CAL_NORTON_III_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Norton_III.png"
 					expire = "1965.1.1"
-					ideology = social_liberal_subtype
+					ideology = centrist_subtype
 					traits = {
 						charitable_emperor
 					}
@@ -12854,7 +13316,7 @@ country_event = {
 					desc = "POLITICS_CAL_NORTON_III_DESC"
 					picture = "gfx/leaders/CAL/Portrait_CAL_Norton_III.png"
 					expire = "1965.1.1"
-					ideology = market_liberal_subtype
+					ideology = liberal_conservative_subtype
 					traits = {
 						charitable_emperor
 					}
@@ -13094,6 +13556,10 @@ country_event = { #NCR gang gang
 	option = {
 		name =KX_california.44.b 
 		set_cosmetic_tag = CAL_NPR	
+	}
+	option = {
+		name =KX_california.44.c 
+		set_cosmetic_tag = CAL_NPR_alt
 	}
 }
 
@@ -13364,7 +13830,7 @@ country_event = { #growing distrust
 			set_party_name = {
 				ideology = authoritarian_democrat
 				long_name = "Military Government"
-				name = "Military Government"
+				name = "Junta for the Preservation of America's Sons"
 			}
 			complete_national_focus = CAL_arnold_coup
 			set_global_flag = CAl_peaceoutgang

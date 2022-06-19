@@ -927,12 +927,10 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus COG_Connect_Bunkeya_Herminestadt"
-			879 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-				}
+			build_railway = {
+				level = 1
+				start_province = 191
+				target_province = 1929
 			}
 		}
 	}
@@ -2157,40 +2155,10 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus COG_Herminestadt_Luanda_Railroad"
-			959 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			917 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			540 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			295 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			881 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
+			build_railway = {
+				level = 1
+				start_province = 1929
+				target_province = 8248
 			}
 			COG = {
 				swap_ideas = {
@@ -2361,26 +2329,10 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus COG_Katanga_Tangyanika_Railroads"
-			879 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			546 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			965 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
+			build_railway = {
+				level = 1
+				start_province = 191
+				target_province = 14125
 			}
 			swap_ideas = {
 				remove_idea = COG_Sea_Connection
@@ -3503,46 +3455,14 @@ focus_tree = {
 				
 				if = {
 					limit = {
-						has_country_flag = COG_ricky_stays
+						has_country_leader = {
+							name = "Pierre Ryckmans"
+							ruling_only = yes
+						}
+						has_country_flag = COG_ricky_collapse
 					}
-					create_country_leader = {
-						name = "Pierre Ryckmans"
-						desc = "POLITICS_PIERRE_RYCKMANS_DESC"
-						picture = "gfx/leaders/COG/Portrait_COG_Pierre_Ryckmans.png"
-						expire = "1965.1.1"
-						ideology = social_conservative_subtype
-					}
-
-					create_country_leader = {
-						name = "Pierre Ryckmans"
-						desc = "POLITICS_PIERRE_RYCKMANS_DESC"
-						picture = "gfx/leaders/COG/Portrait_COG_Pierre_Ryckmans.png"
-						expire = "1965.1.1"
-						ideology = social_liberal_subtype
-					}
-
-					create_country_leader = {
-						name = "Pierre Ryckmans"
-						desc = "POLITICS_PIERRE_RYCKMANS_DESC"
-						picture = "gfx/leaders/COG/Portrait_COG_Pierre_Ryckmans.png"
-						expire = "1965.1.1"
-						ideology = social_democrat_subtype
-					}
-
-					create_country_leader = {
-						name = "Pierre Ryckmans"
-						desc = "POLITICS_PIERRE_RYCKMANS_DESC"
-						picture = "gfx/leaders/COG/Portrait_COG_Pierre_Ryckmans.png"
-						expire = "1965.1.1"
-						ideology = market_liberal_subtype
-					}
-
-					create_country_leader = {
-						name = "Pierre Ryckmans"
-						desc = "POLITICS_PIERRE_RYCKMANS_DESC"
-						picture = "gfx/leaders/COG/Portrait_COG_Pierre_Ryckmans.png"
-						expire = "1965.1.1"
-						ideology = authoritarian_democrat_subtype
+					set_country_leader_portrait = {
+						portrait = "gfx/leaders/COG/Portrait_COG_Pierre_Ryckmans.png"
 					}
 				}
 			}
@@ -4699,6 +4619,7 @@ focus_tree = {
 					days = 10
 				}
 			}
+			set_province_name = { id = 13950 name = "Neue-Wilhelmsburg"}
 		}
 	}
 	
@@ -5760,6 +5681,12 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus COG_continue_kaisers_mission"
 			add_ideas = COG_continue_kaisers_mission_idea
 			COG_increase_recovery = yes
+			hidden_effect = {
+				country_event = {
+					id = conbel.29
+					days = 67
+				}
+			}
 		}
 	}
 	

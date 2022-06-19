@@ -94,6 +94,28 @@ political_actions = {
 				}
 				set_cosmetic_tag = LEP_CHI
 			}
+			else_if = {
+				limit = {
+					tag = XSM
+				}
+				country_event = {
+					id = mac.20000
+					days = 1
+				}
+			}
+			else_if = {
+				limit = {
+					tag = TAN
+					has_country_leader = {
+						name = "Ma Zhongying"
+						ruling_only = yes
+					}  
+				}
+				country_event = {
+					id = mac.20000
+					days = 1
+				}
+			}
 			else = {
 				set_cosmetic_tag = ROC
 			}
@@ -473,6 +495,9 @@ china_united_front_decisions = {
 						divide_temp_variable = { china_strength_ratio = event_target:current_china_leader.num_battalions }
 						check_variable = { china_strength_ratio > 1.2 }
 					}
+				}
+				CHN = {
+					has_capitulated = yes
 				}
 			}
 			if = {

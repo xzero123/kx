@@ -147,7 +147,7 @@ create_country_leader = {
 	name = "Valko Chervenkov"
 	picture = "gfx/leaders/BUL/Portrait_BUL_Valko_Chervenkov.png"
 	expire = "1965.1.1"
-	ideology = totalist_subtype
+	ideology = authcom_subtype
 }
 
 create_country_leader = {
@@ -161,7 +161,7 @@ create_country_leader = {
 	name = "Georgi Dimitrov"
 	picture = "gfx/leaders/BUL/Portrait_BUL_Georgi_Dimitrov_kr.png"
 	expire = "1965.1.1"
-	ideology = radical_socialist_subtype
+	ideology = radsoc_communism_subtype
 }
 
 create_country_leader = {
@@ -177,7 +177,7 @@ create_country_leader = {
 	desc = "POLITICS_FERDINAND_I_DESC"
 	picture = "gfx/leaders/Bul/Portrait_Bulgaria_Tsar_Ferdinand.png"
 	expire = "1965.1.1"
-	ideology = social_liberal_subtype
+	ideology = centrist_subtype
 }
 
 create_country_leader = {
@@ -185,7 +185,7 @@ create_country_leader = {
 	desc = "POLITICS_FERDINAND_I_DESC"
 	picture = "gfx/leaders/Bul/Portrait_Bulgaria_Tsar_Ferdinand.png"
 	expire = "1965.1.1"
-	ideology = market_liberal_subtype
+	ideology = liberal_conservative_subtype
 }
 
 create_country_leader = {
@@ -200,7 +200,7 @@ create_country_leader = {
 	desc = "POLITICS_FERDINAND_I_DESC"
 	picture = "gfx/leaders/Bul/Portrait_Bulgaria_Tsar_Ferdinand.png"
 	expire = "1965.1.1"
-	ideology = authoritarian_democrat_subtype
+	ideology = authoritarian_liberalism_subtype
 }
 
 create_country_leader = {
@@ -439,7 +439,7 @@ create_corps_commander = {
 
 create_navy_leader = {
 	name = "Ivan Petrov Variklechkov"
-	picture = "gfx/leaders/BUL/Portrait_BUL_Ivan_Petrov_Variklechkov.png"
+	portrait_path = "gfx/leaders/BUL/Portrait_BUL_Ivan_Petrov_Variklechkov.png"
 	traits = { }
 	skill = 2
 	attack_skill = 2
@@ -450,7 +450,7 @@ create_navy_leader = {
 
 create_navy_leader = {
 	name = "Sava Ivanov"
-	picture = "gfx/leaders/BUL/Portrait_BUL_Sava_Ivanov.png"
+	portrait_path = "gfx/leaders/BUL/Portrait_BUL_Sava_Ivanov.png"
 	traits = { spotter }
 	skill = 2
 	attack_skill = 2
@@ -460,3 +460,27 @@ create_navy_leader = {
 }
 
 BUL_start_naval_variant = yes
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "Inter-War Light Tank Chassis"
+		type = light_tank_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_interleaved_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 1
+			tank_nsb_armor_upgrade = 1
+		}
+		icon = "gfx/interface/technologies/ger_basic_light_tank.png"
+		obsolete = yes
+	}
+}

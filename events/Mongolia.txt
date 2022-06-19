@@ -97,6 +97,7 @@ country_event = {
 		hidden_effect = {
 			country_event = { id = mongolia.110 days = 3 }	
 		}
+		set_cosmetic_tag = MON_sternberg
 
 		reverse_add_opinion_modifier = { target = XSM modifier = mon_claim_ancient_lands } # -10
 		reverse_add_opinion_modifier = { target = RUS modifier = mon_claim_ancient_lands } # -10
@@ -165,7 +166,7 @@ country_event = {
 		hidden_effect = {
 			country_event = { id = mongolia.110 days = 3 }
 		}
-
+		set_cosmetic_tag = MON_sternberg
 
 		reverse_add_opinion_modifier = { target = XSM modifier = mon_unification_XSM } # -10
 		reverse_add_opinion_modifier = { target = RUS modifier = mon_unification_RUS } # -10
@@ -706,7 +707,7 @@ country_event = { # Independent Uighuria
 			desc = "HOJA_NIYAZ_HAJI_DESC"
 			picture = "gfx/leaders/TAN/Portrait_TAN_Hoja_Niyaz_Haji.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = junta_subtype
 			traits = {}
 		}
 
@@ -1958,6 +1959,7 @@ country_event = { # Death of Genghis Khan II
 		remove_state_claim = 328
 		remove_state_claim = 717
 		remove_state_claim = 408
+		remove_state_claim = 1246
 		remove_state_claim = 409
 		remove_state_claim = 657
 		remove_state_claim = 560
@@ -2302,7 +2304,7 @@ country_event = { # Puppet Yunnan
 			desc = ""
 			picture = "gfx/leaders/Yun/Portrait_Yunnan_Long_Yun.png"
 			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
+			ideology = pataut_warlordism_subtype
 			traits = {}
 		}
 		
@@ -2848,9 +2850,15 @@ country_event = {
 		name = mongolia.104.b
 		
 		trigger = {
-			YUN = {
-				is_in_faction_with = MON
-				has_country_flag = YUN_allied_with_MON
+			OR = {
+				YUN = {
+					is_in_faction_with = MON
+					has_country_flag = YUN_allied_with_MON
+				}
+				QIE = {
+					is_in_faction_with = MON
+					has_country_flag = QIE_ungern_qing
+				}
 			}
 		}
 
@@ -2883,6 +2891,18 @@ country_event = {
 				}
 				if = {
 					limit = {
+						QIE = {
+							is_in_faction_with = MON
+							has_country_flag = QIE_ungern_qing
+						}
+					}
+					QIE = {
+						transfer_state = PREV
+						add_state_core = PREV
+					}
+				}
+				else_if = {
+					limit = {
 						YUN = {
 							is_in_faction_with = MON
 							has_country_flag = YUN_allied_with_MON
@@ -2891,6 +2911,53 @@ country_event = {
 					YUN = {
 						transfer_state = PREV
 						add_state_core = PREV
+					}
+				}
+			}
+			
+			QIE = {
+				if = {
+					limit = {
+						XSM = {
+							is_subject_of = MON 
+						}
+					}
+					annex_country = {
+						target = XSM
+						transfer_troops = yes
+					}
+				}
+				if = {
+					limit = {
+						SIK = {
+							is_subject_of = MON
+						}
+					}
+					annex_country = {
+						target = SIK
+						transfer_troops = yes
+					}
+				}
+				if = {
+					limit = {
+						TAN = {
+							is_subject_of = MON 
+						}
+					}
+					annex_country = {
+						target = TAN
+						transfer_troops = yes
+					}
+				}
+				if = {
+					limit = {
+						ETS = {
+							is_subject_of = MON
+						}
+					}
+					annex_country = {
+						target = ETS
+						transfer_troops = yes
 					}
 				}
 			}
@@ -3213,6 +3280,9 @@ country_event = {
 		add_stability = -0.15
 		add_war_support = -0.10
 		add_political_power = -100
+		hidden_effect = {
+			set_country_flag = MON_sternberg_kept_mongolia
+		}
 	}
 }
 
@@ -4968,6 +5038,24 @@ country_event = { #bogd khan dies
 				}
 			}
 		}
+		else_if = {
+			limit = {
+				has_country_leader = {
+					name = "Fyodor IV"
+					ruling_only = yes
+				}
+			}
+			create_country_leader = {
+				name = "Yaroslav I"
+				desc = "POLITICS_9TH_DESC"
+				picture = "gfx/leaders/MON/Portrait_MON_9th_Jebtsundamba_Khutughtu.png"
+				expire = "1965.1.1"
+				ideology = absolute_monarchy_subtype
+				traits = {
+					MON_9th_jebtsundamba_khutughtu_tsar
+				}
+			}
+		}
 	}
 }
 
@@ -5095,6 +5183,9 @@ country_event = { #religious policy of new empire
 		add_political_power = 25
 		add_stability = 0.1
 		add_war_support = -0.20
+		hidden_effect = {
+			set_country_flag = MON_eightfold
+		}
 	}
 	option = {
 		name = mongolia.163.c
@@ -5132,6 +5223,11 @@ country_event = { #picking a tsar
 				ideology = absolute_monarchy_subtype
 				traits = { RUS_black_baron }
 			}
+		set_party_name = {
+					ideology = paternal_autocrat
+					long_name = MON_WRANGEL_TSAR_long
+					name = MON_WRANGEL_TSAR
+		}
 		hidden_effect = {
 			country_event = {
 				id = rusd.130
@@ -5148,6 +5244,11 @@ country_event = { #picking a tsar
 				ideology = absolute_monarchy_subtype
 				traits = {  }
 			}
+		set_party_name = {
+			ideology = paternal_autocrat
+			long_name = MON_YUSUPOV_TSAR_long
+			name = MON_YUSUPOV_TSAR
+		}
 	}
 	option = {
 		name = mongolia.164.c #tsar droz
@@ -5158,6 +5259,11 @@ country_event = { #picking a tsar
 				ideology = absolute_monarchy_subtype
 				traits = {  }
 			}
+		set_party_name = {
+			ideology = paternal_autocrat
+			long_name = MON_DROZDOVSKY_TSAR_long
+			name = MON_DROZDOVSKY_TSAR
+		}
 	}
 	option = {
 		name = mongolia.164.e #romanovs
@@ -5172,8 +5278,36 @@ country_event = { #picking a tsar
 			expire = "1965.1.1"
 			ideology = absolute_monarchy_subtype
 			traits = {
-				MON_the_mad_baron
+				MON_the_mad_tsar
 			}
+		}
+		set_party_name = {
+			ideology = paternal_autocrat
+			long_name = MON_STERNBERG_TSAR_long
+			name = MON_STERNBERG_TSAR
+		}
+	}
+	option = {
+		name = mongolia.164.g #bogd khan
+		trigger = {
+			AND = {
+				has_country_flag = MON_sternberg_kept_mongolia
+				has_country_flag = MON_eightfold
+			}
+		}
+		create_country_leader = {
+			name = "Fyodor IV"
+			picture = "gfx/leaders/MON/Portrait_MON_Bogd_Khan_Tsar.png"
+			expire = "1965.1.1"
+			ideology = absolute_monarchy_subtype
+			traits = {
+				MON_bogd_khan_tsar
+			}
+		}
+		set_party_name = {
+			ideology = paternal_autocrat
+			long_name = MON_BOGD_KHAN_TSAR_long
+			name = MON_BOGD_KHAN_TSAR
 		}
 	}
 }
@@ -5195,8 +5329,13 @@ country_event = { #romanov tsar picking gang
 				picture = "gfx/leaders/RUS/Portrait_RUS_Andrei_Romanov.png"
 				expire = "1965.1.1"
 				ideology = absolute_monarchy_subtype
-				traits = { RUS_black_baron }
+				traits = { }
 			}
+		set_party_name = {
+			ideology = paternal_autocrat
+			long_name = MON_ROMANOV_TSAR_long
+			name = MON_ROMANOV_TSAR
+		}
 	}
 	option = {
 		name = mongolia.165.b 
@@ -5206,7 +5345,12 @@ country_event = { #romanov tsar picking gang
 		picture = "gfx/leaders/RUS/Portrait_RUS_Vladimir_Romanov.png"
 		expire = "1965.1.1"
 		ideology = absolute_monarchy_subtype
-	}
+		}
+		set_party_name = {
+			ideology = paternal_autocrat
+			long_name = MON_ROMANOV_TSAR_long
+			name = MON_ROMANOV_TSAR
+		}
 	}
 	option = {
 		name = mongolia.165.c #romanovs
@@ -5216,7 +5360,12 @@ country_event = { #romanov tsar picking gang
 		picture = "gfx/leaders/RUS/Portrait_RUS_Dmitri_Romanov_Tsar.png"
 		expire = "1965.1.1"
 		ideology = absolute_monarchy_subtype
-	}
+		}
+		set_party_name = {
+			ideology = paternal_autocrat
+			long_name = MON_ROMANOV_TSAR_long
+			name = MON_ROMANOV_TSAR
+		}
 		
 	}
 	option = {
@@ -5229,6 +5378,11 @@ country_event = { #romanov tsar picking gang
 			traits = {
 				
 			}
+		}
+		set_party_name = {
+			ideology = paternal_autocrat
+			long_name = MON_ROMANOV_TSAR_long
+			name = MON_ROMANOV_TSAR
 		}
 	}
 		
@@ -5258,6 +5412,11 @@ country_event = { #romanov tsar picking gang
                 
             }
         }
+		set_party_name = {
+			ideology = paternal_autocrat
+			long_name = MON_ROMANOV_TSAR_long
+			name = MON_ROMANOV_TSAR
+		}
     }
         
     option = {
@@ -5269,6 +5428,11 @@ country_event = { #romanov tsar picking gang
         expire = "1965.1.1"
         ideology = absolute_monarchy_subtype
         }
+		set_party_name = {
+			ideology = paternal_autocrat
+			long_name = MON_ROMANOV_TSAR_long
+			name = MON_ROMANOV_TSAR
+		}
     }
     option = {
         name = mongolia.166.c #romanovs
@@ -5278,6 +5442,11 @@ country_event = { #romanov tsar picking gang
         expire = "1965.1.1"
         ideology = absolute_monarchy_subtype
         }
+		set_party_name = {
+			ideology = paternal_autocrat
+			long_name = MON_ROMANOV_TSAR_long
+			name = MON_ROMANOV_TSAR
+		}
     }
     option = {
         name = mongolia.166.e #romanovs
@@ -5287,16 +5456,26 @@ country_event = { #romanov tsar picking gang
         expire = "1965.1.1"
         ideology = absolute_monarchy_subtype
         }
+		set_party_name = {
+			ideology = paternal_autocrat
+			long_name = MON_ROMANOV_TSAR_long
+			name = MON_ROMANOV_TSAR
+		}
     }
 
 	option = {
 		name = mongolia.166.f #romanovs
 		 create_country_leader = {
         name = "Vsevolod I"
-        picture = "gfx/leaders/MON/Portrait_Vsevolod_Ivanovich.png"
+        picture = "gfx/leaders/RUS/Portrait_RUS_Vsevolod_I.png"
         expire = "1965.1.1"
         ideology = absolute_monarchy_subtype
         }
+		set_party_name = {
+			ideology = paternal_autocrat
+			long_name = MON_ROMANOV_TSAR_long
+			name = MON_ROMANOV_TSAR
+		}
 	}
 		
 	option = {
@@ -6109,7 +6288,13 @@ country_event = {
 		}
 	}
 	
-	immediate = { set_country_flag = MON_enable_china_conquest }
+	immediate = { set_country_flag = MON_enable_china_conquest
+	hidden_effect = {
+				 country_event = {
+					 id = china_shared.1000
+					 days = 25
+				 }
+			} }
 	
 	option = {#Yuan
 		name = mon_khan.17.a
@@ -6311,6 +6496,15 @@ country_event = {#Japanese monarch for Fengtian
 	fire_only_once = yes
 	is_triggered_only = yes
 	picture = GFX_news_event_MON_horde
+
+	immediate = {
+		hidden_effect = {
+				 country_event = {
+					 id = china_shared.1000
+					 days = 15
+				 }
+			}
+	}
 	
 	
 	option = {#Hirohito
@@ -6485,6 +6679,14 @@ country_event = {#epic mongol monarch event
 	fire_only_once = yes
 	is_triggered_only = yes
 	picture = GFX_news_event_MON_horde
+	immediate = {
+		hidden_effect = {
+				 country_event = {
+					 id = china_shared.1000
+					 days = 15
+				 }
+			}
+	}
 
 	
 	option = {
@@ -6586,6 +6788,42 @@ country_event = {#epic mongol monarch event
 		}
 		
 	}
+	option = {
+		name = mon_khan.19.f
+		trigger = {
+			SKM = {
+				is_in_faction_with = MON
+				has_country_leader = {
+					name = "Tashi Namgyal"
+					ruling_only = yes
+				}
+			}
+		}
+		ai_chance = {
+			factor = 5
+		}
+		create_country_leader = {
+			name = "Tashi Namgyal"
+	                desc = "POLITICS_TASHI_NAMGYAL_DESC"
+	                picture = "gfx/leaders/SKM/Portrait_SKM_Tashi_Namgyal.png"
+                        ideology = marlib_warlordism_subtype
+		} 
+		set_cosmetic_tag = SKM_CHINA
+		hidden_effect = {
+		SKM = {
+			every_owned_state = {
+				add_core_of = FNG
+			}
+		} 
+		FNG = {
+				annex_country = {
+					target = SKM
+					transfer_troops = yes
+				}
+			} 	
+		}
+		
+	}
 }
 
 country_event = { # Yiguandao invite
@@ -6633,6 +6871,15 @@ country_event = {#chinese monarch
 	fire_only_once = yes
 	is_triggered_only = yes
 	picture = GFX_news_event_MON_horde
+
+	immediate = {
+		hidden_effect = {
+				 country_event = {
+					 id = china_shared.1000
+					 days = 15
+				 }
+			}
+	}
 	
 	option = {
 		name = mon_khan.21.a
@@ -8252,6 +8499,11 @@ country_event = { # Ungern Charges
 
 	is_triggered_only = yes
 
+	trigger = {
+		NOT = {
+			is_supposed_to_fire_for_tag = yes
+		}
+	}
 	option = {
 		name = mon.3.b
 
@@ -8333,9 +8585,9 @@ country_event = { # Ungern Charges
 		}
 		add_ideas = MON_nomadic_society
 		random_unit_leader = {
-				limit = { has_id = 1157 }			
-				remove_unit_leader = yes
-			}
+			limit = { has_id = 1157 }			
+			remove_unit_leader = yes
+		}
 	}
 	
 	option = {
@@ -9118,7 +9370,7 @@ country_event = { # foreigners take power
 			set_state_flag = MON_china_claim_state_flag
 		}
 		create_field_marshal = {
-			name = "Xu Shuzheng"
+			name = "Xu Shuzheng "
 			portrait_path = "gfx/leaders/MON/Portrait_MON_Xu_Shuzheng_General.png"
 			traits = { politically_connected career_officer }
 			skill = 2
@@ -9367,7 +9619,7 @@ country_event = { # MON_status_of_prince_de event
 			}
 		}
 		create_corps_commander = { #Auto-Generated
-			name = "Demchugdongrub"
+			name = "Demchugdongrub "
 			desc = "POLITICS_DEMCHUGDONGRUB_ARMY_DESC"
 			portrait_path = "gfx/leaders/MON/Portrait_MON_Demchugdongrub_Army.png"
 			traits = {
@@ -9738,6 +9990,13 @@ country_event = { # russia agreed
 
 	option = { # yes
 		name = mon.63.a
+		FROM = {
+			transfer_state = 329
+			transfer_state = 654
+			transfer_state = 811
+			add_state_core = 654
+			add_state_core = 811
+		}
 	}
 }
 
@@ -10696,6 +10955,9 @@ country_event = { # russia policy
 
 	option = { # buddy up with Russia
 		name = mon.169.a
+		trigger = {
+			soviets_exist = no
+		}
 		set_country_flag = MON_russia_friends_flag
 		add_political_power = 100
 		ai_chance = {
@@ -10704,7 +10966,10 @@ country_event = { # russia policy
 				factor = 0
 				OR = {
 					RUS = {
-						has_socialist_government = yes
+						OR = {
+							has_socialist_government = yes
+							has_left_democratic_government = yes
+						}
 					}
 				}
 			}
@@ -10722,7 +10987,10 @@ country_event = { # russia policy
 				factor = 100
 				OR = {
 					RUS = {
-						has_socialist_government = yes
+						OR = {
+							has_socialist_government = yes
+							has_left_democratic_government = yes
+						}
 					}
 				}
 			}
@@ -11985,11 +12253,6 @@ country_event = {#
 	option = {#
 		name = mon.4561.a
 		set_cosmetic_tag = MON_oriat_larp_flag
-	}
-	
-	option = {#
-		name = mon.4561.b
-		set_cosmetic_tag = MON_comedy_wheel
 	}
 	
 	option = {#

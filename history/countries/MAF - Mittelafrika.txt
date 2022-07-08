@@ -351,7 +351,7 @@ create_country_leader = {
 	desc = "POLITICS_HASSEL_DESC"
 	picture = "gfx/leaders/MAF/Portrait_Mittelafrika_Theodor_von_Hassel.png"
 	expire = "1965.1.1"
-	ideology = social_conservative_subtype
+	ideology = soccon_colonial_govt_subtype
 	traits = {}
 }
 
@@ -378,7 +378,7 @@ create_country_leader = {
 	desc = "POLITICS_EPSTEIN_DESC"
 	picture = "gfx/leaders/MAF/Portrait_Mittelafrika_Albert_Goering.png"
 	expire = "1965.1.1"
-	ideology = social_democrat_subtype
+	ideology = socdem_colonial_govt_subtype
 	traits = {}
 }
 
@@ -925,6 +925,23 @@ create_navy_leader = {
 	maneuvering_skill = 2
 	coordination_skill = 2
 	id = 36864
+}
+
+create_navy_leader = {
+	name = "Ludwig Bockholt"
+	portrait_path = "gfx/leaders/MAF/Portrait_Mittelafrika_Ludwig_Bockholt.png"
+	traits = { air_controller }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	maneuvering_skill = 2
+	coordination_skill = 2
+	id = 36865
+}
+
+random_unit_leader = {
+	limit = { has_id = 36865 }
+	set_unit_leader_flag = DJI_leader_flag
 }
 
 GER_start_naval_variant = yes

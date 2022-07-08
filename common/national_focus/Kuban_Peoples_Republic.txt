@@ -65,6 +65,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			country_event = kub.1004
+			add_to_variable = { KUB.Integration_Process = -0.15 }
 		}
 	}
 	focus = {
@@ -74,16 +75,23 @@ focus_tree = {
 		relative_position_id = KUB_Raise_Frederica_From_Tsemes_Bay
 		x = -2
 		y = 2
+		available = {
+			has_country_leader = {
+				name = "Vasil Ivanis"
+				ruling_only = yes
+			}
+		}
 		prerequisite = {
 			focus = KUB_Restore_Rada_Work
 		}
 		cancelable = no
 		ai_will_do = {
-			factor = 100
+			factor = 10
 		}
 		completion_reward = {
 			custom_effect_tooltip = KUB_Kuban_Ukrainian_Convention_tt
 			country_event = kub.1002
+			add_to_variable = { KUB.Integration_Process = 0.10 }
 		}
 	}
 	focus = {
@@ -311,6 +319,31 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
+			hidden_effect = {
+				add_popularity = {
+					ideology = social_liberal
+					popularity = 0.1
+				}
+				KUB_run_election = yes
+				set_country_flag = KUB_1937_Elections
+			}
+			if = {
+				limit = {
+					NOT = { has_government = social_liberal }
+				}
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+				}
+			}
+			create_country_leader = {
+				name = "Nikolai Ryabovol"
+				desc = "POLITICS_NIKOLAI_RYABOVOL_DESC"
+				picture = "gfx/leaders/KUB/Portrait_KUB_Nikolai_Ryabovol.png"
+				expire = "1965.1.1"
+				ideology = centrist_subtype
+			}
+			set_country_flag = KUB_new_ataman_elected
 		}
 	}
 	focus = {
@@ -419,6 +452,10 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.08
+			}
 		}
 	}
 	focus = {
@@ -426,13 +463,10 @@ focus_tree = {
 		icon = GFX_KUB_communists
 		cost = 4
 		relative_position_id = KUB_Raise_Frederica_From_Tsemes_Bay
-		x = -9
-		y = 4
+		x = 3
+		y = 10
 		available = { 
 			always = no
-		}
-		prerequisite = {
-			focus = KUB_Foes_And_Friends
 		}
 		ai_will_do = {
 			factor = 100
@@ -447,7 +481,7 @@ focus_tree = {
 		cost = 4
 		relative_position_id = KUB_Revkom_In_Power
 		x = 0
-		y = 1
+		y = 2
 		available = { 
 			has_government = totalist
 		}
@@ -462,6 +496,7 @@ focus_tree = {
 				ideology = radical_socialist
 				popularity = -0.1
 			}
+			remove_ideas = KUB_Powerful_Cooperation_Movement
 		}
 	}
 	focus = {
@@ -470,7 +505,7 @@ focus_tree = {
 		cost = 4
 		relative_position_id = KUB_Revkom_In_Power
 		x = -1
-		y = 2
+		y = 1
 		available = { 
 			has_government = totalist
 			235 = { is_demilitarized_zone = yes }
@@ -490,17 +525,31 @@ focus_tree = {
 		cost = 4
 		relative_position_id = KUB_Revkom_In_Power
 		x = 1
-		y = 2
+		y = 3
 		available = { 
 			has_government = totalist
 		}
 		prerequisite = {
 			focus = KUB_Subjugate_Cooperatives
 		}
+		prerequisite = {
+			focus = KUB_Suppress_Federalists
+		}
 		ai_will_do = {
 			factor = 100
 		}
 		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			234 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
 		}
 	}
 	focus = {
@@ -509,12 +558,12 @@ focus_tree = {
 		cost = 4
 		relative_position_id = KUB_Revkom_In_Power
 		x = 1
-		y = 3
+		y = 1
 		available = { 
 			has_government = totalist
 		}
 		prerequisite = {
-			focus = KUB_Nationalization
+			focus = KUB_Revkom_In_Power
 		}
 		ai_will_do = {
 			factor = 100
@@ -528,6 +577,7 @@ focus_tree = {
 				ideology = social_democrat
 				popularity = -0.1
 			}
+			remove_ideas = KUB_rada
 		}
 	}
 	focus = {
@@ -535,17 +585,20 @@ focus_tree = {
 		icon = GFX_BRY_Red_Cavalry
 		cost = 4
 		relative_position_id = KUB_Revkom_In_Power
-		x = 0
-		y = 4
+		x = -1
+		y = 3
 		available = { 
 			has_government = totalist
 			DKB = { has_socialist_government = no }
 		}
-		prerequisite = {
-			focus = KUB_Entice_Lineytsy
+		bypass = {
+			DKB = { has_socialist_government = yes }
 		}
 		prerequisite = {
-			focus = KUB_Suppress_Federalists
+			focus = KUB_Subjugate_Cooperatives
+		}
+		prerequisite = {
+			focus = KUB_Entice_Lineytsy
 		}
 		ai_will_do = {
 			factor = 100
@@ -573,12 +626,15 @@ focus_tree = {
 		cost = 4
 		relative_position_id = KUB_Revkom_In_Power
 		x = 0
-		y = 5
+		y = 4
 		available = { 
 			has_government = totalist
 		}
 		prerequisite = {
 			focus = KUB_Host_Red_Cossacks
+		}
+		prerequisite = {
+			focus = KUB_Nationalization
 		}
 		ai_will_do = {
 			factor = 100
@@ -599,9 +655,6 @@ focus_tree = {
 		y = 4
 		available = { 
 			always = no
-		}
-		prerequisite = {
-			focus = KUB_Foes_And_Friends
 		}
 		ai_will_do = {
 			factor = 100
@@ -659,6 +712,14 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.02
+			}
 		}
 	}	
 	focus = {
@@ -681,6 +742,11 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
+			remove_ideas = DON_Cossack_army
+			swap_ideas = {
+				remove_idea = KUB_KPA
+				add_idea = KUB_KPA_1
+			}
 		}
 	}	
 	focus = {
@@ -700,6 +766,14 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
+			hidden_effect = {
+				add_popularity = {
+					ideology = social_liberal
+					popularity = 0.15
+				}
+				KUB_run_election = yes
+				set_country_flag = KUB_1937_Elections
+			}
 		}
 	}
 	focus = {
@@ -722,6 +796,34 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
+			if = {
+				limit = {
+					NOT = { has_government = social_liberal }
+				}
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+				}
+				add_popularity = {
+					ideology = social_liberal
+					popularity = 0.2
+				}
+			}
+			create_country_leader = {
+				name = "Vasil Ryabokon"
+				picture = "gfx/leaders/KUB/Portrait_KUB_Vasily_Ryabokon.png"
+				expire = "1965.1.1"
+				ideology = centrist_subtype
+			}
+			remove_all_ministers = yes
+			add_ideas = {
+				DKB_Luka_L_Bych_hog_mli
+				DKB_Sergey_Bernstein_for_mli
+				DKB_Vasiliyy_N_Ivanis_eco_ade
+				DKB_Nikita_Guenther_sec_mli
+			}
+			set_country_flag = KUB_new_ataman_elected
+			complete_national_focus = KUB_Chernomortsy
 		}
 	}
 	focus = {
@@ -744,6 +846,35 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
+			if = {
+				limit = {
+					NOT = { has_government = social_liberal }
+				}
+				set_politics = {
+					ruling_party = social_liberal
+					elections_allowed = yes
+				}
+				add_popularity = {
+					ideology = social_liberal
+					popularity = 0.2
+				}
+			}
+			create_country_leader = {
+				name = "Vasil Ivanis"
+				desc = "POLITICS_VASIL_IVANIS_DESC"
+				picture = "gfx/leaders/KUB/Portrait_KUB_Vasil_Ivanis.png"
+				expire = "1965.1.1"
+				ideology = centrist_subtype
+			}
+			remove_all_ministers = yes
+			add_ideas = {
+				DKB_Luka_L_Bych_hog_mli
+				DKB_Sergey_Bernstein_for_mli
+				DKB_Vasiliyy_N_Ivanis_eco_ade
+				DKB_Nikita_Guenther_sec_mli
+			}
+			set_country_flag = KUB_new_ataman_elected
+			complete_national_focus = KUB_Chernomortsy
 		}
 	}
 	focus = {
@@ -862,8 +993,9 @@ focus_tree = {
 		x = 0
 		y = 4
 		completion_reward = {
-			give_military_access = UKR
-			UKR = { give_military_access = ROOT }
+			custom_effect_tooltip = KUB_Ukraine_Must_Approve_Of_This			
+			add_to_variable = { KUB.Integration_Process = 0.10 }
+			UKR = { country_event = kub.1024 }
 		}
 	}
 	focus = {
@@ -879,7 +1011,8 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
-		available = {
+		available = { 
+			KUB_has_more_80_integration = yes
 			OR = {
 				has_government = radical_socialist
 				has_left_democratic_government = yes
@@ -895,16 +1028,9 @@ focus_tree = {
 		x = -1
 		y = 5
 		completion_reward = {
-			set_cosmetic_tag = KUB_ukraine
-			get_current_government_type = yes
-			UKR = {
-				set_autonomy = {
-					target = ROOT
-					autonomous_state = kr_autonomous_puppet
-					freedom_level = 0.75
-				}
-			}
-			restore_previous_government_type = yes			
+			custom_effect_tooltip = KUB_Ukraine_Must_Approve_Of_This
+			add_to_variable = { KUB.Integration_Process = 0.10 }
+			UKR = { country_event = kub.1026 }
 		}
 	}
 	focus = {
@@ -950,7 +1076,7 @@ focus_tree = {
 	}
 	focus = {
 		id = KUB_unification_don_kuban
-		icon = GFX_focus_ALO_DKB
+		icon = GFX_flag_don_kuban
 		cost = 5
 		prerequisite = {
 			focus = KUB_End_Rada_Conflict
@@ -1020,6 +1146,15 @@ focus_tree = {
 			has_government = authoritarian_democrat
 		}
 		completion_reward = {
+			remove_ideas = KUB_Powerful_Cooperation_Movement
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.06
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.02
+			}
 		}
 	}
 	focus = {
@@ -1042,6 +1177,8 @@ focus_tree = {
 			has_government = authoritarian_democrat
 		}
 		completion_reward = {
+			country_event = kub.30
+			remove_ideas = KUB_rada
 		}
 	}
 	focus = {
@@ -1094,6 +1231,7 @@ focus_tree = {
 				id = kub.24
 				days = 1
 			}
+			add_to_variable = { KUB.Integration_Process = 0.15 }
 		}
 	}
 	focus = {
@@ -1165,7 +1303,8 @@ focus_tree = {
 		x = 1
 		y = 3
 		completion_reward = {
-			
+			add_ideas = DON_GER_mil_mis
+			add_to_variable = { KUB.Integration_Process = 0.05 }
 		}
 	}
 	focus = {
@@ -1214,13 +1353,10 @@ focus_tree = {
 		icon = GFX_kuban_savior
 		cost = 0
 		relative_position_id = KUB_Raise_Frederica_From_Tsemes_Bay
-		x = -13
-		y = 4
+		x = -3
+		y = 10
 		available = {
 			always = no
-		}
-		prerequisite = {
-			focus = KUB_Foes_And_Friends
 		}
 		completion_reward = {
 			custom_effect_tooltip = unlock_focuses
@@ -1240,6 +1376,7 @@ focus_tree = {
 		y = 1
 		completion_reward = {
 			add_country_leader_trait = dictator_ataman
+			remove_ideas = KUB_rada
 			country_event = {
 				id = kub.101
 				days = 1
@@ -1319,6 +1456,7 @@ focus_tree = {
 		x = 1
 		y = 2
 		completion_reward = {
+			remove_ideas = KUB_Powerful_Cooperation_Movement
 			country_event = {
 				id = kub.104
 				days = 1
@@ -1341,7 +1479,7 @@ focus_tree = {
 	}
 	focus = {
 		id = KUB_Unify_Don_Kuban
-		icon = GFX_focus_ALO_DKB
+		icon = GFX_flag_don_kuban
 		cost = 5
 		prerequisite = {
 			focus = KUB_Mobilize_Host
@@ -1362,4 +1500,738 @@ focus_tree = {
 			}
 		}
 	}
+	focus = {
+		id = KUB_A_Cossack_Army
+		text = DKU_A_Cossack_Army
+		icon = GFX_focus_rus_cossack
+		cost = 7
+		x = 7
+		y = 2
+		ai_will_do = {
+			factor = 60
+		}
+		available = { 
+			OR = {
+				has_completed_focus = KUB_Elect_New_Ataman_focus
+				has_completed_focus = KUB_KPA_Restores_Control
+				has_completed_focus = KUB_Kuban_Savior
+				has_completed_focus = KUB_Revkom_In_Power
+				has_completed_focus = KUB_Kubsoyuz_Seizes_Power
+			}
+		}
+		completion_reward = {
+			army_experience = 50
+			
+		}
+	}
+	focus = {
+		id = KUB_Follow_Lineitsy_Tactics
+		icon = GFX_DKB_army_focus
+		cost = 5
+		relative_position_id = KUB_A_Cossack_Army
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 60
+		}
+		available = {
+			kuban_is_pro_russian = yes
+		}
+		prerequisite = {
+			focus = KUB_A_Cossack_Army
+		}
+		mutually_exclusive = { focus = KUB_Invite_Ukrainian_Advisors }
+		completion_reward = {
+			DKB = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = KR_approves_of_govt 
+				}
+			}
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = cat_grand_battle_plan
+			}
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = cat_mass_assault
+			}
+			add_to_variable = { KUB.Integration_Process = -0.20 }
+		}
+	}
+	focus = {
+		id = KUB_Invite_Ukrainian_Advisors
+		icon = GFX_goal_UKR_army
+		cost = 5
+		relative_position_id = KUB_A_Cossack_Army
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 60
+		}
+		available = {
+			kuban_is_pro_russian = no
+		}
+		prerequisite = {
+			focus = KUB_A_Cossack_Army
+		}
+		mutually_exclusive = { focus = KUB_Follow_Lineitsy_Tactics }
+		completion_reward = {
+			UKR = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = KR_approves_of_govt 
+				}
+			}
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = cat_mobile_warfare
+			}
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = cat_superior_firepower
+			}
+			add_to_variable = { KUB.Integration_Process = 0.10 }
+		}
+	}
+	focus = {
+		id = KUB_Import_German_Equipment
+		text = DKU_Import_German_Equipment
+		icon = GFX_goal_generic_heavy_armour_german
+		cost = 4
+		relative_position_id = KUB_A_Cossack_Army
+		x = -1
+		y = 2
+		ai_will_do = {
+			factor = 60
+		}
+		available = {
+			kuban_is_pro_russian = no
+		}
+		prerequisite = {
+			focus = KUB_Invite_Ukrainian_Advisors
+		}
+		mutually_exclusive = {
+			focus = DKU_Import_Russian_Equipment
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 5000
+				producer = GER
+			}
+		}
+	}
+	focus = {
+		id = KUB_Import_Russian_Equipment
+		text = DKU_Import_Russian_Equipment
+		icon = GFX_goal_generic_heavy_armour_russian
+		cost = 4
+		relative_position_id = KUB_A_Cossack_Army
+		x = 1
+		y = 2
+		ai_will_do = {
+			factor = 60
+		}
+		available = {
+			kuban_is_pro_russian = yes
+		}
+		prerequisite = {
+			focus = KUB_Follow_Lineitsy_Tactics
+		}
+		mutually_exclusive = {
+			focus = DKU_Import_German_Equipment
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 5000
+				producer = RUS
+			}
+		}
+	}
+	focus = {
+		id = KUB_Modern_Tactics
+		text = DKU_Modern_Tactics
+		icon = GFX_goal_military_academy
+		cost = 5
+		relative_position_id = KUB_A_Cossack_Army
+		x = 0
+		y = 3
+		ai_will_do = {
+			factor = 60
+		}
+		prerequisite = {
+			focus = KUB_Import_German_Equipment
+			focus = KUB_Import_Russian_Equipment
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+					name = land_doc_bonus
+					cost_reduction = 0.5
+					uses = 1
+					category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = KUB_Produce_More_Equipment
+		text = DKU_Produce_More_Equipment
+		icon = GFX_focus_generic_military_equipment
+		cost = 5
+		relative_position_id = KUB_A_Cossack_Army
+		x = -2
+		y = 3
+		ai_will_do = {
+			factor = 60
+		}
+		prerequisite = {
+			focus = KUB_Follow_Lineitsy_Tactics
+			focus = KUB_Invite_Ukrainian_Advisors
+		}
+		prerequisite = {
+			focus = KUB_Organize_Public_Works
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = KUB_Military_Industrial_Complex
+		text = DKU_Military_Industrial_Complex
+		icon = GFX_goal_Focus_Military_Mobilisation
+		cost = 5
+		relative_position_id = KUB_A_Cossack_Army
+		x = -2
+		y = 5
+		ai_will_do = {
+			factor = 60
+		}
+		prerequisite = {
+			focus = KUB_Produce_More_Equipment
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = KUB_Modernize_Artillery
+		text = DKU_Modernize_Artillery
+		icon = GFX_goal_artillery
+		cost = 5
+		relative_position_id = KUB_A_Cossack_Army
+		x = -1
+		y = 4
+		ai_will_do = {
+			factor = 60
+		}
+		prerequisite = {
+			focus = KUB_Modern_Tactics
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = DKU_Modernize_Artillery
+				bonus = 1
+				uses = 2
+				category = artillery
+			}
+		}
+	}
+	
+	focus = {
+		id = KUB_Standartized_Equipment_Production
+		text = DKU_Standartized_Equipment_Production
+		icon = GFX_goal_generic_support_equipment
+		cost = 5
+		relative_position_id = KUB_A_Cossack_Army
+		x = -1
+		y = 6
+		ai_will_do = {
+			factor = 60
+		}
+		prerequisite = {
+			focus = KUB_Modernize_Artillery
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = DKU_Modernize_Artillery
+				bonus = 1
+				uses = 2
+				category = infantry_weapons
+			}
+		}
+	}
+	
+	focus = {
+		id = KUB_Tanks_Of_Don
+		text = DKU_Tanks_Of_Don
+		icon = GFX_goal_POL_light_tanks
+		cost = 6
+		relative_position_id = KUB_A_Cossack_Army
+		x = 0
+		y = 5
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = {
+			focus = KUB_Modern_Tactics
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = DKU_Tanks_Of_Don
+				bonus = 1
+				uses = 2
+				category = armor
+			}
+		}
+	}
+	
+	focus = {
+		id = KUB_A_New_Army
+		text = DKU_A_New_Army
+		icon = GFX_goal_FNG_Army_Modern
+		cost = 6
+		relative_position_id = KUB_A_Cossack_Army
+		x = 0
+		y = 7
+		ai_will_do = {
+			factor = 10
+		}
+		available = { has_idea = DON_Cossack_army }
+		prerequisite = {
+			focus = KUB_Standartized_Equipment_Production
+		}
+		prerequisite = {
+			focus = KUB_Tanks_Of_Don
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = DON_Cossack_army 
+				add_idea = DON_Cossack_army_1
+			}
+		}
+	}
+	
+	focus = {
+		id = KUB_A_Cossack_Airforce
+		text = DKU_A_Cossack_Airforce
+		icon = GFX_goal_air_armada
+		cost = 4
+		relative_position_id = KUB_A_Cossack_Army
+		x = 3
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = {
+			focus = KUB_A_Cossack_Army
+		}
+		completion_reward = {
+			air_experience = 25
+			add_doctrine_cost_reduction = {
+					name = air_doc_bonus
+					cost_reduction = 0.5
+					uses = 1
+					category = air_doctrine
+				}
+		}
+	}
+	focus = {
+		id = KUB_Expand_Airfields
+		text = DKU_Expand_Airfields
+		icon = MON_improve_airbases_in_mongolia
+		cost = 5
+		relative_position_id = KUB_A_Cossack_Army
+		x = 3
+		y = 2
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = {
+			focus = KUB_A_Cossack_Airforce
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+		}
+	}
+	focus = {
+		id = KUB_Fighters_For_Don
+		text = DKU_Fighters_For_Don
+		icon = GFX_goal_ELS_Basic_Fighter_Development
+		cost = 5
+		relative_position_id = KUB_A_Cossack_Army
+		x = 2
+		y = 3
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = {
+			focus = KUB_Expand_Airfields
+		}
+		prerequisite = {
+			focus = KUB_Import_German_Equipment
+			focus = KUB_Import_Russian_Equipment
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = DKU_Import_German_Equipment
+				}
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_0
+					amount = 50
+					producer = GER
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_0
+					amount = 50
+					producer = RUS
+				}
+			}
+		}
+	}
+	focus = {
+		id = KUB_Bombers_For_Don
+		text = DKU_Bombers_For_Don
+		icon = GFX_goal_ELS_Plane_Lease
+		cost = 5
+		relative_position_id = KUB_A_Cossack_Army
+		x = 3
+		y = 4
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = {
+			focus = KUB_Fighters_For_Don
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = DKU_Import_German_Equipment
+				}
+				add_equipment_to_stockpile = {
+					type = tac_bomber_equipment_0
+					amount = 25
+					producer = GER
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = tac_bomber_equipment_0
+					amount = 25
+					producer = RUS
+				}
+			}
+		}
+	}
+	focus = {
+		id = KUB_Secure_The_Sky
+		text = DKU_Secure_The_Sky
+		icon = GFX_focus_generic_air_defense2
+		cost = 5
+		relative_position_id = KUB_A_Cossack_Army
+		x = 1
+		y = 4
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = {
+			focus = KUB_Fighters_For_Don
+		}
+		prerequisite = {
+			focus = KUB_Modern_Tactics
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = DKU_Secure_The_Sky
+				bonus = 1
+				uses = 1
+				category = cat_anti_air
+			}
+			add_doctrine_cost_reduction = {
+					name = air_doc_bonus
+					cost_reduction = 0.5
+					uses = 1
+					category = air_doctrine
+			}
+		}
+	}
+	focus = {
+		id = KUB_The_Black_Sea_Fleet
+		text = DKU_The_Black_Sea_Fleet
+		icon = GFX_KUB_navy
+		cost = 4
+		x = 13
+		y = 2
+		ai_will_do = {
+			factor = 10
+		}
+		available = { 
+			OR = {
+				has_completed_focus = KUB_Elect_New_Ataman_focus
+				has_completed_focus = KUB_KPA_Restores_Control
+				has_completed_focus = KUB_Kuban_Savior
+				has_completed_focus = KUB_Revkom_In_Power
+				has_completed_focus = KUB_Kubsoyuz_Seizes_Power
+			}
+		}
+		completion_reward = {
+			navy_experience = 25
+			add_doctrine_cost_reduction = {
+				name = DKU_The_Black_Sea_Fleet
+				cost_reduction = 0.5
+				uses = 2
+				category = naval_doctrine
+			}
+		}
+	}
+	focus = {
+		id = KUB_Port_Of_Capital
+		text = DKU_Port_Of_Capital
+		icon = GFX_goal_generic_coastal_navy
+		cost = 5
+		relative_position_id = KUB_The_Black_Sea_Fleet
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = {
+			focus = KUB_The_Black_Sea_Fleet
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					tag = DKB
+				}
+				add_political_power = -10
+				navy_experience = 25
+				218 = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 9417
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						province = 9417
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+			else = {
+				add_political_power = -10
+				navy_experience = 25
+				234 = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 719
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						province = 719
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = KUB_Ukranian_Exercises
+		text = DKU_Ukranian_Exercises
+		icon = GFX_goal_UKR_navy
+		cost = 5
+		relative_position_id = KUB_The_Black_Sea_Fleet
+		x = 1
+		y = 2
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = KUB_Port_Of_Capital
+		}
+		completion_reward = {
+			add_ideas = DKU_Naval_Exercises
+			UKR = { 
+				activate_targeted_decision = { target = KUB decision = UKR_Invest_In_Kuban_Fleet }
+			}
+		}
+	}
+	focus = {
+		id = KUB_Defend_Coast
+		text = DKU_Defend_Coast
+		icon = GFX_goal_generic_coastal_navy2
+		cost = 5
+		relative_position_id = KUB_The_Black_Sea_Fleet
+		x = -1
+		y = 2
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = {
+			focus = KUB_Port_Of_Capital
+		}
+		completion_reward = {
+			add_tech_bonus = {
+					name = DKU_Defend_Coast
+					bonus = 1
+					uses = 1
+					category = dd_tech
+				}
+		}
+	}
+	focus = {
+		id = KUB_Submarine_Effort
+		text = DKU_Submarine_Effort
+		icon = GFX_goal_generic_navy_submarine
+		cost = 5
+		relative_position_id = KUB_The_Black_Sea_Fleet
+		x = -1
+		y = 4
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = {
+			focus = KUB_Defend_Coast
+		}
+		completion_reward = {
+			add_tech_bonus = {
+					name = UKR_submarine_effort
+					bonus = 1
+					uses = 1
+					category = ss_tech
+				}
+		}
+	}
+	focus = {
+		id = KUB_Invest_In_Shipbuilding
+		text = DKU_Invest_In_Shipbuilding
+		icon = GFX_focus_generic_navy_battleship3
+		cost = 5
+		relative_position_id = KUB_The_Black_Sea_Fleet
+		x = 0
+		y = 3
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = {
+			focus = KUB_Defend_Coast
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = DKB_naval_investments
+				days = 365
+			}
+			navy_experience = 15
+				add_doctrine_cost_reduction = {
+					name = naval_doc_bonus
+					cost_reduction = 0.5
+					uses = 1
+					category = naval_doctrine
+				}
+		}
+	}
+	focus = {
+		id = KUB_Produce_Cruisers
+		text = DKU_Produce_Cruisers
+		icon = GFX_focus_generic_navy_battleship3alt
+		cost = 5
+		relative_position_id = KUB_The_Black_Sea_Fleet
+		x = -2
+		y = 3
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = {
+			focus = KUB_Defend_Coast
+		}
+		completion_reward = {
+			add_tech_bonus = {
+					name = UKR_cruiser_effort
+					bonus = 1
+					uses = 2
+					category = ca_tech
+					category = cl_tech
+				}
+		}
+	}
+
+
+
 }

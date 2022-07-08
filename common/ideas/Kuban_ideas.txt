@@ -50,6 +50,25 @@ ideas = {
 				army_core_attack_factor = 0.1
 			}
 		}
+		KUB_KPA_1 = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea KUB_KPA_1"}
+			allowed = {
+				always = no
+			}
+			picture = KUB_army
+			
+			modifier = {
+				war_support_factor = 0.05
+				political_power_cost = 0.05
+				army_core_defence_factor = 0.1
+				army_core_attack_factor = 0.1
+				training_time_army_factor = -0.1
+				army_speed_factor = 0.10
+				cavalry_attack_factor = 0.15
+				cavalry_defence_factor = 0.10
+				experience_gain_army_factor = -0.1
+			}
+		}
 		KUB_Unification_Sentiments = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea KUB_Unification_Sentiments"}
 			allowed = {
@@ -90,26 +109,46 @@ ideas = {
 				}
 			}
 			on_remove = {
-				diplomatic_relation = {
-					country = UKR
-					relation = military_access
-					active = no
-				}
-				UKR = {
+				if = {
+					limit = {
+						OR = {
+							has_government = totalist
+							has_government = social_conservative
+							has_government = authoritarian_democrat
+							has_government = national_populist
+						}
+					}
+					country_event = kub.1020
 					diplomatic_relation = {
-						country = KUB
-						relation = docking_rights
+						country = UKR
+						relation = military_access
 						active = no
 					}
-				}
-				remove_opinion_modifier = {
-					target = UKR
-					modifier = KR_pleased
-				}
-				UKR = {
+					UKR = {
+						diplomatic_relation = {
+							country = KUB
+							relation = docking_rights
+							active = no
+						}
+					}
 					remove_opinion_modifier = {
-						target = KUB
+						target = UKR
 						modifier = KR_pleased
+					}
+					add_opinion_modifier = {
+						target = UKR
+						modifier = KR_hates_govt
+					}
+					UKR = {
+						remove_opinion_modifier = {
+							target = KUB
+							modifier = KR_pleased
+						}
+						add_opinion_modifier = {
+							target = KUB
+							modifier = KR_hates_govt
+						}
+						country_event = kub.1021
 					}
 				}
 			}
@@ -129,6 +168,36 @@ ideas = {
 				trade_cost_for_target_factor = -0.2
 			}
 		}
+		KUB_Unification_Sentiments_2 = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea KUB_Unification_Sentiments_2"}
+			allowed = { always = no }
+			on_add = {
+				add_opinion_modifier = {
+					target = UKR
+					modifier = KR_pleased
+				}
+				UKR = {
+					add_opinion_modifier = {
+						target = KUB
+						modifier = KR_pleased
+					}
+				}
+			}				
+			picture = KUB_ukrainian_love
+			
+			modifier = {
+				industrial_factory_donations = 3
+				dockyard_donations = 3
+				military_factory_donations = 3
+				social_liberal_drift = 0.04
+				political_power_cost = 0.15
+			}
+			targeted_modifier = {
+				tag = UKR
+				extra_trade_to_target_factor = 0.35
+				trade_cost_for_target_factor = -0.35
+			}
+		}
 		KUB_lecagy_civil_war = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea KUB_lecagy_civil_war"}
 			allowed = {
@@ -141,6 +210,18 @@ ideas = {
 				political_power_cost = 0.1
 				political_power_cost = 0.15
 				conscription = -0.02
+			}
+		}
+		KUB_migration = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea KUB_migration"}
+			allowed = {
+				always = no
+			}
+			picture = UKR_cossack
+			
+			modifier = {
+				conscription_factor = -0.02
+				monthly_population = -0.15
 			}
 		}
 		KUB_rada = {

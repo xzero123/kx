@@ -6,30 +6,30 @@ UKR_dyrektoria_uprising = {
 		
 		cancel_trigger = {
 			OR = {
-				has_completed_focus = UKR_Prepare_The_Anti_Hetman_Coup
-				has_completed_focus = UKR_Hetmanate_Is_Not_Yet_Lost
+				has_global_flag = UKR_dnieper_explosion
+				has_global_flag = UKR_hetmanate_is_over
 			}
 			OR = {
 				custom_trigger_tooltip = {
 					tooltip = UKR_rivne_uprising_trigger
 					check_variable = { UKR_Direktoriia_Strength_real < 0.2 }
 				}
-				UKR_yevhen_konovalets_in_power = yes
 				country_exists = WSU
+				has_global_flag = UPR_dyrektoria_joined_peacefully
 			}
 		}
 		available = {
 			OR = {
-				has_completed_focus = UKR_Prepare_The_Anti_Hetman_Coup
-				has_completed_focus = UKR_Hetmanate_Is_Not_Yet_Lost
+				has_global_flag = UKR_dnieper_explosion
+				has_global_flag = UKR_hetmanate_is_over
 			}
 			OR = {
 				custom_trigger_tooltip = {
 					tooltip = UKR_rivne_uprising_trigger
 					check_variable = { UKR_Direktoriia_Strength_real < 0.051 }
 				}
-				UKR_yevhen_konovalets_in_power = yes
 				country_exists = WSU
+				has_global_flag = UPR_dyrektoria_joined_peacefully
 			}
 		}
 		
@@ -39,20 +39,25 @@ UKR_dyrektoria_uprising = {
 		
 		cancel_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision UKR_rivne_uprising"
-			if = {
-				limit = {
-					UKR_yevhen_konovalets_in_power = yes
-				}
-				country_event = ukrpol.38
-			}
-			else = {
-				country_event = ukrpol.37
-				set_global_flag = UPR_dyrektoria_become_exiled_in_WSU
-			}
+			country_event = ukrpol.37
+			set_global_flag = UPR_dyrektoria_become_exiled_in_WSU
 		}
 		timeout_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision timeout UKR_rivne_uprising"
-			country_event = ukrpol.36
+			if = {
+				limit = {
+					is_ai = yes
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_DISABLED
+					}
+				}
+				country_event = ukrpol.37
+				set_global_flag = UPR_dyrektoria_become_exiled_in_WSU
+			}
+			else = {
+				country_event = ukrpol.36
+			}
 		}
 	}
 	UKR_threaten_galicia = {
@@ -61,12 +66,14 @@ UKR_dyrektoria_uprising = {
 		visible = {
 			owns_state = 792
 			owns_state = 202
+			NOT = { has_global_flag = UPR_dyrektoria_uprising_UPR }
+			NOT = { has_global_flag = UPR_dyrektoria_joined_peacefully }
 		}
 		available = {
 			NOT = { has_country_flag = UKR_dyrektoria_action }
 		}
 		fire_only_once = yes
-		cost = freedec?0
+		cost = 0
 		days_remove = 14
 		
 		cancel_if_not_visible = yes
@@ -83,6 +90,27 @@ UKR_dyrektoria_uprising = {
 		}
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_PEACE_GI
+					}
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_PEACE_GA
+					}
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_WAR_GI
+					}
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_WAR_GA
+					}
+				}
+			}
 		}
 		cancel_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_threaten_galicia target: [From.GetName]"
@@ -109,6 +137,8 @@ UKR_dyrektoria_uprising = {
 		visible = {
 			owns_state = 792
 			owns_state = 202
+			NOT = { has_global_flag = UPR_dyrektoria_uprising_UPR }
+			NOT = { has_global_flag = UPR_dyrektoria_joined_peacefully }
 		}
 		available = {
 			NOT = { has_country_flag = UKR_dyrektoria_action }
@@ -127,6 +157,27 @@ UKR_dyrektoria_uprising = {
 		cancel_if_not_visible = yes
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_PEACE_GI
+					}
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_PEACE_GA
+					}
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_WAR_GI
+					}
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_WAR_GA
+					}
+				}
+			}
 		}
 		cancel_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_anti_republican_propaganda target: [From.GetName]"
@@ -149,6 +200,8 @@ UKR_dyrektoria_uprising = {
 		visible = {
 			owns_state = 792
 			owns_state = 202
+			NOT = { has_global_flag = UPR_dyrektoria_uprising_UPR }
+			NOT = { has_global_flag = UPR_dyrektoria_joined_peacefully }
 		}
 		available = {
 			NOT = { has_country_flag = UKR_dyrektoria_action }
@@ -171,6 +224,27 @@ UKR_dyrektoria_uprising = {
 			modifier = {
 				factor = 0
 				has_country_flag = UKR_king_path
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_PEACE_GI
+					}
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_PEACE_GA
+					}
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_WAR_GI
+					}
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_WAR_GA
+					}
+				}
 			}
 		}
 		cancel_effect = {
@@ -199,6 +273,8 @@ UKR_dyrektoria_uprising = {
 		visible = {
 			owns_state = 792
 			owns_state = 202
+			NOT = { has_global_flag = UPR_dyrektoria_uprising_UPR }
+			NOT = { has_global_flag = UPR_dyrektoria_joined_peacefully }
 		}
 		available = {
 			NOT = { has_country_flag = UKR_dyrektoria_action }
@@ -221,6 +297,27 @@ UKR_dyrektoria_uprising = {
 			modifier = {
 				factor = 0
 				has_country_flag = UKR_hetman_path
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_PEACE_GI
+					}
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_PEACE_GA
+					}
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_WAR_GI
+					}
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_WAR_GA
+					}
+				}
 			}
 		}
 		cancel_effect = {
@@ -249,6 +346,8 @@ UKR_dyrektoria_uprising = {
 		visible = {
 			owns_state = 792
 			owns_state = 202
+			NOT = { has_global_flag = UPR_dyrektoria_uprising_UPR }
+			NOT = { has_global_flag = UPR_dyrektoria_joined_peacefully }
 		}
 		available = {
 			NOT = { has_country_flag = UKR_dyrektoria_action }
@@ -287,6 +386,27 @@ UKR_dyrektoria_uprising = {
 		cancel_if_not_visible = yes
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_PEACE_GI
+					}
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_PEACE_GA
+					}
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_WAR_GI
+					}
+					has_game_rule = {
+						rule = UKR_RIVNE_UPRISING
+						option = UKR_RIVNE_UPRISING_DYREKTORIA_WAR_GA
+					}
+				}
+			}
 		}
 		cancel_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_reinforce_volhynia_garrison target: [From.GetName]"
@@ -428,7 +548,7 @@ UKR_regency_council_category = {
 		}
 		is_good = yes
 		selectable_mission = no
-		days_mission_timeout = 20
+		days_mission_timeout = 35
 		fire_only_once = no
 		
 		timeout_effect = {
@@ -456,6 +576,34 @@ UKR_regency_council_category = {
 		
 		cost = 10
 		
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = UKR_FUTURE
+					option = UKR_FUTURE_LEO_STEFAN
+				}
+			}
+			modifier = {
+				factor = 10000
+				OR = {
+					has_game_rule = {
+						rule = UKR_FUTURE
+						option = UKR_FUTURE_DANYLO
+					}
+					has_game_rule = {
+						rule = UKR_FUTURE
+						option = UKR_FUTURE_HETMAN_DEM
+					}
+					has_game_rule = {
+						rule = UKR_FUTURE
+						option = UKR_FUTURE_HETMAN_AUT
+					}
+				}
+			}
+		}
+		
 		days_re_enable = 0
 		days_remove = 15
 		fire_only_once = no
@@ -481,10 +629,10 @@ UKR_economy = {
 
 		highlight_states = {
 			highlight_state_targets = {
-				state = 226
+				state = 200
 			}
 		}
-		cost = freedec?0
+		cost = 0
 		available = { #failure condition
 			#dnipro
 			controls_state = 226
@@ -506,7 +654,7 @@ UKR_economy = {
 
 		highlight_states = {
 			highlight_state_targets = {
-				state = 226
+				state = 200
 			}
 		}
 
@@ -515,7 +663,7 @@ UKR_economy = {
 		available = { #failure condition
 			NOT = {
 				#dnipro
-				controls_state = 226
+				controls_province = 11405
 			}
 		}
 
@@ -533,7 +681,7 @@ UKR_economy = {
 		
 		timeout_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision timeout UKR_finish_dnipro"
-			226 = {
+			200 = {
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = infrastructure
@@ -547,7 +695,7 @@ UKR_economy = {
 				}
 			}
 			add_stability = 0.05
-			increase_ruling_party_popularity_by_10 = yes
+			increase_ruling_party_popularity_by_5 = yes
 		}
 	}
 }
@@ -580,7 +728,7 @@ political_actions = {
 		cancel_if_not_visible = yes
 
 		state_target = yes
-		targets = { 1231 1222 234 91 89 80 1140 }
+		targets = { 1231 1222 234 }
 		target_trigger = {
 			FROM = {
 				is_controlled_by = ROOT
@@ -631,7 +779,7 @@ political_actions = {
 		cancel_if_not_visible = yes
 
 		state_target = yes
-		targets = { 1227 235 240 821 95 194 1127 1126 1088 713 78 73 1119 }
+		targets = { 1227 235 240 821 1088 713 73 }
 		target_trigger = {
 			FROM = {
 				is_controlled_by = ROOT
@@ -1325,7 +1473,7 @@ UKR_famine_category = {
 				check_variable = { UKR.UKR_debt_burden < 11 }	
 			}
 		}
-		target_array = UKR_produces_food_array
+		target_array = global.UKR_produces_food_array
 		target_root_trigger = {
 			has_completed_focus = UKR_Ask_For_Foreign_Aid
 			check_variable = { UKR.UKR_risk_of_famine_var > 0 }
@@ -1350,6 +1498,767 @@ UKR_famine_category = {
 		}
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision timeout UKR_import_food"
+		}
+	}
+}
+UKR_Kyiv_Conference_decisions = {
+	KCN_economic_cooperation = {
+		icon = GFX_decision_generic_agreement
+		allowed = {
+			original_tag = UKR
+		}
+		available = {
+			has_completed_focus = UKR_Kyiv_Conference
+			NOT = {
+				has_global_flag = kcn_vote_ongoing
+			}
+		}
+		visible = {
+			original_tag = UKR
+			has_country_flag = UKR_economic_cooperation_vote
+		}
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 1000
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete KCN_economic_cooperation"
+			set_global_flag = kcn_vote_ongoing
+			set_global_flag = KCN_economic_cooperation_vote
+			activate_mission = KCN_vote_timer
+			effect_tooltip = {
+				every_other_country = {
+					limit = { has_country_flag = kcn_council_vote }
+					country_event = ukrsoc.65
+				}
+			}
+			hidden_effect = {
+				set_temp_variable = { KCN_vote_delay = 2 }
+				for_each_scope_loop = {
+					array = global.KCN_voters
+					country_event = { id = ukrsoc.65 days = KCN_vote_delay }
+					add_to_temp_variable = { KCN_vote_delay = 1 }
+				}
+			}
+		}
+	}
+	KCN_cultural_research_cooperation = {
+		icon = GFX_decision_generic_research
+		allowed = {
+			original_tag = UKR
+		}
+		available = {
+			has_completed_focus = UKR_Kyiv_Conference
+			NOT = {
+				has_global_flag = kcn_vote_ongoing
+			}
+		}
+		visible = {
+			original_tag = UKR
+			has_country_flag = UKR_cultural_research_cooperation_vote
+		}
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 1000
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete KCN_cultural_research_cooperation"
+			set_global_flag = kcn_vote_ongoing
+			set_global_flag = KCN_cultural_research_cooperation_vote
+			activate_mission = KCN_vote_timer
+			effect_tooltip = {
+				every_other_country = {
+					limit = { has_country_flag = kcn_council_vote }
+					country_event = ukrsoc.66
+				}
+			}
+			hidden_effect = {
+				set_temp_variable = { KCN_vote_delay = 2 }
+				for_each_scope_loop = {
+					array = global.KCN_voters
+					country_event = { id = ukrsoc.66 days = KCN_vote_delay }
+					add_to_temp_variable = { KCN_vote_delay = 1 }
+				}
+			}
+		}
+	}
+	KCN_invite_country = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			original_tag = UKR
+		}
+		available = {
+			has_completed_focus = UKR_Kyiv_Conference
+			NOT = {
+				has_global_flag = kcn_vote_ongoing
+			}
+			NOT = { has_country_flag = KCN_inviting_country }
+			FROM = {
+				at_peace_or_same_enemies_as_ROOT = yes
+			}
+		}
+		visible = {
+			original_tag = UKR
+		}
+		target_array = global.KCN_potential_kcn_members
+		target_root_trigger = {
+			has_completed_focus = UKR_Kyiv_Conference			
+		}
+		target_trigger = {
+			FROM = {
+				exists = yes
+				is_a_potential_kyiv_conference_member = yes
+				is_ally_of_major = no
+				NOT = { has_country_flag = kcn_council_vote }
+				NOT = { has_country_flag = KCN_refused_kcn_participation }
+			}
+		}
+		cost = 0
+		fire_only_once = yes
+		days_remove = 14
+		ai_will_do = {
+			factor = 1000
+		}
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel KCN_invite_country"
+			clr_country_flag = KCN_inviting_country
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete KCN_invite_country"
+			set_country_flag = { flag = KCN_inviting_country days = 14 value = 1 }
+			FROM = {
+				country_event = {
+					id = ukrsoc.75
+					days = 3
+				}
+			}
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove KCN_invite_country"
+			clr_country_flag = KCN_inviting_country
+		}
+		
+	}
+	KCN_initialize_country_accept = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = { always = no } #manually activated
+		available = {
+			has_completed_focus = UKR_Kyiv_Conference
+			NOT = {
+				has_global_flag = kcn_vote_ongoing
+			}
+		}
+		visible = {
+			original_tag = UKR
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 1000
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete KCN_initialize_country_accept [FROM.GetName]"
+			FROM = { 
+				save_global_event_target_as = KCN_candidate_membership
+				country_event = ukrsoc.78
+			}
+			set_global_flag = kcn_vote_ongoing
+			set_global_flag = KCN_candidate_membership_vote
+			activate_mission = KCN_vote_timer
+			effect_tooltip = {
+				every_other_country = {
+					limit = { has_country_flag = kcn_council_vote }
+					country_event = ukrsoc.77
+				}
+			}
+			hidden_effect = {
+				set_temp_variable = { KCN_vote_delay = 2 }
+				for_each_scope_loop = {
+					array = global.KCN_voters
+					country_event = { id = ukrsoc.77 hours = KCN_vote_delay }
+					add_to_temp_variable = { KCN_vote_delay = 6 }
+				}
+			}
+		}
+		
+	}
+	KCN_kick_out_country = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = { original_tag = UKR } #manually activated
+		available = {
+			has_completed_focus = UKR_Kyiv_Conference
+			NOT = {
+				has_global_flag = kcn_vote_ongoing
+			}
+			NOT = { has_country_flag = KCN_inviting_country }
+		}
+		visible = {
+			original_tag = UKR
+		}
+		target_array = global.KCN_potential_kcn_members
+		target_root_trigger = {
+			has_completed_focus = UKR_Kyiv_Conference			
+		}
+		target_trigger = {
+			FROM = {
+				exists = yes
+				is_a_potential_kyiv_conference_member = yes
+				has_country_flag = kcn_council_vote
+				OR = {
+					is_ally_of_major = yes
+					any_enemy_country = {
+						has_country_flag = kcn_council_vote
+						has_defensive_war_with = FROM
+					}
+					has_added_tension_amount > 7
+				}
+			}
+		}
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 1000
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete KCN_kick_out_country [FROM.GetName]"
+			FROM = { 
+				save_global_event_target_as = KCN_candidate_membership
+				country_event = ukrsoc.86
+			}
+			set_global_flag = kcn_vote_ongoing
+			set_global_flag = KCN_candidate_membership_revoke
+			activate_mission = KCN_vote_timer
+			effect_tooltip = {
+				every_other_country = {
+					limit = { has_country_flag = kcn_council_vote }
+					country_event = ukrsoc.85
+				}
+			}
+			hidden_effect = {
+				set_temp_variable = { KCN_vote_delay = 2 }
+				for_each_scope_loop = {
+					array = global.KCN_voters
+					country_event = { id = ukrsoc.85 hours = KCN_vote_delay }
+					add_to_temp_variable = { KCN_vote_delay = 6 }
+				}
+			}
+		}
+		
+	}
+	KCN_send_aid = {
+		icon = GFX_decision_generic_political_discourse
+		available = {
+			at_peace_or_same_enemies_as_FROM = yes
+		}
+		target_array = global.KCN_potential_kcn_members
+		target_root_trigger = {
+			has_country_flag = kcn_council_vote
+		}
+		target_trigger = {
+			FROM = {
+				exists = yes
+				is_a_potential_kyiv_conference_member = yes
+				has_country_flag = kcn_council_vote
+				has_war = yes
+				any_enemy_country = {
+					OR = {
+						is_actual_major = yes
+						is_ally_of_major = yes
+					}
+				}
+			}
+		}
+		cost = 0
+		fire_only_once = yes
+		days_remove = 14
+		ai_will_do = {
+			factor = 1000
+			modifier = {
+				factor = 0
+				has_equipment = {
+					infantry_equipment < 500
+				}
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete KCN_send_aid [FROM.GetName]"
+			ROOT = { 
+				country_event = {
+					id = ukrsoc.83
+					days = 2
+					random_days = 4
+				}
+			}
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove KCN_send_aid [FROM.GetName]"
+			FROM = { country_event = ukrsoc.84 }
+		}
+	}
+	KCN_join_kyiv_conf_economic = {
+		icon = generic_research
+		
+		visible = {
+			has_global_flag = KCN_economic_yes
+			has_country_flag = kcn_council_vote
+			NOT = {
+				has_global_flag = kcn_vote_ongoing
+			}
+			NOT = { 
+				OR = {
+					GER_is_in_mitteleuropa = yes
+					is_in_array = { global.asian_economic_sphere = THIS }
+					is_in_tech_sharing_group = phalanstere_research
+				}
+			}
+			FROM = {
+				exists = yes
+				KCN_is_member_economic = yes
+			}
+			KCN_is_member_economic = no
+		}
+
+		targets = { UKR }
+		target_root_trigger = { has_country_flag = kcn_council_vote }
+		target_trigger = {
+			FROM = { KCN_is_member_economic = yes }
+		}
+
+		fire_only_once = no
+		cost = 0
+
+		ai_will_do = {
+			factor = 1000
+			modifier = {
+				factor = 0
+				has_socialist_government = no
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision KCN_join_kyiv_conf_economic target: [From.GetName]"
+			KCN_add_to_kcn_economic = yes
+		}
+	}
+	KCN_join_kyiv_conf_research = {
+		icon = generic_research
+		
+		available = { is_in_tech_research_group = no }
+		
+		visible = {
+			has_global_flag = KCN_research_yes
+			has_country_flag = kcn_council_vote
+			NOT = {
+				has_global_flag = kcn_vote_ongoing
+			}
+			FROM = {
+				exists = yes
+				is_in_tech_sharing_group = kyiv_conf_research
+			}
+			NOT = { is_in_tech_sharing_group = kyiv_conf_research }
+		}
+
+		targets = { UKR }
+		target_root_trigger = { has_country_flag = kcn_council_vote }
+		target_trigger = {
+			FROM = { is_in_tech_sharing_group = kyiv_conf_research }
+		}
+
+		fire_only_once = yes
+		cost = 0
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision KCN_join_kyiv_conf_research target: [From.GetName]"
+			add_to_tech_sharing_group = kyiv_conf_research
+		}
+	}
+	KCN_help_indochina = {
+		icon = GFX_decision_soldierly_discipline
+		
+		allowed = { original_tag = UKR }
+		available = { 
+			has_war = no
+			FROM = {
+				exists = yes
+				has_war = yes
+			}
+		}
+		
+		visible = {
+			has_country_flag = kcn_council_vote
+		}
+
+		targets = { INC }
+		target_root_trigger = { 
+			has_country_flag = kcn_council_vote
+			has_completed_focus = UKR_Help_Indochina_LKMT
+		}
+		target_trigger = {
+			FROM = {
+				any_enemy_country = {
+					OR = {
+						is_ally_of_major = yes
+						is_actual_major = yes
+						tag = MAF
+						has_no_african_interests = no
+					}
+				}
+			}
+		}
+
+		fire_only_once = yes
+		custom_cost_trigger = {
+			command_power > 24.99
+			has_political_power > 9.99
+		}
+		custom_cost_text = PP_10_CP_25
+		
+		cancel_if_not_visible = yes
+		days_remove = 14
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0.2
+				has_political_power < 50
+			}
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel KCN_help_indochina target: [From.GetName]"
+			hidden_effect = {
+				add_command_power = 25
+				add_political_power = 10
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision KCN_help_indochina target: [From.GetName]"
+			hidden_effect = {
+				add_command_power = -25
+				add_political_power = -10
+			}
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove KCN_help_indochina target: [From.GetName]"
+			FROM = { country_event = ukrsoc.82 }
+			every_other_country = {
+				limit = { has_country_flag = kcn_council_vote }
+				activate_targeted_decision = { target = FROM decision = KCN_help_indochina_aid }
+			}
+		}
+	}
+	KCN_help_lkmt = {
+		icon = GFX_decision_soldierly_discipline
+		
+		allowed = { original_tag = UKR }
+		available = { 
+			has_war = no
+			FROM = {
+				exists = yes
+				has_war = yes
+			}
+		}
+		
+		visible = {
+			has_country_flag = kcn_council_vote
+		}
+
+		targets = { CHI GXC YUN }
+		target_root_trigger = { 
+			has_country_flag = kcn_council_vote
+			has_completed_focus = UKR_Help_Indochina_LKMT
+		}
+		target_trigger = {
+			FROM = {
+				any_enemy_country = {
+					OR = {
+						is_ally_of_major = yes
+						is_actual_major = yes
+						tag = MAF
+						tag = QIE
+						tag = FNG
+						has_no_african_interests = no
+					}
+				}
+				OR = {
+					has_socialist_government = yes
+					has_government = social_democrat
+				}
+			}
+		}
+
+		fire_only_once = yes
+		custom_cost_trigger = {
+			command_power > 24.99
+			has_political_power > 9.99
+		}
+		custom_cost_text = PP_10_CP_25
+		
+		cancel_if_not_visible = yes
+		days_remove = 14
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0.2
+				has_political_power < 50
+			}
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel KCN_help_lkmt target: [From.GetName]"
+			hidden_effect = {
+				add_command_power = 25
+				add_political_power = 10
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision KCN_help_lkmt target: [From.GetName]"
+			hidden_effect = {
+				add_command_power = -25
+				add_political_power = -10
+			}
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove KCN_help_lkmt target: [From.GetName]"
+			FROM = { country_event = ukrsoc.82 }
+			every_other_country = {
+				limit = { has_country_flag = kcn_council_vote }
+				activate_targeted_decision = { target = FROM decision = KCN_help_lkmt_aid }
+			}
+		}
+	}
+	KCN_help_indochina_aid = {
+		icon = GFX_decision_soldierly_discipline
+		name = KCN_help_indochina
+		allowed = { always = no } #manually activated
+		available = { 
+			has_war = no
+			FROM = {
+				exists = yes
+				has_war = yes
+			}
+		}
+		
+		visible = {
+			has_country_flag = kcn_council_vote
+		}
+		
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 24.99
+			has_political_power > 9.99
+		}
+		custom_cost_text = PP_10_CP_25
+		
+		cancel_if_not_visible = yes
+		days_remove = 14
+		days_re_enable = 365
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0.2
+				has_political_power < 50
+			}
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision KCN_help_indochina_aid target: [From.GetName]"
+			hidden_effect = {
+				add_command_power = 25
+				add_political_power = 10
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision KCN_help_indochina_aid target: [From.GetName]"
+			hidden_effect = {
+				add_command_power = -25
+				add_political_power = -10
+			}
+			ROOT = { country_event = ukrsoc.83 }
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision KCN_help_indochina_aid target: [From.GetName]"
+			FROM = { country_event = ukrsoc.84 }			
+		}
+	}
+	KCN_help_lkmt_aid = {
+		icon = GFX_decision_soldierly_discipline
+		name = KCN_help_lkmt
+		allowed = { always = no } #manually activated
+		available = { 
+			has_war = no
+			FROM = {
+				exists = yes
+				has_war = yes
+			}
+		}
+		
+		visible = {
+			has_country_flag = kcn_council_vote
+		}
+		
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 24.99
+			has_political_power > 9.99
+		}
+		custom_cost_text = PP_10_CP_25
+		
+		cancel_if_not_visible = yes
+		days_remove = 14
+		days_re_enable = 365
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0.2
+				has_political_power < 50
+			}
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel KCN_help_lkmt_aid target: [From.GetName]"
+			hidden_effect = {
+				add_command_power = 25
+				add_political_power = 10
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision KCN_help_lkmt_aid target: [From.GetName]"
+			hidden_effect = {
+				add_command_power = -25
+				add_political_power = -10
+			}
+			ROOT = { country_event = ukrsoc.83 }
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove KCN_help_lkmt_aid target: [From.GetName]"
+			FROM = { country_event = ukrsoc.84 }			
+		}
+	}
+	KCN_receive_interbrihada = {
+		icon = GFX_decision_soldierly_discipline
+		
+		available = { 
+			has_war = yes
+			custom_trigger_tooltip = {
+				tooltip = KCN_fighting_imperialists
+				any_enemy_country = {
+					NOT = { has_country_flag = kcn_council_vote }
+					OR = {
+						is_ally_of_major = yes
+						is_actual_major = yes
+						tag = MAF
+						has_no_african_interests = no
+					}
+				}
+			}
+		}
+		
+		visible = {
+			has_country_flag = kcn_council_vote
+			NOT = { has_country_flag = KCN_received_interbrihada }
+		}
+		
+		fire_only_once = no
+		cost = 0
+		
+		
+		cancel_if_not_visible = yes
+		days_remove = 10
+		ai_will_do = {
+			factor = 100
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel KCN_receive_interbrihada target: [From.GetName]"
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision KCN_receive_interbrihada target: [From.GetName]"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove KCN_receive_interbrihada target: [From.GetName]"
+			division_template = {
+				name = "Interbrigade"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+				}
+				support = {
+					recon = { x = 0 y = 0 }
+					artillery = { x = 0 y = 1 }
+				}
+				is_locked = yes				
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "division_template = \"Interbrigade\" start_experience_factor = 0.8"
+					owner = ROOT
+				}
+			}
+			set_country_flag = KCN_received_interbrihada
+		}
+	}
+	KCN_vote_timer = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = { always = no } #manually activated
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+
+		days_mission_timeout = 30
+		is_good = no
+
+		cancel_trigger = {
+			hidden_trigger = { always = no }
+		}
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout KCN_vote_timer"
+			clr_global_flag = KCN_vote_ongoing
+			if = {
+				limit = { has_global_flag = KCN_cultural_research_cooperation_vote }
+				clr_global_flag = KCN_cultural_research_cooperation_vote
+				UKR = { country_event = ukrsoc.72 }
+			}
+			else_if = {
+				limit = { has_global_flag = KCN_economic_cooperation_vote }
+				clr_global_flag = KCN_economic_cooperation_vote
+				UKR = { country_event = ukrsoc.69 }
+			}
+			else_if = {
+				limit = { has_global_flag = KCN_candidate_membership_vote }
+				clr_global_flag = KCN_candidate_membership_vote
+				UKR = { country_event = ukrsoc.79 }
+			}
+			else_if = {
+				limit = { has_global_flag = KCN_candidate_membership_revoke }
+				clr_global_flag = KCN_candidate_membership_revoke
+				UKR = { country_event = ukrsoc.87 }
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						check_variable = { global.kcn_yes_votes > global.kcn_no_votes }
+					}
+					country_event = { id = ukrsoc.68 hours = 2 }
+				}
+				else = {
+					country_event = { id = ukrsoc.67 hours = 2 }
+				}
+			}
+			clear_variable = global.kcn_yes_votes
+			clear_variable = global.kcn_no_votes
+			clear_variable = global.kcn_abstain_votes
 		}
 	}
 }
@@ -1384,7 +2293,7 @@ UKR_Panslavic_Congress_decisions = {
 		visible = {
 			original_tag = UKR
 		}
-		cost = freedec?0
+		cost = 0
 		fire_only_once = yes
 		ai_will_do = {
 			factor = 100
@@ -1428,7 +2337,7 @@ UKR_Panslavic_Congress_decisions = {
 		visible = {
 			original_tag = UKR
 		}
-		cost = freedec?0
+		cost = 0
 		fire_only_once = yes
 		ai_will_do = {
 			factor = 100
@@ -1476,7 +2385,7 @@ UKR_Panslavic_Congress_decisions = {
 		visible = {
 			original_tag = UKR
 		}
-		cost = freedec?0
+		cost = 0
 		fire_only_once = yes
 		ai_will_do = {
 			factor = 100
@@ -1506,7 +2415,7 @@ UKR_Panslavic_Congress_decisions = {
 		visible = {
 			original_tag = UKR
 		}
-		cost = freedec?0
+		cost = 0
 		fire_only_once = yes
 		ai_will_do = {
 			factor = 100
@@ -1552,7 +2461,7 @@ UKR_Panslavic_Congress_decisions = {
 		visible = {
 			original_tag = UKR
 		}
-		cost = freedec?0
+		cost = 0
 		fire_only_once = yes
 		ai_will_do = {
 			factor = 100
@@ -1584,7 +2493,7 @@ UKR_Panslavic_Congress_decisions = {
 		visible = {
 			original_tag = UKR
 		}
-		cost = freedec?0
+		cost = 0
 		fire_only_once = yes
 		ai_will_do = {
 			factor = 100
@@ -1620,7 +2529,7 @@ UKR_Panslavic_Congress_decisions = {
 		visible = {
 			original_tag = UKR
 		}
-		cost = freedec?0
+		cost = 0
 		fire_only_once = yes
 		ai_will_do = {
 			factor = 100
@@ -1865,7 +2774,7 @@ UKR_Panslavic_Congress_decisions = {
 				value = THIS
 			}
 		}
-		cost = freedec?0
+		cost = 0
 		ai_will_do = {
 			factor = 10
 			modifier = { #####
@@ -2026,7 +2935,7 @@ UKR_Panslavic_Congress_decisions = {
 				value = THIS
 			}
 		}
-		cost = freedec?0
+		cost = 0
 		ai_will_do = {
 			factor = 10
 			modifier = { #####
@@ -2223,7 +3132,7 @@ UKR_Panslavic_Congress_decisions = {
 				value = THIS
 			}
 		}
-		cost = freedec?0
+		cost = 0
 		ai_will_do = {
 			factor = 10
 		}
@@ -2293,3 +3202,3769 @@ UKR_Panslavic_Congress_decisions = {
 		}
 	}
 }	
+UKR_red_prince_decisions = {
+	UKR_king_tours = {
+		icon = eng_abdication_crisis
+		
+		allowed = { always = no } #manually activated
+		
+		available = {
+			hidden_trigger = { always = no }
+		}
+		cancel_trigger = {
+			UKR_vasyl_in_power = no
+		}
+		is_good = yes
+		days_mission_timeout = 14
+		
+		timeout_effect = {
+			if = {
+				limit = {
+					NOT = { has_country_flag = king_has_visited_kyiv }
+				}
+				country_event = ukrmisc.26 #King visits Kyiv
+			}
+			else_if = {
+				limit = {
+					has_country_flag = king_has_visited_kyiv
+					NOT = { has_country_flag = king_has_visited_chernihiv }
+					NOT = { has_country_flag = king_has_visited_poltava }
+					NOT = { has_country_flag = king_has_visited_kharkiv }
+					NOT = { has_country_flag = king_has_visited_katerinoslav }
+					NOT = { has_country_flag = king_has_visited_crimea }
+					NOT = { has_country_flag = king_has_visited_kherson }
+					NOT = { has_country_flag = king_has_visited_podillia }
+					NOT = { has_country_flag = king_has_visited_volyn }
+					NOT = { has_country_flag = king_has_visited_galicia }
+				}
+				country_event = ukrmisc.27 #King visits Chernihiv
+			}
+			else_if = {
+				limit = {
+					has_country_flag = king_has_visited_kyiv
+					has_country_flag = king_has_visited_chernihiv
+					NOT = { has_country_flag = king_has_visited_poltava }
+					NOT = { has_country_flag = king_has_visited_kharkiv }
+					NOT = { has_country_flag = king_has_visited_katerinoslav }
+					NOT = { has_country_flag = king_has_visited_crimea }
+					NOT = { has_country_flag = king_has_visited_kherson }
+					NOT = { has_country_flag = king_has_visited_podillia }
+					NOT = { has_country_flag = king_has_visited_volyn }
+					NOT = { has_country_flag = king_has_visited_galicia }
+				}
+				country_event = ukrmisc.29 #King visits Poltava
+			}
+			else_if = {
+				limit = {
+					has_country_flag = king_has_visited_kyiv
+					has_country_flag = king_has_visited_chernihiv
+					has_country_flag = king_has_visited_poltava
+					NOT = { has_country_flag = king_has_visited_kharkiv }
+					NOT = { has_country_flag = king_has_visited_katerinoslav }
+					NOT = { has_country_flag = king_has_visited_crimea }
+					NOT = { has_country_flag = king_has_visited_kherson }
+					NOT = { has_country_flag = king_has_visited_podillia }
+					NOT = { has_country_flag = king_has_visited_volyn }
+					NOT = { has_country_flag = king_has_visited_galicia }
+				}
+				country_event = ukrmisc.32 #King visits Kharkiv
+			}
+			else_if = {
+				limit = {
+					has_country_flag = king_has_visited_kyiv
+					has_country_flag = king_has_visited_chernihiv
+					has_country_flag = king_has_visited_poltava
+					has_country_flag = king_has_visited_kharkiv
+					NOT = { has_country_flag = king_has_visited_katerinoslav }
+					NOT = { has_country_flag = king_has_visited_crimea }
+					NOT = { has_country_flag = king_has_visited_kherson }
+					NOT = { has_country_flag = king_has_visited_podillia }
+					NOT = { has_country_flag = king_has_visited_volyn }
+					NOT = { has_country_flag = king_has_visited_galicia }
+				}
+				country_event = ukrmisc.33 #King visits Katerinoslav
+			}
+			else_if = {
+				limit = {
+					has_country_flag = king_has_visited_kyiv
+					has_country_flag = king_has_visited_chernihiv
+					has_country_flag = king_has_visited_poltava
+					has_country_flag = king_has_visited_kharkiv
+					has_country_flag = king_has_visited_katerinoslav
+					NOT = { has_country_flag = king_has_visited_crimea }
+					NOT = { has_country_flag = king_has_visited_kherson }
+					NOT = { has_country_flag = king_has_visited_podillia }
+					NOT = { has_country_flag = king_has_visited_volyn }
+					NOT = { has_country_flag = king_has_visited_galicia }
+				}
+				country_event = ukrmisc.34 #King visits Crimea
+			}
+			else_if = {
+				limit = {
+					has_country_flag = king_has_visited_kyiv
+					has_country_flag = king_has_visited_chernihiv
+					has_country_flag = king_has_visited_poltava
+					has_country_flag = king_has_visited_kharkiv
+					has_country_flag = king_has_visited_katerinoslav
+					has_country_flag = king_has_visited_crimea
+					NOT = { has_country_flag = king_has_visited_kherson }
+					NOT = { has_country_flag = king_has_visited_podillia }
+					NOT = { has_country_flag = king_has_visited_volyn }
+					NOT = { has_country_flag = king_has_visited_galicia }
+				}
+				country_event = ukrmisc.35 #King visits Kherson
+			}
+			else_if = {
+				limit = {
+					has_country_flag = king_has_visited_kyiv
+					has_country_flag = king_has_visited_chernihiv
+					has_country_flag = king_has_visited_poltava
+					has_country_flag = king_has_visited_kharkiv
+					has_country_flag = king_has_visited_katerinoslav
+					has_country_flag = king_has_visited_crimea
+					has_country_flag = king_has_visited_kherson
+					NOT = { has_country_flag = king_has_visited_podillia }
+					NOT = { has_country_flag = king_has_visited_volyn }
+					NOT = { has_country_flag = king_has_visited_galicia }
+				}
+				country_event = ukrmisc.30 #King visits Podillia
+			}
+			else_if = {
+				limit = {
+					has_country_flag = king_has_visited_kyiv
+					has_country_flag = king_has_visited_chernihiv
+					has_country_flag = king_has_visited_poltava
+					has_country_flag = king_has_visited_kharkiv
+					has_country_flag = king_has_visited_katerinoslav
+					has_country_flag = king_has_visited_crimea
+					has_country_flag = king_has_visited_kherson
+					has_country_flag = king_has_visited_podillia
+					NOT = { has_country_flag = king_has_visited_volyn }
+					NOT = { has_country_flag = king_has_visited_galicia }
+					controls_state = 91
+				}
+				country_event = ukrmisc.31 #King visits Galicia
+			}
+			else_if = {
+				limit = {
+					has_country_flag = king_has_visited_kyiv
+					has_country_flag = king_has_visited_chernihiv
+					has_country_flag = king_has_visited_poltava
+					has_country_flag = king_has_visited_kharkiv
+					has_country_flag = king_has_visited_katerinoslav
+					has_country_flag = king_has_visited_crimea
+					has_country_flag = king_has_visited_kherson
+					has_country_flag = king_has_visited_podillia
+					NOT = { has_country_flag = king_has_visited_volyn }
+					OR = {
+						NOT = { owns_state = 91 }
+						has_country_flag = king_has_visited_galicia
+					}
+				}
+				country_event = ukrmisc.28 #King visits Volyn
+			}			
+			else_if = {
+				limit = {
+					has_country_flag = king_has_visited_kyiv
+					has_country_flag = king_has_visited_chernihiv
+					has_country_flag = king_has_visited_poltava
+					has_country_flag = king_has_visited_kharkiv
+					has_country_flag = king_has_visited_katerinoslav
+					has_country_flag = king_has_visited_crimea
+					has_country_flag = king_has_visited_kherson
+					has_country_flag = king_has_visited_podillia
+					has_country_flag = king_has_visited_volyn
+					OR = {
+						NOT = { owns_state = 91 }
+						has_country_flag = king_has_visited_galicia
+					}
+				}
+				country_event = ukrmisc.37 #Royal Tour Ends
+			}			
+		}
+	}
+	UKR_king_stays = {
+		icon = eng_propaganda_campaigns
+		
+		allowed = { always = no } #manually activated
+		
+		available = {
+			hidden_trigger = { always = no }
+		}
+		cancel_trigger = {
+			UKR_vasyl_in_power = no
+		}
+		is_good = yes
+		days_mission_timeout = 14
+		
+		timeout_effect = {
+			every_owned_state = {
+				limit = { has_state_flag = king_stays_here }
+				clr_state_flag = king_stays_here
+			}
+			set_variable = { UKR_selected_decisions = 0 }
+			activate_mission = UKR_king_tours	
+		}
+	}
+	UKR_vilne_kozatstvo_investments = {
+		icon = GFX_decision_cavalry
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			193 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_vilne_kozatstvo_investments"
+			set_country_flag = UKR_vilne_kozatstvo_investments_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				country_event = ukrpol.115		
+			}
+		}
+	}
+	UKR_vilne_kozatstvo_investments_2 = {
+		icon = GFX_decision_cavalry
+		name = UKR_vilne_kozatstvo_investments
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_vilne_kozatstvo_investments_selected
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		days_remove = 25
+		
+		ai_will_do = {
+			base = 10
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_vilne_kozatstvo_investments"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_vilne_kozatstvo_investments"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			country_event = ukrpol.115			
+		}
+	}
+	UKR_railways = {
+		icon = GFX_decision_train
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			193 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_railways"
+			set_country_flag = UKR_railways_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				241 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	UKR_railways_2 = {
+		icon = GFX_decision_train
+		name = UKR_railways
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 0
+			controls_state = 241
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_railways_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 241
+			}
+		}
+		
+		cost = 35
+		fire_only_once = yes
+		days_remove = 50
+		
+		modifier = {
+			civilian_factory_use = 1
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_railways"
+			add_political_power = 35
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_railways"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_railways"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			241 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	UKR_chernihiv_oil = {
+		icon = GFX_decision_oil
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			193 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_chernihiv_oil"
+			set_country_flag = UKR_chernihiv_oil_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				193 = {
+					add_extra_state_shared_building_slots = 1
+					increase_state_category_by_one_level = yes
+					add_building_construction = {
+						type = fuel_silo
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_list = {
+					30 = {
+						add_resource = {
+							type = oil
+							amount = 3
+							state = 193
+						}
+					}
+					30 = {
+						add_resource = {
+							type = oil
+							amount = 5
+							state = 193
+						}
+					}
+					25 = {
+						add_resource = {
+							type = oil
+							amount = 7
+							state = 193
+						}
+					}
+					15 = {
+					}
+				}
+			}
+		}
+	}
+	UKR_chernihiv_oil_2 = {
+		icon = GFX_decision_oil
+		name = UKR_chernihiv_oil
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 3
+			controls_state = 193
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_chernihiv_oil_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 193
+			}
+		}
+		
+		cost = 50
+		fire_only_once = yes
+		days_remove = 50
+		
+		modifier = {
+			civilian_factory_use = 4
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_chernihiv_oil"
+			add_political_power = 50
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_chernihiv_oil"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_chernihiv_oil"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			193 = {
+				add_extra_state_shared_building_slots = 1
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = fuel_silo
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_list = {
+				30 = {
+					add_resource = {
+						type = oil
+						amount = 3
+						state = 193
+					}
+				}
+				30 = {
+					add_resource = {
+						type = oil
+						amount = 5
+						state = 193
+					}
+				}
+				25 = {
+					add_resource = {
+						type = oil
+						amount = 7
+						state = 193
+					}
+				}
+				15 = {
+				}
+			}	
+		}
+	}
+	UKR_kremenchuk_mechanization_plant = {
+		icon = GFX_decision_wrenches
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			259 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_kremenchuk_mechanization_plant"
+			set_country_flag = UKR_kremenchuk_mechanization_plant_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				1238 = {
+					add_extra_state_shared_building_slots = 1
+					increase_state_category_by_one_level = yes
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+				UKR_breadbasket_add_pp = yes
+				UKR_breadbasket_remove_resource_penalty = yes
+				UKR_breadbasket_remove_supply_consumption = yes
+			}
+		}
+	}
+	UKR_kremenchuk_mechanization_plant_2 = {
+		icon = GFX_decision_oil
+		name = UKR_kremenchuk_mechanization_plant
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 1
+			controls_state = 1238
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_kremenchuk_mechanization_plant_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1238
+			}
+		}
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 30
+		
+		modifier = {
+			civilian_factory_use = 2
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_kremenchuk_mechanization_plant"
+			add_political_power = 30
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_kremenchuk_mechanization_plant"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_kremenchuk_mechanization_plant"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			1238 = {
+				add_extra_state_shared_building_slots = 1
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_add_pp = yes
+			UKR_breadbasket_remove_resource_penalty = yes
+			UKR_breadbasket_remove_supply_consumption = yes
+		}
+	}
+	UKR_develop_kremenchuk_iron = {
+		icon = GFX_decision_steel
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			259 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_develop_kremenchuk_iron"
+			set_country_flag = UKR_develop_kremenchuk_iron_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				random_list = {
+					30 = {
+						add_resource = {
+							type = steel
+							amount = 7
+							state = 193
+						}
+					}
+					30 = {
+						add_resource = {
+							type = steel
+							amount = 9
+							state = 193
+						}
+					}
+					25 = {
+						add_resource = {
+							type = steel
+							amount = 11
+							state = 193
+						}
+					}
+					15 = {
+						add_resource = {
+							type = steel
+							amount = 18
+							state = 193
+						}
+					}
+				}
+			}
+		}
+	}
+	UKR_develop_kremenchuk_iron_2 = {
+		icon = GFX_decision_steel
+		name = UKR_develop_kremenchuk_iron
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 1
+			controls_state = 1238
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_develop_kremenchuk_iron_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1238
+			}
+		}
+		
+		cost = 40
+		fire_only_once = yes
+		days_remove = 50
+		
+		modifier = {
+			civilian_factory_use = 2
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_develop_kremenchuk_iron"
+			add_political_power = 40
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_develop_kremenchuk_iron"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_develop_kremenchuk_iron"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			random_list = {
+				30 = {
+					add_resource = {
+						type = steel
+						amount = 7
+						state = 193
+					}
+				}
+				30 = {
+					add_resource = {
+						type = steel
+						amount = 9
+						state = 193
+					}
+				}
+				25 = {
+					add_resource = {
+						type = steel
+						amount = 11
+						state = 193
+					}
+				}
+				15 = {
+					add_resource = {
+						type = steel
+						amount = 18
+						state = 193
+					}
+				}
+			}
+		}
+	}
+	UKR_develop_kharkiv_fairground = {
+		icon = GFX_decision_give_cash
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			221 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_develop_kharkiv_fairground"
+			set_country_flag = UKR_develop_kharkiv_fairground_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				add_stability = 0.05
+				221 = { add_extra_state_shared_building_slots = 1 }
+				custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+				UKR_breadbasket_add_monthly_population = yes
+				UKR_breadbasket_remove_trade_opinion = yes
+			}
+		}
+	}
+	UKR_develop_kharkiv_fairground_2 = {
+		icon = GFX_decision_give_cash
+		name = UKR_develop_kharkiv_fairground
+		
+		available = {
+			controls_state = 221
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_develop_kharkiv_fairground_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 221
+			}
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		days_remove = 25
+		
+		modifier = {
+			political_power_cost = 0.05
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_develop_kharkiv_fairground"
+			add_political_power = 25
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_develop_kharkiv_fairground"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_develop_kharkiv_fairground"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			add_stability = 0.05
+			221 = { add_extra_state_shared_building_slots = 1 }
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_add_monthly_population = yes
+			UKR_breadbasket_remove_trade_opinion = yes
+		}
+	}
+	UKR_kharkiv_industry_grants = {
+		icon = GFX_decision_factories
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			221 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_kharkiv_industry_grants"
+			set_country_flag = UKR_kharkiv_industry_grants_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				221 = { 
+					add_extra_state_shared_building_slots = 1
+					increase_state_category_by_one_level = yes
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	UKR_kharkiv_industry_grants_2 = {
+		icon = GFX_decision_factories
+		name = UKR_kharkiv_industry_grants
+		
+		available = {
+			controls_state = 221
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_kharkiv_industry_grants_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 221
+			}
+		}
+		
+		cost = 60
+		fire_only_once = yes
+		days_remove = 60
+		
+		modifier = {
+			political_power_cost = 0.15
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_kharkiv_industry_grants"
+			add_political_power = 60
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_kharkiv_industry_grants"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_kharkiv_industry_grants"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			221 = { 
+				add_extra_state_shared_building_slots = 1
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	UKR_kharkiv_agricultural_subsidies = {
+		icon = GFX_decision_generic_agriculture
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			221 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_kharkiv_agricultural_subsidies"
+			set_country_flag = UKR_kharkiv_agricultural_subsidies_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				1239 = { 
+					add_extra_state_shared_building_slots = 1
+				}
+				custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+				UKR_breadbasket_add_monthly_population = yes
+				UKR_breadbasket_remove_resource_penalty = yes
+				UKR_breadbasket_add_consumer_goods = yes
+				UKR_breadbasket_remove_supply_consumption = yes
+			}
+		}
+	}
+	UKR_kharkiv_agricultural_subsidies_2 = {
+		icon = GFX_decision_generic_agriculture
+		name = UKR_kharkiv_agricultural_subsidies
+		
+		available = {
+			controls_state = 1239
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_kharkiv_agricultural_subsidies_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1239
+			}
+		}
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 40
+		
+		modifier = {
+			political_power_cost = 0.15
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_kharkiv_agricultural_subsidies"
+			add_political_power = 30
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_kharkiv_agricultural_subsidies"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_kharkiv_agricultural_subsidies"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			1239 = { 
+				add_extra_state_shared_building_slots = 1
+			}
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_add_monthly_population = yes
+			UKR_breadbasket_remove_resource_penalty = yes
+			UKR_breadbasket_add_consumer_goods = yes
+			UKR_breadbasket_remove_supply_consumption = yes
+		}
+	}
+	UKR_donbas_industrial = {
+		icon = GFX_decision_factories
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			226 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_donbas_industrial"
+			set_country_flag = UKR_donbas_industrial_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				227 = { 
+					add_extra_state_shared_building_slots = 1
+					increase_state_category_by_one_level = yes
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+				custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+				UKR_breadbasket_add_production_growth = yes
+			}
+		}
+	}
+	UKR_donbas_industrial_2 = {
+		icon = GFX_decision_factories
+		name = UKR_donbas_industrial
+		
+		available = {
+			controls_state = 227
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_donbas_industrial_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 227
+			}
+		}
+		
+		cost = 40
+		fire_only_once = yes
+		days_remove = 60
+		
+		modifier = {
+			stability_factor = -0.07
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_donbas_industrial"
+			add_political_power = 40
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_donbas_industrial"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_donbas_industrial"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			227 = { 
+				add_extra_state_shared_building_slots = 1
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_add_production_growth = yes
+		}
+	}
+	UKR_wheat_development = {
+		icon = GFX_decision_generic_agriculture
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			226 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_wheat_development"
+			set_country_flag = UKR_wheat_development_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				226 = { add_extra_state_shared_building_slots = 1 }
+				custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+				UKR_breadbasket_add_monthly_population = yes
+				UKR_breadbasket_add_consumer_goods = yes
+				UKR_breadbasket_remove_trade_opinion = yes
+				UKR_breadbasket_remove_out_of_supply = yes
+			}
+		}
+	}
+	UKR_wheat_development_2 = {
+		icon = GFX_decision_generic_agriculture
+		name = UKR_wheat_development
+		
+		available = {
+			controls_state = 226
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_wheat_development_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 226
+			}
+		}
+		
+		cost = 20
+		fire_only_once = yes
+		days_remove = 30
+		
+		modifier = {
+			political_power_cost = 0.04
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_wheat_development"
+			add_political_power = 20
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_wheat_development"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_wheat_development"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			226 = { add_extra_state_shared_building_slots = 1 }
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_add_monthly_population = yes
+			UKR_breadbasket_add_consumer_goods = yes
+			UKR_breadbasket_remove_trade_opinion = yes
+			UKR_breadbasket_remove_out_of_supply = yes
+		}
+	}
+	UKR_potato_development = {
+		icon = GFX_decision_generic_agriculture
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			226 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_potato_development"
+			set_country_flag = UKR_potato_development_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				226 = { add_extra_state_shared_building_slots = 1 }
+				custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+				UKR_breadbasket_add_monthly_population = yes
+				UKR_breadbasket_add_consumer_goods = yes
+				UKR_breadbasket_remove_supply_consumption = yes
+			}
+		}
+	}
+	UKR_potato_development_2 = {
+		icon = GFX_decision_generic_agriculture
+		name = UKR_potato_development
+		
+		available = {
+			controls_state = 226
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_potato_development_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 226
+			}
+		}
+		
+		cost = 20
+		fire_only_once = yes
+		days_remove = 35
+		
+		modifier = {
+			political_power_cost = 0.04
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_potato_development"
+			add_political_power = 20
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_potato_development"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_potato_development"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			226 = { add_extra_state_shared_building_slots = 1 }
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_add_monthly_population = yes
+			UKR_breadbasket_add_consumer_goods = yes
+			UKR_breadbasket_remove_supply_consumption = yes
+		}
+	}
+	UKR_tobacco_farming = {
+		icon = GFX_decision_generic_agriculture
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			226 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_tobacco_farming"
+			set_country_flag = UKR_tobacco_farming_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				228 = { add_extra_state_shared_building_slots = 1 }
+				custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+				UKR_breadbasket_remove_monthly_population = yes
+				UKR_breadbasket_remove_trade_opinion = yes
+			}
+		}
+	}
+	UKR_tobacco_farming_2 = {
+		icon = GFX_decision_generic_agriculture
+		name = UKR_tobacco_farming
+		
+		available = {
+			controls_state = 226
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_tobacco_farming_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 226
+			}
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		days_remove = 40
+		
+		modifier = {
+			political_power_cost = 0.06
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_tobacco_farming"
+			add_political_power = 25
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_tobacco_farming"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_tobacco_farming"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			228 = { add_extra_state_shared_building_slots = 1 }
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_remove_monthly_population = yes
+			UKR_breadbasket_remove_trade_opinion = yes
+		}
+	}
+	UKR_crimean_wine = {
+		icon = GFX_decision_generic_healthcare
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			137 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_crimean_wine"
+			set_country_flag = UKR_crimean_wine_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				137 = { add_extra_state_shared_building_slots = 1 }
+				country_event = ukrmisc.13
+				custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+				UKR_breadbasket_add_monthly_population = yes
+				UKR_breadbasket_remove_trade_opinion = yes
+			}
+		}
+	}
+	UKR_crimean_wine_2 = {
+		icon = GFX_decision_generic_healthcare
+		name = UKR_crimean_wine
+		
+		available = {
+			controls_state = 137
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_crimean_wine_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 137
+			}
+		}
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 80
+		
+		ai_will_do = {
+			base = 10
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_crimean_wine"
+			add_political_power = 30
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_crimean_wine"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_crimean_wine"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			137 = { add_extra_state_shared_building_slots = 1 }
+			country_event = ukrmisc.13
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_add_monthly_population = yes
+			UKR_breadbasket_remove_trade_opinion = yes
+		}
+	}
+	UKR_peoples_education = {
+		icon = GFX_decision_generic_healthcare
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			137 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_peoples_education"
+			set_country_flag = UKR_peoples_education_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				196 = { add_extra_state_shared_building_slots = 1 }
+				add_stability = 0.04
+				set_temp_variable = { ideology_change_var = 8 }
+				change_ruling_party_popularity = yes
+				UKR_improve_ukrainisation = yes
+			}
+		}
+	}
+	UKR_peoples_education_2 = {
+		icon = GFX_decision_generic_healthcare
+		name = UKR_peoples_education
+		
+		available = {
+			controls_state = 196
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_peoples_education_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 196
+			}
+		}
+		
+		cost = 15
+		fire_only_once = yes
+		days_remove = 30
+		
+		ai_will_do = {
+			base = 10
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_peoples_education"
+			add_political_power = 15
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_peoples_education"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_peoples_education"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			196 = { add_extra_state_shared_building_slots = 1 }
+			add_stability = 0.04
+			set_temp_variable = { ideology_change_var = 8 }
+			change_ruling_party_popularity = yes
+			UKR_improve_ukrainisation = yes
+		}
+	}
+	UKR_sevastopol_naval_yards = {
+		icon = GFX_decision_generic_naval
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			137 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_sevastopol_naval_yards"
+			set_country_flag = UKR_sevastopol_naval_yards_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				1221 = { 
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+				add_war_support = 0.02
+			}
+		}
+	}
+	UKR_sevastopol_naval_yards_2 = {
+		icon = GFX_decision_generic_naval
+		name = UKR_sevastopol_naval_yards
+		
+		available = {
+			controls_state = 1221
+			num_of_civilian_factories_available_for_projects > 2
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_sevastopol_naval_yards_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 196
+			}
+		}
+		
+		cost = 40
+		fire_only_once = yes
+		days_remove = 90
+		modifier = {
+			civilian_factory_use = 3
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_sevastopol_naval_yards"
+			add_political_power = 40
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_sevastopol_naval_yards"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_sevastopol_naval_yards"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			1221 = { 
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_war_support = 0.02
+		}
+	}
+	UKR_renovate_berdiansk_port = {
+		icon = GFX_decision_generic_naval_base
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			137 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_renovate_berdiansk_port"
+			set_country_flag = UKR_renovate_berdiansk_port_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				1234 = { 
+					add_extra_state_shared_building_slots = 1
+					add_building_construction  = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+						province = 9571
+					}
+				}
+			}
+		}
+	}
+	UKR_renovate_berdiansk_port_2 = {
+		icon = GFX_decision_generic_naval_base
+		name = UKR_renovate_berdiansk_port
+		
+		available = {
+			controls_state = 1234
+			num_of_civilian_factories_available_for_projects > 3
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_renovate_berdiansk_port_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1234
+			}
+		}
+		
+		cost = 35
+		fire_only_once = yes
+		days_remove = 80
+		
+		ai_will_do = {
+			base = 10
+		}
+		modifier = {
+			civilian_factory_use = 4
+		}
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_renovate_berdiansk_port"
+			add_political_power = 35
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_renovate_berdiansk_port"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_renovate_berdiansk_port"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			1234 = { 
+				add_extra_state_shared_building_slots = 1
+				add_building_construction  = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 9571
+				}
+			}
+		}
+	}
+	UKR_open_berdiansk_refinery = {
+		icon = GFX_decision_oil
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			137 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_open_berdiansk_refinery"
+			set_country_flag = UKR_open_berdiansk_refinery_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				1234 = { 
+					add_extra_state_shared_building_slots = 1
+					add_building_construction  = {
+						type = synthetic_refinery
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	UKR_open_berdiansk_refinery_2 = {
+		icon = GFX_decision_oil
+		name = UKR_open_berdiansk_refinery
+		
+		available = {
+			controls_state = 1234
+			num_of_civilian_factories_available_for_projects > 1
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_open_berdiansk_refinery_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1234
+			}
+		}
+		
+		cost = 40
+		fire_only_once = yes
+		days_remove = 40
+		
+		ai_will_do = {
+			base = 10
+		}
+		modifier = {
+			civilian_factory_use = 2
+		}
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_open_berdiansk_refinery"
+			add_political_power = 40
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_open_berdiansk_refinery"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_open_berdiansk_refinery"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			1234 = { 
+				add_extra_state_shared_building_slots = 1
+				add_building_construction  = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	UKR_invest_in_domestic_industry = {
+		icon = GFX_decision_give_cash
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+			country_exists = GER
+		}
+		visible = {
+			192 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_invest_in_domestic_industry"
+			set_country_flag = UKR_invest_in_domestic_industry_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				GER = { add_political_power = 40 }
+				192 = { 
+					add_extra_state_shared_building_slots = 2
+					add_building_construction  = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	UKR_invest_in_domestic_industry_2 = {
+		icon = GFX_decision_give_cash
+		name = UKR_invest_in_domestic_industry
+		
+		available = {
+			controls_state = 192
+			OR = {
+				country_exists = GER
+				GER = { has_capitulated = yes }
+			}
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_invest_in_domestic_industry_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 192
+			}
+		}
+		
+		cost = 40
+		fire_only_once = yes
+		days_remove = 15
+		
+		ai_will_do = {
+			base = 10
+		}
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_invest_in_domestic_industry"
+			add_political_power = 40
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_invest_in_domestic_industry"
+			GER = { add_political_power = 40 }
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_invest_in_domestic_industry"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			192 = { 
+				add_extra_state_shared_building_slots = 2
+				add_building_construction  = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	UKR_combat_odesa_bandits = {
+		icon = GFX_decision_generic_arrest
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			192 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_combat_odesa_bandits"
+			set_country_flag = UKR_combat_odesa_bandits_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				country_event = ukrpol.112
+			}
+		}
+	}
+	UKR_combat_odesa_bandits_2 = {
+		icon = GFX_decision_generic_arrest
+		name = UKR_combat_odesa_bandits
+		
+		available = {
+			controls_state = 192
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_combat_odesa_bandits_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 192
+			}
+		}
+		
+		cost = 40
+		fire_only_once = yes
+		days_remove = 95
+		
+		ai_will_do = {
+			base = 10
+		}
+		modifier = {
+			political_power_cost = 0.05
+			stability_factor = -0.05
+		}
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_combat_odesa_bandits"
+			add_political_power = 40
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_combat_odesa_bandits"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_combat_odesa_bandits"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			country_event = ukrpol.112
+		}
+	}
+	UKR_sunflowers = {
+		icon = GFX_decision_generic_agriculture
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+			
+		}
+		visible = {
+			192 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_sunflowers"
+			set_country_flag = UKR_sunflowers_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+				UKR_breadbasket_add_pp = yes
+				UKR_breadbasket_remove_supply_consumption = yes
+			}
+		}
+	}
+	UKR_sunflowers_2 = {
+		icon = GFX_decision_generic_agriculture
+		name = UKR_sunflowers
+		
+		available = {
+			controls_state = 197
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_sunflowers_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 197
+			}
+		}
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 25
+		
+		ai_will_do = {
+			base = 10
+		}
+				
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_sunflowers"
+			add_political_power = 30
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_sunflowers"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_sunflowers"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_add_pp = yes
+			UKR_breadbasket_remove_supply_consumption = yes
+		}
+	}
+	UKR_cooperative_movement = {
+		icon = GFX_decision_generic_political_discourse
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+			
+		}
+		visible = {
+			192 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_cooperative_movement"
+			set_country_flag = UKR_cooperative_movement_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+				UKR_breadbasket_remove_consumer_goods = yes
+				UKR_breadbasket_add_trade_opinion = yes
+				add_ideas = UKR_supported_cooperatives
+			}
+		}
+	}
+	UKR_cooperative_movement_2 = {
+		icon = GFX_decision_generic_political_discourse
+		name = UKR_cooperative_movement
+		
+		available = {
+			controls_state = 197
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_cooperative_movement_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 197
+			}
+		}
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 25
+		
+		ai_will_do = {
+			base = 10
+		}
+				
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_cooperative_movement"
+			add_political_power = 30
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_cooperative_movement"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_cooperative_movement"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_remove_consumer_goods = yes
+			UKR_breadbasket_add_trade_opinion = yes
+			add_ideas = UKR_supported_cooperatives
+		}
+	}
+	UKR_krivbass = {
+		icon = GFX_decision_steel
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+			
+		}
+		visible = {
+			192 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_krivbass"
+			set_country_flag = UKR_krivbass_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				random_list = {
+					30 = {
+						add_resource = {
+							type = steel
+							amount = 8
+							state = 226
+						}
+					}
+					30 = {
+						add_resource = {
+							type = steel
+							amount = 11
+							state = 226
+						}
+					}
+					25 = {
+						add_resource = {
+							type = steel
+							amount = 15
+							state = 226
+						}
+					}
+					15 = {
+						add_resource = {
+							type = steel
+							amount = 21
+							state = 226
+						}
+					}
+				}
+			}
+		}
+	}
+	UKR_krivbass_2 = {
+		icon = GFX_decision_steel
+		name = UKR_krivbass
+		
+		available = {
+			controls_state = 226
+			num_of_civilian_factories_available_for_projects > 2
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_krivbass_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 226
+			}
+		}
+		
+		cost = 50
+		fire_only_once = yes
+		days_remove = 50
+		
+		ai_will_do = {
+			base = 10
+		}
+		modifier = {
+			civilian_factory_use = 3
+		}
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_krivbass"
+			add_political_power = 50
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_krivbass"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_krivbass"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			random_list = {
+				30 = {
+					add_resource = {
+						type = steel
+						amount = 8
+						state = 226
+					}
+				}
+				30 = {
+					add_resource = {
+						type = steel
+						amount = 11
+						state = 226
+					}
+				}
+				25 = {
+					add_resource = {
+						type = steel
+						amount = 15
+						state = 226
+					}
+				}
+				15 = {
+					add_resource = {
+						type = steel
+						amount = 21
+						state = 226
+					}
+				}
+			}
+		}
+	}
+	UKR_local_berry_production = {
+		icon = GFX_decision_generic_agriculture
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+			
+		}
+		visible = {
+			791 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_local_berry_production"
+			set_country_flag = UKR_local_berry_production_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+				UKR_breadbasket_remove_consumer_goods = yes
+				UKR_breadbasket_remove_trade_opinion = yes
+			}
+		}
+	}
+	UKR_local_berry_production_2 = {
+		icon = GFX_decision_steel
+		name = UKR_local_berry_production
+		
+		available = {
+			controls_state = 199
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_local_berry_production_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 199
+			}
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		days_remove = 25
+		
+		ai_will_do = {
+			base = 10
+		}
+		
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_local_berry_production"
+			add_political_power = 25
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_local_berry_production"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_local_berry_production"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_remove_consumer_goods = yes
+			UKR_breadbasket_remove_trade_opinion = yes
+		}
+	}
+	UKR_vynnytsa_iconography = {
+		icon = GFX_decision_hol_exchange_intelligence_data
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+			
+		}
+		visible = {
+			791 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_vynnytsa_iconography"
+			set_country_flag = UKR_vynnytsa_iconography_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				add_stability = 0.05
+				UKR_improve_ukrainisation = yes
+			}
+		}
+	}
+	UKR_vynnytsa_iconography_2 = {
+		icon = GFX_decision_hol_exchange_intelligence_data
+		name = UKR_vynnytsa_iconography
+		
+		available = {
+			controls_state = 198
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_vynnytsa_iconography_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 198
+			}
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		days_remove = 30
+		
+		ai_will_do = {
+			base = 10
+		}
+		
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_vynnytsa_iconography"
+			add_political_power = 25
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_vynnytsa_iconography"
+			add_stability = 0.05
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_vynnytsa_iconography"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			UKR_improve_ukrainisation = yes
+		}
+	}
+	UKR_podillia_agricultural_sector = {
+		icon = GFX_decision_generic_merge_plant_materiel
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+			
+		}
+		visible = {
+			791 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_podillia_agricultural_sector"
+			set_country_flag = UKR_podillia_agricultural_sector_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				198 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	UKR_podillia_agricultural_sector_2 = {
+		icon = GFX_decision_generic_merge_plant_materiel
+		name = UKR_podillia_agricultural_sector
+		
+		available = {
+			controls_state = 198
+			num_of_civilian_factories_available_for_projects > 1
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_podillia_agricultural_sector_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 198
+			}
+		}
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 40
+		
+		ai_will_do = {
+			base = 10
+		}
+		modifier = {
+			civilian_factory_use = 2
+		}
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_podillia_agricultural_sector"
+			add_political_power = 30
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_podillia_agricultural_sector"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_podillia_agricultural_sector"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			198 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	UKR_podillia_cattle_breeding = {
+		icon = GFX_decision_caravan
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+			
+		}
+		visible = {
+			791 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_podillia_cattle_breeding"
+			set_country_flag = UKR_podillia_cattle_breeding_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				1245 = { add_extra_state_shared_building_slots = 1 }
+				custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+				UKR_breadbasket_add_monthly_population = yes
+				UKR_breadbasket_add_pp = yes
+				UKR_breadbasket_remove_consumer_goods = yes
+			}
+		}
+	}
+	UKR_podillia_cattle_breeding_2 = {
+		icon = GFX_decision_caravan
+		name = UKR_podillia_cattle_breeding
+		
+		available = {
+			controls_state = 1245
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_podillia_cattle_breeding_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1245
+			}
+		}
+		
+		cost = 20
+		fire_only_once = yes
+		days_remove = 35
+		
+		ai_will_do = {
+			base = 10
+		}		
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_podillia_cattle_breeding"
+			add_political_power = 20
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_podillia_cattle_breeding"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_podillia_cattle_breeding"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			1245 = { add_extra_state_shared_building_slots = 1 }
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_add_monthly_population = yes
+			UKR_breadbasket_add_pp = yes
+			UKR_breadbasket_remove_consumer_goods = yes
+		}
+	}
+	UKR_develop_Beekeeping = {
+		icon = GFX_decision_generic_agriculture
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+			
+		}
+		visible = {
+			792 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_develop_Beekeeping"
+			set_country_flag = UKR_develop_Beekeeping_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				792 = { add_extra_state_shared_building_slots = 1 }
+				custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+				UKR_breadbasket_add_monthly_population = yes
+				UKR_breadbasket_remove_consumer_goods = yes
+			}
+		}
+	}
+	UKR_develop_Beekeeping_2 = {
+		icon = GFX_decision_generic_agriculture
+		name = UKR_develop_Beekeeping
+		
+		available = {
+			controls_state = 792
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_develop_Beekeeping_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 792
+			}
+		}
+		
+		cost = 20
+		fire_only_once = yes
+		days_remove = 35
+		
+		ai_will_do = {
+			base = 10
+		}		
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_develop_Beekeeping"
+			add_political_power = 20
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_develop_Beekeeping"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_develop_Beekeeping"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			792 = { add_extra_state_shared_building_slots = 1 }
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_add_monthly_population = yes
+			UKR_breadbasket_remove_consumer_goods = yes
+		}
+	}
+	UKR_sugar_factories = {
+		icon = GFX_decision_give_cash
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+			
+		}
+		visible = {
+			792 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_sugar_factories"
+			set_country_flag = UKR_sugar_factories_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				792 = { add_extra_state_shared_building_slots = 1 }
+				custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+				UKR_breadbasket_remove_trade_opinion = yes
+				UKR_breadbasket_remove_consumer_goods = yes
+			}
+		}
+	}
+	UKR_sugar_factories_2 = {
+		icon = GFX_decision_give_cash
+		name = UKR_sugar_factories
+		
+		available = {
+			controls_state = 792
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_sugar_factories_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 792
+			}
+		}
+		
+		cost = 20
+		fire_only_once = yes
+		days_remove = 35
+		
+		ai_will_do = {
+			base = 10
+		}		
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_sugar_factories"
+			add_political_power = 20
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_sugar_factories"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_sugar_factories"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			792 = { add_extra_state_shared_building_slots = 1 }
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_remove_trade_opinion = yes
+			UKR_breadbasket_remove_consumer_goods = yes
+		}
+	}
+	UKR_volyn_distilling = {
+		icon = GFX_decision_generic_research
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+			
+		}
+		visible = {
+			792 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_volyn_distilling"
+			set_country_flag = UKR_volyn_distilling_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				add_stability = -0.03
+				custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+				UKR_breadbasket_remove_monthly_population = yes
+				UKR_breadbasket_remove_trade_opinion = yes
+				UKR_breadbasket_remove_consumer_goods = yes
+			}
+		}
+	}
+	UKR_volyn_distilling_2 = {
+		icon = GFX_decision_generic_research
+		name = UKR_volyn_distilling
+		
+		available = {
+			controls_state = 1228
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_volyn_distilling_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1228
+			}
+		}
+		
+		cost = 20
+		fire_only_once = yes
+		days_remove = 35
+		
+		ai_will_do = {
+			base = 10
+		}		
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_volyn_distilling"
+			add_political_power = 20
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_volyn_distilling"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_volyn_distilling"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			add_stability = -0.03
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_remove_monthly_population = yes
+			UKR_breadbasket_remove_trade_opinion = yes
+			UKR_breadbasket_remove_consumer_goods = yes
+		}
+	}
+	UKR_sugar_beet_farming = {
+		icon = GFX_decision_generic_agriculture
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+			
+		}
+		visible = {
+			202 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_sugar_beet_farming"
+			set_country_flag = UKR_sugar_beet_farming_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+				UKR_breadbasket_remove_supply_consumption = yes
+				UKR_breadbasket_remove_consumer_goods = yes
+			}
+		}
+	}
+	UKR_sugar_beet_farming_2 = {
+		icon = GFX_decision_generic_agriculture
+		name = UKR_sugar_beet_farming
+		
+		available = {
+			controls_state = 1240
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_sugar_beet_farming_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1240
+			}
+		}
+		
+		cost = 20
+		fire_only_once = yes
+		days_remove = 35
+		
+		ai_will_do = {
+			base = 10
+		}		
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_sugar_beet_farming"
+			add_political_power = 20
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_sugar_beet_farming"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_sugar_beet_farming"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_remove_supply_consumption = yes
+			UKR_breadbasket_remove_consumer_goods = yes
+		}
+	}
+	UKR_historical_investments = {
+		icon = GFX_decision_generic_form_nation
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+			
+		}
+		visible = {
+			202 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_historical_investments"
+			set_country_flag = UKR_historical_investments_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				UKR_improve_ukrainisation = yes
+				add_stability = 0.07
+			}
+		}
+	}
+	UKR_historical_investments_2 = {
+		icon = GFX_decision_generic_form_nation
+		name = UKR_historical_investments
+		
+		available = {
+			controls_state = 203
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_historical_investments_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 203
+			}
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		days_remove = 50
+		
+		ai_will_do = {
+			base = 10
+		}		
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_historical_investments"
+			add_political_power = 25
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_historical_investments"
+			UKR_improve_ukrainisation = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_historical_investments"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			add_stability = 0.07
+		}
+	}
+	UKR_draft_kyiv_electrostation = {
+		icon = GFX_decision_electrify
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			202 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_draft_kyiv_electrostation"
+			set_country_flag = UKR_draft_kyiv_electrostation_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				add_stability = 0.03
+				202 = { increase_state_category_by_one_level = yes }
+			}
+		}
+	}
+	UKR_draft_kyiv_electrostation_2 = {
+		icon = GFX_decision_electrify
+		name = UKR_draft_kyiv_electrostation
+		
+		available = {
+			controls_state = 202
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_draft_kyiv_electrostation_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 202
+			}
+		}
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 50
+		
+		ai_will_do = {
+			base = 10
+		}		
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_draft_kyiv_electrostation"
+			add_political_power = 25
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_draft_kyiv_electrostation"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_draft_kyiv_electrostation"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			add_stability = 0.03
+			202 = { increase_state_category_by_one_level = yes }
+		}
+	}
+	UKR_bilatserkva_light_industry = {
+		icon = GFX_decision_generic_factory
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			202 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_bilatserkva_light_industry"
+			set_country_flag = UKR_bilatserkva_light_industry_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				add_stability = 0.02
+				1240 = {
+					increase_state_category_by_one_level = yes
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	UKR_bilatserkva_light_industry_2 = {
+		icon = GFX_decision_generic_factory
+		name = UKR_bilatserkva_light_industry
+		
+		available = {
+			controls_state = 1240
+			num_of_civilian_factories_available_for_projects > 0
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_bilatserkva_light_industry_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1240
+			}
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		days_remove = 50
+		
+		ai_will_do = {
+			base = 10
+		}		
+		modifier = {
+			civilian_factory_use = 1
+		}
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_bilatserkva_light_industry"
+			add_political_power = 25
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_bilatserkva_light_industry"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_bilatserkva_light_industry"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			add_stability = 0.02
+			1240 = {
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	UKR_oil_extraction_subsidies = {
+		icon = GFX_decision_oil
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			91 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_oil_extraction_subsidies"
+			set_country_flag = UKR_oil_extraction_subsidies_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				add_stability = 0.02
+				random_owned_controlled_state = {
+					prioritize = { 89 }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = fuel_silo
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_list = {
+					25 = {
+						add_resource = {
+							type = oil
+							amount = 15
+							state = 91
+						}
+					}
+					25 = {
+						add_resource = {
+							type = oil
+							amount = 10
+							state = 89
+						}
+					}
+					25 = {
+						add_resource = {
+							type = oil
+							amount = 13
+							state = 91
+						}
+					}
+					25 = {
+						add_resource = {
+							type = oil
+							amount = 12
+							state = 89
+						}
+					}
+				}
+			}
+		}
+	}
+	UKR_oil_extraction_subsidies_2 = {
+		icon = GFX_decision_oil
+		name = UKR_oil_extraction_subsidies
+		
+		available = {
+			controls_state = 89
+			controls_state = 91
+			num_of_civilian_factories_available_for_projects > 0
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_oil_extraction_subsidies_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 89
+				state = 91
+			}
+		}
+		
+		cost = 50
+		fire_only_once = yes
+		days_remove = 50
+		
+		ai_will_do = {
+			base = 10
+		}		
+		modifier = {
+			civilian_factory_use = 1
+		}
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_oil_extraction_subsidies"
+			add_political_power = 50
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_oil_extraction_subsidies"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_oil_extraction_subsidies"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			add_stability = 0.02
+			random_owned_controlled_state = {
+				prioritize = { 89 }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = fuel_silo
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_list = {
+				25 = {
+					add_resource = {
+						type = oil
+						amount = 15
+						state = 91
+					}
+				}
+				25 = {
+					add_resource = {
+						type = oil
+						amount = 10
+						state = 89
+					}
+				}
+				25 = {
+					add_resource = {
+						type = oil
+						amount = 13
+						state = 91
+					}
+				}
+				25 = {
+					add_resource = {
+						type = oil
+						amount = 12
+						state = 89
+					}
+				}
+			}
+		}
+	}
+	UKR_tarnopol_farms = {
+		icon = GFX_decision_generic_agriculture
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			91 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_tarnopol_farms"
+			set_country_flag = UKR_tarnopol_farms_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				add_stability = 0.02
+				custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+				UKR_breadbasket_remove_consumer_goods = yes
+				UKR_breadbasket_remove_supply_consumption = yes
+				UKR_breadbasket_remove_out_of_supply = yes
+			}
+		}
+	}
+	UKR_tarnopol_farms_2 = {
+		icon = GFX_decision_generic_agriculture
+		name = UKR_tarnopol_farms
+		
+		available = {
+			controls_state = 1140
+			num_of_civilian_factories_available_for_projects > 0
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_tarnopol_farms_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1140
+			}
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		days_remove = 40
+		
+		ai_will_do = {
+			base = 10
+		}		
+		modifier = {
+			civilian_factory_use = 1
+		}
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_tarnopol_farms"
+			add_political_power = 25
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_tarnopol_farms"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_tarnopol_farms"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			add_stability = 0.02
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_remove_consumer_goods = yes
+			UKR_breadbasket_remove_supply_consumption = yes
+			UKR_breadbasket_remove_out_of_supply = yes
+		}
+	}
+	UKR_subsidize_local_business = {
+		icon = GFX_decision_give_cash
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UKR_king_selected_less_3
+				check_variable = { UKR_selected_decisions < 2 }
+			}
+		}
+		visible = {
+			91 = { has_state_flag = king_stays_here }
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 33
+		}
+		
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_subsidize_local_business"
+			set_country_flag = UKR_subsidize_local_business_selected
+			add_to_variable = { UKR_selected_decisions = 1 }
+			add_to_variable = { UKR_red_prince_selected_projects = 1 }
+			custom_effect_tooltip = UKR_king_tour_effect
+			effect_tooltip = {
+				random_owned_controlled_state = {
+					limit = { is_east_galicia = yes }
+					add_extra_state_shared_building_slots = yes
+					increase_state_category_by_one_level = yes
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	UKR_subsidize_local_business_2 = {
+		icon = GFX_decision_give_cash
+		name = UKR_subsidize_local_business
+		
+		available = {
+			controls_state = 1140
+			num_of_civilian_factories_available_for_projects > 0
+		}
+		
+		visible = {
+			has_country_flag = UKR_royal_tour_ended
+			has_country_flag = UKR_subsidize_local_business_selected
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1140
+			}
+		}
+		
+		cost = 35
+		fire_only_once = yes
+		days_remove = 25
+		
+		ai_will_do = {
+			base = 10
+		}		
+		modifier = {
+			civilian_factory_use = 1
+		}
+		
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UKR_subsidize_local_business"
+			add_political_power = 35
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_subsidize_local_business"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_subsidize_local_business"
+			add_to_variable = { UKR_red_prince_completed_projects = 1 }
+			random_owned_controlled_state = {
+				limit = { is_east_galicia = yes }
+				add_extra_state_shared_building_slots = yes
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+}
+UKR_land_reform = { #Land Reform time
+	UKR_Support_Productive_Classes_In_Village = {
+		icon = GFX_decision_eng_trade_unions_support
+
+		visible = {
+			OR = {
+				has_socialist_government = yes
+				has_government = social_democrat
+			}
+		}
+
+		cost = 10
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_Support_Productive_Classes_In_Village"
+			add_to_variable = { var = UKR_Land_Reform_Popularity value = 10 }
+			add_political_power = 30
+			UKR_recalculate_land_reform = yes
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_remove_consumer_goods = yes
+			UKR_breadbasket_remove_supply_consumption = yes
+			UKR_breadbasket_add_monthly_population = yes
+		}
+	}
+	UKR_Peasant_Farmer_Committees = {
+		icon = GFX_decision_eng_trade_unions_support
+
+		visible = {
+			OR = {
+				has_socialist_government = yes
+				has_government = social_democrat
+			}
+		}
+
+		cost = 10
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_Peasant_Farmer_Committees"
+			add_to_variable = { var = UKR_Land_Reform_Success value = 10 }
+			subtract_from_variable = { var = UKR_Land_Reform_Popularity value = 10 }
+			add_stability = -0.03
+			UKR_recalculate_land_reform = yes
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_remove_consumer_goods = yes
+			UKR_breadbasket_remove_out_of_supply = yes
+		}
+	}
+	UKR_Compulsory_Union_Membership = {
+		icon = GFX_decision_generic_civil_support
+
+		visible = {
+			NOT = { has_country_flag = BSDP_Unions_Voluntary }
+		}
+
+		cost = 20
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_Compulsory_Union_Membership"
+			set_country_flag = BSDP_Unions_Compulsory
+			add_to_variable = { var = UKR_Land_Reform_Success value = 20 }
+			subtract_from_variable = { var = UKR_Land_Reform_Popularity value = 20 }
+			add_political_power = 40
+			add_stability = -0.03
+			UKR_recalculate_land_reform = yes
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_add_production_growth = yes
+		}
+	}
+	UKR_Voluntary_Union_Membership = {
+		icon = GFX_decision_generic_civil_support
+
+		visible = {
+			NOT = { has_country_flag = BSDP_Unions_Compulsory }
+		}
+
+		cost = 20
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_Voluntary_Union_Membership"
+			set_country_flag = BSDP_Unions_Voluntary
+			subtract_from_variable = { var = UKR_Land_Reform_Success value = 20 }
+			add_to_variable = { var = UKR_Land_Reform_Popularity value = 20 }
+			add_political_power = -30
+			add_stability = 0.03
+			UKR_recalculate_land_reform = yes
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_add_pp = yes
+		}
+	}
+	UKR_Integrate_the_Bunds = {
+		icon = GFX_decision_generic_speech
+
+		visible = {
+			has_country_flag = LandReformPlanBSDP
+			NOT = { has_country_flag = BSDP_Bunds_Cooperate }
+		}
+
+		cost = 50
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_Integrate_the_Bunds"
+			set_country_flag = BSDP_Bunds_Integrate
+			add_to_variable = { var = UKR_Land_Reform_Success value = 10 }
+			subtract_from_variable = { var = UKR_Land_Reform_Popularity value = 10 }
+			add_political_power = 100
+			add_stability = -0.05
+			UKR_recalculate_land_reform = yes
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_add_consumer_goods = yes
+		}
+	}
+	UKR_Work_with_the_Bunds = {
+		icon = GFX_decision_generic_speech
+
+		visible = {
+			OR = {
+				has_country_flag = LandReformPlanBSDP
+				has_country_flag = LandReformPlanBPSF
+				has_country_flag = LandReformPlanBPSR
+				has_country_flag = LandReformPlanBKhD
+			}
+			NOT = { has_country_flag = BSDP_Bunds_Integrate }
+		}
+
+		cost = 50
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_Work_with_the_Bunds"
+			set_country_flag = BSDP_Bunds_Cooperate
+			subtract_from_variable = { var = UKR_Land_Reform_Success value = 10 }
+			add_to_variable = { var = UKR_Land_Reform_Popularity value = 10 }
+			add_political_power = -50
+			add_stability = 0.05
+			UKR_recalculate_land_reform = yes
+		}
+	}
+	UKR_khutor_system = {
+		icon = GFX_decision_generic_speech
+
+		visible = {
+			has_government = radical_socialist
+		}
+
+		cost = 50
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_khutor_system"
+			add_to_variable = { var = UKR_Land_Reform_Success value = -10 }
+			add_to_variable = { var = UKR_Land_Reform_Popularity value = 20 }
+			add_political_power = 50
+			add_stability = -0.05
+			UKR_recalculate_land_reform = yes
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_remove_production_growth = yes
+			UKR_breadbasket_add_monthly_population = yes
+		}
+	}
+	UKR_Solve_Land_Disputes = {
+		icon = GFX_decision_eng_trade_unions_demand
+
+		
+		cost = 35
+		days_re_enable = 49
+		days_remove = 14
+
+		ai_will_do = {
+			factor = 150
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_Solve_Land_Disputes"
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_remove_pp = yes
+			UKR_breadbasket_remove_monthly_population = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_Solve_Land_Disputes"
+			add_to_variable = { var = UKR_Land_Reform_Success value = 10 }
+			add_to_variable = { var = UKR_Land_Reform_Popularity value = 10 }
+			UKR_recalculate_land_reform = yes
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_add_pp = yes
+			UKR_breadbasket_add_monthly_population = yes
+		}
+	}
+	UKR_Aid_Peasants = {
+		icon = GFX_decision_hol_exchange_intelligence_data
+
+		
+		cost = 40
+		days_re_enable = 49
+		days_remove = 14
+
+		ai_will_do = {
+			factor = 150
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UKR_Aid_Peasants"
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_remove_consumer_goods = yes
+			UKR_breadbasket_add_monthly_population = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_Aid_Peasants"
+			add_to_variable = { var = UKR_Land_Reform_Popularity value = 5 }
+			UKR_recalculate_land_reform = yes
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_add_consumer_goods = yes
+			UKR_breadbasket_remove_monthly_population = yes
+		}
+	}
+	UKR_Seize_Large_Estates = {
+		icon = GFX_decision_gre_investment_decisions
+
+		visible = {
+			OR = {
+				has_socialist_government = yes
+				has_government = social_democrat
+			}
+		}
+
+		cost = 40
+		days_re_enable = 49
+		days_remove = 14
+
+		ai_will_do = {
+			factor = 150
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove UKR_Seize_Large_Estates"
+			add_to_variable = { var = UKR_Land_Reform_Success value = 10 }
+			add_to_variable = { var = UKR_Land_Reform_Popularity value = -10 }
+			UKR_recalculate_land_reform = yes
+			custom_effect_tooltip = UKR_breadbasket_of_europe_will_change
+			UKR_breadbasket_remove_consumer_goods = yes
+			UKR_breadbasket_remove_resource_penalty = yes
+		}
+	}
+
+	UKR_Land_Reform_Plan = {
+		icon = GFX_decision_category_generic
+
+		allowed = { always = no } #manually activated
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		days_mission_timeout = 450
+		is_good = yes
+		fire_only_once = yes
+
+		cancel_trigger = {
+			has_socialist_government = no
+			has_left_democratic_government = no
+		}
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout UKR_Land_Reform_Plan"
+			#country_event = {
+			#	id = ukrlandreform.1
+			#}
+		}
+	}
+	UKR_Land_Reform_Plan_Danger = {
+		icon = GFX_decision_revolt
+
+		allowed = { always = no } #manually activated
+
+		available = {
+			hidden_trigger = {
+				OR = {
+					check_variable = { UKR_Land_Reform_Popularity < 10 }
+					check_variable = { UKR_Land_Reform_Success < 10 }
+				}
+			}
+		}
+
+		days_mission_timeout = 30
+		is_good = no
+		fire_only_once = yes
+
+		cancel_trigger = {
+			NOT = {
+				has_socialist_government = yes
+				has_left_democratic_government = yes
+				AND = {
+					check_variable = { UKR_Land_Reform_Popularity > 24 }
+					check_variable = { UKR_Land_Reform_Success > 24 }
+				}
+			}
+		}
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout UKR_Land_Reform_Plan_Danger"
+			#country_event = ukrpol.7
+		}
+	}
+}	
+		
+		
+		
+		

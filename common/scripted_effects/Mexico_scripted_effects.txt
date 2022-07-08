@@ -11,6 +11,10 @@ MEX_spawn_yucatan = {
 		transfer_technology = yes
 		transfer_state = 474
 		add_state_core = 474
+		transfer_state = 1254
+		add_state_core = 1254
+		transfer_state = 1255
+		add_state_core = 1255
 		load_oob = "YUC"
 		add_equipment_to_stockpile = {
 			type = infantry_equipment_1
@@ -19,6 +23,12 @@ MEX_spawn_yucatan = {
 		}
 	}
 	474 = {
+		set_demilitarized_zone = no
+	}
+	1254  = {
+		set_demilitarized_zone = no
+	}
+	1255 = {
 		set_demilitarized_zone = no
 	}
 }
@@ -342,7 +352,7 @@ MEX_create_goldshirt_generals = {
 
 MEX_create_junta_generals = {
 	create_field_marshal = {
-		name = "Felix Diaz Prieto"
+		name = "Félix Díaz Prieto"
 		#id = 100002
 		portrait_path = "gfx/leaders/MEX/Portrait_Mexico_Felix_Diaz_Prieto.png"
 		traits = { mex_junta_general trait_cautious media_personality politically_connected infantry_leader trickster } 
@@ -810,7 +820,6 @@ MEX_military_coup_occurs = {
 			id = mexico.42
 			days = 2
 		}
-		country_event = { id = mexico.63 days = 120 random_days = 90 }
 		country_event = { id = mexico.84 days = 150 random_days = 150 }
 			
 		country_event = {
@@ -826,7 +835,6 @@ MEX_military_coup_occurs = {
 		ruling_party = paternal_autocrat
 		elections_allowed = no
 	}
-	news_event = { id = worldnews.454 }
 }
 
 ### Election Stuff ###
@@ -1230,6 +1238,49 @@ MEX_create_constitutional_monarchy = {
 		expire = "1965.1.1"
 		ideology = social_democrat_subtype
 		traits = {}
+	}
+}
+
+MEX_create_democratic_archbishop = {
+	create_country_leader = {
+		name = "Luis María Martínez"
+		desc = "POLITICS_LUIS_ARCHBISHOP_DESC"
+		picture = "gfx/leaders/MEX/Portrait_Mexico_Luis_Maria_Martinez_KX.png"
+		expire = "1965.1.1"
+		ideology = autdem_christian_democracy_subtype
+		traits = { MEX_archbishop}
+	}
+	create_country_leader = {
+		name = "Luis María Martínez"
+		desc = "POLITICS_LUIS_ARCHBISHOP_DESC"
+		picture = "gfx/leaders/MEX/Portrait_Mexico_Luis_Maria_Martinez_KX.png"
+		expire = "1965.1.1"
+		ideology = christian_democracy_subtype
+		traits = { MEX_archbishop }
+	}
+	create_country_leader = {
+		name = "Luis María Martínez"
+		desc = "POLITICS_LUIS_ARCHBISHOP_DESC"
+		picture = "gfx/leaders/MEX/Portrait_Mexico_Luis_Maria_Martinez_KX.png"
+		expire = "1965.1.1"
+		ideology = market_liberal_subtype
+		traits = { MEX_archbishop }
+	}
+	create_country_leader = {
+		name = "Luis María Martínez"
+		desc = "POLITICS_LUIS_ARCHBISHOP_DESC"
+		picture = "gfx/leaders/MEX/Portrait_Mexico_Luis_Maria_Martinez_KX.png"
+		expire = "1965.1.1"
+		ideology = social_liberal_subtype
+		traits = { MEX_archbishop }
+	}
+	create_country_leader = {
+		name = "Luis María Martínez"
+		desc = "POLITICS_LUIS_ARCHBISHOP_DESC"
+		picture = "gfx/leaders/MEX/Portrait_Mexico_Luis_Maria_Martinez_KX.png"
+		expire = "1965.1.1"
+		ideology = socdem_christian_socialism_subtype
+		traits = { MEX_archbishop }
 	}
 }
 
@@ -1978,6 +2029,11 @@ MEX_fuck_the_shit_out_of_mexico = {
 		add_state_core = 476	
 		transfer_state = 475
 		add_state_core = 475
+		transfer_state = 1252 
+		add_state_core = 1252 
+		transfer_state = 1253 
+		add_state_core = 1253 
+			
 			
 		save_global_event_target_as = Oaxaca_Owner
 				
@@ -2083,8 +2139,12 @@ MEX_fuck_the_shit_out_of_mexico = {
 			}
 		}
 		YUC = {
-			add_state_core = 474
 			transfer_state = 474
+			add_state_core = 474
+			transfer_state = 1254
+			add_state_core = 1254
+			transfer_state = 1255
+			add_state_core = 1255
 			set_country_flag = YUC_indepedence_war_over
 		}
 	}

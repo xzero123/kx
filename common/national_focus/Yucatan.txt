@@ -596,9 +596,10 @@ focus_tree = {
 					type = bunker
 					level = 2
 					instant_build = yes
-				}
-				province = {
-					limit_to_border = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
 				}
 			}
 			random_owned_state = {
@@ -606,9 +607,10 @@ focus_tree = {
 					type = bunker
 					level = 2
 					instant_build = yes
-				}
-				province = {
-					limit_to_border = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
 				}
 			}
 			army_experience = 10
@@ -1648,6 +1650,12 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_increase_public_spending"
 			add_ideas = YUC_public_spending_idea
 			add_research_slot = 1
+			hidden_effect = {
+				country_event = {
+					id = yuc_flavor.37
+					days = 57
+				}
+			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -1753,11 +1761,11 @@ focus_tree = {
 			474 = {
 				if = {
 					limit = { is_owned_by = YUC }
+					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = infrastructure
 						level = 2
 						instant_build = yes
-						add_extra_state_shared_building_slots = 2
 					}
 				}
 			}
@@ -1943,11 +1951,11 @@ focus_tree = {
 			474 = {
 				if = {
 					limit = { is_owned_by = YUC }
+					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = infrastructure
 						level = 2
 						instant_build = yes
-						add_extra_state_shared_building_slots = 2
 					}
 				}
 			}
@@ -3136,6 +3144,11 @@ focus_tree = {
 		relative_position_id = YUC_maya_victory
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus YUC_remember_the_castle_war"
+			set_technology = {
+				aztec_clubs = 1
+				melee_weapons_enable_tech = 1
+			}
+			add_equipment_to_stockpile = { type = aztec_club_0 amount = 1000 }
 			add_political_power = 100
 			add_stability = 0.12
 			add_popularity = { ideology = national_populist popularity = 0.05 }
@@ -3497,6 +3510,7 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 				}
+				add_extra_state_shared_building_slots = 1
 			}
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
@@ -4334,6 +4348,7 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 				}
+				add_extra_state_shared_building_slots = 1
 			}
 		}
 	}
@@ -4507,6 +4522,7 @@ focus_tree = {
 						level = 2
 						instant_build = yes
 					}
+					add_extra_state_shared_building_slots = 1
 				}
 			}
 		}

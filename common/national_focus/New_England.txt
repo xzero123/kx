@@ -4912,7 +4912,7 @@ focus_tree = {
 
 	focus = {
 		id = NEE_Colombia_Gem_of_the_Ocean
-		icon = GFX_goal_generic_navy_battleship
+		icon = GFX_goal_TEX_naval_prominence
 		cost = 5
 		prerequisite = {
 			focus = NEE_light_cruiser_effort
@@ -10125,8 +10125,11 @@ focus = {
 	
 	available = {
 		has_country_flag = NEE_REBELLION_READY
-		has_country_flag = NEE_WASHINGTON_MYTH
 		has_government = paternal_autocrat
+		OR = {
+			has_country_flag = NEE_WASHINGTON_MYTH
+			has_country_flag = NEE_ELITE_MONARCHY
+		}
 	}	
 	
 	ai_will_do = {

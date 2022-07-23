@@ -11,10 +11,699 @@ focus_tree = {
 	
 	default = no
 	continuous_focus_position = { x = 3200 y = 2000 }
+	shared_focus = TRK_Turkestan_United
 	
-	shared_focus = UZB_Turkestani_Military
-	shared_focus = UZB_Expand_The_Economy
-	
+	focus = {
+		id = UZB_Dictator_Of_Khorezm
+		icon = GFX_UZB_Dictator_Of_Khorezm
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 2
+		x = 9
+		y = 0
+		completion_reward = {
+			country_event = khiva.21
+		}
+	}
+	focus = {
+		id = UZB_Crack_Down_On_Young_Khiva
+		icon = GFX_goal_DSR_Purge
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			NOT = { has_completed_focus = UZB_Vizier_Is_Dead }
+		}
+		bypass = {
+			has_completed_focus = UZB_Vizier_Is_Dead
+		}
+		cost = 3
+		prerequisite = {
+			focus = UZB_Dictator_Of_Khorezm
+		}
+		relative_position_id = UZB_Dictator_Of_Khorezm
+		x = 1
+		y = 1
+		completion_reward = {
+			add_timed_idea = {
+				idea = UZB_destroying_young_khiva
+				days = 180
+			}
+		}
+	}
+	focus = {
+		id = UZB_Smuggle_Foreign_Arms
+		icon = MON_army_money
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			NOT = { has_completed_focus = UZB_Vizier_Is_Dead }
+		}
+		bypass = {
+			has_completed_focus = UZB_Vizier_Is_Dead
+		}
+		cost = 2
+		prerequisite = {
+			focus = UZB_Dictator_Of_Khorezm
+		}
+		relative_position_id = UZB_Dictator_Of_Khorezm
+		x = -1
+		y = 1
+		completion_reward = {
+			unlock_decision_category_tooltip = UZB_smuggling_baron_category
+		}
+	}
+	focus = {
+		id = UZB_Pacify_Southern_Tribes
+		icon = GFX_goal_DSR_martiallaw
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			NOT = { has_completed_focus = UZB_Vizier_Is_Dead }
+		}
+		bypass = {
+			has_completed_focus = UZB_Vizier_Is_Dead
+		}
+		cost = 2.8
+		prerequisite = {
+			focus = UZB_Dictator_Of_Khorezm
+		}
+		select_effect = {
+			hidden_effect = {
+				country_event = {
+					id = khiva.22
+					days = 3
+				}
+			}
+		}
+		relative_position_id = UZB_Dictator_Of_Khorezm
+		x = 0
+		y = 2
+		completion_reward = {
+			effect_tooltip = { country_event = khiva.22 }
+		}
+	}
+	focus = {
+		id = UZB_Raids_On_Neighbors
+		icon = GFX_goal_DSR_Crusade
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			NOT = { has_completed_focus = UZB_Vizier_Is_Dead }
+		}
+		bypass = {
+			has_completed_focus = UZB_Vizier_Is_Dead
+		}
+		cost = 3
+		prerequisite = {
+			focus = UZB_Pacify_Southern_Tribes
+		}
+		relative_position_id = UZB_Dictator_Of_Khorezm
+		x = 0
+		y = 3
+		completion_reward = {
+			unlock_decision_category_tooltip = UZB_raids_category
+		}
+	}
+	focus = {
+		id = UZB_Send_Merc_To_Afghan
+		icon = GFX_UZB_afghan
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			AFG = { has_war_with = DEH }
+			NOT = { has_completed_focus = UZB_Vizier_Is_Dead }
+		}
+		bypass = {
+			OR = {
+				NOT = { country_exists = AFG }
+				AFG = { is_subject = yes }
+				DEH = { has_country_flag = DEH_no_afghan_war }
+			}
+			has_completed_focus = UZB_Vizier_Is_Dead
+		}
+		cost = 1
+		prerequisite = {
+			focus = UZB_Smuggle_Foreign_Arms
+		}
+		prerequisite = {
+			focus = UZB_Pacify_Southern_Tribes
+		}
+		relative_position_id = UZB_Dictator_Of_Khorezm
+		x = -2
+		y = 3
+		completion_reward = {
+			AFG = {
+				country_event = {
+					id = khiva.12
+					days = 3
+				}
+			}
+		}
+	}
+	focus = {
+		id = UZB_Fortify_Amu_Darya
+		icon = GFX_goal_skull_fortification
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 3.5
+		prerequisite = {
+			focus = UZB_Crack_Down_On_Young_Khiva
+		}
+		prerequisite = {
+			focus = UZB_Pacify_Southern_Tribes
+		}
+		available = {
+			NOT = { has_completed_focus = UZB_Vizier_Is_Dead }
+		}
+		bypass = {
+			has_completed_focus = UZB_Vizier_Is_Dead
+		}
+		relative_position_id = UZB_Dictator_Of_Khorezm
+		x = 2
+		y = 3
+		completion_reward = {
+			861 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 12465 
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 12324 
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 10435  
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 10395  
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = UZB_Khans_Army
+		icon = GFX_goal_KHI_army
+		ai_will_do = {
+			factor = 70
+		}
+		cost = 3.5
+		prerequisite = {
+			focus = UZB_Pacify_Southern_Tribes
+		}
+		relative_position_id = UZB_Pacify_Southern_Tribes
+		x = -5
+		y = 1
+		completion_reward = {
+			add_ideas = UZB_khan_army
+			add_doctrine_cost_reduction = {
+				name = TRK_Turkestani_Military
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = UZB_Integrate_Basmachi_Divisions
+		text = KYR_Integrate_Basmachi_Divisions
+		icon = GFX_goal_generic_paramilitary
+		cost = 3
+		prerequisite = { focus = UZB_Khans_Army }
+		relative_position_id = UZB_Khans_Army
+		x = 1
+		y = 1
+		available = {
+			has_authoritarian_government = yes
+		}
+		ai_will_do = {
+			factor = 80
+		}
+		completion_reward = {
+			division_template = {
+				name = "Süvari Tümeni II"
+				division_names_group = TRK_CAV_01
+
+				regiments = {
+					cavalry = { x = 0 y = 0 }
+					cavalry = { x = 0 y = 1 }
+					cavalry = { x = 0 y = 2 }
+					cavalry = { x = 0 y = 3 }
+					cavalry = { x = 1 y = 0 }
+					cavalry = { x = 1 y = 1 }
+					cavalry = { x = 1 y = 2 }
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "division_template = \"Süvari Tümeni II\" start_experience_factor = 0.8"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "division_template = \"Süvari Tümeni II\" start_experience_factor = 0.8"
+					owner = ROOT
+				}
+			}
+			army_experience = 25
+		}
+	}
+	focus = {
+		id = UZB_Nomad_Legacy
+		text = TRK_Nomad_Legacy
+		icon = GFX_goal_MON_Statue_of_the_Khan
+		cost = 4
+		relative_position_id = UZB_Khans_Army
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 50
+		}
+		prerequisite = {
+			focus = UZB_Khans_Army
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TRK_nomadic_society
+				add_idea = TRK_nomadic_society_1
+			}
+		}
+	}
+	focus = {
+		id = UZB_Train_Our_Officers
+		text = TRK_Train_Our_Officers
+		icon = GFX_goal_generic_army_cooperation
+		cost = 4
+		relative_position_id = UZB_Khans_Army
+		x = 0
+		y = 2
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 1.8
+				has_war = yes
+			}
+		}
+		prerequisite = {
+			focus = UZB_Nomad_Legacy
+		}
+		completion_reward = {
+			every_unit_leader = {
+				add_skill_level = 1
+			}
+			add_ideas = TRK_officer_school
+		}
+	}
+	focus = {
+		id = UZB_Desert_Logistics
+		text = TRK_Desert_Logistics
+		icon = GFX_goal_Desert_Officers_2
+		cost = 4
+		relative_position_id = UZB_Khans_Army
+		x = -2
+		y = 2
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 1.8
+				has_war = yes
+			}
+		}
+		prerequisite = {
+			focus = UZB_Nomad_Legacy
+		}
+		completion_reward = {
+			custom_effect_tooltip = desert_warfare_effect
+			hidden_effect = {
+				set_technology = { desert_warfare = 1 popup = no }
+			}
+		}
+	}
+	focus = {
+		id = UZB_Mobilize_The_Tribes
+		text = TRK_Mobilize_The_Tribes
+		icon = GFX_goal_integrate_the_militia
+		cost = 4
+		relative_position_id = UZB_Khans_Army
+		x = -2
+		y = 3
+		ai_will_do = {
+			factor = 85
+		}
+		prerequisite = {
+			focus = UZB_Desert_Logistics
+		}
+		completion_reward = {
+			add_ideas = TRK_mobilized_tribes
+		}
+	}
+	focus = {
+		id = UZB_New_Equipment
+		text = TRK_New_Equipment
+		icon = GFX_focus_generic_military_equipment
+		cost = 4
+		relative_position_id = UZB_Khans_Army
+		x = 0
+		y = 3
+		ai_will_do = {
+			factor = 50
+		}
+		prerequisite = {
+			focus = UZB_Train_Our_Officers
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = TRK_New_Equipment
+				bonus = 1
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+	focus = {
+		id = UZB_Improve_Our_Methods
+		text = TRK_Improve_Our_Methods
+		icon = GFX_goal_generic_army_training
+		cost = 4
+		relative_position_id = UZB_Khans_Army
+		x = -1
+		y = 4
+		ai_will_do = {
+			factor = 50
+		}
+		prerequisite = {
+			focus = UZB_Mobilize_The_Tribes
+		}
+		prerequisite = {
+			focus = UZB_New_Equipment
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = TRK_Improve_Our_Methods
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = UZB_Invest_In_Agriculture
+		text = KYR_Invest_In_Agriculture
+		icon = GFX_focus_generic_agriculture
+		cost = 3
+		ai_will_do = {
+			base = 40
+		}
+		prerequisite = {
+			focus = UZB_Pacify_Southern_Tribes
+		}
+		relative_position_id = UZB_Pacify_Southern_Tribes
+		x = 5
+		y = 1
+		completion_reward = {
+			add_ideas = UZB_agriculture_1
+		}
+	}
+	focus = {
+		id = UZB_Increase_Cotton_Exports
+		text = TRK_Increase_Cotton_Exports
+		icon = GFX_goal_Cotton
+		cost = 3
+		ai_will_do = {
+			base = 35
+		}
+		prerequisite = {
+			focus = UZB_Invest_In_Agriculture
+		}
+		relative_position_id = UZB_Invest_In_Agriculture
+		x = -1
+		y = 1
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = UZB_export_idea_2
+				}
+				swap_ideas = {
+					remove_idea = UZB_export_idea_2
+					add_idea = UZB_export_idea_3
+				}
+			}
+			else = {
+				add_ideas = UZB_export_idea_1
+			}
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = UZB_Viticulture_Investments
+		icon = GFX_goal_GEO_wine
+		cost = 3
+		ai_will_do = {
+			base = 35
+		}
+		prerequisite = {
+			focus = UZB_Invest_In_Agriculture
+		}
+		relative_position_id = UZB_Invest_In_Agriculture
+		x = 1
+		y = 1
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = UZB_export_idea_1
+				}
+				swap_ideas = {
+					remove_idea = UZB_export_idea_1
+					add_idea = UZB_export_idea_3
+				}
+			}
+			else = {
+				add_ideas = UZB_export_idea_2
+			}
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = UZB_Planned_Industrialization
+		text = KYR_Planned_Industrialization
+		icon = GFX_goal_generic_improve_industry
+		cost = 4
+		ai_will_do = {
+			base = 35
+		}
+		available = {
+			has_completed_focus = UZB_Vizier_Is_Dead
+		}
+		prerequisite = {
+			focus = UZB_Invest_In_Agriculture
+		}
+		mutually_exclusive = {
+			focus = UZB_Grain_Economy
+		}
+		relative_position_id = UZB_Invest_In_Agriculture
+		x = 2
+		y = 2
+		completion_reward = {
+			add_tech_bonus = {
+				name = KYR_Planned_Industrialization
+				bonus = 1
+				uses = 2
+				category = industry
+			}
+			swap_ideas = {
+				remove_idea = UZB_agriculture_1
+				add_idea = UZB_agriculture_3
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = UZB_Turkestani_Arsenal
+		text = TRK_Turkestani_Arsenal
+		icon = GFX_goal_national_arsenal
+		cost = 4
+		ai_will_do = {
+			base = 30
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+		prerequisite = {
+			focus = UZB_Planned_Industrialization
+		}
+		relative_position_id = UZB_Invest_In_Agriculture
+		x = 3
+		y = 3
+		completion_reward = {
+			add_tech_bonus = {
+				name = KYR_Turkestani_Arsenal
+				bonus = 0.75
+				uses = 2
+				category = infantry_weapons
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = UZB_Improve_Railway_Networks
+		text = KYR_Improve_Railway_Networks
+		icon = GFX_goal_generic_railway_construction
+		cost = 4
+		ai_will_do = {
+			base = 30
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+		prerequisite = {
+			focus = UZB_Grain_Economy
+			focus = UZB_Planned_Industrialization
+		}
+		relative_position_id = UZB_Invest_In_Agriculture
+		x = 1
+		y = 3
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					is_core_of = ROOT
+					is_controlled_by = ROOT
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						size < 2
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 2
+				fallback = yes
+				start_province = 12465
+  				target_province = 12333
+			}
+		}
+	}
+	focus = {
+		id = UZB_Grain_Economy
+		text = KYR_Grain_Economy
+		icon = GFX_goal_PAL_Food_Import
+		cost = 4
+		ai_will_do = {
+			base = 35
+		}
+		available = {
+			has_completed_focus = UZB_Vizier_Is_Dead
+		}
+		mutually_exclusive = {
+			focus = UZB_Planned_Industrialization
+		}
+		prerequisite = {
+			focus = UZB_Invest_In_Agriculture
+		}
+		relative_position_id = UZB_Invest_In_Agriculture
+		x = 0
+		y = 2
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = UZB_agriculture_1
+				add_idea = UZB_agriculture_2
+			}
+		}
+	}
+	focus = {
+		id = UZB_Develop_Oil_Extracting
+		icon = GFX_goal_oil
+		cost = 4
+		ai_will_do = {
+			base = 35
+		}
+		prerequisite = {
+			focus = UZB_Planned_Industrialization
+		}
+		relative_position_id = UZB_Invest_In_Agriculture
+		x = 2
+		y = 4
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = { has_tech = fuel_silos  }
+				}
+				set_technology = { fuel_silos = 1 }
+			}
+			if = {
+				limit = {
+					NOT = { has_tech = fuel_refining }
+				}
+				set_technology = { fuel_refining = 1 }
+			}
+			else = {
+				add_tech_bonus = {
+					name = UZB_Develop_Oil_Extracting
+					bonus = 1
+					uses = 2
+					category = synth_resources
+				}
+			}
+			add_resource = {
+				type = oil
+				amount = 12
+				state = 584
+			}
+			add_fuel = 40
+		}
+	}
 	focus = {
 		id = UZB_Vizier_Is_Dead
 		icon = GFX_TRK_vizier_is_dead
@@ -22,9 +711,19 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
+		prerequisite = {
+			focus = UZB_Send_Merc_To_Afghan
+		}
+		prerequisite = {
+			focus = UZB_Raids_On_Neighbors
+		}
+		prerequisite = {
+			focus = UZB_Fortify_Amu_Darya
+		}
+		relative_position_id = UZB_Dictator_Of_Khorezm
 		cost = 0
-		x = 4
-		y = 0
+		x = 0
+		y = 4
 		completion_reward = {
 			custom_effect_tooltip = unlock_focuses
 		}
@@ -34,7 +733,7 @@ focus_tree = {
 		icon = GFX_TRK_young_khiva
 		cost = 0
 		relative_position_id = UZB_Vizier_Is_Dead
-		x = -1
+		x = -3
 		y = 1
 		ai_will_do = {
 			factor = 100
@@ -50,124 +749,58 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = UZB_The_Khanate_Lives_On
+			focus = UZB_Power_To_The_Basmachi
 		}
 		completion_reward = {
 			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	focus = {
-		id = UZB_The_Khanate_Lives_On
-		icon = GFX_TRK_khanate_lives_on
-		cost = 0
-		relative_position_id = UZB_Vizier_Is_Dead
-		x = 1
+		id = UZB_Land_Reform
+		icon = GFX_goal_generic_land_reform
+		cost = 4
+		relative_position_id = UZB_Young_Khiva_Revolution
+		x = 0
 		y = 1
 		ai_will_do = {
 			factor = 100
 		}
-		available = {
-			OR = {
-				has_country_flag = UZB_Abs_Mon
-				has_country_flag = UZB_Const_Mon
-			}
-		}
-		bypass = {
-			OR = {
-				has_country_flag = UZB_Abs_Mon
-				has_country_flag = UZB_Const_Mon
-			}
-		}
-		prerequisite = {
-			focus = UZB_Vizier_Is_Dead
-		}
-		mutually_exclusive = {
-			focus = UZB_Young_Khiva_Revolution
-		}
-		completion_reward = {
-			custom_effect_tooltip = unlock_focuses
-		}
-	}
-	focus = {
-		id = UZB_Hold_Democratic_Elections
-		icon = GFX_goal_generic_elections
-		cost = 5
-		relative_position_id = UZB_Vizier_Is_Dead
-		x = -2
-		y = 2
-		ai_will_do = {
-			factor = 100
-		}
 		prerequisite = {
 			focus = UZB_Young_Khiva_Revolution
 		}
 		completion_reward = {
-			country_event = {
-				id = khiva.8
-				days = 1
-			}
+			add_ideas = UZB_land_reform 
 		}
 	}
 	focus = {
-		id = UZB_Constitutional_Monarchy
-		icon = GFX_GRE_empower_monarchy
-		cost = 5
-		relative_position_id = UZB_Vizier_Is_Dead
+		id = UZB_Support_Merchants
+		icon = GFX_goal_generic_positive_trade_relations_gold
+		cost = 4
+		relative_position_id = UZB_Young_Khiva_Revolution
 		x = 0
 		y = 2
-		available = {
-			has_country_flag = UZB_Const_Mon
-		}
 		ai_will_do = {
 			factor = 100
 		}
 		prerequisite = {
-			focus = UZB_The_Khanate_Lives_On
-		}
-		mutually_exclusive = {
-			focus = UZB_Absolute_Leadership
+			focus = UZB_Land_Reform
 		}
 		completion_reward = {
-			country_event = {
-				id = khiva.8
-				days = 1
-			}
-		}
-	}
-	focus = {
-		id = UZB_Absolute_Leadership
-		icon = GFX_goal_monarchism
-		cost = 5
-		relative_position_id = UZB_Vizier_Is_Dead
-		x = 2
-		y = 2
-		available = {
-			has_country_flag = UZB_Abs_Mon
-		}
-		ai_will_do = {
-			factor = 100
-		}
-		prerequisite = {
-			focus = UZB_The_Khanate_Lives_On
-		}
-		mutually_exclusive = {
-			focus = UZB_Constitutional_Monarchy
-		}
-		completion_reward = {
-			add_ideas = TRK_last_of_genghis_khans
+			add_ideas = UZB_Merchant_Economy
 		}
 	}
 	focus = {
 		id = UZB_Protect_Minorities
 		icon = GFX_goal_OTT_Muslim_Solidarity
-		cost = 5
-		relative_position_id = UZB_Vizier_Is_Dead
-		x = -3
+		cost = 4
+		relative_position_id = UZB_Young_Khiva_Revolution
+		x = -1
 		y = 3
 		ai_will_do = {
 			factor = 100
 		}
 		prerequisite = {
-			focus = UZB_Hold_Democratic_Elections
+			focus = UZB_Support_Merchants
 		}
 		completion_reward = {
 			add_ideas = TRK_minorities_protected
@@ -176,25 +809,15 @@ focus_tree = {
 	focus = {
 		id = UZB_Promote_Jadidism
 		icon = GFX_goal_OTT_Abolish_Mecelle
-		cost = 5
-		relative_position_id = UZB_Vizier_Is_Dead
-		x = -1
+		cost = 4
+		relative_position_id = UZB_Young_Khiva_Revolution
+		x = 1
 		y = 3
 		ai_will_do = {
 			factor = 100
 		}
-		available = {
-			OR = {
-				has_government = social_liberal
-				has_government = market_liberal
-			}
-		}
 		prerequisite = {
-			focus = UZB_Hold_Democratic_Elections
-			focus = UZB_Constitutional_Monarchy
-		}
-		mutually_exclusive = {
-			focus = UZB_The_Home_of_Kadimism
+			focus = UZB_Support_Merchants
 		}
 		completion_reward = {
 			add_popularity = {
@@ -243,27 +866,306 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UZB_The_Home_of_Kadimism
-		icon = GFX_goal_islamic_government
-		cost = 5
-		relative_position_id = UZB_Vizier_Is_Dead
-		x = 1
-		y = 3
-		prerequisite = {
-			focus = UZB_Absolute_Leadership
-			focus = UZB_Constitutional_Monarchy
+		id = UZB_Autonomy_For_Turkmen_Tribes
+		icon = GFX_UZB_autonomy
+		cost = 4
+		relative_position_id = UZB_Young_Khiva_Revolution
+		x = -1
+		y = 4
+		ai_will_do = {
+			factor = 70
 		}
-		available = {
-			OR = {
-				has_government = social_conservative
-				has_authoritarian_government = yes
+		prerequisite = {
+			focus = UZB_Protect_Minorities
+		}
+		completion_reward = {
+			add_ideas = UZB_autonomy
+		}
+	}
+	focus = {
+		id = UZB_Educational_and_Literacy_Grants
+		icon = GFX_goal_KTG_Educate_natives
+		cost = 4
+		relative_position_id = UZB_Young_Khiva_Revolution
+		x = 1
+		y = 4
+		ai_will_do = {
+			factor = 70
+		}
+		prerequisite = {
+			focus = UZB_Promote_Jadidism
+		}
+		completion_reward = {
+			add_research_slot = 1
+			swap_ideas = {
+				remove_idea = TRK_illiteracy  
+				add_idea = TRK_illiteracy_1
 			}
 		}
+	}
+	focus = {
+		id = UZB_Power_To_The_Basmachi
+		icon = GFX_UZB_basmachi
+		cost = 0
+		relative_position_id = UZB_Vizier_Is_Dead
+		x = 3
+		y = 1 
 		ai_will_do = {
 			factor = 100
 		}
+		available = {
+			has_country_flag = UZB_Basmachi
+		}
+		bypass = {
+			has_country_flag = UZB_Basmachi
+		}
+		prerequisite = {
+			focus = UZB_Vizier_Is_Dead
+		}
 		mutually_exclusive = {
-			focus = UZB_Promote_Jadidism
+			focus = UZB_Young_Khiva_Revolution
+			focus = UZB_The_Khanate_Lives_On
+		}
+		completion_reward = {
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	focus = {
+		id = UZB_Establish_Basmachi_Councils
+		icon = GFX_goal_generic_controlled_board
+		cost = 4.8
+		relative_position_id = UZB_Power_To_The_Basmachi
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = UZB_Basmachi
+		}
+		prerequisite = {
+			focus = UZB_Power_To_The_Basmachi
+		}
+		completion_reward = {
+			add_ideas = TRK_basmachi
+		}
+	}
+	focus = {
+		id = UZB_Panislamist_Orientations
+		icon = GFX_goal_OTT_Muslim_Relations
+		cost = 4
+		relative_position_id = UZB_Power_To_The_Basmachi
+		x = 0
+		y = 2
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = UZB_Basmachi
+		}
+		prerequisite = {
+			focus = UZB_Establish_Basmachi_Councils
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					OR = {
+						is_turkic_tag = yes
+						is_arabian_tag = yes
+						is_arab_tag = yes
+					}
+				}
+				add_opinion_modifier = {
+					target = PREV
+					modifier = TRK_panislamism
+				}
+				reverse_add_opinion_modifier = {
+					target = PREV
+					modifier = TRK_panislamism
+				}
+			}
+		}
+	}
+	focus = {
+		id = UZB_Battle_Secularism
+		icon = GFX_goal_ETS_authentic_religion
+		cost = 4
+		relative_position_id = UZB_Power_To_The_Basmachi
+		x = -1
+		y = 3
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = UZB_Basmachi
+		}
+		prerequisite = {
+			focus = UZB_Panislamist_Orientations
+		}
+		completion_reward = {
+			add_stability = -0.07
+			add_stability = -0.07
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.3
+			}
+		}
+	}
+	focus = {
+		id = UZB_Legacy_Of_Junaid_Khan
+		icon = GFX_UZB_legacy_of_khan
+		cost = 0
+		relative_position_id = UZB_Power_To_The_Basmachi
+		x = 1
+		y = 3
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = UZB_Basmachi
+		}
+		prerequisite = {
+			focus = UZB_Panislamist_Orientations
+		}
+		completion_reward = {
+			custom_effect_tooltip = "We will once again be able to smuggle weapons and raid"
+		}
+	}
+	focus = {
+		id = UZB_Eradicate_Jadidism
+		icon = GFX_goal_imprison_opposition1
+		cost = 0
+		relative_position_id = UZB_Power_To_The_Basmachi
+		x = 0
+		y = 4
+		ai_will_do = {
+			factor = 70
+		}
+		available = {
+			has_country_flag = UZB_Basmachi
+		}
+		prerequisite = {
+			focus = UZB_Battle_Secularism
+		}
+		prerequisite = {
+			focus = UZB_Legacy_Of_Junaid_Khan
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.3
+			}			
+		}
+	}
+	focus = {
+		id = UZB_Join_The_Islamic_Federation
+		icon = GFX_TRK_Join_Islamic_Federation
+		cost = 0
+		relative_position_id = UZB_Power_To_The_Basmachi
+		x = 0
+		y = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = UZB_Basmachi
+			TRK = { 
+				exists = yes
+				has_government = national_populist
+			}
+		}
+		prerequisite = {
+			focus = UZB_Eradicate_Jadidism
+		}
+		mutually_exclusive = {
+			focus = UZB_Lead_Turkestan
+			focus = UZB_Join_The_Federation
+		}
+		completion_reward = {
+			TRK = {
+				annex_country = {
+					target = ROOT
+					transfer_troops = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = UZB_The_Khanate_Lives_On
+		icon = GFX_TRK_khanate_lives_on
+		cost = 0
+		relative_position_id = UZB_Vizier_Is_Dead
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_country_flag = UZB_Abs_Mon
+		}
+		bypass = {
+			has_country_flag = UZB_Abs_Mon
+		}
+		prerequisite = {
+			focus = UZB_Vizier_Is_Dead
+		}
+		mutually_exclusive = {
+			focus = UZB_Young_Khiva_Revolution
+			focus = UZB_Power_To_The_Basmachi
+		}
+		completion_reward = {
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {
+		id = UZB_Tighten_Control_Over_Khorezm
+		icon = GFX_TRK_grip_over_khorezm
+		cost = 4.8
+		relative_position_id = UZB_Vizier_Is_Dead
+		x = 0
+		y = 2
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = UZB_The_Khanate_Lives_On
+		}
+		completion_reward = {
+			add_manpower = 5000
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = UZB_Absolute_Leadership
+		icon = GFX_goal_monarchism
+		cost = 4
+		relative_position_id = UZB_Vizier_Is_Dead
+		x = 1
+		y = 3
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = UZB_Tighten_Control_Over_Khorezm
+		}
+		completion_reward = {
+			add_ideas = TRK_last_of_genghis_khans
+		}
+	}
+	focus = {
+		id = UZB_The_Home_of_Kadimism
+		icon = GFX_goal_islamic_government
+		cost = 4
+		relative_position_id = UZB_Vizier_Is_Dead
+		x = -1
+		y = 3
+		prerequisite = {
+			focus = UZB_Tighten_Control_Over_Khorezm
+		}
+		ai_will_do = {
+			factor = 100
 		}
 		completion_reward = {
 			add_popularity = {
@@ -297,153 +1199,28 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UZB_Tighten_Control_Over_Khorezm
-		icon = GFX_TRK_grip_over_khorezm
-		cost = 5
+		id = UZB_The_Khans_Reforms
+		icon = GFX_goal_OTT_Association_of_Muslim_Nations
+		cost = 4
 		relative_position_id = UZB_Vizier_Is_Dead
-		x = 3
-		y = 3
-		ai_will_do = {
-			factor = 100
+		x = 0
+		y = 4
+		prerequisite = {
+			focus = UZB_The_Home_of_Kadimism
 		}
 		prerequisite = {
 			focus = UZB_Absolute_Leadership
 		}
-		completion_reward = {
-			add_manpower = 5000
-			add_stability = 0.05
-		}
-	}
-	focus = {
-		id = UZB_Support_Kokand
-		icon = GFX_TRK_ally_kokand
-		cost = 2
-		relative_position_id = UZB_Vizier_Is_Dead
-		x = -2
-		y = 4
 		ai_will_do = {
 			factor = 100
 		}
-		available = {
-			is_ai = yes
-			OR = {
-				AND = {
-					KYR = {
-						custom_trigger_tooltip = {
-							tooltip = kokand_is_democratic
-							has_government = social_liberal
-						}
-						is_faction_leader = yes
-					}
-					UZB = {
-						custom_trigger_tooltip = {
-							tooltip = khiva_is_democratic
-							has_authoritarian_government = no
-						}
-					}
-				}
-				AND = {
-					KYR = {
-						custom_trigger_tooltip = {
-							tooltip = kokand_is_autocratic
-							has_authoritarian_government = yes
-						}
-						is_faction_leader = yes
-					}
-					UZB = {
-						custom_trigger_tooltip = {
-							tooltip = khiva_is_autocratic
-							has_authoritarian_government = yes
-						}
-					}
-					TRK = {
-						custom_trigger_tooltip = {
-							tooltip = bukhara_is_not_autocratic
-							has_dictatorship_government = no 
-						}
-					}
-				}
-			}
-		}
-					
-		prerequisite = {
-			focus = UZB_Protect_Minorities
-			focus = UZB_Tighten_Control_Over_Khorezm
-		}
-		prerequisite = {
-			focus = UZB_Promote_Jadidism
-			focus = UZB_The_Home_of_Kadimism
-		}
 		completion_reward = {
-			KYR = { add_to_faction = UZB }
+			add_ideas = UZB_khivan_slight_modernisation
 		}
 	}
 	focus = {
-		id = UZB_Support_Emir
-		icon = GFX_TRK_ally_bukhara
-		cost = 2
-		relative_position_id = UZB_Vizier_Is_Dead
-		x = 2
-		y = 4
-		ai_will_do = {
-			factor = 100
-		}
-		prerequisite = {
-			focus = UZB_Protect_Minorities
-			focus = UZB_Tighten_Control_Over_Khorezm
-		}
-		prerequisite = {
-			focus = UZB_Promote_Jadidism
-			focus = UZB_The_Home_of_Kadimism
-		}
-		available = {
-			is_ai = yes
-			OR = {
-				AND = {
-					TRK = {
-						custom_trigger_tooltip = {
-							tooltip = bukhara_is_autocratic
-							has_dictatorship_government = yes
-						}
-						is_faction_leader = yes
-					}
-					UZB = {
-						custom_trigger_tooltip = {
-							tooltip = khiva_is_autocratic
-							has_authoritarian_government = yes
-						}
-					}
-				}
-				AND = {
-					TRK = {
-						custom_trigger_tooltip = {
-							tooltip = bukhara_is_democratic
-							has_democratic_government = yes
-						}
-						is_faction_leader = yes
-					}
-					UZB = {
-						custom_trigger_tooltip = {
-							tooltip = khiva_is_democratic
-							has_democratic_government = yes
-						}
-					}
-					KYR = {
-						custom_trigger_tooltip = {
-							tooltip = kokand_is_not_democratic
-							has_authoritarian_government = yes
-						}
-					}
-				}
-			}				
-		}
-		completion_reward = {
-			TRK = { add_to_faction = UZB }
-		}
-	}
-	focus = {
-		id = UZB_Lead_Turkestan
-		icon = GFX_TRK_lead_the_turkestan
+		id = UZB_Status_Quo
+		icon = GFX_UZB_khanate
 		cost = 3
 		relative_position_id = UZB_Vizier_Is_Dead
 		x = 0
@@ -452,12 +1229,38 @@ focus_tree = {
 			factor = 100
 		}
 		prerequisite = {
-			focus = UZB_Protect_Minorities
-			focus = UZB_Tighten_Control_Over_Khorezm
+			focus = UZB_The_Khans_Reforms
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
+			}
+			589 = { add_claim_by = UZB }
+			activate_targeted_decision = { target = 589 decision = UZB_Demand_State } #Mangyshlak
+		}
+	}
+	focus = {
+		id = UZB_Lead_Turkestan
+		icon = GFX_UZB_lead_the_turkestan
+		cost = 3
+		relative_position_id = UZB_Vizier_Is_Dead
+		x = 0
+		y = 6
+		ai_will_do = {
+			factor = 100
 		}
 		prerequisite = {
-			focus = UZB_Promote_Jadidism
-			focus = UZB_The_Home_of_Kadimism
+			focus = UZB_Autonomy_For_Turkmen_Tribes
+			focus = UZB_Eradicate_Jadidism
+		}
+		prerequisite = {
+			focus = UZB_Educational_and_Literacy_Grants
+			focus = UZB_Eradicate_Jadidism
+		}
+		mutually_exclusive = {
+			focus = UZB_Join_The_Islamic_Federation
+			focus = UZB_Join_The_Federation
 		}
 		available = {
 			custom_trigger_tooltip = {
@@ -465,27 +1268,46 @@ focus_tree = {
 				OR = {
 					AND = {
 						is_ai = yes
-						OR = {
-							AND = {
-								UZB = { has_authoritarian_government = yes }
-								TRK = { has_dictatorship_government = no }
-							}
-							AND = {
-								UZB = { has_democratic_government = yes }
-								KYR = { has_authoritarian_government = yes }
-								TRK = { has_dictatorship_government = yes }
-							}
-						}
+						UZB_can_lead_turkestan = yes
 					}
 					is_ai = no
 				}
 			}
 		}
 		completion_reward = {
-			create_faction = "Khivan Union"
-			unlock_decision_category_tooltip = TRK_unite_central_asia
+			create_turkestani_faction = yes
 		}
 	}
+	focus = {
+		id = UZB_Join_The_Federation
+		icon = GFX_KYR_Towards_United_Turkestan
+		cost = 3
+		relative_position_id = UZB_Vizier_Is_Dead
+		x = -3
+		y = 6
+		ai_will_do = {
+			factor = 100
+		}
+		prerequisite = {
+			focus = UZB_Autonomy_For_Turkmen_Tribes
+		}
+		prerequisite = {
+			focus = UZB_Educational_and_Literacy_Grants
+		}
+		mutually_exclusive = {
+			focus = UZB_Lead_Turkestan
+			focus = UZB_Join_The_Islamic_Federation
+		}
+		available = {
+			country_exists = KYR
+			KYR = { has_left_democratic_government = yes }
+		}
+		completion_reward = {
+			KYR = { country_event = khiva.27 }
+		}
+	}
+}
+	
 	
 	
 	

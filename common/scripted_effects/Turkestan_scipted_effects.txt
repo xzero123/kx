@@ -1,120 +1,2382 @@
+create_turkestani_faction = {
+	if = {
+		limit = {
+			has_socialist_government = yes
+			NOT = { tag = ALO }
+		}
+		create_faction = "Turkestani Popular Front"
+	}
+	else_if = {
+		limit = {
+			has_democratic_government = yes
+			NOT = { tag = ALO }
+		}
+		create_faction = "Turkestani Democratic Alliance"
+	}
+	else_if = {
+		limit = {
+			has_dictatorship_government = yes
+			NOT = { tag = ALO }
+		}
+		create_faction = "Turkestani Islamic Confederation"
+	}
+	else_if = {
+		limit = {
+			tag = ALO
+		}
+		create_faction = "Central Asian Confederation"
+	}
+	
+}
 TRK_setup_united_turkestan = {
 	hidden_effect = {
-	set_party_name = {
-		ideology = totalist
-		long_name = KYR_totalist_party_long
-		name = KYR_totalist_party
+		set_party_name = {
+			ideology = totalist
+			long_name = KYR_totalist_party_long
+			name = KYR_totalist_party
+		}
+		set_party_name = {
+			ideology = syndicalist
+			long_name = KYR_syndicalist_party_long
+			name = KYR_syndicalist_party
+		}
+		set_party_name = {
+			ideology = radical_socialist
+			long_name = TRK_united_socialist_party_long
+			name = TRK_united_socialist_party
+		}
+		set_party_name = {
+			ideology = social_democrat
+			long_name = TRK_united_socialist_party_long
+			name = TRK_united_socialist_party
+		}
+		if = {
+			limit = {
+				tag = KYR
+			}
+			set_party_name = {
+				ideology = social_conservative
+				long_name = KYR_authoritarian_democrat_party_long
+				name = KYR_authoritarian_democrat_party
+			}
+			set_party_name = {
+				ideology = authoritarian_democrat
+				long_name = KYR_authoritarian_democrat_party_long
+				name = KYR_authoritarian_democrat_party
+			}
+			create_country_leader = {
+				name = "Mustafa Shokay"
+				picture = "gfx/leaders/TRK/Portrait_TRK_Mustafa_Shokay.png"
+				expire = "1965.1.1"
+				ideology = social_liberal_subtype
+			}
+
+			create_country_leader = {
+				name = "Mustafa Shokay"
+				picture = "gfx/leaders/TRK/Portrait_TRK_Mustafa_Shokay.png"
+				expire = "1965.1.1"
+				ideology = market_liberal_subtype
+			}
+			create_country_leader = {
+				name = "Serali Lapin"
+				picture = "gfx/leaders/TRK/Portrait_TRK_Serali_Lapin.png"	
+				expire = "1965.1.1"
+				ideology = social_conservative_subtype
+			}
+			create_country_leader = {
+				name = "Serali Lapin"
+				picture = "gfx/leaders/TRK/Portrait_TRK_Serali_Lapin.png"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+			}
+		}
+		else = {
+			set_party_name = {
+				ideology = social_liberal
+				long_name = TRK_united_liberal_party_long
+				name = TRK_united_liberal_party
+			}
+			set_party_name = {
+				ideology = market_liberal
+				long_name = TRK_united_liberal_party_long
+				name = TRK_united_liberal_party
+			}
+			set_party_name = {
+				ideology = social_conservative
+				long_name = TRK_traditionalist_party_long
+				name = TRK_traditionalist_party
+			}
+			set_party_name = {
+				ideology = authoritarian_democrat
+				long_name = TRK_traditionalist_party_long
+				name = TRK_traditionalist_party
+			}			
+		}
+		set_party_name = {
+			ideology = national_populist
+			long_name = TRK_national_populist_party_long
+			name = TRK_national_populist_party
+		}
+		create_country_leader = {
+			name = "Abdulkadyr Mukhitdinov"
+					picture = "gfx/leaders/TRK/Portrait_TRK_Mukhitdinov.png"
+			expire = "1965.1.1"
+			ideology = totalist_subtype
+		}
+		create_country_leader = {
+			name = "Torokul Dzhanuzakov"
+			picture = "gfx/leaders/TRK/Portrait_TRK_Torokul_Dzhanuzakov.png"
+			expire = "1965.1.1"
+			ideology = agrarian_syndicalism_subtype 
+		}
+		create_country_leader = {
+			name = "Fayzulla Khodjaev"
+			picture = "gfx/leaders/TRK/Portrait_BUK_Fayzullah_Khodjaev.png"
+			expire = "1965.1.1"
+			ideology = agrarian_socialism_subtype 
+		}
+		create_country_leader = {
+			name = "Usmon Khodja"
+			picture = "gfx/leaders/TRK/Portrait_TRK_Usman_Hodzha.png"
+			expire = "1965.1.1"
+			ideology = socdem_democratic_socialism_subtype 
+		}
+		set_temp_variable = { TRK_tot_pop = KYR.party_popularity@totalist }
+		add_to_temp_variable = { TRK_tot_pop = TRK.party_popularity@totalist }
+		add_to_temp_variable = { TRK_tot_pop = UZB.party_popularity@totalist }
+		divide_temp_variable = { TRK_tot_pop = 3 }
+		multiply_temp_variable = { TRK_tot_pop = 100 }
+		
+		set_temp_variable = { TRK_syn_pop = KYR.party_popularity@syndicalist }
+		add_to_temp_variable = { TRK_syn_pop = TRK.party_popularity@syndicalist }
+		add_to_temp_variable = { TRK_syn_pop = UZB.party_popularity@syndicalist }
+		divide_temp_variable = { TRK_syn_pop = 3 }
+		multiply_temp_variable = { TRK_syn_pop = 100 }
+		
+		set_temp_variable = { TRK_rso_pop = KYR.party_popularity@radical_socialist }
+		add_to_temp_variable = { TRK_rso_pop = TRK.party_popularity@radical_socialist }
+		add_to_temp_variable = { TRK_rso_pop = UZB.party_popularity@radical_socialist }
+		divide_temp_variable = { TRK_rso_pop = 3 }
+		multiply_temp_variable = { TRK_rso_pop = 100 }
+		
+		set_temp_variable = { TRK_sde_pop = KYR.party_popularity@social_democrat }
+		add_to_temp_variable = { TRK_sde_pop = TRK.party_popularity@social_democrat }
+		add_to_temp_variable = { TRK_sde_pop = UZB.party_popularity@social_democrat }
+		divide_temp_variable = { TRK_sde_pop = 3 }
+		multiply_temp_variable = { TRK_sde_pop = 100 }
+		
+		set_temp_variable = { TRK_sli_pop = KYR.party_popularity@social_liberal }
+		add_to_temp_variable = { TRK_sli_pop = TRK.party_popularity@social_liberal }
+		add_to_temp_variable = { TRK_sli_pop = UZB.party_popularity@social_liberal }
+		divide_temp_variable = { TRK_sli_pop = 3 }
+		multiply_temp_variable = { TRK_sli_pop = 100 }
+		
+		set_temp_variable = { TRK_mli_pop = KYR.party_popularity@market_liberal }
+		add_to_temp_variable = { TRK_mli_pop = TRK.party_popularity@market_liberal }
+		add_to_temp_variable = { TRK_mli_pop = UZB.party_popularity@market_liberal }
+		divide_temp_variable = { TRK_mli_pop = 3 }
+		multiply_temp_variable = { TRK_mli_pop = 100 }
+		
+		set_temp_variable = { TRK_sco_pop = KYR.party_popularity@social_conservative }
+		add_to_temp_variable = { TRK_sco_pop = TRK.party_popularity@social_conservative }
+		add_to_temp_variable = { TRK_sco_pop = UZB.party_popularity@social_conservative }
+		divide_temp_variable = { TRK_sco_pop = 3 }
+		multiply_temp_variable = { TRK_sco_pop = 100 }
+		
+		set_temp_variable = { TRK_ade_pop = KYR.party_popularity@authoritarian_democrat }
+		add_to_temp_variable = { TRK_ade_pop = TRK.party_popularity@authoritarian_democrat }
+		add_to_temp_variable = { TRK_ade_pop = UZB.party_popularity@authoritarian_democrat }
+		divide_temp_variable = { TRK_ade_pop = 3 }
+		multiply_temp_variable = { TRK_ade_pop = 100 }
+		
+		set_temp_variable = { TRK_pau_pop = KYR.party_popularity@paternal_autocrat }
+		add_to_temp_variable = { TRK_pau_pop = TRK.party_popularity@paternal_autocrat }
+		add_to_temp_variable = { TRK_pau_pop = UZB.party_popularity@paternal_autocrat }
+		divide_temp_variable = { TRK_pau_pop = 3 }
+		multiply_temp_variable = { TRK_pau_pop = 100 }
+		
+		set_temp_variable = { TRK_npo_pop = KYR.party_popularity@national_populist }
+		add_to_temp_variable = { TRK_npo_pop = TRK.party_popularity@national_populist }
+		add_to_temp_variable = { TRK_npo_pop = UZB.party_popularity@national_populist }
+		divide_temp_variable = { TRK_npo_pop = 3 }
+		multiply_temp_variable = { TRK_npo_pop = 100 }
+		
+		set_political_party = {
+			ideology = totalist
+			popularity = TRK_tot_pop
+		}
+		set_political_party = {
+			ideology = syndicalist
+			popularity = TRK_syn_pop
+		}
+		set_political_party = {
+			ideology = radical_socialist
+			popularity = TRK_rso_pop
+		}
+		set_political_party = {
+			ideology = social_democrat
+			popularity = TRK_sde_pop
+		}
+		set_political_party = {
+			ideology = social_liberal
+			popularity = TRK_sli_pop
+		}
+		set_political_party = {
+			ideology = social_conservative
+			popularity = TRK_sco_pop
+		}
+		set_political_party = {
+			ideology = authoritarian_democrat
+			popularity = TRK_ade_pop
+		}
+		set_political_party = {
+			ideology = paternal_autocrat
+			popularity = TRK_pau_pop
+		}
+		set_political_party = {
+			ideology = national_populist
+			popularity = TRK_npo_pop
+		}		
 	}
-	set_party_name = {
-		ideology = syndicalist
-		long_name = KYR_syndicalist_party_long
-		name = KYR_syndicalist_party
-	}
-	set_party_name = {
-		ideology = radical_socialist
-		long_name = TRK_united_socialist_party_long
-		name = TRK_united_socialist_party
-	}
-	set_party_name = {
-		ideology = social_democrat
-		long_name = TRK_united_socialist_party_long
-		name = TRK_united_socialist_party
+}
+
+TRK_calculate_modernisation_variables = {
+	### Political Modernisation ###
+	set_variable = { ROOT.political_modernisation_level = 1 }
+	set_variable = { ROOT.economic_modernisation_level = 1 }
+	set_variable = { ROOT.social_modernisation_level = 1 }
+	
+	# Highest at leftist ideologies (maximum = 4)
+	if = {
+		limit = {
+			OR = {
+				has_socialist_government = yes
+				has_left_democratic_government = yes
+			}
+		}
+		add_to_variable = { ROOT.political_modernisation_level = 3 }
 	}
 	if = {
 		limit = {
-			tag = KYR
+			has_government = national_populist
 		}
-		set_party_name = {
-			ideology = social_conservative
-			long_name = TRK_united_conservative_party_long
-			name = TRK_united_conservative_party
+		add_to_variable = { ROOT.political_modernisation_level = 2 }
+	}
+	if = {
+		limit = {
+			has_government = authoritarian_democrat
 		}
-		set_party_name = {
-			ideology = authoritarian_democrat
-			long_name = TRK_united_conservative_party_long
-			name = TRK_united_conservative_party
+		add_to_variable = { ROOT.political_modernisation_level = 1.5 }
+	}
+	#Debuff for Junaid-Khan
+	if = {
+		limit = {
+			tag = UZB
+			NOT = { has_completed_focus = UZB_Vizier_Is_Dead }
 		}
-		create_country_leader = {
-			name = "Mustafa Shokay"
-			picture = "gfx/leaders/TRK/Portrait_TRK_Mustafa_Shokay.png"
-			expire = "1965.1.1"
-			ideology = jadidism_subtype
+		multiply_variable = { ROOT.political_modernisation_level = 0.5 }
+	}
+	clamp_variable = {
+		var = ROOT.political_modernisation_level
+		min = 1
+		max = 4
+	}
+	# Count economic modernisation (maximum = 50)
+	set_variable = { maximum_turkestan_factories = UZB.num_of_factories }
+	add_to_variable = { maximum_turkestan_factories = KYR.num_of_factories }
+	add_to_variable = { maximum_turkestan_factories = TRK.num_of_factories }
+	add_to_variable = { maximum_turkestan_factories = ALO.num_of_factories }
+	
+	set_variable = { ROOT.economic_modernisation_level = ROOT.num_of_factories }
+	clamp_variable = {
+		var = ROOT.economic_modernisation_level
+		min = 0
+		max = maximum_turkestan_factories
+	}
+	
+	# Count social modernisation (maximum = 11)
+	if = {
+		limit = {
+			check_variable = { ROOT.amount_research_slots > 0 }	
+			check_variable = { ROOT.amount_research_slots < 2 }	
 		}
+		add_to_variable = { ROOT.social_modernisation_level = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { ROOT.amount_research_slots > 1 }	
+			check_variable = { ROOT.amount_research_slots < 3 }	
+		}
+		add_to_variable = { ROOT.social_modernisation_level = 2 }
+	}
+	if = {
+		limit = {
+			check_variable = { ROOT.amount_research_slots > 2 }	
+			check_variable = { ROOT.amount_research_slots < 4 }	
+		}
+		add_to_variable = { ROOT.social_modernisation_level = 3 }
+	}
+	if = {
+		limit = {
+			check_variable = { ROOT.amount_research_slots > 3 }	
+		}
+		add_to_variable = { ROOT.social_modernisation_level = 4 }
+	}
+	if = {
+		limit = {
+			has_idea = TRK_illiteracy
+		}
+		add_to_variable = { ROOT.social_modernisation_level = -3 }
+	}
+	if = {
+		limit = {
+			has_idea = TRK_illiteracy_1
+		}
+		add_to_variable = { ROOT.social_modernisation_level = -1.5 }
+	}
+	clamp_variable = {
+		var = ROOT.social_modernisation_level
+		min = 1
+		max = 11
+	}
+	# Sum up
+	set_variable = { ROOT.modernisation_level = ROOT.political_modernisation_level }
+	multiply_variable = { ROOT.modernisation_level = ROOT.economic_modernisation_level }
+	multiply_variable = { ROOT.modernisation_level = ROOT.social_modernisation_level }
+	
+	# calculate divider
+	set_variable = { maximum_turkestan_divider = maximum_turkestan_factories }
+	multiply_variable = { maximum_turkestan_divider = 4.4 }
+	
+	divide_variable = { ROOT.modernisation_level = maximum_turkestan_divider }
+	clamp_variable = {
+		var = ROOT.modernisation_level
+		min = 0
+		max = 1
+	}
+	
+	# Calculate debuffs and buffs
+	#Max influence effects at 100% popularity
+	set_variable = { turkestan_modernisation_var = ROOT.modernisation_level }
+	clamp_variable = {
+		var = turkestan_modernisation_var
+		min = 0
+		max = 0.7
+	}
+	set_temp_variable = { turkestan_positive_factor = turkestan_modernisation_var }
+	multiply_temp_variable = { turkestan_positive_factor = 2 }
 
-		create_country_leader = {
-			name = "Mustafa Shokay"
-			picture = "gfx/leaders/TRK/Portrait_TRK_Mustafa_Shokay.png"
-			expire = "1965.1.1"
-			ideology = marlib_jadidism_subtype
-		}
-		create_country_leader = {
-			name = "Mirzo Abdulvokhid Munzim"
-			expire = "1965.1.1"
-			picture = "gfx/leaders/TRK/Portrait_TRK_Munzim_Mirzo.png"
-			ideology = soccon_jadidism_subtype
-		}
-		create_country_leader = {
-			name = "Mirzo Abdulvokhid Munzim"
-			expire = "1965.1.1"
-			picture = "gfx/leaders/TRK/Portrait_TRK_Munzim_Mirzo.png"
-			ideology = authoritarian_democrat_subtype
-		}
-	}
-	else = {
-		set_party_name = {
-			ideology = social_liberal
-			long_name = TRK_united_liberal_party_long
-			name = TRK_united_liberal_party
-		}
-		set_party_name = {
-			ideology = market_liberal
-			long_name = TRK_united_liberal_party_long
-			name = TRK_united_liberal_party
-		}
-		set_party_name = {
-			ideology = social_conservative
-			long_name = KYR_authoritarian_democrat_party_long
-			name = KYR_authoritarian_democrat_party
-		}
-		set_party_name = {
-			ideology = authoritarian_democrat
-			long_name = KYR_authoritarian_democrat_party_long
-			name = KYR_authoritarian_democrat_party
-		}
-	}
-	set_party_name = {
-		ideology = national_populist
-		long_name = TRK_national_populist_party_long
-		name = TRK_national_populist_party
-	}
-	create_country_leader = {
-		name = "Abdulkadyr Mukhitdinov"
-                picture = "gfx/leaders/TRK/Portrait_TRK_Mukhitdinov.png"
-		expire = "1965.1.1"
-		ideology = authcom_subtype
-	}
-	create_country_leader = {
-		name = "Nazir Torekulov"
-		picture = "gfx/leaders/TRK/Portrait_TRK_Nazir_Torekulov.png"
-		expire = "1965.1.1"
-		ideology = syndicalist_subtype
-	}
-	create_country_leader = {
-		name = "Usman Hodzha"
-		picture = "gfx/leaders/TRK/Portrait_TRK_Usman_Hodzha.png"
-		expire = "1965.1.1"
-		ideology = agrarian_socialism_subtype
-	}
-	create_country_leader = {
-		name = "Usman Hodzha"
-		picture = "gfx/leaders/TRK/Portrait_TRK_Usman_Hodzha.png"
-		expire = "1965.1.1"
-		ideology = socdem_jadidism_subtype
-	}
-}
-}
-
+	set_variable = { ROOT.turkestan_max_efficiency = 0.1 }
+	set_variable = { ROOT.turkestan_construction_speed = 0.07 }
+	set_variable = { ROOT.turkestan_research_speed = 0.085 }
+	set_variable = { ROOT.turkestan_efficiency_gain = 0.15 }
+	multiply_variable = { ROOT.turkestan_max_efficiency = turkestan_positive_factor }
+	multiply_variable = { ROOT.turkestan_construction_speed = turkestan_positive_factor }
+	multiply_variable = { ROOT.turkestan_research_speed = turkestan_positive_factor }
+	multiply_variable = { ROOT.turkestan_efficiency_gain = turkestan_positive_factor }
 
 	
-		
+	# Maluses if below 50%
+	if = {
+		limit = {
+			check_variable = { turkestan_modernisation_var < 0.5 }
+		}
+		set_variable = { ROOT.turkestan_political_power = -0.15 }
+		set_variable = { ROOT.turkestan_stability = -0.15 }
+		set_variable = { ROOT.turkestan_war_support = -0.15 }
+
+		set_temp_variable = { turkestan_negative_factor = -0.5 }
+		add_to_temp_variable = { turkestan_negative_factor = turkestan_modernisation_var }
+		divide_temp_variable = { turkestan_negative_factor = -0.3 }
+
+		multiply_variable = { ROOT.turkestan_political_power = turkestan_negative_factor }
+		multiply_variable = { ROOT.turkestan_stability = turkestan_negative_factor }
+		multiply_variable = { ROOT.turkestan_war_support = turkestan_negative_factor }
+
+	}
+	else = {
+		clear_variable = ROOT.turkestan_political_power
+		clear_variable = ROOT.turkestan_stability
+		clear_variable = ROOT.turkestan_war_support
+	}
+	
+	
+
+	clear_variable = turkestan_modernisation_var
+	force_update_dynamic_modifier = yes
+	
+	
+}
+basmachi_leave_kokand = {
+	if = {
+		limit = {
+			TRK = { has_authoritarian_government = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68590
+			}
+			event_target:TRK_Eshi_Khan = { 
+				set_nationality = TRK
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68591
+			}
+			event_target:TRK_Oraz_Geldy_Kandzhik = { 
+				set_nationality = TRK
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68592
+			}
+			event_target:TRK_Azis_Khan_Chapykov = { 
+				set_nationality = TRK
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68598
+			}
+			event_target:TRK_Kurshirmat = { 
+				set_nationality = TRK
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68600
+			}
+			event_target:TRK_Katta_Ergash = { 
+				set_nationality = TRK
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68594
+			}
+			event_target:TRK_Ibrahim_Bek = { 
+				set_nationality = TRK
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68596
+			}
+			event_target:TRK_Shahmurad_Khan = { 
+				set_nationality = TRK
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68595
+			}
+			event_target:TRK_Abdul_Qahhor = { 
+				set_nationality = TRK
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			TRK = { has_authoritarian_government = no }
+			UZB = { has_authoritarian_government = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68590
+			}
+			event_target:TRK_Eshi_Khan = { 
+				set_nationality = UZB
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68591
+			}
+			event_target:TRK_Oraz_Geldy_Kandzhik = { 
+				set_nationality = UZB
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68592
+			}
+			event_target:TRK_Azis_Khan_Chapykov = { 
+				set_nationality = UZB
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68598
+			}
+			event_target:TRK_Kurshirmat = { 
+				set_nationality = UZB
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68600
+			}
+			event_target:TRK_Katta_Ergash = { 
+				set_nationality = UZB
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68594
+			}
+			event_target:TRK_Ibrahim_Bek = { 
+				set_nationality = UZB
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68596
+			}
+			event_target:TRK_Shahmurad_Khan = { 
+				set_nationality = UZB
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68595
+			}
+			event_target:TRK_Abdul_Qahhor = { 
+				set_nationality = UZB
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			TRK = { has_authoritarian_government = no }
+			UZB = { has_authoritarian_government = yes }
+			country_exists = ETS
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68590
+			}
+			event_target:TRK_Eshi_Khan = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68591
+			}
+			event_target:TRK_Oraz_Geldy_Kandzhik = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68592
+			}
+			event_target:TRK_Azis_Khan_Chapykov = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68598
+			}
+			event_target:TRK_Kurshirmat = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68600
+			}
+			event_target:TRK_Katta_Ergash = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68594
+			}
+			event_target:TRK_Ibrahim_Bek = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68596
+			}
+			event_target:TRK_Shahmurad_Khan = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68595
+			}
+			event_target:TRK_Abdul_Qahhor = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			TRK = { has_authoritarian_government = no }
+			UZB = { has_authoritarian_government = no }
+			ETS = { exists = no }
+			AFG = {
+				is_subject = no
+				NOT = { is_in_faction_with = CAN }
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68590
+			}
+			event_target:TRK_Eshi_Khan = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68591
+			}
+			event_target:TRK_Oraz_Geldy_Kandzhik = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68592
+			}
+			event_target:TRK_Azis_Khan_Chapykov = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68598
+			}
+			event_target:TRK_Kurshirmat = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68600
+			}
+			event_target:TRK_Katta_Ergash = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68594
+			}
+			event_target:TRK_Ibrahim_Bek = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68596
+			}
+			event_target:TRK_Shahmurad_Khan = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68595
+			}
+			event_target:TRK_Abdul_Qahhor = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			TRK = { has_authoritarian_government = no }
+			UZB = { has_authoritarian_government = no }
+			ETS = { exists = no }
+			AFG = {
+				OR = {
+					is_subject = yes
+					is_in_faction_with = CAN
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68590
+			}
+			event_target:TRK_Eshi_Khan = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68591
+			}
+			event_target:TRK_Oraz_Geldy_Kandzhik = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68592
+			}
+			event_target:TRK_Azis_Khan_Chapykov = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68598
+			}
+			event_target:TRK_Kurshirmat = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68600
+			}
+			event_target:TRK_Katta_Ergash = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68594
+			}
+			event_target:TRK_Ibrahim_Bek = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68596
+			}
+			event_target:TRK_Shahmurad_Khan = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68595
+			}
+			event_target:TRK_Abdul_Qahhor = { remove_unit_leader = yes }
+		}
+	}
+}
+basmachi_leave_bukhara = {
+	if = {
+		limit = {
+			has_unit_leader = 68593
+			NOT = {
+				has_country_leader = {
+					name = "Mohammed Alim Khan"
+					ruling_only = yes
+				}
+			}
+		}
+		emir_leaves_bukhara = yes
+	}
+	if = {
+		limit = {
+			KYR = { has_authoritarian_government = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68590
+			}
+			event_target:TRK_Eshi_Khan = { 
+				set_nationality = KYR
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68591
+			}
+			event_target:TRK_Oraz_Geldy_Kandzhik = { 
+				set_nationality = KYR
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68592
+			}
+			event_target:TRK_Azis_Khan_Chapykov = { 
+				set_nationality = KYR
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68598
+			}
+			event_target:TRK_Kurshirmat = { 
+				set_nationality = KYR
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68600
+			}
+			event_target:TRK_Katta_Ergash = { 
+				set_nationality = KYR
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68594
+			}
+			event_target:TRK_Ibrahim_Bek = { 
+				set_nationality = KYR
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68596
+			}
+			event_target:TRK_Shahmurad_Khan = { 
+				set_nationality = KYR
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68595
+			}
+			event_target:TRK_Abdul_Qahhor = { 
+				set_nationality = KYR
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			KYR = { has_authoritarian_government = no }
+			UZB = { has_authoritarian_government = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68590
+			}
+			event_target:TRK_Eshi_Khan = { 
+				set_nationality = UZB
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68591
+			}
+			event_target:TRK_Oraz_Geldy_Kandzhik = { 
+				set_nationality = UZB
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68592
+			}
+			event_target:TRK_Azis_Khan_Chapykov = { 
+				set_nationality = UZB
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68598
+			}
+			event_target:TRK_Kurshirmat = { 
+				set_nationality = UZB
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68600
+			}
+			event_target:TRK_Katta_Ergash = { 
+				set_nationality = UZB
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68594
+			}
+			event_target:TRK_Ibrahim_Bek = { 
+				set_nationality = UZB
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68596
+			}
+			event_target:TRK_Shahmurad_Khan = { 
+				set_nationality = UZB
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68595
+			}
+			event_target:TRK_Abdul_Qahhor = { 
+				set_nationality = UZB
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			KYR = { has_authoritarian_government = no }
+			UZB = { has_authoritarian_government = no }
+			ETS = { exists = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68590
+			}
+			event_target:TRK_Eshi_Khan = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68591
+			}
+			event_target:TRK_Oraz_Geldy_Kandzhik = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68592
+			}
+			event_target:TRK_Azis_Khan_Chapykov = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68598
+			}
+			event_target:TRK_Kurshirmat = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68600
+			}
+			event_target:TRK_Katta_Ergash = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68594
+			}
+			event_target:TRK_Ibrahim_Bek = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68596
+			}
+			event_target:TRK_Shahmurad_Khan = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68595
+			}
+			event_target:TRK_Abdul_Qahhor = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			KYR = { has_authoritarian_government = no }
+			UZB = { has_authoritarian_government = no }
+			ETS = { exists = no }
+			AFG = {
+				is_subject = no
+				NOT = { is_in_faction_with = CAN }
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68590
+			}
+			event_target:TRK_Eshi_Khan = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68591
+			}
+			event_target:TRK_Oraz_Geldy_Kandzhik = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68592
+			}
+			event_target:TRK_Azis_Khan_Chapykov = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68598
+			}
+			event_target:TRK_Kurshirmat = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68600
+			}
+			event_target:TRK_Katta_Ergash = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68594
+			}
+			event_target:TRK_Ibrahim_Bek = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68596
+			}
+			event_target:TRK_Shahmurad_Khan = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68595
+			}
+			event_target:TRK_Abdul_Qahhor = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			KYR = { has_authoritarian_government = no }
+			UZB = { has_authoritarian_government = no }
+			ETS = { exists = no }
+			AFG = {
+				OR = {
+					is_subject = yes
+					is_in_faction_with = CAN
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68590
+			}
+			event_target:TRK_Eshi_Khan = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68591
+			}
+			event_target:TRK_Oraz_Geldy_Kandzhik = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68592
+			}
+			event_target:TRK_Azis_Khan_Chapykov = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68598
+			}
+			event_target:TRK_Kurshirmat = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68600
+			}
+			event_target:TRK_Katta_Ergash = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68594
+			}
+			event_target:TRK_Ibrahim_Bek = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68596
+			}
+			event_target:TRK_Shahmurad_Khan = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68595
+			}
+			event_target:TRK_Abdul_Qahhor = { remove_unit_leader = yes }
+		}
+	}
+}
+emir_leaves_bukhara = {
+	if = {
+		limit = {
+			UZB = { has_authoritarian_government = yes }
+		}
+		event_target:TRK_Emir = { 
+			set_nationality = UZB
+			add_unit_leader_trait = exiled_leader
+			unit_leader_event = {
+				id = turkestan.201
+				days = 1
+				random = 50
+				random_days = 5
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			UZB = { has_authoritarian_government = no }
+			AFG = { exists = yes }
+		}
+		event_target:TRK_Emir = { 
+			set_nationality = AFG
+			add_unit_leader_trait = exiled_leader
+			unit_leader_event = {
+				id = turkestan.201
+				days = 1
+				random = 50
+				random_days = 5
+			}
+		}		
+	}
+}
+basmachi_leave_khiva = {
+	if = {
+		limit = {
+			has_unit_leader = 68593
+		}
+		emir_leaves_bukhara = yes
+	}
+	if = {
+		limit = {
+			TRK = { has_authoritarian_government = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68590
+			}
+			event_target:TRK_Eshi_Khan = { 
+				set_nationality = TRK
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68591
+			}
+			event_target:TRK_Oraz_Geldy_Kandzhik = { 
+				set_nationality = TRK
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68592
+			}
+			event_target:TRK_Azis_Khan_Chapykov = { 
+				set_nationality = TRK
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68598
+			}
+			event_target:TRK_Kurshirmat = { 
+				set_nationality = TRK
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68600
+			}
+			event_target:TRK_Katta_Ergash = { 
+				set_nationality = TRK
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68594
+			}
+			event_target:TRK_Ibrahim_Bek = { 
+				set_nationality = TRK
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68596
+			}
+			event_target:TRK_Shahmurad_Khan = { 
+				set_nationality = TRK
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68595
+			}
+			event_target:TRK_Abdul_Qahhor = { 
+				set_nationality = TRK
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			TRK = { has_authoritarian_government = no }
+			KYR = { has_authoritarian_government = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68590
+			}
+			event_target:TRK_Eshi_Khan = { 
+				set_nationality = KYR
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68591
+			}
+			event_target:TRK_Oraz_Geldy_Kandzhik = { 
+				set_nationality = KYR
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68592
+			}
+			event_target:TRK_Azis_Khan_Chapykov = { 
+				set_nationality = KYR
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68598
+			}
+			event_target:TRK_Kurshirmat = { 
+				set_nationality = KYR
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68600
+			}
+			event_target:TRK_Katta_Ergash = { 
+				set_nationality = KYR
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68594
+			}
+			event_target:TRK_Ibrahim_Bek = { 
+				set_nationality = KYR
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68596
+			}
+			event_target:TRK_Shahmurad_Khan = { 
+				set_nationality = KYR
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68595
+			}
+			event_target:TRK_Abdul_Qahhor = { 
+				set_nationality = KYR
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			TRK = { has_authoritarian_government = no }
+			KYR = { has_authoritarian_government = no }
+			AFG = {
+				is_subject = no
+				NOT = { is_in_faction_with = CAN }
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68590
+			}
+			event_target:TRK_Eshi_Khan = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68591
+			}
+			event_target:TRK_Oraz_Geldy_Kandzhik = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68592
+			}
+			event_target:TRK_Azis_Khan_Chapykov = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68598
+			}
+			event_target:TRK_Kurshirmat = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68600
+			}
+			event_target:TRK_Katta_Ergash = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68594
+			}
+			event_target:TRK_Ibrahim_Bek = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68596
+			}
+			event_target:TRK_Shahmurad_Khan = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68595
+			}
+			event_target:TRK_Abdul_Qahhor = { 
+				set_nationality = AFG
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			TRK = { has_authoritarian_government = no }
+			KYR = { has_authoritarian_government = no }
+			country_exists = ETS
+			AFG = {
+				OR = {
+					is_subject = yes
+					is_in_faction_with = CAN
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68590
+			}
+			event_target:TRK_Eshi_Khan = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68591
+			}
+			event_target:TRK_Oraz_Geldy_Kandzhik = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68592
+			}
+			event_target:TRK_Azis_Khan_Chapykov = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68598
+			}
+			event_target:TRK_Kurshirmat = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68600
+			}
+			event_target:TRK_Katta_Ergash = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68594
+			}
+			event_target:TRK_Ibrahim_Bek = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68596
+			}
+			event_target:TRK_Shahmurad_Khan = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68595
+			}
+			event_target:TRK_Abdul_Qahhor = { 
+				set_nationality = ETS
+				add_unit_leader_trait = exiled_leader
+				unit_leader_event = {
+					id = turkestan.200
+					days = 1
+					random = 50
+					random_days = 5
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			TRK = { has_authoritarian_government = no }
+			KYR = { has_authoritarian_government = no }
+			ETS = { exists = no }
+			AFG = {
+				OR = {
+					is_subject = yes
+					is_in_faction_with = CAN
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68590
+			}
+			event_target:TRK_Eshi_Khan = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68591
+			}
+			event_target:TRK_Oraz_Geldy_Kandzhik = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68592
+			}
+			event_target:TRK_Azis_Khan_Chapykov = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68598
+			}
+			event_target:TRK_Kurshirmat = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68600
+			}
+			event_target:TRK_Katta_Ergash = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68594
+			}
+			event_target:TRK_Ibrahim_Bek = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68596
+			}
+			event_target:TRK_Shahmurad_Khan = { remove_unit_leader = yes }
+		}
+		if = {
+			limit = {
+				has_unit_leader = 68595
+			}
+			event_target:TRK_Abdul_Qahhor = { remove_unit_leader = yes }
+		}
+	}
+}
+
+
+KYR_setup_mejlis = {
+	set_variable = { turkestan_majlis_communist = 0 }
+	set_variable = { turkestan_majlis_erk = 10 } #20
+	set_variable = { turkestan_majlis_koshchi = 0 }
+	set_variable = { turkestan_majlis_socialist = 0 }
+	set_variable = { turkestan_majlis_socdem = 0 }
+	set_variable = { turkestan_majlis_alash_socdem = 0 }
+	set_variable = { turkestan_majlis_alash = 0 }
+	set_variable = { turkestan_majlis_jadidist = 28 } #51
+	set_variable = { turkestan_majlis_kadimist = 16 } #29
+	set_variable = { turkestan_majlis_members = 54 } 
+}
+KYR_count_1936_elections = {
+	set_temp_variable = { temp1 = KYR.party_popularity@radical_socialist }
+	multiply_temp_variable = { temp1 = turkestan_majlis_members }
+	set_temp_variable = { temp2 = 1 }
+	subtract_from_temp_variable = { temp2 = party_popularity@totalist }
+	subtract_from_temp_variable = { temp2 = party_popularity@syndicalist }
+	subtract_from_temp_variable = { temp2 = party_popularity@social_democrat }
+	subtract_from_temp_variable = { temp2 = party_popularity@market_liberal }
+	subtract_from_temp_variable = { temp2 = party_popularity@social_conservative }
+	subtract_from_temp_variable = { temp2 = party_popularity@paternal_autocrat }
+	subtract_from_temp_variable = { temp2 = party_popularity@national_populist }
+	divide_temp_variable = { temp1 = temp2 }
+	set_variable = { turkestan_majlis_erk = temp1 }
+	round_variable = turkestan_majlis_erk
+	
+	set_temp_variable = { temp1 = KYR.party_popularity@social_liberal }
+	multiply_temp_variable = { temp1 = turkestan_majlis_members }
+	set_temp_variable = { temp2 = 1 }
+	subtract_from_temp_variable = { temp2 = party_popularity@totalist }
+	subtract_from_temp_variable = { temp2 = party_popularity@syndicalist }
+	subtract_from_temp_variable = { temp2 = party_popularity@social_democrat }
+	subtract_from_temp_variable = { temp2 = party_popularity@market_liberal }
+	subtract_from_temp_variable = { temp2 = party_popularity@social_conservative }
+	subtract_from_temp_variable = { temp2 = party_popularity@paternal_autocrat }
+	subtract_from_temp_variable = { temp2 = party_popularity@national_populist }
+	divide_temp_variable = { temp1 = temp2 }
+	set_variable = { turkestan_majlis_jadidist = temp1 }
+	round_variable = turkestan_majlis_jadidist
+	
+	set_temp_variable = { temp1 = KYR.party_popularity@authoritarian_democrat }
+	multiply_temp_variable = { temp1 = turkestan_majlis_members }
+	set_temp_variable = { temp2 = 1 }
+	subtract_from_temp_variable = { temp2 = party_popularity@totalist }
+	subtract_from_temp_variable = { temp2 = party_popularity@syndicalist }
+	subtract_from_temp_variable = { temp2 = party_popularity@social_democrat }
+	subtract_from_temp_variable = { temp2 = party_popularity@market_liberal }
+	subtract_from_temp_variable = { temp2 = party_popularity@social_conservative }
+	subtract_from_temp_variable = { temp2 = party_popularity@paternal_autocrat }
+	subtract_from_temp_variable = { temp2 = party_popularity@national_populist }
+	divide_temp_variable = { temp1 = temp2 }
+	set_variable = { turkestan_majlis_kadimist = temp1 }
+	round_variable = turkestan_majlis_kadimist
+}
+UZB_start_border_war = {
+	if = {
+		limit = {
+			FROM = { tag = ALO }
+		}
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 861
+				num_provinces = 2
+				on_win = khiva.28
+				on_lose = khiva.29
+				on_cancel = khiva.30
+			}
+				
+			defender = {
+				state = 587
+				num_provinces = 2
+				on_win = khiva.32
+				on_lose = khiva.31
+				on_cancel = khiva.31
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = KYR }
+		}
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 861
+				num_provinces = 2
+				on_win = khiva.28
+				on_lose = khiva.29
+				on_cancel = khiva.30
+			}
+				
+			defender = {
+				state = 712
+				num_provinces = 2
+				on_win = khiva.32
+				on_lose = khiva.31
+				on_cancel = khiva.31
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = TAJ }
+		}
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 861
+				num_provinces = 2
+				on_win = khiva.28
+				on_lose = khiva.29
+				on_cancel = khiva.30
+			}
+				
+			defender = {
+				state = 712
+				num_provinces = 2
+				on_win = khiva.32
+				on_lose = khiva.31
+				on_cancel = khiva.31
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = TRK }
+		}
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 584
+				num_provinces = 2
+				on_win = khiva.28
+				on_lose = khiva.29
+				on_cancel = khiva.30
+			}
+				
+			defender = {
+				state = 405
+				num_provinces = 2
+				on_win = khiva.32
+				on_lose = khiva.31
+				on_cancel = khiva.31
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = AFG }
+		}
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 584
+				num_provinces = 2
+				on_win = khiva.28
+				on_lose = khiva.29
+				on_cancel = khiva.30
+			}
+				
+			defender = {
+				state = 267
+				num_provinces = 2
+				on_win = khiva.32
+				on_lose = khiva.31
+				on_cancel = khiva.31
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			FROM = { tag = PER }
+		}
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 584
+				num_provinces = 2
+				on_win = khiva.28
+				on_lose = khiva.29
+				on_cancel = khiva.30
+			}
+				
+			defender = {
+				state = 418
+				num_provinces = 2
+				on_win = khiva.32
+				on_lose = khiva.31
+				on_cancel = khiva.31
+			}
+		}
+	}
+}
+	
+	
+	
 	

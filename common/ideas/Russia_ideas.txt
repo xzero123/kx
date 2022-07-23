@@ -2392,6 +2392,22 @@ ideas = {
 			
 			picture = MON_russian_help_icon
 		}
+		rus_no_corruption_failure = {
+			allowed = {
+				always = no
+			}
+			available = {
+				NOT = { has_idea = rus_no_corruption }
+			}
+			modifier = {
+				political_power_cost = 0.25
+				consumer_goods_factor = 0.1
+				stability_factor = -0.25
+				national_populist_drift = -0.05
+			}
+			
+			picture = PER_Corruption
+		}
 		combat_squads = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea combat_squads"}
 			allowed = {
@@ -2403,6 +2419,62 @@ ideas = {
 			}
 			
 			picture = RUS_Yunarmiya
+		}
+		RUS_pale_horse = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea RUS_pale_horse"}
+			picture = RUS_pale_horse
+			available = { RUS_savinkov_in_power = yes }
+			on_remove = {
+				remove_dynamic_modifier = { modifier = RUS_pale_horse_modifier }
+			}
+		}
+		RUS_state_cooperatives = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea RUS_state_cooperatives"}
+			picture = worker_coops
+			available = {
+				has_government = national_populist
+			}
+			modifier = {
+				consumer_goods_factor = -0.07
+				production_factory_efficiency_gain_factor = 0.02
+			}
+		}
+		RUS_directive_no_1 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea RUS_directive_no_1"}
+			picture = black_laws
+			available = {
+				has_government = national_populist
+			}
+			modifier = {
+				party_popularity_stability_factor = 0.05
+				occupation_cost = -0.15
+				required_garrison_factor = -0.05
+				resistance_damage_to_garrison_on_our_occupied_states = -0.05
+			}
+		}
+		RUS_directive_no_1_no_cs = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea RUS_directive_no_1_no_cs"}
+			name = RUS_directive_no_1
+			picture = black_laws
+			available = {
+				has_government = national_populist
+			}
+			modifier = {
+				party_popularity_stability_factor = 0.05
+			}
+		}
+		RUS_directive_no_1_no_stab = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea RUS_directive_no_1_no_stab"}
+			name = RUS_directive_no_1
+			picture = black_laws
+			available = {
+				has_government = national_populist
+			}
+			modifier = {
+				occupation_cost = -0.15
+				required_garrison_factor = -0.05
+				resistance_damage_to_garrison_on_our_occupied_states = -0.05
+			}
 		}
 		
 		
@@ -3168,7 +3240,6 @@ ideas = {
 			allowed = { always = no }
 			modifier = {
 				global_building_slots_factor = 0.10
-				conscription_factor = -0.05
 			}
 		}
 		RUS_supreme_economic_council_2 = { #tankograd
@@ -3178,7 +3249,6 @@ ideas = {
 			allowed = { always = no }
 			modifier = {
 				global_building_slots_factor = 0.10
-				conscription_factor = -0.05
 			}
 			equipment_bonus = {
 				armor = {
@@ -3194,11 +3264,10 @@ ideas = {
 			allowed = { always = no }
 			modifier = {
 				global_building_slots_factor = 0.10
-				conscription_factor = -0.10
 				production_factory_max_efficiency_factor = 0.20
 			}
 		}
-		RUS_supreme_economic_council_4 = { #railways
+		RUS_supreme_economic_council_4 = { #labour army
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea RUS_supreme_economic_council_4"}
 			name = RUS_supreme_economic_council
 			picture = man_five_year_plan_tank

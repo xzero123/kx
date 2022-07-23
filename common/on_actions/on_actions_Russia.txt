@@ -33,6 +33,7 @@ on_actions = {
 					add_political_power = 500
 				}
 			}			
+			RUS_setup_initial_state_popularities = yes
 		}
 	}
 	
@@ -322,20 +323,6 @@ on_actions = {
 					country_event = {
 						id = rusfor.51
 						days = 3
-					}
-				}
-			}
-			if = {
-				limit = {
-					tag = RUS
-					FROM = {
-						tag = UTR
-					}
-				}
-				RUS = {
-					country_event = {
-						id = rusfor.1464
-						days = 180
 					}
 				}
 			}
@@ -762,7 +749,7 @@ on_actions = {
 						has_idea = rus_industry_lack
 						num_of_factories > 220
 					}
-					RUS = { country_event = rusd.224 }
+					RUS = { country_event = rusd.220 }
 				}
 			}
 		}
@@ -776,6 +763,17 @@ on_actions = {
 					}
 				}
 				RUS = { recalculate_monthly_industrialisation_rate = yes }
+			}
+			if = {
+				limit = {
+					RUS = {
+						exists = yes
+						has_idea = rus_fight_corruption
+					}
+				}
+				RUS = { 
+					add_to_variable = { RUS_corruption_index = -0.02 }
+				}
 			}
 		}
 	}

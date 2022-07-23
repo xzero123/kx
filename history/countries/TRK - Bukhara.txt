@@ -9,14 +9,16 @@ set_technology = {
 	tech_support = 1
 	tech_recon = 1
 	gw_artillery = 1
+	camelry = 1
 	### Air ###
 	early_fighter = 1
 }
 
 set_country_flag = KX_no_naval_tech_decision_enable
-
+set_country_flag = TRK_no_more_foreigners
 set_research_slots = 2
 
+set_stability = 0.5
 set_war_support = 0.2
 
 set_politics = {
@@ -27,15 +29,15 @@ set_politics = {
 }
 
 set_popularities = {
-	totalist = 12
-	radical_socialist = 0
+	totalist = 0
+	radical_socialist = 11
 	syndicalist = 0
-	social_democrat = 0
-	social_liberal = 6
+	social_democrat = 4
+	social_liberal = 22
 	market_liberal = 0
-	social_conservative = 7
-	authoritarian_democrat = 9
-	paternal_autocrat = 47
+	social_conservative = 0
+	authoritarian_democrat = 0
+	paternal_autocrat = 44
 	national_populist = 19
 }
 
@@ -64,25 +66,25 @@ create_country_leader = {
 	name = "Abdulkadyr Mukhitdinov"
 	picture = "gfx/leaders/TRK/Portrait_TRK_Mukhitdinov.png"
 	expire = "1965.1.1"
-	ideology = authcom_subtype
+	ideology = authcom_subtype 
 }
 create_country_leader = {
 	name = "Abdulkadyr Mukhitdinov"
 	picture = "gfx/leaders/TRK/Portrait_TRK_Mukhitdinov.png"
 	expire = "1965.1.1"
-	ideology = syndicalist_subtype
+	ideology = centralized_syndicalism_subtype 
 }
 create_country_leader = {
-	name = "Usman Hodzha"
-	picture = "gfx/leaders/TRK/Portrait_TRK_Usman_Hodzha.png"
+	name = "Fayzulla Khodjaev"
+	picture = "gfx/leaders/TRK/Portrait_BUK_Fayzullah_Khodjaev.png"
 	expire = "1965.1.1"
-	ideology = agrarian_socialism_subtype
+	ideology = agrarian_socialism_subtype 
 }
 create_country_leader = {
-	name = "Usman Hodzha"
+	name = "Usmon Khodja"
 	picture = "gfx/leaders/TRK/Portrait_TRK_Usman_Hodzha.png"
 	expire = "1965.1.1"
-	ideology = socdem_jadidism_subtype
+	ideology = socdem_democratic_socialism_subtype 
 }
 create_country_leader = {
 	name = "Mirzo Abdulvokhid Munzim"
@@ -109,14 +111,19 @@ add_ideas = {
 	TRK_Mukhtar_Dzhangalin_for_ade
 	TRK_Adilet_Rustamov_eco_ade
 	TRK_Kush_Beggi_sec_pau
+	TRK_turkestan_modernisation_idea
 	TRK_legacy_of_emir
 	TRK_illiteracy
 	TRK_nomadic_society
+	limited_conscription
 }
-country_event = { id = trk.1 days = 1 }
+add_dynamic_modifier = {
+	modifier = turkestan_modernisation_modifier 
+}
+TRK_calculate_modernisation_variables = yes
 country_event = { id = trk.2 days = 9 }
-country_event = { id = trk.3 days = 17 }
-country_event = { id = trk.9 days = 20 }
+country_event = { id = trk.3 days = 217 }
+#country_event = { id = trk.9 days = 20 }
 country_event = { id = turkestan.2 days = 517 random = 2400 }
 country_event = { id = turkestan.3 days = 943 random = 2400 }
 country_event = { id = turkestan.13 days = 2557 random = 1080 }
@@ -125,7 +132,7 @@ country_event = { id = turkestan.13 days = 2557 random = 1080 }
 ### Field Marshals
 create_field_marshal = {
 	name = "Mohammed Alim Khan"
-	portrait_path = "gfx/leaders/TRK/Portrait_Turkestan_Mohammed_Alim.png"
+	portrait_path = "gfx/leaders/TRK/Portrait_TRK_Mohammed_Alim.png"
 	traits = {
 		old_guard
 		cavalry_officer
@@ -192,5 +199,9 @@ random_unit_leader = {
 random_unit_leader = {
 	limit = { has_id = 68595 }
 	save_global_event_target_as = TRK_Abdul_Qahhor
+}
+random_unit_leader = {
+	limit = { has_id = 68593 }
+	save_global_event_target_as = TRK_Emir
 }
 

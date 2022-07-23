@@ -112,6 +112,28 @@ leader_traits = {
 			factor = 0
 		}
 	}
+	roa_general = {
+		type = all
+		trait_type = personality_trait
+		gain_xp = {
+			always = no # not gainable
+		}
+		allowed = {
+			FROM = {
+				tag = DKB
+			}
+		}
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		new_commander_weight = {
+			factor = 0
+		}
+	}
 	SOV_bolshevik_officer = {
 		type = all
 		trait_type = personality_trait
@@ -120,7 +142,12 @@ leader_traits = {
 		}
 		allowed = {
 			FROM = {
-				tag = RUS
+				OR = {
+					tag = RUS
+					tag = FRA
+					tag = ENG
+					tag = FOP
+				}
 			}
 		}
 		modifier = {
@@ -147,6 +174,43 @@ leader_traits = {
 		}
 		modifier = {
 			terrain_penalty_reduction = 0.5
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+	UKR_uvo_officer = {
+		type = all
+		trait_type = personality_trait
+		gain_xp = {
+			always = no
+		}
+		allowed = {
+			FROM = { tag = UKR }
+		}
+		modifier = {
+			army_core_defence_factor = 0.1
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+	UKR_uga_officer = {
+		type = all
+		trait_type = personality_trait
+		gain_xp = {
+			always = no
+		}
+		allowed = {
+			FROM = { tag = UKR }
+		}
+		modifier = {
 		}
 		ai_will_do = {
 			factor = 1

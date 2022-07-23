@@ -5261,6 +5261,7 @@ RUS_Foreign_Policy_decisions = {
 		icon = hol_draw_up_staff_plans
 
 		available = {
+			always = no
 			UKR = {
 				OR = {
 					is_in_faction = no
@@ -9025,938 +9026,6 @@ political_actions = {
 	}
 }
 
-RUS_Panslavic_Congress_decisions = {
-	PSC_question_of_czechoslovakia = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-			OR = {
-				CZE = {
-					has_country_flag = psc_council_vote
-				}
-				SVK = {
-					has_country_flag = psc_council_vote
-				}
-				AUS = {
-					has_country_flag = psc_council_vote
-				}
-			}
-			NOT = {
-				has_global_flag = psc_vote_ongoing
-			}
-			NOT = {
-				OR = {
-					has_country_flag = czechoslovakia_independent_approved
-					has_country_flag = czechoslovakia_separate_approved
-				}
-			}
-		}
-		visible = {
-			original_tag = RUS
-		}
-		cost = freedec?0
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 100
-		}
-		complete_effect = {
-			country_event = {
-				id = rusfor.18
-				days = 1
-			}
-		}
-	}
-	PSC_question_of_illyria = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-			OR = {
-				CRO = {
-					has_country_flag = psc_council_vote
-				}
-				AUS = {
-					has_country_flag = psc_council_vote
-				}
-				HUN = {
-					has_country_flag = psc_council_vote
-				}
-			}
-			NOT = {
-				has_global_flag = psc_vote_ongoing
-			}
-			NOT = {
-				OR = {
-					has_country_flag = yugoslavia_approved
-					has_country_flag = illyria_independent_approved
-					has_country_flag = illyria_separate_approved
-					has_country_flag = illyria_slovenia_croatia_approved
-				}
-			}
-		}
-		visible = {
-			original_tag = RUS
-		}
-		cost = freedec?0
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 100
-		}
-		complete_effect = {
-			country_event = {
-				id = rusfor.19
-				days = 1
-			}
-		}
-	}
-	PSC_question_of_vojvodina = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-			OR = {
-				SER = {
-					has_country_flag = psc_council_vote
-				}
-				CRO = {
-					has_country_flag = psc_council_vote
-				}
-			}
-			NOT = {
-				has_global_flag = psc_vote_ongoing
-			}
-			NOT = {
-				OR = {
-				has_country_flag = vojvodina_serbia_approved
-				has_country_flag = vojvodina_croatia_approved
-				}
-			}
-			45 = {
-				NOT = {
-					OR = {
-						is_owned_by = CRO
-						is_owned_by = SER
-					}
-				}
-			}
-						
-		}
-		visible = {
-			original_tag = RUS
-		}
-		cost = freedec?0
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 100
-		}
-		complete_effect = {
-			country_event = {
-				id = rusfor.20
-				days = 1
-			}
-		}
-	}
-	PSC_question_of_yugoslavia = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-			SER = {
-				has_country_flag = psc_council_vote
-				is_subject = no
-			}
-			NOT = {
-				has_global_flag = psc_vote_ongoing
-			}
-			NOT = { has_country_flag = yugoslavia_approved }
-		}
-		visible = {
-			original_tag = RUS
-		}
-		cost = freedec?0
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 100
-		}
-		complete_effect = {
-			country_event = {
-				id = rusfor.21
-				days = 1
-			}
-		}
-	}
-	PSC_question_of_galicia = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-			GAL = {
-				has_country_flag = psc_council_vote
-			}
-			OR = {
-				POL = {
-					has_country_flag = psc_council_vote
-				}
-				UKR = {
-					has_country_flag = psc_council_vote
-				}
-				is_neighbor_of = GAL
-			}
-			NOT = {
-				has_global_flag = psc_vote_ongoing
-			}
-			NOT = {
-				OR = {
-				has_country_flag = galicia_split_ukraine_approved
-				has_country_flag = galicia_split_russia_approved
-				has_country_flag = galicia_annex_russia_approved
-				has_country_flag = eastgalicia_split_approved
-				has_country_flag = eastgalicia_ukraine_approved
-				}
-			}
-		}
-		visible = {
-			original_tag = RUS
-		}
-		cost = freedec?0
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 100
-		}
-		complete_effect = {
-			country_event = {
-				id = rusfor.22
-				days = 1
-			}
-		}
-	}
-	PSC_question_of_bukowina = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-			OR = {
-				has_country_flag = galicia_annex_russia_approved
-				has_country_flag = galicia_split_russia_approved
-				has_country_flag = galicia_split_ukraine_approved
-				has_country_flag = eastgalicia_split_approved
-				has_country_flag = eastgalicia_ukraine_approved
-			}
-			NOT = {
-				has_global_flag = psc_vote_ongoing
-			}
-		}
-		visible = {
-			original_tag = RUS
-		}
-		cost = freedec?0
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 100
-		}
-		complete_effect = {
-			country_event = {
-				id = rusfor.23
-				days = 1
-			}
-		}
-	}
-	PSC_question_of_zakarpatie = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-			OR = {
-				has_country_flag = galicia_annex_russia_approved
-				has_country_flag = galicia_split_russia_approved
-				has_country_flag = galicia_split_ukraine_approved
-				has_country_flag = eastgalicia_split_approved
-				has_country_flag = eastgalicia_ukraine_approved
-			}
-			OR = {
-				has_country_flag = czechoslovakia_independent_approved
-				has_country_flag = czechoslovakia_separate_approved
-			}
-			NOT = {
-				has_global_flag = psc_vote_ongoing
-			}
-		}
-		visible = {
-			original_tag = RUS
-		}
-		cost = freedec?0
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 100
-		}
-		complete_effect = {
-			country_event = {
-				id = rusfor.24
-				days = 1
-			}
-		}
-	}
-	PSC_demand_czechoslovakia = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-			OR = {
-			has_country_flag = czechoslovakia_independent_approved
-			has_country_flag = czechoslovakia_separate_approved
-			}
-			NOT = {
-				has_global_flag = psc_vote_ongoing
-			}
-		}
-		visible = {
-			original_tag = RUS
-			OR = {
-			has_country_flag = czechoslovakia_independent_approved
-			has_country_flag = czechoslovakia_separate_approved
-			}
-		}
-		cost = 35
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 100
-		}
-		complete_effect = {
-			AUS = {
-				country_event = {
-					id = rusfor.1304
-					days = 1
-				}
-			}
-		}
-	}
-	PSC_demand_illyria = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-			OR = {
-			has_country_flag = illyria_independent_approved
-			has_country_flag = illyria_separate_approved
-			has_country_flag = illyria_slovenia_croatia_approved
-			}
-			NOT = {
-				OR = {
-					has_global_flag = psc_vote_ongoing
-					has_country_flag = yugoslavia_approved
-				}
-			}
-		}
-		visible = {
-			original_tag = RUS
-			OR = {
-				has_country_flag = illyria_independent_approved
-				has_country_flag = illyria_separate_approved
-				has_country_flag = illyria_slovenia_croatia_approved
-			}
-		}
-		cost = 35
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 100
-		}
-		complete_effect = {
-			AUS = {
-				country_event = {
-					id = rusfor.1313
-					days = 1
-				}
-			}
-		}
-	}
-	PSC_demand_yugoslavia = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-			has_country_flag = yugoslavia_approved
-			SER = { is_subject = no }
-			NOT = {
-				has_global_flag = psc_vote_ongoing
-			}
-		}
-		visible = {
-			original_tag = RUS
-			has_country_flag = yugoslavia_approved
-		}
-		cost = 35
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 100
-		}
-		complete_effect = {
-			if = {
-				limit = { country_exists = CRO }
-				CRO = {
-					country_event = {
-						id = rusfor.1322
-						days = 1
-					}
-				}
-			}
-			else = {
-				AUS = {
-					country_event = {
-						id = rusfor.1322
-						days = 1
-					}
-				}
-			}
-		}
-	}
-	PSC_demand_vojvodina = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-			country_exists = CRO
-			country_exists = SER
-			OR = {
-				has_country_flag = vojvodina_serbia_approved
-				has_country_flag = vojvodina_croatia_approved
-			}
-			NOT = {
-				has_global_flag = psc_vote_ongoing
-			}
-		}
-		visible = {
-			original_tag = RUS
-			OR = {
-				has_country_flag = vojvodina_serbia_approved
-				has_country_flag = vojvodina_croatia_approved
-			}
-			country_exists = CRO
-		}
-		cost = 35
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 100
-		}
-		complete_effect = {
-			AUS = {
-				country_event = {
-					id = rusfor.1318
-					days = 1
-				}
-			}
-		}
-	}
-	PSC_demand_galicia = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-			OR = {
-				has_country_flag = galicia_split_ukraine_approved
-				has_country_flag = galicia_split_russia_approved
-				has_country_flag = galicia_annex_russia_approved
-				has_country_flag = eastgalicia_split_approved
-				has_country_flag = eastgalicia_ukraine_approved
-			}
-			NOT = {
-				has_global_flag = psc_vote_ongoing
-			}
-		}
-		visible = {
-			original_tag = RUS
-			OR = {
-				has_country_flag = galicia_split_ukraine_approved
-				has_country_flag = galicia_split_russia_approved
-				has_country_flag = galicia_annex_russia_approved
-				has_country_flag = eastgalicia_split_approved
-				has_country_flag = eastgalicia_ukraine_approved
-			}
-		}
-		cost = 35
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 100
-		}
-		complete_effect = {
-			AUS = {
-				country_event = {
-					id = rusfor.1320
-					days = 1
-				}
-			}
-		}
-	}
-	
-	### PSC Votes ###
-
-	PSC_vote_yes = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = {
-			OR = {
-			original_tag = GER
-			original_tag = AUS
-			original_tag = HUN
-			original_tag = UKR
-			original_tag = WHR
-			original_tag = POL
-			original_tag = GAL
-			original_tag = CZE
-			original_tag = SVK
-			original_tag = SLO
-			original_tag = CRO
-			original_tag = SER
-			original_tag = BUL
-			original_tag = BOS
-		}
-		}
-		available = {
-			has_global_flag = psc_vote_ongoing
-			has_country_flag = psc_council_vote
-			NOT = {
-				has_country_flag = PSC_we_voted_this_time
-			}
-		}
-		visible = {
-			is_in_array = {
-				array = global.PSC_voters
-				value = THIS
-			}
-		}
-		cost = freedec?0
-		ai_will_do = {
-			factor = 10
-			modifier = { #####
-				factor = 0
-				tag = GER
-				OR = {
-					has_global_flag = PSC_czechoslovakia_independent
-					has_global_flag = PSC_illyria_independent
-					has_global_flag = PSC_illyria_separate_independent
-					has_global_flag = PSC_illyria_slovenia_croatia
-					has_global_flag = PSC_yugoslavia
-					has_global_flag = PSC_vojvodina_serbia
-					has_global_flag = PSC_vojvodina_croatia
-					has_global_flag = PSC_galicia_split_russia
-					has_global_flag = PSC_galicia_annex_russia
-					has_global_flag = PSC_bukowina_split_russia
-					has_global_flag = PSC_zakarpatie_rus
-				}
-			}
-			modifier = {
-				factor = 0
-				tag = AUS
-				OR = {
-					has_global_flag = PSC_czechoslovakia_independent
-					has_global_flag = PSC_illyria_independent
-					has_global_flag = PSC_illyria_separate_independent
-					has_global_flag = PSC_illyria_slovenia_croatia
-					has_global_flag = PSC_yugoslavia
-					has_global_flag = PSC_vojvodina_serbia
-					has_global_flag = PSC_vojvodina_croatia
-					has_global_flag = PSC_galicia_split_russia
-					has_global_flag = PSC_galicia_annex_russia
-					has_global_flag = PSC_bukowina_split_russia
-					has_global_flag = PSC_zakarpatie_rus
-					has_global_flag = PSC_zakarpatie_cze
-					has_global_flag = PSC_zakarpatie_slo
-					has_global_flag = PSC_zakarpatie_ukr
-				}
-			}
-			modifier = {
-				factor = 0
-				tag = HUN
-				OR = {
-					has_global_flag = PSC_czechoslovakia_independent
-					has_global_flag = PSC_illyria_independent
-					has_global_flag = PSC_illyria_separate_independent
-					has_global_flag = PSC_illyria_slovenia_croatia
-					has_global_flag = PSC_yugoslavia
-					has_global_flag = PSC_vojvodina_serbia
-					has_global_flag = PSC_vojvodina_croatia
-					has_global_flag = PSC_galicia_split_russia
-					has_global_flag = PSC_galicia_annex_russia
-					has_global_flag = PSC_bukowina_split_russia
-					has_global_flag = PSC_zakarpatie_rus
-					has_global_flag = PSC_zakarpatie_cze
-					has_global_flag = PSC_zakarpatie_slo
-					has_global_flag = PSC_zakarpatie_ukr
-				}
-			}
-			modifier = {
-				factor = 50
-				OR = {
-					tag = UKR
-					tag = WHR
-					tag = POL
-					tag = GAL
-					tag = SLO
-					tag = CRO
-					tag = SER
-					tag = BOS
-					tag = CZE
-					tag = SVK
-				}
-			}
-			modifier = {
-				factor = 100
-				OR = {
-					tag = CZE
-					tag = SVK
-				}
-				OR = {
-					has_global_flag = PSC_czechoslovakia_independent
-					has_global_flag = PSC_czechoslovakia_separate_independent
-					has_global_flag = PSC_zakarpatie_cze_motion
-					has_global_flag = PSC_zakarpatie_slo_motion
-				}
-			}
-			modifier = {
-				factor = 0
-				OR = {
-					tag = BUL
-					tag = POL
-					tag = UKR
-					tag = WHR
-				}
-				OR = {
-					is_in_faction_with = GER
-					is_in_faction_with = AUS
-				}
-			}
-			modifier = {
-				factor = 25
-				tag = CRO
-				OR = {
-					has_global_flag = PSC_illyria_independent_motion
-					has_global_flag = PSC_vojvodina_croatia
-					has_global_flag = PSC_illyria_slovenia_croatia
-				}
-			}
-			modifier = {
-				factor = 50
-				tag = SER
-				has_global_flag = PSC_yugoslavia
-			}
-		}
-			
-			complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision PSC_vote_yes"
-			set_country_flag = PSC_we_voted_this_time
-			add_to_variable = {
-				var =  global.psc_yes_votes
-				value = 1
-			}
-		}
-	}
-	PSC_vote_no = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = {
-			OR = {
-			original_tag = GER
-			original_tag = AUS
-			original_tag = HUN
-			original_tag = UKR
-			original_tag = WHR
-			original_tag = POL
-			original_tag = GAL
-			original_tag = CZE
-			original_tag = SVK
-			original_tag = SLO
-			original_tag = CRO
-			original_tag = SER
-			original_tag = BUL
-			original_tag = BOS
-		}
-		}
-		available = {
-			has_global_flag = psc_vote_ongoing
-			has_country_flag = psc_council_vote
-			NOT = {
-				has_country_flag = PSC_we_voted_this_time
-			}
-		}
-		visible = {
-			is_in_array = {
-				array = global.PSC_voters
-				value = THIS
-			}
-		}
-		cost = freedec?0
-		ai_will_do = {
-			factor = 10
-			modifier = { #####
-				factor = 100
-				tag = GER
-				OR = {
-					has_global_flag = PSC_czechoslovakia_independent
-					has_global_flag = PSC_illyria_independent
-					has_global_flag = PSC_illyria_separate_independent
-					has_global_flag = PSC_illyria_slovenia_croatia
-					has_global_flag = PSC_yugoslavia
-					has_global_flag = PSC_vojvodina_serbia
-					has_global_flag = PSC_vojvodina_croatia
-					has_global_flag = PSC_galicia_split_russia
-					has_global_flag = PSC_galicia_annex_russia
-					has_global_flag = PSC_bukowina_split_russia
-					has_global_flag = PSC_zakarpatie_rus
-				}
-			}
-			modifier = {
-				factor = 100
-				tag = AUS
-				OR = {
-					has_global_flag = PSC_czechoslovakia_independent
-					has_global_flag = PSC_illyria_independent
-					has_global_flag = PSC_illyria_separate_independent
-					has_global_flag = PSC_illyria_slovenia_croatia
-					has_global_flag = PSC_yugoslavia
-					has_global_flag = PSC_vojvodina_serbia
-					has_global_flag = PSC_vojvodina_croatia
-					has_global_flag = PSC_galicia_split_russia
-					has_global_flag = PSC_galicia_annex_russia
-					has_global_flag = PSC_bukowina_split_russia
-					has_global_flag = PSC_zakarpatie_rus
-					has_global_flag = PSC_zakarpatie_cze
-					has_global_flag = PSC_zakarpatie_slo
-					has_global_flag = PSC_zakarpatie_ukr
-				}
-			}
-			modifier = {
-				factor = 100
-				tag = HUN
-				OR = {
-					has_global_flag = PSC_czechoslovakia_independent
-					has_global_flag = PSC_illyria_independent
-					has_global_flag = PSC_illyria_separate_independent
-					has_global_flag = PSC_illyria_slovenia_croatia
-					has_global_flag = PSC_yugoslavia
-					has_global_flag = PSC_vojvodina_serbia
-					has_global_flag = PSC_vojvodina_croatia
-					has_global_flag = PSC_galicia_split_russia
-					has_global_flag = PSC_galicia_annex_russia
-					has_global_flag = PSC_bukowina_split_russia
-					has_global_flag = PSC_zakarpatie_rus
-					has_global_flag = PSC_zakarpatie_cze
-					has_global_flag = PSC_zakarpatie_slo
-					has_global_flag = PSC_zakarpatie_ukr
-				}
-			}
-			modifier = {
-				factor = 0
-				OR = {
-					tag = CZE
-					tag = SVK
-				}
-				OR = {
-					has_global_flag = PSC_czechoslovakia_independent
-					has_global_flag = PSC_czechoslovakia_separate_independent
-					has_global_flag = PSC_zakarpatie_cze_motion
-					has_global_flag = PSC_zakarpatie_slo_motion
-				}
-			}
-			modifier = {
-				factor = 100
-				OR = {
-					tag = POL
-					tag = UKR
-					tag = WHR
-				}
-				OR = {
-					is_in_faction_with = GER
-					is_in_faction_with = AUS
-				}
-			}
-			modifier = {
-				factor = 0
-				tag = CRO
-				OR = {
-					has_global_flag = PSC_illyria_independent_motion
-					has_global_flag = PSC_vojvodina_croatia
-					has_global_flag = PSC_illyria_slovenia_croatia
-				}
-			}
-			modifier = {
-				factor = 0
-				tag = SER
-				has_global_flag = PSC_yugoslavia
-			}
-			modifier = {
-				factor = 100
-				tag = CRO
-				OR = {
-					has_global_flag = PSC_yugoslavia
-					has_global_flag = PSC_vojvodina_croatia
-				}
-			}
-			modifier = {
-				factor = 10
-				OR = {
-					tag = CZE
-					tag = UKR
-					tag = POL
-					tag = SVK
-					tag = BUL
-				}
-				OR = {
-					has_global_flag = PSC_galicia_annex_russia
-					has_global_flag = PSC_bukowina_annex
-					has_global_flag = PSC_zakarpatie_rus
-				}
-			}
-			modifier = {
-				factor = 100
-				tag = GAL
-				OR = {
-					has_global_flag = PSC_galicia_annex_russia
-					has_global_flag = PSC_galicia_split_russia
-					has_global_flag = PSC_galicia_split_ukraine
-					has_global_flag = PSC_eastgalicia_split
-					has_global_flag = PSC_eastgalicia_ukraine
-					has_global_flag = PSC_bukowina_split
-					has_global_flag = PSC_bukowina_split_russia
-					has_global_flag = PSC_bukowina_annex
-					has_global_flag = PSC_zakarpatie_cze
-					has_global_flag = PSC_zakarpatie_slo
-					has_global_flag = PSC_zakarpatie_ukr
-					has_global_flag = PSC_zakarpatie_rus
-				}
-			}
-			modifier = {
-				factor = 100
-				tag = BUL
-				OR = {
-					has_global_flag = PSC_yugoslavia
-					has_global_flag = PSC_vojvodina_serbia
-					has_global_flag = PSC_bukowina_split
-					has_global_flag = PSC_bukowina_split_russia
-				}
-			}
-					
-		}
-		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision PSC_vote_no"
-			set_country_flag = PSC_we_voted_this_time
-			add_to_variable = {
-				var =  global.psc_no_votes
-				value = 1
-			}
-		}
-	}
-	PSC_vote_abstain = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = {
-			OR = {
-			original_tag = RUS
-			original_tag = GER
-			original_tag = AUS
-			original_tag = HUN
-			original_tag = UKR
-			original_tag = WHR
-			original_tag = POL
-			original_tag = GAL
-			original_tag = CZE
-			original_tag = SVK
-			original_tag = SLO
-			original_tag = CRO
-			original_tag = SER
-			original_tag = BUL
-			original_tag = BOS
-			}
-		}
-		available = {
-			has_global_flag = psc_vote_ongoing
-			has_country_flag = psc_council_vote
-			NOT = {
-				has_country_flag = PSC_we_voted_this_time
-			}
-		}
-		visible = {
-			is_in_array = {
-				array = global.PSC_voters
-				value = THIS
-			}
-		}
-		cost = freedec?0
-		ai_will_do = {
-			factor = 10
-		}
-		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision PSC_vote_abstain"
-			set_country_flag = PSC_we_voted_this_time
-			add_to_variable = {
-				var =  global.psc_abstain_votes
-				value = 1
-			}
-		}
-	}
-	PSC_vote_timer = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = {
-			OR = {
-			original_tag = RUS
-			original_tag = GER
-			original_tag = AUS
-			original_tag = HUN
-			original_tag = UKR
-			original_tag = WHR
-			original_tag = POL
-			original_tag = GAL
-			original_tag = CZE
-			original_tag = SVK
-			original_tag = SLO
-			original_tag = CRO
-			original_tag = SER
-			original_tag = BUL
-			original_tag = BOS
-		}
-		}
-		activation = {
-			has_global_flag = psc_vote_ongoing
-			NOT = {
-				has_country_flag = PSC_we_voted_this_time
-			}
-		}
-
-		available = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-
-		days_mission_timeout = 14
-		is_good = no
-
-		cancel_trigger = {
-			has_country_flag = PSC_we_voted_this_time
-		}
-		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision PSC_vote_timer"
-			every_country = {
-				limit = {
-					has_country_flag = psc_council_vote
-				}
-				set_country_flag = PSC_we_voted_this_time
-				add_to_variable = {
-					var =  global.psc_abstain_votes
-					value = 1
-				}
-			}
-		}
-	}
-}	
 RUS_ROVS_Debate = {
 	RUS_wrangel_senate = {
 		icon = GFX_decision_generic_agreement
@@ -10476,6 +9545,8 @@ RUS_Separate_Peace = {
 		}
 		visible = {
 			NOT = { has_global_flag = danzig_treaty_active }
+			NOT = { has_government = totalist }
+			NOT = { has_government = national_populist }
 		}
 		targets = { GER }
 		target_trigger = {
@@ -10579,7 +9650,492 @@ RUS_Separate_Peace = {
 	}
 	
 }
-
+RUS_dealing_with_corruption_category = {
+	RUS_tighten_the_corruption_laws = {
+		icon = GFX_decision_eng_trade_unions_support
+		allowed = { tag = RUS }
+		available = {
+			NOT = { has_country_flag = RUS_currently_fighting_corruption }
+		}
+		visible = {
+			RUS_savinkov_in_power = yes
+		}
+		cancel_if_not_visible = yes
+		cost = 50
+		days_remove = 45
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 2000
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel RUS_tighten_the_corruption_laws"
+			clr_country_flag = RUS_currently_fighting_corruption
+			add_political_power = 50
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete RUS_tighten_the_corruption_laws"
+			set_country_flag = RUS_currently_fighting_corruption
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove RUS_tighten_the_corruption_laws"
+			clr_country_flag = RUS_currently_fighting_corruption
+			custom_effect_tooltip = RUS_corruption_will_slightly_reduce
+			set_country_flag = RUS_tighten_the_corruption_laws_completed
+			hidden_effect = {
+				random_list = {
+					25 = { add_to_variable = { RUS_corruption_index = -1 } }
+					25 = { add_to_variable = { RUS_corruption_index = -3 } }
+					25 = { add_to_variable = { RUS_corruption_index = -5 } }
+					25 = { add_to_variable = { RUS_corruption_index = -7 } }
+				}
+			}
+			modify_timed_idea = {
+				idea = rus_fight_corruption
+				days = -15
+			}
+		}
+	}
+	RUS_raise_judges_salaries = {
+		icon = GFX_decision_cash_flow
+		allowed = { tag = RUS }
+		available = {
+			NOT = { has_country_flag = RUS_currently_fighting_corruption }
+		}
+		visible = {
+			RUS_savinkov_in_power = yes
+		}
+		cancel_if_not_visible = yes
+		cost = 75
+		days_remove = 50
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 2000
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel RUS_raise_judges_salaries"
+			add_political_power = 75
+			clr_country_flag = RUS_currently_fighting_corruption
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete RUS_raise_judges_salaries"
+			RUS_increase_trudoviks_influence = yes
+			RUS_increase_solidarists_influence = yes
+			set_country_flag = RUS_currently_fighting_corruption
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove RUS_raise_judges_salaries"
+			clr_country_flag = RUS_currently_fighting_corruption
+			custom_effect_tooltip = RUS_corruption_will_greatly_reduce
+			hidden_effect = {
+				random_list = {
+					25 = { add_to_variable = { RUS_corruption_index = -3 } }
+					25 = { add_to_variable = { RUS_corruption_index = -5 } }
+					25 = { add_to_variable = { RUS_corruption_index = -7 } }
+					25 = { add_to_variable = { RUS_corruption_index = -9 } }
+				}
+			}
+			modify_timed_idea = {
+				idea = rus_fight_corruption
+				days = -30
+			}
+		}
+	}
+	RUS_establish_ccc = {
+		icon = GFX_decision_eng_blackshirt_march
+		allowed = { tag = RUS }
+		available = {
+			NOT = { has_country_flag = RUS_subordinate_combat_squads_completed }
+			NOT = { has_country_flag = RUS_currently_fighting_corruption }
+		}
+		visible = {
+			RUS_savinkov_in_power = yes
+			NOT = { has_country_flag = RUS_subordinate_combat_squads_completed }
+		}
+		cancel_if_not_visible = yes
+		cost = 35
+		days_remove = 60
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 2000
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel RUS_establish_ccc"
+			add_political_power = 35
+			clr_country_flag = RUS_currently_fighting_corruption
+			clr_country_flag = RUS_establish_ccc_completed
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete RUS_establish_ccc"
+			RUS_increase_trudoviks_influence = yes
+			RUS_increase_vnkpz_influence = yes
+			RUS_increase_natmax_influence = yes
+			RUS_decrease_hardliners_influence = yes
+			set_country_flag = RUS_currently_fighting_corruption
+			set_country_flag = RUS_establish_ccc_completed
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove RUS_establish_ccc"
+			clr_country_flag = RUS_currently_fighting_corruption
+			custom_effect_tooltip = RUS_corruption_will_greatly_reduce
+			hidden_effect = {
+				random_list = {
+					25 = { add_to_variable = { RUS_corruption_index = -3 } }
+					25 = { add_to_variable = { RUS_corruption_index = -5 } }
+					25 = { add_to_variable = { RUS_corruption_index = -7 } }
+					25 = { add_to_variable = { RUS_corruption_index = -9 } }
+				}
+			}
+			modify_timed_idea = {
+				idea = rus_fight_corruption
+				days = -30
+			}
+		}
+	}
+	RUS_subordinate_combat_squads = {
+		icon = GFX_decision_eng_blackshirt_march
+		allowed = { tag = RUS }
+		available = {
+			NOT = { has_country_flag = RUS_establish_ccc_completed }
+			NOT = { has_country_flag = RUS_currently_fighting_corruption }
+		}
+		visible = {
+			RUS_savinkov_in_power = yes
+			NOT = { has_country_flag = RUS_establish_ccc_completed }
+		}
+		cancel_if_not_visible = yes
+		cost = 35
+		days_remove = 60
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 2000
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel RUS_subordinate_combat_squads"
+			add_political_power = 35
+			clr_country_flag = RUS_currently_fighting_corruption
+			clr_country_flag = RUS_subordinate_combat_squads_completed
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete RUS_subordinate_combat_squads"
+			RUS_decrease_trudoviks_influence = yes
+			RUS_decrease_vnkpz_influence = yes
+			RUS_decrease_natmax_influence = yes
+			RUS_increase_hardliners_influence = yes
+			set_country_flag = RUS_currently_fighting_corruption
+			set_country_flag = RUS_subordinate_combat_squads_completed
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove RUS_subordinate_combat_squads"
+			clr_country_flag = RUS_currently_fighting_corruption
+			custom_effect_tooltip = RUS_corruption_will_significantly_reduce
+			hidden_effect = {
+				random_list = {
+					25 = { add_to_variable = { RUS_corruption_index = -4 } }
+					25 = { add_to_variable = { RUS_corruption_index = -6 } }
+					25 = { add_to_variable = { RUS_corruption_index = -8 } }
+					25 = { add_to_variable = { RUS_corruption_index = -10 } }
+				}
+			}
+			modify_timed_idea = {
+				idea = rus_fight_corruption
+				days = -60
+			}
+		}
+	}
+	RUS_introduce_liability = {
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = { tag = RUS }
+		available = {
+			NOT = { has_country_flag = RUS_currently_fighting_corruption }
+		}
+		visible = {
+			RUS_savinkov_in_power = yes
+		}
+		cancel_if_not_visible = yes
+		cost = 60
+		days_remove = 45
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 2000
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel RUS_introduce_liability"
+			add_political_power = 60
+			clr_country_flag = RUS_currently_fighting_corruption
+			add_stability = 0.1
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete RUS_introduce_liability"
+			RUS_decrease_trudoviks_influence = yes
+			RUS_decrease_solidarists_influence = yes
+			RUS_decrease_core_influence = yes
+			RUS_increase_vnkpz_influence = yes
+			RUS_increase_natmax_influence = yes
+			RUS_increase_hardliners_influence = yes
+			set_country_flag = RUS_currently_fighting_corruption
+			add_stability = -0.1
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove RUS_introduce_liability"
+			clr_country_flag = RUS_currently_fighting_corruption
+			custom_effect_tooltip = RUS_corruption_will_significantly_reduce
+			hidden_effect = {
+				random_list = {
+					25 = { add_to_variable = { RUS_corruption_index = -4 } }
+					25 = { add_to_variable = { RUS_corruption_index = -6 } }
+					25 = { add_to_variable = { RUS_corruption_index = -8 } }
+					25 = { add_to_variable = { RUS_corruption_index = -10 } }
+				}
+			}
+			modify_timed_idea = {
+				idea = rus_fight_corruption
+				days = -60
+			}
+		}
+	}
+	RUS_loosen_media_control = {
+		icon = GFX_decision_radio
+		allowed = { tag = RUS }
+		available = {
+			NOT = { has_country_flag = RUS_currently_fighting_corruption }
+		}
+		visible = {
+			RUS_savinkov_in_power = yes
+		}
+		cancel_if_not_visible = yes
+		cost = 15
+		days_remove = 25
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 2000
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel RUS_loosen_media_control"
+			add_political_power = 15
+			clr_country_flag = RUS_currently_fighting_corruption
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.07
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete RUS_loosen_media_control"
+			RUS_decrease_core_influence = yes
+			RUS_decrease_hardliners_influence = yes
+			RUS_increase_trudoviks_influence = yes
+			RUS_increase_solidarists_influence = yes
+			set_country_flag = RUS_currently_fighting_corruption
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.07
+			}
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove RUS_loosen_media_control"
+			clr_country_flag = RUS_currently_fighting_corruption
+			custom_effect_tooltip = RUS_corruption_will_slightly_reduce
+			hidden_effect = {
+				random_list = {
+					25 = { add_to_variable = { RUS_corruption_index = -1 } }
+					25 = { add_to_variable = { RUS_corruption_index = -3 } }
+					25 = { add_to_variable = { RUS_corruption_index = -5 } }
+					25 = { add_to_variable = { RUS_corruption_index = -7 } }
+				}
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.03
+			}
+			modify_timed_idea = {
+				idea = rus_fight_corruption
+				days = -15
+			}
+		}
+	}
+	RUS_introduce_presumption_corruption = {
+		icon = GFX_decision_oppression
+		allowed = { tag = RUS }
+		available = {
+			NOT = { has_country_flag = RUS_currently_fighting_corruption }
+			has_country_flag = RUS_tighten_the_corruption_laws_completed
+		}
+		visible = {
+			RUS_savinkov_in_power = yes
+		}
+		cancel_if_not_visible = yes
+		cost = 35
+		days_remove = 30
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 2000
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel RUS_introduce_presumption_corruption"
+			add_political_power = 35
+			clr_country_flag = RUS_currently_fighting_corruption
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.02
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete RUS_introduce_presumption_corruption"
+			RUS_increase_hardliners_influence = yes
+			RUS_decrease_trudoviks_influence = yes
+			RUS_decrease_solidarists_influence = yes
+			set_country_flag = RUS_currently_fighting_corruption
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.02
+			}
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove RUS_introduce_presumption_corruption"
+			clr_country_flag = RUS_currently_fighting_corruption
+			custom_effect_tooltip = RUS_corruption_will_greatly_reduce
+			hidden_effect = {
+				random_list = {
+					25 = { add_to_variable = { RUS_corruption_index = -3 } }
+					25 = { add_to_variable = { RUS_corruption_index = -5 } }
+					25 = { add_to_variable = { RUS_corruption_index = -7 } }
+					25 = { add_to_variable = { RUS_corruption_index = -9 } }
+				}
+			}
+			add_stability = -0.03
+			modify_timed_idea = {
+				idea = rus_fight_corruption
+				days = -30
+			}
+		}
+	}
+	RUS_death_penalty_for_corruption = {
+		icon = GFX_decision_oppression
+		allowed = { tag = RUS }
+		available = {
+			NOT = { has_country_flag = RUS_currently_fighting_corruption }
+			has_country_flag = RUS_tighten_the_corruption_laws_completed
+		}
+		visible = {
+			RUS_savinkov_in_power = yes
+		}
+		cancel_if_not_visible = yes
+		cost = 75
+		days_remove = 30
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 2000
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel RUS_death_penalty_for_corruption"
+			add_political_power = 75
+			clr_country_flag = RUS_currently_fighting_corruption
+			add_stability = 0.1
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete RUS_death_penalty_for_corruption"
+			RUS_increase_hardliners_influence = yes
+			RUS_decrease_trudoviks_influence = yes
+			RUS_decrease_solidarists_influence = yes
+			set_country_flag = RUS_currently_fighting_corruption
+			add_stability = -0.1
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove RUS_death_penalty_for_corruption"
+			clr_country_flag = RUS_currently_fighting_corruption
+			custom_effect_tooltip = RUS_corruption_will_significantly_reduce
+			hidden_effect = {
+				random_list = {
+					25 = { add_to_variable = { RUS_corruption_index = -4 } }
+					25 = { add_to_variable = { RUS_corruption_index = -6 } }
+					25 = { add_to_variable = { RUS_corruption_index = -8 } }
+					25 = { add_to_variable = { RUS_corruption_index = -10 } }
+				}
+			}
+			modify_timed_idea = {
+				idea = rus_fight_corruption
+				days = -60
+			}
+		}
+	}
+	RUS_report_victory_corruption = {
+		icon = GFX_decision_eng_blackshirt_speech
+		allowed = { tag = RUS }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = RUS_report_victory_corruption_available
+				check_variable = { RUS_corruption_index < 20 }
+			}
+		}
+		visible = {
+			RUS_savinkov_in_power = yes
+		}
+		cancel_if_not_visible = yes
+		cost = freedec?0
+		days_remove = 7
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 2000
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel RUS_report_victory_corruption"
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete RUS_report_victory_corruption"
+			RUS_increase_core_influence = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove RUS_report_victory_corruption"
+			set_country_flag = RUS_deal_with_corruption
+			country_event = rusd.71
+		}
+	}
+	RUS_initiate_inspections = {
+		icon = GFX_decision_generic_police_action
+		allowed = { tag = RUS }
+		available = {
+			NOT = { has_country_flag = RUS_currently_raid_corruption }
+			OR = {
+				has_country_flag = RUS_subordinate_combat_squads_completed
+				has_country_flag = RUS_establish_ccc_completed
+			}
+		}
+		visible = {
+			RUS_savinkov_in_power = yes
+		}
+		cancel_if_not_visible = yes
+		cost = 15
+		days_remove = 45
+		fire_only_once = no
+		days_re_enable = 70
+		ai_will_do = {
+			factor = 2000
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel RUS_initiate_inspections"
+			add_political_power = 15
+			clr_country_flag = RUS_currently_raid_corruption
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete RUS_initiate_inspections"
+			modify_timed_idea = {
+				idea = rus_fight_corruption
+				days = 60
+			}
+			set_country_flag = RUS_currently_raid_corruption
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove RUS_initiate_inspections"
+			clr_country_flag = RUS_currently_raid_corruption
+			custom_effect_tooltip = RUS_corruption_will_slightly_reduce
+			hidden_effect = {
+				random_list = {
+					50 = { add_to_variable = { RUS_corruption_index = -2 } }
+					50 = { add_to_variable = { RUS_corruption_index = -4 } }
+				}
+			}
+		}
+	}	
+}
 russian_debug_decisions = {
 	load_russia_democratic_tree = {
 		allowed = { tag = RUS }

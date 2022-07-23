@@ -13,6 +13,34 @@ ideas = {
 				heat_attrition_factor = -0.35
 			}
 		}
+		ALO_cossack_garrison = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea ALO_cossack_garrison"}
+			allowed = { always = no }
+			available = {
+				owns_state = 1208
+				owns_state = 1224
+			}
+			picture = AFG_tribal_cavalry
+			modifier = {
+				political_power_cost = 0.15
+				stability_factor = -0.15
+				army_morale_factor = -0.05
+			}
+		}
+		ALO_cossack_autonomy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea ALO_cossack_autonomy"}
+			allowed = { always = no }
+			available = {
+				owns_state = 1208
+				owns_state = 1224
+			}
+			picture = DKB_cossack_state
+			modifier = {
+				political_power_factor = 0.05
+				consumer_goods_factor = -0.02
+				stability_factor = 0.03
+			}
+		}
 		alo_poor_industry = {
 			picture = kazakh_economy
 			modifier = {
@@ -193,6 +221,62 @@ ideas = {
 				production_factory_efficiency_gain_factor = -0.125
 			}
 			picture = great_depression
+		}
+		ALO_agriculture_1 = {
+			name = UZB_agriculture
+			picture = generic_agrarian_reform
+			modifier = {
+				monthly_population = 0.1
+				supply_consumption_factor = -0.05
+				local_resources_factor = 0.05
+			}
+		}
+		ALO_agriculture_2 = {
+			name = UZB_agriculture
+			picture = generic_agrarian_reform
+			modifier = {
+				monthly_population = 0.2
+				supply_consumption_factor = -0.1
+				consumer_goods_factor = -0.05
+				local_resources_factor = 0.08
+			}
+		}
+		ALO_agriculture_3 = {
+			name = UZB_agriculture
+			picture = generic_agrarian_reform
+			modifier = {
+				monthly_population = 0.1
+				supply_consumption_factor = -0.1
+				consumer_goods_factor = -0.05
+				local_resources_factor = 0.05
+				global_building_slots_factor = 0.2
+				industrial_capacity_factory = 0.1
+			}
+		}
+		ALO_agriculture_4 = {
+			name = UZB_agriculture
+			picture = generic_agrarian_reform
+			modifier = {
+				monthly_population = 0.25
+				supply_consumption_factor = -0.1
+				consumer_goods_factor = -0.05
+				local_resources_factor = 0.05
+				global_building_slots_factor = 0.2
+				industrial_capacity_factory = 0.1
+			}
+		}
+		ALO_agriculture_5 = {
+			name = UZB_agriculture
+			picture = generic_agrarian_reform
+			modifier = {
+				monthly_population = 0.25
+				supply_consumption_factor = -0.1
+				consumer_goods_factor = -0.05
+				local_resources_factor = 0.15
+				global_building_slots_factor = 0.2
+				industrial_capacity_factory = 0.1
+				production_factory_efficiency_gain_factor = 0.025
+			}
 		}
 		alo_republican_army = {
 			picture = generic_manpower_bonus

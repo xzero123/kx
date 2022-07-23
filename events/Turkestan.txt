@@ -42,6 +42,9 @@ country_event = { #Junaid Khan is dead
 	immediate = { log = "[GetDateText]: [Root.GetName]: event trk.3" }
 	title = trk.3.t
 	desc = trk.3.d
+	trigger = {
+		has_authoritarian_government = yes
+	}
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -49,6 +52,126 @@ country_event = { #Junaid Khan is dead
 	option = {
 		name = trk.3.a
 	}
+}
+country_event = { #YB
+	id = trk.26
+	immediate = { log = "[GetDateText]: [Root.GetName]: event trk.26" }
+	title = trk.26.t
+	desc = trk.26.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = trk.26.a
+		ai_chance = {
+			base = 30
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRK_path
+					option = TRK_PATH_CONST_MON
+				}
+			}
+		}
+		remove_ideas_with_trait = head_of_government
+		complete_national_focus = TRK_Alliance_With_Young_Bukhara
+		add_stability = 0.05
+		add_political_power = 50
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.25
+		}
+		country_event = {
+			id = trk.5
+			days = 4
+		}
+	}
+	option = {
+		name = trk.26.b
+		ai_chance = {
+			base = 70
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRK_path
+					option = TRK_PATH_ABS_MON
+				}
+			}
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRK_path
+					option = TRK_PATH_BASMACHI
+				}
+			}
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRK_path
+					option = TRK_PATH_YOUNG_BUKHARA
+				}
+			}
+		}
+		add_stability = -0.05
+		country_event = {
+			id = trk.5
+			days = 4
+		}
+	}
+	
+}
+country_event = { #YB
+	id = trk.27
+	immediate = { log = "[GetDateText]: [Root.GetName]: event trk.27" }
+	title = trk.27.t
+	desc = trk.27.d
+	trigger = {
+		NOT = { has_government = national_populist }
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = trk.27.a
+		ai_chance = {
+			base = 30
+		}
+		remove_ideas_with_trait = head_of_government
+		set_politics = {
+			ruling_party = social_democrat
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.15
+		}
+		complete_national_focus = TRK_Communists_Take_Over
+	}
+	option = {
+		name = trk.27.b
+		ai_chance = {
+			base = 70
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRK_path
+					option = TRK_PATH_REVOLUTION
+				}
+			}
+		}
+		add_stability = -0.05
+		country_event = {
+			id = trk.11
+			days = 5
+		}
+	}
+	
 }
 country_event = { #Alliance with Young Bukhara?
 	id = trk.4
@@ -145,13 +268,13 @@ country_event = { #YB demand elections
 				has_government = paternal_autocrat
 			}
 		}
-		remove_ideas_with_trait = head_of_government
-		add_stability = 0.05
-		add_political_power = 50
 		if = {
 			limit = {
 				has_government = paternal_autocrat
 			}
+			remove_ideas_with_trait = head_of_government
+			add_stability = 0.05
+			add_political_power = 50
 			set_politics = {
 				ruling_party = authoritarian_democrat
 				elections_allowed = no
@@ -160,8 +283,10 @@ country_event = { #YB demand elections
 				ideology = authoritarian_democrat
 				popularity = 0.25
 			}
+			complete_national_focus = TRK_Alliance_With_Young_Bukhara
 		}
-		complete_national_focus = TRK_Alliance_With_Young_Bukhara
+		effect_tooltip = { unlock_national_focus = TRK_Adopt_The_Consitution }
+		set_country_flag = TRK_constitution
 		hidden_effect = {
 			country_event = {
 				id = trk.15
@@ -183,6 +308,27 @@ country_event = { #YB demand elections
 				add = 10
 				has_government = paternal_autocrat
 			}
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRK_path
+					option = TRK_PATH_ABS_MON
+				}
+			}
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRK_path
+					option = TRK_PATH_BASMACHI
+				}
+			}
+			modifier = {
+			factor = 10000
+				has_game_rule = {
+					rule = TRK_path
+					option = TRK_PATH_YOUNG_BUKHARA
+				}
+			}
 		}
 		if = {
 			limit = {
@@ -201,12 +347,16 @@ country_event = { #YB demand elections
 				ideology = authoritarian_democrat
 				popularity = -0.25
 			}
+			effect_tooltip = { unlock_national_focus = TRK_Limit_The_Young_Bukharans }
+			set_country_flag = TRK_no_constitution
 		}
-		add_stability = -0.05
-		hidden_effect = {
-			country_event = {
-				id = trk.6
-				days = 2
+		else = {
+			add_stability = -0.05
+			hidden_effect = {
+				country_event = {
+					id = trk.6
+					days = 3
+				}
 			}
 		}
 	}
@@ -267,6 +417,7 @@ country_event = { #YB Revolution
 		}
 		complete_national_focus = TRK_Young_Bukhara_Revolution
 		remove_ideas = TRK_legacy_of_emir
+		emir_leaves_bukhara = yes
 		set_cosmetic_tag = TRK_republic
 		hidden_effect = {
 			country_event = {
@@ -398,6 +549,7 @@ country_event = { #YB Victory
 		complete_national_focus = TRK_Young_Bukhara_Revolution
 		remove_ideas = TRK_legacy_of_emir
 		set_cosmetic_tag = TRK_republic
+		emir_leaves_bukhara = yes
 		hidden_effect = {
 			country_event = {
 				id = trk.15
@@ -956,6 +1108,7 @@ country_event = { #Basmachi lost Kyzylkum
 			popularity = -0.2
 		}
 		add_stability = 0.15
+		basmachi_leave_bukhara = yes
 	}
 }
 country_event = { #Basmachi win
@@ -1552,7 +1705,31 @@ country_event = { #Country responds
 			has_country_flag = RUS_allied_@FROM
 		}
 		clr_country_flag = RUS_allied_@FROM
-		add_to_faction = FROM
+		if = {
+			limit = {
+				FROM = { tag = ALO }
+			}
+			if = {
+				limit = {
+					FROM = { is_ai = yes }
+				}
+				annex_country = {
+					target = FROM
+					transfer_troops = yes
+				}
+			}
+			else = {
+				FROM = {
+					annex_country = {
+						target = ROOT
+						transfer_troops = yes
+					}
+				}
+			}
+		}
+		else = {
+			add_to_faction = FROM
+		}
 	}
 
 	option = {
@@ -1745,14 +1922,6 @@ country_event = { #Elections
 		ai_chance = {
 			factor = 30
 		}
-		trigger = {
-			NOT = {
-				OR = {
-					has_completed_focus = TRK_Alliance_With_Young_Bukhara
-					has_completed_focus = UZB_Constitutional_Monarchy
-				}
-			}
-		}
 		set_politics = {
 			ruling_party = radical_socialist
 			elections_allowed = yes
@@ -1791,12 +1960,6 @@ country_event = { #Elections
 		ai_chance = {
 			factor = 30
 		}
-		trigger = {
-			OR = {
-				has_completed_focus = TRK_Alliance_With_Young_Bukhara
-				has_completed_focus = UZB_Constitutional_Monarchy
-			}
-		}
 		set_politics = {
 			ruling_party = social_conservative
 			elections_allowed = yes
@@ -1812,5 +1975,31 @@ country_event = { #Elections
 		complete_national_focus = TRK_Conservatives
 	}
 }
+unit_leader_event = {
+	id = turkestan.200
+	immediate = { log = "[GetDateText]: [Root.GetName]: event turkestan.200" }
+	title = turkestan.200.t
+	desc = turkestan.200.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	fire_only_once = no
 
+	option = {
+		name = turkestan.200.a
+		army_experience = 5
+	}
+}
+unit_leader_event = {
+	id = turkestan.201
+	immediate = { log = "[GetDateText]: [Root.GetName]: event turkestan.201" }
+	title = turkestan.201.t
+	desc = turkestan.201.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	fire_only_once = no
+
+	option = {
+		name = turkestan.201.a
+	}
+}
 	

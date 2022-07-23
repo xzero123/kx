@@ -270,6 +270,20 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus PER_long_live_revolution"
 			add_political_power = 150
+			hidden_effect = {
+				if = {
+					limit = {
+						country_exists = UZB
+						UZB = { has_idea = TRK_persian_ottoman_game }
+					}
+					UZB = {
+						swap_ideas = {
+							remove_idea = TRK_persian_ottoman_game
+							add_idea = TRK_persian_ottoman_game_ottoman
+						}
+					}
+				}
+			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}

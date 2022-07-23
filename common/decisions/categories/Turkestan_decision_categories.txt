@@ -3,17 +3,23 @@ TRK_unite_central_asia = {
 	allowed = {
 		OR = {
 			original_tag = TRK
+			original_tag = TAJ
 			original_tag = UZB
 			original_tag = KYR
+			original_tag = ALO
 		}
 	}
+	priority = 100
 	visible = {
 		OR = {
-			has_completed_focus = TRK_Lead_The_Turkestan
-			has_completed_focus = UZB_Lead_Turkestan
-			has_completed_focus = KYR_Lead_Turkestan
+			tag = TRK
+			tag = TAJ
+			tag = UZB
+			tag = KYR
+			tag = ALO
 		}
 	}
+	visible_when_empty = yes
 }
 TRK_foreign_policy = {
 	icon = GFX_decision_category_patriotic
@@ -22,18 +28,94 @@ TRK_foreign_policy = {
 			original_tag = TRK
 			original_tag = UZB
 			original_tag = KYR
+			original_tag = ALO
+			original_tag = TAJ
 		}
 	}
 	visible = {
-		has_completed_focus = TRK_Foreign_Policy
+		has_country_flag = TRK_Turkestan_United
 	}
 }
-#ALO_unite_central_asia = {
-#	icon = GFX_decision_category_patriotic
-#	allowed = {
-#		original_tag = ALO
-#	}
-#	visible = {
-#		has_completed_focus = ALO_Strive_For_Federation
-#	}
-#}
+UZB_smuggling_baron_category = {
+	icon = GFX_decision_category_generic_arms_trade
+	allowed = {
+		original_tag = UZB
+	}
+	priority = 95
+	visible = {
+		has_completed_focus = UZB_Smuggle_Foreign_Arms
+		if = {
+			limit = {
+				has_completed_focus = UZB_Vizier_Is_Dead
+			}
+			OR = {
+				has_government = paternal_autocrat
+				has_government = national_populist
+			}
+		}
+	}
+}
+UZB_raids_category = {
+	icon = GFX_decision_category_patriotic
+	allowed = {
+		original_tag = UZB
+	}
+	priority = 95
+	visible = {
+		has_completed_focus = UZB_Raids_On_Neighbors
+		has_completed_focus = UZB_Smuggle_Foreign_Arms
+		if = {
+			limit = {
+				has_completed_focus = UZB_Vizier_Is_Dead
+			}
+			OR = {
+				has_government = paternal_autocrat
+				has_government = national_populist
+			}
+		}
+	}
+}
+KYR_Parliament = {
+	icon = GFX_decision_category_patriotic
+	allowed = {
+		OR = {
+			original_tag = TRK
+			original_tag = UZB
+			original_tag = KYR
+			original_tag = ALO
+		}
+	}
+	priority = 98
+	visible_when_empty = yes
+	visible = {
+		OR = {
+			AND = {
+				tag = KYR
+				OR = {
+					has_government = radical_socialist
+					has_government = social_democrat
+					has_government = social_liberal
+					has_government = authoritarian_democrat
+				}
+			}
+			AND = {
+				OR = {
+					tag = UZB
+					tag = TRK
+				}
+				OR = {
+					has_elected_government = yes
+					has_government = radical_socialist
+				}
+				has_global_flag = global_turkestan_united
+			}
+			AND = {
+				tag = ALO
+				OR = {
+					has_elected_government = yes
+				}
+				has_global_flag = global_turkestan_united
+			}
+		}
+	}
+}

@@ -1,306 +1,82 @@
 TRK_unite_central_asia = {
-	TRK_ally_kokand = {
-		visible = {
+	TRK_ally_country = {
+		allowed = { 
 			OR = {
 				tag = UZB
-				tag = TRK
-			}
-			country_exists = KYR
-			is_subject = no
-		}
-		available = {
-			if = {
-				limit = {
-					tag = UZB
-				}
-				AND = {
-					UZB = {
-						custom_trigger_tooltip = {
-							tooltip = khiva_is_autocratic
-							has_authoritarian_government = yes
-						}
-					}
-					KYR = {
-						custom_trigger_tooltip = {
-							tooltip = kokand_is_autocratic
-							has_authoritarian_government = yes
-						}
-					}
-				}
-			}
-			else = {
-				AND = {
-					TRK = {
-						custom_trigger_tooltip = {
-							tooltip = bukhara_is_autocratic
-							has_dictatorship_government = yes
-						}
-					}
-					KYR = {
-						custom_trigger_tooltip = {
-							tooltip = kokand_is_autocratic
-							has_authoritarian_government = yes
-						}
-					}
-				}
-			}
-		}
-					
-		cost = freedec?0
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 100
-		}
-		targets = { KYR }
-		remove_effect = {
-			add_to_faction = FROM
-		}
-	}
-	TRK_ally_khiva = {
-		visible = {
-			OR = {
 				tag = KYR
 				tag = TRK
+				tag = TAJ
 			}
-			country_exists = UZB
-			is_subject = no
 		}
+		visible = { is_subject = no }
 		available = {
-			if = {
-				limit = {
-					tag = KYR
-				}
-				AND = {
-					UZB = {
-						custom_trigger_tooltip = {
-							tooltip = khiva_is_democratic
-							has_authoritarian_government = no
-						}
-					}
-					KYR = {
-						custom_trigger_tooltip = {
-							tooltip = kokand_is_democratic
-							has_authoritarian_government = no
-							has_socialist_government = no
-						}
-					}
-				}
-			}
-			else = {
-				AND = {
-					TRK = {
-						custom_trigger_tooltip = {
-							tooltip = bukhara_is_autocratic
-							has_dictatorship_government = yes
-						}
-					}
-					UZB = {
-						custom_trigger_tooltip = {
-							tooltip = khiva_is_autocratic
-							has_authoritarian_government = yes
-						}
-					}
-				}
-			}
-		}
-					
-		cost = freedec?0
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 100
-		}
-		targets = { UZB }
-		remove_effect = {
-			add_to_faction = FROM
-		}
-	}
-	TRK_ally_bukhara = {
-		visible = {
-			OR = {
-				tag = KYR
-				tag = UZB
-			}
-			country_exists = TRK
 			is_subject = no
+			is_faction_leader = yes
 		}
-		available = {
-			if = {
-				limit = {
-					tag = UZB
-				}
-				OR = {
-					AND = {
-						UZB = {
-							custom_trigger_tooltip = {
-								tooltip = khiva_is_autocratic
-								has_authoritarian_government = yes
-							}
-						}
-						TRK = {
-							custom_trigger_tooltip = {
-								tooltip = bukhara_is_autocratic
-								has_dictatorship_government = yes
-							}
-						}
-					}
-					AND = {
-						UZB = {
-							custom_trigger_tooltip = {
-								tooltip = khiva_is_democratic
-								has_authoritarian_government = no
-							}
-						}
-						TRK = {
-							custom_trigger_tooltip = {
-								tooltip = bukhara_is_democratic
-								has_authoritarian_government = no
-								has_socialist_government = no
-							}
-						}
-					}
-				}
-			}	
-			else = {	
-				OR = {
-					AND = {
-						TRK = {
-							custom_trigger_tooltip = {
-								tooltip = bukhara_is_democratic
-								has_authoritarian_government = no
-								has_socialist_government = no
-							}
-						}
-						KYR = {
-							custom_trigger_tooltip = {
-								tooltip = kokand_is_democratic
-								has_authoritarian_government = no
-								has_socialist_government = no
-							}
-						}
-					}
-					AND = {
-						TRK = {
-							custom_trigger_tooltip = {
-								tooltip = bukhara_is_autocratic
-								has_dictatorship_government = yes
-							}
-						}
-						KYR = {
-							custom_trigger_tooltip = {
-								tooltip = kokand_is_autocratic
-								has_authoritarian_government = yes
-							}
-						}
-					}
-				}						
+		targets = { UZB KYR TRK TAJ }
+		target_root_trigger = {
+			is_faction_leader = yes
+		}
+		target_trigger = {
+			FROM = {
+				is_ai = yes
+				same_government_type_as_ROOT_authoritarian = yes
+				NOT = { has_completed_focus = UZB_The_Khanate_Lives_On }
+				NOT = { has_completed_focus = TRK_Tighten_Grip_Over_Bukhara }
 			}
 		}
-		
-					
-		cost = freedec?0
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 100
-		}
-		targets = { TRK }
-		remove_effect = {
-			add_to_faction = FROM
-		}
-	}
-	TRK_destroy_kokand = {
-		visible = {
-			OR = {
-				tag = UZB
-				tag = TRK
-			}
-			country_exists = KYR
-			is_subject = no
-		}
-		available = {
-			if = {
-				limit = {
-					tag = UZB
-				}
-				OR = {
-					AND = {
-						UZB = {
-							custom_trigger_tooltip = {
-								tooltip = khiva_is_autocratic
-								has_authoritarian_government = yes
-							}
-						}
-						KYR = {
-							custom_trigger_tooltip = {
-								tooltip = kokand_is_not_autocratic
-								has_authoritarian_government = no
-							}
-						}
-					}
-					AND = {
-						UZB = {
-							custom_trigger_tooltip = {
-								tooltip = khiva_is_democratic
-								has_authoritarian_government = no
-							}
-						}
-						KYR = {
-							custom_trigger_tooltip = {
-								tooltip = kokand_is_not_democratic
-								NOT = { has_government = social_liberal }
-							}
-						}
-					}
-				}
-			}
-			else = {
-				OR = {
-					TRK = {
-						custom_trigger_tooltip = {
-							tooltip = bukhara_is_socialist
-							has_socialist_government = yes
-						}
-					}
-					AND = {
-						TRK = {
-							custom_trigger_tooltip = {
-								tooltip = bukhara_is_autocratic
-								has_dictatorship_government = yes
-							}
-						}
-						KYR = {
-							custom_trigger_tooltip = {
-								tooltip = kokand_is_not_autocratic
-								has_authoritarian_government = no
-							}
-						}
-					}
-					AND = {
-						TRK = {
-							custom_trigger_tooltip = {
-								tooltip = bukhara_is_democratic
-								has_authoritarian_government = no
-								has_socialist_government = no
-							}
-						}
-						KYR = {
-							custom_trigger_tooltip = {
-								tooltip = kokand_is_not_democratic
-								NOT = { has_government = social_liberal }
-							}
-						}
-					}
-				}
-			}
-		}		
-					
-		cost = 10
+		cost = 0
 		days_remove = 7
 		fire_only_once = yes
+		ai_will_do = {
+			factor = 2000
+		}
+		remove_effect = {
+			add_to_faction = FROM
+		}
+	}
+	TRK_destroy_country = {
+		allowed = { 
+			OR = {
+				tag = UZB
+				tag = KYR
+				tag = TRK
+				tag = TAJ
+			}
+		}
+		visible = { 
+			is_subject = no
+			can_declare_war_on = FROM
+		}
+		available = {
+			is_subject = no
+			is_faction_leader = yes
+		}
+		targets = { UZB KYR TRK TAJ }
+		target_root_trigger = {
+			is_faction_leader = yes
+		}
+		target_trigger = {
+			FROM = {
+				OR = {
+					same_government_type_as_ROOT_authoritarian = no
+					has_completed_focus = UZB_The_Khanate_Lives_On
+					has_completed_focus = TRK_Tighten_Grip_Over_Bukhara
+				}
+			}
+			can_declare_war_on = FROM
+		}
+		cost = 10
+		fire_only_once = yes
+		days_remove = 14
 		war_with_target_on_remove = yes
 		ai_will_do = {
-			factor = 100
+			factor = 2000
 		}
-		targets = { KYR }
+		cancel_effect = {
+			clear_decision_attack_AI = yes
+			add_political_power = 10
+		}
 		complete_effect = {
 			set_country_flag = { flag = imminent_war days = 20 value = 1 }
 			setup_decision_attack_AI = yes
@@ -319,236 +95,21 @@ TRK_unite_central_asia = {
 			}
 		}
 	}
-	TRK_destroy_khiva = {
-		visible = {
-			OR = {
-				tag = KYR
-				tag = TRK
-			}
-			country_exists = UZB
-			is_subject = no
-		}
-		available = {
-			if = {
-				limit = {
-					tag = KYR
-				}
-				OR = {	
-					KYR = {
-						custom_trigger_tooltip = {
-							tooltip = kokand_is_socialist
-							has_socialist_government = yes
-						}
-					}
-					AND = {
-						UZB = {
-							custom_trigger_tooltip = {
-								tooltip = khiva_is_not_democratic
-								has_authoritarian_government = yes
-							}
-						}
-						KYR = {
-							custom_trigger_tooltip = {
-								tooltip = kokand_is_democratic
-								has_authoritarian_government = no
-								has_socialist_government = no
-							}
-						}
-					}
-				}
-			}
-			else = {
-				OR = {
-					TRK = {
-						custom_trigger_tooltip = {
-							tooltip = bukhara_is_socialist
-							has_socialist_government = yes
-						}
-					}
-					AND = {
-						TRK = {
-							custom_trigger_tooltip = {
-								tooltip = bukhara_is_autocratic
-								has_dictatorship_government = yes
-							}
-						}
-						UZB = {
-							custom_trigger_tooltip = {
-								tooltip = khiva_is_not_autocratic
-								has_authoritarian_government = no
-							}
-						}
-					}
-					AND = {
-						TRK = {
-							custom_trigger_tooltip = {
-								tooltip = bukhara_is_democratic
-								has_authoritarian_government = no
-								has_socialist_government = no
-							}
-						}
-						UZB = {
-							custom_trigger_tooltip = {
-								tooltip = khiva_is_not_democratic
-								has_authoritarian_government = yes
-							}
-						}
-					}
-				}
-			}
-		}		
-					
-		cost = 10
-		days_remove = 7
-		fire_only_once = yes
-		war_with_target_on_remove = yes
-		ai_will_do = {
-			factor = 100
-		}
-		targets = { UZB }
-		complete_effect = {
-			set_country_flag = { flag = imminent_war days = 20 value = 1 }
-			setup_decision_attack_AI = yes
-		}
-		remove_effect = {
-			clear_decision_attack_AI = yes
-			declare_war_on = {
-				target = FROM
-				type = annex_everything
-			}
-			hidden_effect = {
-				country_event = {
-					id = turkestan.23
-					days = 180
-				}
-			}
-		}
-	}
-	TRK_destroy_bukhara = {
-		visible = {
-			OR = {
-				tag = UZB
-				tag = KYR
-			}
-			country_exists = TRK
-			is_subject = no
-		}
-		available = {
-			if = {
-				limit = {
-					tag = UZB
-				}
-				OR = {
-					AND = {
-						UZB = {
-							custom_trigger_tooltip = {
-								tooltip = khiva_is_autocratic
-								has_authoritarian_government = yes
-							}
-						}
-						TRK = {
-							custom_trigger_tooltip = {
-								tooltip = bukhara_is_not_autocratic
-								has_dictatorship_government = no
-							}
-						}
-					}
-					AND = {
-						UZB = {
-							custom_trigger_tooltip = {
-								tooltip = khiva_is_democratic
-								has_authoritarian_government = no
-							}
-						}
-						TRK = {
-							custom_trigger_tooltip = {
-								tooltip = bukhara_is_not_democratic
-								OR = {
-									has_dictatorship_government = yes
-									has_socialist_government = yes
-								}
-							}
-						}
-					}
-				}
-			}
-			else = {
-				OR = {
-					KYR = {
-						custom_trigger_tooltip = {
-							tooltip = kokand_is_socialist
-							has_socialist_government = yes
-						}
-					}
-					AND = {
-						TRK = {
-							custom_trigger_tooltip = {
-								tooltip = bukhara_is_not_autocratic
-								has_dictatorship_government = no
-							}
-						}
-						KYR = {
-							custom_trigger_tooltip = {
-								tooltip = kokand_is_autocratic
-								has_authoritarian_government = yes
-							}
-						}
-					}
-					AND = {
-						TRK = {
-							custom_trigger_tooltip = {
-								tooltip = bukhara_is_not_democratic
-								OR = {
-									has_dictatorship_government = yes
-									has_socialist_government = yes
-								}
-							}
-						}
-						KYR = {
-							custom_trigger_tooltip = {
-								tooltip = kokand_is_democratic
-								has_authoritarian_government = no
-								has_socialist_government = no
-							}
-						}
-					}
-				}
-			}
-		}		
-					
-		cost = 10
-		days_remove = 7
-		fire_only_once = yes
-		war_with_target_on_remove = yes
-		ai_will_do = {
-			factor = 100
-		}
-		targets = { TRK }
-		complete_effect = {
-			set_country_flag = { flag = imminent_war days = 20 value = 1 }
-			setup_decision_attack_AI = yes
-		}
-		remove_effect = {
-			clear_decision_attack_AI = yes
-			declare_war_on = {
-				target = FROM
-				type = annex_everything
-			}
-			hidden_effect = {
-				country_event = {
-					id = turkestan.23
-					days = 180
-				}
-			}
-		}
-	}	
-	
 	TRK_proclaim_unified_turkestan = {
+		allowed = {
+			OR = {
+				tag = UZB
+				tag = KYR
+				tag = TRK
+				tag = TAJ
+			}
+		}
 		visible = {
 			OR = {
 				tag = UZB
 				tag = KYR
 				tag = TRK
+				tag = TAJ
 			}
 			is_subject = no
 		}
@@ -556,17 +117,22 @@ TRK_unite_central_asia = {
 			405 = {
 				is_owned_by_ROOT_or_ally  = yes
 			}
-			586 = {
+			407 = {
 				is_owned_by_ROOT_or_ally  = yes
 			}
 			861 = {
 				is_owned_by_ROOT_or_ally  = yes
-			}			
+			}
+			is_faction_leader = yes
 		}
 		cost = freedec?0
 		fire_only_once = yes
 		ai_will_do = {
-			factor = 100
+			factor = 2000
+			modifier = {
+				factor = 0
+				TRK_other_tags_are_ai = no
+			}
 		}
 		remove_effect = {
 			if = {
@@ -575,6 +141,10 @@ TRK_unite_central_asia = {
 				}
 				annex_country = {
 					target = KYR
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = TAJ
 					transfer_troops = yes
 				}
 				annex_country = {
@@ -586,11 +156,46 @@ TRK_unite_central_asia = {
 				set_country_flag = TRK_turkestan_united
 				set_global_flag = global_turkestan_united
 				UZB = { save_global_event_target_as = turkestan_unifier }
-				load_focus_tree = TRK_TURKESTAN_FOCUS_TREE
 			}
 			else_if = {
 				limit = {
-					tag = KYR
+					OR = {
+						tag = KYR
+						tag = TAJ
+					}
+				}
+				annex_country = {
+					target = UZB
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = TAJ
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = TRK
+					transfer_troops = yes
+				}
+				dismantle_faction = yes
+				if = { 
+					limit = { NOT = { has_cosmetic_tag = ALO_CAF } }
+					set_cosmetic_tag = KYR_united
+				}
+				set_country_flag = TRK_turkestan_united
+				set_global_flag = global_turkestan_united
+				if = {
+					limit = {
+						tag = TAJ
+					}
+					TAJ = { save_global_event_target_as = turkestan_unifier }
+				}
+				else = {
+					KYR = { save_global_event_target_as = turkestan_unifier }
+				}
+			}
+			else_if = {
+				limit = {
+					tag = TAJ
 				}
 				annex_country = {
 					target = UZB
@@ -600,16 +205,23 @@ TRK_unite_central_asia = {
 					target = TRK
 					transfer_troops = yes
 				}
+				annex_country = {
+					target = KYR
+					transfer_troops = yes
+				}
 				dismantle_faction = yes
 				set_cosmetic_tag = KYR_united
 				set_country_flag = TRK_turkestan_united
 				set_global_flag = global_turkestan_united
 				KYR = { save_global_event_target_as = turkestan_unifier }
-				load_focus_tree = TRK_TURKESTAN_FOCUS_TREE
 			}
 			else = {
 				annex_country = {
 					target = UZB
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = TAJ
 					transfer_troops = yes
 				}
 				annex_country = {
@@ -621,7 +233,6 @@ TRK_unite_central_asia = {
 				set_country_flag = TRK_turkestan_united
 				set_global_flag = global_turkestan_united
 				TRK = { save_global_event_target_as = turkestan_unifier }
-				load_focus_tree = TRK_TURKESTAN_FOCUS_TREE
 			}
 			if = {
 				limit = {
@@ -632,6 +243,137 @@ TRK_unite_central_asia = {
 			TRK_setup_united_turkestan = yes
 		}
 	}
+	TRK_ally_alash = {
+		allowed = { 
+			OR = {
+				tag = UZB
+				tag = KYR
+				tag = TRK
+				tag = TAJ
+			}
+		}
+		visible = { is_subject = no }
+		available = {
+			is_subject = no
+		}
+		cost = 25
+		days_remove = 14
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		targets = { ALO }
+		target_root_trigger = {
+			has_country_flag = TRK_turkestan_united
+			405 = {
+				is_owned_by_ROOT_or_ally  = yes
+			}
+			407 = {
+				is_owned_by_ROOT_or_ally  = yes
+			}
+			861 = {
+				is_owned_by_ROOT_or_ally  = yes
+			}
+		}
+		target_trigger = {
+			FROM = {
+				same_government_type_as_ROOT_authoritarian = yes
+				is_subject = no
+			}
+		}
+		remove_effect = {
+			FROM = {
+				country_event = {
+					id = turkestan.14
+					days = 2
+				}
+			}
+		}
+	}
+	TRK_destroy_alash = {
+		allowed = { 
+			OR = {
+				tag = UZB
+				tag = KYR
+				tag = TRK
+				tag = TAJ
+			}
+		}
+		visible = { 
+			is_subject = no
+			can_declare_war_on = FROM
+		}
+		available = {
+			is_subject = no
+		}
+		available = {
+			OR = {
+				has_elected_government = no
+				has_country_flag = ALO_declined_alliance
+			}
+			if = {
+				limit = {
+					FROM = { is_subject_of = RUS }
+				}
+				NOT = { has_global_flag = RUS_UTR_peace }
+			}
+		}
+		cost = 25
+		days_remove = 14
+		fire_only_once = yes
+		war_with_target_on_remove = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0
+				ALO = { is_subject = yes }
+			}
+		}
+		targets = { ALO }
+		target_root_trigger = {
+			has_country_flag = TRK_turkestan_united
+			405 = {
+				is_owned_by_ROOT_or_ally  = yes
+			}
+			407 = {
+				is_owned_by_ROOT_or_ally  = yes
+			}
+			861 = {
+				is_owned_by_ROOT_or_ally  = yes
+			}
+		}			
+		target_trigger = {
+			OR = {
+				FROM = {
+					same_government_type_as_ROOT_authoritarian = no
+				}
+				has_country_flag = ALO_declined_alliance
+			}
+			can_declare_war_on = FROM
+		}
+		complete_effect = {
+			set_country_flag = { flag = imminent_war days = 20 value = 1 }
+			setup_decision_attack_AI = yes
+			if = {
+				limit = {
+					FROM = { is_subject = yes }
+				}
+				custom_effect_tooltip = RUS_may_lead_to_war_with_FROM_overlord
+			}
+		}
+		remove_effect = {
+			clear_decision_attack_AI = yes
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+			country_event = {
+				id = turkestan.1
+				days = 5
+			}
+		}
+	}
+	
 	#TRK_call_in_Alash = {
 	#	visible = {
 	#		OR = {
@@ -671,82 +413,15 @@ TRK_unite_central_asia = {
 	#}
 }
 TRK_foreign_policy = {
-	#TRK_ally_alash = {
-	#	visible = {
-	#		has_completed_focus = TRK_Finish_Central_Asian_Unification
-	#		country_exists = ALO
-	#		is_subject = no
-	#	}
-	#	available = {
-	#		AND = {
-	#			ROOT = { has_democratic_government = yes }
-	#			ALO = { has_government = social_liberal }
-	#		}
-	#	}
-	#	cost = 25
-	#	days_remove = 14
-	#	fire_only_once = yes
-	#	ai_will_do = {
-	#		factor = 100
-	#	}
-	#	targets = { ALO }
-	#	complete_effect = {
-	#		FROM = {
-	#			country_event = {
-	#				id = turkestan.14
-	#				days = 2
-	#			}
-	#		}
-	#	}
-	#}
-	#TRK_destroy_alash = {
-	#	visible = {
-	#		has_completed_focus = TRK_Finish_Central_Asian_Unification
-	#		country_exists = ALO
-	#		is_subject = no
-	#	}
-	#	available = {
-	#		OR = {
-	#			ROOT = { has_democratic_government = no }
-	#			has_country_flag = ALO_declined_alliance
-	#		}
-	#	}
-	#	cost = 25
-	#	days_remove = 14
-	#	fire_only_once = yes
-	#	ai_will_do = {
-	#		factor = 100
-	#	}
-	#	targets = { ALO }
-	#	complete_effect = {
-	#		set_country_flag = { flag = imminent_war days = 20 value = 1 }
-	#		setup_decision_attack_AI = yes
-	#		ALO = {
-	#			every_owned_state = {
-	#				limit = { is_core_of = ALO }
-	#				add_core_of = TRK
-	#			}
-	#		}
-	#		if = {
-	#			limit = {
-	#				FROM = { is_subject = yes }
-	#			}
-	#			custom_effect_tooltip = RUS_may_lead_to_war_with_FROM_overlord
-	#		}
-	#	}
-	#	remove_effect = {
-	#		clear_decision_attack_AI = yes
-	#		declare_war_on = {
-	#			target = FROM
-	#			type = annex_everything
-	#		}
-	#		country_event = {
-	#			id = turkestan.1
-	#			days = 5
-	#		}
-	#	}
-	#}
 	TRK_ally_xinjiang = {
+		allowed = { 
+			OR = {
+				tag = UZB
+				tag = KYR
+				tag = TRK
+				tag = TAJ
+			}
+		}
 		visible = {
 			has_completed_focus = TRK_East_Turkestan_Is_Turkestan
 			country_exists = ETS
@@ -757,6 +432,7 @@ TRK_foreign_policy = {
 			ETS = { 
 				same_government_type_as_ROOT = yes
 				has_war = no
+				is_subject = no
 			}
 		}
 		cost = 25
@@ -766,6 +442,15 @@ TRK_foreign_policy = {
 			factor = 100
 		}
 		targets = { ETS }
+		target_root_trigger = {
+			has_completed_focus = TRK_East_Turkestan_Is_Turkestan
+		}
+		target_trigger = {
+			country_exists = FROM
+			FROM = {
+				is_subject = no
+			}
+		}
 		complete_effect = {
 			FROM = {
 				country_event = {
@@ -776,6 +461,14 @@ TRK_foreign_policy = {
 		}
 	}
 	TRK_destroy_xinjiang = {
+		allowed = { 
+			OR = {
+				tag = UZB
+				tag = KYR
+				tag = TRK
+				tag = TAJ
+			}
+		}
 		visible = {
 			has_completed_focus = TRK_East_Turkestan_Is_Turkestan
 			is_subject = no
@@ -794,6 +487,12 @@ TRK_foreign_policy = {
 			factor = 100
 		}
 		targets = { ETS SIK TAN }
+		target_root_trigger = {
+			has_completed_focus = TRK_East_Turkestan_Is_Turkestan
+		}
+		target_trigger = {
+			can_declare_war_on = FROM
+		}
 		complete_effect = {
 			set_country_flag = { flag = imminent_war days = 20 value = 1 }
 			setup_decision_attack_AI = yes
@@ -813,8 +512,16 @@ TRK_foreign_policy = {
 		}
 	}
 	TRK_ally_persia = {
+		allowed = { 
+			OR = {
+				tag = UZB
+				tag = KYR
+				tag = TRK
+				tag = TAJ
+			}
+		}
 		visible = {
-			has_completed_focus = TRK_Deal_With_Persia
+			has_completed_focus = TRK_Panislamist_Ambition
 			is_subject = no
 		}
 		available = {
@@ -832,6 +539,56 @@ TRK_foreign_policy = {
 			factor = 100
 		}
 		targets = { PER }
+		target_root_trigger = {
+			has_completed_focus = TRK_Panislamist_Ambition
+		}
+		target_trigger = {
+			country_exists = FROM
+		}
+		complete_effect = {
+			FROM = {
+				country_event = {
+					id = turkestan.14
+					days = 2
+				}
+			}
+		}
+	}
+	TRK_destroy_persia = {
+		allowed = { 
+			OR = {
+				tag = UZB
+				tag = KYR
+				tag = TRK
+				tag = TAJ
+			}
+		}
+		visible = {
+			has_completed_focus = TRK_Panislamist_Ambition
+			is_subject = no
+		}
+		available = {
+			country_exists = PER
+			PER = {
+				has_war = no
+				is_subject = no
+				same_government_type_as_ROOT = no
+			}
+		}
+		cost = 25
+		days_remove = 14
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		targets = { PER }
+		target_root_trigger = {
+			has_completed_focus = TRK_Panislamist_Ambition
+			is_subject = no
+		}
+		target_trigger = {
+			can_declare_war_on = FROM
+		}
 		complete_effect = {
 			FROM = {
 				country_event = {
@@ -842,9 +599,17 @@ TRK_foreign_policy = {
 		}
 	}
 	TRK_ally_afghanistan = {
+		allowed = { 
+			OR = {
+				tag = UZB
+				tag = KYR
+				tag = TRK
+				tag = TAJ
+			}
+		}
 		
 		visible = {
-			has_completed_focus = TRK_Our_Southern_Neighbour
+			has_completed_focus = TRK_East_Turkestan_Is_Turkestan
 			country_exists = AFG
 			is_subject = no
 		}
@@ -871,8 +636,16 @@ TRK_foreign_policy = {
 		}
 	}
 	TRK_destroy_afghanistan = {
+		allowed = { 
+			OR = {
+				tag = UZB
+				tag = KYR
+				tag = TRK
+				tag = TAJ
+			}
+		}
 		visible = {
-			has_completed_focus = TRK_Our_Southern_Neighbour
+			has_completed_focus = TRK_East_Turkestan_Is_Turkestan
 			country_exists = AFG
 			is_subject = no
 		}
@@ -911,35 +684,16 @@ TRK_foreign_policy = {
 			}
 		}
 	}
-	TRK_ally_india = {
-		visible = {
-			has_completed_focus = TRK_Join_Eastern_Syndicalist_Union
-			is_subject = no
-		}
-		available = {
-			country_exists = BHC
-			BHC = {
-				is_faction_leader = yes
-			}
-			is_ai = no
-		}
-		cost = 25
-		days_remove = 14
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 100
-		}
-		targets = { BHC }
-		complete_effect = {
-			FROM = {
-				country_event = {
-					id = turkestan.20
-					days = 2
-				}
-			}
-		}
-	}
 	TRK_Attack_Russia = {
+		allowed = { 
+			OR = {
+				tag = ALO
+				tag = UZB
+				tag = KYR
+				tag = TRK
+				tag = TAJ
+			}
+		}
 		available = {
 			652 = {
 				owner = {
@@ -963,6 +717,9 @@ TRK_foreign_policy = {
 		target_root_trigger = {
 			has_completed_focus = TRK_Expand_Into_Russia
 		}
+		target_trigger = {
+			FROM = { owns_state = 652 }
+		}
 		complete_effect = {
 			set_country_flag = { flag = imminent_war days = 20 value = 1 }
 			setup_decision_attack_AI = yes
@@ -980,5 +737,362 @@ TRK_foreign_policy = {
 				type = annex_everything
 			}
 		}
+	}
+	TRK_peace_with_russia = {
+		icon = oppression
+		allowed = {
+			OR = {
+				tag = ALO
+				tag = TRK
+				tag = TAJ 
+				tag = KYR
+				tag = UZB
+			}
+		}
+		activation = { #triggered by event
+			always = no 
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		
+		is_good = yes
+		selectable_mission = no
+		fire_only_once = yes
+		days_mission_timeout = 180
+		
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout TRK_peace_with_russia"
+			if = {
+				limit = {
+					surrender_progress < 0.1
+					405 = {
+						is_fully_controlled_by = ROOT
+					}
+					407 = {
+						is_fully_controlled_by = ROOT
+					}
+					861 = {
+						is_fully_controlled_by = ROOT
+					}
+				}
+				652 = {
+					owner = {
+						country_event = rusfor.1464
+					}
+				}
+			}
+			else = {
+				custom_effect_tooltip = TRK_peace_with_russia_tt
+				add_war_support = -0.5
+				add_stability = -0.5
+				force_capitulate = yes
+			}
+		}
 	}	
+}
+
+political_actions = {
+	UZB_Demand_State = {
+		name = UZB_Demand_State
+		icon = eng_trade_unions_demand
+		
+		allowed = { tag = UZB }
+		
+		available = {
+			FROM = {
+				NOT = { is_owned_by = ROOT }
+				is_claimed_by = ROOT
+			}
+		}
+		
+		cost = 25
+		days_remove = 30
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 50
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = { is_claimed_by = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				RUS_dont_attack_if_vulnerable_or_preparing = yes
+			}
+			modifier = {
+				factor = 0
+				FROM = { RUS_dont_attack_if_target_is_stronger = yes }
+			}
+			modifier = {
+				factor = 0
+				FROM = { RUS_dont_attack_if_faction_is_stronger = yes }
+			}
+			modifier = {
+				factor = 0
+				FROM = { RUS_dont_attack_if_overlord_is_stronger = yes }
+			}
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel UZB_Demand_State"
+			clear_decision_attack_AI = yes
+			add_political_power = 25
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete UZB_Demand_State"
+			set_country_flag = { flag = imminent_war days = 20 value = 1 }
+			setup_decision_attack_AI = yes
+		}
+		remove_effect = {
+			clear_decision_attack_AI = yes
+			log = "[GetDateText]: [Root.GetName]: Decision remove UZB_Demand_State"
+			declare_war_on = {
+				target = FROM.OWNER
+				type = annex_everything
+			}
+		}
+	}
+	
+	TRK_integrate_state_easy = {
+		name = integrate_state
+		icon = eng_trade_unions_demand
+
+		allowed = { 
+			OR = {
+				tag = UZB
+				tag = KYR
+				tag = TRK
+				tag = TAJ
+			}
+		}
+
+		available = {
+			FROM = {
+				is_controlled_by = ROOT
+				if = {
+					limit = { has_resistance = yes }
+					compliance > 30
+				}
+			}
+		}
+
+		visible = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		cost = 50
+		days_remove = 50
+		cancel_if_not_visible = yes
+
+		state_target = yes
+		targets = { 589 }
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel TRK_integrate_state_easy target: [From.GetName]"
+			add_political_power = 50
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove TRK_integrate_state_easy target: [From.GetName]"
+			hidden_effect = { remove_state_claim = FROM }
+			add_state_core = FROM
+		}
+	}
+	
+	ALO_integrate_state_easy = {
+		name = integrate_state
+		icon = eng_trade_unions_demand
+
+		allowed = { tag = ALO }
+
+		available = {
+			FROM = {
+				is_controlled_by = ROOT
+				if = {
+					limit = { has_resistance = yes }
+					compliance > 30
+				}
+			}
+		}
+
+		visible = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		cost = 50
+		days_remove = 50
+		cancel_if_not_visible = yes
+
+		state_target = yes
+		targets = { 236 }
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel ALO_integrate_state_easy target: [From.GetName]"
+			add_political_power = 50
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove ALO_integrate_state_easy target: [From.GetName]"
+			hidden_effect = { remove_state_claim = FROM }
+			add_state_core = FROM
+			if = {
+				limit = {
+					FROM = { NOT = { has_state_flag = renamed_state_kazakh } }
+				}
+				FROM = {
+					set_state_flag = renamed_state_kazakh
+					set_state_name = "Orda"
+					set_province_name = {
+						id = 7708
+						name = "Orda"
+					}
+				}
+			}			
+		}
+	}
+	ALO_integrate_state_medium = {
+		name = integrate_state
+		icon = eng_trade_unions_demand
+
+		allowed = { tag = ALO }
+
+		available = {
+			FROM = {
+				is_controlled_by = ROOT
+				if = {
+					limit = { has_resistance = yes }
+					compliance > 30
+				}
+			}
+		}
+
+		visible = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		cost = 75
+		days_remove = 90
+		cancel_if_not_visible = yes
+
+		state_target = yes
+		targets = { 582 583 590 588 }
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel ALO_integrate_state_medium target: [From.GetName]"
+			add_political_power = 75
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove ALO_integrate_state_medium target: [From.GetName]"
+			hidden_effect = { remove_state_claim = FROM }
+			add_state_core = FROM
+			if = {
+				limit = {
+					FROM = { state = 582 }
+					FROM = { NOT = { has_state_flag = renamed_state_kazakh } }
+				}
+				FROM = {
+					set_state_flag = renamed_state_kazakh
+					set_state_name = "Zhamanqala"
+					set_province_name = {
+						id = 4261
+						name = "Zhamanqala"
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = { state = 583 }
+					FROM = { NOT = { has_state_flag = renamed_state_kazakh } }
+				}
+				FROM = {
+					set_state_flag = renamed_state_kazakh
+					set_state_name = "Qostanai"
+					set_province_name = {
+						id = 10284
+						name = "Qostanai"
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = { state = 590 }
+					FROM = { NOT = { has_state_flag = renamed_state_kazakh } }
+				}
+				FROM = {
+					set_state_flag = renamed_state_kazakh
+					set_state_name = "Aqmola"
+					set_province_name = {
+						id = 7874
+						name = "Kyzylzhar"
+					}
+					set_province_name = {
+						id = 1375
+						name = "Aqmola"
+					}
+					set_province_name = {
+						id = 1418
+						name = "Kokşetau"
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = { state = 588 }
+					FROM = { NOT = { has_state_flag = renamed_state_kazakh } }
+				}
+				FROM = {
+					set_state_flag = renamed_state_kazakh
+					set_state_name = "Kereku"
+					set_province_name = {
+						id = 7708
+						name = "Kereku"
+					}
+				}
+			}			
+		}
+	}
 }

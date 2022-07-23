@@ -199,35 +199,6 @@ RUS_China_Policy_decisions = {
 	}
 }
 
-RUS_Panslavic_Congress_decisions = {
-
-	icon = GFX_decision_category_generic_political_actions
-	visible_when_empty = yes
-	allowed = {
-		OR = {
-			tag = RUS
-			tag = GER
-			tag = AUS
-			tag = HUN
-			tag = UKR
-			tag = WHR
-			tag = POL
-			tag = GAL
-			tag = CZE
-			tag = SVK
-			tag = SLO
-			tag = CRO
-			tag = SER
-			tag = BUL
-			tag = BOS
-		}
-	}
-	visible = {
-		has_country_flag = psc_council_vote
-	}
-}
-
-
 RUS_Integration_decisions = {
 	icon = GFX_decision_cat_annexation
 	picture = GFX_decision_cat_picture_annexation
@@ -472,7 +443,31 @@ SOV_Soviets_Category = {
 	}
 	visible_when_empty = yes
 }
-
+RUS_NRPR_Mechanics = {
+	icon = GFX_decision_cat_vozhd_influence
+	picture = GFX_decision_cat_picture_nrpr_fractions
+	priority = 110
+	allowed = {
+		tag = RUS
+	}
+	visible = { 
+		has_completed_focus = RUS_Deal_With_NRPR_Fractions
+		RUS_savinkov_in_power = yes
+	}
+	visible_when_empty = yes
+}
+RUS_dealing_with_corruption_category = {
+	icon = GFX_decision_category_generic_crisis
+	priority = 80
+	allowed = {
+		tag = RUS
+	}
+	visible = { 
+		has_completed_focus = RUS_fight_corruption
+		RUS_savinkov_in_power = yes
+		NOT = { has_country_flag = RUS_deal_with_corruption }
+	}
+}
 
 russian_debug_decisions = {
 	visible = {

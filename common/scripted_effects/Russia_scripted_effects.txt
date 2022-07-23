@@ -10431,6 +10431,286 @@ setup_budapest_treaty = {
 		AUS = { release = ROM }
 	}	
 }
+
+
+
+RUS_setup_nrpr_fractions = {
+	set_variable = { RUS_nrpr_members = 5 }
+	if = {
+		limit = {
+			NOT = { has_country_flag = nsnp_banned }
+		}
+		set_country_flag = RUS_NRPR_Solidarists_destroyed
+		add_to_variable = { RUS_nrpr_members = -1 }
+		set_variable = { RUS_nrpr_solidarist_influence = 0 }
+	}
+	set_country_flag = RUS_NRPR_Natmax_destroyed
+	set_variable = { RUS_nrpr_trudovik_influence = 61 }
+	set_variable = { RUS_nrpr_hardliner_influence = 43 }
+	set_variable = { RUS_nrpr_core_influence = 85 }
+	set_variable = { RUS_nrpr_natmax_influence = 0 }
+	set_variable = { RUS_nrpr_solidarist_influence = 34 }
+	set_variable = { RUS_nrpr_vnkpz_influence = 41 }	
+}
+RUS_increase_trudoviks_influence = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = RUS_NRPR_Trudoviks_destroyed }
+		}
+		custom_effect_tooltip = RUS_increase_trudoviks_influence_tt
+		hidden_effect = {
+			random_list = {
+				8 = { add_to_variable = { RUS_nrpr_trudovik_influence = 2 } }
+				9 = { add_to_variable = { RUS_nrpr_trudovik_influence = 3 } }
+				10 = { add_to_variable = { RUS_nrpr_trudovik_influence = 4 } }
+				11 = { add_to_variable = { RUS_nrpr_trudovik_influence = 5 } }
+				12 = { add_to_variable = { RUS_nrpr_trudovik_influence = 6 } }
+				12 = { add_to_variable = { RUS_nrpr_trudovik_influence = 7 } }
+				11 = { add_to_variable = { RUS_nrpr_trudovik_influence = 8 } }
+				10 = { add_to_variable = { RUS_nrpr_trudovik_influence = 9 } }
+				9 = { add_to_variable = { RUS_nrpr_trudovik_influence = 10 } }
+				8 = { add_to_variable = { RUS_nrpr_trudovik_influence = 11 } }
+			}
+		}
+	}
+}
+RUS_decrease_trudoviks_influence = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = RUS_NRPR_Trudoviks_destroyed }
+		}
+		custom_effect_tooltip = RUS_decrease_trudoviks_influence_tt
+		hidden_effect = {
+			random_list = {
+				8 = { add_to_variable = { RUS_nrpr_trudovik_influence = -2 } }
+				9 = { add_to_variable = { RUS_nrpr_trudovik_influence = -3 } }
+				10 = { add_to_variable = { RUS_nrpr_trudovik_influence = -4 } }
+				11 = { add_to_variable = { RUS_nrpr_trudovik_influence = -5 } }
+				12 = { add_to_variable = { RUS_nrpr_trudovik_influence = -6 } }
+				12 = { add_to_variable = { RUS_nrpr_trudovik_influence = -7 } }
+				11 = { add_to_variable = { RUS_nrpr_trudovik_influence = -8 } }
+				10 = { add_to_variable = { RUS_nrpr_trudovik_influence = -9 } }
+				9 = { add_to_variable = { RUS_nrpr_trudovik_influence = -10 } }
+				8 = { add_to_variable = { RUS_nrpr_trudovik_influence = -11 } }
+			}
+		}
+	}
+}
+
+RUS_increase_hardliners_influence = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = RUS_NRPR_Hardliners_destroyed }
+		}
+		custom_effect_tooltip = RUS_increase_hardliners_influence_tt
+		hidden_effect = {
+			random_list = {
+				8 = { add_to_variable = { RUS_nrpr_hardliner_influence = 2 } }
+				9 = { add_to_variable = { RUS_nrpr_hardliner_influence = 3 } }
+				10 = { add_to_variable = { RUS_nrpr_hardliner_influence = 4 } }
+				11 = { add_to_variable = { RUS_nrpr_hardliner_influence = 5 } }
+				12 = { add_to_variable = { RUS_nrpr_hardliner_influence = 6 } }
+				12 = { add_to_variable = { RUS_nrpr_hardliner_influence = 7 } }
+				11 = { add_to_variable = { RUS_nrpr_hardliner_influence = 8 } }
+				10 = { add_to_variable = { RUS_nrpr_hardliner_influence = 9 } }
+				9 = { add_to_variable = { RUS_nrpr_hardliner_influence = 10 } }
+				8 = { add_to_variable = { RUS_nrpr_hardliner_influence = 11 } }
+			}
+		}
+	}
+}
+RUS_decrease_hardliners_influence = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = RUS_NRPR_Hardliners_destroyed }
+		}
+		custom_effect_tooltip = RUS_decrease_hardliners_influence_tt
+		hidden_effect = {
+			random_list = {
+				8 = { add_to_variable = { RUS_nrpr_hardliner_influence = -2 } }
+				9 = { add_to_variable = { RUS_nrpr_hardliner_influence = -3 } }
+				10 = { add_to_variable = { RUS_nrpr_hardliner_influence = -4 } }
+				11 = { add_to_variable = { RUS_nrpr_hardliner_influence = -5 } }
+				12 = { add_to_variable = { RUS_nrpr_hardliner_influence = -6 } }
+				12 = { add_to_variable = { RUS_nrpr_hardliner_influence = -7 } }
+				11 = { add_to_variable = { RUS_nrpr_hardliner_influence = -8 } }
+				10 = { add_to_variable = { RUS_nrpr_hardliner_influence = -9 } }
+				9 = { add_to_variable = { RUS_nrpr_hardliner_influence = -10 } }
+				8 = { add_to_variable = { RUS_nrpr_hardliner_influence = -11 } }
+			}
+		}
+	}
+}
+
+RUS_increase_solidarists_influence = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = RUS_NRPR_Solidarists_destroyed }
+		}
+		custom_effect_tooltip = RUS_increase_solidarists_influence_tt
+		hidden_effect = {
+			random_list = {
+				8 = { add_to_variable = { RUS_nrpr_solidarist_influence = 2 } }
+				9 = { add_to_variable = { RUS_nrpr_solidarist_influence = 3 } }
+				10 = { add_to_variable = { RUS_nrpr_solidarist_influence = 4 } }
+				11 = { add_to_variable = { RUS_nrpr_solidarist_influence = 5 } }
+				12 = { add_to_variable = { RUS_nrpr_solidarist_influence = 6 } }
+				12 = { add_to_variable = { RUS_nrpr_solidarist_influence = 7 } }
+				11 = { add_to_variable = { RUS_nrpr_solidarist_influence = 8 } }
+				10 = { add_to_variable = { RUS_nrpr_solidarist_influence = 9 } }
+				9 = { add_to_variable = { RUS_nrpr_solidarist_influence = 10 } }
+				8 = { add_to_variable = { RUS_nrpr_solidarist_influence = 11 } }
+			}
+		}
+	}
+}
+RUS_decrease_solidarists_influence = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = RUS_NRPR_Solidarists_destroyed }
+		}
+		custom_effect_tooltip = RUS_decrease_solidarists_influence_tt
+		hidden_effect = {
+			random_list = {
+				8 = { add_to_variable = { RUS_nrpr_solidarist_influence = -2 } }
+				9 = { add_to_variable = { RUS_nrpr_solidarist_influence = -3 } }
+				10 = { add_to_variable = { RUS_nrpr_solidarist_influence = -4 } }
+				11 = { add_to_variable = { RUS_nrpr_solidarist_influence = -5 } }
+				12 = { add_to_variable = { RUS_nrpr_solidarist_influence = -6 } }
+				12 = { add_to_variable = { RUS_nrpr_solidarist_influence = -7 } }
+				11 = { add_to_variable = { RUS_nrpr_solidarist_influence = -8 } }
+				10 = { add_to_variable = { RUS_nrpr_solidarist_influence = -9 } }
+				9 = { add_to_variable = { RUS_nrpr_solidarist_influence = -10 } }
+				8 = { add_to_variable = { RUS_nrpr_solidarist_influence = -11 } }
+			}
+		}
+	}
+}
+
+RUS_increase_vnkpz_influence = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = RUS_NRPR_VNKPZ_destroyed }
+		}
+		custom_effect_tooltip = RUS_increase_vnkpz_influence_tt
+		hidden_effect = {
+			random_list = {
+				8 = { add_to_variable = { RUS_nrpr_vnkpz_influence = 2 } }
+				9 = { add_to_variable = { RUS_nrpr_vnkpz_influence = 3 } }
+				10 = { add_to_variable = { RUS_nrpr_vnkpz_influence = 4 } }
+				11 = { add_to_variable = { RUS_nrpr_vnkpz_influence = 5 } }
+				12 = { add_to_variable = { RUS_nrpr_vnkpz_influence = 6 } }
+				12 = { add_to_variable = { RUS_nrpr_vnkpz_influence = 7 } }
+				11 = { add_to_variable = { RUS_nrpr_vnkpz_influence = 8 } }
+				10 = { add_to_variable = { RUS_nrpr_vnkpz_influence = 9 } }
+				9 = { add_to_variable = { RUS_nrpr_vnkpz_influence = 10 } }
+				8 = { add_to_variable = { RUS_nrpr_vnkpz_influence = 11 } }
+			}
+		}
+	}
+}
+RUS_decrease_vnkpz_influence = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = RUS_NRPR_VNKPZ_destroyed }
+		}
+		custom_effect_tooltip = RUS_decrease_vnkpz_influence_tt
+		hidden_effect = {
+			random_list = {
+				8 = { add_to_variable = { RUS_nrpr_vnkpz_influence = -2 } }
+				9 = { add_to_variable = { RUS_nrpr_vnkpz_influence = -3 } }
+				10 = { add_to_variable = { RUS_nrpr_vnkpz_influence = -4 } }
+				11 = { add_to_variable = { RUS_nrpr_vnkpz_influence = -5 } }
+				12 = { add_to_variable = { RUS_nrpr_vnkpz_influence = -6 } }
+				12 = { add_to_variable = { RUS_nrpr_vnkpz_influence = -7 } }
+				11 = { add_to_variable = { RUS_nrpr_vnkpz_influence = -8 } }
+				10 = { add_to_variable = { RUS_nrpr_vnkpz_influence = -9 } }
+				9 = { add_to_variable = { RUS_nrpr_vnkpz_influence = -10 } }
+				8 = { add_to_variable = { RUS_nrpr_vnkpz_influence = -11 } }
+			}
+		}
+	}
+}
+
+RUS_increase_natmax_influence = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = RUS_NRPR_Natmax_destroyed }
+		}
+		custom_effect_tooltip = RUS_increase_natmax_influence_tt
+		hidden_effect = {
+			random_list = {
+				8 = { add_to_variable = { RUS_nrpr_natmax_influence = 2 } }
+				9 = { add_to_variable = { RUS_nrpr_natmax_influence = 3 } }
+				10 = { add_to_variable = { RUS_nrpr_natmax_influence = 4 } }
+				11 = { add_to_variable = { RUS_nrpr_natmax_influence = 5 } }
+				12 = { add_to_variable = { RUS_nrpr_natmax_influence = 6 } }
+				12 = { add_to_variable = { RUS_nrpr_natmax_influence = 7 } }
+				11 = { add_to_variable = { RUS_nrpr_natmax_influence = 8 } }
+				10 = { add_to_variable = { RUS_nrpr_natmax_influence = 9 } }
+				9 = { add_to_variable = { RUS_nrpr_natmax_influence = 10 } }
+				8 = { add_to_variable = { RUS_nrpr_natmax_influence = 11 } }
+			}
+		}
+	}
+}
+RUS_decrease_natmax_influence = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = RUS_NRPR_Natmax_destroyed }
+		}
+		custom_effect_tooltip = RUS_decrease_natmax_influence
+		hidden_effect = {
+			random_list = {
+				8 = { add_to_variable = { RUS_nrpr_natmax_influence = -2 } }
+				9 = { add_to_variable = { RUS_nrpr_natmax_influence = -3 } }
+				10 = { add_to_variable = { RUS_nrpr_natmax_influence = -4 } }
+				11 = { add_to_variable = { RUS_nrpr_natmax_influence = -5 } }
+				12 = { add_to_variable = { RUS_nrpr_natmax_influence = -6 } }
+				12 = { add_to_variable = { RUS_nrpr_natmax_influence = -7 } }
+				11 = { add_to_variable = { RUS_nrpr_natmax_influence = -8 } }
+				10 = { add_to_variable = { RUS_nrpr_natmax_influence = -9 } }
+				9 = { add_to_variable = { RUS_nrpr_natmax_influence = -10 } }
+				8 = { add_to_variable = { RUS_nrpr_natmax_influence = -11 } }
+			}
+		}
+	}
+}
+
+RUS_increase_core_influence = {
+	custom_effect_tooltip = RUS_increase_core_influence_tt
+	hidden_effect = {
+		random_list = {
+			8 = { add_to_variable = { RUS_nrpr_core_influence = 2 } }
+			9 = { add_to_variable = { RUS_nrpr_core_influence = 3 } }
+			10 = { add_to_variable = { RUS_nrpr_core_influence = 4 } }
+			11 = { add_to_variable = { RUS_nrpr_core_influence = 5 } }
+			12 = { add_to_variable = { RUS_nrpr_core_influence = 6 } }
+			12 = { add_to_variable = { RUS_nrpr_core_influence = 7 } }
+			11 = { add_to_variable = { RUS_nrpr_core_influence = 8 } }
+			10 = { add_to_variable = { RUS_nrpr_core_influence = 9 } }
+			9 = { add_to_variable = { RUS_nrpr_core_influence = 10 } }
+			8 = { add_to_variable = { RUS_nrpr_core_influence = 11 } }
+		}
+	}
+}
+RUS_decrease_core_influence = {
+	custom_effect_tooltip = RUS_decrease_core_influence_tt
+	hidden_effect = {
+		random_list = {
+			8 = { add_to_variable = { RUS_nrpr_core_influence = -2 } }
+			9 = { add_to_variable = { RUS_nrpr_core_influence = -3 } }
+			10 = { add_to_variable = { RUS_nrpr_core_influence = -4 } }
+			11 = { add_to_variable = { RUS_nrpr_core_influence = -5 } }
+			12 = { add_to_variable = { RUS_nrpr_core_influence = -6 } }
+			12 = { add_to_variable = { RUS_nrpr_core_influence = -7 } }
+			11 = { add_to_variable = { RUS_nrpr_core_influence = -8 } }
+			10 = { add_to_variable = { RUS_nrpr_core_influence = -9 } }
+			9 = { add_to_variable = { RUS_nrpr_core_influence = -10 } }
+			8 = { add_to_variable = { RUS_nrpr_core_influence = -11 } }
+		}
+	}
+}
 load_base_russian_tree = {
 	load_focus_tree = russia_focus
 	clr_country_flag = make_absolute_monarchy_tree_visible

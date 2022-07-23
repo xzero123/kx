@@ -9,20 +9,42 @@ set_technology = {
 	tech_support = 1
 	tech_recon = 1
 	gw_artillery = 1
+	tech_engineers = 1
+	tech_mountaineers = 1
+	camelry = 1
 	### Air ###
 	early_fighter = 1
 }
 
 set_country_flag = KX_no_naval_tech_decision_enable
 
+set_stability = 0.6
+set_war_support = 0.5
+
 add_ideas = {
 	UZB_Junaid_Khan_hog_pau
 	UZB_Alisher_Ivanov_for_ade
 	UZB_Bahauddin_Gorchakov_eco_ade
 	UZB_Boris_Dmitrievsky_sec_sde
+	TRK_turkestan_modernisation_idea
+	TRK_persian_ottoman_game	
+	UZB_dictator_of_khorezm
+	UZB_unruly_turkmens
 	TRK_illiteracy
 	TRK_nomadic_society
+	partial_economic_mobilisation
+	extensive_conscription
 }
+add_dynamic_modifier = {
+	modifier = turkestan_modernisation_modifier 
+}
+TRK_calculate_modernisation_variables = yes
+
+set_variable = { smuggled_arms_amount = 0 }
+set_variable = { money_for_smuggling_available = 60 }
+set_variable = { khiva_persian_influence = 0 }
+set_variable = { khiva_ottoman_influence = 0 }
+
 set_politics = {
 	ruling_party = paternal_autocrat
 	last_election = "1930.11.9"
@@ -32,36 +54,36 @@ set_politics = {
 
 set_popularities = {
 	totalist = 0
-	radical_socialist = 0
+	radical_socialist = 7
 	syndicalist = 0
 	social_democrat = 0
-	social_liberal = 20
-	market_liberal = 7
-	social_conservative = 15
+	social_liberal = 35
+	market_liberal = 0
+	social_conservative = 0
 	authoritarian_democrat = 0
 	paternal_autocrat = 46
 	national_populist = 12
 }
 
 create_country_leader = {
-	name = "Jumaniyaz Sultan Muradov"
-	picture = "gfx/leaders/UZB/Portrait_UZB_Usman_Yusupov.png"
+	name = "Alibi Dzhangildin"
+	picture = "gfx/leaders/ALO/Portrait_ALO_Alibi_Dzhangildin.png"
 	expire = "1965.1.1"
-	ideology = radical_socialist_subtype
+	ideology = agrarian_socialism_subtype
 }
 
 create_country_leader = {
 	name = "Jumaniyaz Sultan Muradov"
 	picture = "gfx/leaders/UZB/Portrait_UZB_Usman_Yusupov.png"
 	expire = "1965.1.1"
-	ideology = syndicalist_subtype
+	ideology = agrarian_syndicalism_subtype 
 }
 
 create_country_leader = {
 	name = "Jumaniyaz Sultan Muradov"
 	picture = "gfx/leaders/UZB/Portrait_UZB_Usman_Yusupov.png"
 	expire = "1965.1.1"
-	ideology = authcom_subtype
+	ideology = authcom_subtype 
 }
 
 create_country_leader = {
@@ -100,10 +122,10 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Sayid Abdullah"
-	picture = "gfx/leaders/TRK/Portrait_TRK_Sayid_Abdulla.png"
+	name = "Junaid Khan"
+	picture = "gfx/leaders/TRK/Portrait_KHI_Junaid_Khan.png"
 	expire = "1965.1.1"
-	ideology = absolute_monarchy_subtype
+	ideology = pataut_warlordism_subtype 
 }
 
 create_country_leader = {
@@ -114,7 +136,18 @@ create_country_leader = {
 }
 
 country_event = { id = khiva.1 days = 1 }
-country_event = { id = khiva.2 days = 16 }
+country_event = { id = khiva.2 days = 216 }
+
+add_equipment_to_stockpile = {
+	type = infantry_equipment_0
+	amount = 1000
+	producer = OTT
+}
+add_equipment_to_stockpile = {
+	type = infantry_equipment_0
+	amount = 1000
+	producer = PER
+}
 
 ### Field Marshals
 create_field_marshal = {

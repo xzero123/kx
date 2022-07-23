@@ -12,6 +12,19 @@ TRK_illiteracy = {
 		industry = -0.1
 	}
 }
+TRK_illiteracy_1 = {
+	name = TRK_illiteracy
+	picture = generic_destruction
+	modifier = {
+		political_power_gain = -0.1
+		stability_factor = -0.075
+		research_speed_factor = -0.07
+	}
+	research_bonus = {
+		industry = -0.05
+	}
+}
+
 TRK_nomadic_society = {
 	picture = MON_ger
 	modifier = {
@@ -60,6 +73,14 @@ TRK_legacy_of_emir_2 = {
 		army_morale_factor = 0.1
 		consumer_goods_factor = -0.05
 		war_support_factor = 0.1
+	}
+}
+TRK_Basmachi_councils = {
+	picture = islamic_schools
+	modifier = {
+		political_power_gain = 0.05
+		national_populist_drift = 0.03
+		army_core_defence_factor = 0.1
 	}
 }
 TRK_land_of_islam = {
@@ -123,11 +144,75 @@ TRK_last_of_genghis_khans = {
 		army_core_defence_factor = 0.25
 	}
 }
+UZB_unruly_turkmens = {
+	picture = PER_unruly_tribes
+	modifier = {
+		conscription_factor = -0.1
+		war_support_weekly = -0.01
+		stability_weekly_factor = -0.1
+		army_morale_factor = -0.15
+	}
+}
+UZB_turkmens_suppressed = {
+	picture = AFG_tribal_outrage
+	modifier = {
+		conscription_factor = -0.05
+		stability_weekly_factor = -0.01
+		army_morale_factor = -0.05
+	}
+}
+UZB_turkmens_appeased = {
+	picture = AFG_islamist_insurgency
+	modifier = {
+		conscription_factor = -0.1
+	}
+}
+UZB_autonomy = {
+	picture = AFG_islamist_insurgency
+	modifier = {
+		conscription_factor = 0.05
+		stability_factor = 0.1
+	}
+}
 TRK_basmachi_banned = {
 	picture = HOL_unemployed_conscription
 	modifier = {
 		conscription_factor = -0.1
 		war_support_weekly = -0.01
+	}
+}
+KYR_ban_basmachis = {
+	picture = HOL_unemployed_conscription
+	modifier = {
+		conscription_factor = -0.1
+		war_support_weekly = -0.01
+	}
+}
+KYR_collectivization = {
+	picture = GEO_collectivised_agriculture_idea
+	modifier = {
+		political_power_gain = -0.15
+		consumer_goods_factor = -0.05
+		MONTHLY_POPULATION = -0.2
+		stability_factor = -0.05
+		production_factory_efficiency_gain_factor = 0.1
+		industrial_capacity_factory = 0.1
+	}
+}
+KYR_council_communism = {
+	picture = SOV_cultural_revolution
+	modifier = {
+		stability_factor = 0.10
+		monthly_population = 0.10
+		local_resources_factor = 0.11
+	}
+}
+KYR_cooperatives = {
+	picture = FRA_communard_spirit
+	modifier = {
+		political_power_gain = 0.05
+		production_factory_efficiency_gain_factor = 0.07
+		global_building_slots_factor = 0.1
 	}
 }
 TRK_central_asian_repubic = {
@@ -136,6 +221,65 @@ TRK_central_asian_repubic = {
 		stability_factor = 0.1
 		production_speed_industrial_complex_factor = 0.05
 		consumer_goods_factor = 0.045
+	}
+}
+KYR_biased_republic = {
+	picture = HOL_workplace_democracy
+	modifier = {
+		stability_factor = -0.05
+		production_speed_industrial_complex_factor = 0.05
+		consumer_goods_factor = 0.025
+		political_power_gain = -0.15
+	}
+}
+KYR_guided_democracy = {
+	picture = generic_neutrality_drift_bonus
+	modifier = {
+		stability_factor = -0.05
+		production_speed_industrial_complex_factor = 0.05
+		consumer_goods_factor = 0.045
+		political_power_gain = -0.15
+	}
+}
+KYR_dictatorship = {
+	picture = raj_marginalized_muslim_community
+	modifier = {
+		stability_factor = -0.05
+		production_speed_industrial_complex_factor = 0.05
+		political_power_gain = -0.05
+		war_support_factor = 0.05
+		army_morale_factor = 0.07
+		conscription = 0.03
+	}
+}
+KYR_legacy_of_khanate = {
+	picture = KYR_khanate_legacy
+	modifier = {
+		army_morale_factor = 0.05
+		army_core_defence_factor = 0.06
+	}
+}
+KYR_islamic_traditions = {
+	picture = SYR_Sunni_Elite_Domination
+	modifier = {
+		stability_factor = 0.05
+		production_factory_max_efficiency_factor = -0.05
+		consumer_goods_factor = 0.04
+	}
+}
+KYR_Basmachi_Influence = {
+	picture = PER_religous_discontent
+	modifier = {
+		national_populist_drift = 0.05
+		war_support_factor = 0.1
+		army_org_factor = 0.07
+	}
+}
+KYR_transitional_socialist = {
+	picture = generic_radical_socialist_revolution
+	modifier = {
+		stability_factor = -0.2
+		political_power_gain = -0.2
 	}
 }
 TRK_central_asian_repubic_1 = {
@@ -162,6 +306,20 @@ TRK_central_asian_repubic_2 = {
 		army_core_defence_factor = 0.1
 	}
 }
+
+TRK_central_asian_repubic_3 = {
+	name = TRK_central_asian_repubic
+	picture = HOL_workplace_democracy
+	modifier = {
+		stability_factor = 0.15
+		production_speed_industrial_complex_factor = 0.1
+		consumer_goods_factor = 0.045
+		MONTHLY_POPULATION = 0.5
+		war_support_factor = -0.15
+		army_core_defence_factor = 0.12
+	}
+}
+
 TRK_minorities_protected = {
 	picture = PER_religous_discontent
 	modifier = {
@@ -182,7 +340,7 @@ TRK_soviet_insurgency = {
 	picture = FOP_revolutionary_army
 	modifier = {
 		stability_weekly = -0.005
-		totalist_drift = 0.1
+		radical_socialist_drift = 0.1
 		conscription_factor = -0.1
 	}
 }
@@ -316,5 +474,340 @@ TRK_fraternization = {
 		army_morale_factor = -0.2
 	}
 }
+KYR_east_pamir_revolt = {
+	picture = KYR_basmachi_resistance
+	on_remove = {
+		1211 = { set_demilitarized_zone = no }
+		1042 = { set_demilitarized_zone = no }
+	}
+	modifier = {
+		stability_weekly_factor = -0.35
+		war_support_factor = -0.3
+		political_power_gain = -0.25
+	}
+}
+KYR_martial_law = {
+	picture = army_cooperation
+	modifier = {
+		custom_modifier_tooltip = cannot_mobilise_tt
+		hidden_modifier = {
+			disabled_ideas = 1
+		}
+		stability_factor = -0.3
+		stability_weekly_factor = 0.35
+		political_power_gain = 1
+	}
+}
+KYR_national_guard = {
+	picture = KYR_army_idea
+	modifier = {
+		conscription_factor = 0.05
+		army_org_factor = 0.05
+	}
+}
+KYR_red_guard = {
+	picture = generic_syndicalist_militia
+	modifier = {
+		conscription_factor = 0.05
+		army_org_factor = -0.05
+		dig_in_speed_factor = 0.25
+	}
+}
 
+TRK_persian_ottoman_game = {
+	picture = TRK_per_ott_influence
+	modifier = {
+		custom_modifier_tooltip = TRK_persian_ottoman_game_tt
+	}
+}
+TRK_persian_ottoman_game_ottoman = {
+	picture = OTT_Horrors_of_the_Weltkrieg
+	modifier = {
+		political_power_cost = 0.05
+		stability_factor = -0.05
+		production_speed_buildings_factor = 0.1
+	}
+}
+
+TRK_turkestan_modernisation_idea = {
+	picture = TRK_modernisation
+}
+UZB_dictator_of_khorezm = {
+	picture = UZB_dictator
+	modifier = {
+		war_support_factor = 0.25
+		political_power_gain = 0.15
+		equipment_capture_factor = 0.5
+		offensive_war_stability_factor = 0.5
+		party_popularity_stability_factor = 0.3
+		army_core_defence_factor = 0.2
+		army_morale_factor = 0.3
+	}
+}
+UZB_ill_dictator = {
+	picture = UZB_dictator
+	modifier = {
+		war_support_factor = 0.25
+		political_power_gain = -0.15
+		equipment_capture_factor = 0.5
+		offensive_war_stability_factor = 0.5
+		party_popularity_stability_factor = 0.3
+		army_core_defence_factor = 0.2
+	}
+}
+UZB_khivan_slight_modernisation = {
+	picture = OTT_compromise_idea
+	modifier = {
+		political_power_gain = -0.1
+		equipment_capture_factor = 0.15
+		party_popularity_stability_factor = 0.3
+		army_core_defence_factor = 0.05
+		research_speed_factor = 0.02
+	}
+}
+
+UZB_destroying_young_khiva = {
+	picture = generic_research_reduction
+	modifier = {
+		social_liberal_drift = -0.05
+		stability_weekly_factor = -0.5
+		army_org_factor = 0.15
+		research_speed_factor = -0.05
+	}
+}
+UZB_agriculture_1 = {
+	name = UZB_agriculture
+	picture = generic_agrarian_reform
+	modifier = {
+		monthly_population = 0.1
+		supply_consumption_factor = -0.05
+		local_resources_factor = 0.05
+	}
+}
+UZB_agriculture_2 = {
+	name = UZB_agriculture
+	picture = generic_agrarian_reform
+	modifier = {
+		monthly_population = 0.2
+		supply_consumption_factor = -0.1
+		consumer_goods_factor = -0.05
+		local_resources_factor = 0.08
+	}
+}
+UZB_agriculture_3 = {
+	picture = generic_production_bonus
+	modifier = {
+		monthly_population = 0.1
+		supply_consumption_factor = -0.1
+		consumer_goods_factor = -0.05
+		local_resources_factor = 0.05
+		global_building_slots_factor = 0.2
+		industrial_capacity_factory = 0.1
+	}
+}
+KYR_export_idea = {
+	picture = generic_trade
+	modifier = {
+		trade_opinion_factor = 0.10
+		consumer_goods_factor = -0.02
+	}
+}
+KYR_export_idea_1 = {
+	name = UZB_export_idea
+	picture = generic_trade
+	modifier = {
+		trade_opinion_factor = 0.02
+		consumer_goods_factor = -0.05
+	}
+}
+KYR_export_idea_2 = {
+	name = UZB_export_idea
+	picture = generic_trade
+	modifier = {
+		trade_opinion_factor = 0.12
+		consumer_goods_factor = -0.07
+	}
+}
+UZB_export_idea_1 = {
+	name = UZB_export_idea
+	picture = generic_trade
+	modifier = {
+		trade_opinion_factor = 0.10
+		consumer_goods_factor = -0.02
+	}
+}
+UZB_export_idea_2 = {
+	name = UZB_export_idea
+	picture = generic_trade
+	modifier = {
+		trade_opinion_factor = 0.10
+		consumer_goods_factor = -0.05
+	}
+}
+UZB_export_idea_3 = {
+	name = UZB_export_idea
+	picture = generic_trade
+	modifier = {
+		trade_opinion_factor = 0.20
+		consumer_goods_factor = -0.08
+	}
+}
+KYR_agriculture_1 = {
+	name = KYR_agriculture
+	picture = generic_agrarian_reform
+	modifier = {
+		monthly_population = 0.1
+		supply_consumption_factor = -0.05
+		local_resources_factor = 0.05
+	}
+}
+KYR_agriculture_2 = {
+	name = KYR_agriculture
+	picture = generic_agrarian_reform
+	modifier = {
+		monthly_population = 0.15
+		supply_consumption_factor = -0.1
+		consumer_goods_factor = -0.05
+		local_resources_factor = 0.08
+	}
+}
+KYR_agriculture_3 = {
+	name = KYR_agriculture
+	picture = generic_agrarian_reform
+	modifier = {
+		monthly_population = 0.2
+		supply_consumption_factor = -0.15
+		consumer_goods_factor = -0.08
+		local_resources_factor = 0.12
+	}
+}
+KYR_agriculture_4 = {
+	picture = generic_production_bonus
+	modifier = {
+		monthly_population = 0.15
+		supply_consumption_factor = -0.1
+		consumer_goods_factor = -0.05
+		local_resources_factor = 0.05
+		global_building_slots_factor = 0.2
+		industrial_capacity_factory = 0.1
+	}
+}
+
+TRK_agriculture_1 = {
+	name = TRK_agriculture
+	picture = generic_agrarian_reform
+	modifier = {
+		monthly_population = 0.1
+		supply_consumption_factor = -0.05
+		local_resources_factor = 0.05
+	}
+}
+TRK_agriculture_2 = {
+	name = TRK_agriculture
+	picture = generic_agrarian_reform
+	modifier = {
+		monthly_population = 0.15
+		supply_consumption_factor = -0.1
+		consumer_goods_factor = -0.05
+		local_resources_factor = 0.08
+	}
+}
+TRK_agriculture_3 = {
+	name = TRK_agriculture
+	picture = generic_agrarian_reform
+	modifier = {
+		monthly_population = 0.2
+		supply_consumption_factor = -0.15
+		consumer_goods_factor = -0.08
+		local_resources_factor = 0.12
+	}
+}
+TRK_agriculture_4 = {
+	picture = generic_production_bonus
+	modifier = {
+		monthly_population = 0.15
+		supply_consumption_factor = -0.1
+		consumer_goods_factor = -0.05
+		local_resources_factor = 0.05
+		global_building_slots_factor = 0.2
+		industrial_capacity_factory = 0.1
+	}
+}
+TRK_export_idea = {
+	name = TRK_export_idea
+	picture = generic_trade
+	modifier = {
+		trade_opinion_factor = 0.10
+		consumer_goods_factor = -0.02
+	}
+}
+TRK_export_idea_1 = {
+	name = TRK_export_idea
+	picture = generic_trade
+	modifier = {
+		trade_opinion_factor = 0.10
+		consumer_goods_factor = -0.05
+	}
+}
+TRK_export_idea_2 = {
+	name = TRK_export_idea
+	picture = generic_trade
+	modifier = {
+		trade_opinion_factor = 0.20
+		consumer_goods_factor = -0.08
+	}
+}
+TRK_expanded_army = {
+	picture = TRK_army
+	modifier = {
+		conscription = 0.02
+		army_morale_factor = 0.05
+		army_org_factor = 0.05
+	}
+}
+UZB_khan_army = {
+	picture = MON_warlord
+	modifier = {
+		conscription = 0.02
+		army_morale_factor = 0.05
+		army_org_factor = 0.05
+	}
+}
+UZB_land_reform = {
+	picture = RUS_land_reforms
+	modifier = {
+		global_building_slots_factor = 0.1
+		local_resources_factor = 0.12
+		supply_consumption_factor = -0.05
+		production_speed_buildings_factor = 0.07
+		production_factory_efficiency_gain_factor = 0.12
+	}
+}
+UZB_Merchant_Economy = {
+	picture = generic_trade
+	modifier = {
+		consumer_goods_factor = -0.05
+		industrial_capacity_factory = 0.05
+		production_factory_max_efficiency_factor = 0.05
+		trade_opinion_factor = 0.15
+	}
+}
+TRK_red_army = {
+	picture = generic_communist_army
+	modifier = {
+		conscription = 0.03
+		army_morale_factor = 0.03
+		army_org_factor = 0.07
+	}
+}
+TRK_red_army_1 = {
+	name = TRK_red_army
+	picture = generic_communist_army
+	modifier = {
+		conscription = 0.03
+		army_morale_factor = 0.03
+		army_org_factor = 0.07
+		max_planning = 0.10
+		planning_speed = 0.10
+	}
 }

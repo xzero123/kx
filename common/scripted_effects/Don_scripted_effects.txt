@@ -196,6 +196,7 @@ DKB_recalculate_aftermath_effects = {
 }
 setup_puppet_DKB = {
 	clr_country_flag = DKB_vlasov_coup
+	clr_country_flag = DKB_bratstvo
 	if = {
 		limit = {
 			tag = GER
@@ -206,6 +207,11 @@ setup_puppet_DKB = {
 				elections_allowed = no
 			}
 			set_cosmetic_tag = DKB_auto
+			set_party_name = {
+				ideology = paternal_autocrat
+				name = DKB_authoritarian_democrat_party
+				long_name = DKB_authoritarian_democrat_party_long
+			}
 			hidden_effect = {
 				set_popularities = {
 					totalist = 0
@@ -274,10 +280,10 @@ setup_puppet_DKB = {
 			mark_focus_tree_layout_dirty = yes
 			if = {
 				limit = {
-					has_completed_focus = DKB_uniting_cossacks
+					has_completed_focus = DKB_Last_Stronghold_Of_Monarchism
 				}
 				uncomplete_national_focus = {
-					focus = DKB_uniting_cossacks
+					focus = DKB_Last_Stronghold_Of_Monarchism
 					uncomplete_children = yes
 				}
 			}

@@ -1,3 +1,21 @@
+TRK_has_finished_economy_tree = {
+	custom_trigger_tooltip = {
+		tooltip = TRK_has_finished_economy_tree_tt
+		OR = {
+			has_completed_focus = ALO_Grain_Economy
+			has_completed_focus = ALO_Launch_Industrialization
+			has_completed_focus = UZB_Grain_Economy
+			has_completed_focus = UZB_Planned_Industrialization
+			has_completed_focus = KYR_Planned_Industrialization
+			has_completed_focus = KYR_Grain_Economy
+			has_completed_focus = TRK_Planned_Industrialization
+			has_completed_focus = TRK_Grain_Economy
+			has_completed_focus = TAJ_Planned_Industrialization
+			has_completed_focus = TAJ_Grain_Economy
+		}
+	}
+}
+
 khiva_is_leader = {
 	OR = {
 		AND = {
@@ -93,4 +111,90 @@ bukhara_is_leader = {
 			}
 		}
 	}
+}
+KYR_can_lead_turkestan = {
+	KYR = {
+		OR = {
+			has_socialist_government = yes
+			has_left_democratic_government = yes
+			AND = {
+				has_authoritarian_government = yes
+				TRK = { NOT = { has_government = national_populist } }
+			}
+		}
+	}
+}
+TAJ_can_lead_turkestan = {
+	TAJ = {
+		has_authoritarian_government = yes
+		TRK = { NOT = { has_government = national_populist } }
+	}
+}
+UZB_can_lead_turkestan = {
+	UZB = {
+		OR = {
+			AND = {
+				has_government = national_populist
+				TRK = { NOT = { has_government = national_populist } }
+			}
+			AND = {
+				has_government = social_liberal
+				KYR = { has_left_democratic_government = no }
+			}
+		}
+	}
+}
+TRK_can_lead_turkestan = {
+	TRK = {
+		OR = {
+			has_government = national_populist
+			AND = {
+				has_socialist_government = yes
+				KYR = { has_socialist_government = no }
+			}
+			AND = {
+				has_government = social_liberal
+				KYR = { has_left_democratic_government = no }
+			}
+		}
+	}
+}
+ALO_can_lead_turkestan = {
+	ALO = {
+		OR = {
+			AND = {
+				has_left_democratic_government = yes
+				OR = {
+					KYR = { has_left_democratic_government = yes }
+					TRK = { has_left_democratic_government = yes }
+					UZB = { has_left_democratic_government = yes }
+				}
+			}
+			AND = {
+				has_socialist_government = yes
+				OR = {
+					KYR = { has_socialist_government = yes }
+					TRK = { has_socialist_government = yes }
+				}
+			}
+		}
+	}			
+}
+TRK_other_tags_are_ai = {
+	any_other_country = {
+		OR = {
+			tag = TAJ
+			tag = TRK
+			tag = UZB
+			tag = KYR
+		}
+		is_ai = yes
+	}
+}
+ALO_dutov_in_power = {
+	has_country_leader = {
+		name = "Aleksandr Dutov"
+		ruling_only = yes
+	}
+}
 				

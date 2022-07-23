@@ -1,0 +1,124 @@
+on_actions = {
+	on_weekly = {
+		effect = {
+			if = {
+				limit = {
+					tag = ALO
+					has_dynamic_modifier = {
+						modifier = turkestan_modernisation_modifier
+					}
+				}
+				ALO = { TRK_calculate_modernisation_variables = yes }
+			}
+			if = {
+				limit = {
+					tag = TRK
+					has_dynamic_modifier = {
+						modifier = turkestan_modernisation_modifier
+					}
+				}
+				TRK = { TRK_calculate_modernisation_variables = yes }
+			}
+			if = {
+				limit = {
+					tag = KYR
+					has_dynamic_modifier = {
+						modifier = turkestan_modernisation_modifier
+					}
+				}
+				KYR = { TRK_calculate_modernisation_variables = yes }
+			}
+			if = {
+				limit = {
+					tag = TAJ
+					has_dynamic_modifier = {
+						modifier = turkestan_modernisation_modifier
+					}
+				}
+				TAJ = { TRK_calculate_modernisation_variables = yes }
+			}
+			if = {
+				limit = {
+					tag = UZB
+					has_dynamic_modifier = {
+						modifier = turkestan_modernisation_modifier
+					}
+				}				
+				UZB = { TRK_calculate_modernisation_variables = yes }
+			}
+		}
+	}
+	#ROOT = attacking side
+	#FROM = defending side
+	#fired when two countries end up at war with each other (on_war is fired when a country goes to war against anyone and is not fired again when it enters war against another country unless it went to peace first)
+	on_war_relation_added = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							OR = {
+								tag = KYR
+								tag = TRK
+								tag = ALO
+								tag = TAJ
+								tag = UZB
+							}
+							FROM = {
+								OR = {
+									tag = RUS
+									tag = TRM
+								}
+							}
+						}
+						AND = {
+							OR = {
+								tag = RUS
+								tag = TRM
+							}
+							FROM = {
+								OR = {
+									tag = KYR
+									tag = TRK
+									tag = ALO
+									tag = TAJ
+									tag = UZB
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							OR = {
+								tag = KYR
+								tag = TRK
+								tag = ALO
+								tag = TAJ
+								tag = UZB
+							}
+						}
+					}
+					ROOT = { activate_mission = TRK_peace_with_russia }
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						tag = POL
+						tag = GER
+					}
+					FROM = {
+						OR = {
+							tag = POL
+							tag = GER
+						}
+					}
+				}
+				POL = { country_event = { id = poland.226 days = 1 random_days = 1 } }
+			}
+		}
+	}
+}
+	

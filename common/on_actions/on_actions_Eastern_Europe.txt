@@ -6,7 +6,17 @@ on_actions = {
 			}
 		}
 	}
-	
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					tag = UKR
+					has_idea = UKR_red_kyiv
+				}
+				UKR = { UKR_monthly_red_kyiv_recalc = yes }
+			}
+		}
+	}
 	on_government_change = {
 		effect = {
 			if = {
@@ -125,7 +135,7 @@ on_actions = {
 			}
 		}
 	}
-
+	
 	#ROOT is winner #FROM gets annexed - For civil wars on_civil_war_end is also fired
 	on_annex = {
 		effect = {
@@ -137,6 +147,41 @@ on_actions = {
 				ROM = {
 					country_event = { id = poland.117 days = 3 }
 				}
+			}
+			if = {
+				limit = {
+					ROOT = { tag = UKR }
+					FROM = { tag = UPR }
+					has_global_flag = UKR_civil_war
+				}
+				if = {
+					limit = { has_global_flag = UPR_dyrektoria_uprising_UPR }
+					ROOT = { country_event = ukrpol.62 }
+				}
+				else = {
+					ROOT = { country_event = ukrpol.61 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { tag = UPR }
+					FROM = { tag = UKR }
+					has_global_flag = UKR_civil_war
+				}
+				if = {
+					limit = { has_global_flag = UPR_dyrektoria_uprising_UPR }
+					ROOT = { country_event = ukrpol.63 }
+				}
+				else = {
+					ROOT = { country_event = ukrpol.64 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { tag = WSU }
+					FROM = { tag = UKR }
+				}
+				ROOT = { country_event = wsu.35 }
 			}
 			if = {
 				limit = {
@@ -260,6 +305,13 @@ on_actions = {
 				}
 				country_event = whrpol.27 #polls closed
 			}
+			### Kuban ###
+			if = {
+				limit = {
+					tag = KUB
+				}
+				country_event = kub.6 #1936
+			}
 		}
 	}
 
@@ -312,9 +364,50 @@ on_actions = {
 				}
 				UKR = { country_event = poland.110 }
 			}
+			### UPR-UKR War
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							tag = UKR
+							tag = UPR
+						}
+						OR = {
+							has_authoritarian_government = no
+							UKR_andriy_melnyk_in_power = yes
+						}
+					}
+					FROM = { 
+						OR = {
+							tag = UKR
+							tag = UPR
+						}
+						has_authoritarian_government = yes
+						UKR_andriy_melnyk_in_power = no
+					}
+					FROM.FROM = { state = 202 } #Kyiv
+					has_global_flag = UKR_civil_war 
+				}
+				ROOT = {
+					country_event = ukrpol.62
+				}
+			}
+			if = {
+				limit = {
+					tag = WSU
+					FROM = { 
+						tag = UKR
+					}
+					FROM.FROM = { state = 202 } #Kyiv
+				}
+				WSU = {
+					country_event = { id = wsu.35 days = 2 }
+				}
+			}
 		}
 	}
 
+			
 	on_war = {
 		effect = {
 			# Polish events
@@ -364,6 +457,126 @@ on_actions = {
 					}
 				}
 				POL = { country_event = { id = poland.226 days = 1 random_days = 1 } }
+			}	
+			else_if = {
+				limit = {
+					tag = GAL
+					FROM = {
+						OR = {
+							tag = HUN
+							tag = CZE
+							tag = POL
+							tag = AUS
+							tag = CZE
+						}
+					}
+				}
+				if = {
+					limit = {
+						country_exists = GAL
+						91 = { is_owned_by = GAL }
+						NOT = { has_global_flag = WSU_first_rebellion }
+					}
+					GAL = {
+						country_event = {
+							id = wsu.2
+							days = 5
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						NOT = { country_exists = GAL }
+						91 = { is_owned_by = AUS }
+						NOT = { has_global_flag = WSU_first_rebellion }
+					}
+					AUS = {
+						country_event = {
+							id = wsu.2
+							days = 5
+						}
+					}
+				}				
+			}
+			else_if = {
+				limit = {
+					OR = {
+						tag = HUN
+						tag = CZE
+						tag = POL
+						tag = AUS
+						tag = CZE
+					}
+					FROM = {
+						tag = GAL
+					}
+				}
+				if = {
+					limit = {
+						country_exists = GAL
+						91 = { is_owned_by = GAL }
+						NOT = { has_global_flag = WSU_first_rebellion }
+					}
+					GAL = {
+						country_event = {
+							id = wsu.2
+							days = 5
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						NOT = { country_exists = GAL }
+						91 = { is_owned_by = AUS }
+						NOT = { has_global_flag = WSU_first_rebellion }
+					}
+					AUS = {
+						country_event = {
+							id = wsu.2
+							days = 5
+						}
+					}
+				}				
+			}
+			else_if = {
+				limit = {
+					OR = {
+						AND = {
+							tag = WSU
+							FROM = {
+								OR = {
+									tag = GAL
+									tag = POL
+									tag = AUS
+									tag = HUN
+									tag = ROM
+								}
+							}
+						}
+						AND = {
+							OR = {
+								tag = GAL
+								tag = POL
+								tag = AUS
+								tag = HUN
+								tag = ROM
+							}
+							FROM = { tag = WSU }
+						}
+					}
+				}
+				WSU = {
+					country_event = {
+						id = wsu.29
+						days = 60
+						random = 80
+					}
+					country_event = {
+						id = wsu.32
+						days = 15
+						random = 20
+					}
+				}
 			}
 		}
 	}
@@ -379,6 +592,30 @@ on_actions = {
 				} 
 				DKB = { add_ideas = DKB_no_allies_cw }
 			}
+			else_if = {
+				limit = {
+					OR = {
+						tag = GER
+						is_actual_major = yes
+					}
+					FROM = {
+						OR = {
+							is_actual_major = yes
+							tag = GER
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_global_flag = UKR_RUS_secret_pact
+					}
+					UKR = {
+						leave_faction = yes
+						separate_peace_all_wars = yes
+					}
+					RUS = { add_to_faction = UKR }
+				}
+			}			
 		} 
 	}
 }
